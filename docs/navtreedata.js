@@ -38,30 +38,16 @@ var NAVTREE =
       ] ],
       [ "License", "index.html#autotoc_md10", null ]
     ] ],
-    [ "FAQ", "md___users_chris__documents__projekte_raylibstarter_doxygen_faq.html", [
-      [ "Is it a complete game engine?", "md___users_chris__documents__projekte_raylibstarter_doxygen_faq.html#autotoc_md12", null ],
-      [ "What do I have to do if I want to develop my own game?", "md___users_chris__documents__projekte_raylibstarter_doxygen_faq.html#autotoc_md13", null ],
-      [ "Is this project template based on raylib-cpp?", "md___users_chris__documents__projekte_raylibstarter_doxygen_faq.html#autotoc_md14", null ]
-    ] ],
-    [ "Namespaces", "namespaces.html", [
-      [ "Namespace List", "namespaces.html", "namespaces_dup" ]
-    ] ],
-    [ "Classes", "annotated.html", [
-      [ "Class List", "annotated.html", "annotated_dup" ],
-      [ "Class Index", "classes.html", null ],
-      [ "Class Hierarchy", "hierarchy.html", "hierarchy" ],
-      [ "Class Members", "functions.html", [
-        [ "All", "functions.html", null ],
-        [ "Functions", "functions_func.html", null ],
-        [ "Variables", "functions_vars.html", null ]
-      ] ]
+    [ "FAQ", "md__c___users_user_source_repos_projektarbeit_ii_team2_doxygen_faq.html", [
+      [ "Is it a complete game engine?", "md__c___users_user_source_repos_projektarbeit_ii_team2_doxygen_faq.html#autotoc_md12", null ],
+      [ "What do I have to do if I want to develop my own game?", "md__c___users_user_source_repos_projektarbeit_ii_team2_doxygen_faq.html#autotoc_md13", null ],
+      [ "Is this project template based on raylib-cpp?", "md__c___users_user_source_repos_projektarbeit_ii_team2_doxygen_faq.html#autotoc_md14", null ]
     ] ],
     [ "Files", "files.html", [
       [ "File List", "files.html", "files_dup" ],
       [ "File Members", "globals.html", [
         [ "All", "globals.html", null ],
-        [ "Functions", "globals_func.html", null ],
-        [ "Macros", "globals_defs.html", null ]
+        [ "Functions", "globals_func.html", null ]
       ] ]
     ] ]
   ] ]
@@ -69,8 +55,7 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"actor_8cpp.html",
-"index.html#autotoc_md2"
+"dir_4e8d938e9ddb5a617c200d5739d1f41a.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
