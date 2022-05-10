@@ -13,9 +13,6 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 
 #set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra")
 
-add_subdirectory(core)
-add_subdirectory(scenes)
-
 add_executable(${PROJECT_NAME} main.cpp)
 
 # Add config.h.in file
@@ -26,7 +23,7 @@ target_include_directories(${PROJECT_NAME} PUBLIC
         )
 
 # Link to libraries
-target_link_libraries(${PROJECT_NAME} core scenes)
+target_link_libraries(${PROJECT_NAME} raylib)
 
 # Copy assets to assets path
 add_custom_target(copy_assets

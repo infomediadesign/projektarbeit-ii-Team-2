@@ -1,25 +1,49 @@
-﻿// Note: Probably you will never want to make changes directly to this file or
-// in the main function! Add your code to the existing scene files under
-// src/scenes and/or create new scenes.
-// General settings can be made in the config.h.in file.
+﻿#include <cstdlib>
 
-#include <string>
-
-#include <raylib.h>
-
-#include <game.h>
-#include <scenes.h>
+#include "raylib.h"
 
 #include "config.h"
 
-using namespace std::string_literals;
-
 int main() {
-    game::core::Game game(game::Config::kStageWidth, game::Config::kStageHeight, game::Config::kFullScreen,
-                          game::Config::kTargetFps, game::Config::kWindowFlags, game::Config::kExitKey,
-                          game::Config::kUseMouse, game::Config::kAudio, game::Config::kProjectName);
+    // Raylib initialization
+    // Project name, screen size, fullscreen mode etc. can be specified in the config.h.in file
+    InitWindow(Game::ScreenWidth, Game::ScreenHeight, Game::PROJECT_NAME);
+    SetTargetFPS(60);
 
-    game.Run("menu"s, std::make_unique<game::scenes::MenuScene>());
+#ifdef GAME_START_FULLSCREEN
+    ToggleFullscreen();
+#endif
+
+    // Your own initialization code here
+    // ...
+    // ...
+    Texture2D myTexture = LoadTexture("assets/graphics/ball.png");
+
+    // Main game loop
+    while (!WindowShouldClose()) // Detect window close button or ESC key
+    {
+        // Updates that are made by frame are coded here
+        // ...
+        // ...
+
+        BeginDrawing();
+        // You can draw on the screen between BeginDrawing() and EndDrawing()
+        // ...
+        // ...
+        ClearBackground(WHITE);
+        DrawText("Hello, world!", 10, 10, 30, LIGHTGRAY);
+        DrawTexture(myTexture, 10, 100, WHITE);
+
+        EndDrawing();
+    } // Main game loop end
+
+    // De-initialization here
+    // ...
+    // ...
+    UnloadTexture(myTexture);
+
+    // Close window and OpenGL context
+    CloseWindow();
 
     return EXIT_SUCCESS;
 }
