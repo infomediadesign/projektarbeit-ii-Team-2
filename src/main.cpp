@@ -142,30 +142,34 @@ int main() {
 
         //@todo when WASD not pressed display nemo standing, when WASD pressed delete nemo standing and draw animation
 
-        if ((!IsKeyDown(KEY_W)) || (!IsKeyDown(KEY_S)) || (!IsKeyDown(KEY_D)) || (!IsKeyDown(KEY_A)))
-        {
-
-            DrawTextureRec(NemoFr, frameRec, position, WHITE);        // standing animation i dont have that yet
-
+        bool move = false;
 
             if (IsKeyDown(KEY_W))
             {
                 DrawTextureRec(NemoBk, frameRec, position, WHITE);    // Draw nemo animation backwards 
-
+                move = true;
             }
             if (IsKeyDown(KEY_S))
             {
                 DrawTextureRec(NemoFr, frameRec, position, WHITE);    // Draw nemo animation forwards
+                move = true;
             }
             if (IsKeyDown(KEY_D))
             {
                 DrawTextureRec(NemoR, frameRec, position, WHITE);      // Draw nemo animation right 
+                move = true;
             }
             if (IsKeyDown(KEY_A))
             {
                 DrawTextureRec(NemoL, frameRec, position, WHITE);      // Draw nemo animation left
+                move = true;
             }
-        }
+
+            if (move == false)
+            {
+                DrawTextureRec(NemoFr, frameRec, position, WHITE);        // standing animation i dont have that yet
+                
+            }
 
 
         // controlls description
