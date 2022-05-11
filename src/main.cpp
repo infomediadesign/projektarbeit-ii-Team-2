@@ -1,7 +1,7 @@
-﻿#include "Nemo.h"
+﻿#include "Level.h"
+#include "Nemo.h"
 #include "Sprite.h"
 #include "UI.h"
-#include "Level.h"
 #include "config.h"
 #include "raylib.h"
 
@@ -9,15 +9,19 @@
 #include <iostream>
 #include <memory>
 
+//@todo when WASD not pressed display nemo standing, when WASD pressed delete nemo standing and draw animation
+
 int main() {
   // Raylib initialization
   // Project name = Custodia, 16:9, 640p : 360p res (screen size), fullscreen mode -> etc. can be specified in the
   // config.h.in file
 
   InitWindow(Game::ScreenWidth, Game::ScreenHeight, Game::PROJECT_NAME);
+  InitAudioDevice(); // Initialize audio device
   SetTargetFPS(60);
 
   Vector2 NemoPosition = { Game::ScreenWidth / 2, Game::ScreenHeight / 2 };
+  // Sound fxMp3          = LoadSound("assets/audio/sfx/.mp3"); // Load WAV audio file
 
   /*#ifdef GAME_START_FULLSCREEN
   ToggleFullscreen();
@@ -31,8 +35,8 @@ int main() {
   RLAPI void HideCursor(void); // HideCursor; not working @todo
 #endif
 
-  // *** Your own initialization code here ***
-
+  // *** Initialization ***
+  //---------------------------------------------------------------------------------------------
   Game::Level level;
   Game::UI ui;
   Game::Nemo nemo; // Initializing the Nemo (Player) Class
@@ -57,11 +61,17 @@ int main() {
   int framesSpeed   = 8; // animtation fps
 
   // *** Main game loop ***
-
+  //---------------------------------------------------------------------------------------------
   while (!WindowShouldClose()) // Detect window close button or ESC key
   {
+    // Update
+    //---------------------------------------------------------------------------------------------
+    //
+    // Player Movement -> will be out into subclass
+    //---------------------------------------------------------------------------------------------
     if (IsKeyDown(KEY_D)) { // run right
       spr.pos_x += 2.0f;
+      // PlaySound(fxMp3); // Play WAV sound
 
       framesCounter++;
 
@@ -126,6 +136,9 @@ int main() {
 
     camera.target = Vector2 { spr.pos_x + 20.0f, spr.pos_y + 20.0f };
 
+    // Draw textures here
+    //---------------------------------------------------------------------------------------------
+
     BeginDrawing();
 
     ClearBackground(WHITE);
@@ -134,8 +147,6 @@ int main() {
     level.Draw();
     DrawTexture(NPC.texture_, NPC.pos_x, NPC.pos_y, WHITE);
     EndMode2D();
-
-    //@todo when WASD not pressed display nemo standing, when WASD pressed delete nemo standing and draw animation
 
     bool move = false;
 
@@ -166,15 +177,19 @@ int main() {
 
     EndDrawing();
   } // Main game loop end
+    //---------------------------------------------------------------------------------------------
 
   // *** De-initialization here ***
-
+  //---------------------------------------------------------------------------------------------
+  
+  // UnloadSound(fxMp3); // Unload sound data
   UnloadTexture(nemo.Front);
   UnloadTexture(nemo.Back);
   UnloadTexture(nemo.Right);
   UnloadTexture(nemo.Left);
 
   // Close window and OpenGL context
+  //---------------------------------------------------------------------------------------------
   CloseWindow();
 
   return EXIT_SUCCESS;
