@@ -21,7 +21,7 @@ void Game::Nemo::Update()
   }
 
   if (IsKeyDown(KEY_A)) { // run left
-    spr.pos_x -= 2.0f;
+    spr.pos_x -= 2.0f; //needs change
 
     framesCounter++;
 
