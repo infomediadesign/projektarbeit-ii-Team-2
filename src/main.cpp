@@ -49,80 +49,18 @@ int main() {
 
   // devide spritesheet into frames
   Vector2 position   = { Game::ScreenWidth / 2, Game::ScreenHeight / 2 };
-  Rectangle frameRec = {
-    0.0f, 0.0f, (float)nemo.Front.width / 3, (float)nemo.Front.height
-  }; // NemoFr -> nemo in the future
-  int currentFrame  = 0;
-  int framesCounter = 0;
-  int framesSpeed   = 8; // animtation fps
+  //Rectangle frameRec = {
+    //0.0f, 0.0f, (float)nemo.Front.width / 3, (float)nemo.Front.height
+  //};  NemoFr -> nemo in the future
+  //int currentFrame  = 0;
+  //int framesCounter = 0;
+  //int framesSpeed   = 8; // animtation fps
 
   // *** Main game loop ***
 
   while (!WindowShouldClose()) // Detect window close button or ESC key
   {
-    if (IsKeyDown(KEY_D)) { // run right
-      spr.pos_x += 2.0f;
-
-      framesCounter++;
-
-      if (framesCounter >= (60 / framesSpeed)) {
-        framesCounter = 0;
-        currentFrame++;
-
-        if (currentFrame > 2)
-          currentFrame = 0;
-
-        frameRec.x = (float)currentFrame * (float)nemo.Right.width / 3;
-      }
-    }
-
-    if (IsKeyDown(KEY_A)) { // run left
-      spr.pos_x -= 2.0f;
-
-      framesCounter++;
-
-      if (framesCounter >= (60 / framesSpeed)) {
-        framesCounter = 0;
-        currentFrame++;
-
-        if (currentFrame > 2)
-          currentFrame = 0;
-
-        frameRec.x = (float)currentFrame * (float)nemo.Left.width / 3;
-      }
-    }
-
-    if (IsKeyDown(KEY_W)) { // run forwards
-      spr.pos_y -= 2.0f;
-
-      framesCounter++;
-
-      if (framesCounter >= (60 / framesSpeed)) {
-        framesCounter = 0;
-        currentFrame++;
-
-        if (currentFrame > 2)
-          currentFrame = 0;
-
-        frameRec.x = (float)currentFrame * (float)nemo.Front.width / 3;
-      }
-    }
-
-    if (IsKeyDown(KEY_S)) { // run backwards
-      spr.pos_y += 2.0f;
-
-      framesCounter++;
-
-      if (framesCounter >= (60 / framesSpeed)) {
-        framesCounter = 0;
-        currentFrame++;
-
-        if (currentFrame > 2)
-          currentFrame = 0;
-
-        frameRec.x = (float)currentFrame * (float)nemo.Back.width / 3;
-      }
-    }
+    nemo.Update();
 
     camera.target = Vector2 { spr.pos_x + 20.0f, spr.pos_y + 20.0f };
 
@@ -140,24 +78,24 @@ int main() {
     bool move = false;
 
     if (IsKeyDown(KEY_W)) {
-      DrawTextureRec(nemo.Back, frameRec, position, WHITE); // Draw nemo animation backwards
+      DrawTextureRec(nemo.Back, nemo.frameRec, position, WHITE); // Draw nemo animation backwards
       move = true;
     }
     if (IsKeyDown(KEY_S)) {
-      DrawTextureRec(nemo.Front, frameRec, position, WHITE); // Draw nemo animation forwards
+      DrawTextureRec(nemo.Front, nemo.frameRec, position, WHITE); // Draw nemo animation forwards
       move = true;
     }
     if (IsKeyDown(KEY_D)) {
-      DrawTextureRec(nemo.Right, frameRec, position, WHITE); // Draw nemo animation right
+      DrawTextureRec(nemo.Right, nemo.frameRec, position, WHITE); // Draw nemo animation right
       move = true;
     }
     if (IsKeyDown(KEY_A)) {
-      DrawTextureRec(nemo.Left, frameRec, position, WHITE); // Draw nemo animation left
+      DrawTextureRec(nemo.Left, nemo.frameRec, position, WHITE); // Draw nemo animation left
       move = true;
     }
 
     if (move == false) {
-      DrawTextureRec(nemo.Front, frameRec, position, WHITE); // standing animation i dont have that yet
+      DrawTextureRec(nemo.Front, nemo.frameRec, position, WHITE); // standing animation i dont have that yet
     }
 
     // controlls description
