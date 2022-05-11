@@ -5,6 +5,8 @@
 #include "raylib.h"
 #include "config.h"
 #include "Sprite.h"
+#include "Nemo.h"
+#include "UI.h"
 
 
 
@@ -17,7 +19,7 @@ int main() {
     SetTargetFPS(60);
 
 
-    Vector2 playerPosition = { Game::ScreenWidth / 2, Game::ScreenHeight / 2 };
+    Vector2 NemoPosition = { Game::ScreenWidth / 2, Game::ScreenHeight / 2 };
 
     /*#ifdef GAME_START_FULLSCREEN
     ToggleFullscreen();
@@ -36,13 +38,11 @@ int main() {
 
     Texture2D Map = LoadTexture("assets/graphics/wintermap.png");
 
-    Texture2D NemoFr = LoadTexture("assets/graphics/NemoFrontwalk-Sheet.png");
-    Texture2D NemoBk = LoadTexture("assets/graphics/NemoHintenWalk-Sheet.png");
-    Texture2D NemoR = LoadTexture("assets/graphics/NemoRechtsWalk-Sheet.png");
-    Texture2D NemoL = LoadTexture("assets/graphics/NemoLinksWalk-Sheet.png");
+    Game::UI ui;
+    Game::Nemo nemo; //Initializing the Nemo (Player) Class
 
     Texture2D StandStil = LoadTexture("assets/graphics/Charakter_Vorschlag_vorne_laufen1.png");
-    Game::Sprite spr(playerPosition.x, playerPosition.y, NemoFr);
+    Game::Sprite spr(NemoPosition.x, NemoPosition.y, nemo.Front);
     Game::Sprite NPC(100, 100, StandStil);
 
     //Camera settings 
@@ -53,7 +53,7 @@ int main() {
 
     //devide spritesheet into frames 
     Vector2 position = { Game::ScreenWidth / 2, Game::ScreenHeight / 2 };
-    Rectangle frameRec = { 0.0f, 0.0f, (float)NemoFr.width / 3, (float)NemoFr.height }; // NemoFr -> nemo in the future
+    Rectangle frameRec = { 0.0f, 0.0f, (float)nemo.Front.width / 3, (float)nemo.Front.height }; // NemoFr -> nemo in the future
     int currentFrame = 0;
     int framesCounter = 0;
     int framesSpeed = 8;            // animtation fps 
@@ -76,7 +76,7 @@ int main() {
 
                 if (currentFrame > 2) currentFrame = 0;
 
-                frameRec.x = (float)currentFrame * (float)NemoR.width / 3;
+                frameRec.x = (float)currentFrame * (float)nemo.Right.width / 3;
             }
         }
 
@@ -92,7 +92,7 @@ int main() {
 
                 if (currentFrame > 2) currentFrame = 0;
 
-                frameRec.x = (float)currentFrame * (float)NemoL.width / 3;
+                frameRec.x = (float)currentFrame * (float)nemo.Left.width / 3;
             }
         }
 
@@ -108,7 +108,7 @@ int main() {
 
                 if (currentFrame > 2) currentFrame = 0;
 
-                frameRec.x = (float)currentFrame * (float)NemoFr.width / 3;
+                frameRec.x = (float)currentFrame * (float)nemo.Front.width / 3;
             }
         }
 
@@ -124,7 +124,7 @@ int main() {
 
                 if (currentFrame > 2) currentFrame = 0;
 
-                frameRec.x = (float)currentFrame * (float)NemoBk.width / 3;
+                frameRec.x = (float)currentFrame * (float)nemo.Back.width / 3;
             }
         }
 
@@ -146,50 +146,45 @@ int main() {
 
             if (IsKeyDown(KEY_W))
             {
-                DrawTextureRec(NemoBk, frameRec, position, WHITE);    // Draw nemo animation backwards 
+                DrawTextureRec(nemo.Back, frameRec, position, WHITE);    // Draw nemo animation backwards 
                 move = true;
             }
             if (IsKeyDown(KEY_S))
             {
-                DrawTextureRec(NemoFr, frameRec, position, WHITE);    // Draw nemo animation forwards
+                DrawTextureRec(nemo.Front, frameRec, position, WHITE);    // Draw nemo animation forwards
                 move = true;
             }
             if (IsKeyDown(KEY_D))
             {
-                DrawTextureRec(NemoR, frameRec, position, WHITE);      // Draw nemo animation right 
+                DrawTextureRec(nemo.Right, frameRec, position, WHITE);      // Draw nemo animation right 
                 move = true;
             }
             if (IsKeyDown(KEY_A))
             {
-                DrawTextureRec(NemoL, frameRec, position, WHITE);      // Draw nemo animation left
+                DrawTextureRec(nemo.Left, frameRec, position, WHITE);      // Draw nemo animation left
                 move = true;
             }
 
             if (move == false)
             {
-                DrawTextureRec(NemoFr, frameRec, position, WHITE);        // standing animation i dont have that yet
+                DrawTextureRec(nemo.Front, frameRec, position, WHITE);        // standing animation i dont have that yet
                 
             }
 
 
         // controlls description
-        DrawText("***********************Controlls**************************", 10, 0, 10, BLACK);
-        DrawText("*-> Move with W,A,S,D", 10, 10, 10, BLACK);  // x, y , size of text       
-        DrawText("*-> Exit game with ESC", 10, 20, 10, BLACK);
-        DrawText("*-> toggle between windowed mode and fullscreen mode press K", 10, 30, 10, BLACK);
-        DrawText("*********************************************************", 10, 40, 10, BLACK);
+       
+            ui.Draw();
 
         EndDrawing();
     } // Main game loop end
 
-
-
     // *** De-initialization here ***     
 
-    UnloadTexture(NemoFr);
-    UnloadTexture(NemoBk);
-    UnloadTexture(NemoR);
-    UnloadTexture(NemoL);
+    UnloadTexture(nemo.Front);
+    UnloadTexture(nemo.Back);
+    UnloadTexture(nemo.Right);
+    UnloadTexture(nemo.Left);
 
     // Close window and OpenGL context
     CloseWindow();
