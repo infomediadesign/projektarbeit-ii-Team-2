@@ -1,11 +1,5 @@
 #include "Nemo.h"
 
-void Game::Nemo::Draw()
-{
-	
-}
+void Game::Nemo::Draw() {}
 
-void Game::Nemo::Update()
-{
-
-}
+void Game::Nemo::Update() {}

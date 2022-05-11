@@ -1,193 +1,181 @@
-﻿#include <iostream>
-#include <memory>
-#include <cstdlib>
-
-#include "raylib.h"
-#include "config.h"
+﻿#include "Nemo.h"
 #include "Sprite.h"
-#include "Nemo.h"
 #include "UI.h"
+#include "config.h"
+#include "raylib.h"
 
-
+#include <cstdlib>
+#include <iostream>
+#include <memory>
 
 int main() {
-    // Raylib initialization
-    // Project name = Custodia, 16:9, 640p : 360p res (screen size), fullscreen mode -> etc. can be specified in the config.h.in file
+  // Raylib initialization
+  // Project name = Custodia, 16:9, 640p : 360p res (screen size), fullscreen mode -> etc. can be specified in the
+  // config.h.in file
 
+  InitWindow(Game::ScreenWidth, Game::ScreenHeight, Game::PROJECT_NAME);
+  SetTargetFPS(60);
 
-    InitWindow(Game::ScreenWidth, Game::ScreenHeight, Game::PROJECT_NAME);
-    SetTargetFPS(60);
+  Vector2 NemoPosition = { Game::ScreenWidth / 2, Game::ScreenHeight / 2 };
 
-
-    Vector2 NemoPosition = { Game::ScreenWidth / 2, Game::ScreenHeight / 2 };
-
-    /*#ifdef GAME_START_FULLSCREEN
-    ToggleFullscreen();
-    if (IsKeyPressed(KEY_K)) {
-        ToggleFullscreen();
-    }
-    //ToggleFullscreen(); not working @todo when press K it changes from fullscreen to windowed mode
+  /*#ifdef GAME_START_FULLSCREEN
+  ToggleFullscreen();
+  if (IsKeyPressed(KEY_K)) {
+      ToggleFullscreen();
+  }
+  //ToggleFullscreen(); not working @todo when press K it changes from fullscreen to windowed mode
 #endif */
 
-#ifdef HIDE_CURSOR   
-    RLAPI void HideCursor(void);  //HideCursor; not working @todo 
+#ifdef HIDE_CURSOR
+  RLAPI void HideCursor(void); // HideCursor; not working @todo
 #endif
 
+  // *** Your own initialization code here ***
 
-    // *** Your own initialization code here ***
+  Texture2D Map = LoadTexture("assets/graphics/wintermap.png");
 
-    Texture2D Map = LoadTexture("assets/graphics/wintermap.png");
+  Game::UI ui;
+  Game::Nemo nemo; // Initializing the Nemo (Player) Class
 
-    Game::UI ui;
-    Game::Nemo nemo; //Initializing the Nemo (Player) Class
+  Texture2D StandStil = LoadTexture("assets/graphics/Charakter_Vorschlag_vorne_laufen1.png");
+  Game::Sprite spr(NemoPosition.x, NemoPosition.y, nemo.Front);
+  Game::Sprite NPC(100, 100, StandStil);
 
-    Texture2D StandStil = LoadTexture("assets/graphics/Charakter_Vorschlag_vorne_laufen1.png");
-    Game::Sprite spr(NemoPosition.x, NemoPosition.y, nemo.Front);
-    Game::Sprite NPC(100, 100, StandStil);
+  // Camera settings
+  Camera2D camera = { 0 };
+  camera.target   = Vector2 { spr.pos_x + 20.0f, spr.pos_y + 20.0f };
+  camera.offset   = Vector2 { Game::ScreenWidth / 2.0f, Game::ScreenHeight / 2.0f };
+  camera.zoom     = 2.0f;
 
-    //Camera settings 
-    Camera2D camera = { 0 };
-    camera.target = Vector2{ spr.pos_x + 20.0f, spr.pos_y + 20.0f };
-    camera.offset = Vector2{ Game::ScreenWidth / 2.0f, Game::ScreenHeight / 2.0f };
-    camera.zoom = 2.0f;
+  // devide spritesheet into frames
+  Vector2 position   = { Game::ScreenWidth / 2, Game::ScreenHeight / 2 };
+  Rectangle frameRec = {
+    0.0f, 0.0f, (float)nemo.Front.width / 3, (float)nemo.Front.height
+  }; // NemoFr -> nemo in the future
+  int currentFrame  = 0;
+  int framesCounter = 0;
+  int framesSpeed   = 8; // animtation fps
 
-    //devide spritesheet into frames 
-    Vector2 position = { Game::ScreenWidth / 2, Game::ScreenHeight / 2 };
-    Rectangle frameRec = { 0.0f, 0.0f, (float)nemo.Front.width / 3, (float)nemo.Front.height }; // NemoFr -> nemo in the future
-    int currentFrame = 0;
-    int framesCounter = 0;
-    int framesSpeed = 8;            // animtation fps 
+  // *** Main game loop ***
 
+  while (!WindowShouldClose()) // Detect window close button or ESC key
+  {
+    if (IsKeyDown(KEY_D)) { // run right
+      spr.pos_x += 2.0f;
 
-    // *** Main game loop ***
+      framesCounter++;
 
-    while (!WindowShouldClose())    // Detect window close button or ESC key
-    {
+      if (framesCounter >= (60 / framesSpeed)) {
+        framesCounter = 0;
+        currentFrame++;
 
-        if (IsKeyDown(KEY_D)) {                     //run right
-            spr.pos_x += 2.0f;
+        if (currentFrame > 2)
+          currentFrame = 0;
 
-            framesCounter++;
+        frameRec.x = (float)currentFrame * (float)nemo.Right.width / 3;
+      }
+    }
 
-            if (framesCounter >= (60 / framesSpeed))
-            {
-                framesCounter = 0;
-                currentFrame++;
+    if (IsKeyDown(KEY_A)) { // run left
+      spr.pos_x -= 2.0f;
 
-                if (currentFrame > 2) currentFrame = 0;
+      framesCounter++;
 
-                frameRec.x = (float)currentFrame * (float)nemo.Right.width / 3;
-            }
-        }
+      if (framesCounter >= (60 / framesSpeed)) {
+        framesCounter = 0;
+        currentFrame++;
 
-        if (IsKeyDown(KEY_A)) {                     //run left
-            spr.pos_x -= 2.0f;
+        if (currentFrame > 2)
+          currentFrame = 0;
 
-            framesCounter++;
+        frameRec.x = (float)currentFrame * (float)nemo.Left.width / 3;
+      }
+    }
 
-            if (framesCounter >= (60 / framesSpeed))
-            {
-                framesCounter = 0;
-                currentFrame++;
+    if (IsKeyDown(KEY_W)) { // run forwards
+      spr.pos_y -= 2.0f;
 
-                if (currentFrame > 2) currentFrame = 0;
+      framesCounter++;
 
-                frameRec.x = (float)currentFrame * (float)nemo.Left.width / 3;
-            }
-        }
+      if (framesCounter >= (60 / framesSpeed)) {
+        framesCounter = 0;
+        currentFrame++;
 
-        if (IsKeyDown(KEY_W)) {                     //run forwards
-            spr.pos_y -= 2.0f;
+        if (currentFrame > 2)
+          currentFrame = 0;
 
-            framesCounter++;
+        frameRec.x = (float)currentFrame * (float)nemo.Front.width / 3;
+      }
+    }
 
-            if (framesCounter >= (60 / framesSpeed))
-            {
-                framesCounter = 0;
-                currentFrame++;
+    if (IsKeyDown(KEY_S)) { // run backwards
+      spr.pos_y += 2.0f;
 
-                if (currentFrame > 2) currentFrame = 0;
+      framesCounter++;
 
-                frameRec.x = (float)currentFrame * (float)nemo.Front.width / 3;
-            }
-        }
+      if (framesCounter >= (60 / framesSpeed)) {
+        framesCounter = 0;
+        currentFrame++;
 
-        if (IsKeyDown(KEY_S)) {                     //run backwards
-            spr.pos_y += 2.0f;
+        if (currentFrame > 2)
+          currentFrame = 0;
 
-            framesCounter++;
+        frameRec.x = (float)currentFrame * (float)nemo.Back.width / 3;
+      }
+    }
 
-            if (framesCounter >= (60 / framesSpeed))
-            {
-                framesCounter = 0;
-                currentFrame++;
+    camera.target = Vector2 { spr.pos_x + 20.0f, spr.pos_y + 20.0f };
 
-                if (currentFrame > 2) currentFrame = 0;
+    BeginDrawing();
 
-                frameRec.x = (float)currentFrame * (float)nemo.Back.width / 3;
-            }
-        }
+    ClearBackground(WHITE);
 
-        camera.target = Vector2{ spr.pos_x + 20.0f, spr.pos_y + 20.0f };
+    BeginMode2D(camera);
+    DrawTexture(Map, 0, 0, WHITE);
+    DrawTexture(NPC.texture_, NPC.pos_x, NPC.pos_y, WHITE);
+    EndMode2D();
 
+    //@todo when WASD not pressed display nemo standing, when WASD pressed delete nemo standing and draw animation
 
-        BeginDrawing();
+    bool move = false;
 
-        ClearBackground(WHITE);
+    if (IsKeyDown(KEY_W)) {
+      DrawTextureRec(nemo.Back, frameRec, position, WHITE); // Draw nemo animation backwards
+      move = true;
+    }
+    if (IsKeyDown(KEY_S)) {
+      DrawTextureRec(nemo.Front, frameRec, position, WHITE); // Draw nemo animation forwards
+      move = true;
+    }
+    if (IsKeyDown(KEY_D)) {
+      DrawTextureRec(nemo.Right, frameRec, position, WHITE); // Draw nemo animation right
+      move = true;
+    }
+    if (IsKeyDown(KEY_A)) {
+      DrawTextureRec(nemo.Left, frameRec, position, WHITE); // Draw nemo animation left
+      move = true;
+    }
 
-        BeginMode2D(camera);
-        DrawTexture(Map, 0, 0, WHITE);
-        DrawTexture(NPC.texture_, NPC.pos_x, NPC.pos_y, WHITE);
-        EndMode2D();
+    if (move == false) {
+      DrawTextureRec(nemo.Front, frameRec, position, WHITE); // standing animation i dont have that yet
+    }
 
-        //@todo when WASD not pressed display nemo standing, when WASD pressed delete nemo standing and draw animation
+    // controlls description
 
-        bool move = false;
+    ui.Draw();
 
-            if (IsKeyDown(KEY_W))
-            {
-                DrawTextureRec(nemo.Back, frameRec, position, WHITE);    // Draw nemo animation backwards 
-                move = true;
-            }
-            if (IsKeyDown(KEY_S))
-            {
-                DrawTextureRec(nemo.Front, frameRec, position, WHITE);    // Draw nemo animation forwards
-                move = true;
-            }
-            if (IsKeyDown(KEY_D))
-            {
-                DrawTextureRec(nemo.Right, frameRec, position, WHITE);      // Draw nemo animation right 
-                move = true;
-            }
-            if (IsKeyDown(KEY_A))
-            {
-                DrawTextureRec(nemo.Left, frameRec, position, WHITE);      // Draw nemo animation left
-                move = true;
-            }
+    EndDrawing();
+  } // Main game loop end
 
-            if (move == false)
-            {
-                DrawTextureRec(nemo.Front, frameRec, position, WHITE);        // standing animation i dont have that yet
-                
-            }
+  // *** De-initialization here ***
 
+  UnloadTexture(nemo.Front);
+  UnloadTexture(nemo.Back);
+  UnloadTexture(nemo.Right);
+  UnloadTexture(nemo.Left);
 
-        // controlls description
-       
-            ui.Draw();
+  // Close window and OpenGL context
+  CloseWindow();
 
-        EndDrawing();
-    } // Main game loop end
-
-    // *** De-initialization here ***     
-
-    UnloadTexture(nemo.Front);
-    UnloadTexture(nemo.Back);
-    UnloadTexture(nemo.Right);
-    UnloadTexture(nemo.Left);
-
-    // Close window and OpenGL context
-    CloseWindow();
-
-    return EXIT_SUCCESS;
+  return EXIT_SUCCESS;
 }
