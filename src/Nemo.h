@@ -3,11 +3,15 @@
 #include <raylib.h>
 #include <vector>
 #include "Sprite.h"
+#include <config.h>
 
 namespace Game {
   class Nemo {
   public:
+    
     Vector2 NemoPosition = { Game::ScreenWidth / 2, Game::ScreenHeight / 2 };
+    //Game::Sprite spr(NemoPosition.x, NemoPosition.y, nemo.Front);
+
     int HP; // The Integer is just temporary
     int currentFrame  = 0;
     int framesCounter = 0;
