@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['next_5fscene_5f_0',['next_scene_',['../classgame_1_1core_1_1_stage.html#a18c1438e30254be62381e37ca58fcf48',1,'game::core::Stage']]],
-  ['next_5fstate_5f_1',['next_state_',['../classgame_1_1core_1_1_sprite_animated.html#adf63ae34b85abf8d04c4c5fea6c9ebc6',1,'game::core::SpriteAnimated']]]
+  ['pos_5fx_0',['pos_x',['../class_game_1_1_sprite.html#afcd5ba6136f3a917c15413193cdf6abf',1,'Game::Sprite']]],
+  ['pos_5fy_1',['pos_y',['../class_game_1_1_sprite.html#a97a94c24c8a0ec142dfa6ab8f33e1328',1,'Game::Sprite']]]
 ];

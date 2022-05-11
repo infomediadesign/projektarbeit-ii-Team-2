@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['actors_0',['actors',['../classgame_1_1core_1_1_scene.html#ad10770f307f016b1d7298b8d72190f39',1,'game::core::Scene::actors()'],['../structgame_1_1core_1_1_store.html#a93075db474dbbbc372fc16c1d5b1eb14',1,'game::core::Store::actors()']]],
-  ['audio_5f_1',['audio_',['../classgame_1_1core_1_1_game.html#a84cb1d07d339a55ed33ae9f9ca255067',1,'game::core::Game']]]
+  ['back_0',['Back',['../class_game_1_1_nemo.html#af74dfd7a3de75c4b167e3f45bee9b523',1,'Game::Nemo']]]
 ];

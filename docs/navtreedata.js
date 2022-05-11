@@ -25,23 +25,22 @@
 var NAVTREE =
 [
   [ "raylibstarter", "index.html", [
-    [ "raylibstarter", "index.html#autotoc_md0", [
-      [ "Features", "index.html#autotoc_md1", null ],
-      [ "Usage", "index.html#autotoc_md2", [
-        [ "Basic settings for the game", "index.html#autotoc_md3", null ],
-        [ "Changing the project title and version number", "index.html#autotoc_md4", null ],
-        [ "Manage assets", "index.html#autotoc_md5", null ],
-        [ "Choose a different raylib version", "index.html#autotoc_md6", null ],
-        [ "Build the API documentation", "index.html#autotoc_md7", null ],
-        [ "What next?", "index.html#autotoc_md8", null ],
-        [ "Create a binary distribution", "index.html#autotoc_md9", null ]
-      ] ],
-      [ "License", "index.html#autotoc_md10", null ]
+    [ "FAQ", "md__c___users__fried_source_repos_projektarbeit_ii_team21_doxygen_faq.html", [
+      [ "Is it a complete game engine?", "md__c___users__fried_source_repos_projektarbeit_ii_team21_doxygen_faq.html#autotoc_md1", null ],
+      [ "What do I have to do if I want to develop my own game?", "md__c___users__fried_source_repos_projektarbeit_ii_team21_doxygen_faq.html#autotoc_md2", null ],
+      [ "Is this project template based on raylib-cpp?", "md__c___users__fried_source_repos_projektarbeit_ii_team21_doxygen_faq.html#autotoc_md3", null ]
     ] ],
-    [ "FAQ", "md__c___users_user_source_repos_projektarbeit_ii_team2_doxygen_faq.html", [
-      [ "Is it a complete game engine?", "md__c___users_user_source_repos_projektarbeit_ii_team2_doxygen_faq.html#autotoc_md12", null ],
-      [ "What do I have to do if I want to develop my own game?", "md__c___users_user_source_repos_projektarbeit_ii_team2_doxygen_faq.html#autotoc_md13", null ],
-      [ "Is this project template based on raylib-cpp?", "md__c___users_user_source_repos_projektarbeit_ii_team2_doxygen_faq.html#autotoc_md14", null ]
+    [ "Namespaces", "namespaces.html", [
+      [ "Namespace List", "namespaces.html", "namespaces_dup" ]
+    ] ],
+    [ "Classes", "annotated.html", [
+      [ "Class List", "annotated.html", "annotated_dup" ],
+      [ "Class Index", "classes.html", null ],
+      [ "Class Members", "functions.html", [
+        [ "All", "functions.html", null ],
+        [ "Functions", "functions_func.html", null ],
+        [ "Variables", "functions_vars.html", null ]
+      ] ]
     ] ],
     [ "Files", "files.html", [
       [ "File List", "files.html", "files_dup" ],
@@ -55,7 +54,7 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"dir_4e8d938e9ddb5a617c200d5739d1f41a.html"
+"_nemo_8cpp.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

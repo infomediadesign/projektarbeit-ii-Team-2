@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['operator_3d_0',['operator=',['../classgame_1_1core_1_1_actor.html#ad0561da0c8d32a08062ecf1ed2ce495c',1,'game::core::Actor::operator=()'],['../classgame_1_1core_1_1_game.html#a5294915578392e46465b69ea0233ac3c',1,'game::core::Game::operator=()'],['../classgame_1_1core_1_1_stage.html#aa676c3edea2673cabf10fa9f3ea4a39c',1,'game::core::Stage::operator=()'],['../classgame_1_1core_1_1_texture2_d.html#abb7ed69ac7f513c1180319e99adff079',1,'game::core::Texture2D::operator=()']]]
+  ['pos_5fx_0',['pos_x',['../class_game_1_1_sprite.html#afcd5ba6136f3a917c15413193cdf6abf',1,'Game::Sprite']]],
+  ['pos_5fy_1',['pos_y',['../class_game_1_1_sprite.html#a97a94c24c8a0ec142dfa6ab8f33e1328',1,'Game::Sprite']]]
 ];
