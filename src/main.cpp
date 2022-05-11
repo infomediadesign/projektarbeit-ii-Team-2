@@ -1,6 +1,7 @@
 ﻿#include "Nemo.h"
 #include "Sprite.h"
 #include "UI.h"
+#include "Level.h"
 #include "config.h"
 #include "raylib.h"
 
@@ -32,8 +33,7 @@ int main() {
 
   // *** Your own initialization code here ***
 
-  Texture2D Map = LoadTexture("assets/graphics/wintermap.png");
-
+  Game::Level level;
   Game::UI ui;
   Game::Nemo nemo; // Initializing the Nemo (Player) Class
 
@@ -131,7 +131,7 @@ int main() {
     ClearBackground(WHITE);
 
     BeginMode2D(camera);
-    DrawTexture(Map, 0, 0, WHITE);
+    level.Draw();
     DrawTexture(NPC.texture_, NPC.pos_x, NPC.pos_y, WHITE);
     EndMode2D();
 
