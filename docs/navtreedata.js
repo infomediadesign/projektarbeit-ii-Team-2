@@ -25,10 +25,10 @@
 var NAVTREE =
 [
   [ "raylibstarter", "index.html", [
-    [ "FAQ", "md__c___users__fried_source_repos_projektarbeit_ii_team21_doxygen_faq.html", [
-      [ "Is it a complete game engine?", "md__c___users__fried_source_repos_projektarbeit_ii_team21_doxygen_faq.html#autotoc_md1", null ],
-      [ "What do I have to do if I want to develop my own game?", "md__c___users__fried_source_repos_projektarbeit_ii_team21_doxygen_faq.html#autotoc_md2", null ],
-      [ "Is this project template based on raylib-cpp?", "md__c___users__fried_source_repos_projektarbeit_ii_team21_doxygen_faq.html#autotoc_md3", null ]
+    [ "FAQ", "md__c___users__fried_source_repos_projektarbeit_ii_team2_doxygen_faq.html", [
+      [ "Is it a complete game engine?", "md__c___users__fried_source_repos_projektarbeit_ii_team2_doxygen_faq.html#autotoc_md1", null ],
+      [ "What do I have to do if I want to develop my own game?", "md__c___users__fried_source_repos_projektarbeit_ii_team2_doxygen_faq.html#autotoc_md2", null ],
+      [ "Is this project template based on raylib-cpp?", "md__c___users__fried_source_repos_projektarbeit_ii_team2_doxygen_faq.html#autotoc_md3", null ]
     ] ],
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ]
@@ -54,7 +54,7 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"_nemo_8cpp.html"
+"_level_8cpp.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

@@ -58,7 +58,7 @@ int main() {
   while (!WindowShouldClose()) // Detect window close button or ESC key
   {
     //Update
-    if (IsKeyDown(KEY_LEFT_CONTROL) || IsKeyPressed(KEY_F)) {
+    if (IsKeyDown(KEY_LEFT_CONTROL) && IsKeyPressed(KEY_F)) {
       ToggleFullscreen();
     }
 

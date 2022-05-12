@@ -1,6 +1,4 @@
 var searchData=
 [
-  ['faq_0',['FAQ',['../md__c___users__fried_source_repos_projektarbeit_ii_team21_doxygen_faq.html',1,'']]],
-  ['faq_2emd_1',['faq.md',['../faq_8md.html',1,'']]],
-  ['front_2',['Front',['../class_game_1_1_nemo.html#a83da4c8ade8f0b0cf7b7ca1d8be2e075',1,'Game::Nemo']]]
+  ['draw_0',['Draw',['../class_game_1_1_level.html#aec33ce0f56894eda5c2bd8f822cfb733',1,'Game::Level::Draw()'],['../class_game_1_1_nemo.html#aceedd442d803373e468c4ce25b33fcea',1,'Game::Nemo::Draw()'],['../class_game_1_1_u_i.html#aab985f30242a4de5f84368c6fedfec82',1,'Game::UI::Draw()']]]
 ];
