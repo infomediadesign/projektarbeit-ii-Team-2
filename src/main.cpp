@@ -49,16 +49,7 @@ int main() {
   Camera2D camera = { 0 };
   camera.target   = Vector2 { spr.pos_x + 20.0f, spr.pos_y + 20.0f };
   camera.offset   = Vector2 { Game::ScreenWidth / 2.0f, Game::ScreenHeight / 2.0f };
-  camera.zoom     = 2.0f;
-
-  // devide spritesheet into frames
-  
-  //Rectangle frameRec = {
-    //0.0f, 0.0f, (float)nemo.Front.width / 3, (float)nemo.Front.height
-  //};  NemoFr -> nemo in the future
-  //int currentFrame  = 0;
-  //int framesCounter = 0;
-  //int framesSpeed   = 8; // animtation fps
+  camera.zoom     = 2.0f;    
 
   // Main game loop 
   //--------------------------------------------------------------------------------------------
@@ -79,33 +70,37 @@ int main() {
 
     level.Draw();
 
+    nemo.Draw();
+
     DrawTexture(NPC.texture_, NPC.pos_x, NPC.pos_y, WHITE);
 
     EndMode2D();
 
+    /*
     // cant we export this into nemo cpp?
-    bool move = false;
+     bool move = false;
 
-    if (IsKeyDown(KEY_W)) {
-      DrawTextureRec(nemo.Back, nemo.frameRec, position, WHITE); // Draw nemo animation backwards
-      move = true;
-    }
-    if (IsKeyDown(KEY_S)) {
-      DrawTextureRec(nemo.Front, nemo.frameRec, position, WHITE); // Draw nemo animation forwards
-      move = true;
-    }
-    if (IsKeyDown(KEY_D)) {
-      DrawTextureRec(nemo.Right, nemo.frameRec, position, WHITE); // Draw nemo animation right
-      move = true;
-    }
-    if (IsKeyDown(KEY_A)) {
-      DrawTextureRec(nemo.Left, nemo.frameRec, position, WHITE); // Draw nemo animation left
-      move = true;
-    }
+     if (IsKeyDown(KEY_W)) {
+       DrawTextureRec(nemo.Back, nemo.frameRec, position, WHITE); // Draw nemo animation backwards
+       move = true;
+     }
+     if (IsKeyDown(KEY_S)) {
+       DrawTextureRec(nemo.Front, nemo.frameRec, position, WHITE); // Draw nemo animation forwards
+       move = true;
+     }
+     if (IsKeyDown(KEY_D)) {
+       DrawTextureRec(nemo.Right, nemo.frameRec, position, WHITE); // Draw nemo animation right
+       move = true;
+     }
+     if (IsKeyDown(KEY_A)) {
+       DrawTextureRec(nemo.Left, nemo.frameRec, position, WHITE); // Draw nemo animation left
+       move = true;
+     }
 
-    if (move == false) {
-      DrawTextureRec(nemo.Front, nemo.frameRec, position, WHITE); // standing animation i dont have that yet
-    }
+     if (move == false) {
+       DrawTextureRec(nemo.Front, nemo.frameRec, position, WHITE); // standing animation i dont have that yet
+     }
+    */
 
     // controlls description
     ui.Draw();
