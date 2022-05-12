@@ -72,11 +72,14 @@ int main() {
     BeginMode2D(camera);
 
     level.Draw(); // map
+    level.Music(); // music
 
     nemo.Update(); // nemo walking movement and animation
     nemo.Draw();   // nemo walking movement and animation
 
     DrawTexture(NPC.texture_, NPC.pos_x, NPC.pos_y, WHITE);
+
+    
 
     // controlls description
     ui.Draw();
