@@ -21,7 +21,7 @@ int main() {
   // Raylib initialization
   //--------------------------------------------------------------------------------------------
 
-  InitWindow(Game::ScreenWidth, Game::ScreenHeight, Game::Custodia);
+  InitWindow(Game::ScreenWidth, Game::ScreenHeight, Game::PROJECT_NAME);
   InitAudioDevice(); // Initialize audio device
 
   SetTargetFPS(60);

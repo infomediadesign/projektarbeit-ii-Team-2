@@ -3,7 +3,7 @@
 include(../cmake/raylib.cmake)
 include(../cmake/raylib_cpp.cmake)
 
-project(game VERSION 0.1.0 LANGUAGES CXX)
+project(Custodia VERSION 0.1.0 LANGUAGES CXX)
 
 include(../cmake/doxygen.cmake)
 
