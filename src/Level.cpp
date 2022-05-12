@@ -1,11 +1,10 @@
 #include "Level.h"
 
-void Game::Level::Draw() 
-{ 
-	DrawTexture(Map, 0, 0, WHITE); 
-}
+void Game::Level::Draw() { DrawTexture(Map, 0, 0, WHITE); }
 
-void Game::Level::Music() 
-{ 
-	PlayMusicStream(music); 
+void Game::Level::Music() {
+  PlayMusicStream(music);
+
+  float timePlayed = 0.0f;
+  bool pause       = false;  
 }

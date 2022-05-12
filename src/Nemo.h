@@ -9,7 +9,7 @@
 namespace Game {
   class Nemo {
   public:
-    int HP; // The Integer is just temporary; HP is not initiallised!
+    int HP; // The Integer is just temporary; HP is not initiallised!  
 
     Vector2 NemoPosition = { Game::ScreenWidth / 2, Game::ScreenHeight / 2 }; // Starting point for nemo
 
@@ -29,5 +29,7 @@ namespace Game {
     void Update(); // Magical Shit will about to be committed in there! :D
 
     void Draw(); // Drawing the Sprite
+
+    ~Nemo();
   };
 } // namespace Game

@@ -14,7 +14,7 @@
 //@todo liste: @ Görkem und Nick
 /*  -> can we export the camera into level to clean up the main?
     -> Walking animation is put into the nemo class, its working but the movement aint! @todo nemo walking movement
-    -> 16:9 not working, 640p : 360p ? or larger?, fullscreen toggle mode, HideCursor not working,
+    -> 16:9 not working, 640p : 360p ? or larger?, fullscreen toggle mode, HideCursor not working, Music aint working @todo Nick
  */
 
 int main() {
@@ -58,31 +58,27 @@ int main() {
   //--------------------------------------------------------------------------------------------
   while (!WindowShouldClose()) // Detect window close button or ESC key
   {
-    nemo.Update();
+    nemo.Update(); // nemo walking movement and animation
+
+    level.Music(); // music    
 
     camera.target = Vector2 { spr.pos_x + 20.0f, spr.pos_y + 20.0f };
 
     // Begin drawing
     //--------------------------------------------------------------------------------------------
-
     BeginDrawing();
 
     ClearBackground(WHITE);
 
     BeginMode2D(camera);
 
-    level.Draw(); // map
-    level.Music(); // music
-
-    nemo.Update(); // nemo walking movement and animation
+    level.Draw(); // map    
+    
     nemo.Draw();   // nemo walking movement and animation
 
-    DrawTexture(NPC.texture_, NPC.pos_x, NPC.pos_y, WHITE);
-
+    DrawTexture(NPC.texture_, NPC.pos_x, NPC.pos_y, WHITE);  
     
-
-    // controlls description
-    ui.Draw();
+    ui.Draw(); // controlls description
 
     EndMode2D(); // camera
 
@@ -122,7 +118,6 @@ int main() {
   // De-initialization here
   //--------------------------------------------------------------------------------------------
 
-  // this should be able to export into nemo.cpp?
   UnloadTexture(nemo.Front);
   UnloadTexture(nemo.Back);
   UnloadTexture(nemo.Right);
