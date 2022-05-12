@@ -11,6 +11,15 @@ namespace Game {
   public:
     int HP; // The Integer is just temporary; HP is not initiallised!  
 
+    enum class direction //Setting the Enum for the direction
+    {
+        UP,
+        DOWN,
+        LEFT,
+        RIGHT,
+    };
+    direction Direction = direction::DOWN; //Setting the Standard for the Enum on down.
+
     Vector2 position = { Game::ScreenWidth / 2, Game::ScreenHeight / 2 }; // Starting point for nemo
 
     Texture2D Front = LoadTexture("assets/graphics/NemoFrontwalk-Sheet.png");
