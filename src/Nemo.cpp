@@ -2,8 +2,10 @@
 
 void Game::Nemo::Draw() {}
 
-void Game::Nemo::Update() 
-{
+void Game::Nemo::Update() {
+  Nemo nemo;
+  Game::Sprite spr(NemoPosition.x, NemoPosition.y, nemo.Front);
+
   if (IsKeyDown(KEY_D)) { // run right
     spr.pos_x += 2.0f;
 
@@ -21,7 +23,7 @@ void Game::Nemo::Update()
   }
 
   if (IsKeyDown(KEY_A)) { // run left
-    spr.pos_x -= 2.0f; //needs change
+    spr.pos_x -= 2.0f;    // needs change
 
     framesCounter++;
 
