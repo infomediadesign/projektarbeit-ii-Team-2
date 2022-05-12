@@ -6,7 +6,7 @@ void Game::Nemo::Update() {
 
   // animation and movement
   if (IsKeyDown(KEY_W)) {
-    NemoPosition.y -= 2.0f; // run forwards
+    position.y -= 2.0f; // run forwards
     PlaySound(fxMp3);  // play sfx
 
     // animation
@@ -23,7 +23,7 @@ void Game::Nemo::Update() {
     }
   }
   if (IsKeyDown(KEY_A)) {
-    NemoPosition.x -= 2.0f; // run left ->needs change
+    position.x -= 2.0f; // run left ->needs change
     PlaySound(fxMp3);  // play sfx
 
     // animation
@@ -40,7 +40,7 @@ void Game::Nemo::Update() {
     }
   }
   if (IsKeyDown(KEY_S)) {
-    NemoPosition.y += 2.0f; // run backwards
+    position.y += 2.0f; // run backwards
     PlaySound(fxMp3);  // play sfx
 
     // animtaion
@@ -57,7 +57,7 @@ void Game::Nemo::Update() {
     }
   }
   if (IsKeyDown(KEY_D)) {
-    NemoPosition.x += 2.0f; // run right
+    position.x += 2.0f; // run right
     PlaySound(fxMp3);  // play sfx
 
     // animtaion
@@ -152,24 +152,30 @@ void Game::Nemo::Draw() {
   bool move = false;
 
   if (IsKeyDown(KEY_W)) {
-    DrawTextureRec(Back, frameRec, NemoPosition, WHITE); // Draw nemo animation backwards
+    DrawTextureRec(Back, frameRec, position, WHITE); // Draw nemo animation backwards
     move = true;
   }
   if (IsKeyDown(KEY_S)) {
-    DrawTextureRec(Front, frameRec, NemoPosition, WHITE); // Draw nemo animation forwards
+    DrawTextureRec(Front, frameRec, position, WHITE); // Draw nemo animation forwards
     move = true;
   }
   if (IsKeyDown(KEY_D)) {
-    DrawTextureRec(Right, frameRec, NemoPosition, WHITE); // Draw nemo animation right
+    DrawTextureRec(Right, frameRec, position, WHITE); // Draw nemo animation right
     move = true;
   }
   if (IsKeyDown(KEY_A)) {
-    DrawTextureRec(Left, frameRec, NemoPosition, WHITE); // Draw nemo animation left
+    DrawTextureRec(Left, frameRec, position, WHITE); // Draw nemo animation left
     move = true;
   }
 
   if (move == false) {
-    DrawTextureRec(Front, frameRec, NemoPosition, WHITE); // standing animation i dont have that yet
+    DrawTextureRec(Front, frameRec, position, WHITE); // standing animation i dont have that yet
   }
 }
 
+Game::Nemo::~Nemo() {
+  UnloadTexture(Front);
+  UnloadTexture(Back);
+  UnloadTexture(Right);
+  UnloadTexture(Left);
+}

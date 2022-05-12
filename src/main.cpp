@@ -62,7 +62,7 @@ int main() {
 
     level.Music(); // music    
 
-    camera.target = Vector2 { spr.pos_x + 20.0f, spr.pos_y + 20.0f };
+    camera.target = Vector2 { nemo.position.x + 20.0f, nemo.position.y + 20.0f };
 
     // Begin drawing
     //--------------------------------------------------------------------------------------------
@@ -116,12 +116,7 @@ int main() {
     //--------------------------------------------------------------------------------------------
 
   // De-initialization here
-  //--------------------------------------------------------------------------------------------
-
-  UnloadTexture(nemo.Front);
-  UnloadTexture(nemo.Back);
-  UnloadTexture(nemo.Right);
-  UnloadTexture(nemo.Left);
+  //--------------------------------------------------------------------------------------------  
 
   UnloadSound(nemo.fxMp3);
 

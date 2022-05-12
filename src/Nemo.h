@@ -11,7 +11,7 @@ namespace Game {
   public:
     int HP; // The Integer is just temporary; HP is not initiallised!  
 
-    Vector2 NemoPosition = { Game::ScreenWidth / 2, Game::ScreenHeight / 2 }; // Starting point for nemo
+    Vector2 position = { Game::ScreenWidth / 2, Game::ScreenHeight / 2 }; // Starting point for nemo
 
     Texture2D Front = LoadTexture("assets/graphics/NemoFrontwalk-Sheet.png");
     Texture2D Back  = LoadTexture("assets/graphics/NemoHintenWalk-Sheet.png");
