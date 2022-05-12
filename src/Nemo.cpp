@@ -1,8 +1,6 @@
 #include "Nemo.h"
 
 void Game::Nemo::Update() {  
-  //Game::Sprite spr(NemoPosition.x, NemoPosition.y, nemo.Front);
-  //Game::Nemo np( NemoPosition.x, NemoPosition.y );
 
   // animation and movement
   if (IsKeyDown(KEY_W)) {
@@ -73,78 +71,6 @@ void Game::Nemo::Update() {
       frameRec.x = (float)currentFrame * (float)Right.width / 3;
     }
   }
-
-  /*
-  * // animation and movement
-  if (IsKeyDown(KEY_W)) { 
-    spr.pos_x -= 2.0f; // run forwards
-    PlaySound(fxMp3); //play sfx
-
-    // animation
-    framesCounter++; 
-
-    if (framesCounter >= (60 / framesSpeed)) {
-      framesCounter = 0;
-      currentFrame++;
-
-      if (currentFrame > 2)
-        currentFrame = 0;
-
-      frameRec.x = (float)currentFrame * (float)Front.width / 3;
-    }
-  }
-  if (IsKeyDown(KEY_A)) { 
-    spr.pos_x -= 2.0f; // run left ->needs change
-    PlaySound(fxMp3); //play sfx
-
-    // animation
-    framesCounter++;
-
-    if (framesCounter >= (60 / framesSpeed)) {
-      framesCounter = 0;
-      currentFrame++;
-
-      if (currentFrame > 2)
-        currentFrame = 0;
-
-      frameRec.x = (float)currentFrame * (float)Left.width / 3;
-    }
-  }
-  if (IsKeyDown(KEY_S)) { 
-    spr.pos_y += 2.0f; // run backwards
-    PlaySound(fxMp3); //play sfx
-
-    //animtaion
-    framesCounter++;
-
-    if (framesCounter >= (60 / framesSpeed)) {
-      framesCounter = 0;
-      currentFrame++;
-
-      if (currentFrame > 2)
-        currentFrame = 0;
-
-      frameRec.x = (float)currentFrame * (float)Right.width / 3;
-    }
-  }
-  if (IsKeyDown(KEY_D)) { 
-    spr.pos_x += 2.0f; // run right
-    PlaySound(fxMp3); // play sfx
-
-    //animtaion
-    framesCounter++;
-
-    if (framesCounter >= (60 / framesSpeed)) {
-      framesCounter = 0;
-      currentFrame++;
-
-      if (currentFrame > 2)
-        currentFrame = 0;
-
-      frameRec.x = (float)currentFrame * (float)Right.width / 3;
-    }
-  }
-  */
 }
 
 void Game::Nemo::Draw() {
