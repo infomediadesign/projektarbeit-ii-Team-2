@@ -29,9 +29,7 @@ int main() {
 
 #ifdef GAME_START_FULLSCREEN
 
-  if (IsKeyPressed(KEY_F)) {
-    ToggleFullscreen();
-  }
+  
 
 #endif
 
@@ -59,6 +57,11 @@ int main() {
   //--------------------------------------------------------------------------------------------
   while (!WindowShouldClose()) // Detect window close button or ESC key
   {
+    //Update
+    if (IsKeyDown(KEY_LEFT_CONTROL) || IsKeyPressed(KEY_F)) {
+      ToggleFullscreen();
+    }
+
     nemo.Update(); // nemo walking movement and animation
 
     level.Music(); // music    
