@@ -1,11 +1,13 @@
 #pragma once
 #include <raylib.h>
 
-namespace Game {
-  class Level {
+namespace Game 
+{
+  class Level 
+  {
   public:
-    Texture2D Map = LoadTexture("assets/graphics/wintermap.png");
+    Texture2D Map = LoadTexture("assets/graphics/wintermap.png");        
 
     void Draw();
   };
-} // namespace Game
+}

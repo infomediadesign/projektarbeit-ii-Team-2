@@ -7,6 +7,7 @@ void Game::Nemo::Update() {
   // animation and movement
   if (IsKeyDown(KEY_W)) { // run forwards
     spr.pos_y -= 2.0f;
+    PlaySound(fxMp3);
 
     framesCounter++;
 
@@ -22,6 +23,7 @@ void Game::Nemo::Update() {
   }
   if (IsKeyDown(KEY_A)) { // run left
     spr.pos_x -= 2.0f;    // needs change
+    PlaySound(fxMp3);
 
     framesCounter++;
 
@@ -37,6 +39,7 @@ void Game::Nemo::Update() {
   }
   if (IsKeyDown(KEY_S)) { // run backwards
     spr.pos_y += 2.0f;
+    PlaySound(fxMp3);
 
     framesCounter++;
 
@@ -52,6 +55,7 @@ void Game::Nemo::Update() {
   }
   if (IsKeyDown(KEY_D)) { // run right
     spr.pos_x += 2.0f;
+    PlaySound(fxMp3);
 
     framesCounter++;
 

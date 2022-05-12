@@ -11,9 +11,10 @@
 
 // Project = Custodia - Trapped in the past
 
-//@todo liste:
-/* Walking animation is put into the nemo class, its working but the movement aint! @todo nemo walking movement
- 16:9 not working, 640p : 360p ? or larger?, fullscreen toggle mode, HideCursor not working,
+//@todo liste: @ Görkem und Nick
+/*  -> can we export the camera into level to clean up the main?
+    -> Walking animation is put into the nemo class, its working but the movement aint! @todo nemo walking movement
+    -> 16:9 not working, 640p : 360p ? or larger?, fullscreen toggle mode, HideCursor not working,
  */
 
 int main() {
@@ -21,11 +22,13 @@ int main() {
   //--------------------------------------------------------------------------------------------
 
   InitWindow(Game::ScreenWidth, Game::ScreenHeight, Game::Custodia);
+  InitAudioDevice(); // Initialize audio device
+
   SetTargetFPS(60);
 
 #ifdef GAME_START_FULLSCREEN
 
-  if (IsKeyPressed(KEY_K)) {
+  if (IsKeyPressed(KEY_F)) {
     ToggleFullscreen();
   }
 
@@ -68,14 +71,19 @@ int main() {
 
     BeginMode2D(camera);
 
-    level.Draw();
+    level.Draw(); // map
 
-    nemo.Draw();
+    nemo.Update(); // nemo walking movement and animation
+    nemo.Draw();   // nemo walking movement and animation
 
     DrawTexture(NPC.texture_, NPC.pos_x, NPC.pos_y, WHITE);
 
-    EndMode2D();
+    // controlls description
+    ui.Draw();
 
+    EndMode2D(); // camera
+
+    // this is now in void Game::Nemo::Draw()
     /*
     // cant we export this into nemo cpp?
      bool move = false;
@@ -102,24 +110,26 @@ int main() {
      }
     */
 
-    // controlls description
-    ui.Draw();
-
     EndDrawing();
+    //--------------------------------------------------------------------------------------------
+
   } // Main game loop end
     //--------------------------------------------------------------------------------------------
 
   // De-initialization here
   //--------------------------------------------------------------------------------------------
-  // this should be able to export into nemo.cpp
+
+  // this should be able to export into nemo.cpp?
   UnloadTexture(nemo.Front);
   UnloadTexture(nemo.Back);
   UnloadTexture(nemo.Right);
   UnloadTexture(nemo.Left);
 
-  // Close window and OpenGL context
-  //--------------------------------------------------------------------------------------------
-  CloseWindow();
+  UnloadSound(nemo.fxMp3);
+
+  CloseAudioDevice(); // Close audio device
+
+  CloseWindow(); // Close window and OpenGL context
 
   return EXIT_SUCCESS;
 }

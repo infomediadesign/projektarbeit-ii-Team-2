@@ -18,6 +18,8 @@ namespace Game {
     Texture2D Left  = LoadTexture("assets/graphics/NemoLinksWalk-Sheet.png");
     Texture2D Right = LoadTexture("assets/graphics/NemoRechtsWalk-Sheet.png");
 
+    Sound fxMp3 = LoadSound("resources/BodyCrawlsGearBody FS047801.mp3"); // Load Mp3 audio file
+
     // devide spritesheet into frames
     Rectangle frameRec = { 0.0f, 0.0f, (float)Front.width / 3, (float)Front.height };
     int currentFrame   = 0;
