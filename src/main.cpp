@@ -77,10 +77,10 @@ int main() {
     nemo.Draw();   // nemo walking movement and animation
 
     DrawTexture(NPC.texture_, NPC.pos_x, NPC.pos_y, WHITE);  
-    
-    ui.Draw(); // controlls description
 
     EndMode2D(); // camera    
+
+    ui.Draw(); // controlls description
 
     EndDrawing();
     //--------------------------------------------------------------------------------------------
