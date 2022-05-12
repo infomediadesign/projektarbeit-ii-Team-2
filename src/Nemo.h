@@ -11,7 +11,7 @@ namespace Game {
   public:
     int HP; // The Integer is just temporary; HP is not initiallised!
 
-    Vector2 NemoPosition = { Game::ScreenWidth / 2, Game::ScreenHeight / 2 };
+    Vector2 NemoPosition = { Game::ScreenWidth / 2, Game::ScreenHeight / 2 }; // Starting point for nemo
 
     Texture2D Front = LoadTexture("assets/graphics/NemoFrontwalk-Sheet.png");
     Texture2D Back  = LoadTexture("assets/graphics/NemoHintenWalk-Sheet.png");
@@ -24,7 +24,8 @@ namespace Game {
     int framesCounter  = 0;
     int framesSpeed    = 8; // animtation fps
 
-    void Draw();   // Drawing the Sprite
     void Update(); // Magical Shit will about to be committed in there! :D
+
+    void Draw(); // Drawing the Sprite
   };
 } // namespace Game
