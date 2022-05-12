@@ -80,34 +80,7 @@ int main() {
     
     ui.Draw(); // controlls description
 
-    EndMode2D(); // camera
-
-    // this is now in void Game::Nemo::Draw()
-    /*
-    // cant we export this into nemo cpp?
-     bool move = false;
-
-     if (IsKeyDown(KEY_W)) {
-       DrawTextureRec(nemo.Back, nemo.frameRec, position, WHITE); // Draw nemo animation backwards
-       move = true;
-     }
-     if (IsKeyDown(KEY_S)) {
-       DrawTextureRec(nemo.Front, nemo.frameRec, position, WHITE); // Draw nemo animation forwards
-       move = true;
-     }
-     if (IsKeyDown(KEY_D)) {
-       DrawTextureRec(nemo.Right, nemo.frameRec, position, WHITE); // Draw nemo animation right
-       move = true;
-     }
-     if (IsKeyDown(KEY_A)) {
-       DrawTextureRec(nemo.Left, nemo.frameRec, position, WHITE); // Draw nemo animation left
-       move = true;
-     }
-
-     if (move == false) {
-       DrawTextureRec(nemo.Front, nemo.frameRec, position, WHITE); // standing animation i dont have that yet
-     }
-    */
+    EndMode2D(); // camera    
 
     EndDrawing();
     //--------------------------------------------------------------------------------------------
