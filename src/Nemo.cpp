@@ -2,11 +2,29 @@
 
 void Game::Nemo::Update() 
 {  
+    /*there are many "or" stuff and it makes the code look like Spaghetti Bolognese, 
+    but this Code allows the user to press only one Key while walking. It is also a lazy way to prevent the user
+    to run fast while running vertically.*/ 
+
+   if (IsKeyDown(KEY_W) && IsKeyDown(KEY_D) 
+      || IsKeyDown(KEY_W) && IsKeyDown(KEY_A) 
+      || IsKeyDown(KEY_S) && IsKeyDown(KEY_D) 
+      || IsKeyDown(KEY_S) && IsKeyDown(KEY_A)
+      || IsKeyDown(KEY_A) && IsKeyDown(KEY_D)) 
+   {
+     walkspeed = 0;
+     framesCounter = 0;
+   }  
+   else 
+   {
+     walkspeed = 1.5;
+   }
+
 
   // animation and movement
   if (IsKeyDown(KEY_W)) 
   {
-    position.y -= 2.0f; // run forwards
+    position.y -= walkspeed; // run forwards
 
     PlaySound(fxMp3);  // play sfx
 
@@ -27,7 +45,7 @@ void Game::Nemo::Update()
   }
   if (IsKeyDown(KEY_A)) 
   {
-    position.x -= 2.0f; // run left ->needs change
+    position.x -= walkspeed; // run left ->needs change
     PlaySound(fxMp3);  // play sfx
     Direction = direction::LEFT;
 
@@ -46,7 +64,7 @@ void Game::Nemo::Update()
   }
   if (IsKeyDown(KEY_S)) 
   {
-    position.y += 2.0f; // run backwards
+    position.y += walkspeed; // run backwards
     PlaySound(fxMp3);  // play sfx
     Direction = direction::DOWN;
 
@@ -66,7 +84,7 @@ void Game::Nemo::Update()
   }
   if (IsKeyDown(KEY_D)) 
   {
-    position.x += 2.0f; // run right
+    position.x += walkspeed; // run right
     PlaySound(fxMp3);  // play sfx
     Direction = direction::RIGHT;
 

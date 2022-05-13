@@ -9,7 +9,8 @@
 namespace Game {
   class Nemo {
   public:
-    int HP; // The Integer is just temporary; HP is not initiallised!  
+    int HP; // The Integer is just temporary; HP is not initiallised!
+    float walkspeed = 1.5;
 
     enum class direction //Setting the Enum for the direction
     {
