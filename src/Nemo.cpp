@@ -20,6 +20,10 @@ void Game::Nemo::Update()
      walkspeed = 1.5;
    }
 
+   if (IsKeyDown(KEY_LEFT_SHIFT)) //Sprinting with Shift is so Giga Chad
+   {
+     walkspeed = 2.0;
+   }
 
   // animation and movement
   if (IsKeyDown(KEY_W)) 
