@@ -14,7 +14,8 @@
 //@todo liste: @ Görkem und Nick
 /*  -> can we export the camera into level to clean up the main?
     -> Walking animation is put into the nemo class, its working but the movement aint! @todo nemo walking movement
-    -> 16:9 not working, 640p : 360p ? or larger?, fullscreen toggle mode, HideCursor not working, Music aint working @todo Nick
+    -> 16:9 not working, 640p : 360p ? or larger?, fullscreen toggle mode, HideCursor not working, Music aint working
+   @todo Nick
     -> When the character does not move, it stays in it´s current frame
  */
 
@@ -28,8 +29,6 @@ int main() {
   SetTargetFPS(60);
 
 #ifdef GAME_START_FULLSCREEN
-
-  
 
 #endif
 
@@ -57,14 +56,14 @@ int main() {
   //--------------------------------------------------------------------------------------------
   while (!WindowShouldClose()) // Detect window close button or ESC key
   {
-    //Update
+    // Update
     if (IsKeyDown(KEY_LEFT_CONTROL) && IsKeyPressed(KEY_F)) {
       ToggleFullscreen();
     }
 
     nemo.Update(); // nemo walking movement and animation
 
-    level.Music(); // music    
+    level.Music(); // music
 
     camera.target = Vector2 { nemo.position.x + 20.0f, nemo.position.y + 20.0f };
 
@@ -76,13 +75,13 @@ int main() {
 
     BeginMode2D(camera);
 
-    level.Draw(); // map    
-    
-    nemo.Draw();   // nemo walking movement and animation
+    level.Draw(); // map
 
-    DrawTexture(NPC.texture_, NPC.pos_x, NPC.pos_y, WHITE);  
+    nemo.Draw(); // nemo walking movement and animation
 
-    EndMode2D(); // camera    
+    DrawTexture(NPC.texture_, NPC.pos_x, NPC.pos_y, WHITE);
+
+    EndMode2D(); // camera
 
     ui.Draw(); // controlls description
 
@@ -93,7 +92,7 @@ int main() {
     //--------------------------------------------------------------------------------------------
 
   // De-initialization here
-  //--------------------------------------------------------------------------------------------  
+  //--------------------------------------------------------------------------------------------
 
   UnloadSound(nemo.fxMp3);
 

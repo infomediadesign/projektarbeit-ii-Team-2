@@ -6,5 +6,5 @@ void Game::Level::Music() {
   PlayMusicStream(music);
 
   float timePlayed = 0.0f;
-  bool pause       = false;  
+  bool pause       = false;
 }

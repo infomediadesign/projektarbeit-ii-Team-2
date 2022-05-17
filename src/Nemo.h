@@ -12,14 +12,14 @@ namespace Game {
     int HP; // The Integer is just temporary; HP is not initiallised!
     float walkspeed = 1.5;
 
-    enum class direction //Setting the Enum for the direction
+    enum class direction // Setting the Enum for the direction
     {
-        UP,
-        DOWN,
-        LEFT,
-        RIGHT,
+      UP,
+      DOWN,
+      LEFT,
+      RIGHT,
     };
-    direction Direction = direction::DOWN; //Setting the Standard for the Enum on down.
+    direction Direction = direction::DOWN; // Setting the Standard for the Enum on down.
 
     Vector2 position = { Game::ScreenWidth / 2, Game::ScreenHeight / 2 }; // Starting point for nemo
 

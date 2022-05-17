@@ -6,7 +6,7 @@ void Game::Nemo::Update()
     but this Code allows the user to press only one Key while walking. It is also a lazy way to prevent the user
     to run fast while running vertically.*/ 
 
-   if (IsKeyDown(KEY_W) && IsKeyDown(KEY_D) 
+   if (IsKeyDown(KEY_W) && IsKeyDown(KEY_D) //
       || IsKeyDown(KEY_W) && IsKeyDown(KEY_A) 
       || IsKeyDown(KEY_S) && IsKeyDown(KEY_D) 
       || IsKeyDown(KEY_S) && IsKeyDown(KEY_A)
@@ -15,14 +15,13 @@ void Game::Nemo::Update()
      walkspeed = 0;
      framesCounter = 0;
    }  
+   else if (IsKeyDown(KEY_LEFT_SHIFT)) // Sprinting with Shift is so Giga Chad
+   {
+     walkspeed = 2.0;
+   } 
    else 
    {
      walkspeed = 1.5;
-   }
-
-   if (IsKeyDown(KEY_LEFT_SHIFT)) //Sprinting with Shift is so Giga Chad
-   {
-     walkspeed = 2.0;
    }
 
   // animation and movement
