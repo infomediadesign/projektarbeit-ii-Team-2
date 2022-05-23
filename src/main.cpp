@@ -36,14 +36,12 @@ int main() {
   //--------------------------------------------------------------------------------------------
   Texture2D StandStil = LoadTexture("assets/graphics/Charakter_Vorschlag_vorne_laufen1.png");
 
-  Vector2 NemoPosition = { Game::ScreenWidth / 2, Game::ScreenHeight / 2 };
-  Vector2 position     = { Game::ScreenWidth / 2, Game::ScreenHeight / 2 };
-
   Game::Level level;
   Game::UI ui;
   Game::Nemo nemo; // Initializing the Nemo (Player) Class
-  Game::Sprite spr(NemoPosition.x, NemoPosition.y, nemo.Front);
+  Game::Sprite spr(nemo.NemoPosition.x, nemo.NemoPosition.y, nemo.Front);
   Game::Sprite NPC(100, 100, StandStil);
+  Rectangle NPCRec = {NPC.pos_x + 8, NPC.pos_y + 5, 16, 20};
 
   // Camera settings
   //--------------------------------------------------------------------------------------------
@@ -65,7 +63,7 @@ int main() {
 
     level.Music(); // music
 
-    camera.target = Vector2 { nemo.position.x + 20.0f, nemo.position.y + 20.0f };
+    camera.target = Vector2 { nemo.NemoPosition.x + 20.0f, nemo.NemoPosition.y + 20.0f };
 
     // Begin drawing
     //--------------------------------------------------------------------------------------------
@@ -76,11 +74,18 @@ int main() {
     BeginMode2D(camera);
 
     level.Draw(); // map
-
-    nemo.Draw(); // nemo walking movement and animation
-
+    
+    DrawRectangleRec(NPCRec, WHITE);
     DrawTexture(NPC.texture_, NPC.pos_x, NPC.pos_y, WHITE);
 
+   if (CheckCollisionRecs(NPCRec, nemo.nemorec)) 
+   {
+      
+      std::cout << "collision happened";
+   }
+
+    nemo.Draw(); // nemo walking movement and animation
+    
     EndMode2D(); // camera
 
     ui.Draw(); // controlls description

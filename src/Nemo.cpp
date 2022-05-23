@@ -1,4 +1,5 @@
 #include "Nemo.h"
+#include <iostream>
 
 void Game::Nemo::Update() 
 {  
@@ -19,15 +20,23 @@ void Game::Nemo::Update()
    {
      walkspeed = 2.0;
    } 
-   else 
+   else if (IsKeyDown(KEY_W) || IsKeyDown(KEY_S) || IsKeyDown(KEY_D) || IsKeyDown(KEY_A)) // Better alternative than else walkspeed 1.5
    {
      walkspeed = 1.5;
+   } 
+   else if (!IsKeyDown(KEY_W) || !IsKeyDown(KEY_S) || !IsKeyDown(KEY_D) || !IsKeyDown(KEY_A)) //when No Key is pressed, the Walkspeed is set to 0;
+   {
+     walkspeed = 0;
    }
+   
+   std::cout << walkspeed << "\n";
+
+   //std::cout << walkspeed << "\n"; //This is a test to see Nemos current Walkspeed
 
   // animation and movement
   if (IsKeyDown(KEY_W)) 
   {
-    position.y -= walkspeed; // run forwards
+    NemoPosition.y -= walkspeed; // run forwards
 
     PlaySound(fxMp3);  // play sfx
 
@@ -48,7 +57,7 @@ void Game::Nemo::Update()
   }
   if (IsKeyDown(KEY_A)) 
   {
-    position.x -= walkspeed; // run left ->needs change
+    NemoPosition.x -= walkspeed; // run left ->needs change
     PlaySound(fxMp3);  // play sfx
     Direction = direction::LEFT;
 
@@ -67,7 +76,7 @@ void Game::Nemo::Update()
   }
   if (IsKeyDown(KEY_S)) 
   {
-    position.y += walkspeed; // run backwards
+    NemoPosition.y += walkspeed; // run backwards
     PlaySound(fxMp3);  // play sfx
     Direction = direction::DOWN;
 
@@ -87,7 +96,7 @@ void Game::Nemo::Update()
   }
   if (IsKeyDown(KEY_D)) 
   {
-    position.x += walkspeed; // run right
+    NemoPosition.x += walkspeed; // run right
     PlaySound(fxMp3);  // play sfx
     Direction = direction::RIGHT;
 
@@ -107,28 +116,32 @@ void Game::Nemo::Update()
 }
 
 void Game::Nemo::Draw() {
+
+  nemorec = { NemoPosition.x + 8, NemoPosition.y + 8, nemowidth, nemoheight }; //The Attributes are set here.
+  DrawRectangleRec(nemorec, WHITE);
   // Draw nemo walking animation
 
   switch (Direction) //A simple Enum and a Switch case solved all the problem before... I swear me beeing Retarded is such a nuisance :(
   { 
     case direction::UP: 
       
-    DrawTextureRec(Back, frameRec, position, WHITE); // Draw nemo animation backwards
+    DrawTextureRec(Back, frameRec, NemoPosition, WHITE); // Draw nemo animation backwards
+      nemorec;
     break;
 
     case direction::DOWN: 
        
-    DrawTextureRec(Front, frameRec, position, WHITE); // Draw nemo animation forwards
+    DrawTextureRec(Front, frameRec, NemoPosition, WHITE); // Draw nemo animation forwards
     break;
 
     case direction::LEFT: 
 
-    DrawTextureRec(Left, frameRec, position, WHITE); // Draw nemo animation left
+    DrawTextureRec(Left, frameRec, NemoPosition, WHITE); // Draw nemo animation left
     break;
 
     case direction::RIGHT: 
 
-    DrawTextureRec(Right, frameRec, position, WHITE); // Draw nemo animation right
+    DrawTextureRec(Right, frameRec, NemoPosition, WHITE); // Draw nemo animation right
     break;
   }
 }
