@@ -78,7 +78,7 @@ int main() {
     DrawRectangleRec(NPCRec, WHITE);
     DrawTexture(NPC.texture_, NPC.pos_x, NPC.pos_y, WHITE);
 
-   if (CheckCollisionRecs(NPCRec, nemo.nemorec)) 
+   if (CheckCollisionRecs(NPCRec, nemo.nemorec)) // Where the Collision between Two Objects happen happens
    {
       
       std::cout << "collision happened";
