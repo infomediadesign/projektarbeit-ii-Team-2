@@ -9,7 +9,7 @@ void Game::Level::Screeninit()
 void Game::Level::ScreenDraw() 
 { 
 
-	switch (Game::Level::currentscreen) 
+	switch (Game::Level::currentscreen)  //For this Switch we determine here, what is drawn here
 	{
   case GameScreen::TITLESCREEN: 
 			DrawText("TITLESCREEN FOR CUSTODIA", 500, 320, 20, GRAY); 
@@ -17,7 +17,7 @@ void Game::Level::ScreenDraw()
 			break;
 
 		case GameScreen::OVERWORLD:
-    DrawTexture(Map, 0, 0, WHITE); 
+		DrawTexture(Map, 0, 0, WHITE); 
 			break;
 
 		case GameScreen::COMBAT: 

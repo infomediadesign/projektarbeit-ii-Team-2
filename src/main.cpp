@@ -70,11 +70,11 @@ int main() {
     
     //Using Switch Case to Initialize the requirements to move to certain positions
 
-    switch (level.currentscreen) {
+    switch (level.currentscreen) { //Get Ready for some Sphagetthi Code
     case Game::Level::GameScreen::TITLESCREEN:
 
       camera.target = Vector2 { Game::ScreenWidth/2, Game::ScreenHeight/2 };
-      nemo.active   = false;
+      nemo.active   = false; //Undraw Nemo
 
       if (IsKeyDown(KEY_ENTER)) {
         level.currentscreen = Game::Level::GameScreen::OVERWORLD;
@@ -88,7 +88,8 @@ int main() {
 
       if (CheckCollisionRecs(NPCRec, nemo.nemorec)) // Where the Collision between Two Objects happen happens
       {
-        level.currentscreen = Game::Level::GameScreen::COMBAT;
+        level.currentscreen = Game::Level::GameScreen::COMBAT; //After Returning back to the OVERWORLD ya get immediately back to the Combat screen
+        //This happens, because the Player still collides with the player, deleting the NPC may work, but I still don´t know if it worked.
       }
       break;
 
@@ -113,8 +114,8 @@ int main() {
     //level.Draw(); // map
 
     nemo.Draw(); // nemo walking movement and animation
-    DrawRectangleRec(NPCRec, Color(00));
-    DrawTexture(NPC.texture_, NPC.pos_x, NPC.pos_y, WHITE);
+    DrawRectangleRec(NPCRec, Color(00)); //COLOR is for the Transparency.
+    DrawTexture(NPC.texture_, NPC.pos_x, NPC.pos_y, WHITE); //Drawing the Rectangle
     
     EndMode2D(); // camera
 

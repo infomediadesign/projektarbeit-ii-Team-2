@@ -8,9 +8,9 @@ namespace Game {
 
     Music music = LoadMusicStream("resources/Hair-Trigger-WST011601.mp3"); // placeholder music
 
-    enum class GameScreen { TITLESCREEN, OVERWORLD, COMBAT, PAUSEMENU, CUTSCENE };
+    enum class GameScreen { TITLESCREEN, OVERWORLD, COMBAT, PAUSEMENU, CUTSCENE }; //This Enum Class is there to set the Screens to TITLE etc.
 
-    GameScreen currentscreen = GameScreen::TITLESCREEN;
+    GameScreen currentscreen = GameScreen::TITLESCREEN; //TitleScreens is the Start Screen
 
     void Screeninit();
 

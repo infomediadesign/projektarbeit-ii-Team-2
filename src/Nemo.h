@@ -15,7 +15,7 @@ namespace Game {
     float nemoheight = 16;
     Vector2 NemoPosition = { Game::ScreenWidth / 2, Game::ScreenHeight / 2 }; //Starting Point for Nemo
     bool alive = true;
-    bool active = true;
+    bool active = true; //This Bool determines, if Nemo is drawn, if it is set to false, Nemo dissapears from the Overworld
     
     enum class direction // Setting the Enum for the direction
     {
