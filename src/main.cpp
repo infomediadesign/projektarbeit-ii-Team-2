@@ -41,7 +41,8 @@ int main() {
   Game::Nemo nemo; // Initializing the Nemo (Player) Class
   Game::Sprite spr(nemo.NemoPosition.x, nemo.NemoPosition.y, nemo.Front);
   Game::Sprite NPC(100, 100, StandStil);
-  Rectangle NPCRec = {NPC.pos_x + 8, NPC.pos_y + 5, 16, 20};
+
+  Rectangle NPCRec = { NPC.pos_x + 8, NPC.pos_y + 5, 16, 20 };
 
   // Camera settings
   //--------------------------------------------------------------------------------------------
@@ -59,32 +60,61 @@ int main() {
       ToggleFullscreen();
     }
 
-    nemo.Update(); // nemo walking movement and animation
-
     level.Music(); // music
-
-    camera.target = Vector2 { nemo.NemoPosition.x + 20.0f, nemo.NemoPosition.y + 20.0f };
 
     // Begin drawing
     //--------------------------------------------------------------------------------------------
     BeginDrawing();
 
     ClearBackground(WHITE);
+    
+    //Using Switch Case to Initialize the requirements to move to certain positions
+
+    switch (level.currentscreen) {
+    case Game::Level::GameScreen::TITLESCREEN:
+
+      camera.target = Vector2 { Game::ScreenWidth/2, Game::ScreenHeight/2 };
+      nemo.active   = false;
+
+      if (IsKeyDown(KEY_ENTER)) {
+        level.currentscreen = Game::Level::GameScreen::OVERWORLD;
+      }
+      break;
+
+    case Game::Level::GameScreen::OVERWORLD:
+      nemo.active = true;
+      nemo.Update(); // nemo walking movement and animation
+      camera.target = Vector2 { nemo.NemoPosition.x + 20.0f, nemo.NemoPosition.y + 20.0f };
+
+      if (CheckCollisionRecs(NPCRec, nemo.nemorec)) // Where the Collision between Two Objects happen happens
+      {
+        level.currentscreen = Game::Level::GameScreen::COMBAT;
+      }
+      break;
+
+    case Game::Level::GameScreen::COMBAT:
+
+      nemo.active = false;
+      camera.target = Vector2 { Game::ScreenWidth / 2, Game::ScreenHeight / 2 }; //Setting Camera to a Constant Position. Otherwise it would follow Nemo
+
+      if (IsKeyDown(KEY_ENTER)) 
+      {
+        
+        level.currentscreen = Game::Level::GameScreen::OVERWORLD;
+        
+      }
+      break;
+    }
 
     BeginMode2D(camera);
 
-    level.Draw(); // map
-    
-    DrawRectangleRec(NPCRec, WHITE);
-    DrawTexture(NPC.texture_, NPC.pos_x, NPC.pos_y, WHITE);
+    level.ScreenDraw();
 
-   if (CheckCollisionRecs(NPCRec, nemo.nemorec)) // Where the Collision between Two Objects happen happens
-   {
-      
-      std::cout << "collision happened";
-   }
+    //level.Draw(); // map
 
     nemo.Draw(); // nemo walking movement and animation
+    DrawRectangleRec(NPCRec, Color(00));
+    DrawTexture(NPC.texture_, NPC.pos_x, NPC.pos_y, WHITE);
     
     EndMode2D(); // camera
 

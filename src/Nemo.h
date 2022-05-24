@@ -10,10 +10,13 @@ namespace Game {
   class Nemo {
   public:
     int HP; // The Integer is just temporary; HP is not initiallised!
-    float walkspeed;
+    float walkspeed = 1.5;
     float nemowidth = 16;
     float nemoheight = 16;
     Vector2 NemoPosition = { Game::ScreenWidth / 2, Game::ScreenHeight / 2 }; //Starting Point for Nemo
+    bool alive = true;
+    bool active = true;
+    
     enum class direction // Setting the Enum for the direction
     {
       UP,
