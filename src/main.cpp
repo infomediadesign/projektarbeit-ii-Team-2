@@ -41,8 +41,8 @@ int main() {
   Game::Nemo nemo; // Initializing the Nemo (Player) Class
   Game::Sprite spr(nemo.NemoPosition.x, nemo.NemoPosition.y, nemo.Front);
   Game::Sprite NPC(100, 100, StandStil);
-
-  Rectangle NPCRec = { NPC.pos_x + 8, NPC.pos_y + 5, 16, 20 };
+  Rectangle NPCRec = {}; //Rectangle Position has to be set after it is drawn, leaving it free is so much better, until it is called. Do not touch it!!!
+  bool NPCDraw = true; //To set the drawing if it is true or false. In short if it is draw or deleted
 
   // Camera settings
   //--------------------------------------------------------------------------------------------
@@ -67,14 +67,17 @@ int main() {
     BeginDrawing();
 
     ClearBackground(WHITE);
-    
-    //Using Switch Case to Initialize the requirements to move to certain positions
 
-    switch (level.currentscreen) { //Get Ready for some Sphagetthi Code
+    BeginMode2D(camera);
+
+    level.ScreenDraw();
+
+    // Using Switch Case to Initialize the requirements to move to certain positions
+    switch (level.currentscreen) { // Get Ready for some Sphagetthi Code
     case Game::Level::GameScreen::TITLESCREEN:
 
-      camera.target = Vector2 { Game::ScreenWidth/2, Game::ScreenHeight/2 };
-      nemo.active   = false; //Undraw Nemo
+      camera.target = Vector2 { Game::ScreenWidth / 2, Game::ScreenHeight / 2 };
+      nemo.active   = false; // Undraw Nemo
 
       if (IsKeyDown(KEY_ENTER)) {
         level.currentscreen = Game::Level::GameScreen::OVERWORLD;
@@ -83,43 +86,46 @@ int main() {
 
     case Game::Level::GameScreen::OVERWORLD:
       nemo.active = true;
+      nemo.Draw();   // nemo walking movement and animation
       nemo.Update(); // nemo walking movement and animation
       camera.target = Vector2 { nemo.NemoPosition.x + 20.0f, nemo.NemoPosition.y + 20.0f };
 
+      if (NPCDraw == true) 
+      {
+        NPCRec = { 100 + 8, 100 + 5, 16, 20 };
+        DrawRectangleRec(NPCRec, Color(00));                    // COLOR is for the Transparency.
+        DrawTexture(NPC.texture_, NPC.pos_x, NPC.pos_y, WHITE); // Drawing the Rectangle
+      }
+
       if (CheckCollisionRecs(NPCRec, nemo.nemorec)) // Where the Collision between Two Objects happen happens
       {
-        level.currentscreen = Game::Level::GameScreen::COMBAT; //After Returning back to the OVERWORLD ya get immediately back to the Combat screen
-        //This happens, because the Player still collides with the player, deleting the NPC may work, but I still don´t know if it worked.
+        level.currentscreen = Game::Level::GameScreen::COMBAT; // After Returning back to the OVERWORLD ya get
+        // immediately back to the Combat screen
+        // This happens, because the Player still collides with the player, deleting the NPC may work, but I still don´t
+        // know if it worked.
+        NPCDraw = false; //NPC is deleted
+        NPCRec  = {}; //His Rectangle doesn´t get a position, so it is deleted instead, if you would set the attributes, the rectangle remains active instead
+        //It might not be clean, but it solves the issue for now
       }
       break;
 
     case Game::Level::GameScreen::COMBAT:
 
-      nemo.active = false;
-      camera.target = Vector2 { Game::ScreenWidth / 2, Game::ScreenHeight / 2 }; //Setting Camera to a Constant Position. Otherwise it would follow Nemo
+      nemo.active = false; //Nemo is set to false, so that he is not drawn in the Combat screen.
+      camera.target =Vector2 { Game::ScreenWidth / 2, Game::ScreenHeight / 2 }; // Setting Camera to a Constant Position. Otherwise it would follow Nemo
 
-      if (IsKeyDown(KEY_ENTER)) 
-      {
-        
+      if (IsKeyDown(KEY_ENTER)) {
         level.currentscreen = Game::Level::GameScreen::OVERWORLD;
-        
       }
       break;
     }
-
-    BeginMode2D(camera);
-
-    level.ScreenDraw();
-
-    //level.Draw(); // map
-
-    nemo.Draw(); // nemo walking movement and animation
-    DrawRectangleRec(NPCRec, Color(00)); //COLOR is for the Transparency.
-    DrawTexture(NPC.texture_, NPC.pos_x, NPC.pos_y, WHITE); //Drawing the Rectangle
     
     EndMode2D(); // camera
 
-    ui.Draw(); // controlls description
+    if (level.currentscreen == Game::Level::GameScreen::OVERWORLD)//Setting it on an if case, so it is only drawn in OVERWORLD
+    {
+      ui.Draw(); // controlls description
+    }
 
     EndDrawing();
     //--------------------------------------------------------------------------------------------

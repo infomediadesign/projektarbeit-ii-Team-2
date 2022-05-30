@@ -26,8 +26,6 @@ void Game::Nemo::Update()
       walkspeed = 0;
     }
 
-    std::cout << walkspeed << "\n";
-
     // std::cout << walkspeed << "\n"; //This is a test to see Nemos current Walkspeed
 
     // animation and movement
