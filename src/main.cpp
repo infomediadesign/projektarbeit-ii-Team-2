@@ -1,7 +1,7 @@
-﻿#include "Level.h"
-#include "Nemo.h"
-#include "Sprite.h"
-#include "UI.h"
+﻿#include "Level/Level.h"
+#include "Player/Nemo.h"
+#include "Sprite/Sprite.h"
+#include "Level/UI.h"
 #include "config.h"
 #include "raylib.h"
 
@@ -13,9 +13,6 @@
 
 //@todo liste: @ Görkem und Nick
 /*  -> can we export the camera into level to clean up the main?
-    -> Walking animation is put into the nemo class, its working but the movement aint! @todo nemo walking movement
-    -> 16:9 not working, 640p : 360p ? or larger?, fullscreen toggle mode, HideCursor not working, Music aint working
-   @todo Nick
     -> When the character does not move, it stays in it´s current frame
  */
 
