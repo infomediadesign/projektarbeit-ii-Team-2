@@ -19,8 +19,9 @@
 int main() {
   // Raylib initialization
   //--------------------------------------------------------------------------------------------
-
+  Image Epanox = LoadImage("assets/graphics/Epanox_Standing - Kopie.png");
   InitWindow(Game::ScreenWidth, Game::ScreenHeight, Game::PROJECT_NAME);
+  SetWindowIcon(Epanox);
   InitAudioDevice(); // Initialize audio device
 
   SetTargetFPS(60);
