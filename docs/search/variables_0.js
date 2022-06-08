@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['back_0',['Back',['../class_game_1_1_nemo.html#af74dfd7a3de75c4b167e3f45bee9b523',1,'Game::Nemo']]]
+  ['active_0',['active',['../class_game_1_1_nemo.html#a9dd7680fb3fc656fd34e866a07069e05',1,'Game::Nemo']]],
+  ['alive_1',['alive',['../class_game_1_1_nemo.html#aa3422ba7f77d42cd8f6206cdeb91ee55',1,'Game::Nemo']]]
 ];

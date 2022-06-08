@@ -87,19 +87,47 @@ $(document).ready(function(){initNavTree('_level_8cpp_source.html',''); initResi
 </div><!--header-->
 <div class="contents">
 <a href="_level_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#include &quot;<a class="code" href="_level_8h.html">Level.h</a>&quot;</span></div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno"><a class="line" href="class_game_1_1_level.html#aec33ce0f56894eda5c2bd8f822cfb733">    3</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_game_1_1_level.html#aec33ce0f56894eda5c2bd8f822cfb733">Game::Level::Draw</a>() { DrawTexture(<a class="code hl_variable" href="class_game_1_1_level.html#a309edd54d78f59d35663331d5819107b">Map</a>, 0, 0, WHITE); }</div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno"><a class="line" href="class_game_1_1_level.html#a41c752fb34988c5829df2d2c572e0e32">    5</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_game_1_1_level.html#a41c752fb34988c5829df2d2c572e0e32">Game::Level::Music</a>() {</div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span>  PlayMusicStream(music);</div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>  <span class="keywordtype">float</span> timePlayed = 0.0f;</div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>  <span class="keywordtype">bool</span> pause       = <span class="keyword">false</span>;  </div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>}</div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &lt;raylib.h&gt;</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno"><a class="line" href="class_game_1_1_level.html#a282aa55024bba9c56c6d36166424139d">    4</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_game_1_1_level.html#a282aa55024bba9c56c6d36166424139d">Game::Level::Screeninit</a>() </div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span>{</div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span>  <span class="comment">//Here would normally come a Switch Case. For now we initialize our Combat screen in the Main as a test</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span>}</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno"><a class="line" href="class_game_1_1_level.html#a9f7849e78f25d6599c80293b4579fd66">    9</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_game_1_1_level.html#a9f7849e78f25d6599c80293b4579fd66">Game::Level::ScreenDraw</a>() </div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>{ </div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    <span class="keywordflow">switch</span> (<a class="code hl_variable" href="class_game_1_1_level.html#a9ff6de646793c7bfb823221f68884eb2">Game::Level::currentscreen</a>)  <span class="comment">//For this Switch we determine here, what is drawn here</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    {</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>  <span class="keywordflow">case</span> GameScreen::TITLESCREEN: </div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>            DrawText(<span class="stringliteral">&quot;TITLESCREEN FOR CUSTODIA&quot;</span>, 500, 320, 20, GRAY); </div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>            DrawText(<span class="stringliteral">&quot;PRESS ENTER FOR GAME&quot;</span>, 500, 340, 20, GRAY);</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>            <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>        <span class="keywordflow">case</span> GameScreen::OVERWORLD:</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>        DrawTexture(Map, 0, 0, WHITE); </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>            <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>        <span class="keywordflow">case</span> GameScreen::COMBAT: </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>        DrawText(<span class="stringliteral">&quot;COMBATSCREEN FOR CUSTODIA&quot;</span>, 500, 320, 20, GRAY);</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>        DrawText(<span class="stringliteral">&quot;PRESS ENTER TO RETURN&quot;</span>, 500, 340, 20, GRAY);</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>      <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    }</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>}</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="comment">//void Game::Level::Draw() { DrawTexture(Map, 0, 0, WHITE); }</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="class_game_1_1_level.html#a41c752fb34988c5829df2d2c572e0e32">   32</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_game_1_1_level.html#a41c752fb34988c5829df2d2c572e0e32">Game::Level::Music</a>() {</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>  PlayMusicStream(music);</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>  <span class="keywordtype">float</span> timePlayed = 0.0f;</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>  <span class="keywordtype">bool</span> pause       = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>}</div>
 <div class="ttc" id="a_level_8h_html"><div class="ttname"><a href="_level_8h.html">Level.h</a></div></div>
-<div class="ttc" id="aclass_game_1_1_level_html_a309edd54d78f59d35663331d5819107b"><div class="ttname"><a href="class_game_1_1_level.html#a309edd54d78f59d35663331d5819107b">Game::Level::Map</a></div><div class="ttdeci">Texture2D Map</div><div class="ttdef"><b>Definition:</b> <a href="_level_8h_source.html#l00009">Level.h:9</a></div></div>
-<div class="ttc" id="aclass_game_1_1_level_html_a41c752fb34988c5829df2d2c572e0e32"><div class="ttname"><a href="class_game_1_1_level.html#a41c752fb34988c5829df2d2c572e0e32">Game::Level::Music</a></div><div class="ttdeci">void Music()</div><div class="ttdef"><b>Definition:</b> <a href="_level_8cpp_source.html#l00005">Level.cpp:5</a></div></div>
-<div class="ttc" id="aclass_game_1_1_level_html_aec33ce0f56894eda5c2bd8f822cfb733"><div class="ttname"><a href="class_game_1_1_level.html#aec33ce0f56894eda5c2bd8f822cfb733">Game::Level::Draw</a></div><div class="ttdeci">void Draw()</div><div class="ttdef"><b>Definition:</b> <a href="_level_8cpp_source.html#l00003">Level.cpp:3</a></div></div>
+<div class="ttc" id="aclass_game_1_1_level_html_a282aa55024bba9c56c6d36166424139d"><div class="ttname"><a href="class_game_1_1_level.html#a282aa55024bba9c56c6d36166424139d">Game::Level::Screeninit</a></div><div class="ttdeci">void Screeninit()</div><div class="ttdef"><b>Definition:</b> <a href="_level_8cpp_source.html#l00004">Level.cpp:4</a></div></div>
+<div class="ttc" id="aclass_game_1_1_level_html_a41c752fb34988c5829df2d2c572e0e32"><div class="ttname"><a href="class_game_1_1_level.html#a41c752fb34988c5829df2d2c572e0e32">Game::Level::Music</a></div><div class="ttdeci">void Music()</div><div class="ttdef"><b>Definition:</b> <a href="_level_8cpp_source.html#l00032">Level.cpp:32</a></div></div>
+<div class="ttc" id="aclass_game_1_1_level_html_a9f7849e78f25d6599c80293b4579fd66"><div class="ttname"><a href="class_game_1_1_level.html#a9f7849e78f25d6599c80293b4579fd66">Game::Level::ScreenDraw</a></div><div class="ttdeci">void ScreenDraw()</div><div class="ttdef"><b>Definition:</b> <a href="_level_8cpp_source.html#l00009">Level.cpp:9</a></div></div>
+<div class="ttc" id="aclass_game_1_1_level_html_a9ff6de646793c7bfb823221f68884eb2"><div class="ttname"><a href="class_game_1_1_level.html#a9ff6de646793c7bfb823221f68884eb2">Game::Level::currentscreen</a></div><div class="ttdeci">GameScreen currentscreen</div><div class="ttdef"><b>Definition:</b> <a href="_level_8h_source.html#l00013">Level.h:13</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['hp_0',['HP',['../class_game_1_1_nemo.html#a03239554e245d03d15a20a0c5dfd0244',1,'Game::Nemo']]]
+  ['direction_0',['Direction',['../class_game_1_1_nemo.html#a9773212bb880099d5af6eedf28dffead',1,'Game::Nemo']]]
 ];

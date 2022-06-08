@@ -1,10 +1,7 @@
 var searchData=
 [
-  ['faq_0',['FAQ',['../md__c___users__fried_source_repos_projektarbeit_ii_team2_doxygen_faq.html',1,'']]],
-  ['faq_2emd_1',['faq.md',['../faq_8md.html',1,'']]],
-  ['framerec_2',['frameRec',['../class_game_1_1_nemo.html#ab7c1965c46238d65c0b68421ff66ff48',1,'Game::Nemo']]],
-  ['framescounter_3',['framesCounter',['../class_game_1_1_nemo.html#a78272b31821e4fdd9b1ffc6c5be0c339',1,'Game::Nemo']]],
-  ['framesspeed_4',['framesSpeed',['../class_game_1_1_nemo.html#a3e7de1be2250564f465deeb159ea9ceb',1,'Game::Nemo']]],
-  ['front_5',['Front',['../class_game_1_1_nemo.html#a83da4c8ade8f0b0cf7b7ca1d8be2e075',1,'Game::Nemo']]],
-  ['fxmp3_6',['fxMp3',['../class_game_1_1_nemo.html#addb988ce59a46c4efe03f6a2497cc388',1,'Game::Nemo']]]
+  ['direction_0',['direction',['../class_game_1_1_nemo.html#abbdb0ef6ff17e26335f6c4bde965ffaf',1,'Game::Nemo']]],
+  ['direction_1',['Direction',['../class_game_1_1_nemo.html#a9773212bb880099d5af6eedf28dffead',1,'Game::Nemo']]],
+  ['down_2',['DOWN',['../class_game_1_1_nemo.html#abbdb0ef6ff17e26335f6c4bde965ffafac4e0e4e3118472beeb2ae75827450f1f',1,'Game::Nemo']]],
+  ['draw_3',['Draw',['../class_game_1_1_level.html#aec33ce0f56894eda5c2bd8f822cfb733',1,'Game::Level::Draw()'],['../class_game_1_1_nemo.html#aceedd442d803373e468c4ce25b33fcea',1,'Game::Nemo::Draw()'],['../class_game_1_1_u_i.html#aab985f30242a4de5f84368c6fedfec82',1,'Game::UI::Draw()']]]
 ];

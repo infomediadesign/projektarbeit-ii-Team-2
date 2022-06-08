@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['_7enemo_0',['~Nemo',['../class_game_1_1_nemo.html#a9ef2b3d5898c1200393a9dc44c0ba66d',1,'Game::Nemo']]],
-  ['_7esprite_1',['~Sprite',['../class_game_1_1_sprite.html#a0885819a324d17e1350bd9d805f3f344',1,'Game::Sprite']]]
+  ['texture_5f_0',['texture_',['../class_game_1_1_sprite.html#a5c91f139a28bd5b8a0c4c9a8c0224f14',1,'Game::Sprite']]],
+  ['titlescreen_1',['TITLESCREEN',['../class_game_1_1_level.html#a605a468eab80cc37fd022e5f4541b92da9ea3a3599dfde990e6b243ce6622cc0e',1,'Game::Level']]]
 ];

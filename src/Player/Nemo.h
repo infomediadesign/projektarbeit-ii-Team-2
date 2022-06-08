@@ -19,17 +19,19 @@ namespace Game {
     
     enum class direction // Setting the Enum for the direction
     {
+      STAND,
       UP,
       DOWN,
       LEFT,
       RIGHT,
     };
-    direction Direction = direction::DOWN; // Setting the Standard for the Enum on down.
+    direction Direction = direction::DOWN; // Setting the Standard for the Enum on down.    
 
-    Texture2D Front = LoadTexture("assets/graphics/NemoFrontwalk-Sheet.png");
-    Texture2D Back  = LoadTexture("assets/graphics/NemoHintenWalk-Sheet.png");
-    Texture2D Left  = LoadTexture("assets/graphics/NemoLinksWalk-Sheet.png");
-    Texture2D Right = LoadTexture("assets/graphics/NemoRechtsWalk-Sheet.png");
+    Texture2D Stand = LoadTexture("assets/graphics/Nemo_StandingMutze.png");
+    Texture2D Front = LoadTexture("assets/graphics/Nemo_Walkfront.png");
+    Texture2D Back  = LoadTexture("assets/graphics/Nemo_Walkback.png");
+    Texture2D Left  = LoadTexture("assets/graphics/Nemo_Walkleft.png");
+    Texture2D Right = LoadTexture("assets/graphics/Nemo_Walkright.png");
 
     Sound fxMp3 = LoadSound("resources/BodyCrawlsGearBody FS047801.mp3"); // Load Mp3 audio file
 
@@ -39,6 +41,14 @@ namespace Game {
     int framesCounter  = 0;
     int framesSpeed    = 8; // animtation fps
     Rectangle nemorec  = {}; //The attributes for the Rectangle will be set in the Draw method.
+
+    // devide spritesheet into frames
+    //for the Standing Animation
+    Rectangle StandframeRec = { 0.0f, 0.0f, (float)Front.width / 4, (float)Front.height };
+    int Stand_currentFrame   = 0;
+    int Stand_framesCounter  = 0;
+    int Stand_framesSpeed    = 8; 
+    Rectangle Stand_nemorec  = {}; 
 
     void Update(); // Magical Shit will about to be committed in there! :D
 

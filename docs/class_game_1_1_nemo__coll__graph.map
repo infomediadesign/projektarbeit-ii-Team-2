@@ -1,8 +1,11 @@
 <map id="Game::Nemo" name="Game::Nemo">
-<area shape="rect" id="node1" title=" " alt="" coords="193,189,291,296"/>
+<area shape="rect" id="node1" title=" " alt="" coords="371,189,470,296"/>
 <area shape="rect" id="node2" title=" " alt="" coords="5,5,44,83"/>
-<area shape="rect" id="node3" title=" " alt="" coords="110,5,177,83"/>
-<area shape="rect" id="node4" title=" " alt="" coords="201,5,283,83"/>
-<area shape="rect" id="node5" title=" " alt="" coords="307,5,366,83"/>
-<area shape="rect" id="node6" title=" " alt="" coords="390,5,470,83"/>
+<area shape="rect" id="node3" title=" " alt="" coords="125,5,172,83"/>
+<area shape="rect" id="node4" title=" " alt="" coords="226,5,293,83"/>
+<area shape="rect" id="node5" title=" " alt="" coords="353,5,400,83"/>
+<area shape="rect" id="node6" title=" " alt="" coords="424,5,495,83"/>
+<area shape="rect" id="node7" title=" " alt="" coords="519,5,600,83"/>
+<area shape="rect" id="node8" title=" " alt="" coords="625,5,683,83"/>
+<area shape="rect" id="node9" title=" " alt="" coords="707,5,787,83"/>
 </map>

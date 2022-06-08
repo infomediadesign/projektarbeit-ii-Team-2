@@ -1,10 +1,12 @@
 <map id="Nemo.cpp" name="Nemo.cpp">
-<area shape="rect" id="node1" title=" " alt="" coords="158,5,239,32"/>
-<area shape="rect" id="node2" href="$_nemo_8h.html" title=" " alt="" coords="165,80,232,107"/>
-<area shape="rect" id="node3" href="$_sprite_8h.html" title=" " alt="" coords="75,155,141,181"/>
-<area shape="rect" id="node4" title=" " alt="" coords="5,229,69,256"/>
-<area shape="rect" id="node6" title=" " alt="" coords="165,155,232,181"/>
-<area shape="rect" id="node7" title=" " alt="" coords="256,155,325,181"/>
-<area shape="rect" id="node8" title=" " alt="" coords="349,155,405,181"/>
-<area shape="rect" id="node5" title=" " alt="" coords="94,229,149,256"/>
+<area shape="rect" id="node1" title=" " alt="" coords="347,5,429,32"/>
+<area shape="rect" id="node2" href="$_nemo_8h.html" title=" " alt="" coords="231,80,297,107"/>
+<area shape="rect" id="node9" href="$_level_8h.html" title=" " alt="" coords="357,80,419,107"/>
+<area shape="rect" id="node10" title=" " alt="" coords="444,80,516,107"/>
+<area shape="rect" id="node3" href="$_sprite_8h.html" title=" " alt="" coords="5,155,72,181"/>
+<area shape="rect" id="node4" title=" " alt="" coords="341,229,405,256"/>
+<area shape="rect" id="node6" title=" " alt="" coords="96,155,163,181"/>
+<area shape="rect" id="node7" title=" " alt="" coords="187,155,256,181"/>
+<area shape="rect" id="node8" title=" " alt="" coords="280,155,336,181"/>
+<area shape="rect" id="node5" title=" " alt="" coords="11,229,66,256"/>
 </map>

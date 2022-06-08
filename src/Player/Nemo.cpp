@@ -1,12 +1,13 @@
 #include "Nemo.h"
+
 #include "../Level/Level.h"
+
 #include <iostream>
 
-void Game::Nemo::Update() 
-{ 
-    /*there are many "or" stuff and it makes the code look like Spaghetti Bolognese,
-    but this Code allows the user to press only one Key while walking. It is also a lazy way to prevent the user
-    to run fast while running vertically.*/
+void Game::Nemo::Update() {
+  /*there are many "or" stuff and it makes the code look like Spaghetti Bolognese,
+  but this Code allows the user to press only one Key while walking. It is also a lazy way to prevent the user
+  to run fast while running vertically.*/
   if (active) {
     if (IsKeyDown(KEY_W) && IsKeyDown(KEY_D) //
         || IsKeyDown(KEY_W) && IsKeyDown(KEY_A) || IsKeyDown(KEY_S) && IsKeyDown(KEY_D) ||
@@ -102,45 +103,72 @@ void Game::Nemo::Update()
 
         frameRec.x = (float)currentFrame * (float)Right.width / 3;
       }
-    }
+    }      
+  }
+
+  else {
+  NemoPosition.x += walkspeed; // standing
+    Direction = direction::STAND;
+
+    // animataion
+
+    Stand_framesCounter++;
+
+    if (Stand_framesCounter >= (60 / Stand_framesSpeed)) {
+      Stand_framesCounter = 0;
+      Stand_currentFrame++;
+
+      if (Stand_currentFrame > 2)
+        Stand_currentFrame = 0;
+
+      StandframeRec.x = (float)Stand_currentFrame * (float)Right.width / 4;
+    }    
   }
 }
 
-void Game::Nemo::Draw() {
-  if (active) {
+  void Game::Nemo::Draw() {
+    if (active) {
+      nemorec = { NemoPosition.x + 8, NemoPosition.y + 8, nemowidth, nemoheight }; // The Attributes are set here.
+      DrawRectangleRec(nemorec, Color(00));
 
-    nemorec = { NemoPosition.x + 8, NemoPosition.y + 8, nemowidth, nemoheight }; // The Attributes are set here.
-    DrawRectangleRec(nemorec, Color(00));
-    // Draw nemo walking animation
+      // Draw nemo walking animation
 
-    switch (Direction) // A simple Enum and a Switch case solved all the problem before... I swear me beeing Retarded is
-                       // such a nuisance :(
+      switch (Direction) // A simple Enum and a Switch case solved all the problem before... I swear me beeing Retarded
+                         // is such a nuisance :(
+      {
+      case direction::UP:
+
+        DrawTextureRec(Front, frameRec, NemoPosition, WHITE); // Draw nemo animation backwards
+        nemorec;
+        break;
+
+      case direction::DOWN:
+
+        DrawTextureRec(Back, frameRec, NemoPosition, WHITE); // Draw nemo animation forwards
+        break;
+
+      case direction::LEFT:
+
+        DrawTextureRec(Left, frameRec, NemoPosition, WHITE); // Draw nemo animation left
+        break;
+
+      case direction::RIGHT:
+
+        DrawTextureRec(Right, frameRec, NemoPosition, WHITE); // Draw nemo animation right
+        break;        
+      }      
+    } 
+    /* funktioniert nicht!
+    else 
     {
-    case direction::UP:
-
-      DrawTextureRec(Back, frameRec, NemoPosition, WHITE); // Draw nemo animation backwards
-      nemorec;
-      break;
-
-    case direction::DOWN:
-
-      DrawTextureRec(Front, frameRec, NemoPosition, WHITE); // Draw nemo animation forwards
-      break;
-
-    case direction::LEFT:
-
-      DrawTextureRec(Left, frameRec, NemoPosition, WHITE); // Draw nemo animation left
-      break;
-
-    case direction::RIGHT:
-
-      DrawTextureRec(Right, frameRec, NemoPosition, WHITE); // Draw nemo animation right
-      break;
+        DrawTextureRec(Stand, StandframeRec, NemoPosition, WHITE); // Draw nemo animation right
     }
+    */ 
   }
-}
-  Game::Nemo::~Nemo() 
-{
+ 
+
+Game::Nemo::~Nemo() {
+  UnloadTexture(Stand);
   UnloadTexture(Front);
   UnloadTexture(Back);
   UnloadTexture(Right);
