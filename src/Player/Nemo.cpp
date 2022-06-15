@@ -110,7 +110,7 @@ void Game::Nemo::Update() {
   NemoPosition.x += walkspeed; // standing
     Direction = direction::STAND;
 
-    // animataion
+    // animation
 
     Stand_framesCounter++;
 
