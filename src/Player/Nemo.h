@@ -28,10 +28,10 @@ namespace Game {
     direction Direction = direction::DOWN; // Setting the Standard for the Enum on down.    
 
     Texture2D Stand = LoadTexture("assets/graphics/Nemo_StandingMutze.png");
-    Texture2D Front = LoadTexture("assets/graphics/Nemo_Walkfront.png");
-    Texture2D Back  = LoadTexture("assets/graphics/Nemo_Walkback.png");
-    Texture2D Left  = LoadTexture("assets/graphics/Nemo_Walkleft.png");
-    Texture2D Right = LoadTexture("assets/graphics/Nemo_Walkright.png");
+    Texture2D Front = LoadTexture("assets/graphics/Character/Nemo_Walkfront.png");
+    Texture2D Back  = LoadTexture("assets/graphics/Character/Nemo_Walkback.png");
+    Texture2D Left  = LoadTexture("assets/graphics/Character/Nemo_Walkleft.png");
+    Texture2D Right = LoadTexture("assets/graphics/Character/Nemo_Walkright.png");
 
     Sound fxMp3 = LoadSound("resources/BodyCrawlsGearBody FS047801.mp3"); // Load Mp3 audio file
 

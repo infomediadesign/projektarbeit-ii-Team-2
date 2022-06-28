@@ -10,7 +10,7 @@ namespace Game {
 
     enum class GameScreen { TITLESCREEN, OVERWORLD, COMBAT, PAUSEMENU, CUTSCENE }; //This Enum Class is there to set the Screens to TITLE etc.
 
-    GameScreen currentscreen = GameScreen::TITLESCREEN; //TitleScreens is the Start Screen
+    GameScreen currentscreen = GameScreen::COMBAT; //TitleScreens is the Start Screen
 
     void Screeninit();
 
