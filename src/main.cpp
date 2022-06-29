@@ -9,6 +9,7 @@
 #include <iostream>
 #include <memory>
 
+
 // Project = Custodia - Trapped in the past
 
 //@todo liste: @ Görkem und Nick
@@ -22,6 +23,7 @@ int main() {
   Image Epanox = LoadImage("assets/graphics/Epanox_Standing - Kopie.png");
   InitWindow(Game::ScreenWidth, Game::ScreenHeight, Game::PROJECT_NAME);
   SetWindowIcon(Epanox);
+
   InitAudioDevice(); // Initialize audio device
 
   SetTargetFPS(60);
@@ -33,6 +35,8 @@ int main() {
   // Initialization
   //--------------------------------------------------------------------------------------------
   Texture2D StandStil = LoadTexture("assets/graphics/Charakter_Vorschlag_vorne_laufen1.png");
+  Sound sound         = LoadSound("assets/audio/sfx/Forever Lost.wav");
+  
 
   Game::Level level;
   Game::UI ui;
@@ -56,8 +60,8 @@ int main() {
     // Update
     if (IsKeyDown(KEY_LEFT_CONTROL) && IsKeyPressed(KEY_F)) {
       ToggleFullscreen();
-    }
-
+    } 
+  
     level.Music(); // music
 
     // Begin drawing
@@ -133,8 +137,6 @@ int main() {
 
   // De-initialization here
   //--------------------------------------------------------------------------------------------
-
-  UnloadSound(nemo.fxMp3);
 
   CloseAudioDevice(); // Close audio device
 

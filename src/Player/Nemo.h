@@ -33,7 +33,9 @@ namespace Game {
     Texture2D Left  = LoadTexture("assets/graphics/Character/Nemo_Walkleft.png");
     Texture2D Right = LoadTexture("assets/graphics/Character/Nemo_Walkright.png");
 
-    Sound fxMp3 = LoadSound("resources/BodyCrawlsGearBody FS047801.mp3"); // Load Mp3 audio file
+    Sound WalkSound = LoadSound("assets/audio/sfx/07_Step_rock_01.wav"); // Load waking audio file
+
+    
 
     // devide spritesheet into frames
     Rectangle frameRec = { 0.0f, 0.0f, (float)Front.width / 3, (float)Front.height };
