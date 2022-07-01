@@ -11,6 +11,12 @@ class Player {
   float DEF;
   float Energy;
   bool turn = false;
+  Rectangle playerrec {
+    50,
+    50,
+    50,
+    50,
+  };
   };
 
 }
