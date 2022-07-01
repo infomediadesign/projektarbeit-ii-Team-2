@@ -1,11 +1,9 @@
 #pragma once
 #include <raylib.h>
-#include "../Combat/combat.h";
 
 namespace Game {
   class Level {
   public:
-    Combat combat;
     Texture2D Map = LoadTexture("assets/graphics/wintermap.png");
 
     Sound OutPyra = LoadSound("assets/audio/sfx/cave_theme_2.wav"); 
