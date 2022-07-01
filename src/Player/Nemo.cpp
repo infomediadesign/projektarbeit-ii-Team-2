@@ -11,6 +11,14 @@ void Game::Nemo::Update() {
 
 //no idea why the walking syx is so wierd, ill change that
 
+    /*if (sound) 
+    {        
+        if (IsKeyPressed(KEY_W) || IsKeyPressed(KEY_A) || IsKeyPressed(KEY_S) || IsKeyPressed(KEY_D)) 
+        {
+        PlaySound();             
+        }
+    }*/
+
    
   if (active) {
     if (IsKeyDown(KEY_W) && IsKeyDown(KEY_D) //
@@ -37,7 +45,7 @@ void Game::Nemo::Update() {
     if (IsKeyDown(KEY_W)) {
       NemoPosition.y -= walkspeed; // run forwards
       Direction = direction::UP;
-      PlaySound(WalkSound);
+      //PlaySound(WalkSound);
 
       // animation
       framesCounter++;
@@ -55,7 +63,7 @@ void Game::Nemo::Update() {
     if (IsKeyDown(KEY_A)) {
       NemoPosition.x -= walkspeed; // run left ->needs change
       Direction = direction::LEFT;
-      PlaySound(WalkSound);
+      //PlaySound(WalkSound);
 
       // animation
       framesCounter++;
@@ -73,7 +81,7 @@ void Game::Nemo::Update() {
     if (IsKeyDown(KEY_S)) {
       NemoPosition.y += walkspeed; // run backwards
       Direction = direction::DOWN;
-      PlaySound(WalkSound);
+      //PlaySound(WalkSound);
 
       // animtaion
       framesCounter++;
@@ -91,7 +99,7 @@ void Game::Nemo::Update() {
     if (IsKeyDown(KEY_D)) {
       NemoPosition.x += walkspeed; // run right
       Direction = direction::RIGHT;
-      PlaySound(WalkSound);
+      //PlaySound(WalkSound);
 
       // animataion
       framesCounter++;
@@ -171,6 +179,4 @@ Game::Nemo::~Nemo() {
   UnloadTexture(Back);
   UnloadTexture(Right);
   UnloadTexture(Left);
-
-  UnloadSound(WalkSound);
  }

@@ -16,6 +16,7 @@ namespace Game {
     Vector2 NemoPosition = { Game::ScreenWidth / 2, Game::ScreenHeight / 2 }; //Starting Point for Nemo
     bool alive = true;
     bool active = true; //This Bool determines, if Nemo is drawn, if it is set to false, Nemo dissapears from the Overworld
+    bool sound = true;  //This Bool deterimines, if Sound is Played
     
     enum class direction // Setting the Enum for the direction
     {
@@ -31,11 +32,7 @@ namespace Game {
     Texture2D Front = LoadTexture("assets/graphics/Character/Nemo_Walkfront.png");
     Texture2D Back  = LoadTexture("assets/graphics/Character/Nemo_Walkback.png");
     Texture2D Left  = LoadTexture("assets/graphics/Character/Nemo_Walkleft.png");
-    Texture2D Right = LoadTexture("assets/graphics/Character/Nemo_Walkright.png");
-
-    Sound WalkSound = LoadSound("assets/audio/sfx/07_Step_rock_01.wav"); // Load waking audio file
-    
-    
+    Texture2D Right = LoadTexture("assets/graphics/Character/Nemo_Walkright.png");    
 
     // devide spritesheet into frames
     Rectangle frameRec = { 0.0f, 0.0f, (float)Front.width / 3, (float)Front.height };

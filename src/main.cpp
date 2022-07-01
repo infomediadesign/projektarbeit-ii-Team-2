@@ -1,15 +1,14 @@
-﻿#include "Level/Level.h"
+﻿#include "Combat/combat.h"
+#include "Level/Level.h"
+#include "Level/UI.h"
 #include "Player/Nemo.h"
 #include "Sprite/Sprite.h"
-#include "Level/UI.h"
 #include "config.h"
 #include "raylib.h"
-#include "Combat/combat.h"
 
 #include <cstdlib>
 #include <iostream>
 #include <memory>
-
 
 // Project = Custodia - Trapped in the past
 
@@ -37,15 +36,15 @@ int main() {
   //--------------------------------------------------------------------------------------------
   Texture2D StandStil = LoadTexture("assets/graphics/Charakter_Vorschlag_vorne_laufen1.png");
   Sound sound         = LoadSound("assets/audio/sfx/Forever Lost.wav");
-  
 
   Game::Level level;
   Game::UI ui;
   Game::Nemo nemo; // Initializing the Nemo (Player) Class
   Game::Sprite spr(nemo.NemoPosition.x, nemo.NemoPosition.y, nemo.Front);
   Game::Sprite NPC(100, 100, StandStil);
-  Rectangle NPCRec = {}; //Rectangle Position has to be set after it is drawn, leaving it free is so much better, until it is called. Do not touch it!!!
-  bool NPCDraw = true; //To set the drawing if it is true or false. In short if it is draw or deleted
+  Rectangle NPCRec = {}; // Rectangle Position has to be set after it is drawn, leaving it free is so much better, until
+                         // it is called. Do not touch it!!!
+  bool NPCDraw = true;   // To set the drawing if it is true or false. In short if it is draw or deleted
 
   // Camera settings
   //--------------------------------------------------------------------------------------------
@@ -61,8 +60,8 @@ int main() {
     // Update
     if (IsKeyDown(KEY_LEFT_CONTROL) && IsKeyPressed(KEY_F)) {
       ToggleFullscreen();
-    } 
-  
+    }
+
     level.Music(); // music
     // Begin drawing
     //--------------------------------------------------------------------------------------------
@@ -92,8 +91,7 @@ int main() {
       nemo.Update(); // nemo walking movement and animation
       camera.target = Vector2 { nemo.NemoPosition.x + 20.0f, nemo.NemoPosition.y + 20.0f };
 
-      if (NPCDraw == true) 
-      {
+      if (NPCDraw == true) {
         NPCRec = { 100 + 8, 100 + 5, 16, 20 };
         DrawRectangleRec(NPCRec, Color(00));                    // COLOR is for the Transparency.
         DrawTexture(NPC.texture_, NPC.pos_x, NPC.pos_y, WHITE); // Drawing the Rectangle
@@ -105,26 +103,30 @@ int main() {
         // immediately back to the Combat screen
         // This happens, because the Player still collides with the player, deleting the NPC may work, but I still don´t
         // know if it worked.
-        NPCDraw = false; //NPC is deleted
-        NPCRec  = {}; //His Rectangle doesn´t get a position, so it is deleted instead, if you would set the attributes, the rectangle remains active instead
-        //It might not be clean, but it solves the issue for now
+        NPCDraw = false; // NPC is deleted
+        NPCRec = {}; // His Rectangle doesn´t get a position, so it is deleted instead, if you would set the attributes,
+                     // the rectangle remains active instead
+        // It might not be clean, but it solves the issue for now
       }
       break;
 
     case Game::Level::GameScreen::COMBAT:
 
-      nemo.active = false; //Nemo is set to false, so that he is not drawn in the Combat screen.
-      camera.target =Vector2 { Game::ScreenWidth / 2, Game::ScreenHeight / 2 }; // Setting Camera to a Constant Position. Otherwise it would follow Nemo
+      nemo.active = false; // Nemo is set to false, so that he is not drawn in the Combat screen.
+      camera.target =
+        Vector2 { Game::ScreenWidth / 2,
+                  Game::ScreenHeight / 2 }; // Setting Camera to a Constant Position. Otherwise it would follow Nemo
 
       if (IsKeyDown(KEY_ENTER)) {
         level.currentscreen = Game::Level::GameScreen::OVERWORLD;
       }
       break;
     }
-    
+
     EndMode2D(); // camera
 
-    if (level.currentscreen == Game::Level::GameScreen::OVERWORLD)//Setting it on an if case, so it is only drawn in OVERWORLD
+    if (level.currentscreen ==
+        Game::Level::GameScreen::OVERWORLD) // Setting it on an if case, so it is only drawn in OVERWORLD
     {
       ui.Draw(); // controlls description
     }
