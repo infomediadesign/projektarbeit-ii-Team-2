@@ -1,4 +1,5 @@
 ﻿#include "Combat/combat.h"
+#include "Level/GameAudio.h"
 #include "Level/Level.h"
 #include "Level/UI.h"
 #include "Player/Nemo.h"
@@ -38,6 +39,7 @@ int main() {
   Sound sound         = LoadSound("assets/audio/sfx/Forever Lost.wav");
 
   Game::Level level;
+  GameAudio::Load();
   Game::UI ui;
   Game::Nemo nemo; // Initializing the Nemo (Player) Class
   Game::Sprite spr(nemo.NemoPosition.x, nemo.NemoPosition.y, nemo.Front);
@@ -60,6 +62,10 @@ int main() {
     // Update
     if (IsKeyDown(KEY_LEFT_CONTROL) && IsKeyPressed(KEY_F)) {
       ToggleFullscreen();
+    }
+
+    if (IsKeyDown(KEY_P)) {
+      PlaySound(GameAudio::dialoge);
     }
 
     level.Music(); // music

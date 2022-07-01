@@ -1,5 +1,6 @@
 #pragma once
 #include "../Sprite/Sprite.h"
+#include "../Level/GameAudio.h"
 
 #include <config.h>
 #include <memory>

@@ -11,13 +11,13 @@ void Game::Nemo::Update() {
 
 //no idea why the walking syx is so wierd, ill change that
 
-    /*if (sound) 
+    if (sound) 
     {        
         if (IsKeyPressed(KEY_W) || IsKeyPressed(KEY_A) || IsKeyPressed(KEY_S) || IsKeyPressed(KEY_D)) 
         {
-        PlaySound();             
+        PlaySound(GameAudio::walking);             
         }
-    }*/
+    }
 
    
   if (active) {
