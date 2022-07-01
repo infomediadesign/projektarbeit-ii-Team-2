@@ -11,6 +11,8 @@
 #include <iostream>
 #include <memory>
 
+
+
 // Project = Custodia - Trapped in the past
 
 //@todo liste: @ Görkem und Nick
@@ -38,8 +40,8 @@ int main() {
   Texture2D StandStil = LoadTexture("assets/graphics/Charakter_Vorschlag_vorne_laufen1.png");
   Sound sound         = LoadSound("assets/audio/sfx/Forever Lost.wav");
 
-  Game::Level level;
   GameAudio::Load();
+  Game::Level level;
   Game::UI ui;
   Game::Nemo nemo; // Initializing the Nemo (Player) Class
   Game::Sprite spr(nemo.NemoPosition.x, nemo.NemoPosition.y, nemo.Front);
@@ -64,11 +66,24 @@ int main() {
       ToggleFullscreen();
     }
 
-    if (IsKeyDown(KEY_P)) {
-      PlaySound(GameAudio::dialoge);
+    //-----------------------Sound Tests---------------------------------------------------------------------
+    // if press P you hear battlescreen music = this is a test
+    if (IsKeyPressed(KEY_P)) {
+      PlaySound(GameAudio::battlemusic);
+      SetSoundVolume(GameAudio::battlemusic, float(0.005)); // Set volume for a sound (1.0 is max level) This is a test
+      //system("pause");
     }
 
-    level.Music(); // music
+    //This starts the music correctly, but the game doenst load :(
+    /*
+    PlaySound(GameAudio::battlemusic);
+    SetSoundVolume(GameAudio::battlemusic, float(0.005)); // Set volume for a sound (1.0 is max level) This is a test
+    system("pause"); -> Wihtout Systempause itll loop the start and sound crappy
+    */    
+     
+    //-------------------------------------------------------------------------------------------------------
+     
+    
     // Begin drawing
     //--------------------------------------------------------------------------------------------
     BeginDrawing();
@@ -138,7 +153,7 @@ int main() {
     }
 
     EndDrawing();
-    //--------------------------------------------------------------------------------------------
+//--------------------------------------------------------------------------------------------
 
   } // Main game loop end
     //--------------------------------------------------------------------------------------------
