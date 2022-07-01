@@ -37,7 +37,11 @@ void Game::Level::ScreenDraw()
 
 void Game::Level::Music() 
 {
+	if (IsKeyPressed(KEY_SPACE)) 
+	{
 	PlaySound(OutPyra);
+	}
+	
 }
 
 Game::Level::~Level() 
