@@ -6,7 +6,7 @@ namespace Game {
   public:
     Texture2D Map = LoadTexture("assets/graphics/wintermap.png");
 
-    Sound OutPyra = LoadSound("assets/audio/sfx/cave_theme_2.mp3"); 
+    Sound OutPyra = LoadSound("assets/audio/sfx/cave_theme_2.wav"); 
 
     enum class GameScreen { TITLESCREEN, OVERWORLD, COMBAT, PAUSEMENU, CUTSCENE }; //This Enum Class is there to set the Screens to TITLE etc.
 
