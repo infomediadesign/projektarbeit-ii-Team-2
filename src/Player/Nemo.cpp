@@ -8,6 +8,10 @@ void Game::Nemo::Update() {
   /*there are many "or" stuff and it makes the code look like Spaghetti Bolognese,
   but this Code allows the user to press only one Key while walking. It is also a lazy way to prevent the user
   to run fast while running vertically.*/
+
+//no idea why the walking syx is so wierd, ill change that
+
+   
   if (active) {
     if (IsKeyDown(KEY_W) && IsKeyDown(KEY_D) //
         || IsKeyDown(KEY_W) && IsKeyDown(KEY_A) || IsKeyDown(KEY_S) && IsKeyDown(KEY_D) ||
@@ -32,10 +36,8 @@ void Game::Nemo::Update() {
     // animation and movement
     if (IsKeyDown(KEY_W)) {
       NemoPosition.y -= walkspeed; // run forwards
-
-      PlaySound(fxMp3); // play sfx
-
       Direction = direction::UP;
+      PlaySound(WalkSound);
 
       // animation
       framesCounter++;
@@ -52,8 +54,8 @@ void Game::Nemo::Update() {
     }
     if (IsKeyDown(KEY_A)) {
       NemoPosition.x -= walkspeed; // run left ->needs change
-      PlaySound(fxMp3);            // play sfx
       Direction = direction::LEFT;
+      PlaySound(WalkSound);
 
       // animation
       framesCounter++;
@@ -70,8 +72,8 @@ void Game::Nemo::Update() {
     }
     if (IsKeyDown(KEY_S)) {
       NemoPosition.y += walkspeed; // run backwards
-      PlaySound(fxMp3);            // play sfx
       Direction = direction::DOWN;
+      PlaySound(WalkSound);
 
       // animtaion
       framesCounter++;
@@ -88,8 +90,8 @@ void Game::Nemo::Update() {
     }
     if (IsKeyDown(KEY_D)) {
       NemoPosition.x += walkspeed; // run right
-      PlaySound(fxMp3);            // play sfx
       Direction = direction::RIGHT;
+      PlaySound(WalkSound);
 
       // animataion
       framesCounter++;
@@ -124,6 +126,8 @@ void Game::Nemo::Update() {
       StandframeRec.x = (float)Stand_currentFrame * (float)Right.width / 4;
     }    
   }
+
+  
 }
 
   void Game::Nemo::Draw() {
@@ -158,13 +162,7 @@ void Game::Nemo::Update() {
         break;        
       }      
     } 
-    /* funktioniert nicht!
-    else 
-    {
-        DrawTextureRec(Stand, StandframeRec, NemoPosition, WHITE); // Draw nemo animation right
-    }
-    */ 
-  }
+   }
  
 
 Game::Nemo::~Nemo() {
@@ -173,4 +171,6 @@ Game::Nemo::~Nemo() {
   UnloadTexture(Back);
   UnloadTexture(Right);
   UnloadTexture(Left);
-}
+
+  UnloadSound(WalkSound);
+ }

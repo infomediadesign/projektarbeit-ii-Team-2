@@ -34,9 +34,12 @@ void Game::Level::ScreenDraw()
 
 //void Game::Level::Draw() { DrawTexture(Map, 0, 0, WHITE); }
 
-void Game::Level::Music() {
-  PlayMusicStream(music);
+void Game::Level::Music() 
+{
+	PlaySound(OutPyra);
+}
 
-  float timePlayed = 0.0f;
-  bool pause       = false;
+Game::Level::~Level() 
+{ 
+	UnloadSound(OutPyra);
 }
