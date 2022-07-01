@@ -2,8 +2,6 @@
 #include "../Combat/combat.h"
 #include <raylib.h>
 
-Game::Combat combat;
-
 void Game::Level::Screeninit() 
 {
   //Here would normally come a Switch Case. For now we initialize our Combat screen in the Main as a test
