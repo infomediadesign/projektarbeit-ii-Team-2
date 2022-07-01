@@ -12,7 +12,7 @@ class Player {
 	  int Energy = 2;
 	  int turn = false;
 	  int turnnumb = GetRandomValue(0, 100);
-	  Rectangle playerrec {400, 320, 50, 50};
+	  Rectangle playerrec {410, 320, 50, 50};
   
 	  //Everything the player does during Combat
 	  void update();
