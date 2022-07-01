@@ -4,10 +4,12 @@
 #include "Level/UI.h"
 #include "config.h"
 #include "raylib.h"
+#include "Combat/combat.h"
 
 #include <cstdlib>
 #include <iostream>
 #include <memory>
+
 
 // Project = Custodia - Trapped in the past
 
@@ -22,6 +24,7 @@ int main() {
   Image Epanox = LoadImage("assets/graphics/Epanox_Standing - Kopie.png");
   InitWindow(Game::ScreenWidth, Game::ScreenHeight, Game::PROJECT_NAME);
   SetWindowIcon(Epanox);
+
   InitAudioDevice(); // Initialize audio device
 
   SetTargetFPS(60);
@@ -33,6 +36,8 @@ int main() {
   // Initialization
   //--------------------------------------------------------------------------------------------
   Texture2D StandStil = LoadTexture("assets/graphics/Charakter_Vorschlag_vorne_laufen1.png");
+  Sound sound         = LoadSound("assets/audio/sfx/Forever Lost.wav");
+  
 
   Game::Level level;
   Game::UI ui;
@@ -56,10 +61,9 @@ int main() {
     // Update
     if (IsKeyDown(KEY_LEFT_CONTROL) && IsKeyPressed(KEY_F)) {
       ToggleFullscreen();
-    }
-
+    } 
+  
     level.Music(); // music
-
     // Begin drawing
     //--------------------------------------------------------------------------------------------
     BeginDrawing();
@@ -94,7 +98,7 @@ int main() {
         DrawRectangleRec(NPCRec, Color(00));                    // COLOR is for the Transparency.
         DrawTexture(NPC.texture_, NPC.pos_x, NPC.pos_y, WHITE); // Drawing the Rectangle
       }
-
+      // Collision check
       if (CheckCollisionRecs(NPCRec, nemo.nemorec)) // Where the Collision between Two Objects happen happens
       {
         level.currentscreen = Game::Level::GameScreen::COMBAT; // After Returning back to the OVERWORLD ya get
@@ -133,8 +137,6 @@ int main() {
 
   // De-initialization here
   //--------------------------------------------------------------------------------------------
-
-  UnloadSound(nemo.fxMp3);
 
   CloseAudioDevice(); // Close audio device
 

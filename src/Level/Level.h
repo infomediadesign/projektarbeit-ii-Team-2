@@ -1,16 +1,19 @@
 #pragma once
 #include <raylib.h>
+#include "../Combat/combat.h";
 
 namespace Game {
   class Level {
   public:
+    Combat combat;
     Texture2D Map = LoadTexture("assets/graphics/wintermap.png");
 
-    Music music = LoadMusicStream("resources/Hair-Trigger-WST011601.mp3"); // placeholder music
+    Sound OutPyra = LoadSound("assets/audio/sfx/cave_theme_2.wav"); 
 
     enum class GameScreen { TITLESCREEN, OVERWORLD, COMBAT, PAUSEMENU, CUTSCENE }; //This Enum Class is there to set the Screens to TITLE etc.
 
     GameScreen currentscreen = GameScreen::COMBAT; //TitleScreens is the Start Screen
+    //GameScreen currentscreen = GameScreen::TITLESCREEN; // TitleScreens is the Start Screen
 
     void Screeninit();
 
@@ -19,5 +22,7 @@ namespace Game {
     void Draw();
 
     void Music();
+
+    ~Level();
   };
-} // namespace Game
+} 

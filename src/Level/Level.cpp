@@ -1,4 +1,5 @@
 #include "Level.h"
+#include "../Combat/combat.h"
 #include <raylib.h>
 
 void Game::Level::Screeninit() 
@@ -21,17 +22,26 @@ void Game::Level::ScreenDraw()
 			break;
 
 		case GameScreen::COMBAT: 
-		DrawText("COMBATSCREEN FOR CUSTODIA", 500, 320, 20, GRAY);
-		DrawText("PRESS ENTER TO RETURN", 500, 340, 20, GRAY);
+		combat.Draw();
+		combat.update();
+		//DrawText("COMBATSCREEN FOR CUSTODIA", 500, 320, 20, GRAY);
+		//DrawText("PRESS ENTER TO RETURN", 500, 340, 20, GRAY);
       break;
 	}
 }
 
 //void Game::Level::Draw() { DrawTexture(Map, 0, 0, WHITE); }
 
-void Game::Level::Music() {
-  PlayMusicStream(music);
+void Game::Level::Music() 
+{
+	if (IsKeyPressed(KEY_SPACE)) 
+	{
+	PlaySound(OutPyra);
+	}
+	
+}
 
-  float timePlayed = 0.0f;
-  bool pause       = false;
+Game::Level::~Level() 
+{ 
+	UnloadSound(OutPyra);
 }
