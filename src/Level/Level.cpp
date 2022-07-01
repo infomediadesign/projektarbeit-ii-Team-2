@@ -1,6 +1,5 @@
 #include "Level.h"
 #include "../Combat/combat.h"
-#include "Level.h"
 #include <raylib.h>
 
 Game::Combat combat;
