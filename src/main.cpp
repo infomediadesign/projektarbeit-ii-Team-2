@@ -4,6 +4,7 @@
 #include "Level/UI.h"
 #include "config.h"
 #include "raylib.h"
+#include "Combat/combat.h"
 
 #include <cstdlib>
 #include <iostream>
@@ -59,7 +60,6 @@ int main() {
     }
 
     level.Music(); // music
-
     // Begin drawing
     //--------------------------------------------------------------------------------------------
     BeginDrawing();

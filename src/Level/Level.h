@@ -1,5 +1,6 @@
 #pragma once
 #include <raylib.h>
+#include "../Combat/combat.h";
 
 namespace Game {
   class Level {
