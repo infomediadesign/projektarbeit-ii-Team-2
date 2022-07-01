@@ -34,7 +34,7 @@ namespace Game {
     Texture2D Right = LoadTexture("assets/graphics/Character/Nemo_Walkright.png");
 
     Sound WalkSound = LoadSound("assets/audio/sfx/07_Step_rock_01.wav"); // Load waking audio file
-
+    
     
 
     // devide spritesheet into frames
