@@ -1,23 +1,17 @@
 #pragma once
-#include <raylib.h>
-#include "c_player.h"
-#include "c_enemy.h"
+#include "../Combat/Enemy.h"
+#include "../Combat/GameCharacter.h"
+#include "../Combat/Player.h"
 
-namespace Game {
-  class Combat {
+namespace Game 
+{
+  class Combat : public GameCharacter 
+  {
   public:
-	//Here will be set a overall general Combat class, where Player and Enemy Class will be initislized
-	
-	//initiallizes:
-	Sound BattleMusic = LoadSound("assets/audio/sfx/chibi-robot-b.ogg");
-	bool pause = false;
+    GameCharacter* player = new Player();
+    GameCharacter *enemy  = new Enemy();
 
-	Game::Player player;
-	Game::Enemy enemy;
-
-	void Draw();
-    void update();
-
-	~Combat();
+    void Draw();
+    void Update();
   };
 }

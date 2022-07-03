@@ -10,15 +10,15 @@ void Game::Nemo::Update() {
   to run fast while running vertically.*/
 
 //no idea why the walking syx is so wierd, ill change that
-
+  
    
   if (active) {
-    if (IsKeyDown(KEY_W) && IsKeyDown(KEY_D) //
+    /* if (IsKeyDown(KEY_W) && IsKeyDown(KEY_D) //
         || IsKeyDown(KEY_W) && IsKeyDown(KEY_A) || IsKeyDown(KEY_S) && IsKeyDown(KEY_D) ||
         IsKeyDown(KEY_S) && IsKeyDown(KEY_A) || IsKeyDown(KEY_A) && IsKeyDown(KEY_D)) {
       walkspeed     = 0;
       framesCounter = 0;
-    } else if (IsKeyDown(KEY_LEFT_SHIFT)) // Sprinting with Shift is so Giga Chad
+    } else*/ if (IsKeyDown(KEY_LEFT_SHIFT)) // Sprinting with Shift is so Giga Chad
     {
       walkspeed = 2.0;
     } else if (IsKeyDown(KEY_W) || IsKeyDown(KEY_S) || IsKeyDown(KEY_D) ||

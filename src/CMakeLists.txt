@@ -16,8 +16,7 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 add_executable(${PROJECT_NAME} main.cpp "Sprite/Sprite.h" "Sprite/Sprite.cpp" 
 "Player/Nemo.h" "Player/Nemo.cpp" 
 "Level/UI.h" "Level/UI.cpp" "Level/Level.h" "Level/Level.cpp" 
-"Combat/c_player.h" "Combat/c_enemy.h" "Combat/c_player.cpp" "Combat/c_enemy.cpp" "Combat/combat.h" "Combat/combat.cpp")
-
+ "Combat/GameCharacter.h" "Combat/GameCharacter.cpp" "Combat/Player.h" "Combat/Player.cpp" "Combat/Enemy.h" "Combat/Enemy.cpp" "Combat/Combat.h" "Combat/Combat.cpp")
 # Add config.h.in file
 configure_file(config.h.in config.h)
 

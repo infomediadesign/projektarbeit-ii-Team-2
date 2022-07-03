@@ -4,7 +4,6 @@
 #include "Level/UI.h"
 #include "config.h"
 #include "raylib.h"
-#include "Combat/combat.h"
 
 #include <cstdlib>
 #include <iostream>
@@ -38,7 +37,6 @@ int main() {
   Texture2D StandStil = LoadTexture("assets/graphics/Charakter_Vorschlag_vorne_laufen1.png");
   Sound sound         = LoadSound("assets/audio/sfx/Forever Lost.wav");
   
-
   Game::Level level;
   Game::UI ui;
   Game::Nemo nemo; // Initializing the Nemo (Player) Class
@@ -92,21 +90,32 @@ int main() {
       nemo.Update(); // nemo walking movement and animation
       camera.target = Vector2 { nemo.NemoPosition.x + 20.0f, nemo.NemoPosition.y + 20.0f };
 
+      //Debug to see the Collision marks
+       if (IsKeyDown(KEY_R)) {
+        DrawRectangleRec(nemo.nemorec, BLUE);
+        DrawRectangleRec(NPCRec, RED);
+      }
+
+
       if (NPCDraw == true) 
       {
         NPCRec = { 100 + 8, 100 + 5, 16, 20 };
-        DrawRectangleRec(NPCRec, Color(00));                    // COLOR is for the Transparency.
+        //DrawRectangleRec(NPCRec, Color(00));                    // COLOR is for the Transparency.
         DrawTexture(NPC.texture_, NPC.pos_x, NPC.pos_y, WHITE); // Drawing the Rectangle
       }
       // Collision check
-      if (CheckCollisionRecs(NPCRec, nemo.nemorec)) // Where the Collision between Two Objects happen happens
+      while (CheckCollisionRecs(NPCRec, nemo.nemorec)) // Where the Collision between Two Objects happen happens
       {
+
         level.currentscreen = Game::Level::GameScreen::COMBAT; // After Returning back to the OVERWORLD ya get
+      
         // immediately back to the Combat screen
         // This happens, because the Player still collides with the player, deleting the NPC may work, but I still don´t
         // know if it worked.
+
         NPCDraw = false; //NPC is deleted
-        NPCRec  = {}; //His Rectangle doesn´t get a position, so it is deleted instead, if you would set the attributes, the rectangle remains active instead
+        
+        NPCRec  = {};//His Rectangle doesn´t get a position, so it is deleted instead, if you would set the attributes, the rectangle remains active instead
         //It might not be clean, but it solves the issue for now
       }
       break;
@@ -128,6 +137,7 @@ int main() {
     {
       ui.Draw(); // controlls description
     }
+
 
     EndDrawing();
     //--------------------------------------------------------------------------------------------
