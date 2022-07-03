@@ -1,5 +1,4 @@
 #include "Level.h"
-
 #include <raylib.h>
 #include "config.h"
 
@@ -53,7 +52,7 @@ void Game::Level::ScreenDraw() {
 
 		case GameScreen::COMBAT: 
 
-		DrawTexture(Battlescreen, 0, 0, WHITE);
+		//DrawTexture(Battlescreen, 410, 320, WHITE);
 		//Draw Player
 		DrawRectangleRec(player->set_rec(), BLUE);
 		DrawText(TextFormat("Speed: %i", player->get_turnnumb()), player->set_rec().x, player->set_rec().y - 90, 20, BLUE);

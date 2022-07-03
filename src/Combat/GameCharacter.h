@@ -17,7 +17,7 @@ namespace Game
 
     virtual int getLives();
 
-    virtual int getArmor();
+    virtual int  getArmor();
 
     virtual int getStrength();
 

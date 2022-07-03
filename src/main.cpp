@@ -1,5 +1,4 @@
-﻿#include "Combat/combat.h"
-#include "Level/GameAudio.h"
+﻿#include "Level/GameAudio.h"
 #include "Level/Level.h"
 #include "Level/UI.h"
 #include "Player/Nemo.h"
@@ -116,12 +115,12 @@ int main() {
     ClearBackground(WHITE);
 
     //--- Collision will be put somewhere else soon
-    nemo.active = true;
+    /* nemo.active = true;
     nemo.Update(); // nemo walking movement and animation
     nemo.Draw();   // nemo walking movement and animation
     camera.target = Vector2 { nemo.NemoPosition.x + 20.0f, nemo.NemoPosition.y + 20.0f };   
 
-    DrawRectangleRec(recTile, YELLOW);
+    DrawRectangleRec(recTile, YELLOW);*/
     //--- Collision will be put somewhere else soon
 
     BeginMode2D(camera);
@@ -141,10 +140,10 @@ int main() {
       break;
 
     case Game::Level::GameScreen::OVERWORLD:
-      // nemo.active = true;
-      // nemo.Update(); // nemo walking movement and animation
-      // nemo.Draw();   // nemo walking movement and animation
-      // camera.target = Vector2 { nemo.NemoPosition.x + 20.0f, nemo.NemoPosition.y + 20.0f };
+       nemo.active = true;
+       nemo.Update(); // nemo walking movement and animation
+       nemo.Draw();   // nemo walking movement and animation
+       camera.target = Vector2 { nemo.NemoPosition.x + 20.0f, nemo.NemoPosition.y + 20.0f };
 
       if (NPCDraw == true) {
         NPCRec = { 100 + 8, 100 + 5, 16, 20 };

@@ -2,8 +2,8 @@
 #include <raylib.h>
 #include "../Player/Nemo.h"
 #include "config.h"
-#include "../Combat/GameCharacter.h"
-#include "../Combat/Combat.h"
+#include "../Combat/Player.h"
+#include "../Combat/Enemy.h"
 
 namespace Game {
   class Level {
@@ -15,9 +15,6 @@ namespace Game {
 
     GameCharacter *player       = new Player();
     GameCharacter *enemy        = new Enemy();
-
-    int wantedAction;
-    bool gameloop = true;
 
     void combat();
 

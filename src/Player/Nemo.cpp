@@ -22,7 +22,7 @@ void Game::Nemo::Update() {
 
    
   if (active) {
-    if (IsKeyDown(KEY_W) && IsKeyDown(KEY_D) 
+      /* if (IsKeyDown(KEY_W) && IsKeyDown(KEY_D) 
         || IsKeyDown(KEY_W) && IsKeyDown(KEY_A) 
         || IsKeyDown(KEY_S) && IsKeyDown(KEY_D) 
         || IsKeyDown(KEY_S) && IsKeyDown(KEY_A) 
@@ -31,7 +31,7 @@ void Game::Nemo::Update() {
     {
       walkspeed     = 0;
       framesCounter = 0;
-    } else if (IsKeyDown(KEY_LEFT_SHIFT)) // Sprinting 
+    } else*/ if (IsKeyDown(KEY_LEFT_SHIFT)) // Sprinting 
     {
       walkspeed = 2.0;
     } else if (IsKeyDown(KEY_W) || IsKeyDown(KEY_S) || IsKeyDown(KEY_D) ||
