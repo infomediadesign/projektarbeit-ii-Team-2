@@ -24,3 +24,8 @@ int Game::GameCharacter::get_turnnumb()
 	return turnnumb; 
 }
 
+void Game::GameCharacter::set_turnnumb(int turnnumb) 
+{ 
+	this->turnnumb = GetRandomValue(0, 100); 
+}
+

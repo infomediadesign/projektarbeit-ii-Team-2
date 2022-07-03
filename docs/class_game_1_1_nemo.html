@@ -96,16 +96,20 @@ $(document).ready(function(){initNavTree('class_game_1_1_nemo.html',''); initRes
 <div class="dynheader">
 Collaboration diagram for Game::Nemo:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_game_1_1_nemo__coll__graph.svg" width="798" height="302"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><!-- SVG 0 -->
 </div>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:abbdb0ef6ff17e26335f6c4bde965ffaf"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_1_1_nemo.html#abbdb0ef6ff17e26335f6c4bde965ffaf">direction</a> { <a class="el" href="class_game_1_1_nemo.html#abbdb0ef6ff17e26335f6c4bde965ffafafbaedde498cdead4f2780217646e9ba1">UP</a>
+<tr class="memitem:abbdb0ef6ff17e26335f6c4bde965ffaf"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_1_1_nemo.html#abbdb0ef6ff17e26335f6c4bde965ffaf">direction</a> { <br />
+&#160;&#160;<a class="el" href="class_game_1_1_nemo.html#abbdb0ef6ff17e26335f6c4bde965ffafadd135fb441de529b55c24775556f3a81">STAND</a>
+, <a class="el" href="class_game_1_1_nemo.html#abbdb0ef6ff17e26335f6c4bde965ffafafbaedde498cdead4f2780217646e9ba1">UP</a>
 , <a class="el" href="class_game_1_1_nemo.html#abbdb0ef6ff17e26335f6c4bde965ffafac4e0e4e3118472beeb2ae75827450f1f">DOWN</a>
 , <a class="el" href="class_game_1_1_nemo.html#abbdb0ef6ff17e26335f6c4bde965ffafa684d325a7303f52e64011467ff5c5758">LEFT</a>
-, <a class="el" href="class_game_1_1_nemo.html#abbdb0ef6ff17e26335f6c4bde965ffafa21507b40c80068eda19865706fdc2403">RIGHT</a>
+, <br />
+&#160;&#160;<a class="el" href="class_game_1_1_nemo.html#abbdb0ef6ff17e26335f6c4bde965ffafa21507b40c80068eda19865706fdc2403">RIGHT</a>
+<br />
  }</td></tr>
 <tr class="separator:abbdb0ef6ff17e26335f6c4bde965ffaf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -124,9 +128,9 @@ Public Attributes</h2></td></tr>
 <tr class="separator:a03239554e245d03d15a20a0c5dfd0244"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2b25672b142e60b8e500dbe2ea212ddd"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_1_1_nemo.html#a2b25672b142e60b8e500dbe2ea212ddd">walkspeed</a> = 1.5</td></tr>
 <tr class="separator:a2b25672b142e60b8e500dbe2ea212ddd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae20922d7aa7cc280e833eee68ac26c19"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_1_1_nemo.html#ae20922d7aa7cc280e833eee68ac26c19">nemowidth</a> = 16</td></tr>
+<tr class="memitem:ae20922d7aa7cc280e833eee68ac26c19"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_1_1_nemo.html#ae20922d7aa7cc280e833eee68ac26c19">nemowidth</a> = 32</td></tr>
 <tr class="separator:ae20922d7aa7cc280e833eee68ac26c19"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a347285404d2e734b3b171f1c809a68ab"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_1_1_nemo.html#a347285404d2e734b3b171f1c809a68ab">nemoheight</a> = 16</td></tr>
+<tr class="memitem:a347285404d2e734b3b171f1c809a68ab"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_1_1_nemo.html#a347285404d2e734b3b171f1c809a68ab">nemoheight</a> = 32</td></tr>
 <tr class="separator:a347285404d2e734b3b171f1c809a68ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aadbc7bc7701d5bab3cdbf7a31c91f9d4"><td class="memItemLeft" align="right" valign="top">Vector2&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_1_1_nemo.html#aadbc7bc7701d5bab3cdbf7a31c91f9d4">NemoPosition</a> = { Game::ScreenWidth / 2, Game::ScreenHeight / 2 }</td></tr>
 <tr class="separator:aadbc7bc7701d5bab3cdbf7a31c91f9d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -134,18 +138,20 @@ Public Attributes</h2></td></tr>
 <tr class="separator:aa3422ba7f77d42cd8f6206cdeb91ee55"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9dd7680fb3fc656fd34e866a07069e05"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_1_1_nemo.html#a9dd7680fb3fc656fd34e866a07069e05">active</a> = true</td></tr>
 <tr class="separator:a9dd7680fb3fc656fd34e866a07069e05"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aad44e0dd99a5b68876b7cec0be202d4c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_1_1_nemo.html#aad44e0dd99a5b68876b7cec0be202d4c">sound</a> = true</td></tr>
+<tr class="separator:aad44e0dd99a5b68876b7cec0be202d4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9773212bb880099d5af6eedf28dffead"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_game_1_1_nemo.html#abbdb0ef6ff17e26335f6c4bde965ffaf">direction</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_1_1_nemo.html#a9773212bb880099d5af6eedf28dffead">Direction</a> = <a class="el" href="class_game_1_1_nemo.html#abbdb0ef6ff17e26335f6c4bde965ffafac4e0e4e3118472beeb2ae75827450f1f">direction::DOWN</a></td></tr>
 <tr class="separator:a9773212bb880099d5af6eedf28dffead"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a83da4c8ade8f0b0cf7b7ca1d8be2e075"><td class="memItemLeft" align="right" valign="top">Texture2D&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_1_1_nemo.html#a83da4c8ade8f0b0cf7b7ca1d8be2e075">Front</a> = LoadTexture(&quot;assets/graphics/NemoFrontwalk-Sheet.png&quot;)</td></tr>
+<tr class="memitem:ae8412732b697a79d872c7a535e5ac8f1"><td class="memItemLeft" align="right" valign="top">Texture2D&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_1_1_nemo.html#ae8412732b697a79d872c7a535e5ac8f1">Stand</a> = LoadTexture(&quot;assets/graphics/Nemo_StandingMutze.png&quot;)</td></tr>
+<tr class="separator:ae8412732b697a79d872c7a535e5ac8f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a83da4c8ade8f0b0cf7b7ca1d8be2e075"><td class="memItemLeft" align="right" valign="top">Texture2D&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_1_1_nemo.html#a83da4c8ade8f0b0cf7b7ca1d8be2e075">Front</a> = LoadTexture(&quot;assets/graphics/Character/Nemo_Walkfront.png&quot;)</td></tr>
 <tr class="separator:a83da4c8ade8f0b0cf7b7ca1d8be2e075"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af74dfd7a3de75c4b167e3f45bee9b523"><td class="memItemLeft" align="right" valign="top">Texture2D&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_1_1_nemo.html#af74dfd7a3de75c4b167e3f45bee9b523">Back</a> = LoadTexture(&quot;assets/graphics/NemoHintenWalk-Sheet.png&quot;)</td></tr>
+<tr class="memitem:af74dfd7a3de75c4b167e3f45bee9b523"><td class="memItemLeft" align="right" valign="top">Texture2D&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_1_1_nemo.html#af74dfd7a3de75c4b167e3f45bee9b523">Back</a> = LoadTexture(&quot;assets/graphics/Character/Nemo_Walkback.png&quot;)</td></tr>
 <tr class="separator:af74dfd7a3de75c4b167e3f45bee9b523"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a18903bb35052d2bc622cff974a635b27"><td class="memItemLeft" align="right" valign="top">Texture2D&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_1_1_nemo.html#a18903bb35052d2bc622cff974a635b27">Left</a> = LoadTexture(&quot;assets/graphics/NemoLinksWalk-Sheet.png&quot;)</td></tr>
+<tr class="memitem:a18903bb35052d2bc622cff974a635b27"><td class="memItemLeft" align="right" valign="top">Texture2D&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_1_1_nemo.html#a18903bb35052d2bc622cff974a635b27">Left</a> = LoadTexture(&quot;assets/graphics/Character/Nemo_Walkleft.png&quot;)</td></tr>
 <tr class="separator:a18903bb35052d2bc622cff974a635b27"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2a484f9e41da805bd5e9b6d683544c3c"><td class="memItemLeft" align="right" valign="top">Texture2D&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_1_1_nemo.html#a2a484f9e41da805bd5e9b6d683544c3c">Right</a> = LoadTexture(&quot;assets/graphics/NemoRechtsWalk-Sheet.png&quot;)</td></tr>
+<tr class="memitem:a2a484f9e41da805bd5e9b6d683544c3c"><td class="memItemLeft" align="right" valign="top">Texture2D&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_1_1_nemo.html#a2a484f9e41da805bd5e9b6d683544c3c">Right</a> = LoadTexture(&quot;assets/graphics/Character/Nemo_Walkright.png&quot;)</td></tr>
 <tr class="separator:a2a484f9e41da805bd5e9b6d683544c3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:addb988ce59a46c4efe03f6a2497cc388"><td class="memItemLeft" align="right" valign="top">Sound&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_1_1_nemo.html#addb988ce59a46c4efe03f6a2497cc388">fxMp3</a> = LoadSound(&quot;resources/BodyCrawlsGearBody FS047801.mp3&quot;)</td></tr>
-<tr class="separator:addb988ce59a46c4efe03f6a2497cc388"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab7c1965c46238d65c0b68421ff66ff48"><td class="memItemLeft" align="right" valign="top">Rectangle&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_1_1_nemo.html#ab7c1965c46238d65c0b68421ff66ff48">frameRec</a> = { 0.0f, 0.0f, (float)Front.width / 3, (float)Front.height }</td></tr>
 <tr class="separator:ab7c1965c46238d65c0b68421ff66ff48"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0c2d560dc87566d29937e5d619632187"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_1_1_nemo.html#a0c2d560dc87566d29937e5d619632187">currentFrame</a> = 0</td></tr>
@@ -156,10 +162,20 @@ Public Attributes</h2></td></tr>
 <tr class="separator:a3e7de1be2250564f465deeb159ea9ceb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6eeebce19217bd8666166e4018b8ffeb"><td class="memItemLeft" align="right" valign="top">Rectangle&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_1_1_nemo.html#a6eeebce19217bd8666166e4018b8ffeb">nemorec</a> = {}</td></tr>
 <tr class="separator:a6eeebce19217bd8666166e4018b8ffeb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8e5fbf7fb9e5cdf5f947922e68b21c7d"><td class="memItemLeft" align="right" valign="top">Rectangle&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_1_1_nemo.html#a8e5fbf7fb9e5cdf5f947922e68b21c7d">StandframeRec</a> = { 0.0f, 0.0f, (float)Front.width / 4, (float)Front.height }</td></tr>
+<tr class="separator:a8e5fbf7fb9e5cdf5f947922e68b21c7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad37f16068c145c413cb3b98a9384c5f5"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_1_1_nemo.html#ad37f16068c145c413cb3b98a9384c5f5">Stand_currentFrame</a> = 0</td></tr>
+<tr class="separator:ad37f16068c145c413cb3b98a9384c5f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a817e29e709a7e5c42971e51959027c11"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_1_1_nemo.html#a817e29e709a7e5c42971e51959027c11">Stand_framesCounter</a> = 0</td></tr>
+<tr class="separator:a817e29e709a7e5c42971e51959027c11"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af81d99a11d7eadf829678aebb384e524"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_1_1_nemo.html#af81d99a11d7eadf829678aebb384e524">Stand_framesSpeed</a> = 8</td></tr>
+<tr class="separator:af81d99a11d7eadf829678aebb384e524"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af15fde38f8bb936d2d971d143369222e"><td class="memItemLeft" align="right" valign="top">Rectangle&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_1_1_nemo.html#af15fde38f8bb936d2d971d143369222e">Stand_nemorec</a> = {}</td></tr>
+<tr class="separator:af15fde38f8bb936d2d971d143369222e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p class="definition">Definition at line <a class="el" href="_nemo_8h_source.html#l00010">10</a> of file <a class="el" href="_nemo_8h_source.html">Nemo.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_nemo_8h_source.html#l00011">11</a> of file <a class="el" href="_nemo_8h_source.html">Nemo.h</a>.</p>
 </div><h2 class="groupheader">Member Enumeration Documentation</h2>
 <a id="abbdb0ef6ff17e26335f6c4bde965ffaf" name="abbdb0ef6ff17e26335f6c4bde965ffaf"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#abbdb0ef6ff17e26335f6c4bde965ffaf">&#9670;&nbsp;</a></span>direction</h2>
@@ -181,13 +197,14 @@ Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="abbdb0ef6ff17e26335f6c4bde965ffafafbaedde498cdead4f2780217646e9ba1" name="abbdb0ef6ff17e26335f6c4bde965ffafafbaedde498cdead4f2780217646e9ba1"></a>UP&#160;</td><td class="fielddoc"></td></tr>
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="abbdb0ef6ff17e26335f6c4bde965ffafadd135fb441de529b55c24775556f3a81" name="abbdb0ef6ff17e26335f6c4bde965ffafadd135fb441de529b55c24775556f3a81"></a>STAND&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="abbdb0ef6ff17e26335f6c4bde965ffafafbaedde498cdead4f2780217646e9ba1" name="abbdb0ef6ff17e26335f6c4bde965ffafafbaedde498cdead4f2780217646e9ba1"></a>UP&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="abbdb0ef6ff17e26335f6c4bde965ffafac4e0e4e3118472beeb2ae75827450f1f" name="abbdb0ef6ff17e26335f6c4bde965ffafac4e0e4e3118472beeb2ae75827450f1f"></a>DOWN&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="abbdb0ef6ff17e26335f6c4bde965ffafa684d325a7303f52e64011467ff5c5758" name="abbdb0ef6ff17e26335f6c4bde965ffafa684d325a7303f52e64011467ff5c5758"></a>LEFT&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="abbdb0ef6ff17e26335f6c4bde965ffafa21507b40c80068eda19865706fdc2403" name="abbdb0ef6ff17e26335f6c4bde965ffafa21507b40c80068eda19865706fdc2403"></a>RIGHT&#160;</td><td class="fielddoc"></td></tr>
 </table>
 
-<p class="definition">Definition at line <a class="el" href="_nemo_8h_source.html#l00020">20</a> of file <a class="el" href="_nemo_8h_source.html">Nemo.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_nemo_8h_source.html#l00022">22</a> of file <a class="el" href="_nemo_8h_source.html">Nemo.h</a>.</p>
 
 </div>
 </div>
@@ -207,7 +224,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_nemo_8cpp_source.html#l00144">144</a> of file <a class="el" href="_nemo_8cpp_source.html">Nemo.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_nemo_8cpp_source.html#l00177">177</a> of file <a class="el" href="_nemo_8cpp_source.html">Nemo.cpp</a>.</p>
 
 </div>
 </div>
@@ -227,7 +244,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_nemo_8cpp_source.html#l00111">111</a> of file <a class="el" href="_nemo_8cpp_source.html">Nemo.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_nemo_8cpp_source.html#l00142">142</a> of file <a class="el" href="_nemo_8cpp_source.html">Nemo.cpp</a>.</p>
 
 </div>
 </div>
@@ -246,7 +263,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_nemo_8cpp_source.html#l00005">5</a> of file <a class="el" href="_nemo_8cpp_source.html">Nemo.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_nemo_8cpp_source.html#l00007">7</a> of file <a class="el" href="_nemo_8cpp_source.html">Nemo.cpp</a>.</p>
 
 </div>
 </div>
@@ -263,7 +280,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_nemo_8h_source.html#l00018">18</a> of file <a class="el" href="_nemo_8h_source.html">Nemo.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_nemo_8h_source.html#l00019">19</a> of file <a class="el" href="_nemo_8h_source.html">Nemo.h</a>.</p>
 
 </div>
 </div>
@@ -279,7 +296,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_nemo_8h_source.html#l00017">17</a> of file <a class="el" href="_nemo_8h_source.html">Nemo.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_nemo_8h_source.html#l00018">18</a> of file <a class="el" href="_nemo_8h_source.html">Nemo.h</a>.</p>
 
 </div>
 </div>
@@ -290,12 +307,12 @@ Public Attributes</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Texture2D Game::Nemo::Back = LoadTexture(&quot;assets/graphics/NemoHintenWalk-Sheet.png&quot;)</td>
+          <td class="memname">Texture2D Game::Nemo::Back = LoadTexture(&quot;assets/graphics/Character/Nemo_Walkback.png&quot;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_nemo_8h_source.html#l00030">30</a> of file <a class="el" href="_nemo_8h_source.html">Nemo.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_nemo_8h_source.html#l00034">34</a> of file <a class="el" href="_nemo_8h_source.html">Nemo.h</a>.</p>
 
 </div>
 </div>
@@ -311,7 +328,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_nemo_8h_source.html#l00038">38</a> of file <a class="el" href="_nemo_8h_source.html">Nemo.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_nemo_8h_source.html#l00040">40</a> of file <a class="el" href="_nemo_8h_source.html">Nemo.h</a>.</p>
 
 </div>
 </div>
@@ -327,7 +344,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_nemo_8h_source.html#l00027">27</a> of file <a class="el" href="_nemo_8h_source.html">Nemo.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_nemo_8h_source.html#l00030">30</a> of file <a class="el" href="_nemo_8h_source.html">Nemo.h</a>.</p>
 
 </div>
 </div>
@@ -343,7 +360,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_nemo_8h_source.html#l00037">37</a> of file <a class="el" href="_nemo_8h_source.html">Nemo.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_nemo_8h_source.html#l00039">39</a> of file <a class="el" href="_nemo_8h_source.html">Nemo.h</a>.</p>
 
 </div>
 </div>
@@ -359,7 +376,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_nemo_8h_source.html#l00039">39</a> of file <a class="el" href="_nemo_8h_source.html">Nemo.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_nemo_8h_source.html#l00041">41</a> of file <a class="el" href="_nemo_8h_source.html">Nemo.h</a>.</p>
 
 </div>
 </div>
@@ -375,7 +392,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_nemo_8h_source.html#l00040">40</a> of file <a class="el" href="_nemo_8h_source.html">Nemo.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_nemo_8h_source.html#l00042">42</a> of file <a class="el" href="_nemo_8h_source.html">Nemo.h</a>.</p>
 
 </div>
 </div>
@@ -386,28 +403,12 @@ Public Attributes</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Texture2D Game::Nemo::Front = LoadTexture(&quot;assets/graphics/NemoFrontwalk-Sheet.png&quot;)</td>
+          <td class="memname">Texture2D Game::Nemo::Front = LoadTexture(&quot;assets/graphics/Character/Nemo_Walkfront.png&quot;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_nemo_8h_source.html#l00029">29</a> of file <a class="el" href="_nemo_8h_source.html">Nemo.h</a>.</p>
-
-</div>
-</div>
-<a id="addb988ce59a46c4efe03f6a2497cc388" name="addb988ce59a46c4efe03f6a2497cc388"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#addb988ce59a46c4efe03f6a2497cc388">&#9670;&nbsp;</a></span>fxMp3</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">Sound Game::Nemo::fxMp3 = LoadSound(&quot;resources/BodyCrawlsGearBody FS047801.mp3&quot;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_nemo_8h_source.html#l00034">34</a> of file <a class="el" href="_nemo_8h_source.html">Nemo.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_nemo_8h_source.html#l00033">33</a> of file <a class="el" href="_nemo_8h_source.html">Nemo.h</a>.</p>
 
 </div>
 </div>
@@ -423,7 +424,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_nemo_8h_source.html#l00012">12</a> of file <a class="el" href="_nemo_8h_source.html">Nemo.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_nemo_8h_source.html#l00013">13</a> of file <a class="el" href="_nemo_8h_source.html">Nemo.h</a>.</p>
 
 </div>
 </div>
@@ -434,12 +435,12 @@ Public Attributes</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Texture2D Game::Nemo::Left = LoadTexture(&quot;assets/graphics/NemoLinksWalk-Sheet.png&quot;)</td>
+          <td class="memname">Texture2D Game::Nemo::Left = LoadTexture(&quot;assets/graphics/Character/Nemo_Walkleft.png&quot;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_nemo_8h_source.html#l00031">31</a> of file <a class="el" href="_nemo_8h_source.html">Nemo.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_nemo_8h_source.html#l00035">35</a> of file <a class="el" href="_nemo_8h_source.html">Nemo.h</a>.</p>
 
 </div>
 </div>
@@ -450,12 +451,12 @@ Public Attributes</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">float Game::Nemo::nemoheight = 16</td>
+          <td class="memname">float Game::Nemo::nemoheight = 32</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_nemo_8h_source.html#l00015">15</a> of file <a class="el" href="_nemo_8h_source.html">Nemo.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_nemo_8h_source.html#l00016">16</a> of file <a class="el" href="_nemo_8h_source.html">Nemo.h</a>.</p>
 
 </div>
 </div>
@@ -471,7 +472,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_nemo_8h_source.html#l00016">16</a> of file <a class="el" href="_nemo_8h_source.html">Nemo.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_nemo_8h_source.html#l00017">17</a> of file <a class="el" href="_nemo_8h_source.html">Nemo.h</a>.</p>
 
 </div>
 </div>
@@ -487,7 +488,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_nemo_8h_source.html#l00041">41</a> of file <a class="el" href="_nemo_8h_source.html">Nemo.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_nemo_8h_source.html#l00043">43</a> of file <a class="el" href="_nemo_8h_source.html">Nemo.h</a>.</p>
 
 </div>
 </div>
@@ -498,12 +499,12 @@ Public Attributes</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">float Game::Nemo::nemowidth = 16</td>
+          <td class="memname">float Game::Nemo::nemowidth = 32</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_nemo_8h_source.html#l00014">14</a> of file <a class="el" href="_nemo_8h_source.html">Nemo.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_nemo_8h_source.html#l00015">15</a> of file <a class="el" href="_nemo_8h_source.html">Nemo.h</a>.</p>
 
 </div>
 </div>
@@ -514,12 +515,124 @@ Public Attributes</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Texture2D Game::Nemo::Right = LoadTexture(&quot;assets/graphics/NemoRechtsWalk-Sheet.png&quot;)</td>
+          <td class="memname">Texture2D Game::Nemo::Right = LoadTexture(&quot;assets/graphics/Character/Nemo_Walkright.png&quot;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_nemo_8h_source.html#l00036">36</a> of file <a class="el" href="_nemo_8h_source.html">Nemo.h</a>.</p>
+
+</div>
+</div>
+<a id="aad44e0dd99a5b68876b7cec0be202d4c" name="aad44e0dd99a5b68876b7cec0be202d4c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aad44e0dd99a5b68876b7cec0be202d4c">&#9670;&nbsp;</a></span>sound</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Game::Nemo::sound = true</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_nemo_8h_source.html#l00020">20</a> of file <a class="el" href="_nemo_8h_source.html">Nemo.h</a>.</p>
+
+</div>
+</div>
+<a id="ae8412732b697a79d872c7a535e5ac8f1" name="ae8412732b697a79d872c7a535e5ac8f1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae8412732b697a79d872c7a535e5ac8f1">&#9670;&nbsp;</a></span>Stand</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Texture2D Game::Nemo::Stand = LoadTexture(&quot;assets/graphics/Nemo_StandingMutze.png&quot;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="_nemo_8h_source.html#l00032">32</a> of file <a class="el" href="_nemo_8h_source.html">Nemo.h</a>.</p>
+
+</div>
+</div>
+<a id="ad37f16068c145c413cb3b98a9384c5f5" name="ad37f16068c145c413cb3b98a9384c5f5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad37f16068c145c413cb3b98a9384c5f5">&#9670;&nbsp;</a></span>Stand_currentFrame</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Game::Nemo::Stand_currentFrame = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_nemo_8h_source.html#l00048">48</a> of file <a class="el" href="_nemo_8h_source.html">Nemo.h</a>.</p>
+
+</div>
+</div>
+<a id="a817e29e709a7e5c42971e51959027c11" name="a817e29e709a7e5c42971e51959027c11"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a817e29e709a7e5c42971e51959027c11">&#9670;&nbsp;</a></span>Stand_framesCounter</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Game::Nemo::Stand_framesCounter = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_nemo_8h_source.html#l00049">49</a> of file <a class="el" href="_nemo_8h_source.html">Nemo.h</a>.</p>
+
+</div>
+</div>
+<a id="af81d99a11d7eadf829678aebb384e524" name="af81d99a11d7eadf829678aebb384e524"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af81d99a11d7eadf829678aebb384e524">&#9670;&nbsp;</a></span>Stand_framesSpeed</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Game::Nemo::Stand_framesSpeed = 8</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_nemo_8h_source.html#l00050">50</a> of file <a class="el" href="_nemo_8h_source.html">Nemo.h</a>.</p>
+
+</div>
+</div>
+<a id="af15fde38f8bb936d2d971d143369222e" name="af15fde38f8bb936d2d971d143369222e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af15fde38f8bb936d2d971d143369222e">&#9670;&nbsp;</a></span>Stand_nemorec</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Rectangle Game::Nemo::Stand_nemorec = {}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_nemo_8h_source.html#l00051">51</a> of file <a class="el" href="_nemo_8h_source.html">Nemo.h</a>.</p>
+
+</div>
+</div>
+<a id="a8e5fbf7fb9e5cdf5f947922e68b21c7d" name="a8e5fbf7fb9e5cdf5f947922e68b21c7d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8e5fbf7fb9e5cdf5f947922e68b21c7d">&#9670;&nbsp;</a></span>StandframeRec</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Rectangle Game::Nemo::StandframeRec = { 0.0f, 0.0f, (float)Front.width / 4, (float)Front.height }</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_nemo_8h_source.html#l00047">47</a> of file <a class="el" href="_nemo_8h_source.html">Nemo.h</a>.</p>
 
 </div>
 </div>
@@ -535,7 +648,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_nemo_8h_source.html#l00013">13</a> of file <a class="el" href="_nemo_8h_source.html">Nemo.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_nemo_8h_source.html#l00014">14</a> of file <a class="el" href="_nemo_8h_source.html">Nemo.h</a>.</p>
 
 </div>
 </div>

@@ -88,52 +88,114 @@ $(document).ready(function(){initNavTree('_level_8cpp_source.html',''); initResi
 <div class="contents">
 <a href="_level_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#include &quot;<a class="code" href="_level_8h.html">Level.h</a>&quot;</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &lt;raylib.h&gt;</span></div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno"><a class="line" href="class_game_1_1_level.html#a282aa55024bba9c56c6d36166424139d">    4</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_game_1_1_level.html#a282aa55024bba9c56c6d36166424139d">Game::Level::Screeninit</a>() </div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span>{</div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span>  <span class="comment">//Here would normally come a Switch Case. For now we initialize our Combat screen in the Main as a test</span></div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span>}</div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno"><a class="line" href="class_game_1_1_level.html#a9f7849e78f25d6599c80293b4579fd66">    9</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_game_1_1_level.html#a9f7849e78f25d6599c80293b4579fd66">Game::Level::ScreenDraw</a>() </div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>{ </div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    <span class="keywordflow">switch</span> (<a class="code hl_variable" href="class_game_1_1_level.html#a9ff6de646793c7bfb823221f68884eb2">Game::Level::currentscreen</a>)  <span class="comment">//For this Switch we determine here, what is drawn here</span></div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    {</div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>  <span class="keywordflow">case</span> GameScreen::TITLESCREEN: </div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>            DrawText(<span class="stringliteral">&quot;TITLESCREEN FOR CUSTODIA&quot;</span>, 500, 320, 20, GRAY); </div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>            DrawText(<span class="stringliteral">&quot;PRESS ENTER FOR GAME&quot;</span>, 500, 340, 20, GRAY);</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>            <span class="keywordflow">break</span>;</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>        <span class="keywordflow">case</span> GameScreen::OVERWORLD:</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>        DrawTexture(Map, 0, 0, WHITE); </div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>            <span class="keywordflow">break</span>;</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>        <span class="keywordflow">case</span> GameScreen::COMBAT: </div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>        DrawText(<span class="stringliteral">&quot;COMBATSCREEN FOR CUSTODIA&quot;</span>, 500, 320, 20, GRAY);</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>        DrawText(<span class="stringliteral">&quot;PRESS ENTER TO RETURN&quot;</span>, 500, 340, 20, GRAY);</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>      <span class="keywordflow">break</span>;</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    }</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>}</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="comment">//void Game::Level::Draw() { DrawTexture(Map, 0, 0, WHITE); }</span></div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="class_game_1_1_level.html#a41c752fb34988c5829df2d2c572e0e32">   32</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_game_1_1_level.html#a41c752fb34988c5829df2d2c572e0e32">Game::Level::Music</a>() {</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>  PlayMusicStream(music);</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>  <span class="keywordtype">float</span> timePlayed = 0.0f;</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>  <span class="keywordtype">bool</span> pause       = <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>}</div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &quot;config.h&quot;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno"><a class="line" href="class_game_1_1_level.html#a04be32176350b7f0db7190200586b9ba">    5</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_game_1_1_level.html#a04be32176350b7f0db7190200586b9ba">Game::Level::combat</a>() </div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span>{ </div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>            <span class="keywordflow">if</span> (IsKeyPressed(KEY_R)) </div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>            {</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>                <a class="code hl_variable" href="class_game_1_1_level.html#a51d46df15d6246916308a35804b672fd">enemy</a>-&gt;<a class="code hl_function" href="class_game_1_1_game_character.html#ad57eb1765c2686f6f629febe31bf3a75">getDamage</a>(<a class="code hl_variable" href="class_game_1_1_level.html#aaec60935dcf5f1647e18acbb5deaa277">player</a>-&gt;<a class="code hl_function" href="class_game_1_1_game_character.html#adb45fbc96be4e402691d8daf4f4ca5fb">attack</a>()); </div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>            }</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>            <span class="keywordflow">if</span> (IsKeyPressed(KEY_T)) </div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>            {</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>                <a class="code hl_variable" href="class_game_1_1_level.html#aaec60935dcf5f1647e18acbb5deaa277">player</a>-&gt;<a class="code hl_function" href="class_game_1_1_game_character.html#ad57eb1765c2686f6f629febe31bf3a75">getDamage</a>(<a class="code hl_variable" href="class_game_1_1_level.html#a51d46df15d6246916308a35804b672fd">enemy</a>-&gt;<a class="code hl_function" href="class_game_1_1_game_character.html#adb45fbc96be4e402691d8daf4f4ca5fb">attack</a>());</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>            }</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>            <span class="keywordflow">if</span> (IsKeyPressed(KEY_Z))</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>            {</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>                <a class="code hl_variable" href="class_game_1_1_level.html#aaec60935dcf5f1647e18acbb5deaa277">player</a>-&gt;<a class="code hl_function" href="class_game_1_1_game_character.html#a094623b9c5cdb779619b9b5f24352da4">get_turnnumb</a>();</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>                <a class="code hl_variable" href="class_game_1_1_level.html#a51d46df15d6246916308a35804b672fd">enemy</a>-&gt;<a class="code hl_function" href="class_game_1_1_game_character.html#a094623b9c5cdb779619b9b5f24352da4">get_turnnumb</a>();</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>            }</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>     <span class="keywordflow">if</span> (<a class="code hl_variable" href="class_game_1_1_level.html#a51d46df15d6246916308a35804b672fd">enemy</a>-&gt;<a class="code hl_function" href="class_game_1_1_game_character.html#af4d2af2b244b68530d15bda98020bedf">getLives</a>() &lt;= 0) </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    {</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>      <span class="comment">//delete enemy;</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>      <span class="comment">//delete player;</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>     DrawText(<span class="stringliteral">&quot;YOU WON!&quot;</span>, 600, 320, 20, BLACK);</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    } </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<a class="code hl_variable" href="class_game_1_1_level.html#aaec60935dcf5f1647e18acbb5deaa277">player</a>-&gt;<a class="code hl_function" href="class_game_1_1_game_character.html#af4d2af2b244b68530d15bda98020bedf">getLives</a>() &lt;= 0) </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    {</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>     <span class="comment">// delete enemy;</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>     <span class="comment">// delete player;</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>      DrawText(<span class="stringliteral">&quot;YOU LOST!&quot;</span>, 600, 320, 20, BLACK);</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    }</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>}</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="class_game_1_1_level.html#a282aa55024bba9c56c6d36166424139d">   38</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_game_1_1_level.html#a282aa55024bba9c56c6d36166424139d">Game::Level::Screeninit</a>() {</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>  <span class="comment">//Here would normally come a Switch Case. For now we initialize our Combat screen in the Main as a test</span></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>}</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="class_game_1_1_level.html#a9f7849e78f25d6599c80293b4579fd66">   43</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_game_1_1_level.html#a9f7849e78f25d6599c80293b4579fd66">Game::Level::ScreenDraw</a>() {</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>  <span class="keywordflow">switch</span> (<a class="code hl_variable" href="class_game_1_1_level.html#a9ff6de646793c7bfb823221f68884eb2">Game::Level::currentscreen</a>) <span class="comment">// For this Switch we determine here, what is drawn here</span></div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>  {</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>  <span class="keywordflow">case</span> GameScreen::TITLESCREEN:</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    DrawText(<span class="stringliteral">&quot;TITLESCREEN FOR CUSTODIA&quot;</span>, 500, 320, 20, GRAY);</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    DrawText(<span class="stringliteral">&quot;PRESS ENTER FOR GAME&quot;</span>, 500, 340, 20, GRAY);</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>  <span class="keywordflow">case</span> GameScreen::OVERWORLD: DrawTexture(Map, 0, 0, WHITE); <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>        <span class="keywordflow">case</span> GameScreen::COMBAT: </div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>        <span class="comment">//DrawTexture(Battlescreen, 410, 320, WHITE);</span></div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>        <span class="comment">//Draw Player</span></div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>        DrawRectangleRec(player-&gt;set_rec(), BLUE);</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>        DrawText(TextFormat(<span class="stringliteral">&quot;Speed: %i&quot;</span>, player-&gt;get_turnnumb()), player-&gt;set_rec().x, player-&gt;set_rec().y - 90, 20, BLUE);</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>        DrawText(TextFormat(<span class="stringliteral">&quot;HP: %i&quot;</span>, player-&gt;getLives()), player-&gt;set_rec().x, player-&gt;set_rec().y - 70, 20, BLUE);</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>        DrawText(TextFormat(<span class="stringliteral">&quot;STR: %i&quot;</span>, player-&gt;getStrength()), player-&gt;set_rec().x, player-&gt;set_rec().y - 50, 20, BLUE);</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>        DrawText(TextFormat(<span class="stringliteral">&quot;DEF: %i&quot;</span>, player-&gt;getArmor()), player-&gt;set_rec().x, player-&gt;set_rec().y - 30, 20, BLUE);</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>        <span class="comment">//Draw enemy</span></div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>        DrawText(TextFormat(<span class="stringliteral">&quot;Speed: %i&quot;</span>, enemy-&gt;get_turnnumb()), enemy-&gt;set_rec().x, enemy-&gt;set_rec().y - 90, 20, RED);</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>        DrawRectangleRec(enemy-&gt;set_rec(), RED);</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>        DrawText(TextFormat(<span class="stringliteral">&quot;HP: %i&quot;</span>, enemy-&gt;getLives()), enemy-&gt;set_rec().x, enemy-&gt;set_rec().y - 70, 20, RED);</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>        DrawText(TextFormat(<span class="stringliteral">&quot;STR: %i&quot;</span>, enemy-&gt;getStrength()), enemy-&gt;set_rec().x, enemy-&gt;set_rec().y - 50, 20, RED);</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>        DrawText(TextFormat(<span class="stringliteral">&quot;DEF: %i&quot;</span>, enemy-&gt;getArmor()), enemy-&gt;set_rec().x, enemy-&gt;set_rec().y - 30, 20, RED);</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>        combat();</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>        <span class="comment">//DrawText(&quot;COMBATSCREEN FOR CUSTODIA&quot;, 500, 320, 20, GRAY);</span></div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>        <span class="comment">//DrawText(&quot;PRESS ENTER TO RETURN&quot;, 500, 340, 20, GRAY);</span></div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>      <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    }</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>}</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span><span class="comment">//void Game::Level::Draw() { DrawTexture(Map, 0, 0, WHITE); }</span></div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno"><a class="line" href="class_game_1_1_level.html#a41c752fb34988c5829df2d2c572e0e32">   79</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_game_1_1_level.html#a41c752fb34988c5829df2d2c572e0e32">Game::Level::Music</a>() {</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span> </div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>  <span class="keywordflow">if</span> (IsKeyPressed(KEY_SPACE)) {</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    SetSoundVolume(<a class="code hl_variable" href="namespace_game_audio.html#aa36b9208836934b58e86f4b46441edc8">GameAudio::titlescreenmusic</a>, <span class="keywordtype">float</span> (0.01)); <span class="comment">// Set volume for a sound (1.0 is max level) This is a test</span></div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    PlaySound(<a class="code hl_variable" href="namespace_game_audio.html#aa36b9208836934b58e86f4b46441edc8">GameAudio::titlescreenmusic</a>);</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    <span class="keywordflow">if</span> (IsKeyPressed(KEY_SPACE)) {</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>      PauseSound(<a class="code hl_variable" href="namespace_game_audio.html#aa36b9208836934b58e86f4b46441edc8">GameAudio::titlescreenmusic</a>);</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    }</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>  }</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>}</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno"><a class="line" href="class_game_1_1_level.html#a70875e348acd232acba7df8fd188f657">   90</a></span><a class="code hl_function" href="class_game_1_1_level.html#a70875e348acd232acba7df8fd188f657">Game::Level::~Level</a>() {}</div>
 <div class="ttc" id="a_level_8h_html"><div class="ttname"><a href="_level_8h.html">Level.h</a></div></div>
-<div class="ttc" id="aclass_game_1_1_level_html_a282aa55024bba9c56c6d36166424139d"><div class="ttname"><a href="class_game_1_1_level.html#a282aa55024bba9c56c6d36166424139d">Game::Level::Screeninit</a></div><div class="ttdeci">void Screeninit()</div><div class="ttdef"><b>Definition:</b> <a href="_level_8cpp_source.html#l00004">Level.cpp:4</a></div></div>
-<div class="ttc" id="aclass_game_1_1_level_html_a41c752fb34988c5829df2d2c572e0e32"><div class="ttname"><a href="class_game_1_1_level.html#a41c752fb34988c5829df2d2c572e0e32">Game::Level::Music</a></div><div class="ttdeci">void Music()</div><div class="ttdef"><b>Definition:</b> <a href="_level_8cpp_source.html#l00032">Level.cpp:32</a></div></div>
-<div class="ttc" id="aclass_game_1_1_level_html_a9f7849e78f25d6599c80293b4579fd66"><div class="ttname"><a href="class_game_1_1_level.html#a9f7849e78f25d6599c80293b4579fd66">Game::Level::ScreenDraw</a></div><div class="ttdeci">void ScreenDraw()</div><div class="ttdef"><b>Definition:</b> <a href="_level_8cpp_source.html#l00009">Level.cpp:9</a></div></div>
-<div class="ttc" id="aclass_game_1_1_level_html_a9ff6de646793c7bfb823221f68884eb2"><div class="ttname"><a href="class_game_1_1_level.html#a9ff6de646793c7bfb823221f68884eb2">Game::Level::currentscreen</a></div><div class="ttdeci">GameScreen currentscreen</div><div class="ttdef"><b>Definition:</b> <a href="_level_8h_source.html#l00013">Level.h:13</a></div></div>
+<div class="ttc" id="aclass_game_1_1_game_character_html_a094623b9c5cdb779619b9b5f24352da4"><div class="ttname"><a href="class_game_1_1_game_character.html#a094623b9c5cdb779619b9b5f24352da4">Game::GameCharacter::get_turnnumb</a></div><div class="ttdeci">virtual int get_turnnumb()</div><div class="ttdef"><b>Definition:</b> <a href="_game_character_8cpp_source.html#l00022">GameCharacter.cpp:22</a></div></div>
+<div class="ttc" id="aclass_game_1_1_game_character_html_ad57eb1765c2686f6f629febe31bf3a75"><div class="ttname"><a href="class_game_1_1_game_character.html#ad57eb1765c2686f6f629febe31bf3a75">Game::GameCharacter::getDamage</a></div><div class="ttdeci">virtual void getDamage(std::vector&lt; int &gt; damage)=0</div></div>
+<div class="ttc" id="aclass_game_1_1_game_character_html_adb45fbc96be4e402691d8daf4f4ca5fb"><div class="ttname"><a href="class_game_1_1_game_character.html#adb45fbc96be4e402691d8daf4f4ca5fb">Game::GameCharacter::attack</a></div><div class="ttdeci">virtual std::vector&lt; int &gt; attack()=0</div></div>
+<div class="ttc" id="aclass_game_1_1_game_character_html_af4d2af2b244b68530d15bda98020bedf"><div class="ttname"><a href="class_game_1_1_game_character.html#af4d2af2b244b68530d15bda98020bedf">Game::GameCharacter::getLives</a></div><div class="ttdeci">virtual int getLives()</div><div class="ttdef"><b>Definition:</b> <a href="_game_character_8cpp_source.html#l00005">GameCharacter.cpp:5</a></div></div>
+<div class="ttc" id="aclass_game_1_1_level_html_a04be32176350b7f0db7190200586b9ba"><div class="ttname"><a href="class_game_1_1_level.html#a04be32176350b7f0db7190200586b9ba">Game::Level::combat</a></div><div class="ttdeci">void combat()</div><div class="ttdef"><b>Definition:</b> <a href="_level_8cpp_source.html#l00005">Level.cpp:5</a></div></div>
+<div class="ttc" id="aclass_game_1_1_level_html_a282aa55024bba9c56c6d36166424139d"><div class="ttname"><a href="class_game_1_1_level.html#a282aa55024bba9c56c6d36166424139d">Game::Level::Screeninit</a></div><div class="ttdeci">void Screeninit()</div><div class="ttdef"><b>Definition:</b> <a href="_level_8cpp_source.html#l00038">Level.cpp:38</a></div></div>
+<div class="ttc" id="aclass_game_1_1_level_html_a41c752fb34988c5829df2d2c572e0e32"><div class="ttname"><a href="class_game_1_1_level.html#a41c752fb34988c5829df2d2c572e0e32">Game::Level::Music</a></div><div class="ttdeci">void Music()</div><div class="ttdef"><b>Definition:</b> <a href="_level_8cpp_source.html#l00079">Level.cpp:79</a></div></div>
+<div class="ttc" id="aclass_game_1_1_level_html_a51d46df15d6246916308a35804b672fd"><div class="ttname"><a href="class_game_1_1_level.html#a51d46df15d6246916308a35804b672fd">Game::Level::enemy</a></div><div class="ttdeci">GameCharacter * enemy</div><div class="ttdef"><b>Definition:</b> <a href="_level_8h_source.html#l00017">Level.h:17</a></div></div>
+<div class="ttc" id="aclass_game_1_1_level_html_a70875e348acd232acba7df8fd188f657"><div class="ttname"><a href="class_game_1_1_level.html#a70875e348acd232acba7df8fd188f657">Game::Level::~Level</a></div><div class="ttdeci">~Level()</div><div class="ttdef"><b>Definition:</b> <a href="_level_8cpp_source.html#l00090">Level.cpp:90</a></div></div>
+<div class="ttc" id="aclass_game_1_1_level_html_a9f7849e78f25d6599c80293b4579fd66"><div class="ttname"><a href="class_game_1_1_level.html#a9f7849e78f25d6599c80293b4579fd66">Game::Level::ScreenDraw</a></div><div class="ttdeci">void ScreenDraw()</div><div class="ttdef"><b>Definition:</b> <a href="_level_8cpp_source.html#l00043">Level.cpp:43</a></div></div>
+<div class="ttc" id="aclass_game_1_1_level_html_a9ff6de646793c7bfb823221f68884eb2"><div class="ttname"><a href="class_game_1_1_level.html#a9ff6de646793c7bfb823221f68884eb2">Game::Level::currentscreen</a></div><div class="ttdeci">GameScreen currentscreen</div><div class="ttdef"><b>Definition:</b> <a href="_level_8h_source.html#l00023">Level.h:23</a></div></div>
+<div class="ttc" id="aclass_game_1_1_level_html_aaec60935dcf5f1647e18acbb5deaa277"><div class="ttname"><a href="class_game_1_1_level.html#aaec60935dcf5f1647e18acbb5deaa277">Game::Level::player</a></div><div class="ttdeci">GameCharacter * player</div><div class="ttdef"><b>Definition:</b> <a href="_level_8h_source.html#l00016">Level.h:16</a></div></div>
+<div class="ttc" id="anamespace_game_audio_html_aa36b9208836934b58e86f4b46441edc8"><div class="ttname"><a href="namespace_game_audio.html#aa36b9208836934b58e86f4b46441edc8">GameAudio::titlescreenmusic</a></div><div class="ttdeci">Sound titlescreenmusic</div><div class="ttdef"><b>Definition:</b> <a href="_game_audio_8cpp_source.html#l00004">GameAudio.cpp:4</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="_level_8cpp.html">Level.cpp</a></li>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_f5b2029e7f5ef321e23f1af6d7704298.html">Level</a></li><li class="navelem"><a class="el" href="_level_8cpp.html">Level.cpp</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
   </ul>
 </div>

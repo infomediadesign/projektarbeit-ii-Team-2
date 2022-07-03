@@ -1,6 +1,7 @@
 var class_game_1_1_nemo =
 [
     [ "direction", "class_game_1_1_nemo.html#abbdb0ef6ff17e26335f6c4bde965ffaf", [
+      [ "STAND", "class_game_1_1_nemo.html#abbdb0ef6ff17e26335f6c4bde965ffafadd135fb441de529b55c24775556f3a81", null ],
       [ "UP", "class_game_1_1_nemo.html#abbdb0ef6ff17e26335f6c4bde965ffafafbaedde498cdead4f2780217646e9ba1", null ],
       [ "DOWN", "class_game_1_1_nemo.html#abbdb0ef6ff17e26335f6c4bde965ffafac4e0e4e3118472beeb2ae75827450f1f", null ],
       [ "LEFT", "class_game_1_1_nemo.html#abbdb0ef6ff17e26335f6c4bde965ffafa684d325a7303f52e64011467ff5c5758", null ],
@@ -18,7 +19,6 @@ var class_game_1_1_nemo =
     [ "framesCounter", "class_game_1_1_nemo.html#a78272b31821e4fdd9b1ffc6c5be0c339", null ],
     [ "framesSpeed", "class_game_1_1_nemo.html#a3e7de1be2250564f465deeb159ea9ceb", null ],
     [ "Front", "class_game_1_1_nemo.html#a83da4c8ade8f0b0cf7b7ca1d8be2e075", null ],
-    [ "fxMp3", "class_game_1_1_nemo.html#addb988ce59a46c4efe03f6a2497cc388", null ],
     [ "HP", "class_game_1_1_nemo.html#a03239554e245d03d15a20a0c5dfd0244", null ],
     [ "Left", "class_game_1_1_nemo.html#a18903bb35052d2bc622cff974a635b27", null ],
     [ "nemoheight", "class_game_1_1_nemo.html#a347285404d2e734b3b171f1c809a68ab", null ],
@@ -26,5 +26,12 @@ var class_game_1_1_nemo =
     [ "nemorec", "class_game_1_1_nemo.html#a6eeebce19217bd8666166e4018b8ffeb", null ],
     [ "nemowidth", "class_game_1_1_nemo.html#ae20922d7aa7cc280e833eee68ac26c19", null ],
     [ "Right", "class_game_1_1_nemo.html#a2a484f9e41da805bd5e9b6d683544c3c", null ],
+    [ "sound", "class_game_1_1_nemo.html#aad44e0dd99a5b68876b7cec0be202d4c", null ],
+    [ "Stand", "class_game_1_1_nemo.html#ae8412732b697a79d872c7a535e5ac8f1", null ],
+    [ "Stand_currentFrame", "class_game_1_1_nemo.html#ad37f16068c145c413cb3b98a9384c5f5", null ],
+    [ "Stand_framesCounter", "class_game_1_1_nemo.html#a817e29e709a7e5c42971e51959027c11", null ],
+    [ "Stand_framesSpeed", "class_game_1_1_nemo.html#af81d99a11d7eadf829678aebb384e524", null ],
+    [ "Stand_nemorec", "class_game_1_1_nemo.html#af15fde38f8bb936d2d971d143369222e", null ],
+    [ "StandframeRec", "class_game_1_1_nemo.html#a8e5fbf7fb9e5cdf5f947922e68b21c7d", null ],
     [ "walkspeed", "class_game_1_1_nemo.html#a2b25672b142e60b8e500dbe2ea212ddd", null ]
 ];

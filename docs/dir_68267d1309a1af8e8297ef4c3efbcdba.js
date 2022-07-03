@@ -1,20 +1,8 @@
 var dir_68267d1309a1af8e8297ef4c3efbcdba =
 [
-    [ "Level.cpp", "_level_8cpp.html", null ],
-    [ "Level.h", "_level_8h.html", [
-      [ "Game::Level", "class_game_1_1_level.html", "class_game_1_1_level" ]
-    ] ],
-    [ "main.cpp", "main_8cpp.html", "main_8cpp" ],
-    [ "Nemo.cpp", "_nemo_8cpp.html", null ],
-    [ "Nemo.h", "_nemo_8h.html", [
-      [ "Game::Nemo", "class_game_1_1_nemo.html", "class_game_1_1_nemo" ]
-    ] ],
-    [ "Sprite.cpp", "_sprite_8cpp.html", null ],
-    [ "Sprite.h", "_sprite_8h.html", [
-      [ "Game::Sprite", "class_game_1_1_sprite.html", "class_game_1_1_sprite" ]
-    ] ],
-    [ "UI.cpp", "_u_i_8cpp.html", null ],
-    [ "UI.h", "_u_i_8h.html", [
-      [ "Game::UI", "class_game_1_1_u_i.html", "class_game_1_1_u_i" ]
-    ] ]
+    [ "Combat", "dir_03ad476b150b4410ef7c03d72a245de4.html", "dir_03ad476b150b4410ef7c03d72a245de4" ],
+    [ "Level", "dir_f5b2029e7f5ef321e23f1af6d7704298.html", "dir_f5b2029e7f5ef321e23f1af6d7704298" ],
+    [ "Player", "dir_4998621c1c5dc7c07a022c0c5b821bc6.html", "dir_4998621c1c5dc7c07a022c0c5b821bc6" ],
+    [ "Sprite", "dir_909c286288939002c1b25213a067bdba.html", "dir_909c286288939002c1b25213a067bdba" ],
+    [ "main.cpp", "main_8cpp.html", "main_8cpp" ]
 ];

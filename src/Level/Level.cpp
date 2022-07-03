@@ -17,8 +17,8 @@ void Game::Level::combat()
 
 			if (IsKeyPressed(KEY_Z))
 			{
-				player->get_turnnumb();
-				enemy->get_turnnumb();
+				player->set_turnnumb(GetRandomValue(0, 100));
+				enemy->set_turnnumb(GetRandomValue(0, 100));
 			}
     
 	 if (enemy->getLives() <= 0) 

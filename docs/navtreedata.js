@@ -25,17 +25,23 @@
 var NAVTREE =
 [
   [ "raylibstarter", "index.html", [
-    [ "FAQ", "md__c___users__fried_source_repos_projektarbeit_ii_team2_doxygen_faq.html", [
-      [ "Is it a complete game engine?", "md__c___users__fried_source_repos_projektarbeit_ii_team2_doxygen_faq.html#autotoc_md1", null ],
-      [ "What do I have to do if I want to develop my own game?", "md__c___users__fried_source_repos_projektarbeit_ii_team2_doxygen_faq.html#autotoc_md2", null ],
-      [ "Is this project template based on raylib-cpp?", "md__c___users__fried_source_repos_projektarbeit_ii_team2_doxygen_faq.html#autotoc_md3", null ]
+    [ "FAQ", "md__c___users_user_source_repos_projektarbeit_ii_team2_doxygen_faq.html", [
+      [ "Is it a complete game engine?", "md__c___users_user_source_repos_projektarbeit_ii_team2_doxygen_faq.html#autotoc_md1", null ],
+      [ "What do I have to do if I want to develop my own game?", "md__c___users_user_source_repos_projektarbeit_ii_team2_doxygen_faq.html#autotoc_md2", null ],
+      [ "Is this project template based on raylib-cpp?", "md__c___users_user_source_repos_projektarbeit_ii_team2_doxygen_faq.html#autotoc_md3", null ]
     ] ],
     [ "Namespaces", "namespaces.html", [
-      [ "Namespace List", "namespaces.html", "namespaces_dup" ]
+      [ "Namespace List", "namespaces.html", "namespaces_dup" ],
+      [ "Namespace Members", "namespacemembers.html", [
+        [ "All", "namespacemembers.html", null ],
+        [ "Functions", "namespacemembers_func.html", null ],
+        [ "Variables", "namespacemembers_vars.html", null ]
+      ] ]
     ] ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
       [ "Class Index", "classes.html", null ],
+      [ "Class Hierarchy", "hierarchy.html", "hierarchy" ],
       [ "Class Members", "functions.html", [
         [ "All", "functions.html", null ],
         [ "Functions", "functions_func.html", null ],
@@ -55,7 +61,8 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"_level_8cpp.html"
+"_enemy_8cpp.html",
+"functions_vars.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

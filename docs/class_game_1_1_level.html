@@ -96,7 +96,7 @@ $(document).ready(function(){initNavTree('class_game_1_1_level.html',''); initRe
 <div class="dynheader">
 Collaboration diagram for Game::Level:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_game_1_1_level__coll__graph.svg" width="298" height="272"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><!-- SVG 0 -->
 </div>
 </div>
 <table class="memberdecls">
@@ -115,6 +115,8 @@ Public Types</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:a04be32176350b7f0db7190200586b9ba"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_1_1_level.html#a04be32176350b7f0db7190200586b9ba">combat</a> ()</td></tr>
+<tr class="separator:a04be32176350b7f0db7190200586b9ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a282aa55024bba9c56c6d36166424139d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_1_1_level.html#a282aa55024bba9c56c6d36166424139d">Screeninit</a> ()</td></tr>
 <tr class="separator:a282aa55024bba9c56c6d36166424139d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9f7849e78f25d6599c80293b4579fd66"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_1_1_level.html#a9f7849e78f25d6599c80293b4579fd66">ScreenDraw</a> ()</td></tr>
@@ -123,19 +125,27 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:aec33ce0f56894eda5c2bd8f822cfb733"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a41c752fb34988c5829df2d2c572e0e32"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_1_1_level.html#a41c752fb34988c5829df2d2c572e0e32">Music</a> ()</td></tr>
 <tr class="separator:a41c752fb34988c5829df2d2c572e0e32"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a70875e348acd232acba7df8fd188f657"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_1_1_level.html#a70875e348acd232acba7df8fd188f657">~Level</a> ()</td></tr>
+<tr class="separator:a70875e348acd232acba7df8fd188f657"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a309edd54d78f59d35663331d5819107b"><td class="memItemLeft" align="right" valign="top">Texture2D&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_1_1_level.html#a309edd54d78f59d35663331d5819107b">Map</a> = LoadTexture(&quot;assets/graphics/wintermap.png&quot;)</td></tr>
 <tr class="separator:a309edd54d78f59d35663331d5819107b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab3f7bef188717ece177f5fb58501849b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_game_1_1_level.html#a41c752fb34988c5829df2d2c572e0e32">Music</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_1_1_level.html#ab3f7bef188717ece177f5fb58501849b">music</a> = LoadMusicStream(&quot;resources/Hair-Trigger-WST011601.mp3&quot;)</td></tr>
-<tr class="separator:ab3f7bef188717ece177f5fb58501849b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9ff6de646793c7bfb823221f68884eb2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_game_1_1_level.html#a605a468eab80cc37fd022e5f4541b92d">GameScreen</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_1_1_level.html#a9ff6de646793c7bfb823221f68884eb2">currentscreen</a> = <a class="el" href="class_game_1_1_level.html#a605a468eab80cc37fd022e5f4541b92da9ea3a3599dfde990e6b243ce6622cc0e">GameScreen::TITLESCREEN</a></td></tr>
+<tr class="memitem:aa0351fb3e7e2e43e4cdaf003ce3f6ff7"><td class="memItemLeft" align="right" valign="top">Texture2D&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_1_1_level.html#aa0351fb3e7e2e43e4cdaf003ce3f6ff7">Battlescreen</a> = LoadTexture(&quot;assets/graphics/BattleScreen/Ägypten/HintergrundBatlleScreen_Ägypten.png&quot;)</td></tr>
+<tr class="separator:aa0351fb3e7e2e43e4cdaf003ce3f6ff7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9cfef274a410481af0ba107abe9fc55a"><td class="memItemLeft" align="right" valign="top">Sound&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_1_1_level.html#a9cfef274a410481af0ba107abe9fc55a">OutPyra</a> = LoadSound(&quot;assets/audio/sfx/cave_theme_2.wav&quot;)</td></tr>
+<tr class="separator:a9cfef274a410481af0ba107abe9fc55a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaec60935dcf5f1647e18acbb5deaa277"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_game_1_1_game_character.html">GameCharacter</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_1_1_level.html#aaec60935dcf5f1647e18acbb5deaa277">player</a> = new <a class="el" href="class_game_1_1_player.html">Player</a>()</td></tr>
+<tr class="separator:aaec60935dcf5f1647e18acbb5deaa277"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a51d46df15d6246916308a35804b672fd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_game_1_1_game_character.html">GameCharacter</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_1_1_level.html#a51d46df15d6246916308a35804b672fd">enemy</a> = new <a class="el" href="class_game_1_1_enemy.html">Enemy</a>()</td></tr>
+<tr class="separator:a51d46df15d6246916308a35804b672fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9ff6de646793c7bfb823221f68884eb2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_game_1_1_level.html#a605a468eab80cc37fd022e5f4541b92d">GameScreen</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_1_1_level.html#a9ff6de646793c7bfb823221f68884eb2">currentscreen</a> = <a class="el" href="class_game_1_1_level.html#a605a468eab80cc37fd022e5f4541b92dacd4174be077f1cd1964ecb7b16168db6">GameScreen::COMBAT</a></td></tr>
 <tr class="separator:a9ff6de646793c7bfb823221f68884eb2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p class="definition">Definition at line <a class="el" href="_level_8h_source.html#l00005">5</a> of file <a class="el" href="_level_8h_source.html">Level.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_level_8h_source.html#l00009">9</a> of file <a class="el" href="_level_8h_source.html">Level.h</a>.</p>
 </div><h2 class="groupheader">Member Enumeration Documentation</h2>
 <a id="a605a468eab80cc37fd022e5f4541b92d" name="a605a468eab80cc37fd022e5f4541b92d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a605a468eab80cc37fd022e5f4541b92d">&#9670;&nbsp;</a></span>GameScreen</h2>
@@ -164,11 +174,50 @@ Public Attributes</h2></td></tr>
 <tr><td class="fieldname"><a id="a605a468eab80cc37fd022e5f4541b92dadff094de00cf223dc8bda16d75e85efc" name="a605a468eab80cc37fd022e5f4541b92dadff094de00cf223dc8bda16d75e85efc"></a>CUTSCENE&#160;</td><td class="fielddoc"></td></tr>
 </table>
 
-<p class="definition">Definition at line <a class="el" href="_level_8h_source.html#l00011">11</a> of file <a class="el" href="_level_8h_source.html">Level.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_level_8h_source.html#l00021">21</a> of file <a class="el" href="_level_8h_source.html">Level.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a70875e348acd232acba7df8fd188f657" name="a70875e348acd232acba7df8fd188f657"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a70875e348acd232acba7df8fd188f657">&#9670;&nbsp;</a></span>~Level()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Game::Level::~Level </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_level_8cpp_source.html#l00090">90</a> of file <a class="el" href="_level_8cpp_source.html">Level.cpp</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="a04be32176350b7f0db7190200586b9ba" name="a04be32176350b7f0db7190200586b9ba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a04be32176350b7f0db7190200586b9ba">&#9670;&nbsp;</a></span>combat()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Game::Level::combat </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_level_8cpp_source.html#l00005">5</a> of file <a class="el" href="_level_8cpp_source.html">Level.cpp</a>.</p>
+
+</div>
+</div>
 <a id="aec33ce0f56894eda5c2bd8f822cfb733" name="aec33ce0f56894eda5c2bd8f822cfb733"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aec33ce0f56894eda5c2bd8f822cfb733">&#9670;&nbsp;</a></span>Draw()</h2>
 
@@ -201,7 +250,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_level_8cpp_source.html#l00032">32</a> of file <a class="el" href="_level_8cpp_source.html">Level.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_level_8cpp_source.html#l00079">79</a> of file <a class="el" href="_level_8cpp_source.html">Level.cpp</a>.</p>
 
 </div>
 </div>
@@ -220,7 +269,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_level_8cpp_source.html#l00009">9</a> of file <a class="el" href="_level_8cpp_source.html">Level.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_level_8cpp_source.html#l00043">43</a> of file <a class="el" href="_level_8cpp_source.html">Level.cpp</a>.</p>
 
 </div>
 </div>
@@ -239,11 +288,27 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_level_8cpp_source.html#l00004">4</a> of file <a class="el" href="_level_8cpp_source.html">Level.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_level_8cpp_source.html#l00038">38</a> of file <a class="el" href="_level_8cpp_source.html">Level.cpp</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
+<a id="aa0351fb3e7e2e43e4cdaf003ce3f6ff7" name="aa0351fb3e7e2e43e4cdaf003ce3f6ff7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa0351fb3e7e2e43e4cdaf003ce3f6ff7">&#9670;&nbsp;</a></span>Battlescreen</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Texture2D Game::Level::Battlescreen = LoadTexture(&quot;assets/graphics/BattleScreen/Ägypten/HintergrundBatlleScreen_Ägypten.png&quot;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_level_8h_source.html#l00012">12</a> of file <a class="el" href="_level_8h_source.html">Level.h</a>.</p>
+
+</div>
+</div>
 <a id="a9ff6de646793c7bfb823221f68884eb2" name="a9ff6de646793c7bfb823221f68884eb2"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a9ff6de646793c7bfb823221f68884eb2">&#9670;&nbsp;</a></span>currentscreen</h2>
 
@@ -251,12 +316,28 @@ Public Attributes</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_game_1_1_level.html#a605a468eab80cc37fd022e5f4541b92d">GameScreen</a> Game::Level::currentscreen = <a class="el" href="class_game_1_1_level.html#a605a468eab80cc37fd022e5f4541b92da9ea3a3599dfde990e6b243ce6622cc0e">GameScreen::TITLESCREEN</a></td>
+          <td class="memname"><a class="el" href="class_game_1_1_level.html#a605a468eab80cc37fd022e5f4541b92d">GameScreen</a> Game::Level::currentscreen = <a class="el" href="class_game_1_1_level.html#a605a468eab80cc37fd022e5f4541b92dacd4174be077f1cd1964ecb7b16168db6">GameScreen::COMBAT</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_level_8h_source.html#l00013">13</a> of file <a class="el" href="_level_8h_source.html">Level.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_level_8h_source.html#l00023">23</a> of file <a class="el" href="_level_8h_source.html">Level.h</a>.</p>
+
+</div>
+</div>
+<a id="a51d46df15d6246916308a35804b672fd" name="a51d46df15d6246916308a35804b672fd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a51d46df15d6246916308a35804b672fd">&#9670;&nbsp;</a></span>enemy</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_game_1_1_game_character.html">GameCharacter</a>* Game::Level::enemy = new <a class="el" href="class_game_1_1_enemy.html">Enemy</a>()</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_level_8h_source.html#l00017">17</a> of file <a class="el" href="_level_8h_source.html">Level.h</a>.</p>
 
 </div>
 </div>
@@ -272,23 +353,39 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_level_8h_source.html#l00007">7</a> of file <a class="el" href="_level_8h_source.html">Level.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_level_8h_source.html#l00011">11</a> of file <a class="el" href="_level_8h_source.html">Level.h</a>.</p>
 
 </div>
 </div>
-<a id="ab3f7bef188717ece177f5fb58501849b" name="ab3f7bef188717ece177f5fb58501849b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab3f7bef188717ece177f5fb58501849b">&#9670;&nbsp;</a></span>music</h2>
+<a id="a9cfef274a410481af0ba107abe9fc55a" name="a9cfef274a410481af0ba107abe9fc55a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9cfef274a410481af0ba107abe9fc55a">&#9670;&nbsp;</a></span>OutPyra</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_game_1_1_level.html#a41c752fb34988c5829df2d2c572e0e32">Music</a> Game::Level::music = LoadMusicStream(&quot;resources/Hair-Trigger-WST011601.mp3&quot;)</td>
+          <td class="memname">Sound Game::Level::OutPyra = LoadSound(&quot;assets/audio/sfx/cave_theme_2.wav&quot;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_level_8h_source.html#l00009">9</a> of file <a class="el" href="_level_8h_source.html">Level.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_level_8h_source.html#l00014">14</a> of file <a class="el" href="_level_8h_source.html">Level.h</a>.</p>
+
+</div>
+</div>
+<a id="aaec60935dcf5f1647e18acbb5deaa277" name="aaec60935dcf5f1647e18acbb5deaa277"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaec60935dcf5f1647e18acbb5deaa277">&#9670;&nbsp;</a></span>player</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_game_1_1_game_character.html">GameCharacter</a>* Game::Level::player = new <a class="el" href="class_game_1_1_player.html">Player</a>()</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_level_8h_source.html#l00016">16</a> of file <a class="el" href="_level_8h_source.html">Level.h</a>.</p>
 
 </div>
 </div>

@@ -27,6 +27,8 @@ namespace Game
 
     virtual int get_turnnumb();
 
+    virtual void set_turnnumb(int turnnumb);
+
   protected:
     int c_HP, c_DEF, c_STR;
     int turnnumb = GetRandomValue(0, 100);

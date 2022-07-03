@@ -1,0 +1,10 @@
+digraph "Game::Enemy"
+{
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node1 [label="{Game::Enemy\n||+ Enemy()\l+ attack()\l+ getDamage()\l+ updateCharacter()\l+ get_rec()\l+ set_rec()\l}",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
+  Node2 -> Node1 [dir="back",color="midnightblue",fontsize="10",style="solid",arrowtail="onormal",fontname="Helvetica"];
+  Node2 [label="{Game::GameCharacter\n|# c_HP\l# c_DEF\l# c_STR\l# turnnumb\l# rec\l|+ GameCharacter()\l+ attack()\l+ getDamage()\l+ updateCharacter()\l+ getLives()\l+ getArmor()\l+ getStrength()\l+ get_rec()\l+ set_rec()\l+ get_turnnumb()\l}",height=0.2,width=0.4,color="black",URL="$class_game_1_1_game_character.html",tooltip=" "];
+}
