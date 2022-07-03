@@ -9,16 +9,29 @@ void Game::Nemo::Update() {
   but this Code allows the user to press only one Key while walking. It is also a lazy way to prevent the user
   to run fast while running vertically.*/
 
-//no idea why the walking syx is so wierd, ill change that
-  
+//walking sfx needs a buffer
+
+    if (sound) 
+    {        
+        if (IsKeyDown(KEY_W) || IsKeyPressed(KEY_A) || IsKeyPressed(KEY_S) || IsKeyPressed(KEY_D)) 
+        {
+        PlaySound(GameAudio::walking);
+          SetSoundVolume(GameAudio::walking, float(0.05)); // Set volume for a sound (1.0 is max level) This is a test
+        }
+    }
+
    
   if (active) {
-    /* if (IsKeyDown(KEY_W) && IsKeyDown(KEY_D) //
-        || IsKeyDown(KEY_W) && IsKeyDown(KEY_A) || IsKeyDown(KEY_S) && IsKeyDown(KEY_D) ||
-        IsKeyDown(KEY_S) && IsKeyDown(KEY_A) || IsKeyDown(KEY_A) && IsKeyDown(KEY_D)) {
+    if (IsKeyDown(KEY_W) && IsKeyDown(KEY_D) 
+        || IsKeyDown(KEY_W) && IsKeyDown(KEY_A) 
+        || IsKeyDown(KEY_S) && IsKeyDown(KEY_D) 
+        || IsKeyDown(KEY_S) && IsKeyDown(KEY_A) 
+        || IsKeyDown(KEY_A) && IsKeyDown(KEY_D)) 
+    
+    {
       walkspeed     = 0;
       framesCounter = 0;
-    } else*/ if (IsKeyDown(KEY_LEFT_SHIFT)) // Sprinting with Shift is so Giga Chad
+    } else if (IsKeyDown(KEY_LEFT_SHIFT)) // Sprinting 
     {
       walkspeed = 2.0;
     } else if (IsKeyDown(KEY_W) || IsKeyDown(KEY_S) || IsKeyDown(KEY_D) ||
@@ -36,8 +49,7 @@ void Game::Nemo::Update() {
     // animation and movement
     if (IsKeyDown(KEY_W)) {
       NemoPosition.y -= walkspeed; // run forwards
-      Direction = direction::UP;
-      PlaySound(WalkSound);
+      Direction = direction::UP;      
 
       // animation
       framesCounter++;
@@ -54,8 +66,7 @@ void Game::Nemo::Update() {
     }
     if (IsKeyDown(KEY_A)) {
       NemoPosition.x -= walkspeed; // run left ->needs change
-      Direction = direction::LEFT;
-      PlaySound(WalkSound);
+      Direction = direction::LEFT;      
 
       // animation
       framesCounter++;
@@ -72,8 +83,7 @@ void Game::Nemo::Update() {
     }
     if (IsKeyDown(KEY_S)) {
       NemoPosition.y += walkspeed; // run backwards
-      Direction = direction::DOWN;
-      PlaySound(WalkSound);
+      Direction = direction::DOWN;      
 
       // animtaion
       framesCounter++;
@@ -90,8 +100,7 @@ void Game::Nemo::Update() {
     }
     if (IsKeyDown(KEY_D)) {
       NemoPosition.x += walkspeed; // run right
-      Direction = direction::RIGHT;
-      PlaySound(WalkSound);
+      Direction = direction::RIGHT;      
 
       // animataion
       framesCounter++;
@@ -171,6 +180,4 @@ Game::Nemo::~Nemo() {
   UnloadTexture(Back);
   UnloadTexture(Right);
   UnloadTexture(Left);
-
-  UnloadSound(WalkSound);
  }

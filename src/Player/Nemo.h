@@ -1,5 +1,6 @@
 #pragma once
 #include "../Sprite/Sprite.h"
+#include "../Level/GameAudio.h"
 
 #include <config.h>
 #include <memory>
@@ -11,12 +12,13 @@ namespace Game {
   public:
     int HP; // The Integer is just temporary; HP is not initiallised!
     float walkspeed = 1.5;
-    float nemowidth = 16;
-    float nemoheight = 16;
+    float nemowidth = 32;
+    float nemoheight = 32;
     Vector2 NemoPosition = { Game::ScreenWidth / 2, Game::ScreenHeight / 2 }; //Starting Point for Nemo
     bool alive = true;
     bool active = true; //This Bool determines, if Nemo is drawn, if it is set to false, Nemo dissapears from the Overworld
-
+    bool sound = true;  //This Bool deterimines, if Sound is Played
+    
     enum class direction // Setting the Enum for the direction
     {
       STAND,
@@ -31,11 +33,7 @@ namespace Game {
     Texture2D Front = LoadTexture("assets/graphics/Character/Nemo_Walkfront.png");
     Texture2D Back  = LoadTexture("assets/graphics/Character/Nemo_Walkback.png");
     Texture2D Left  = LoadTexture("assets/graphics/Character/Nemo_Walkleft.png");
-    Texture2D Right = LoadTexture("assets/graphics/Character/Nemo_Walkright.png");
-
-    Sound WalkSound = LoadSound("assets/audio/sfx/07_Step_rock_01.wav"); // Load waking audio file
-    
-    
+    Texture2D Right = LoadTexture("assets/graphics/Character/Nemo_Walkright.png");    
 
     // devide spritesheet into frames
     Rectangle frameRec = { 0.0f, 0.0f, (float)Front.width / 3, (float)Front.height };

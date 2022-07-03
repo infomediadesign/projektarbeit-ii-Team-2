@@ -1,7 +1,9 @@
-﻿#include "Level/Level.h"
+﻿#include "Combat/combat.h"
+#include "Level/GameAudio.h"
+#include "Level/Level.h"
+#include "Level/UI.h"
 #include "Player/Nemo.h"
 #include "Sprite/Sprite.h"
-#include "Level/UI.h"
 #include "config.h"
 #include "raylib.h"
 
@@ -9,23 +11,16 @@
 #include <iostream>
 #include <memory>
 
-
 // Project = Custodia - Trapped in the past
-
-//@todo liste: @ Görkem und Nick
-/*  -> can we export the camera into level to clean up the main?
-    -> When the character does not move, it stays in it´s current frame
- */
 
 int main() {
   // Raylib initialization
   //--------------------------------------------------------------------------------------------
   Image Epanox = LoadImage("assets/graphics/Epanox_Standing - Kopie.png");
+
   InitWindow(Game::ScreenWidth, Game::ScreenHeight, Game::PROJECT_NAME);
   SetWindowIcon(Epanox);
-
   InitAudioDevice(); // Initialize audio device
-
   SetTargetFPS(60);
 
 #ifdef GAME_START_FULLSCREEN
@@ -35,15 +30,27 @@ int main() {
   // Initialization
   //--------------------------------------------------------------------------------------------
   Texture2D StandStil = LoadTexture("assets/graphics/Charakter_Vorschlag_vorne_laufen1.png");
-  Sound sound         = LoadSound("assets/audio/sfx/Forever Lost.wav");
-  
+
+  GameAudio::Load();
   Game::Level level;
   Game::UI ui;
   Game::Nemo nemo; // Initializing the Nemo (Player) Class
   Game::Sprite spr(nemo.NemoPosition.x, nemo.NemoPosition.y, nemo.Front);
   Game::Sprite NPC(100, 100, StandStil);
-  Rectangle NPCRec = {}; //Rectangle Position has to be set after it is drawn, leaving it free is so much better, until it is called. Do not touch it!!!
-  bool NPCDraw = true; //To set the drawing if it is true or false. In short if it is draw or deleted
+
+  Rectangle NPCRec = {}; // Rectangle Position has to be set after it is drawn, leaving it free is so much better, until
+                         // it is called. Do not touch it!!!
+  bool NPCDraw = true;   // To set the drawing if it is true or false. In short if it is draw or deleted
+
+  //--- Collision will be put somewhere else soon
+  Rectangle recTile      = { 400, 703 / 2, 32, 32 }; // Test Rectangle for Collision should be 32x32 same as a tile
+  Rectangle recCollision = { 0 };                    // Collision rectangle to see the collision
+
+  int screenUpperLimit = 40; // Top menu limits
+
+  bool pause     = false; // Movement pause
+  bool collision = false; // Collision detection
+  //--- Collision will be put somewhere else soon
 
   // Camera settings
   //--------------------------------------------------------------------------------------------
@@ -57,16 +64,65 @@ int main() {
   while (!WindowShouldClose()) // Detect window close button or ESC key
   {
     // Update
-    if (IsKeyDown(KEY_LEFT_CONTROL) && IsKeyPressed(KEY_F)) {
+
+    level.Game::Level::Music();
+
+    if (IsKeyDown(KEY_LEFT_CONTROL) && IsKeyPressed(KEY_F)) { // toggle fullscreenmode
       ToggleFullscreen();
-    } 
-  
-    level.Music(); // music
+    }
+
+    //--- Collision will be put somewhere else soon
+    if ((nemo.nemorec.y + nemo.nemorec.height) >= GetScreenHeight())
+      nemo.nemorec.y = GetScreenHeight() - nemo.nemorec.height;
+    else if (nemo.nemorec.y <= screenUpperLimit)
+      nemo.nemorec.y = (float)screenUpperLimit;
+
+    // Check collision between Nemo and Rectangle
+    collision = CheckCollisionRecs(recTile, nemo.nemorec);
+
+    // Get collision rectangle (only on collision)
+    if (collision)
+      recCollision = GetCollisionRec(recTile, nemo.nemorec);    
+
+      if (collision) {
+        if (IsKeyPressed(KEY_A) || IsKeyDown(KEY_A)) { //Left         
+          nemo.NemoPosition.x += 10.0; 
+          PlaySound(GameAudio::collision);
+          SetSoundVolume(GameAudio::collision, float(0.07));
+        }
+        if (IsKeyPressed(KEY_D) || IsKeyDown(KEY_D)) { // Right
+          nemo.NemoPosition.x -= 10.0;
+          PlaySound(GameAudio::collision);
+          SetSoundVolume(GameAudio::collision, float(0.07));
+        }
+        if (IsKeyPressed(KEY_W) || IsKeyDown(KEY_W)) { // Up
+          nemo.NemoPosition.y += 10.0;
+          PlaySound(GameAudio::collision);
+          SetSoundVolume(GameAudio::collision, float(0.07));
+        }
+        if (IsKeyPressed(KEY_S) || IsKeyDown(KEY_S)) { // Down
+          nemo.NemoPosition.y -= 10.0;
+          PlaySound(GameAudio::collision);
+          SetSoundVolume(GameAudio::collision, float(0.07));
+        }
+      }
+    //--- Collision will be put somewhere else soon
+    
+
     // Begin drawing
     //--------------------------------------------------------------------------------------------
     BeginDrawing();
 
     ClearBackground(WHITE);
+
+    //--- Collision will be put somewhere else soon
+    nemo.active = true;
+    nemo.Update(); // nemo walking movement and animation
+    nemo.Draw();   // nemo walking movement and animation
+    camera.target = Vector2 { nemo.NemoPosition.x + 20.0f, nemo.NemoPosition.y + 20.0f };   
+
+    DrawRectangleRec(recTile, YELLOW);
+    //--- Collision will be put somewhere else soon
 
     BeginMode2D(camera);
 
@@ -85,20 +141,12 @@ int main() {
       break;
 
     case Game::Level::GameScreen::OVERWORLD:
-      nemo.active = true;
-      nemo.Draw();   // nemo walking movement and animation
-      nemo.Update(); // nemo walking movement and animation
-      camera.target = Vector2 { nemo.NemoPosition.x + 20.0f, nemo.NemoPosition.y + 20.0f };
+      // nemo.active = true;
+      // nemo.Update(); // nemo walking movement and animation
+      // nemo.Draw();   // nemo walking movement and animation
+      // camera.target = Vector2 { nemo.NemoPosition.x + 20.0f, nemo.NemoPosition.y + 20.0f };
 
-      //Debug to see the Collision marks
-       if (IsKeyDown(KEY_R)) {
-        DrawRectangleRec(nemo.nemorec, BLUE);
-        DrawRectangleRec(NPCRec, RED);
-      }
-
-
-      if (NPCDraw == true) 
-      {
+      if (NPCDraw == true) {
         NPCRec = { 100 + 8, 100 + 5, 16, 20 };
         //DrawRectangleRec(NPCRec, Color(00));                    // COLOR is for the Transparency.
         DrawTexture(NPC.texture_, NPC.pos_x, NPC.pos_y, WHITE); // Drawing the Rectangle
@@ -112,28 +160,30 @@ int main() {
         // immediately back to the Combat screen
         // This happens, because the Player still collides with the player, deleting the NPC may work, but I still don´t
         // know if it worked.
-
-        NPCDraw = false; //NPC is deleted
-        
-        NPCRec  = {};//His Rectangle doesn´t get a position, so it is deleted instead, if you would set the attributes, the rectangle remains active instead
-        //It might not be clean, but it solves the issue for now
+        NPCDraw = false; // NPC is deleted
+        NPCRec = {}; // His Rectangle doesn´t get a position, so it is deleted instead, if you would set the attributes,
+                     // the rectangle remains active instead
+        // It might not be clean, but it solves the issue for now
       }
       break;
 
     case Game::Level::GameScreen::COMBAT:
 
-      nemo.active = false; //Nemo is set to false, so that he is not drawn in the Combat screen.
-      camera.target =Vector2 { Game::ScreenWidth / 2, Game::ScreenHeight / 2 }; // Setting Camera to a Constant Position. Otherwise it would follow Nemo
+      nemo.active = false; // Nemo is set to false, so that he is not drawn in the Combat screen.
+      camera.target =
+        Vector2 { Game::ScreenWidth / 2,
+                  Game::ScreenHeight / 2 }; // Setting Camera to a Constant Position. Otherwise it would follow Nemo
 
       if (IsKeyDown(KEY_ENTER)) {
         level.currentscreen = Game::Level::GameScreen::OVERWORLD;
       }
       break;
     }
-    
+
     EndMode2D(); // camera
 
-    if (level.currentscreen == Game::Level::GameScreen::OVERWORLD)//Setting it on an if case, so it is only drawn in OVERWORLD
+    if (level.currentscreen ==
+        Game::Level::GameScreen::OVERWORLD) // Setting it on an if case, so it is only drawn in OVERWORLD
     {
       ui.Draw(); // controlls description
     }
@@ -142,7 +192,8 @@ int main() {
     EndDrawing();
     //--------------------------------------------------------------------------------------------
 
-  } // Main game loop end
+  } 
+  // Main game loop end
     //--------------------------------------------------------------------------------------------
 
   // De-initialization here

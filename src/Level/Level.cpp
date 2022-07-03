@@ -1,4 +1,5 @@
 #include "Level.h"
+
 #include <raylib.h>
 #include "config.h"
 
@@ -40,19 +41,15 @@ void Game::Level::Screeninit() {
 
 }
 
-void Game::Level::ScreenDraw() 
-{ 
+void Game::Level::ScreenDraw() {
+  switch (Game::Level::currentscreen) // For this Switch we determine here, what is drawn here
+  {
+  case GameScreen::TITLESCREEN:
+    DrawText("TITLESCREEN FOR CUSTODIA", 500, 320, 20, GRAY);
+    DrawText("PRESS ENTER FOR GAME", 500, 340, 20, GRAY);
+    break;
 
-	switch (Game::Level::currentscreen)  //For this Switch we determine here, what is drawn here
-	{
-  case GameScreen::TITLESCREEN: 
-			DrawText("TITLESCREEN FOR CUSTODIA", 500, 320, 20, GRAY); 
-			DrawText("PRESS ENTER FOR GAME", 500, 340, 20, GRAY);
-			break;
-
-		case GameScreen::OVERWORLD:
-		DrawTexture(Map, 0, 0, WHITE); 
-			break;
+  case GameScreen::OVERWORLD: DrawTexture(Map, 0, 0, WHITE); break;
 
 		case GameScreen::COMBAT: 
 
@@ -80,16 +77,15 @@ void Game::Level::ScreenDraw()
 
 //void Game::Level::Draw() { DrawTexture(Map, 0, 0, WHITE); }
 
-void Game::Level::Music() 
-{
-	if (IsKeyPressed(KEY_SPACE)) 
-	{
-	PlaySound(OutPyra);
-	}
-	
+void Game::Level::Music() {
+
+  if (IsKeyPressed(KEY_SPACE)) {
+    SetSoundVolume(GameAudio::titlescreenmusic, float (0.01)); // Set volume for a sound (1.0 is max level) This is a test
+    PlaySound(GameAudio::titlescreenmusic);
+    if (IsKeyPressed(KEY_SPACE)) {
+      PauseSound(GameAudio::titlescreenmusic);
+    }
+  }
 }
 
-Game::Level::~Level() 
-{ 
-	UnloadSound(OutPyra);
-}
+Game::Level::~Level() {}
