@@ -82,31 +82,32 @@ int main() {
 
     // Get collision rectangle (only on collision)
     if (collision)
-      recCollision = GetCollisionRec(recTile, nemo.nemorec);
-
-
-    //Nemo when collides stand still and cant move at all, after that you have to forcefully close the programm, cuz nothing responds
+      recCollision = GetCollisionRec(recTile, nemo.nemorec);    
 
       if (collision) {
         if (IsKeyPressed(KEY_A) || IsKeyDown(KEY_A)) { //Left         
-          nemo.NemoPosition.x += 20.0; //In theory nemo when colliding should be teleportet back by 2 positionpoints... but nothing happens
-          PlaySound(GameAudio::collision);//But the sound isnt playing either so that means that the collision commands arent being executed correctly
+          nemo.NemoPosition.x += 10.0; 
+          PlaySound(GameAudio::collision);
+          SetSoundVolume(GameAudio::collision, float(0.07));
         }
         if (IsKeyPressed(KEY_D) || IsKeyDown(KEY_D)) { // Right
-          nemo.NemoPosition.x -= 20.0;
+          nemo.NemoPosition.x -= 10.0;
           PlaySound(GameAudio::collision);
+          SetSoundVolume(GameAudio::collision, float(0.07));
         }
         if (IsKeyPressed(KEY_W) || IsKeyDown(KEY_W)) { // Up
-          nemo.NemoPosition.y += 20.0;
+          nemo.NemoPosition.y += 10.0;
           PlaySound(GameAudio::collision);
+          SetSoundVolume(GameAudio::collision, float(0.07));
         }
         if (IsKeyPressed(KEY_S) || IsKeyDown(KEY_S)) { // Down
-          nemo.NemoPosition.y -= 20.0;
+          nemo.NemoPosition.y -= 10.0;
           PlaySound(GameAudio::collision);
+          SetSoundVolume(GameAudio::collision, float(0.07));
         }
       }
-  
     //--- Collision will be put somewhere else soon
+    
 
     // Begin drawing
     //--------------------------------------------------------------------------------------------
