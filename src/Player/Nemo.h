@@ -12,8 +12,8 @@ namespace Game {
   public:
     int HP; // The Integer is just temporary; HP is not initiallised!
     float walkspeed = 1.5;
-    float nemowidth = 16;
-    float nemoheight = 16;
+    float nemowidth = 32;
+    float nemoheight = 32;
     Vector2 NemoPosition = { Game::ScreenWidth / 2, Game::ScreenHeight / 2 }; //Starting Point for Nemo
     bool alive = true;
     bool active = true; //This Bool determines, if Nemo is drawn, if it is set to false, Nemo dissapears from the Overworld

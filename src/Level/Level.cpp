@@ -23,16 +23,17 @@ void Game::Level::ScreenDraw() {
   }
 }
 
-// void Game::Level::Draw() { DrawTexture(Map, 0, 0, WHITE); }
+//void Game::Level::Draw() { DrawTexture(Map, 0, 0, WHITE); }
 
 void Game::Level::Music() {
+
   if (IsKeyPressed(KEY_SPACE)) {
-    SetSoundVolume(OutPyra, float (0.01)); // Set volume for a sound (1.0 is max level) This is a test
-    PlaySound(OutPyra);
-    /*if (IsKeyPressed(KEY_SPACE)) {
-      PauseSound(OutPyra);
-    }*/
+    SetSoundVolume(GameAudio::titlescreenmusic, float (0.01)); // Set volume for a sound (1.0 is max level) This is a test
+    PlaySound(GameAudio::titlescreenmusic);
+    if (IsKeyPressed(KEY_SPACE)) {
+      PauseSound(GameAudio::titlescreenmusic);
+    }
   }
 }
 
-Game::Level::~Level() { UnloadSound(OutPyra); }
+Game::Level::~Level() {}

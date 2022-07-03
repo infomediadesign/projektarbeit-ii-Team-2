@@ -1,5 +1,6 @@
 #pragma once
 #include <raylib.h>
+#include "GameAudio.h"
 
 namespace Game {
   class Level {

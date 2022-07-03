@@ -11,24 +11,16 @@
 #include <iostream>
 #include <memory>
 
-
-
 // Project = Custodia - Trapped in the past
-
-//@todo liste: @ Görkem und Nick
-/*  -> can we export the camera into level to clean up the main?
-    -> When the character does not move, it stays in it´s current frame
- */
 
 int main() {
   // Raylib initialization
   //--------------------------------------------------------------------------------------------
   Image Epanox = LoadImage("assets/graphics/Epanox_Standing - Kopie.png");
+
   InitWindow(Game::ScreenWidth, Game::ScreenHeight, Game::PROJECT_NAME);
   SetWindowIcon(Epanox);
-
   InitAudioDevice(); // Initialize audio device
-
   SetTargetFPS(60);
 
 #ifdef GAME_START_FULLSCREEN
@@ -38,7 +30,6 @@ int main() {
   // Initialization
   //--------------------------------------------------------------------------------------------
   Texture2D StandStil = LoadTexture("assets/graphics/Charakter_Vorschlag_vorne_laufen1.png");
-  Sound sound         = LoadSound("assets/audio/sfx/Forever Lost.wav");
 
   GameAudio::Load();
   Game::Level level;
@@ -46,9 +37,20 @@ int main() {
   Game::Nemo nemo; // Initializing the Nemo (Player) Class
   Game::Sprite spr(nemo.NemoPosition.x, nemo.NemoPosition.y, nemo.Front);
   Game::Sprite NPC(100, 100, StandStil);
+
   Rectangle NPCRec = {}; // Rectangle Position has to be set after it is drawn, leaving it free is so much better, until
                          // it is called. Do not touch it!!!
   bool NPCDraw = true;   // To set the drawing if it is true or false. In short if it is draw or deleted
+
+  //--- Collision will be put somewhere else soon
+  Rectangle recTile      = { 400, 703 / 2, 32, 32 }; // Test Rectangle for Collision should be 32x32 same as a tile
+  Rectangle recCollision = { 0 };                    // Collision rectangle to see the collision
+
+  int screenUpperLimit = 40; // Top menu limits
+
+  bool pause     = false; // Movement pause
+  bool collision = false; // Collision detection
+  //--- Collision will be put somewhere else soon
 
   // Camera settings
   //--------------------------------------------------------------------------------------------
@@ -62,33 +64,64 @@ int main() {
   while (!WindowShouldClose()) // Detect window close button or ESC key
   {
     // Update
-    if (IsKeyDown(KEY_LEFT_CONTROL) && IsKeyPressed(KEY_F)) {
+
+    level.Game::Level::Music();
+
+    if (IsKeyDown(KEY_LEFT_CONTROL) && IsKeyPressed(KEY_F)) { // toggle fullscreenmode
       ToggleFullscreen();
     }
 
-    //-----------------------Sound Tests---------------------------------------------------------------------
-    // if press P you hear battlescreen music = this is a test
-    if (IsKeyPressed(KEY_P)) {
-      PlaySound(GameAudio::battlemusic);
-      SetSoundVolume(GameAudio::battlemusic, float(0.005)); // Set volume for a sound (1.0 is max level) This is a test
-      //system("pause");
-    }
+    //--- Collision will be put somewhere else soon
+    if ((nemo.nemorec.y + nemo.nemorec.height) >= GetScreenHeight())
+      nemo.nemorec.y = GetScreenHeight() - nemo.nemorec.height;
+    else if (nemo.nemorec.y <= screenUpperLimit)
+      nemo.nemorec.y = (float)screenUpperLimit;
 
-    //This starts the music correctly, but the game doenst load :(
-    /*
-    PlaySound(GameAudio::battlemusic);
-    SetSoundVolume(GameAudio::battlemusic, float(0.005)); // Set volume for a sound (1.0 is max level) This is a test
-    system("pause"); -> Wihtout Systempause itll loop the start and sound crappy
-    */    
-     
-    //-------------------------------------------------------------------------------------------------------
-     
-    
+    // Check collision between Nemo and Rectangle
+    collision = CheckCollisionRecs(recTile, nemo.nemorec);
+
+    // Get collision rectangle (only on collision)
+    if (collision)
+      recCollision = GetCollisionRec(recTile, nemo.nemorec);
+
+
+    //Nemo when collides stand still and cant move at all, after that you have to forcefully close the programm, cuz nothing responds
+
+      if (collision) {
+        if (IsKeyPressed(KEY_A) || IsKeyDown(KEY_A)) { //Left         
+          nemo.NemoPosition.x += 20.0; //In theory nemo when colliding should be teleportet back by 2 positionpoints... but nothing happens
+          PlaySound(GameAudio::collision);//But the sound isnt playing either so that means that the collision commands arent being executed correctly
+        }
+        if (IsKeyPressed(KEY_D) || IsKeyDown(KEY_D)) { // Right
+          nemo.NemoPosition.x -= 20.0;
+          PlaySound(GameAudio::collision);
+        }
+        if (IsKeyPressed(KEY_W) || IsKeyDown(KEY_W)) { // Up
+          nemo.NemoPosition.y += 20.0;
+          PlaySound(GameAudio::collision);
+        }
+        if (IsKeyPressed(KEY_S) || IsKeyDown(KEY_S)) { // Down
+          nemo.NemoPosition.y -= 20.0;
+          PlaySound(GameAudio::collision);
+        }
+      }
+  
+    //--- Collision will be put somewhere else soon
+
     // Begin drawing
     //--------------------------------------------------------------------------------------------
     BeginDrawing();
 
     ClearBackground(WHITE);
+
+    //--- Collision will be put somewhere else soon
+    nemo.active = true;
+    nemo.Update(); // nemo walking movement and animation
+    nemo.Draw();   // nemo walking movement and animation
+    camera.target = Vector2 { nemo.NemoPosition.x + 20.0f, nemo.NemoPosition.y + 20.0f };   
+
+    DrawRectangleRec(recTile, YELLOW);
+    //--- Collision will be put somewhere else soon
 
     BeginMode2D(camera);
 
@@ -107,10 +140,10 @@ int main() {
       break;
 
     case Game::Level::GameScreen::OVERWORLD:
-      nemo.active = true;
-      nemo.Draw();   // nemo walking movement and animation
-      nemo.Update(); // nemo walking movement and animation
-      camera.target = Vector2 { nemo.NemoPosition.x + 20.0f, nemo.NemoPosition.y + 20.0f };
+      // nemo.active = true;
+      // nemo.Update(); // nemo walking movement and animation
+      // nemo.Draw();   // nemo walking movement and animation
+      // camera.target = Vector2 { nemo.NemoPosition.x + 20.0f, nemo.NemoPosition.y + 20.0f };
 
       if (NPCDraw == true) {
         NPCRec = { 100 + 8, 100 + 5, 16, 20 };
@@ -153,9 +186,10 @@ int main() {
     }
 
     EndDrawing();
-//--------------------------------------------------------------------------------------------
+    //--------------------------------------------------------------------------------------------
 
-  } // Main game loop end
+  } 
+  // Main game loop end
     //--------------------------------------------------------------------------------------------
 
   // De-initialization here
