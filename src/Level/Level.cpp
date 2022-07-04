@@ -4,7 +4,7 @@
 
 void Game::Level::combat() 
 { 
-//Combat
+//Combat init
 			if (IsKeyPressed(KEY_R)) 
 			{
 				enemy->getDamage(player->attack()); 
