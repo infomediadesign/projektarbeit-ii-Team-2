@@ -1,20 +1,34 @@
 #include "Level.h"
 #include <raylib.h>
-#include "config.h"
 
-void Game::Level::combat() 
-{ 
+//Setting up a timer
+bool timer = false;
+int framescounter = 0;
+
+void Game::Level::combat()
+{
 //Combat init
-			if (IsKeyPressed(KEY_R)) 
-			{
-				enemy->getDamage(player->attack()); 
-			}
 
-			if (IsKeyPressed(KEY_T)) 
-			{
-				player->getDamage(enemy->attack());
-			}
+//If the Timer is true, the seconds will Run
+if (timer == true)
+{
+  framescounter++;
+}
 
+//If 2 Seconds has Passed, the Player will receive Damage from the Enemy and the timer will be stopped
+      if (((framescounter/120)%2) == 1)
+      {
+        player->getDamage(enemy->attack());
+        framescounter = 0;
+        timer = false;
+      }
+//Player Attack
+			if (IsKeyPressed(KEY_R))
+			{
+				enemy->getDamage(player->attack());
+        timer = true;
+			}
+//Setting up the Turnnumber
 			if (IsKeyPressed(KEY_Z))
 			{
 				player->set_turnnumb(GetRandomValue(0, 100));
@@ -26,12 +40,14 @@ void Game::Level::combat()
       //delete enemy;
       //delete player;
      DrawText("YOU WON!", 600, 320, 20, BLACK);
+     timer = false;
     } 
 	else if (player->getLives() <= 0) 
 	{
      // delete enemy;
      // delete player;
       DrawText("YOU LOST!", 600, 320, 20, BLACK);
+      timer = false;
     }
 }
 
@@ -55,6 +71,9 @@ void Game::Level::ScreenDraw() {
 		//DrawTexture(Battlescreen, 410, 320, WHITE);
 		//Draw Player
 		DrawRectangleRec(player->set_rec(), BLUE);
+    //Timer
+    DrawText(TextFormat("Time: %i", framescounter), player->set_rec().x + 100, player->set_rec().y, 20, BLUE);
+
 		DrawText(TextFormat("Speed: %i", player->get_turnnumb()), player->set_rec().x, player->set_rec().y - 90, 20, BLUE);
 		DrawText(TextFormat("HP: %i", player->getLives()), player->set_rec().x, player->set_rec().y - 70, 20, BLUE);
 		DrawText(TextFormat("STR: %i", player->getStrength()), player->set_rec().x, player->set_rec().y - 50, 20, BLUE);

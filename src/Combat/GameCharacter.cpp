@@ -1,6 +1,7 @@
 #include "GameCharacter.h"
 
-Game::GameCharacter::GameCharacter(int HP, int DEF, int STR) : c_HP(HP), c_DEF(DEF), c_STR(STR) {}
+Game::GameCharacter::GameCharacter(int HP, int DEF, int STR) : c_HP(HP), c_DEF(DEF), c_STR(STR) {
+}
 
 int Game::GameCharacter::getLives() 
 { 
@@ -26,6 +27,6 @@ int Game::GameCharacter::get_turnnumb()
 
 void Game::GameCharacter::set_turnnumb(int turnnumb) 
 { 
-	this->turnnumb = GetRandomValue(0, 100); 
+	this->turnnumb = GetRandomValue(0, 100);
 }
 
