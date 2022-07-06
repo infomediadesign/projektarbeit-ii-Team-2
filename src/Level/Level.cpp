@@ -1,7 +1,7 @@
 #include "Level.h"
 #include <raylib.h>
 
-//Setting up a timer
+//Setting up a timer and Frame Counter
 bool timer = false;
 int framescounter = 0;
 
