@@ -1,5 +1,6 @@
 ﻿#include "Level/GameAudio.h"
 #include "Level/Level.h"
+#include "Level/Map.h"
 #include "Level/UI.h"
 #include "Player/Nemo.h"
 #include "Sprite/Sprite.h"
@@ -32,6 +33,7 @@ int main() {
 
   GameAudio::Load();
   Game::Level level;
+  Game::Map map;
   Game::UI ui;
   Game::Nemo nemo; // Initializing the Nemo (Player) Class
   Game::Sprite spr(nemo.NemoPosition.x, nemo.NemoPosition.y, nemo.Front);
@@ -114,6 +116,7 @@ int main() {
 
     ClearBackground(WHITE);
 
+    map.draw();
     /*
     //--- Collision will be put somewhere else soon
      nemo.active = true;
