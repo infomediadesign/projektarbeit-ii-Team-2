@@ -116,7 +116,7 @@ int main() {
 
     ClearBackground(WHITE);
 
-    map.draw();
+    //map.draw();
     /*
     //--- Collision will be put somewhere else soon
      nemo.active = true;

@@ -1,12 +1,13 @@
 #include "TextureManager.h"
-
+/*
 namespace GameTextures {
-  Texture outside_pyramide_mapsheet, Stand, Front, Back, Left, Right;
+  Texture Stand, Front, Back, Left, Right;
+  const char *outside_pyramide_mapsheet;
 
-void Load()
+  void Load()
 {
   //map
-  outside_pyramide_mapsheet = LoadTexture("Map Files/Außenbereich_Pyramide_Sheet.png");
+  outside_pyramide_mapsheet = LoadTexture("assets/graphics/Tiles-Atlas/Pyramiden_SheetJamey.png");
   //nemo
   Stand = LoadTexture("assets/graphics/Nemo_StandingMutze.png");
   Front = LoadTexture("assets/graphics/Character/Nemo_Walkfront.png");
@@ -28,3 +29,4 @@ void Unload()
 
 } // namespace Game
 
+*/

@@ -1,16 +1,15 @@
 #include "Map.h"
-
-Texture2D texture = LoadTexture("Map Files/Außenbereich_Pyramide_Sheet.png");
+#include "raylib.h"
 
 void Game::Map::draw() {
 
-  Texture2D texture = LoadTexture("Map Files/Außenbereich_Pyramide_Sheet.png");
+  Texture2D texture = LoadTexture("assets/graphics/Tiles-Atlas/Pyramiden_SheetJamey.png");
 
   Vector2 vec = {0,0};
   Rectangle rec = {0,0, tile_size, tile_size};
 
   //For-loop mit 2D Array
-  for(auto const& outer : levelBackground)
+  for(auto const& outer : levelBackgroundSandWeg)
   {
     for(auto const & inner : outer)
     {
@@ -36,9 +35,9 @@ void Game::Map::draw() {
     }
     vec.x = 0;
     vec.y += tile_size;
-  } //is probally a little different
+  }
 
-  for(auto const& outer : levelDecoration)
+  for(auto const& outer : levelDecorationStones)
   {
     for(auto const & inner : outer)
     {
@@ -52,7 +51,7 @@ void Game::Map::draw() {
     vec.y += tile_size;
   }
 
-  for(auto const& outer : levelCollision)
+  for(auto const& outer : levelCollisionDoor)
   {
     for(auto const & inner : outer)
     {
@@ -64,7 +63,23 @@ void Game::Map::draw() {
     }
     vec.x = 0;
     vec.y += tile_size;
-  } //is probally a little different
+  }
+
+  for(auto const& outer : levelCollisionWallsStones)
+  {
+    for(auto const & inner : outer)
+    {
+      rec.x = tile_size * (float) ((inner-1) & tiles_per_row);
+      rec.y = tile_size * (float) floor((inner-1) / tiles_per_row); // floor: gibt den größten ganzzahligen Wert kleiner oder gleich x zurück.
+      DrawTextureRec(texture, rec, vec, WHITE);
+
+      vec.x += tile_size;
+    }
+    vec.x = 0;
+    vec.y += tile_size;
+  }
+
+
 
   //For-loop mit 1D Array
   /*
