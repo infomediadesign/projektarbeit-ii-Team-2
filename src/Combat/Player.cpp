@@ -1,6 +1,6 @@
 #include "Player.h"
 
-Game::Player::Player() : GameCharacter(100, 5, 40) 
+Game::Player::Player() : GameCharacter(200, 15, 40)
 {
 }
 
@@ -15,10 +15,15 @@ std::vector<int> Game::Player::attack()
 
 void Game::Player::getDamage(std::vector<int> damage) 
 {
-  //DrawText(TextFormat("You receive %i", damage[0] - c_DEF), 500, 330, 40, BLACK);
   if (damage[0] - c_DEF > 0) 
   {
     c_HP -= damage[0] + c_DEF;
+  }
+
+  //Sets the HP Automatically to 0. HP will not go Negative
+  if (c_HP <= 0)
+  {
+    c_HP = 0;
   }
 }
 

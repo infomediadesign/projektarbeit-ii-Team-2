@@ -85,22 +85,22 @@ int main() {
 
       if (collision) {
         if (IsKeyPressed(KEY_A) || IsKeyDown(KEY_A)) { //Left         
-          nemo.NemoPosition.x += 10.0; 
+          nemo.NemoPosition.x += 4.0;
           PlaySound(GameAudio::collision);
           SetSoundVolume(GameAudio::collision, float(0.07));
         }
         if (IsKeyPressed(KEY_D) || IsKeyDown(KEY_D)) { // Right
-          nemo.NemoPosition.x -= 10.0;
+          nemo.NemoPosition.x -= 4.0;
           PlaySound(GameAudio::collision);
           SetSoundVolume(GameAudio::collision, float(0.07));
         }
         if (IsKeyPressed(KEY_W) || IsKeyDown(KEY_W)) { // Up
-          nemo.NemoPosition.y += 10.0;
+          nemo.NemoPosition.y += 4.0;
           PlaySound(GameAudio::collision);
           SetSoundVolume(GameAudio::collision, float(0.07));
         }
         if (IsKeyPressed(KEY_S) || IsKeyDown(KEY_S)) { // Down
-          nemo.NemoPosition.y -= 10.0;
+          nemo.NemoPosition.y -= 4.0;
           PlaySound(GameAudio::collision);
           SetSoundVolume(GameAudio::collision, float(0.07));
         }
@@ -114,8 +114,9 @@ int main() {
 
     ClearBackground(WHITE);
 
+    /*
     //--- Collision will be put somewhere else soon
-    /* nemo.active = true;
+     nemo.active = true;
     nemo.Update(); // nemo walking movement and animation
     nemo.Draw();   // nemo walking movement and animation
     camera.target = Vector2 { nemo.NemoPosition.x + 20.0f, nemo.NemoPosition.y + 20.0f };   

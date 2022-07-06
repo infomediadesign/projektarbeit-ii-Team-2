@@ -7,27 +7,34 @@ int framescounter = 0;
 
 void Game::Level::combat()
 {
+//Setting an Input to prevent the Player from attacking, while the countdown runs
+  bool input = true;
+
 //Combat init
 
-//If the Timer is true, the seconds will Run
+//If the Timer is true, the seconds will Run and the Player can´t press any buttons, while the Enemy Attacks
 if (timer == true)
 {
   framescounter++;
+  input = false;
 }
 
-//If 2 Seconds has Passed, the Player will receive Damage from the Enemy and the timer will be stopped
+//If 2 Seconds has Passed, the Player will receive Damage from the Enemy and the timer will be stopped, the Player can
+//then attack again
       if (((framescounter/120)%2) == 1)
       {
         player->getDamage(enemy->attack());
         framescounter = 0;
         timer = false;
+        input = true;
       }
 //Player Attack
-			if (IsKeyPressed(KEY_R))
-			{
-				enemy->getDamage(player->attack());
-        timer = true;
-			}
+      if (input == true) {
+          if (IsKeyPressed(KEY_R)) {
+            enemy->getDamage(player->attack());
+            timer = true;
+        }
+      }
 //Setting up the Turnnumber
 			if (IsKeyPressed(KEY_Z))
 			{
