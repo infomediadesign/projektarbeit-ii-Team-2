@@ -97,20 +97,66 @@ void Game::Level::ScreenDraw() {
 		//DrawText("COMBATSCREEN FOR CUSTODIA", 500, 320, 20, GRAY);
 		//DrawText("PRESS ENTER TO RETURN", 500, 340, 20, GRAY);
       break;
-	}
+    case GameScreen::PAUSEMENU: break;
+    case GameScreen::CUTSCENE: break;
+    }
 }
 
 //void Game::Level::Draw() { DrawTexture(Map, 0, 0, WHITE); }
 
-void Game::Level::Music() {
+/*
+void Game::Level::Teleport() {
+  int screenUpperLimit = 40;    // Top menu limits
+  bool pause           = false; // Movement pause
+  bool collision       = false; // Collision detection
 
-  if (IsKeyPressed(KEY_SPACE)) {
-    SetSoundVolume(GameAudio::titlescreenmusic, float (0.01)); // Set volume for a sound (1.0 is max level) This is a test
-    PlaySound(GameAudio::titlescreenmusic);
-    if (IsKeyPressed(KEY_SPACE)) {
-      PauseSound(GameAudio::titlescreenmusic);
-    }
+  // Test teleport collision tile
+  Rectangle teleportTile = {
+    400, 703 / 2, 32, 32
+  }; // Test, but in the future itll have to be connected to the tilespositions
+
+  // Find Nemo
+  if ((nemo->nemorec.y + nemo->nemorec.height) >= GetScreenHeight())
+    nemo->nemorec.y = GetScreenHeight() - nemo->nemorec.height;
+  else if (nemo->nemorec.y <= screenUpperLimit)
+    nemo->nemorec.y = (float)screenUpperLimit;
+
+  // Check collision between Nemo and Rectangle
+  collision = CheckCollisionRecs(teleportTile, nemo->nemorec);
+
+  switch (level.currentscreen) {
+  case Game::Level::OverworldState::OUTPYRAMIDE:
+    if (collision)
+      // Erase Nemo from current screen
+      // nemo is teleported into the dungeon
+      break;
+  case Game::Level::OverworldState::INPYRAMIDE:
+    if (collision)
+      // Erase Nemo from current screen
+      // nemo is teleported out of the dungeon
+      // ...
+      // if boss monster defeated
+      // nemo is teleported into the ocean
+      break;
+  case Game::Level::OverworldState::OCEAN:
+    if (collision)
+      // Erase Nemo from current screen
+      // nemo is teleported back to Titlescreen or Credits...
+      break;
+  }
+
+  // teleport mechanism (will be inserted above)
+  if (level.currentscreen == Game::Level::OverworldState::INPYRAMIDE) {
+    nemo->Update(); // teleport
+  }
+  if (level.currentscreen == Game::Level::OverworldState::OUTPYRAMIDE) {
+    nemo->Update(); // teleport
+  }
+  if (level.currentscreen == Game::Level::OverworldState::OCEAN) {
+    nemo->Update(); // teleport
   }
 }
+*/
 
 Game::Level::~Level() {}
+
