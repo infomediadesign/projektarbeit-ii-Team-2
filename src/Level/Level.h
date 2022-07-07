@@ -1,5 +1,7 @@
 #pragma once
 #include <raylib.h>
+#include <chrono>
+#include <thread>
 
 #include "UI.h"
 #include "config.h"
@@ -17,7 +19,7 @@ namespace Game {
 
     GameCharacter *player       = new Player();
     GameCharacter *enemy        = new Enemy();
-    //Nemo *nemo                  = new Nemo();
+    Nemo *nemo                  = new Nemo();
     //Level *level                = new Level();
     //UI *ui                      = new UI();
 
@@ -39,6 +41,8 @@ namespace Game {
     void Draw();
 
     //void Teleport();
+
+    void Collision();
 
     void Music();
 

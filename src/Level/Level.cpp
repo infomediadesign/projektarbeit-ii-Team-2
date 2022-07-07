@@ -4,6 +4,11 @@
 //Setting up a timer and Frame Counter.
 bool timer = false;
 int framescounter = 0;
+bool collision = false; // Collision detection
+
+using namespace std::this_thread;     // sleep_for, sleep_until
+using namespace std::chrono_literals; // ns, us, ms, s, h, etc.
+using std::chrono::system_clock;
 
 void Game::Level::combat()
 {
@@ -131,4 +136,57 @@ void Game::Level::Music() {
   }
 }
 
+void Game::Level::Collision() {
+
+  Rectangle Collision   = { 400, 703 / 2, 32, 32 };
+
+  int screenUpperLimit  = 40; // Top menu limits
+  bool input = true;
+
+  if(timer == true) {
+    sleep_for(10ms); // disable input for 1/4 sec (being stunned after colliding)
+    input = false;
+  }
+
+  if ((nemo->nemorec.y + nemo->nemorec.height) >= GetScreenHeight())
+    nemo->nemorec.y = GetScreenHeight() - nemo->nemorec.height;
+  else if (nemo->nemorec.y <= screenUpperLimit)
+    nemo->nemorec.y = (float)screenUpperLimit;
+
+  //collision nemo with collision object
+  collision = CheckCollisionRecs(Collision, nemo->nemorec);
+
+  if (collision) { //Change the Floats to Ints, that should solve the bugs
+    if (IsKeyPressed(KEY_A) || IsKeyDown(KEY_A)) { //Left
+      nemo->NemoPosition.x += 4.0; //Pushback
+      PlaySound(GameAudio::collision); //Play Collision Sound
+      SetSoundVolume(GameAudio::collision, float(0.07)); //adjust its volume
+      timer = false;
+      input = true;
+    }
+    if (IsKeyPressed(KEY_D) || IsKeyDown(KEY_D)) { // Right
+      nemo->NemoPosition.x -= 4.0;
+      PlaySound(GameAudio::collision);
+      SetSoundVolume(GameAudio::collision, float(0.07));
+      timer = false;
+      input = true;
+    }
+    if (IsKeyPressed(KEY_W) || IsKeyDown(KEY_W)) { // Up
+      nemo->NemoPosition.y += 4.0;
+      PlaySound(GameAudio::collision);
+      SetSoundVolume(GameAudio::collision, float(0.07));
+      timer = false;
+      input = true;
+    }
+    if (IsKeyPressed(KEY_S) || IsKeyDown(KEY_S)) { // Down
+      nemo->NemoPosition.y -= 4.0;
+      PlaySound(GameAudio::collision);
+      SetSoundVolume(GameAudio::collision, float(0.07));
+      timer = false;
+      input = true;
+    }
+  }
+}
+
 Game::Level::~Level() {}
+
