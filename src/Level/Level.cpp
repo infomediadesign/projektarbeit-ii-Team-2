@@ -24,10 +24,11 @@ void Game::Level::combat()
     //player->getDamage(enemy->attack());
     framescounter = 0;
 
+    //After Player Attacks, the Enemy will attack the Player
     if (player->get_turnnumb() > enemy->get_turnnumb()) {
       player->getDamage(enemy->attack());
     }
-
+    //After Enemy Attack, the Player attacks the Enemy
     if (enemy->get_turnnumb() > player->get_turnnumb()) {
       enemy->getDamage(player->attack());
     }
