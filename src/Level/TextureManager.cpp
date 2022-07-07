@@ -6,6 +6,8 @@ namespace GameTextures {
 
   void Load()
 {
+  //ui
+  Image Epanox = LoadImage("assets/graphics/Epanox_Standing - Kopie.png"); //sind textures oder images gleich oder anders?
   //map
   outside_pyramide_mapsheet = LoadTexture("assets/graphics/Tiles-Atlas/Pyramiden_SheetJamey.png");
   //nemo
