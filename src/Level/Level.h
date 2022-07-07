@@ -1,9 +1,13 @@
 #pragma once
 #include <raylib.h>
-#include "../Player/Nemo.h"
+
+#include "UI.h"
 #include "config.h"
+
+#include "../Player/Nemo.h"
 #include "../Combat/Player.h"
 #include "../Combat/Enemy.h"
+
 
 namespace Game {
   class Level {
@@ -11,10 +15,11 @@ namespace Game {
     Texture2D Map = LoadTexture("assets/graphics/wintermap.png");
     Texture2D Battlescreen = LoadTexture("assets/graphics/BattleScreen/Ägypten/HintergrundBatlleScreen_Ägypten.png");
 
-    Sound OutPyra = LoadSound("assets/audio/sfx/cave_theme_2.wav"); 
-
     GameCharacter *player       = new Player();
     GameCharacter *enemy        = new Enemy();
+    //Nemo *nemo                  = new Nemo();
+    //Level *level                = new Level();
+    //UI *ui                      = new UI();
 
     void combat();
 
@@ -23,11 +28,17 @@ namespace Game {
     GameScreen currentscreen = GameScreen::COMBAT; //TitleScreens is the Start Screen
     //GameScreen currentscreen = GameScreen::TITLESCREEN; // TitleScreens is the Start Screen
 
+    //teleport stuff
+    //enum class OverworldState { INPYRAMIDE, OUTPYRAMIDE, OCEAN }; //This Enum Class is there to teleport
+    //OverworldState currentscreen = OverworldState::OUTPYRAMIDE; // TitleScreens is the Start Screen
+
     void Screeninit();
 
     void ScreenDraw();
 
     void Draw();
+
+    //void Teleport();
 
     void Music();
 
