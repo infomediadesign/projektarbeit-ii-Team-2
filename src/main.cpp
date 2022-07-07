@@ -1,5 +1,6 @@
 ﻿#include "Level/GameAudio.h"
 #include "Level/Level.h"
+#include "Level/Map.h"
 #include "Level/UI.h"
 #include "Player/Nemo.h"
 #include "Sprite/Sprite.h"
@@ -32,6 +33,7 @@ int main() {
 
   GameAudio::Load();
   Game::Level level;
+  Game::Map map;
   Game::UI ui;
   Game::Nemo nemo; // Initializing the Nemo (Player) Class
   Game::Sprite spr(nemo.NemoPosition.x, nemo.NemoPosition.y, nemo.Front);
@@ -64,8 +66,6 @@ int main() {
   {
     // Update
 
-    level.Game::Level::Music();
-
     if (IsKeyDown(KEY_LEFT_CONTROL) && IsKeyPressed(KEY_F)) { // toggle fullscreenmode
       ToggleFullscreen();
     }
@@ -83,7 +83,7 @@ int main() {
     if (collision)
       recCollision = GetCollisionRec(recTile, nemo.nemorec);    
 
-      if (collision) {
+      if (collision) { //Change the Floats to Ints, that should solve the bugs
         if (IsKeyPressed(KEY_A) || IsKeyDown(KEY_A)) { //Left         
           nemo.NemoPosition.x += 4.0;
           PlaySound(GameAudio::collision);
@@ -114,16 +114,17 @@ int main() {
 
     ClearBackground(WHITE);
 
-    /*
+    //map.draw();
+/*
     //--- Collision will be put somewhere else soon
      nemo.active = true;
     nemo.Update(); // nemo walking movement and animation
     nemo.Draw();   // nemo walking movement and animation
     camera.target = Vector2 { nemo.NemoPosition.x + 20.0f, nemo.NemoPosition.y + 20.0f };   
 
-    DrawRectangleRec(recTile, YELLOW);*/
+    DrawRectangleRec(recTile, YELLOW);
     //--- Collision will be put somewhere else soon
-
+*/
     BeginMode2D(camera);
 
     level.ScreenDraw();
