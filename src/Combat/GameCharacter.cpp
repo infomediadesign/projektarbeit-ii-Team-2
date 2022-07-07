@@ -17,6 +17,11 @@ Rectangle Game::GameCharacter::get_rec()
 	return rec; 
 }
 
+void Game::GameCharacter::heal()
+{
+  this->c_HP = 25;
+}
+
 Rectangle Game::GameCharacter::set_rec() 
 { return rec; }
 
@@ -27,6 +32,6 @@ int Game::GameCharacter::get_turnnumb()
 
 void Game::GameCharacter::set_turnnumb(int turnnumb) 
 { 
-	this->turnnumb = GetRandomValue(0, 100);
+	this->turnnumb = GetRandomValue(1, 6);
 }
 

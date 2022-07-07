@@ -1,6 +1,6 @@
 #include "Enemy.h"
 
-Game::Enemy::Enemy() : GameCharacter(200, 15, 35)
+Game::Enemy::Enemy() : GameCharacter(25, 3, 15)
 {
 
 }
@@ -18,7 +18,7 @@ void Game::Enemy::getDamage(std::vector<int> damage)
 {
   if (damage[0] - c_DEF > 0) 
   {
-    c_HP -= damage[0] + c_DEF;
+    c_HP -= damage[0] - c_DEF;
   }
   //Sets the HP Automatically to 0. HP will not go Negative
   if (c_HP <= 0)

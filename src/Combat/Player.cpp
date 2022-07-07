@@ -1,6 +1,6 @@
 #include "Player.h"
 
-Game::Player::Player() : GameCharacter(200, 15, 40)
+Game::Player::Player() : GameCharacter(25, 10, 7)
 {
 }
 
@@ -17,7 +17,7 @@ void Game::Player::getDamage(std::vector<int> damage)
 {
   if (damage[0] - c_DEF > 0) 
   {
-    c_HP -= damage[0] + c_DEF;
+    c_HP -= damage[0] - c_DEF;
   }
 
   //Sets the HP Automatically to 0. HP will not go Negative

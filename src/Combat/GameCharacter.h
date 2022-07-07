@@ -25,6 +25,8 @@ namespace Game
 
     virtual Rectangle set_rec();
 
+    virtual void heal();
+
     virtual int get_turnnumb();
 
     virtual void set_turnnumb(int turnnumb);

@@ -43,13 +43,15 @@ void Game::Level::combat()
   }
   //Player Attack
   if (input == true) {
-    if (IsKeyPressed(KEY_R)) {
-      //enemy->getDamage(player->attack());
-      player->set_turnnumb(GetRandomValue(0, 100));
-      enemy->set_turnnumb(GetRandomValue(0, 100));
+
+    if(IsKeyPressed(KEY_H))
+    {
+      //======================HEAL!!!!=========================
+      player->set_turnnumb(GetRandomValue(1, 6));
+      enemy->set_turnnumb(GetRandomValue(1, 6));
 
       if (player->get_turnnumb() > enemy->get_turnnumb()) {
-        enemy->getDamage(player->attack());
+        player->heal();
       }
 
       if (enemy->get_turnnumb() > player->get_turnnumb()) {
@@ -57,6 +59,23 @@ void Game::Level::combat()
       }
 
       timer = true;
+      //=========================HEAL END!!!!=================
+    }
+    if (IsKeyPressed(KEY_R)) {
+      //=========================PLAYER ATTACK================
+      player->set_turnnumb(GetRandomValue(1, 6));
+      enemy->set_turnnumb(GetRandomValue(1, 6));
+      //===============PLAYER ATTACK=========================
+      if (player->get_turnnumb() > enemy->get_turnnumb()) {
+        enemy->getDamage(player->attack());
+      }
+      //================ENEMY ATTACK=========================
+      if (enemy->get_turnnumb() > player->get_turnnumb()) {
+        player->getDamage(enemy->attack());
+      }
+
+      timer = true;
+      //========================ATTACK END!!!================
     }
   }
   //Setting up the Turnnumber
