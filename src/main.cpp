@@ -36,7 +36,7 @@ int main() {
   GameAudio::Load();
   Game::Level level;
   Game::Level collision;
-  Game::Map map;
+  //Game::Map map;
   Game::UI ui;
   Game::Nemo nemo; // Initializing the Nemo (Player) Class
   Game::Sprite spr(nemo.NemoPosition.x, nemo.NemoPosition.y, nemo.Front);

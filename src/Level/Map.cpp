@@ -1,6 +1,9 @@
 #include "Map.h"
 #include "raylib.h"
 
+
+
+/*
 void Game::Map::draw() {
 
   Texture2D texture = LoadTexture("assets/graphics/Tiles-Atlas/Pyramiden_SheetJamey.png");
@@ -100,5 +103,6 @@ void Game::Map::draw() {
     vec.x = 0;
     vec.y += tile_size;
   }
-  */
+
 }
+*/
