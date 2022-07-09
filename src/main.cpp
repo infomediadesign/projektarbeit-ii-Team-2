@@ -46,15 +46,15 @@ int main() {
                          // it is called. Do not touch it!!!
   bool NPCDraw = true;   // To set the drawing if it is true or false. In short if it is draw or deleted
 
-  /*
+
     //--- Collision will be put somewhere else soon
-    Rectangle recTile      = { 400, 703 / 2, 32, 32 }; // Test Rectangle for Collision should be 32x32 same as a tile
-    Rectangle recCollision = { 0 };                    // Collision rectangle to see the collision
+    Rectangle rectangleObject = { 400, 703 / 2, 32, 32 }; // Test Rectangle for Collision should be 32x32 same as a tile
+    Rectangle rectangleCollision = { 0 };                    // Collision rectangleCollision to see the collision
 
     int screenUpperLimit = 40; // Top menu limits
 
     bool pause     = false; // Movement pause
-    bool collision = false; // Collision detection
+    bool collisionObject = false; // Collision detection
     bool input     = true;  // Input
     bool timer     = false; // Timer
 
@@ -62,7 +62,7 @@ int main() {
     using namespace std::chrono_literals; // ns, us, ms, s, h, etc.
     using std::chrono::system_clock;
     //--- Collision will be put somewhere else soon
-  */
+
 
   // Camera settings
   //--------------------------------------------------------------------------------------------
@@ -82,56 +82,58 @@ int main() {
     if (IsKeyDown(KEY_LEFT_CONTROL) && IsKeyPressed(KEY_F)) { // toggle fullscreenmode
       ToggleFullscreen();
     }
-    /*
+
         //--- Collision will be put somewhere else soon
+        /*
+        //find out where nemo is, and that he can't get out of the screen
         if ((nemo.nemorec.y + nemo.nemorec.height) >= GetScreenHeight())
           nemo.nemorec.y = GetScreenHeight() - nemo.nemorec.height;
         else if (nemo.nemorec.y <= screenUpperLimit)
           nemo.nemorec.y = (float)screenUpperLimit;
+*/
+        /*// Check for input
+            if (timer)
+            {
+              sleep_for(10ms); // disable input for n sec (being stunned after colliding)
+              input = false;
+            }*/
 
         // Check collision between Nemo and Rectangle
-        collision = CheckCollisionRecs(recTile, nemo.nemorec);
+    collisionObject = CheckCollisionRecs(rectangleObject, nemo.nemorec);
 
-        // Check for input
-        if (timer == true)
-        {
-          sleep_for(10ms); // disable input for 1/4 sec (being stunned after colliding)
-          input = false;
-        }
+        // Get collision rectangleCollision (only on collision)
+        if (collisionObject)
+          rectangleCollision = GetCollisionRec(rectangleObject, nemo.nemorec);
 
-        // Get collision rectangle (only on collision)
-        if (collision)
-          recCollision = GetCollisionRec(recTile, nemo.nemorec);
-
-          if (collision) { //Change the Floats to Ints, that should solve the bugs
-            if (input){
+        if (collisionObject) { //Change the Floats to Ints, that should solve the bugs
               if (IsKeyPressed(KEY_A) || IsKeyDown(KEY_A)) { //Left
-                nemo.NemoPosition.x += 4.0; //Pushback
+                nemo.NemoPosition.x += 10.0; //Pushback
                 PlaySound(GameAudio::collision); //Play Collision Sound
                 SetSoundVolume(GameAudio::collision, float(0.07)); //adjust its volume
-                sleep_for(10ms); // disable input for 1/4 sec (being stunned after colliding)
-                sleep_until(  system_clock::now() + 1s);
+                sleep_for(1s); // disable input -> (being stunned after colliding)
+                //sleep_until(  system_clock::now() + 1s); //both work
+                }
+                if (IsKeyPressed(KEY_D) || IsKeyDown(KEY_D)) { // Right
+                  nemo.NemoPosition.x -= 10.0;
+                  PlaySound(GameAudio::collision);
+                  SetSoundVolume(GameAudio::collision, float(0.07));
+                  sleep_for(1s); // disable input -> (being stunned after colliding)
+                }
+                if (IsKeyPressed(KEY_W) || IsKeyDown(KEY_W)) { // Up
+                  nemo.NemoPosition.y += 10.0;
+                  PlaySound(GameAudio::collision);
+                  SetSoundVolume(GameAudio::collision, float(0.07));
+                  sleep_for(1s); // disable input -> (being stunned after colliding)
+                }
+                if (IsKeyPressed(KEY_S) || IsKeyDown(KEY_S)) { // Down
+                  nemo.NemoPosition.y -= 10.0;
+                  PlaySound(GameAudio::collision);
+                  SetSoundVolume(GameAudio::collision, float(0.07));
+                  sleep_for(1s); // disable input -> (being stunned after colliding)
                 }
             }
-            }
-            if (IsKeyPressed(KEY_D) || IsKeyDown(KEY_D)) { // Right
-              nemo.NemoPosition.x -= 4.0;
-              PlaySound(GameAudio::collision);
-              SetSoundVolume(GameAudio::collision, float(0.07));
-            }
-            if (IsKeyPressed(KEY_W) || IsKeyDown(KEY_W)) { // Up
-              nemo.NemoPosition.y += 4.0;
-              PlaySound(GameAudio::collision);
-              SetSoundVolume(GameAudio::collision, float(0.07));
-            }
-            if (IsKeyPressed(KEY_S) || IsKeyDown(KEY_S)) { // Down
-              nemo.NemoPosition.y -= 4.0;
-              PlaySound(GameAudio::collision);
-              SetSoundVolume(GameAudio::collision, float(0.07));
-            }
-          }
         //--- Collision will be put somewhere else soon
-        */
+
 
     // Begin drawing
     //--------------------------------------------------------------------------------------------
@@ -139,20 +141,20 @@ int main() {
 
     ClearBackground(WHITE);
 
-    // collision.Collision();
+    //collision.Collision();
 
     // map.draw(); //draw the map
 
-    /*
+/*
     //--- Collision will be put somewhere else soon
     nemo.active = true;
     nemo.Update(); // nemo walking movement and animation
     nemo.Draw();   // nemo walking movement and animation
     camera.target = Vector2 { nemo.NemoPosition.x + 20.0f, nemo.NemoPosition.y + 20.0f };
 
-    DrawRectangleRec(recTile, YELLOW);
+    DrawRectangleRec(rectangleObject, YELLOW);
     //--- Collision will be put somewhere else soon
-    */
+*/
     BeginMode2D(camera);
 
     level.ScreenDraw();
@@ -179,6 +181,7 @@ int main() {
         NPCRec = { 100 + 8, 100 + 5, 16, 20 };
         // DrawRectangleRec(NPCRec, Color(00));                    // COLOR is for the Transparency.
         DrawTexture(NPC.texture_, NPC.pos_x, NPC.pos_y, WHITE); // Drawing the Rectangle
+        DrawRectangleRec(rectangleObject, YELLOW);
       }
       // Collision check
       while (CheckCollisionRecs(NPCRec, nemo.nemorec)) // Where the Collision between Two Objects happen happens
@@ -190,7 +193,7 @@ int main() {
         // know if it worked.
         NPCDraw = false; // NPC is deleted
         NPCRec = {}; // His Rectangle doesn´t get a position, so it is deleted instead, if you would set the attributes,
-                     // the rectangle remains active instead
+                     // the rectangleCollision remains active instead
         // It might not be clean, but it solves the issue for now
       }
       break;
