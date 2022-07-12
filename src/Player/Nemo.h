@@ -36,7 +36,7 @@ namespace Game {
     Texture2D Right = LoadTexture("assets/graphics/Character/Nemo_Walkright.png");    
 
     // devide spritesheet into frames
-    Rectangle frameRec = { 0.0f, 0.0f, (float)Front.width / 3, (float)Front.height };
+    Rectangle frameRec = { 0.0f, 0.0f, (float)Front.width / 5, (float)Front.height };
     int currentFrame   = 0;
     int framesCounter  = 0;
     int framesSpeed    = 8; // animtation fps

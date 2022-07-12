@@ -58,10 +58,10 @@ void Game::Nemo::Update() {
         framesCounter = 0;
         currentFrame++;
 
-        if (currentFrame > 2)
+        if (currentFrame > 4)
           currentFrame = 0;
 
-        frameRec.x = (float)currentFrame * (float)Front.width / 3;
+        frameRec.x = (float)currentFrame * (float)Front.width / 5;
       }
     }
     if (IsKeyDown(KEY_A)) {
@@ -75,10 +75,10 @@ void Game::Nemo::Update() {
         framesCounter = 0;
         currentFrame++;
 
-        if (currentFrame > 2)
+        if (currentFrame > 4)
           currentFrame = 0;
 
-        frameRec.x = (float)currentFrame * (float)Left.width / 3;
+        frameRec.x = (float)currentFrame * (float)Left.width / 5;
       }
     }
     if (IsKeyDown(KEY_S)) {
@@ -92,10 +92,10 @@ void Game::Nemo::Update() {
         framesCounter = 0;
         currentFrame++;
 
-        if (currentFrame > 2)
+        if (currentFrame > 4)
           currentFrame = 0;
 
-        frameRec.x = (float)currentFrame * (float)Right.width / 3;
+        frameRec.x = (float)currentFrame * (float)Right.width / 5;
       }
     }
     if (IsKeyDown(KEY_D)) {
@@ -109,10 +109,11 @@ void Game::Nemo::Update() {
         framesCounter = 0;
         currentFrame++;
 
-        if (currentFrame > 2)
+        //Framecounter
+        if (currentFrame > 4)
           currentFrame = 0;
 
-        frameRec.x = (float)currentFrame * (float)Right.width / 3;
+        frameRec.x = (float)currentFrame * (float)Right.width / 5;
       }
     }      
   }
