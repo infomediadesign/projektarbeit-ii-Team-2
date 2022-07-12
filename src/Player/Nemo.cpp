@@ -58,10 +58,10 @@ void Game::Nemo::Update() {
         framesCounter = 0;
         currentFrame++;
 
-        if (currentFrame > 2)
+        if (currentFrame > 3)
           currentFrame = 0;
 
-        frameRec.x = (float)currentFrame * (float)Front.width / 3;
+        frameRec.x = (float)currentFrame * (float)Front.width / 4;
       }
     }
     if (IsKeyDown(KEY_A)) {
@@ -75,44 +75,45 @@ void Game::Nemo::Update() {
         framesCounter = 0;
         currentFrame++;
 
-        if (currentFrame > 2)
+        if (currentFrame > 3)
           currentFrame = 0;
 
-        frameRec.x = (float)currentFrame * (float)Left.width / 3;
+        frameRec.x = (float)currentFrame * (float)Left.width / 4;
       }
     }
     if (IsKeyDown(KEY_S)) {
       NemoPosition.y += walkspeed; // run backwards
       Direction = direction::DOWN;      
 
-      // animtaion
+      // animation
       framesCounter++;
 
       if (framesCounter >= (60 / framesSpeed)) {
         framesCounter = 0;
         currentFrame++;
 
-        if (currentFrame > 2)
+        if (currentFrame > 3)
           currentFrame = 0;
 
-        frameRec.x = (float)currentFrame * (float)Right.width / 3;
+        frameRec.x = (float)currentFrame * (float)Right.width / 4;
       }
     }
     if (IsKeyDown(KEY_D)) {
       NemoPosition.x += walkspeed; // run right
       Direction = direction::RIGHT;      
 
-      // animataion
+      // animation
       framesCounter++;
 
       if (framesCounter >= (60 / framesSpeed)) {
         framesCounter = 0;
         currentFrame++;
 
-        if (currentFrame > 2)
+        //Framecounter
+        if (currentFrame > 3)
           currentFrame = 0;
 
-        frameRec.x = (float)currentFrame * (float)Right.width / 3;
+        frameRec.x = (float)currentFrame * (float)Right.width / 4;
       }
     }      
   }
@@ -151,13 +152,13 @@ void Game::Nemo::Update() {
       {
       case direction::UP:
 
-        DrawTextureRec(Front, frameRec, NemoPosition, WHITE); // Draw nemo animation backwards
+        DrawTextureRec(Back, frameRec, NemoPosition, WHITE); // Draw nemo animation backwards
         nemorec;
         break;
 
       case direction::DOWN:
 
-        DrawTextureRec(Back, frameRec, NemoPosition, WHITE); // Draw nemo animation forwards
+        DrawTextureRec(Front, frameRec, NemoPosition, WHITE); // Draw nemo animation forwards
         break;
 
       case direction::LEFT:

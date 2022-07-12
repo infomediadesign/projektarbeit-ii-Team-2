@@ -1,6 +1,6 @@
 #include "Enemy.h"
 
-Game::Enemy::Enemy() : GameCharacter(25, 3, 15)
+Game::Enemy::Enemy() : GameCharacter(20, 2, 12)
 {
 
 }

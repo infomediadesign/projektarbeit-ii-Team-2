@@ -36,10 +36,10 @@ namespace Game {
     Texture2D Right = LoadTexture("assets/graphics/Character/Nemo_Walkright.png");    
 
     // devide spritesheet into frames
-    Rectangle frameRec = { 0.0f, 0.0f, (float)Front.width / 3, (float)Front.height };
+    Rectangle frameRec = { 0.0f, 0.0f, (float)Front.width / 4, (float)Front.height };
     int currentFrame   = 0;
     int framesCounter  = 0;
-    int framesSpeed    = 8; // animtation fps
+    int framesSpeed    = 4; // animtation fps
     Rectangle nemorec  = {}; //The attributes for the Rectangle will be set in the Draw method.
 
     // devide spritesheet into frames

@@ -1,6 +1,6 @@
 #include "Player.h"
 
-Game::Player::Player() : GameCharacter(25, 10, 7)
+Game::Player::Player() : GameCharacter(25, 5, 5)
 {
 }
 
