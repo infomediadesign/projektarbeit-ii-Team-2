@@ -58,10 +58,10 @@ void Game::Nemo::Update() {
         framesCounter = 0;
         currentFrame++;
 
-        if (currentFrame > 4)
+        if (currentFrame > 3)
           currentFrame = 0;
 
-        frameRec.x = (float)currentFrame * (float)Front.width / 5;
+        frameRec.x = (float)currentFrame * (float)Front.width / 4;
       }
     }
     if (IsKeyDown(KEY_A)) {
@@ -75,10 +75,10 @@ void Game::Nemo::Update() {
         framesCounter = 0;
         currentFrame++;
 
-        if (currentFrame > 4)
+        if (currentFrame > 3)
           currentFrame = 0;
 
-        frameRec.x = (float)currentFrame * (float)Left.width / 5;
+        frameRec.x = (float)currentFrame * (float)Left.width / 4;
       }
     }
     if (IsKeyDown(KEY_S)) {
@@ -92,10 +92,10 @@ void Game::Nemo::Update() {
         framesCounter = 0;
         currentFrame++;
 
-        if (currentFrame > 4)
+        if (currentFrame > 3)
           currentFrame = 0;
 
-        frameRec.x = (float)currentFrame * (float)Right.width / 5;
+        frameRec.x = (float)currentFrame * (float)Right.width / 4;
       }
     }
     if (IsKeyDown(KEY_D)) {
@@ -110,10 +110,10 @@ void Game::Nemo::Update() {
         currentFrame++;
 
         //Framecounter
-        if (currentFrame > 4)
+        if (currentFrame > 3)
           currentFrame = 0;
 
-        frameRec.x = (float)currentFrame * (float)Right.width / 5;
+        frameRec.x = (float)currentFrame * (float)Right.width / 4;
       }
     }      
   }
@@ -152,13 +152,13 @@ void Game::Nemo::Update() {
       {
       case direction::UP:
 
-        DrawTextureRec(Front, frameRec, NemoPosition, WHITE); // Draw nemo animation backwards
+        DrawTextureRec(Back, frameRec, NemoPosition, WHITE); // Draw nemo animation backwards
         nemorec;
         break;
 
       case direction::DOWN:
 
-        DrawTextureRec(Back, frameRec, NemoPosition, WHITE); // Draw nemo animation forwards
+        DrawTextureRec(Front, frameRec, NemoPosition, WHITE); // Draw nemo animation forwards
         break;
 
       case direction::LEFT:
