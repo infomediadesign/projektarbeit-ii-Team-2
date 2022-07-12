@@ -42,7 +42,7 @@ namespace Game {
 
     //void Teleport();
 
-    void Collision();
+    //void Collision();
 
     void Music();
 

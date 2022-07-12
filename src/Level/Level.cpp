@@ -4,11 +4,11 @@
 //Setting up a timer and Frame Counter.
 bool timer = false;
 int framescounter = 0;
-bool collision = false; // Collision detection
+//bool collision = false; // Collision detection
 
-using namespace std::this_thread;     // sleep_for, sleep_until
-using namespace std::chrono_literals; // ns, us, ms, s, h, etc.
-using std::chrono::system_clock;
+//using namespace std::this_thread;     // sleep_for, sleep_until
+//using namespace std::chrono_literals; // ns, us, ms, s, h, etc.
+//using std::chrono::system_clock;
 
 void Game::Level::combat()
 {
@@ -156,9 +156,9 @@ void Game::Level::Music() {
   }
 }
 
-void Game::Level::Collision() {
+/*void Game::Level::Collision() {
 
-  Rectangle Collision   = { 400, 703 / 2, 32, 32 };
+  Rectangle Collision   = { 400, 703, 32, 32 };
 
   int screenUpperLimit  = 40; // Top menu limits
   bool input = true;
@@ -207,6 +207,6 @@ void Game::Level::Collision() {
     }
   }
 }
-
+*/
 Game::Level::~Level() {}
 
