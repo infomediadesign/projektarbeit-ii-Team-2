@@ -85,7 +85,7 @@ void Game::Nemo::Update() {
       NemoPosition.y += walkspeed; // run backwards
       Direction = direction::DOWN;      
 
-      // animtaion
+      // animation
       framesCounter++;
 
       if (framesCounter >= (60 / framesSpeed)) {
@@ -102,7 +102,7 @@ void Game::Nemo::Update() {
       NemoPosition.x += walkspeed; // run right
       Direction = direction::RIGHT;      
 
-      // animataion
+      // animation
       framesCounter++;
 
       if (framesCounter >= (60 / framesSpeed)) {
