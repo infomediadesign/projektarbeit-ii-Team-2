@@ -45,3 +45,8 @@ Rectangle Game::Player::set_rec()
 	this->rec = { 400, 320, 50, 50 }; 
 	return rec;
 }
+
+Texture2D Game::Player::get_texture()
+{
+  return t_Player;
+}

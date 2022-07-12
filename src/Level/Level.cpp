@@ -118,7 +118,8 @@ void Game::Level::ScreenDraw() {
 
   case GameScreen::COMBAT:
 
-    //DrawTexture(Battlescreen, 410, 320, WHITE);
+    //Background
+    DrawTexturePro(Battlescreen, {0, 0, (float)Battlescreen.width * 2, (float)Battlescreen.height * 2}, {0.0, 0.0, (float)GetScreenWidth(), (float)GetScreenHeight() / 0.5f}, {}, 0, WHITE);
     //Draw Player
     DrawRectangleRec(player->set_rec(), BLUE);
     //Timer

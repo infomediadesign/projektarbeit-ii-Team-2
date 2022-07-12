@@ -276,7 +276,6 @@ int main() {
       camera.target =
         Vector2 { Game::ScreenWidth / 2,
                   Game::ScreenHeight / 2 }; // Setting Camera to a Constant Position. Otherwise it would follow Nemo
-
       if (IsKeyDown(KEY_ENTER)) {
         level.currentscreen = Game::Level::GameScreen::OVERWORLD;
       }
