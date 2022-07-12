@@ -3,6 +3,8 @@
 include(../cmake/raylib.cmake)
 include(../cmake/raylib_cpp.cmake)
 
+include(../cmake/nlohmann_json.cmake)
+
 project(Custodia VERSION 0.1.0 LANGUAGES CXX)
 
 include(../cmake/doxygen.cmake)
@@ -24,7 +26,7 @@ target_include_directories(${PROJECT_NAME} PUBLIC
         )
 
 # Link to libraries
-target_link_libraries(${PROJECT_NAME} raylib)
+target_link_libraries(${PROJECT_NAME} raylib nlohmann_json::nlohmann_json)
 
 # Copy assets to assets path
 add_custom_target(copy_assets

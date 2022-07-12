@@ -26,4 +26,18 @@ String getStringFromEnum(e)
   case defense_potion: Def +10;
   }
 }
+
+void Game::Inventory::itemclass()
+{
+
+
+}
+void Game::Inventory::showdata()
+{
+
+}
+void Game::Inventory::menu()
+{
+
+}
 */

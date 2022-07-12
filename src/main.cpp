@@ -4,14 +4,21 @@
 #include "Level/UI.h"
 #include "Player/Nemo.h"
 #include "Sprite/Sprite.h"
+
 #include "config.h"
 #include "raylib.h"
+#include "raymath.h"
 
+#include <nlohmann/json.hpp>
 #include <chrono>
 #include <cstdlib>
 #include <iostream>
 #include <memory>
 #include <thread>
+#include <string>
+#include <fstream>
+
+
 
 // Project = Custodia - Trapped in the past
 
@@ -49,22 +56,31 @@ int main() {
 
     //--- Collision will be put somewhere else soon
     Rectangle rectangleObject = { 400, 703 / 2, 32, 32 }; // Test Rectangle for Collision should be 32x32 same as a tile
-    Rectangle rectangleCollision = { 0 };                    // Collision rectangleCollision to see the collision
-
-    int screenUpperLimit = 40; // Top menu limits
-
-    bool pause     = false; // Movement pause
+    Rectangle rectangleCollision{};
     bool collisionObject = false; // Collision detection
-    bool input     = true;  // Input
-    bool timer     = false; // Timer
 
     using namespace std::this_thread;     // sleep_for, sleep_until
     using namespace std::chrono_literals; // ns, us, ms, s, h, etc.
     using std::chrono::system_clock;
     //--- Collision will be put somewhere else soon
 
+    /*
+    std::ifstream tilesetDescriptionFile("assets/graphics/map/PhyramidenEingangNeu.json");
+    nlohmann::json tilesetDescription = nlohmann::json::parse(tilesetDescriptionFile);
+    tilesetDescriptionFile.close();
 
-  // Camera settings
+    std::ifstream levelMapFile("assets/graphics/map/PhyramidenEingangNeu.json");
+    nlohmann::json levelMap = nlohmann::json::parse(levelMapFile);
+    levelMapFile.close();
+
+    Texture2D tileAtlasTexture = LoadTexture("assets/graphics/Tiles-Atlas/Pyramiden_SheetJamey.png");
+    //Texture2D tileAtlasTexture = LoadTexture((tilesetDescription["image"].get<std::string>()).c_str());
+
+    Vector2 vec;
+    Rectangle rec;
+*/
+
+    // Camera settings
   //--------------------------------------------------------------------------------------------
   Camera2D camera = { 0 };
   camera.target   = Vector2 { spr.pos_x + 20.0f, spr.pos_y + 20.0f };
@@ -143,9 +159,65 @@ int main() {
 
     //collision.Collision();
 
+    /*
+ //Markus Map beispiel:
+    vec = {0, 0};
+    rec = {0, 0, levelMap["tilewidth"], levelMap["tileheight"]};
+    for (auto const &layer : levelMap["layers"]) {
+
+      if (layer["type"] == "tilelayer" && layer["visible"]) {
+        vec.y = 0;
+        for (auto const &tileId : layer["data"]) {
+
+          int counter = (int) tileId;
+          counter--;
+          if (counter != -1) {
+            rec.x = (float) ((int) counter % (int) tilesetDescription["columns"]) *
+                    (float) levelMap["tilewidth"];
+            rec.y = (float) floor((float) counter / (float) tilesetDescription["columns"]) *
+                    (float) levelMap["tileheight"];
+            DrawTextureRec(tileAtlasTexture, rec, vec, WHITE);
+          }
+          vec.x += (float) levelMap["tilewidth"];
+          if (vec.x >= (float) layer["width"] * (float) levelMap["tilewidth"]) {
+            vec.x = 0;
+            vec.y += (float) levelMap["tileheight"];
+          }
+        }
+      }
+    }
+*/
+
+    /*
+//Programming 1 Moodle:
+    Vector2 vec = {0, 0};
+    Rectangle rec = {0, 0, levelMap["tilewidth"], levelMap["tileheight"]};
+
+    for (auto const &layer : levelMap["layers"]) {
+      if (layer["type"] == "tilelayer" && layer["visible"]) {
+        for (auto const &tileId : layer["data"]) {
+          if (tileId != 0) {
+            rec.x = (float) ((int) tileId - 1 % (int) tilesetDescription["columns"]) *
+                    (float) levelMap["tilewidth"];
+            rec.y = (float) floor((float) tileId / (float) tilesetDescription["columns"]) *
+                    (float) levelMap["tilewidth"];
+
+            DrawTextureRec(tileAtlasTexture, rec, vec, WHITE);
+          }
+
+          vec.x += (float) levelMap["tilewidth"];
+          if (vec.x >= (float) layer["width"] * (float) levelMap["tilewidth"]) {
+            vec.x = 0;
+            vec.y += (float) levelMap["tileheight"];
+          }
+        }
+      }
+    }
+     */
+
     // map.draw(); //draw the map
 
-/*
+    /*
     //--- Collision will be put somewhere else soon
     nemo.active = true;
     nemo.Update(); // nemo walking movement and animation
@@ -160,7 +232,7 @@ int main() {
     level.ScreenDraw();
 
     // Using Switch Case to Initialize the requirements to move to certain positions
-    switch (level.currentscreen) { // Get Ready for some Sphagetthi Code
+    switch (level.currentscreen) { // Get Ready for some Spaghetti Code
     case Game::Level::GameScreen::TITLESCREEN:
 
       camera.target = Vector2 { Game::ScreenWidth / 2, Game::ScreenHeight / 2 };

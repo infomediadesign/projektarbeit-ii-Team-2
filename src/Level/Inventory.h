@@ -7,9 +7,26 @@
 namespace Game
 {
 class Inventory {
+  char itemname;
+  int HP, Def, Str;
+
 public:
+  void itemclass();
+  void armor();
+  void potions();
+  void showdata();
+  void menu();
+};
+
+}
+
+*/
+
+
 //we need a connection between the combat system, cuz of the stat change
 
+
+  /*
   int HP, Def, Str;
   enum Items {helmet, chestplate, health_potion, attack_potion, ability_potion, defense_potion};
 

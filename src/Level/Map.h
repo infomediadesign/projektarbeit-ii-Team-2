@@ -6,9 +6,11 @@
 #include <array>
 #include <vector>
 
-//schwieriger als gedacht, hier sind ansätze von Olis Gruppe, und von Christoph
 
 /*
+//schwieriger als gedacht, hier sind ansätze von Olis Gruppe, und von Christoph
+
+
 //----Oli map.h---------------------------------------------------------------------------------------------------------
 std::vector<Rectangle> collisionRectangles;
 
@@ -32,7 +34,7 @@ struct {
   std::vector<int> layerForegroundOpaque;
   std::vector<int> layerCollision;
   int mapWidth;
-  int mapHeight
+  int mapHeight;
 }mapData;
 //----Oli map.h---------------------------------------------------------------------------------------------------------
 
@@ -101,7 +103,7 @@ for (int i = 0; i < mapData.layerCollision.size(); i++){
 #include <string>
 #include <iostream>
 #include <fstream>
-//#include <nlohmann/json.hpp> //this is very important i think
+#include <nlohmann/json.hpp>
 #include "raylib.h"
 #include "raymath.h"
 
@@ -158,7 +160,7 @@ Rectangle rec;
 // Main game loop
 while (!WindowShouldClose())
 {
-  // Updates that are made by frame are coded here
+  //Updates that are made by frame are coded here
   //roomCamera.zoom = 4.f;
   //ghost.update();
   //playerNPC.update();
@@ -239,7 +241,8 @@ CloseWindow();
 return EXIT_SUCCESS;
 }
 //----Oli main----------------------------------------------------------------------------------------------------------
-
+*/
+/*
 //----Christoph Map Ansatz----------------------------------------------------------------------------------------------
 
 namespace Game {
