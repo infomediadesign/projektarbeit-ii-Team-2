@@ -119,13 +119,14 @@ void Game::Level::ScreenDraw() {
   case GameScreen::COMBAT:
 
     //Background
-    DrawTexturePro(Battlescreen, {0, 0, (float)Battlescreen.width * 2, (float)Battlescreen.height * 2},
-                   {0.0, 0.0, (float)GetScreenWidth(), (float)GetScreenHeight() / 0.5f}, {}, 0, WHITE);
-    //Draw Player
-    //nemorec = { NemoPosition.x + 8, NemoPosition.y + 8, nemowidth, nemoheight }; // The Attributes are set here.
-    //DrawRectangleRec(nemorec, Color(00));
+    //DrawTexturePro(Battlescreen, {0, 0, (float)Battlescreen.width * 2, (float)Battlescreen.height * 2},
+                   //{0.0, 0.0, (float)GetScreenWidth(), (float)GetScreenHeight() * 2.0f}, {}, 0, WHITE);
 
-    Playerrec = {player->get_rec().x + 8, player->get_rec().y + 8, player->get_rec().width, player->get_rec().height};
+    //battlerec = {player->get_rec().x, player->get_rec().y + 90,(float)Battlescreen.width * 20, (float)Battlescreen.height * 50};
+    //DrawTextureRec(Battlescreen, battlerec, {battlerec.x - 110, battlerec.y - 150}, WHITE);
+    DrawTexture(Battlescreen, GetScreenWidth()/2 - 350, GetScreenHeight()/2 - 180, WHITE);
+    //Draw Player
+    Playerrec = {player->get_rec().x + 8, player->get_rec().y + 10, player->get_rec().width, player->get_rec().height};
     DrawRectangleRec(Playerrec, Color(00));
     //DrawTextureRec(Back, frameRec, NemoPosition, WHITE);
     DrawTextureRec(spr_Player, frameRec, {player->get_rec().x, player->get_rec().y}, WHITE);

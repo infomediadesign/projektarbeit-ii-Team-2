@@ -24,6 +24,8 @@ namespace Game {
     //Level *level                = new Level();
     //UI *ui                      = new UI();
 
+    Rectangle battlerec = {};
+
     Rectangle frameRec = { 0.0f, 0.0f, (float)spr_Player.width / 7, (float)spr_Player.height };
     int currentFrame   = 0;
     int framesCounter  = 0;
