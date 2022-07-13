@@ -42,7 +42,7 @@ Rectangle Game::Player::get_rec()
 
 Rectangle Game::Player::set_rec() 
 { 
-	this->rec = { 400, 320, 50, 50 }; 
+	this->rec = { 430, 380, 32, 32 };
 	return rec;
 }
 

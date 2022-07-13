@@ -119,11 +119,31 @@ void Game::Level::ScreenDraw() {
   case GameScreen::COMBAT:
 
     //Background
-    DrawTexturePro(Battlescreen, {0, 0, (float)Battlescreen.width * 2, (float)Battlescreen.height * 2}, {0.0, 0.0, (float)GetScreenWidth(), (float)GetScreenHeight() / 0.5f}, {}, 0, WHITE);
+    DrawTexturePro(Battlescreen, {0, 0, (float)Battlescreen.width * 2, (float)Battlescreen.height * 2},
+                   {0.0, 0.0, (float)GetScreenWidth(), (float)GetScreenHeight() / 0.5f}, {}, 0, WHITE);
     //Draw Player
-    DrawRectangleRec(player->set_rec(), BLUE);
+    //nemorec = { NemoPosition.x + 8, NemoPosition.y + 8, nemowidth, nemoheight }; // The Attributes are set here.
+    //DrawRectangleRec(nemorec, Color(00));
+
+    Playerrec = {player->get_rec().x + 8, player->get_rec().y + 8, player->get_rec().width, player->get_rec().height};
+    DrawRectangleRec(Playerrec, Color(00));
+    //DrawTextureRec(Back, frameRec, NemoPosition, WHITE);
+    DrawTextureRec(spr_Player, frameRec, {player->get_rec().x, player->get_rec().y}, WHITE);
+    // animation
+    framesCounter++;
+
+    if (framesCounter >= (60 / framesSpeed)) {
+      framesCounter = 0;
+      currentFrame++;
+
+      if (currentFrame > 3)
+        currentFrame = 0;
+
+      frameRec.x = (float)currentFrame * (float)spr_Player.width / 7;
+    }
+
     //Timer
-    DrawText(TextFormat("Time: %i", framescounter), player->set_rec().x + 100, player->set_rec().y, 20, BLUE);
+    //DrawText(TextFormat("Time: %i", framescounter), player->set_rec().x + 100, player->set_rec().y, 20, BLUE);
 
     DrawText(TextFormat("Speed: %i", player->get_turnnumb()), player->set_rec().x, player->set_rec().y - 90, 20, BLUE);
     DrawText(TextFormat("HP: %i", player->getLives()), player->set_rec().x, player->set_rec().y - 70, 20, BLUE);
