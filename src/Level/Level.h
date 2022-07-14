@@ -1,7 +1,6 @@
 #pragma once
-#include <raylib.h>
-#include <chrono>
-#include <thread>
+
+#include "../INCLUDES.h"
 
 #include "UI.h"
 #include "config.h"
