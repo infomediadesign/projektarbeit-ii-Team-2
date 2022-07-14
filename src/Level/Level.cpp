@@ -117,6 +117,16 @@ void Game::Level::ScreenDraw() {
 
   case GameScreen::COMBAT:
 
+    bool inCombat;
+
+      /*if (inCombat)
+      {
+        PlaySound(GameAudio::battlemusic);
+        SetSoundVolume(GameAudio::battlemusic, float(1.0)); // Set volume for a sound (1.0 is max level) This is a test
+      }
+*/
+
+
     //Background
     //DrawTexturePro(Battlescreen, {0, 0, (float)Battlescreen.width * 2, (float)Battlescreen.height * 2},
                    //{0.0, 0.0, (float)GetScreenWidth(), (float)GetScreenHeight() * 2.0f}, {}, 0, WHITE);

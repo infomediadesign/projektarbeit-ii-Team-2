@@ -1,13 +1,35 @@
-#include "../Combat/GameCharacter.h"
-#include "../Combat/Player.h."
+#include "../INCLUDES.h"
 
-#include <array>
-#include <string>
+#include "Item.h"
 
-#include <iostream>
-#include <stdio.h>
-#include <process.h>
-#include <fstream>
+class Inventory
+{
+private:
+  int cap;
+  int nrOfItems;
+  Item **itemArr;
+  void expand();
+  void initialize(const int from = 0);
+
+public:
+  Inventory();
+  ~Inventory();
+  Inventory(const Inventory &obj);
+  inline int size()const { return this->nrOfItems; };
+  Item& operator[](const int index);
+  void operator=(const Inventory &obj);
+  void addItem(const Item &item);
+  void removeItem(int index);
+  inline void debugPrint() const
+  {
+    for (size_t i = 0; i < this->nrOfItems; i++)
+    {
+      std::cout << this->itemArr[i]->debugPrint() << std::endl;
+    }
+  }
+};
+
+
 //we need a connection between the combat system, cuz of the stat change
   /*
    * namespace Game

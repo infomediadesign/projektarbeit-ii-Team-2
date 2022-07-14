@@ -5,8 +5,11 @@
 
 #include<stdlib.h>
 #include<cstdlib>
+#include <stdio.h>
 
 #include <config.h>
+
+#include <process.h>
 
 #include<string>
 #include<array>
@@ -25,6 +28,12 @@
 #include<thread>
 
 #include <nlohmann/json.hpp>
+
+#include"Level/dArr.h"
+
+
+
+
 
 
 
