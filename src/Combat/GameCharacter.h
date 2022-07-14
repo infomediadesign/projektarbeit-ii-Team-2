@@ -1,6 +1,7 @@
 #pragma once
 #include <raylib.h>
 #include <vector>
+#include "../Sprite/Sprite.h"
 
 namespace Game 
 {
