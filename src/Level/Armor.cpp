@@ -4,27 +4,26 @@ dArr<std::string> Armor::names;
 
 void Armor::initNames()
 {
-  Armor::names.push("Bro-Saver");
-  Armor::names.push("Cotton-Rag");
-  Armor::names.push("Devlish-Defender");
-  Armor::names.push("Angels-Balls");
-  Armor::names.push("Iron-Sheets");
-  Armor::names.push("Assassins-Bedsheets");
+  Armor::names.push("Sungods-Chestplate");
+  Armor::names.push("Sungods-Helmet");
+  Armor::names.push("Posidons-Chestplate");
+  Armor::names.push("Posidons-Helmet");
 }
 
 Armor::Armor()
     :Item()
 {
   this->type = -1;
+  this->hp = 0;
   this->defence = 0;
+  this->strength = 0;
 }
 
-Armor::Armor(int level, int rarity)
-    :Item(itemTypes::ARMOR, level, rarity)
+Armor::Armor(int type, int hp, int defence, int strength, std::string name)
+    : Item(itemTypes::ARMOR, name)
 {
-  this->defence = rand() % (level * (rarity+1));
-  this->defence += (rarity + 1) * 5;
-  this->type = rand() % 4;
+  this->defence = +5;
+  this->type = rand() % 2;
 
   switch (this->type)
   {
@@ -34,30 +33,18 @@ Armor::Armor(int level, int rarity)
   case armorType::CHEST:
     this->typeStr = "Chest";
     break;
-  case armorType::ARMS:
-    this->typeStr = "Arms";
-    break;
-  case armorType::LEGS:
-    this->typeStr = "Legs";
-    break;
   default:
     this->typeStr = "ERROR INVALID!";
     break;
   }
 
   this->setName(Armor::names[rand() % Armor::names.size()]);
-
-  if(rarity == 3)
-    this->defence += level * 5;
-  else if (rarity == 4)
-    this->defence += level * 10;
-}
-
-Armor::Armor(int type, int defence, std::string name, int level, int buyValue, int sellValue, int rarity)
-    : Item(itemTypes::ARMOR, name, level, buyValue, sellValue, rarity)
-{
-  this->type = type;
-  this->defence = defence;
+  {
+    this->type = type;
+    this->hp = hp;
+    this->strength = strength;
+    this->defence = defence;
+  }
 }
 
 Armor::~Armor()
@@ -76,10 +63,6 @@ std::string Armor::toString()const
     this->getName()
     + " | Type: "
     + this->typeStr
-    + " | Lvl: "
-    + std::to_string(this->getLevel())
-    + " | Rarity: "
-    + std::to_string(this->getRarity())
     + " | Def: "
     + std::to_string(this->defence);
 
@@ -92,14 +75,6 @@ std::string Armor::toStringSave()const
     std::to_string(this->getItemType())
     + " "
     + this->getName()
-    + " "
-    + std::to_string(this->getLevel())
-    + " "
-    + std::to_string(this->getRarity())
-    + " "
-    + std::to_string(this->getBuyValue())
-    + " "
-    + std::to_string(this->getSellValue())
     + " "
     + std::to_string(this->defence)
     + " "

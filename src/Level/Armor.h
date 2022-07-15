@@ -3,7 +3,7 @@
 #include"../INCLUDES.h"
 #include"Item.h"
 
-enum armorType { HEAD = 0, CHEST, ARMS, LEGS };
+enum armorType { HEAD = 0, CHEST};
 
 class Armor :
     public Item
@@ -11,25 +11,19 @@ class Armor :
 private:
   int type;
   std::string typeStr;
+  int hp;
   int defence;
+  int strength;
 
 public:
   Armor();
   Armor(
-    int level,
-    int rarity
-  );
-  Armor(
     int type,
+    int hp,
     int defence,
-    std::string name,
-    int level,
+    int strength,
+    std::string name);
 
-    int buyValue,
-    int sellValue,
-
-    int rarity
-  );
   virtual ~Armor();
 
   //Pure virtual
