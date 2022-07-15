@@ -5,6 +5,7 @@
 #include "Level/Level.h"
 #include "Level/Map.h"
 #include "Level/UI.h"
+#include "Level/Collision.h"
 
 #include "Player/Nemo.h"
 
@@ -35,11 +36,11 @@ int main() {
   //--------------------------------------------------------------------------------------------
   Texture2D StandStil = LoadTexture("assets/graphics/Charakter_Vorschlag_vorne_laufen1.png");
 
-  //Inventory item;
+  Collision collision;
 
   GameAudio::Load();
   Game::Level level;
-  Game::Level collision;
+  Game::Level levelcollision;
   //Game::Map map;
   Game::UI ui;
   Game::Nemo nemo; // Initializing the Nemo (Player) Class
@@ -50,18 +51,8 @@ int main() {
                          // it is called. Do not touch it!!!
   bool NPCDraw = true;   // To set the drawing if it is true or false. In short if it is draw or deleted
 
-
-    //--- Collision will be put somewhere else soon
-    Rectangle rectangleObject = { 400, 703 / 2, 32, 32 }; // Test Rectangle for Collision should be 32x32 same as a tile
-    Rectangle rectangleCollision{};
-    bool collisionObject = false; // Collision detection
-
-    using namespace std::this_thread;     // sleep_for, sleep_until
-    using namespace std::chrono_literals; // ns, us, ms, s, h, etc.
-    using std::chrono::system_clock;
-    //--- Collision will be put somewhere else soon
-
-    /*
+  //Map Markus stuff
+  /*
     std::ifstream tilesetDescriptionFile("assets/graphics/map/PhyramidenEingangNeu.json");
     nlohmann::json tilesetDescription = nlohmann::json::parse(tilesetDescriptionFile);
     tilesetDescriptionFile.close();
@@ -89,60 +80,17 @@ int main() {
   while (!WindowShouldClose()) // Detect window close button or ESC key
   {
     // Update
-//Inventory tests
-    /*
-    char ch;
-    do
-    {
-      std::cout<<"\n\n\n\tMAIN MENU";
-      std::cout<<"\n\n\t 1.CUSTOMER";
-      std::cout<<"\n\n\t 2.ADMINISTRATOR";
-      std::cout<<"\n\n\t 3.EXIT";
-      std::cout<<"\n\n\t Please select your option (1-3) \t";
-      std::cin>>ch;
-      switch (ch)
-      {
-      case '1': system("cls");
-        item.place_order();
-        break;
-      case '2': item.admin_menu();
-        break;
-      case '3':
-        exit(0);
-        break;
-      default :std::cout<<"\a";
-      }
-    } while (ch!='3');
 
-    // Game::Level::Collision();
+    //collision.update();
 
-    if (IsKeyDown(KEY_LEFT_CONTROL) && IsKeyPressed(KEY_F)) { // toggle fullscreenmode
-      ToggleFullscreen();
-    }
-*/
-        //--- Collision will be put somewhere else soon
-        /*
-        //find out where nemo is, and that he can't get out of the screen
-        if ((nemo.nemorec.y + nemo.nemorec.height) >= GetScreenHeight())
-          nemo.nemorec.y = GetScreenHeight() - nemo.nemorec.height;
-        else if (nemo.nemorec.y <= screenUpperLimit)
-          nemo.nemorec.y = (float)screenUpperLimit;
-*/
-        /*// Check for input
-            if (timer)
-            {
-              sleep_for(10ms); // disable input for n sec (being stunned after colliding)
-              input = false;
-            }*/
+    // Check levelcollision between Nemo and Rectangle
+    collision.collisionObject = CheckCollisionRecs(collision.rectangleObject, nemo.nemorec);
 
-        // Check collision between Nemo and Rectangle
-    collisionObject = CheckCollisionRecs(rectangleObject, nemo.nemorec);
+        // Get levelcollision rectangleCollision (only on levelcollision)
+        if (collision.collisionObject)
+          collision.rectangleCollision = GetCollisionRec(collision.rectangleObject, nemo.nemorec);
 
-        // Get collision rectangleCollision (only on collision)
-        if (collisionObject)
-          rectangleCollision = GetCollisionRec(rectangleObject, nemo.nemorec);
-
-        if (collisionObject) { //Change the Floats to Ints, that should solve the bugs
+        if (collision.collisionObject) { //Change the Floats to Ints, that should solve the bugs
               if (IsKeyPressed(KEY_A) || IsKeyDown(KEY_A)) { //Left
                 nemo.NemoPosition.x += 10.0; //Pushback
                 PlaySound(GameAudio::collision); //Play Collision Sound
@@ -177,8 +125,6 @@ int main() {
     BeginDrawing();
 
     ClearBackground(WHITE);
-
-    //collision.Collision();
 
     /*
  //Markus Map beispiel:
@@ -238,16 +184,6 @@ int main() {
 
     // map.draw(); //draw the map
 
-    /*
-    //--- Collision will be put somewhere else soon
-    nemo.active = true;
-    nemo.Update(); // nemo walking movement and animation
-    nemo.Draw();   // nemo walking movement and animation
-    camera.target = Vector2 { nemo.NemoPosition.x + 20.0f, nemo.NemoPosition.y + 20.0f };
-
-    DrawRectangleRec(rectangleObject, YELLOW);
-    //--- Collision will be put somewhere else soon
-*/
     BeginMode2D(camera);
 
     level.ScreenDraw();
@@ -257,7 +193,7 @@ int main() {
     case Game::Level::GameScreen::TITLESCREEN:
 
       camera.target = Vector2 { Game::ScreenWidth / 2, Game::ScreenHeight / 2 };
-      nemo.active   = false; // Undraw Nemo
+      nemo.active   = false; // Erase Nemo
 
       if (IsKeyDown(KEY_ENTER)) {
         level.currentscreen = Game::Level::GameScreen::OVERWORLD;
@@ -265,6 +201,7 @@ int main() {
       break;
 
     case Game::Level::GameScreen::OVERWORLD:
+
       nemo.active = true;
       nemo.Update(); // nemo walking movement and animation
       nemo.Draw();   // nemo walking movement and animation
@@ -274,7 +211,7 @@ int main() {
         NPCRec = { 100 + 8, 100 + 5, 16, 20 };
         // DrawRectangleRec(NPCRec, Color(00));                    // COLOR is for the Transparency.
         DrawTexture(NPC.texture_, NPC.pos_x, NPC.pos_y, WHITE); // Drawing the Rectangle
-        DrawRectangleRec(rectangleObject, YELLOW);
+        collision.draw();
       }
       // Collision check
       while (CheckCollisionRecs(NPCRec, nemo.nemorec)) // Where the Collision between Two Objects happen happens

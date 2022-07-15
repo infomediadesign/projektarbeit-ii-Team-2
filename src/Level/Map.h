@@ -3,9 +3,24 @@
 #include "../INCLUDES.h"
 
 #include "TextureManager.h"
+/*
+class Map{
+public:
+  std::ifstream tilesetDescriptionFile("assets/graphics/map/PhyramidenEingangNeu.json");
+  nlohmann::json tilesetDescription = nlohmann::json::parse(tilesetDescriptionFile);
+  tilesetDescriptionFile.close();
 
+  std::ifstream levelMapFile("assets/graphics/map/PhyramidenEingangNeu.json");
+  nlohmann::json levelMap = nlohmann::json::parse(levelMapFile);
+  levelMapFile.close();
 
+  Texture2D tileAtlasTexture = LoadTexture("assets/graphics/Tiles-Atlas/Pyramiden_SheetJamey.png");
+  //Texture2D tileAtlasTexture = LoadTexture((tilesetDescription["image"].get<std::string>()).c_str());
 
+  Vector2 vec;
+  Rectangle rec;
+};
+*/
 
 /*
 //schwieriger als gedacht, hier sind ansätze von Olis Gruppe, und von Christoph
