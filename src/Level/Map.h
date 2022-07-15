@@ -1,10 +1,10 @@
 #pragma once
-#include "raylib.h"
+
+#include "../INCLUDES.h"
+
 #include "TextureManager.h"
 
-#include <cmath>
-#include <array>
-#include <vector>
+
 
 
 /*
@@ -99,13 +99,6 @@ for (int i = 0; i < mapData.layerCollision.size(); i++){
 //----Oli map.cpp-------------------------------------------------------------------------------------------------------
 
 //----Oli main----------------------------------------------------------------------------------------------------------
-#include <cstdlib>
-#include <string>
-#include <iostream>
-#include <fstream>
-#include <nlohmann/json.hpp>
-#include "raylib.h"
-#include "raymath.h"
 
 #include "config.h"
 //#include "GameObject.h"

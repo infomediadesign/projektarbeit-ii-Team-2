@@ -1,4 +1,4 @@
-#include <raylib.h>
+#include "GameAudio.h"
 
 namespace GameAudio {
   Sound collision, walking, attack, openchest, dialoge, trapdoor, unlockdoor, pickupitem, buttonpress, titlescreenmusic,

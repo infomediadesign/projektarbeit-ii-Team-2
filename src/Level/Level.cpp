@@ -1,5 +1,4 @@
 #include "Level.h"
-#include <raylib.h>
 
 //Setting up a timer and Frame Counter.
 bool timer = false;
@@ -124,6 +123,16 @@ void Game::Level::ScreenDraw() {
   case GameScreen::OVERWORLD: DrawTexture(Map, 0, 0, WHITE); break;
 
   case GameScreen::COMBAT:
+
+    bool inCombat;
+
+      /*if (inCombat)
+      {
+        PlaySound(GameAudio::battlemusic);
+        SetSoundVolume(GameAudio::battlemusic, float(1.0)); // Set volume for a sound (1.0 is max level) This is a test
+      }
+*/
+
 
     //Background
     //DrawTexturePro(Battlescreen, {0, 0, (float)Battlescreen.width * 2, (float)Battlescreen.height * 2},

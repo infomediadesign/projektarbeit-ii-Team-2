@@ -1,6 +1,7 @@
 #pragma once
+#include "../INCLUDES.h"
+
 #include "GameCharacter.h"
-#include <vector>
 #include "../Sprite/Sprite.h"
 
 namespace Game 

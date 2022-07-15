@@ -1,6 +1,6 @@
 #pragma once
 
-#include "raylib.h"
+#include "../INCLUDES.h"
 
 namespace GameAudio {
   extern Sound collision, walking, attack, openchest, dialoge, trapdoor, unlockdoor, pickupitem, buttonpress,

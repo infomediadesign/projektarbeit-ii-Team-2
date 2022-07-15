@@ -1,22 +1,17 @@
-﻿#include "Level/GameAudio.h"
+﻿#include"INCLUDES.h"
+
+#include "Level/GameAudio.h"
+#include "Level/Inventory.h"
 #include "Level/Level.h"
 #include "Level/Map.h"
 #include "Level/UI.h"
+
 #include "Player/Nemo.h"
+
 #include "Sprite/Sprite.h"
 
-#include "config.h"
-#include "raylib.h"
-#include "raymath.h"
 
-#include <nlohmann/json.hpp>
-#include <chrono>
-#include <cstdlib>
-#include <iostream>
-#include <memory>
-#include <thread>
-#include <string>
-#include <fstream>
+
 
 
 
@@ -39,6 +34,8 @@ int main() {
   // Initialization
   //--------------------------------------------------------------------------------------------
   Texture2D StandStil = LoadTexture("assets/graphics/Charakter_Vorschlag_vorne_laufen1.png");
+
+  //Inventory item;
 
   GameAudio::Load();
   Game::Level level;
@@ -92,13 +89,37 @@ int main() {
   while (!WindowShouldClose()) // Detect window close button or ESC key
   {
     // Update
+//Inventory tests
+    /*
+    char ch;
+    do
+    {
+      std::cout<<"\n\n\n\tMAIN MENU";
+      std::cout<<"\n\n\t 1.CUSTOMER";
+      std::cout<<"\n\n\t 2.ADMINISTRATOR";
+      std::cout<<"\n\n\t 3.EXIT";
+      std::cout<<"\n\n\t Please select your option (1-3) \t";
+      std::cin>>ch;
+      switch (ch)
+      {
+      case '1': system("cls");
+        item.place_order();
+        break;
+      case '2': item.admin_menu();
+        break;
+      case '3':
+        exit(0);
+        break;
+      default :std::cout<<"\a";
+      }
+    } while (ch!='3');
 
     // Game::Level::Collision();
 
     if (IsKeyDown(KEY_LEFT_CONTROL) && IsKeyPressed(KEY_F)) { // toggle fullscreenmode
       ToggleFullscreen();
     }
-
+*/
         //--- Collision will be put somewhere else soon
         /*
         //find out where nemo is, and that he can't get out of the screen

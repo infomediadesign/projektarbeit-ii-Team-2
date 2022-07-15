@@ -2,10 +2,9 @@
 #include "../Sprite/Sprite.h"
 #include "../Level/GameAudio.h"
 
-#include <config.h>
-#include <memory>
-#include <raylib.h>
-#include <vector>
+#include "../INCLUDES.h"
+
+
 
 namespace Game {
   class Nemo {
@@ -17,7 +16,7 @@ namespace Game {
     Vector2 NemoPosition = { Game::ScreenWidth / 2, Game::ScreenHeight / 2 }; //Starting Point for Nemo
     bool alive = true;
     bool active = true; //This Bool determines, if Nemo is drawn, if it is set to false, Nemo dissapears from the Overworld
-    bool sound = true;  //This Bool deterimines, if Sound is Played
+    bool sound = true;  //This Bool determines, if Sound is Played
     
     enum class direction // Setting the Enum for the direction
     {

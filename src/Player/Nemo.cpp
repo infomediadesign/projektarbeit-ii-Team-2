@@ -2,7 +2,7 @@
 
 #include "../Level/Level.h"
 
-#include <iostream>
+
 
 void Game::Nemo::Update() {
   /*there are many "or" stuff and it makes the code look like Spaghetti Bolognese,
@@ -11,14 +11,12 @@ void Game::Nemo::Update() {
 
 //walking sfx needs a buffer
 
-    if (sound) 
-    {        
-        if (IsKeyDown(KEY_W) || IsKeyPressed(KEY_A) || IsKeyPressed(KEY_S) || IsKeyPressed(KEY_D)) 
-        {
+  if (IsKeyPressed(KEY_W) || IsKeyPressed(KEY_A) || IsKeyPressed(KEY_S) || IsKeyPressed(KEY_D))
+    {
         PlaySound(GameAudio::walking);
-          SetSoundVolume(GameAudio::walking, float(0.05)); // Set volume for a sound (1.0 is max level) This is a test
-        }
+        SetSoundVolume(GameAudio::walking, float(0.5)); // Set volume for a sound (1.0 is max level) This is a test
     }
+
 
    
   if (active) {
