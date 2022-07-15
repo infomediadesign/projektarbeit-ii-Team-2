@@ -38,6 +38,6 @@ void Game::Enemy::updateCharacter()
 Rectangle Game::Enemy::get_rec() { return this->rec; }
 
 Rectangle Game::Enemy::set_rec() {
-  this->rec = { 780, 380, 50, 50 };
+  this->rec = { 780, 370, 50, 50 };
   return rec;
 }
