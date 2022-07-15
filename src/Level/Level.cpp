@@ -15,7 +15,7 @@ void Game::Level::combat()
   //Setting an Input to prevent the Player from attacking, while the countdown runs
   bool input = true;
 
-  //Combat init
+  //Combat initialization
 
   //If the Timer is true, the seconds will Run and the Player can´t press any buttons, while the Enemy Attacks
   if (timer == true) {
