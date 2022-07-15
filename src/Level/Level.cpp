@@ -3,6 +3,7 @@
 //Setting up a timer and Frame Counter.
 bool timer = false;
 int framescounter = 0;
+int h_amount = 1;
 //bool collision = false; // Collision detection
 
 //using namespace std::this_thread;     // sleep_for, sleep_until
@@ -14,7 +15,7 @@ void Game::Level::combat()
   //Setting an Input to prevent the Player from attacking, while the countdown runs
   bool input = true;
 
-  //Combat init
+  //Combat initialization
 
   //If the Timer is true, the seconds will Run and the Player can´t press any buttons, while the Enemy Attacks
   if (timer == true) {
@@ -45,27 +46,33 @@ void Game::Level::combat()
 
     if(IsKeyPressed(KEY_H))
     {
-      //======================HEAL!!!!=========================
-      player->set_turnnumb(GetRandomValue(1, 6));
-      enemy->set_turnnumb(GetRandomValue(1, 6));
+      if (h_amount > 0) {
+        //======================HEAL!!!!=========================
+        player->set_turnnumb(GetRandomValue(1, 6));
+        enemy->set_turnnumb(GetRandomValue(1, 6));
+        // Player heals first, then gets Damage
+        if (player->get_turnnumb() >= enemy->get_turnnumb()) {
+          player->heal();
+          player->getDamage(enemy->attack());
+          h_amount--;
+        }
+        // Enemy Attacks first, then Player heals.
+        if (enemy->get_turnnumb() >= player->get_turnnumb()) {
+          player->getDamage(enemy->attack());
+          player->heal();
+          h_amount--;
+        }
 
-      if (player->get_turnnumb() > enemy->get_turnnumb()) {
-        player->heal();
+        timer = true;
+        //=========================HEAL END!!!!=================
       }
-
-      if (enemy->get_turnnumb() > player->get_turnnumb()) {
-        player->getDamage(enemy->attack());
-      }
-
-      timer = true;
-      //=========================HEAL END!!!!=================
     }
     if (IsKeyPressed(KEY_R)) {
       //=========================PLAYER ATTACK================
       player->set_turnnumb(GetRandomValue(1, 6));
       enemy->set_turnnumb(GetRandomValue(1, 6));
       //===============PLAYER ATTACK=========================
-      if (player->get_turnnumb() > enemy->get_turnnumb()) {
+      if (player->get_turnnumb() >= enemy->get_turnnumb()) {
         enemy->getDamage(player->attack());
       }
       //================ENEMY ATTACK=========================
@@ -101,7 +108,7 @@ void Game::Level::combat()
 }
 
 void Game::Level::Screeninit() {
-  //Here would normally come a Switch Case. For now we initialize our Combat screen in the Main as a test
+  //Here would normally come a Switch Case. For now, we initialize our Combat screen in the Main as a test
 
 }
 
@@ -153,8 +160,9 @@ void Game::Level::ScreenDraw() {
     }
 
     //Timer
-    //DrawText(TextFormat("Time: %i", framescounter), player->set_rec().x + 100, player->set_rec().y, 20, BLUE);
-
+    DrawText(TextFormat("Time: %i", framescounter), player->set_rec().x + 100, player->set_rec().y, 20, GREEN);
+    //Player Stats
+    DrawText(TextFormat("Amount: %i", h_amount), player->set_rec().x, player->set_rec().y - 110, 20, BLUE);
     DrawText(TextFormat("Speed: %i", player->get_turnnumb()), player->set_rec().x, player->set_rec().y - 90, 20, BLUE);
     DrawText(TextFormat("HP: %i", player->getLives()), player->set_rec().x, player->set_rec().y - 70, 20, BLUE);
     DrawText(TextFormat("STR: %i", player->getStrength()), player->set_rec().x, player->set_rec().y - 50, 20, BLUE);
