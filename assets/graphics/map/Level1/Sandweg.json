@@ -1,0 +1,15 @@
+{ "columns":7,
+ "image":"..\/..\/Asprite PA2\/Zeitzonen\/\u00c4gypten\/Phyramide\/Final Assets\/FinalFinal\/SandWEG_Purrfect-Sheet.png",
+ "imageheight":32,
+ "imagewidth":224,
+ "margin":0,
+ "name":"Sandweg ",
+ "spacing":0,
+ "tilecount":7,
+ "tiledversion":"1.8.4",
+ "tileheight":32,
+ "tilewidth":32,
+ "transparentcolor":"#ff00ff",
+ "type":"tileset",
+ "version":"1.8"
+}
