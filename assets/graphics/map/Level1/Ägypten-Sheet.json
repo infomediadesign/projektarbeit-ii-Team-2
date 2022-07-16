@@ -1,4 +1,15 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<tileset version="1.8" tiledversion="1.8.4" name="Ägypten-Sheet" tilewidth="32" tileheight="32" tilecount="72" columns="9">
- <image source="../../Asprite PA2/Zeitzonen/Ägypten/Phyramide/Final Assets/FinalFinal/Pyramiden_SheetJamey.png" trans="ff00ff" width="288" height="256"/>
-</tileset>
+{ "columns":9,
+ "image":"..\/..\/Asprite PA2\/Zeitzonen\/\u00c4gypten\/Phyramide\/Final Assets\/FinalFinal\/Pyramiden_SheetJamey.png",
+ "imageheight":256,
+ "imagewidth":288,
+ "margin":0,
+ "name":"\u00c4gypten-Sheet",
+ "spacing":0,
+ "tilecount":72,
+ "tiledversion":"1.8.4",
+ "tileheight":32,
+ "tilewidth":32,
+ "transparentcolor":"#ff00ff",
+ "type":"tileset",
+ "version":"1.8"
+}
