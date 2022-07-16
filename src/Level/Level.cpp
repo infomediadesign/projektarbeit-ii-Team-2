@@ -143,7 +143,7 @@ void Game::Level::ScreenDraw() {
     DrawTexture(Battlescreen, GetScreenWidth()/2 - 350, GetScreenHeight()/2 - 180, WHITE);
     //Draw Player
     Playerrec = {player->get_rec().x + 8, player->get_rec().y + 10, player->get_rec().width, player->get_rec().height};
-    DrawRectangleRec(Playerrec, Color(00));
+    DrawRectangleRec(Playerrec, Color{});
     //DrawTextureRec(Back, frameRec, NemoPosition, WHITE);
     DrawTextureRec(spr_Player, frameRec, {player->get_rec().x, player->get_rec().y}, WHITE);
     // animation
