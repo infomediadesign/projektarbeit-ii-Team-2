@@ -50,14 +50,16 @@ int main() {
   Rectangle NPCRec = {}; // Rectangle Position has to be set after it is drawn, leaving it free is so much better, until
                          // it is called. Do not touch it!!!
   bool NPCDraw = true;   // To set the drawing if it is true or false. In short if it is draw or deleted
-
+/*
   //Map Markus stuff
-  /*
-    std::ifstream tilesetDescriptionFile("assets/graphics/map/PhyramidenEingangNeu.json");
+
+    std::ifstream tilesetDescriptionFile("assets/graphics/map/Pyramiden_SheetJamey.json"); //Pyramiden_SheetJamey.json needed as json, pls do in tiled
+    assert(tilesetDescriptionFile.is_open());
     nlohmann::json tilesetDescription = nlohmann::json::parse(tilesetDescriptionFile);
     tilesetDescriptionFile.close();
 
     std::ifstream levelMapFile("assets/graphics/map/PhyramidenEingangNeu.json");
+    assert(levelMapFile.is_open());
     nlohmann::json levelMap = nlohmann::json::parse(levelMapFile);
     levelMapFile.close();
 
@@ -66,6 +68,53 @@ int main() {
 
     Vector2 vec;
     Rectangle rec;
+
+
+    vec = {0, 0};
+    rec = {0, 0, levelMap["tilewidth"], levelMap["tileheight"]};
+    for (auto const &layer : levelMap["layers"]) {
+
+      if (layer["type"] == "tilelayer" && layer["visible"]) {
+        vec.y = 0;
+        for (auto const &tileId : layer["data"]) {
+
+          int counter = (int) tileId;
+          counter--;
+          if (counter != -1) {
+            rec.x = (float) ((int) counter % (int) tilesetDescription["columns"]) *
+                    (float) levelMap["tilewidth"];
+            rec.y = (float) floor((float) counter / (float) tilesetDescription["columns"]) *
+                    (float) levelMap["tileheight"];
+            DrawTextureRec(tileAtlasTexture, rec, vec, WHITE); //entkoppeln, 2 vektoren machen
+          }
+          vec.x += (float) levelMap["tilewidth"];
+          if (vec.x >= (float) layer["width"] * (float) levelMap["tilewidth"]) {
+            vec.x = 0;
+            vec.y += (float) levelMap["tileheight"];
+          }
+        }
+      }
+    }
+*/
+/*
+    //Music Tests
+  if (level.currentscreen == Game::Level::GameScreen::OVERWORLD)
+  {
+    StopSound(GameAudio::battlemusic);
+    PlaySound(GameAudio::outdungeon);
+    SetSoundVolume(GameAudio::outdungeon, float(0.5)); // Set volume for a sound (1.0 is max level) This is a test
+  }
+  else if (level.currentscreen == Game::Level::GameScreen::COMBAT)
+  {
+    StopSound(GameAudio::outdungeon);
+    PlaySound(GameAudio::battlemusic);
+    SetSoundVolume(GameAudio::outdungeon, float(0.5)); // Set volume for a sound (1.0 is max level) This is a test
+  }
+  else
+  {
+    StopSound(GameAudio::outdungeon);
+    StopSound(GameAudio::battlemusic);
+  }
 */
 
     // Camera settings
@@ -81,8 +130,10 @@ int main() {
   {
     // Update
 
-    //collision.update();
 
+
+    //collision.update();
+/*
     // Check levelcollision between Nemo and Rectangle
     collision.collisionObject = CheckCollisionRecs(collision.rectangleObject, nemo.nemorec);
 
@@ -118,7 +169,7 @@ int main() {
                 }
             }
         //--- Collision will be put somewhere else soon
-
+*/
 
     // Begin drawing
     //--------------------------------------------------------------------------------------------
@@ -126,34 +177,7 @@ int main() {
 
     ClearBackground(WHITE);
 
-    /*
- //Markus Map beispiel:
-    vec = {0, 0};
-    rec = {0, 0, levelMap["tilewidth"], levelMap["tileheight"]};
-    for (auto const &layer : levelMap["layers"]) {
 
-      if (layer["type"] == "tilelayer" && layer["visible"]) {
-        vec.y = 0;
-        for (auto const &tileId : layer["data"]) {
-
-          int counter = (int) tileId;
-          counter--;
-          if (counter != -1) {
-            rec.x = (float) ((int) counter % (int) tilesetDescription["columns"]) *
-                    (float) levelMap["tilewidth"];
-            rec.y = (float) floor((float) counter / (float) tilesetDescription["columns"]) *
-                    (float) levelMap["tileheight"];
-            DrawTextureRec(tileAtlasTexture, rec, vec, WHITE);
-          }
-          vec.x += (float) levelMap["tilewidth"];
-          if (vec.x >= (float) layer["width"] * (float) levelMap["tilewidth"]) {
-            vec.x = 0;
-            vec.y += (float) levelMap["tileheight"];
-          }
-        }
-      }
-    }
-*/
 
     /*
 //Programming 1 Moodle:

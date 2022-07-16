@@ -12,7 +12,6 @@ void Collision::update()
   if (collisionObject)
       rectangleCollision = GetCollisionRec(rectangleObject, nemo.nemorec);
 
-
     if (collisionObject) { //Change the Floats to Ints, that should solve the bugs
       if (IsKeyPressed(KEY_A) || IsKeyDown(KEY_A)) { //Left
         nemo.NemoPosition.x += 10.0; //pushback
@@ -46,3 +45,4 @@ void Collision::draw()
   rectangleObject = {400, 703 / 2, 32, 32};
   DrawRectangleRec(rectangleObject, YELLOW);
 }
+

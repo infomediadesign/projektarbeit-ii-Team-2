@@ -2,7 +2,13 @@
 
 #include "../INCLUDES.h"
 
-#include "TextureManager.h"
+class Map
+{
+public:
+
+};
+
+
 /*
 class Map{
 public:
@@ -21,7 +27,6 @@ public:
   Rectangle rec;
 };
 */
-
 /*
 //schwieriger als gedacht, hier sind ansätze von Olis Gruppe, und von Christoph
 

@@ -30,6 +30,8 @@
 #include <nlohmann/json.hpp>
 
 #include"Level/dArr.h"
+#include"Level/TextureManager.h"
+#include"level/GameAudio.h"
 
 
 //other stuff needed to be shared with everthing
