@@ -1,11 +1,11 @@
 #include "GameCharacter.h"
 
-Game::GameCharacter::GameCharacter(int HP, int DEF, int STR) : c_HP(HP), c_DEF(DEF), c_STR(STR) {
+Game::GameCharacter::GameCharacter(string n_name, int max_HP, int HP, int DEF, int STR) : name (n_name), c_MaxHP(max_HP), c_HP(c_MaxHP), c_DEF(DEF), c_STR(STR) {
 }
 
 int Game::GameCharacter::getLives() 
 { 
-	return c_HP; 
+	return c_HP;
 }
 
 int Game::GameCharacter::getArmor() { return c_DEF; }
@@ -19,7 +19,7 @@ Rectangle Game::GameCharacter::get_rec()
 
 void Game::GameCharacter::heal()
 {
-    this->c_HP = 25;
+    this->c_HP = c_MaxHP;
 }
 
 Rectangle Game::GameCharacter::set_rec() 
@@ -33,4 +33,8 @@ int Game::GameCharacter::get_turnnumb()
 void Game::GameCharacter::set_turnnumb(int turnnumb) 
 { 
 	this->turnnumb = GetRandomValue(1, 6);
+}
+string Game::GameCharacter::get_Name()
+{
+  return name;
 }

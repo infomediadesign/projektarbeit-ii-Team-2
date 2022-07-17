@@ -108,45 +108,6 @@ int main() {
   {
     // Update
 
-
-/*
-    // Check levelcollision between Nemo and Rectangle
-    collision.collisionObject = CheckCollisionRecs(collision.rectangleObject, nemo.nemorec);
-
-        // Get levelcollision rectangleCollision (only on levelcollision)
-        if (collision.collisionObject)
-          collision.rectangleCollision = GetCollisionRec(collision.rectangleObject, nemo.nemorec);
-
-        if (collision.collisionObject) { //Change the Floats to Ints, that should solve the bugs
-              if (IsKeyPressed(KEY_A) || IsKeyDown(KEY_A)) { //Left
-                nemo.NemoPosition.x += 10.0; //Pushback
-                PlaySound(GameAudio::collision); //Play Collision Sound
-                SetSoundVolume(GameAudio::collision, float(0.07)); //adjust its volume
-                sleep_for(1s); // disable input -> (being stunned after colliding)
-                //sleep_until(  system_clock::now() + 1s); //both work
-                }
-                if (IsKeyPressed(KEY_D) || IsKeyDown(KEY_D)) { // Right
-                  nemo.NemoPosition.x -= 10.0;
-                  PlaySound(GameAudio::collision);
-                  SetSoundVolume(GameAudio::collision, float(0.07));
-                  sleep_for(1s); // disable input -> (being stunned after colliding)
-                }
-                if (IsKeyPressed(KEY_W) || IsKeyDown(KEY_W)) { // Up
-                  nemo.NemoPosition.y += 10.0;
-                  PlaySound(GameAudio::collision);
-                  SetSoundVolume(GameAudio::collision, float(0.07));
-                  sleep_for(1s); // disable input -> (being stunned after colliding)
-                }
-                if (IsKeyPressed(KEY_S) || IsKeyDown(KEY_S)) { // Down
-                  nemo.NemoPosition.y -= 10.0;
-                  PlaySound(GameAudio::collision);
-                  SetSoundVolume(GameAudio::collision, float(0.07));
-                  sleep_for(1s); // disable input -> (being stunned after colliding)
-                }
-            }
-        //--- Collision will be put somewhere else soon
-*/
-
     // Begin drawing
     //--------------------------------------------------------------------------------------------
     BeginDrawing();

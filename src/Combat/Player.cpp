@@ -1,6 +1,6 @@
 #include "Player.h"
 
-Game::Player::Player() : GameCharacter(25, 5, 5)
+Game::Player::Player() : GameCharacter("Nemo", 25, c_MaxHP, 5, 5)
 {
 }
 

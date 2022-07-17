@@ -16,7 +16,7 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 #set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra")
 
 add_executable(${PROJECT_NAME} main.cpp "Sprite/Sprite.h" "Sprite/Sprite.cpp" "Player/Nemo.h" "Player/Nemo.cpp" "Level/UI.h" "Level/UI.cpp" "Level/Level.h" "Level/Level.cpp" 
- "Combat/GameCharacter.h" "Combat/GameCharacter.cpp" "Combat/Player.h" "Combat/Player.cpp" "Combat/Enemy.h" "Combat/Enemy.cpp" "Level/GameAudio.cpp" Level/Map.cpp Level/Map.h Level/TextureManager.cpp Level/TextureManager.h Level/Inventory.cpp Level/Inventory.h INCLUDES.h Level/Item.cpp Level/Item.h Level/Armor.cpp Level/Armor.h Level/dArr.h Level/Potion.cpp Level/Potion.h Level/Collision.cpp Level/Collision.h Level/Tile.cpp Level/Tile.h)
+ "Combat/GameCharacter.h" "Combat/GameCharacter.cpp" "Combat/Player.h" "Combat/Player.cpp" "Combat/Mumy.h" "Combat/Mumy.cpp" "Level/GameAudio.cpp" Level/Map.cpp Level/Map.h Level/TextureManager.cpp Level/TextureManager.h Level/Inventory.cpp Level/Inventory.h INCLUDES.h Level/Item.cpp Level/Item.h Level/Armor.cpp Level/Armor.h Level/dArr.h Level/Potion.cpp Level/Potion.h Level/Collision.cpp Level/Collision.h Level/Tile.cpp Level/Tile.h Combat/Shadow.cpp Combat/Shadow.h Combat/Pharaoh.cpp Combat/Pharaoh.h)
 
 # Add config.h.in file
 configure_file(config.h.in config.h)

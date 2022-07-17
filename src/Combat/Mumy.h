@@ -1,15 +1,16 @@
 #pragma once
 #include "../INCLUDES.h"
+#include <string.h>
 #include "GameCharacter.h"
 
 
 namespace Game 
 {
-  class Enemy :
+  class Mumy :
 	  public GameCharacter
   {
   public:
-    Enemy();
+    Mumy();
 
 	std::vector<int> attack() override;
 
@@ -19,6 +20,7 @@ namespace Game
 
 	virtual Rectangle get_rec() override;
 
-    virtual Rectangle set_rec() override;
+  virtual Rectangle set_rec() override;
+
   };
 }

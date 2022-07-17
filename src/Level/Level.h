@@ -1,14 +1,13 @@
 #pragma once
 
+#include "../Combat/Mumy.h"
+#include "../Combat/Player.h"
+#include "../Combat/Shadow.h"
+#include "../Combat/Pharaoh.h"
 #include "../INCLUDES.h"
-
+#include "../Player/Nemo.h"
 #include "UI.h"
 #include "config.h"
-
-#include "../Player/Nemo.h"
-#include "../Combat/Player.h"
-#include "../Combat/Enemy.h"
-
 
 namespace Game {
   class Level {
@@ -18,7 +17,9 @@ namespace Game {
     Texture2D spr_Player = LoadTexture("assets/graphics/BattleScreen/Agypten/Nemo_Battle.png");
 
     GameCharacter *player         = new Player();
-    GameCharacter *enemy          = new Enemy();
+    GameCharacter *enemy          = new Mumy();
+    GameCharacter *shadow         = new Shadow();
+    GameCharacter *pharaoh        = new Pharaoh();
     Nemo *nemo                    = new Nemo();
     //Level *level                = new Level();
     //UI *ui                      = new UI();

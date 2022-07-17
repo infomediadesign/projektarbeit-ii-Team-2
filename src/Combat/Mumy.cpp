@@ -1,11 +1,11 @@
-#include "Enemy.h"
+#include "Mumy.h"
 
-Game::Enemy::Enemy() : GameCharacter(20, 2, 12)
+Game::Mumy::Mumy() : GameCharacter("Mumy",10, c_MaxHP, 2, 8)
 {
 
 }
 
-std::vector<int> Game::Enemy::attack() 
+std::vector<int> Game::Mumy::attack()
 { 
 	//DrawText(TextFormat("You Receive %i", c_STR), 500, 330, 40, BLACK);
     std::vector<int> vector;
@@ -14,7 +14,7 @@ std::vector<int> Game::Enemy::attack()
     return vector;
 }
 
-void Game::Enemy::getDamage(std::vector<int> damage) 
+void Game::Mumy::getDamage(std::vector<int> damage)
 {
   if (damage[0] - c_DEF > 0) 
   {
@@ -27,7 +27,7 @@ void Game::Enemy::getDamage(std::vector<int> damage)
   }
 }
 
-void Game::Enemy::updateCharacter() 
+void Game::Mumy::updateCharacter()
 {
   if (c_HP <= 0) 
   {
@@ -35,9 +35,9 @@ void Game::Enemy::updateCharacter()
   }
 }
 
-Rectangle Game::Enemy::get_rec() { return this->rec; }
+Rectangle Game::Mumy::get_rec() { return this->rec; }
 
-Rectangle Game::Enemy::set_rec() {
+Rectangle Game::Mumy::set_rec() {
   this->rec = { 780, 370, 50, 50 };
   return rec;
 }

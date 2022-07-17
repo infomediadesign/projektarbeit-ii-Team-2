@@ -3,7 +3,7 @@
 //Setting up a timer and Frame Counter.
 bool timer = false;
 int framescounter = 0;
-int h_amount = 1;
+int h_amount = 2;
 //bool collision = false; // Collision detection
 
 //using namespace std::this_thread;     // sleep_for, sleep_until
@@ -17,23 +17,23 @@ void Game::Level::combat()
 
   //Combat initialization
 
-  //If the Timer is true, the seconds will Run and the Player can´t press any buttons, while the Enemy Attacks
+  //If the Timer is true, the seconds will Run and the Player can´t press any buttons, while the Mumy Attacks
   if (timer == true) {
     framescounter++;
     input = false;
   }
 
-  //If 2 Seconds has Passed, the Player will receive Damage from the Enemy and the timer will be stopped, the Player can
+  //If 2 Seconds has Passed, the Player will receive Damage from the Mumy and the timer will be stopped, the Player can
   //then attack again
   if (((framescounter/120)%2) == 1) {
     //player->getDamage(enemy->attack());
     framescounter = 0;
 
-    //After Player Attacks, the Enemy will attack the Player
+    //After Player Attacks, the Mumy will attack the Player
     if (player->get_turnnumb() > enemy->get_turnnumb()) {
       player->getDamage(enemy->attack());
     }
-    //After Enemy Attack, the Player attacks the Enemy
+    //After Mumy Attack, the Player attacks the Mumy
     if (enemy->get_turnnumb() > player->get_turnnumb()) {
       enemy->getDamage(player->attack());
     }
@@ -56,7 +56,7 @@ void Game::Level::combat()
           player->getDamage(enemy->attack());
           h_amount--;
         }
-        // Enemy Attacks first, then Player heals.
+        // Mumy Attacks first, then Player heals.
         if (enemy->get_turnnumb() >= player->get_turnnumb()) {
           player->getDamage(enemy->attack());
           player->heal();
@@ -84,12 +84,6 @@ void Game::Level::combat()
       //========================ATTACK END!!!================
     }
   }
-  //Setting up the Turnnumber
-  /*if (IsKeyPressed(KEY_Z))
-  {
-    player->set_turnnumb(GetRandomValue(0, 100));
-    enemy->set_turnnumb(GetRandomValue(0, 100));
-  }*/
 
   if (enemy->getLives() <= 0)
   {

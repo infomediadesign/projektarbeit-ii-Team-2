@@ -2,13 +2,16 @@
 #include "../INCLUDES.h"
 
 #include "../Sprite/Sprite.h"
+using namespace std;
 
 namespace Game 
 {
   class GameCharacter 
   {
   public:
-    GameCharacter(int HP, int DEF, int STR);
+    GameCharacter(string n_name, int max_HP, int HP, int DEF, int STR);
+
+    virtual string get_Name();
 
     virtual std::vector<int> attack() = 0;
 
@@ -33,7 +36,8 @@ namespace Game
     virtual void set_turnnumb(int turnnumb);
 
   protected:
-    int c_HP, c_DEF, c_STR;
+    int c_MaxHP, c_HP, c_DEF, c_STR;
+    string name;
     int turnnumb = GetRandomValue(0, 100);
     Rectangle rec { 800, 320, 50, 50 };
   };
