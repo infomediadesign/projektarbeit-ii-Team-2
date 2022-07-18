@@ -1,108 +1,34 @@
 #include "Map.h"
-
-
-
-
 /*
-void Game::Map::draw() {
+void Map::mapDraw()
+{
+  Vector2 vec;
+  Rectangle rec;
 
-  Texture2D texture = LoadTexture("assets/graphics/Tiles-Atlas/Pyramiden_SheetJamey.png");
+  vec = {0, 0};
+  rec = {0, 0, levelMap["tilewidth"], levelMap["tileheight"]};
+  for (auto const &layer : levelMap["layers"]) {
 
-  Vector2 vec = {0,0};
-  Rectangle rec = {0,0, tile_size, tile_size};
+    if (layer["type"] == "tilelayer" && layer["visible"]) {
+      vec.y = 0;
+      for (auto const &tileId : layer["data"]) {
 
-  //For-loop mit 2D Array
-  for(auto const& outer : levelBackgroundSandWeg)
-  {
-    for(auto const & inner : outer)
-    {
-      rec.x = tile_size * (float) ((inner-1) & tiles_per_row);
-      rec.y = tile_size * (float) floor((inner-1) / tiles_per_row); // floor: gibt den größten ganzzahligen Wert kleiner oder gleich x zurück.
-      DrawTextureRec(texture, rec, vec, WHITE);
-
-      vec.x += tile_size;
-    }
-    vec.x = 0;
-    vec.y += tile_size;
-  }
-
-  for(auto const& outer : levelAnimation)
-  {
-    for(auto const & inner : outer)
-    {
-      rec.x = tile_size * (float) ((inner-1) & tiles_per_row);
-      rec.y = tile_size * (float) floor((inner-1) / tiles_per_row); // floor: gibt den größten ganzzahligen Wert kleiner oder gleich x zurück.
-      DrawTextureRec(texture, rec, vec, WHITE);
-
-      vec.x += tile_size;
-    }
-    vec.x = 0;
-    vec.y += tile_size;
-  }
-
-  for(auto const& outer : levelDecorationStones)
-  {
-    for(auto const & inner : outer)
-    {
-      rec.x = tile_size * (float) ((inner-1) & tiles_per_row);
-      rec.y = tile_size * (float) floor((inner-1) / tiles_per_row); // floor: gibt den größten ganzzahligen Wert kleiner oder gleich x zurück.
-      DrawTextureRec(texture, rec, vec, WHITE);
-
-      vec.x += tile_size;
-    }
-    vec.x = 0;
-    vec.y += tile_size;
-  }
-
-  for(auto const& outer : levelCollisionDoor)
-  {
-    for(auto const & inner : outer)
-    {
-      rec.x = tile_size * (float) ((inner-1) & tiles_per_row);
-      rec.y = tile_size * (float) floor((inner-1) / tiles_per_row); // floor: gibt den größten ganzzahligen Wert kleiner oder gleich x zurück.
-      DrawTextureRec(texture, rec, vec, WHITE);
-
-      vec.x += tile_size;
-    }
-    vec.x = 0;
-    vec.y += tile_size;
-  }
-
-  for(auto const& outer : levelCollisionWallsStones)
-  {
-    for(auto const & inner : outer)
-    {
-      rec.x = tile_size * (float) ((inner-1) & tiles_per_row);
-      rec.y = tile_size * (float) floor((inner-1) / tiles_per_row); // floor: gibt den größten ganzzahligen Wert kleiner oder gleich x zurück.
-      DrawTextureRec(texture, rec, vec, WHITE);
-
-      vec.x += tile_size;
-    }
-    vec.x = 0;
-    vec.y += tile_size;
-  }
-
-
-
-  //For-loop mit 1D Array
-  /*
-  //For-loop mit 1D Array
-  vec = {0,0};
-  int val = 0;
-  for(int c = 0; c < 10; c++) {
-    for(int r = 0; r < 10; r++){
-      val = levelCollision[r * 10 + c];
-      val--;
-      if (val != -1){
-        rec.x = tile_size * (float) ((val) & tiles_per_row);
-        rec.y = tile_size * (float) (floor(val) / tiles_per_row);
-        DrawTextureRec(texture, rec, vec, WHITE);
+        int counter = (int) tileId;
+        counter--;
+        if (counter != -1) {
+          rec.x = (float) ((int) counter % (int) tilesetDescription["columns"]) *
+                  (float) levelMap["tilewidth"];
+          rec.y = (float) floor((float) counter / (float) tilesetDescription["columns"]) *
+                  (float) levelMap["tileheight"];
+          DrawTextureRec(tileAtlasTexture, rec, vec, WHITE); //entkoppeln, 2 vektoren machen
+        }
+        vec.x += (float) levelMap["tilewidth"];
+        if (vec.x >= (float) layer["width"] * (float) levelMap["tilewidth"]) {
+          vec.x = 0;
+          vec.y += (float) levelMap["tileheight"];
+        }
       }
-      vec.x += tile_size;
     }
-    vec.x = 0;
-    vec.y += tile_size;
   }
-
 }
 */

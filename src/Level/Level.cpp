@@ -6,10 +6,6 @@ int framescounter = 0;
 int h_amount = 2;
 //bool collision = false; // Collision detection
 
-//using namespace std::this_thread;     // sleep_for, sleep_until
-//using namespace std::chrono_literals; // ns, us, ms, s, h, etc.
-//using std::chrono::system_clock;
-
 void Game::Level::combat()
 {
   //Setting an Input to prevent the Player from attacking, while the countdown runs
@@ -114,8 +110,17 @@ void Game::Level::ScreenDraw() {
     DrawText("PRESS ENTER FOR GAME", 500, 340, 20, GRAY);
     break;
 
-  case GameScreen::OVERWORLD: DrawTexture(Map, 0, 0, WHITE); break;
+  case GameScreen::OVERWORLD: break;
 
+  case GameScreen::PYRAMIDE:
+    DrawText("PYRAMIDE", 500, 320, 20, GRAY);
+    break;
+  case GameScreen::OCEAN:
+    DrawText("IM UNDER THE WATER", 500, 320, 20, DARKBLUE);
+    DrawText("BLUB BLUB BLUB...", 500, 340, 20, DARKBLUE);
+    DrawText("Enter to get back to overworld", 500, 360, 20, DARKBLUE);
+    DrawTexture(Fish, 400, 400, WHITE);
+    break;
   case GameScreen::COMBAT:
 
     bool inCombat;
@@ -178,68 +183,34 @@ void Game::Level::ScreenDraw() {
 
 //void Game::Level::Draw() { DrawTexture(Map, 0, 0, WHITE); }
 
-void Game::Level::Music() {
+void Game::Level::Teleport() {
 
-  if (IsKeyPressed(KEY_SPACE)) {
-    SetSoundVolume(GameAudio::titlescreenmusic, float (0.01)); // Set volume for a sound (1.0 is max level) This is a test
-    PlaySound(GameAudio::titlescreenmusic);
-    if (IsKeyPressed(KEY_SPACE)) {
-      PauseSound(GameAudio::titlescreenmusic);
-    }
+  // teleport coordinates
+  teleportrecOVERWORLDtoPYRAMID = { doorPositionX, doorPositionY, doortileX, doortileY }; // rectangle in overworld to pyramid
+  teleportrecPYRAMIDtoOVERWORLD = { doorPositionX + 100 , doorPositionY, doortileX, doortileY }; //rectangle in pyramid to overworld
+  teleportrecPYRAMIDtoOCEAN = { doorPositionX - 100 , doorPositionY, doortileX, doortileY }; //rectangle in pyramid to ocean
+  teleportrecOCEANtoEND = { doorPositionX - 100, doorPositionY - 100, doortileX, doortileY }; //rectangle in ocean to endscreen
+
+  // collision check with the door & nemo
+  teleportcollisionOVERWORLDtoPYRAMID = CheckCollisionRecs(teleportrecOVERWORLDtoPYRAMID, nemo->nemorec); //check collision between door and nemo
+  teleportcollisionPYRAMIDtoOVERWORLD = CheckCollisionRecs(teleportrecPYRAMIDtoOVERWORLD, nemo->nemorec);
+  teleportcollisionPYRAMIDtoOCEAN = CheckCollisionRecs(teleportrecPYRAMIDtoOCEAN, nemo->nemorec);
+  teleportcollisionOCEANtoEND = CheckCollisionRecs(teleportrecOCEANtoEND, nemo->nemorec);
+
+  //bool true -> teleport...
+  if (teleportcollisionOVERWORLDtoPYRAMID) { //if the collsion bool is true, nemo is transported to PYRAMIDE
+    level->currentscreen = Game::Level::GameScreen::PYRAMIDE;
+  }
+  if (teleportcollisionPYRAMIDtoOVERWORLD) { //if the collsion bool is true, nemo is transported to PYRAMIDE
+    level->currentscreen = Game::Level::GameScreen::OVERWORLD;
+  }
+  if (teleportcollisionPYRAMIDtoOCEAN) { //if the collsion bool is true, nemo is transported to PYRAMIDE
+    level->currentscreen = Game::Level::GameScreen::OCEAN;
+  }
+  if (teleportcollisionOCEANtoEND) {
+    level->currentscreen = Game::Level::GameScreen::TITLESCREEN;
   }
 }
 
-/*void Game::Level::Collision() {
-
-  Rectangle Collision   = { 400, 703, 32, 32 };
-
-  int screenUpperLimit  = 40; // Top menu limits
-  bool input = true;
-
-  if(timer == true) {
-    sleep_for(10ms); // disable input for 1/4 sec (being stunned after colliding)
-    input = false;
-  }
-
-  if ((nemo->nemorec.y + nemo->nemorec.height) >= GetScreenHeight())
-    nemo->nemorec.y = GetScreenHeight() - nemo->nemorec.height;
-  else if (nemo->nemorec.y <= screenUpperLimit)
-    nemo->nemorec.y = (float)screenUpperLimit;
-
-  //collision nemo with collision object
-  collision = CheckCollisionRecs(Collision, nemo->nemorec);
-
-  if (collision) { //Change the Floats to Ints, that should solve the bugs
-    if (IsKeyPressed(KEY_A) || IsKeyDown(KEY_A)) { //Left
-      nemo->NemoPosition.x += 4.0; //Pushback
-      PlaySound(GameAudio::collision); //Play Collision Sound
-      SetSoundVolume(GameAudio::collision, float(0.07)); //adjust its volume
-      timer = false;
-      input = true;
-    }
-    if (IsKeyPressed(KEY_D) || IsKeyDown(KEY_D)) { // Right
-      nemo->NemoPosition.x -= 4.0;
-      PlaySound(GameAudio::collision);
-      SetSoundVolume(GameAudio::collision, float(0.07));
-      timer = false;
-      input = true;
-    }
-    if (IsKeyPressed(KEY_W) || IsKeyDown(KEY_W)) { // Up
-      nemo->NemoPosition.y += 4.0;
-      PlaySound(GameAudio::collision);
-      SetSoundVolume(GameAudio::collision, float(0.07));
-      timer = false;
-      input = true;
-    }
-    if (IsKeyPressed(KEY_S) || IsKeyDown(KEY_S)) { // Down
-      nemo->NemoPosition.y -= 4.0;
-      PlaySound(GameAudio::collision);
-      SetSoundVolume(GameAudio::collision, float(0.07));
-      timer = false;
-      input = true;
-    }
-  }
-}
-*/
 Game::Level::~Level() {}
 

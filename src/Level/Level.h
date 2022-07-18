@@ -15,6 +15,7 @@ namespace Game {
     Texture2D Map = LoadTexture("assets/graphics/wintermap.png");
     Texture2D Battlescreen = LoadTexture("assets/graphics/BattleScreen/Agypten/HintergrundBatlleScreen_Agypten.png");
     Texture2D spr_Player = LoadTexture("assets/graphics/BattleScreen/Agypten/Nemo_Battle.png");
+    Texture2D Fish = LoadTexture("assets/graphics/Fish.png");
 
     GameCharacter *player         = new Player();
     GameCharacter *enemy          = new Mumy();
@@ -24,6 +25,8 @@ namespace Game {
     //Level *level                = new Level();
     //UI *ui                      = new UI();
 
+    Game::Level *level;
+
     Rectangle battlerec = {};
 
     Rectangle frameRec = { 0.0f, 0.0f, (float)spr_Player.width / 7, (float)spr_Player.height };
@@ -32,9 +35,25 @@ namespace Game {
     int framesSpeed    = 4; // animation fps
     Rectangle Playerrec  = {}; //The attributes for the Rectangle will be set.
 
+    //teleport stuff
+    const float doortileX     = 66.0;
+    const float doortileY     = 45.0;
+    const float doorPositionX = 815.0;
+    const float doorPositionY = 276.0;
+
+    Rectangle teleportrecOVERWORLDtoPYRAMID = {};
+    Rectangle teleportrecPYRAMIDtoOVERWORLD = {};
+    Rectangle teleportrecPYRAMIDtoOCEAN = {};
+    Rectangle teleportrecOCEANtoEND = {};
+
+    bool teleportcollisionOVERWORLDtoPYRAMID = true;
+    bool teleportcollisionPYRAMIDtoOVERWORLD = true;
+    bool teleportcollisionPYRAMIDtoOCEAN = true;
+    bool teleportcollisionOCEANtoEND = true;
+
     void combat();
 
-    enum class GameScreen { TITLESCREEN, OVERWORLD, COMBAT, PYRAMIDE, PAUSEMENU, CUTSCENE }; //This Enum Class is there to set the Screens to TITLE etc.
+    enum class GameScreen { TITLESCREEN, OVERWORLD, COMBAT, PYRAMIDE, OCEAN, PAUSEMENU, CUTSCENE }; //This Enum Class is there to set the Screens to TITLE etc.
 
     GameScreen currentscreen = GameScreen::COMBAT; //TitleScreens is the Start Screen
     //GameScreen currentscreen = GameScreen::TITLESCREEN; // TitleScreens is the Start Screen
@@ -49,11 +68,7 @@ namespace Game {
 
     void Draw();
 
-    //void Teleport();
-
-    //void Collision();
-
-    void Music();
+    void Teleport();
 
     ~Level();
   };

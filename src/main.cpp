@@ -50,12 +50,14 @@ int main() {
   collision.nemo = &nemo;
   collision.level = &level;
 
+  level.level = &level;
+  level.nemo = &nemo;
+
   Rectangle NPCRec = {}; // Rectangle Position has to be set after it is drawn, leaving it free is so much better, until
                          // it is called. Do not touch it!!!
   bool NPCDraw = true;   // To set the drawing if it is true or false. In short if it is draw or deleted
 
   //Map Markus stuff
-
     std::ifstream tilesetDescriptionFile("assets/graphics/map/Level1/PhyramidSheet.json"); //Pyramiden_SheetJamey.json needed as json, pls do in tiled
     assert(tilesetDescriptionFile.is_open());
     nlohmann::json tilesetDescription = nlohmann::json::parse(tilesetDescriptionFile);
@@ -169,7 +171,11 @@ int main() {
       nemo.Draw();   // nemo walking movement and animation
       camera.target = Vector2 { nemo.NemoPosition.x + 20.0f, nemo.NemoPosition.y + 20.0f };
 
-      collision.update();
+      collision.update(); //collision mit rotem block
+
+      //teleport into pyramid
+      level.Teleport();
+      DrawRectangleRec(level.teleportrecOVERWORLDtoPYRAMID, Color{});
 
       if (NPCDraw == true) {
         NPCRec = { 100 + 8, 100 + 5, 16, 20 };
@@ -191,6 +197,31 @@ int main() {
         // It might not be clean, but it solves the issue for now
       }
       break;
+
+    case Game::Level::GameScreen::PYRAMIDE:
+
+      nemo.active = true;
+      nemo.Update(); // nemo walking movement and animation
+      nemo.Draw();   // nemo walking movement and animation
+      camera.target = Vector2 { nemo.NemoPosition.x + 20.0f, nemo.NemoPosition.y + 20.0f };
+
+      //teleport back to overworld
+      level.Teleport();
+      DrawRectangleRec(level.teleportrecPYRAMIDtoOVERWORLD, YELLOW);
+      DrawRectangleRec(level.teleportrecPYRAMIDtoOCEAN, BLUE);
+
+
+    case Game::Level::GameScreen::OCEAN:
+      nemo.active = true;
+      nemo.Update(); // nemo walking movement and animation
+      nemo.Draw();   // nemo walking movement and animation
+      camera.target = Vector2 { nemo.NemoPosition.x + 20.0f, nemo.NemoPosition.y + 20.0f };
+
+      //teleport back to overworld
+      if (IsKeyDown(KEY_ENTER)) {
+        level.currentscreen = Game::Level::GameScreen::OVERWORLD;
+      }
+
 
     case Game::Level::GameScreen::COMBAT:
 
