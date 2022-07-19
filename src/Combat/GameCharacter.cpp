@@ -38,3 +38,4 @@ string Game::GameCharacter::get_Name()
 {
   return name;
 }
+void Game::GameCharacter::draw() {}

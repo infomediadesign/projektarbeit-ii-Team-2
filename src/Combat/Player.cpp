@@ -46,7 +46,28 @@ Rectangle Game::Player::set_rec()
 	return rec;
 }
 
-Texture2D Game::Player::get_texture()
+void Game::Player::draw()
 {
-  return t_Player;
+  //Draw Player
+  Playerrec = {get_rec().x + 8, get_rec().y + 10, get_rec().width, get_rec().height};
+  DrawRectangleRec(Playerrec, Color{});
+  DrawTextureRec(spr_Player, frameRec, {get_rec().x, get_rec().y}, WHITE);
+  // animation
+  framesCounter++;
+
+  if (framesCounter >= (60 / framesSpeed)) {
+    framesCounter = 0;
+    currentFrame++;
+
+    if (currentFrame > 3)
+      currentFrame = 0;
+
+    frameRec.x = (float)currentFrame * (float)spr_Player.width / 7;
+  }
+
+  //Player draw
+  DrawText(TextFormat("Speed: %i", get_turnnumb()), set_rec().x, set_rec().y - 90, 20, BLUE);
+  DrawText(TextFormat("HP: %i", getLives()), set_rec().x, set_rec().y - 70, 20, BLUE);
+  DrawText(TextFormat("STR: %i", getStrength()), set_rec().x, set_rec().y - 50, 20, BLUE);
+  DrawText(TextFormat("DEF: %i", getArmor()), set_rec().x, set_rec().y - 30, 20, BLUE);
 }

@@ -22,5 +22,7 @@ namespace Game
 
   virtual Rectangle set_rec() override;
 
+  void draw() override;
+
   };
 }

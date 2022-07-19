@@ -131,57 +131,29 @@ void Game::Level::ScreenDraw() {
         SetSoundVolume(GameAudio::battlemusic, float(1.0)); // Set volume for a sound (1.0 is max level) This is a test
       }
 */
-
-
-    //Background
-    //DrawTexturePro(Battlescreen, {0, 0, (float)Battlescreen.width * 2, (float)Battlescreen.height * 2},
-                   //{0.0, 0.0, (float)GetScreenWidth(), (float)GetScreenHeight() * 2.0f}, {}, 0, WHITE);
-
-    //battlerec = {player->get_rec().x, player->get_rec().y + 90,(float)Battlescreen.width * 20, (float)Battlescreen.height * 50};
-    //DrawTextureRec(Battlescreen, battlerec, {battlerec.x - 110, battlerec.y - 150}, WHITE);
+  //=====================================DRAWING THE PLAYER AND ENEMY===================================================
     DrawTexture(Battlescreen, GetScreenWidth()/2 - 350, GetScreenHeight()/2 - 180, WHITE);
-    //Draw Player
-    Playerrec = {player->get_rec().x + 8, player->get_rec().y + 10, player->get_rec().width, player->get_rec().height};
-    DrawRectangleRec(Playerrec, Color{});
-    //DrawTextureRec(Back, frameRec, NemoPosition, WHITE);
-    DrawTextureRec(spr_Player, frameRec, {player->get_rec().x, player->get_rec().y}, WHITE);
-    // animation
-    framesCounter++;
-
-    if (framesCounter >= (60 / framesSpeed)) {
-      framesCounter = 0;
-      currentFrame++;
-
-      if (currentFrame > 3)
-        currentFrame = 0;
-
-      frameRec.x = (float)currentFrame * (float)spr_Player.width / 7;
-    }
 
     //Timer
-    DrawText(TextFormat("Time: %i", framescounter), player->set_rec().x + 100, player->set_rec().y, 20, GREEN);
-    //Player Stats
-    DrawText(TextFormat("Amount: %i", h_amount), player->set_rec().x, player->set_rec().y - 110, 20, BLUE);
-    DrawText(TextFormat("Speed: %i", player->get_turnnumb()), player->set_rec().x, player->set_rec().y - 90, 20, BLUE);
-    DrawText(TextFormat("HP: %i", player->getLives()), player->set_rec().x, player->set_rec().y - 70, 20, BLUE);
-    DrawText(TextFormat("STR: %i", player->getStrength()), player->set_rec().x, player->set_rec().y - 50, 20, BLUE);
-    DrawText(TextFormat("DEF: %i", player->getArmor()), player->set_rec().x, player->set_rec().y - 30, 20, BLUE);
-    //Draw enemy
-    DrawText(TextFormat("Speed: %i", enemy->get_turnnumb()), enemy->set_rec().x, enemy->set_rec().y - 90, 20, RED);
-    DrawRectangleRec(enemy->set_rec(), RED);
-    DrawText(TextFormat("HP: %i", enemy->getLives()), enemy->set_rec().x, enemy->set_rec().y - 70, 20, RED);
-    DrawText(TextFormat("STR: %i", enemy->getStrength()), enemy->set_rec().x, enemy->set_rec().y - 50, 20, RED);
-    DrawText(TextFormat("DEF: %i", enemy->getArmor()), enemy->set_rec().x, enemy->set_rec().y - 30, 20, RED);
+    //DrawText(TextFormat("Time: %i", framescounter), player->set_rec().x + 100, player->set_rec().y, 20, GREEN);
 
+
+    //Player
+    player->draw();
+    //Draw enemy
+    enemy->draw();
     combat();
 
-    //DrawText("COMBATSCREEN FOR CUSTODIA", 500, 320, 20, GRAY);
-    //DrawText("PRESS ENTER TO RETURN", 500, 340, 20, GRAY);
+    Draw9Slice(Box, t_rec_attack, thickness, WHITE);
+    Draw9Slice(Box, t_rec_time, thickness, WHITE);
+    Draw9Slice(Box, t_rec_item, thickness, WHITE);
+    Draw9Slice(Box, t_rec_escape, thickness, WHITE);
+    DrawTexture(Attack, t_rec_attack.x + 15, t_rec_attack.y, WHITE);
+
     break;
   }
 }
-
-//void Game::Level::Draw() { DrawTexture(Map, 0, 0, WHITE); }
+//======================================================================================================================
 
 void Game::Level::Teleport() {
 

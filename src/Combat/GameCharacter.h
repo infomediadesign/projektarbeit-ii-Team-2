@@ -35,6 +35,8 @@ namespace Game
 
     virtual void set_turnnumb(int turnnumb);
 
+    virtual void draw();
+
   protected:
     int c_MaxHP, c_HP, c_DEF, c_STR;
     string name;
