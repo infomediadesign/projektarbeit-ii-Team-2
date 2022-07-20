@@ -50,3 +50,6 @@ void Game::Mumy::draw()
   DrawText(TextFormat("DEF: %i", getArmor()), set_rec().x, set_rec().y - 30, 20, RED);
 
 }
+int Game::Mumy::get_turnnumb() {
+  return turnnumb;
+}

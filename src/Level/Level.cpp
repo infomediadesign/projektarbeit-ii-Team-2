@@ -44,8 +44,8 @@ void Game::Level::combat()
     {
       if (h_amount > 0) {
         //======================HEAL!!!!=========================
-        player->set_turnnumb(GetRandomValue(1, 6));
-        enemy->set_turnnumb(GetRandomValue(1, 6));
+        player->set_turnnumb(0);
+        enemy->set_turnnumb(0);
         // Player heals first, then gets Damage
         if (player->get_turnnumb() >= enemy->get_turnnumb()) {
           player->heal();
@@ -65,8 +65,8 @@ void Game::Level::combat()
     }
     if (IsKeyPressed(KEY_R)) {
       //=========================PLAYER ATTACK================
-      player->set_turnnumb(GetRandomValue(1, 6));
-      enemy->set_turnnumb(GetRandomValue(1, 6));
+      player->set_turnnumb(0);
+      enemy->set_turnnumb(0);
       //===============PLAYER ATTACK=========================
       if (player->get_turnnumb() >= enemy->get_turnnumb()) {
         enemy->getDamage(player->attack());
@@ -143,14 +143,40 @@ void Game::Level::ScreenDraw() {
     //Draw enemy
     enemy->draw();
     combat();
+/*
+    if(IsKeyDown(KEY_RIGHT))
+    {
+      t_rec_attack.width++;
+    }
 
-    Draw9Slice(Box, t_rec_attack, thickness, WHITE);
+    if(IsKeyDown(KEY_LEFT))
+    {
+      t_rec_attack.width--;
+    }
+
+    if(IsKeyDown(KEY_UP))
+    {
+      t_rec_attack.height++;
+    }
+
+    if(IsKeyDown(KEY_DOWN))
+    {
+      t_rec_attack.height--;
+    }
+
+    Draw9Slice(Box_S, t_rec_attack, thickness, WHITE);
     Draw9Slice(Box, t_rec_time, thickness, WHITE);
     Draw9Slice(Box, t_rec_item, thickness, WHITE);
     Draw9Slice(Box, t_rec_escape, thickness, WHITE);
-    DrawTexture(Attack, t_rec_attack.x + 15, t_rec_attack.y, WHITE);
+    DrawText("ATTACK",t_rec_attack.x + 5, t_rec_attack.y + 10, 17, WHITE);
+    DrawText("TIME",t_rec_time.x + 15, t_rec_time.y + 10, 17, WHITE);
+    DrawText("ITEM",t_rec_item.x + 15, t_rec_item.y + 10, 17, WHITE);
+    DrawText("ESCAPE",t_rec_escape.x + 5, t_rec_escape.y + 10, 17, WHITE);
 
-    break;
+    break;*/
+
+    button.update();
+
   }
 }
 //======================================================================================================================

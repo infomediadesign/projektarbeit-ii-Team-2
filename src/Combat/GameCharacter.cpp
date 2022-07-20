@@ -30,9 +30,9 @@ int Game::GameCharacter::get_turnnumb()
 	return turnnumb; 
 }
 
-void Game::GameCharacter::set_turnnumb(int turnnumb) 
+void Game::GameCharacter::set_turnnumb(int luck)
 { 
-	this->turnnumb = GetRandomValue(1, 6);
+	this->turnnumb = GetRandomValue(1, 6) + luck;
 }
 string Game::GameCharacter::get_Name()
 {

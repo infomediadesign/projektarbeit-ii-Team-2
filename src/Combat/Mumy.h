@@ -16,6 +16,8 @@ namespace Game
 
 	void getDamage(std::vector<int> damage) override;
 
+  int get_turnnumb() override;
+
 	void updateCharacter() override;
 
 	virtual Rectangle get_rec() override;

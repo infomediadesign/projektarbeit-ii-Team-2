@@ -8,10 +8,12 @@
 #include "../Player/Nemo.h"
 #include "UI.h"
 #include "config.h"
+#include "../Combat/Combat_Button.h"
 
 namespace Game {
   class Level {
   public:
+    //Textures
     Texture2D Map = LoadTexture("assets/graphics/wintermap.png");
     Texture2D Battlescreen = LoadTexture("assets/graphics/BattleScreen/Agypten/HintergrundBatlleScreen_Agypten.png");
     Texture2D Fish = LoadTexture("assets/graphics/Fish.png");
@@ -19,7 +21,7 @@ namespace Game {
     Texture2D Box_S = LoadTexture("assets/graphics/BattleScreen/Agypten/Auswahl_Cursor_S.png");
     Texture2D Attack = LoadTexture("assets/graphics/BattleScreen/Agypten/Attack_Schrift.png");
 
-
+//Class initialization
     GameCharacter *player         = new Player();
     GameCharacter *enemy          = new Mumy();
     GameCharacter *shadow         = new Shadow();
@@ -27,8 +29,8 @@ namespace Game {
     Nemo *nemo                    = new Nemo();
     //Level *level                = new Level();
     //UI *ui                      = new UI();
-
     Game::Level *level;
+    Game::Combat_Button button;
 
     //teleport stuff
     const float doortileX     = 66.0;
@@ -62,9 +64,9 @@ namespace Game {
     void ScreenDraw();
 
     void Draw();
-
-    Rectangle t_rec_attack = {570, 460, 64, 32};
-    Rectangle t_rec_time = {t_rec_attack.x + 80, t_rec_attack.y, t_rec_attack.width, t_rec_attack.height};
+/*
+    Rectangle t_rec_attack = {565, 470, 78, 32};
+    Rectangle t_rec_time = {t_rec_attack.x + 90, t_rec_attack.y, t_rec_attack.width, t_rec_attack.height};
     Rectangle t_rec_item = {t_rec_attack.x, t_rec_attack.y + 35, t_rec_attack.width, t_rec_attack.height};
     Rectangle t_rec_escape = {t_rec_time.x, t_rec_time.y + 35, t_rec_attack.width, t_rec_attack.height };
     float thickness = 15;
@@ -91,7 +93,7 @@ namespace Game {
       DrawTexturePro(Box, { 0, slice, slice,slice }, { rec.x, rec.y + thickness, thickness, rec.height - thickness * 2 }, {}, 0, tint);
       //right bumper
       DrawTexturePro(Box, { slice * 2,slice,slice,slice }, { rec.x + rec.width - thickness, rec.y + thickness, thickness, rec.height - thickness * 2 }, {}, 0, tint);
-    }
+    }*/
 
     void Teleport();
 

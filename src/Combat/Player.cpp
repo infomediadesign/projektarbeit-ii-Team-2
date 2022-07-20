@@ -71,3 +71,6 @@ void Game::Player::draw()
   DrawText(TextFormat("STR: %i", getStrength()), set_rec().x, set_rec().y - 50, 20, BLUE);
   DrawText(TextFormat("DEF: %i", getArmor()), set_rec().x, set_rec().y - 30, 20, BLUE);
 }
+int Game::Player::get_turnnumb() {
+  return turnnumb;
+}
