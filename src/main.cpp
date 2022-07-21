@@ -249,6 +249,7 @@ int main() {
       DrawRectangleRec(level.teleportrecPYRAMIDtoOVERWORLD, YELLOW);
       DrawRectangleRec(level.teleportrecPYRAMIDtoOCEAN, BLUE);
 
+      break;
 
     case Game::Level::GameScreen::OCEAN:
 
@@ -261,6 +262,8 @@ int main() {
       if (IsKeyDown(KEY_ENTER)) {
         level.currentscreen = Game::Level::GameScreen::OVERWORLD;
       }
+
+      break;
 
 
     case Game::Level::GameScreen::COMBAT:
