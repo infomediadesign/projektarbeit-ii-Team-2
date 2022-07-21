@@ -140,8 +140,8 @@ void Game::Nemo::Update() {
 
   void Game::Nemo::Draw() {
     if (active) {
-      nemorec = { NemoPosition.x + 8, NemoPosition.y + 8, nemowidth, nemoheight }; // The Attributes are set here.
-      DrawRectangleRec(nemorec, Color{});
+      nemorec = { NemoPosition.x + 8, NemoPosition.y, nemowidth, nemoheight }; // The Attributes are set here.
+      DrawRectangleRec(nemorec, BLUE);
 
       // Draw nemo walking animation
 

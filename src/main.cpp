@@ -146,6 +146,7 @@ int main() {
 
     case Game::Level::GameScreen::OVERWORLD:
 
+      //map
       Vector2 vec;
       Rectangle rec;
 
@@ -180,7 +181,7 @@ int main() {
       nemo.Draw();   // nemo walking movement and animation
       camera.target = Vector2 { nemo.NemoPosition.x + 20.0f, nemo.NemoPosition.y + 20.0f };
 
-      collision.update(); //collision mit rotem block
+      collision.update(); //collision mit
 
       //teleport into pyramid
       level.Teleport();
@@ -208,6 +209,8 @@ int main() {
       break;
 
     case Game::Level::GameScreen::PYRAMIDE: //TODO CAMERA CENTER MOVEMENT!!!
+
+      ClearBackground(BLACK);
 
       Vector2 vecDungeon;
       Rectangle recDungeon;

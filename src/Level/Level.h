@@ -32,9 +32,9 @@ namespace Game {
     Game::Level *level;
 
     //teleport stuff
-    const float doortileX     = 66.0;
+    const float doortileX     = 67.0;
     const float doortileY     = 45.0;
-    const float doorPositionX = 815.0;
+    const float doorPositionX = 910.0;
     const float doorPositionY = 276.0;
 
     Rectangle teleportrecOVERWORLDtoPYRAMID = {};
