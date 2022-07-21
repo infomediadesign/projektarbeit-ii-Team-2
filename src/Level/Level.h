@@ -31,7 +31,7 @@ namespace Game {
     //UI *ui                      = new UI();
     Game::Level *level;
     Game::Combat_Button button;
-//bal
+
     //teleport stuff
     const float doortileX     = 66.0;
     const float doortileY     = 45.0;
