@@ -176,6 +176,8 @@ int main() {
         }
       }
 
+      //Vector2 NemoPosition = {500,500};
+
       nemo.active = true;
       nemo.Update(); // nemo walking movement and animation
       nemo.Draw();   // nemo walking movement and animation
