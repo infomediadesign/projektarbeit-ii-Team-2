@@ -1,5 +1,5 @@
-#include "Map.h"
-/*
+/*#include "Map.h"
+
 for (auto const& layer : levelMap["layers"]) {
   if (layer["name"] == Ground) {
     for (auto const& tileID : layer["data"]) {
@@ -40,5 +40,4 @@ for (auto const& layer : levelMap["layers"]) {
       collisionRectangles.push_back(createdRectangle);
     }
   }
-}
- */
+}*/

@@ -1,4 +1,4 @@
-#pragma once
+/*#pragma once
 
 #include "../INCLUDES.h"
 
@@ -27,4 +27,4 @@ struct
   std::vector<int> animation;
   std::vector<int> layerCollision;
 };
-};
+};*/
