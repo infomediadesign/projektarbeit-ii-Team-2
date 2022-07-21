@@ -8,7 +8,7 @@
 #include "../Player/Nemo.h"
 #include "UI.h"
 #include "config.h"
-#include "../Combat/Combat_Button.h"
+
 
 namespace Game {
   class Level {
@@ -30,7 +30,6 @@ namespace Game {
     //Level *level                = new Level();
     //UI *ui                      = new UI();
     Game::Level *level;
-    Game::Combat_Button button;
 
     //teleport stuff
     const float doortileX     = 66.0;
@@ -64,8 +63,9 @@ namespace Game {
     void ScreenDraw();
 
     void Draw();
-/*
+
     Rectangle t_rec_attack = {565, 470, 78, 32};
+    Rectangle box_rec = {565, 470, 78, 32};
     Rectangle t_rec_time = {t_rec_attack.x + 90, t_rec_attack.y, t_rec_attack.width, t_rec_attack.height};
     Rectangle t_rec_item = {t_rec_attack.x, t_rec_attack.y + 35, t_rec_attack.width, t_rec_attack.height};
     Rectangle t_rec_escape = {t_rec_time.x, t_rec_time.y + 35, t_rec_attack.width, t_rec_attack.height };
@@ -93,7 +93,7 @@ namespace Game {
       DrawTexturePro(Box, { 0, slice, slice,slice }, { rec.x, rec.y + thickness, thickness, rec.height - thickness * 2 }, {}, 0, tint);
       //right bumper
       DrawTexturePro(Box, { slice * 2,slice,slice,slice }, { rec.x + rec.width - thickness, rec.y + thickness, thickness, rec.height - thickness * 2 }, {}, 0, tint);
-    }*/
+    }
 
     void Teleport();
 
