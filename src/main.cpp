@@ -68,12 +68,19 @@ int main() {
     nlohmann::json tilesetDescription = nlohmann::json::parse(tilesetDescriptionFile);
     tilesetDescriptionFile.close();
 
+    /** Outside the Pyramid*/
     std::ifstream levelMapFile("assets/graphics/map/Level1/PhyramidEntry.json");
     assert(levelMapFile.is_open());
     nlohmann::json levelMap = nlohmann::json::parse(levelMapFile);
     levelMapFile.close();
 
-    Texture2D tileAtlasTexture = LoadTexture("assets/graphics/Tiles-Atlas/Pyramiden_SheetJamey.png");
+    /** Inside the Pyramid*/
+    std::ifstream levelMapFileDungeon("assets/graphics/map/Level1/PhyramidDungeon.json");
+    assert(levelMapFileDungeon.is_open());
+    nlohmann::json levelMapDungeon = nlohmann::json::parse(levelMapFileDungeon);
+    levelMapFileDungeon.close();
+
+    Texture2D tileAtlasTexture = LoadTexture("assets/graphics/map/Level1/Egypt-Sheet.png");
     //Texture2D tileAtlasTexture = LoadTexture((tilesetDescription["image"].get<std::string>()).c_str());
 
     //Music Tests
@@ -142,7 +149,6 @@ int main() {
       Vector2 vec;
       Rectangle rec;
 
-
       vec = {0, 0};
       rec = {0, 0, levelMap["tilewidth"], levelMap["tileheight"]};
       for (auto const &layer : levelMap["layers"]) {
@@ -201,12 +207,42 @@ int main() {
       }
       break;
 
-    case Game::Level::GameScreen::PYRAMIDE:
+    case Game::Level::GameScreen::PYRAMIDE: //TODO CAMERA CENTER MOVEMENT!!!
+
+      Vector2 vecDungeon;
+      Rectangle recDungeon;
+
+      vecDungeon = {0, 0};
+      recDungeon = {0, 0, levelMapDungeon["tilewidth"], levelMapDungeon["tileheight"]};
+      for (auto const &layer : levelMapDungeon["layers"]) {
+
+        if (layer["type"] == "tilelayer" && layer["visible"]) {
+          vecDungeon.y = 0;
+          for (auto const &tileId : layer["data"]) {
+
+            int counter = (int) tileId;
+            counter--;
+            if (counter != -1) {
+              recDungeon.x = (float) ((int) counter % (int) tilesetDescription["columns"]) *
+                      (float) levelMap["tilewidth"];
+              recDungeon.y = (float) floor((float) counter / (float) tilesetDescription["columns"]) *
+                      (float) levelMap["tileheight"];
+              DrawTextureRec(tileAtlasTexture, recDungeon, vecDungeon, WHITE); //entkoppeln, 2 vektoren machen
+            }
+            vecDungeon.x += (float) levelMapDungeon["tilewidth"];
+            if (vecDungeon.x >= (float) layer["width"] * (float) levelMapDungeon["tilewidth"]) {
+              vecDungeon.x = 0;
+              vecDungeon.y += (float) levelMapDungeon["tileheight"];
+            }
+          }
+        }
+      }
 
       nemo.active = true;
       nemo.Update(); // nemo walking movement and animation
       nemo.Draw();   // nemo walking movement and animation
       camera.target = Vector2 { nemo.NemoPosition.x + 20.0f, nemo.NemoPosition.y + 20.0f };
+
 
       //teleport back to overworld
       level.Teleport();
@@ -215,6 +251,7 @@ int main() {
 
 
     case Game::Level::GameScreen::OCEAN:
+
       nemo.active = true;
       nemo.Update(); // nemo walking movement and animation
       nemo.Draw();   // nemo walking movement and animation
