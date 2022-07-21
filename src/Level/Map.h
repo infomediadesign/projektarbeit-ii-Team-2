@@ -5,20 +5,26 @@
 class Map
 {
 public:
-  /*
-  //initialization
-  std::ifstream tilesetDescriptionFile("assets/graphics/map/Level1/PhyramidSheet.json");
-  assert(tilesetDescriptionFile.is_open());
-  nlohmann::json tilesetDescription = nlohmann::json::parse(tilesetDescriptionFile);
-  tilesetDescriptionFile.close();
+std::vector<Rectangle> collisionRectangles;
 
-  std::ifstream levelMapFile("assets/graphics/map/Level1/PhyramidEntry.json");
-  assert(levelMapFile.is_open());
-  nlohmann::json levelMap = nlohmann::json::parse(levelMapFile);
-  levelMapFile.close();
+nlohmann::json levelMap;
+nlohmann::json tilesetDescription;
+Texture2D tileAtlasTexture;
 
-  Texture2D tileAtlasTexture = LoadTexture("assets/graphics/Tiles-Atlas/Pyramiden_SheetJamey.png"); //needs to be updated
-  */
+//structs for tilemaps
+struct
+{
+  Texture2D tilemap;
+  int tileWidth;
+  int tileMapWidth;
+  int rowLength;
+} tilemapData;
 
-  void mapDraw();
+struct
+{
+  std::vector<int> layerGround;
+  std::vector<int> layerObjects;
+  std::vector<int> animation;
+  std::vector<int> layerCollision;
+};
 };

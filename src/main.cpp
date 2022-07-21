@@ -11,11 +11,13 @@
 
 #include "Sprite/Sprite.h"
 
+#include "Titlescreen.h"
 
+#define NUM_FRAMES  3       // Number of frames (rectangles) for the button sprite texture
 
+//Map sucks... fps down to 50, if not lower
+//we would need a chunk based map, but htf are we supposed to do that without any help?
 
-
-//bla bla
 // Project = Custodia - Trapped in the past
 
 int main() {
@@ -37,6 +39,7 @@ int main() {
   Texture2D StandStil = LoadTexture("assets/graphics/Charakter_Vorschlag_vorne_laufen1.png");
 
   Collision collision;
+  //Titlescreen titlescreen;
 
   GameAudio::Load();
   Game::Level level;
@@ -52,6 +55,8 @@ int main() {
 
   level.level = &level;
   level.nemo = &nemo;
+
+  //titlescreen.level = &level;
 
   Rectangle NPCRec = {}; // Rectangle Position has to be set after it is drawn, leaving it free is so much better, until
                          // it is called. Do not touch it!!!
@@ -72,7 +77,7 @@ int main() {
     //Texture2D tileAtlasTexture = LoadTexture((tilesetDescription["image"].get<std::string>()).c_str());
 
     //Music Tests
-/*
+    /*
   if (level.currentscreen == Game::Level::GameScreen::OVERWORLD)
   {
     StopSound(GameAudio::battlemusic);
@@ -92,8 +97,6 @@ int main() {
   }
 */
 
-
-
     // Camera settings
   //--------------------------------------------------------------------------------------------
   Camera2D camera = { 0 };
@@ -106,6 +109,7 @@ int main() {
   while (!WindowShouldClose()) // Detect window close button or ESC key
   {
     // Update
+    //titlescreen.update();
 
     // Begin drawing
     //--------------------------------------------------------------------------------------------
@@ -125,6 +129,8 @@ int main() {
 
       camera.target = Vector2 { Game::ScreenWidth / 2, Game::ScreenHeight / 2 };
       nemo.active   = false; // Erase Nemo
+
+      //titlescreen.draw();
 
       if (IsKeyDown(KEY_ENTER)) {
         level.currentscreen = Game::Level::GameScreen::OVERWORLD;
@@ -248,6 +254,8 @@ int main() {
 
   // De-initialization here
   //--------------------------------------------------------------------------------------------
+
+  //UnloadTexture(button);  // Unload button texture
 
   CloseAudioDevice(); // Close audio device
 

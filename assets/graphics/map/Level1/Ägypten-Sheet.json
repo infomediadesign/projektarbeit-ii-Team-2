@@ -1,13 +1,102 @@
 { "columns":9,
- "image":"..\/..\/Asprite PA2\/Zeitzonen\/\u00c4gypten\/Phyramide\/Final Assets\/FinalFinal\/Pyramiden_SheetJamey.png",
- "imageheight":256,
+ "image":"..\/\u00c4gypten-Sheet.png",
+ "imageheight":288,
  "imagewidth":288,
  "margin":0,
  "name":"\u00c4gypten-Sheet",
  "spacing":0,
- "tilecount":72,
+ "tilecount":81,
  "tiledversion":"1.8.4",
  "tileheight":32,
+ "tiles":[
+        {
+         "animation":[
+                {
+                 "duration":150,
+                 "tileid":38
+                }, 
+                {
+                 "duration":150,
+                 "tileid":39
+                }, 
+                {
+                 "duration":150,
+                 "tileid":40
+                }],
+         "id":38
+        }, 
+        {
+         "animation":[
+                {
+                 "duration":150,
+                 "tileid":41
+                }, 
+                {
+                 "duration":150,
+                 "tileid":42
+                }, 
+                {
+                 "duration":150,
+                 "tileid":43
+                }],
+         "id":41
+        }, 
+        {
+         "animation":[
+                {
+                 "duration":150,
+                 "tileid":44
+                }, 
+                {
+                 "duration":150,
+                 "tileid":45
+                }, 
+                {
+                 "duration":150,
+                 "tileid":46
+                }],
+         "id":44
+        }, 
+        {
+         "animation":[
+                {
+                 "duration":280,
+                 "tileid":47
+                }, 
+                {
+                 "duration":280,
+                 "tileid":48
+                }, 
+                {
+                 "duration":280,
+                 "tileid":49
+                }, 
+                {
+                 "duration":280,
+                 "tileid":50
+                }],
+         "id":47
+        }, 
+        {
+         "animation":[
+                {
+                 "duration":250,
+                 "tileid":54
+                }, 
+                {
+                 "duration":250,
+                 "tileid":55
+                }, 
+                {
+                 "duration":250,
+                 "tileid":56
+                }, 
+                {
+                 "duration":250,
+                 "tileid":57
+                }],
+         "id":54
+        }],
  "tilewidth":32,
  "transparentcolor":"#ff00ff",
  "type":"tileset",
