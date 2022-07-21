@@ -71,9 +71,6 @@ int main() {
     Texture2D tileAtlasTexture = LoadTexture("assets/graphics/Tiles-Atlas/Pyramiden_SheetJamey.png");
     //Texture2D tileAtlasTexture = LoadTexture((tilesetDescription["image"].get<std::string>()).c_str());
 
-
-
-
     //Music Tests
 /*
   if (level.currentscreen == Game::Level::GameScreen::OVERWORLD)
