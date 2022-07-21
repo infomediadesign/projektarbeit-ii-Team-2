@@ -108,7 +108,8 @@ void Game::Level::ScreenDraw() {
   case GameScreen::TITLESCREEN:
     DrawText("TITLESCREEN FOR CUSTODIA", 500, 320, 20, GRAY);
     DrawText("PRESS ENTER FOR GAME", 500, 340, 20, GRAY);
-    break;
+
+
 
   case GameScreen::OVERWORLD: break;
 

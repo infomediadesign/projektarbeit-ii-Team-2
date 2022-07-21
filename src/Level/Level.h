@@ -55,8 +55,8 @@ namespace Game {
 
     enum class GameScreen { TITLESCREEN, OVERWORLD, COMBAT, PYRAMIDE, OCEAN, PAUSEMENU, CUTSCENE }; //This Enum Class is there to set the Screens to TITLE etc.
 
-    GameScreen currentscreen = GameScreen::COMBAT; //TitleScreens is the Start Screen
-    //GameScreen currentscreen = GameScreen::TITLESCREEN; // TitleScreens is the Start Screen
+    //GameScreen currentscreen = GameScreen::COMBAT; //TitleScreens is the Start Screen
+    GameScreen currentscreen = GameScreen::TITLESCREEN; // TitleScreens is the Start Screen
 
     //teleport stuff
     //enum class OverworldState { INPYRAMIDE, OUTPYRAMIDE, OCEAN }; //This Enum Class is there to teleport

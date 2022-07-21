@@ -1,34 +1,44 @@
 #include "Map.h"
 /*
-void Map::mapDraw()
-{
-  Vector2 vec;
-  Rectangle rec;
-
-  vec = {0, 0};
-  rec = {0, 0, levelMap["tilewidth"], levelMap["tileheight"]};
-  for (auto const &layer : levelMap["layers"]) {
-
-    if (layer["type"] == "tilelayer" && layer["visible"]) {
-      vec.y = 0;
-      for (auto const &tileId : layer["data"]) {
-
-        int counter = (int) tileId;
-        counter--;
-        if (counter != -1) {
-          rec.x = (float) ((int) counter % (int) tilesetDescription["columns"]) *
-                  (float) levelMap["tilewidth"];
-          rec.y = (float) floor((float) counter / (float) tilesetDescription["columns"]) *
-                  (float) levelMap["tileheight"];
-          DrawTextureRec(tileAtlasTexture, rec, vec, WHITE); //entkoppeln, 2 vektoren machen
-        }
-        vec.x += (float) levelMap["tilewidth"];
-        if (vec.x >= (float) layer["width"] * (float) levelMap["tilewidth"]) {
-          vec.x = 0;
-          vec.y += (float) levelMap["tileheight"];
-        }
+for (auto const& layer : levelMap["layers"]) {
+  if (layer["name"] == Ground) {
+    for (auto const& tileID : layer["data"]) {
+      mapData.layerGround.push_back(((int)tileID)-1);
+    }
+  }
+  if (layer["name"] == "Interactables") {
+    for (auto const& tileID : layer["data"]) {
+      mapData.layerObjects.push_back(((int)tileID)-1);
+    }
+  }
+  if (layer["name"] == "Decoration") {
+    for (auto const& tileID : layer["data"]) {
+      mapData.layerDecoration.push_back(((int)tileID)-1);
+    }
+  }
+  if (layer["name"] == "Interactables") {
+    for (auto const& tileID : layer["data"]) {
+      mapData.layerObjects.push_back(((int)tileID)-1);
+    }
+  }
+  //layerCollision
+  if(layer["name"] == "Collision"){
+    for (auto const& tileID : layer["data"]){
+      if(tileID == 0)
+      {
+        mapData.layerCollision.push_back(false);
+      }
+      else
+      {
+        mapData.layerCollision.push_back (true);
       }
     }
   }
+  for (int i = 0; i < mapData.layerCollision.size(); i++){
+    if (mapData.layerCollision[i]){
+      Rectangle createdRectangle = {i % this->mapData.mapWidth * 128, i % this->mapData.mapHeight* 128, 128, 128 };
+      collisionRectangles.push_back(createdRectangle);
+    }
+  }
 }
-*/
+ */
