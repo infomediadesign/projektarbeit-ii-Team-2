@@ -13,10 +13,7 @@
 
 #include "Titlescreen.h"
 
-#define NUM_FRAMES  3       // Number of frames (rectangles) for the button sprite texture
-
-//Map sucks... fps down to 50, if not lower
-//we would need a chunk based map, but htf are we supposed to do that without any help?
+#define NUM_FRAMES  3
 
 // Project = Custodia - Trapped in the past
 
