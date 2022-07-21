@@ -41,3 +41,15 @@ Rectangle Game::Mumy::set_rec() {
   this->rec = { 780, 370, 50, 50 };
   return rec;
 }
+void Game::Mumy::draw()
+{
+  DrawText(TextFormat("Speed: %i", get_turnnumb()), set_rec().x, set_rec().y - 90, 20, RED);
+  DrawRectangleRec(set_rec(), RED);
+  DrawText(TextFormat("HP: %i", getLives()), set_rec().x, set_rec().y - 70, 20, RED);
+  DrawText(TextFormat("STR: %i", getStrength()), set_rec().x, set_rec().y - 50, 20, RED);
+  DrawText(TextFormat("DEF: %i", getArmor()), set_rec().x, set_rec().y - 30, 20, RED);
+
+}
+int Game::Mumy::get_turnnumb() {
+  return turnnumb;
+}

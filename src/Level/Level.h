@@ -8,15 +8,20 @@
 #include "../Player/Nemo.h"
 #include "UI.h"
 #include "config.h"
+#include "../Combat/Combat_Button.h"
 
 namespace Game {
   class Level {
   public:
+    //Textures
     Texture2D Map = LoadTexture("assets/graphics/wintermap.png");
     Texture2D Battlescreen = LoadTexture("assets/graphics/BattleScreen/Agypten/HintergrundBatlleScreen_Agypten.png");
-    Texture2D spr_Player = LoadTexture("assets/graphics/BattleScreen/Agypten/Nemo_Battle.png");
     Texture2D Fish = LoadTexture("assets/graphics/Fish.png");
+    Texture2D Box = LoadTexture("assets/graphics/BattleScreen/Agypten/Auswahl_Cursor.png");
+    Texture2D Box_S = LoadTexture("assets/graphics/BattleScreen/Agypten/Auswahl_Cursor_S.png");
+    Texture2D Attack = LoadTexture("assets/graphics/BattleScreen/Agypten/Attack_Schrift.png");
 
+//Class initialization
     GameCharacter *player         = new Player();
     GameCharacter *enemy          = new Mumy();
     GameCharacter *shadow         = new Shadow();
@@ -24,16 +29,8 @@ namespace Game {
     Nemo *nemo                    = new Nemo();
     //Level *level                = new Level();
     //UI *ui                      = new UI();
-
     Game::Level *level;
-
-    Rectangle battlerec = {};
-
-    Rectangle frameRec = { 0.0f, 0.0f, (float)spr_Player.width / 7, (float)spr_Player.height };
-    int currentFrame   = 0;
-    int framesCounter  = 0;
-    int framesSpeed    = 4; // animation fps
-    Rectangle Playerrec  = {}; //The attributes for the Rectangle will be set.
+    Game::Combat_Button button;
 
     //teleport stuff
     const float doortileX     = 66.0;
@@ -67,9 +64,40 @@ namespace Game {
     void ScreenDraw();
 
     void Draw();
+/*
+    Rectangle t_rec_attack = {565, 470, 78, 32};
+    Rectangle t_rec_time = {t_rec_attack.x + 90, t_rec_attack.y, t_rec_attack.width, t_rec_attack.height};
+    Rectangle t_rec_item = {t_rec_attack.x, t_rec_attack.y + 35, t_rec_attack.width, t_rec_attack.height};
+    Rectangle t_rec_escape = {t_rec_time.x, t_rec_time.y + 35, t_rec_attack.width, t_rec_attack.height };
+    float thickness = 15;
+
+    void Draw9Slice(Texture2D& Box, Rectangle rec, float thickness, Color tint)
+    {
+      //slice is a const that helps with readability of the function
+      const auto slice = Box.width / 3.0f;
+      //Stuffing
+      DrawTexturePro(Box, { slice,slice,slice,slice }, { rec.x + thickness,rec.y + thickness,rec.width - thickness * 2,rec.height - thickness * 2 }, {}, 0, tint);
+      //top left corner
+      DrawTexturePro(Box, { 0,0,slice,slice }, { rec.x, rec.y, thickness, thickness }, {}, 0, tint);
+      //top right corner
+      DrawTexturePro(Box, { slice * 2,0,slice,slice }, { rec.x + rec.width - thickness,rec.y,thickness,thickness }, {}, 0, tint);
+      //bottom left corner
+      DrawTexturePro(Box, { 0,slice * 2,slice,slice }, { rec.x,rec.y + rec.height - thickness,thickness,thickness }, {}, 0, tint);
+      //bottom right corner
+      DrawTexturePro(Box, { slice * 2,slice * 2,slice,slice }, { rec.x + rec.width - thickness ,rec.y + rec.height - thickness ,thickness,thickness }, {}, 0, tint);
+      //top bumper
+      DrawTexturePro(Box, { slice,0,slice,slice }, { rec.x + thickness,rec.y,rec.width - thickness * 2,thickness }, {}, 0, tint);
+      //bottom bumper
+      DrawTexturePro(Box, { slice,slice * 2,slice,slice }, { rec.x + thickness,rec.y + rec.height - thickness, rec.width - thickness * 2,thickness }, {}, 0, tint);
+      //left bumper
+      DrawTexturePro(Box, { 0, slice, slice,slice }, { rec.x, rec.y + thickness, thickness, rec.height - thickness * 2 }, {}, 0, tint);
+      //right bumper
+      DrawTexturePro(Box, { slice * 2,slice,slice,slice }, { rec.x + rec.width - thickness, rec.y + thickness, thickness, rec.height - thickness * 2 }, {}, 0, tint);
+    }*/
 
     void Teleport();
 
     ~Level();
+
   };
 } 

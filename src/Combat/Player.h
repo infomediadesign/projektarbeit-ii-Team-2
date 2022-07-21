@@ -15,21 +15,25 @@ public:
 
     void getDamage(std::vector<int> damage) override;
 
+    int get_turnnumb() override;
+
     void updateCharacter() override;
 
     virtual Rectangle get_rec() override;
 
     virtual Rectangle set_rec() override;
 
-    virtual Texture2D get_texture();
+    void draw() override;
+    //Battlesheet of Player
+    Texture2D spr_Player = LoadTexture("assets/graphics/BattleScreen/Agypten/Nemo_Battle.png");
 
-    Texture2D t_Player = LoadTexture("assets/graphics/Ägypten/Nemo_BattleSheet.png");
+    Rectangle battlerec = {};
 
-    Rectangle frameRec = { 0.0f, 0.0f, (float)t_Player.width / 7, (float)t_Player.height };
+    Rectangle frameRec = { 0.0f, 0.0f, (float)spr_Player.width / 7, (float)spr_Player.height };
     int currentFrame   = 0;
     int framesCounter  = 0;
-    int framesSpeed    = 4; // animtation fps
-    Rectangle nemorec  = {}; //The attributes for the Rectangle will be set in the Draw method.
+    int framesSpeed    = 4; // animation fps
+    Rectangle Playerrec  = {}; //The attributes for the Rectangle will be set.
 
   };
 }
