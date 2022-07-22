@@ -13,10 +13,7 @@
 
 #include "Titlescreen.h"
 
-#define NUM_FRAMES  3
-
 // Project = Custodia - Trapped in the past
-//bla
 
 int main() {
   // Raylib initialization
@@ -39,10 +36,11 @@ int main() {
   Collision collision;
   //Titlescreen titlescreen;
 
+  Map map;
+
   GameAudio::Load();
   Game::Level level;
   Game::Level levelcollision;
-  //Game::Map map;
   Game::UI ui;
   Game::Nemo nemo; // Initializing the Nemo (Player) Class
   Game::Sprite spr(nemo.NemoPosition.x, nemo.NemoPosition.y, nemo.Front);
@@ -114,7 +112,9 @@ int main() {
   while (!WindowShouldClose()) // Detect window close button or ESC key
   {
     // Update
-    //titlescreen.update();
+
+    /**map updates...*/
+    map.update();
 
     // Begin drawing
     //--------------------------------------------------------------------------------------------

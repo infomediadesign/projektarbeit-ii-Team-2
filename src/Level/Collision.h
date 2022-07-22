@@ -6,17 +6,18 @@
 class Collision {
 private:
 public:
-  Game::Nemo *nemo;
-  Game::Level *level;
-  Map *map;
+  Game::Nemo * nemo;
+  Game::Level * level;
+  Map * map;
 
   Rectangle rectangleObject    = {};
   Rectangle rectangleCollision = {};
 
   bool collisionObject = false; // Collision detection
+  bool wallCollision = false;
 
   void update();
   void draw();
   void checkForCollisions();
-  void getCollision();
+  Rectangle getCollision();
 };

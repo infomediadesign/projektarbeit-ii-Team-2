@@ -18,15 +18,19 @@ struct
   int tileWidth;
   int tileMapWidth;
   int rowLength;
-} mapData;
+} tilemapData;
 
 struct
 {
   std::vector<int> layerGround;
   std::vector<int> layerObject;
-  std::vector<int> layerInteractables;
+  //std::vector<int> layerInteractables;
+  std::vector<bool> layerInteractables;
   //std::vector<int> layerCollision; //TODO make a Collision Layer on a Gridlayer aswell...
-} layerManager;
+  int mapWidth;
+  int mapHeight;
+} mapData;
+
 void update();
 
 };
