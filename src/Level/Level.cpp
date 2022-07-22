@@ -57,6 +57,20 @@ void Game::Level::combat()
   {
     box_rec.y -= 35;
   }
+
+  //Knopf soll nicht out of border gehen
+  if (box_rec.y < 470) box_rec.y = 470;
+  else if (box_rec.y > 505) box_rec.y = 505;
+
+
+  if (box_rec.x < 565) box_rec.x = 565;
+  else if (box_rec.x > 655) box_rec.x = 655;
+  //==========================================
+
+
+  //PLAYER ENERGY
+  int energy = 2;
+
 //Wenn eine Taste gedrückt wurde
   if (input == true)
   {
@@ -99,19 +113,28 @@ void Game::Level::combat()
             h_amount--;
           }
 
+
           timer = true;
           //=========================HEAL END!!!!=================
         }
       }
 
       if (t_rec_time.x == box_rec.x && t_rec_time.y == box_rec.y && t_rec_time.width == box_rec.width &&
-          t_rec_time.height == box_rec.height) {
-        std::cout << "Time";
+          t_rec_time.height == box_rec.height)
+      {
+            if (energy > 0)
+        {
+              enemy->getDamage(player->attack());
+              energy--;
+            }
+
+        timer = true;
+
       }
 
       if (t_rec_escape.x == box_rec.x && t_rec_escape.y == box_rec.y && t_rec_escape.width == box_rec.width &&
           t_rec_escape.height == box_rec.height) {
-        std::cout << "ESCAPE";
+        currentscreen = GameScreen::OVERWORLD;
       }
     }
   }
