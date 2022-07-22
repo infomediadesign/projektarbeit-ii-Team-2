@@ -39,6 +39,7 @@ namespace Game
 
   protected:
     int c_MaxHP, c_HP, c_DEF, c_STR;
+    int c_timeattack = c_STR * 2;
     string name;
     int turnnumb = GetRandomValue(0, 100);
     Rectangle rec { 800, 320, 50, 50 };
