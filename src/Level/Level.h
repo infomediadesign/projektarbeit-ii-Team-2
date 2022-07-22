@@ -53,6 +53,7 @@ namespace Game {
 
     //GameScreen currentscreen = GameScreen::COMBAT; //TitleScreens is the Start Screen
     GameScreen currentscreen = GameScreen::TITLESCREEN; // TitleScreens is the Start Screen
+    //GameScreen currentscreen = GameScreen::PYRAMIDE; // TitleScreens is the Start Screen
 
     //teleport stuff
     //enum class OverworldState { INPYRAMIDE, OUTPYRAMIDE, OCEAN }; //This Enum Class is there to teleport

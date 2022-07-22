@@ -1,4 +1,4 @@
-/*#pragma once
+#pragma once
 
 #include "../INCLUDES.h"
 
@@ -18,13 +18,15 @@ struct
   int tileWidth;
   int tileMapWidth;
   int rowLength;
-} tilemapData;
+} mapData;
 
 struct
 {
   std::vector<int> layerGround;
-  std::vector<int> layerObjects;
-  std::vector<int> animation;
-  std::vector<int> layerCollision;
+  std::vector<int> layerObject;
+  std::vector<int> layerInteractables;
+  //std::vector<int> layerCollision; //TODO make a Collision Layer on a Gridlayer aswell...
+} layerManager;
+void update();
+
 };
-};*/

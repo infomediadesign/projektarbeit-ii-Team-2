@@ -143,6 +143,8 @@ int main() {
 
     case Game::Level::GameScreen::OVERWORLD:
 
+      //nemo.NemoPosition = {910.0, 400};
+
       //map
       Vector2 vec;
       Rectangle rec;
@@ -240,6 +242,8 @@ int main() {
         }
       }
 
+      //nemo.NemoPosition = {225,980};
+
       nemo.active = true;
       nemo.Update(); // nemo walking movement and animation
       nemo.Draw();   // nemo walking movement and animation
@@ -248,8 +252,8 @@ int main() {
 
       //teleport back to overworld
       level.Teleport();
-      DrawRectangleRec(level.teleportrecPYRAMIDtoOVERWORLD, YELLOW);
-      DrawRectangleRec(level.teleportrecPYRAMIDtoOCEAN, BLUE);
+      DrawRectangleRec(level.teleportrecPYRAMIDtoOVERWORLD, Color{});
+      DrawRectangleRec(level.teleportrecPYRAMIDtoOCEAN, Color{});
 
       break;
 

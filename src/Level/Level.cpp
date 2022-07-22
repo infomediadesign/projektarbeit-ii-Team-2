@@ -199,13 +199,13 @@ void Game::Level::ScreenDraw() {
 }
 //======================================================================================================================
 
-void Game::Level::Teleport() {
+void Game::Level::Teleport() { //X 910-685, Y 276 + 780 X = 225, Y= 1056
 
   // teleport coordinates
   teleportrecOVERWORLDtoPYRAMID = { doorPositionX, doorPositionY, doortileX, doortileY }; // rectangle in overworld to pyramid
-  teleportrecPYRAMIDtoOVERWORLD = { doorPositionX + 100 , doorPositionY, doortileX, doortileY }; //rectangle in pyramid to overworld
-  teleportrecPYRAMIDtoOCEAN = { doorPositionX - 100 , doorPositionY, doortileX, doortileY }; //rectangle in pyramid to ocean
-  teleportrecOCEANtoEND = { doorPositionX - 100, doorPositionY - 100, doortileX, doortileY }; //rectangle in ocean to endscreen
+  teleportrecPYRAMIDtoOVERWORLD = { doorPositionX - 685, doorPositionY + 780, doortileX, doortileY }; //rectangle in pyramid to overworld
+  teleportrecPYRAMIDtoOCEAN = { doorPositionX + 528 , doorPositionY - 200, doortileX, doortileY }; //rectangle in pyramid to ocean
+  teleportrecOCEANtoEND = { doorPositionX - 200, doorPositionY - 100, doortileX, doortileY }; //rectangle in ocean to endscreen
 
   // collision check with the door & nemo
   teleportcollisionOVERWORLDtoPYRAMID = CheckCollisionRecs(teleportrecOVERWORLDtoPYRAMID, nemo->nemorec); //check collision between door and nemo
