@@ -5,7 +5,7 @@ Game::Mumy::Mumy() : GameCharacter("Mumy",10, c_MaxHP, 2, 8)
 
 }
 
-std::vector<int> Game::Mumy::attack()
+auto Game::Mumy::attack() -> std::vector<int>
 { 
 	//DrawText(TextFormat("You Receive %i", c_STR), 500, 330, 40, BLACK);
     std::vector<int> vector;
@@ -35,9 +35,9 @@ void Game::Mumy::updateCharacter()
   }
 }
 
-Rectangle Game::Mumy::get_rec() { return this->rec; }
+auto Game::Mumy::get_rec() -> Rectangle { return this->rec; }
 
-Rectangle Game::Mumy::set_rec() {
+auto Game::Mumy::set_rec() -> Rectangle {
   this->rec = { 780, 370, 50, 50 };
   return rec;
 }
@@ -50,6 +50,6 @@ void Game::Mumy::draw()
   DrawText(TextFormat("DEF: %i", getArmor()), set_rec().x, set_rec().y - 30, 20, RED);
 
 }
-int Game::Mumy::get_turnnumb() {
+auto Game::Mumy::get_turnnumb() -> int {
   return turnnumb;
 }

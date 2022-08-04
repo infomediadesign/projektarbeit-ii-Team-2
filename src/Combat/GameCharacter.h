@@ -19,23 +19,25 @@ namespace Game
 
     virtual void updateCharacter() = 0;
 
-    virtual int getLives();
+    virtual auto getLives() -> int;
 
-    virtual int  getArmor();
+    virtual auto  getArmor() -> int;
 
-    virtual int getStrength();
+    virtual auto getStrength() -> int;
 
-    virtual Rectangle get_rec();
+    virtual auto get_rec() -> Rectangle;
 
-    virtual Rectangle set_rec();
+    virtual auto set_rec() -> Rectangle;
 
     virtual void heal();
 
-    virtual int get_turnnumb();
+    virtual auto get_turnnumb() -> int;
 
     virtual void set_turnnumb(int luck);
 
     virtual void draw();
+
+    virtual ~GameCharacter() = default;
 
   protected:
     int c_MaxHP, c_HP, c_DEF, c_STR;

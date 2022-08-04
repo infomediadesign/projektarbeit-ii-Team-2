@@ -4,7 +4,7 @@ Game::Player::Player() : GameCharacter("Nemo", 25, c_MaxHP, 5, 5)
 {
 }
 
-std::vector<int> Game::Player::attack() 
+auto Game::Player::attack() -> std::vector<int>
 { 
 	//DrawText(TextFormat("You Deal %i", c_STR), 500, 330, 40, BLACK);
 	std::vector<int> vector;
@@ -35,12 +35,12 @@ void Game::Player::updateCharacter()
 	}
 }
 
-Rectangle Game::Player::get_rec() 
+auto Game::Player::get_rec() -> Rectangle
 { 
 	return this->rec; 
 }
 
-Rectangle Game::Player::set_rec() 
+auto Game::Player::set_rec() -> Rectangle
 { 
 	this->rec = { 430, 370, 32, 32 };
 	return rec;
@@ -71,6 +71,9 @@ void Game::Player::draw()
   DrawText(TextFormat("STR: %i", getStrength()), set_rec().x, set_rec().y - 50, 20, BLUE);
   DrawText(TextFormat("DEF: %i", getArmor()), set_rec().x, set_rec().y - 30, 20, BLUE);
 }
-int Game::Player::get_turnnumb() {
+auto Game::Player::get_turnnumb() -> int {
   return turnnumb;
+}
+void Game::Player::heal() {
+  c_HP = c_MaxHP;
 }

@@ -15,13 +15,15 @@ public:
 
     void getDamage(std::vector<int> damage) override;
 
-    int get_turnnumb() override;
+    auto get_turnnumb() -> int override;
 
     void updateCharacter() override;
 
-    virtual Rectangle get_rec() override;
+    auto get_rec() -> Rectangle override;
 
-    virtual Rectangle set_rec() override;
+    auto set_rec() -> Rectangle override;
+
+    virtual void heal() override;
 
     void draw() override;
     //Battlesheet of Player

@@ -299,6 +299,8 @@ int main() {
   // De-initialization here
   //--------------------------------------------------------------------------------------------
 
+  level.~Level();
+
   //UnloadTexture(button);  // Unload button texture
 
   CloseAudioDevice(); // Close audio device

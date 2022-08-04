@@ -12,17 +12,17 @@ namespace Game
   public:
     Mumy();
 
-	std::vector<int> attack() override;
+	auto attack() -> std::vector<int> override;
 
 	void getDamage(std::vector<int> damage) override;
 
-  int get_turnnumb() override;
+  auto get_turnnumb() -> int override;
 
 	void updateCharacter() override;
 
-	virtual Rectangle get_rec() override;
+	Rectangle get_rec() override;
 
-  virtual Rectangle set_rec() override;
+  Rectangle set_rec() override;
 
   void draw() override;
 

@@ -22,8 +22,11 @@ namespace Game {
     Texture2D Attack = LoadTexture("assets/graphics/BattleScreen/Agypten/Attack_Schrift.png");
 
 //Class initialization
-    GameCharacter *player         = new Player();
-    GameCharacter *enemy          = new Mumy();
+
+    //GameCharacter *player          = new Player();
+    unique_ptr<GameCharacter> player = std::make_unique<Player>();
+    unique_ptr<GameCharacter> enemy = std::make_unique<Mumy>();
+    //GameCharacter *enemy          = new Mumy();
     GameCharacter *shadow         = new Shadow();
     GameCharacter *pharaoh        = new Pharaoh();
     Nemo *nemo                    = new Nemo();
@@ -71,7 +74,7 @@ namespace Game {
     Rectangle t_rec_escape = {t_rec_time.x, t_rec_time.y + 35, t_rec_attack.width, t_rec_attack.height };
     float thickness = 15;
 
-    void Draw9Slice(Texture2D& Box, Rectangle rec, float thickness, Color tint)
+    static void Draw9Slice(Texture2D& Box, Rectangle rec, float thickness, Color tint)
     {
       //slice is a const that helps with readability of the function
       const auto slice = Box.width / 3.0f;

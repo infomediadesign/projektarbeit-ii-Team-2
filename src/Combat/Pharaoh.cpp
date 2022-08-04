@@ -5,7 +5,7 @@ Game::Pharaoh::Pharaoh() : GameCharacter("Pharaoh",20, c_MaxHP, 2, 12)
 
 }
 
-std::vector<int> Game::Pharaoh::attack()
+auto Game::Pharaoh::attack() -> std::vector<int>
 {
   //DrawText(TextFormat("You Receive %i", c_STR), 500, 330, 40, BLACK);
   std::vector<int> vector;
@@ -35,9 +35,9 @@ void Game::Pharaoh::updateCharacter()
   }
 }
 
-Rectangle Game::Pharaoh::get_rec() { return this->rec; }
+auto Game::Pharaoh::get_rec() -> Rectangle { return this->rec; }
 
-Rectangle Game::Pharaoh::set_rec() {
+auto Game::Pharaoh::set_rec() -> Rectangle {
   this->rec = { 780, 370, 50, 50 };
   return rec;
 }

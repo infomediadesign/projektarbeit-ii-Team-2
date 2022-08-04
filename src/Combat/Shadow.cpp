@@ -5,7 +5,7 @@ Game::Shadow::Shadow() : GameCharacter("Shadow",15, c_MaxHP, 1, 9)
 
 }
 
-std::vector<int> Game::Shadow::attack()
+auto Game::Shadow::attack() -> std::vector<int>
 {
   //DrawText(TextFormat("You Receive %i", c_STR), 500, 330, 40, BLACK);
   std::vector<int> vector;
@@ -35,9 +35,9 @@ void Game::Shadow::updateCharacter()
   }
 }
 
-Rectangle Game::Shadow::get_rec() { return this->rec; }
+auto Game::Shadow::get_rec() -> Rectangle { return this->rec; }
 
-Rectangle Game::Shadow::set_rec() {
+auto Game::Shadow::set_rec() -> Rectangle {
   this->rec = { 780, 370, 50, 50 };
   return rec;
 }

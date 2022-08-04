@@ -103,12 +103,12 @@ void Game::Level::combat()
           // Player heals first, then gets Damage
           if (player->get_turnnumb() >= enemy->get_turnnumb()) {
             player->heal();
-            player->getDamage(enemy->attack());
+            //player->getDamage(enemy->attack());
             h_amount--;
           }
           // Mumy Attacks first, then Player heals.
           if (enemy->get_turnnumb() >= player->get_turnnumb()) {
-            player->getDamage(enemy->attack());
+            //player->getDamage(enemy->attack());
             player->heal();
             h_amount--;
           }
@@ -141,7 +141,7 @@ void Game::Level::combat()
   if (enemy->getLives() <= 0)
   {
     //delete enemy;
-    //delete player;
+
     DrawText("YOU WON!", 600, 320, 20, BLACK);
     timer = false;
     input = false;
@@ -251,5 +251,8 @@ void Game::Level::Teleport() { //X 910-685, Y 276 + 780 X = 225, Y= 1056
   }
 }
 
-Game::Level::~Level() {}
+Game::Level::~Level()
+{
+  std::cout<<"Destructor Level\n";
+}
 

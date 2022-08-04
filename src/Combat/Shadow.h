@@ -11,15 +11,15 @@ namespace Game
   public:
     Shadow();
 
-    std::vector<int> attack() override;
+    auto attack() -> std::vector<int> override;
 
     void getDamage(std::vector<int> damage) override;
 
     void updateCharacter() override;
 
-    virtual Rectangle get_rec() override;
+    auto get_rec() -> Rectangle override;
 
-    virtual Rectangle set_rec() override;
+    auto set_rec() -> Rectangle override;
   };
 
 } // namespace Game
