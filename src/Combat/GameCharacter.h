@@ -37,6 +37,12 @@ namespace Game
 
     virtual void draw();
 
+    enum class state
+    {
+      IDLE,
+      ATTACK,
+    };
+
     virtual ~GameCharacter() = default;
 
   protected:

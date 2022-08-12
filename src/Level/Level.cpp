@@ -84,6 +84,7 @@ void Game::Level::combat()
         //===============PLAYER ATTACK=========================
         if (player->get_turnnumb() >= enemy->get_turnnumb()) {
           enemy->getDamage(player->attack());
+
         }
         //================ENEMY ATTACK=========================
         if (enemy->get_turnnumb() > player->get_turnnumb()) {
@@ -112,9 +113,6 @@ void Game::Level::combat()
             player->heal();
             h_amount--;
           }
-
-
-          timer = true;
           //=========================HEAL END!!!!=================
         }
       }

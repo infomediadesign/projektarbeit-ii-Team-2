@@ -2,15 +2,18 @@
 
 Game::Player::Player() : GameCharacter("Nemo", 25, c_MaxHP, 5, 5)
 {
+
 }
 
 auto Game::Player::attack() -> std::vector<int>
-{ 
-	//DrawText(TextFormat("You Deal %i", c_STR), 500, 330, 40, BLACK);
+{
+  currentFrame = 4;
+  State = state::ATTACK;
 	std::vector<int> vector;
     vector.push_back(c_STR);
     vector.push_back(0);
-	return vector; 
+	return vector;
+
 }
 
 void Game::Player::getDamage(std::vector<int> damage) 
@@ -55,14 +58,42 @@ void Game::Player::draw()
   // animation
   framesCounter++;
 
-  if (framesCounter >= (60 / framesSpeed)) {
-    framesCounter = 0;
-    currentFrame++;
+    switch (State)
+    {
+    case GameCharacter::state::IDLE:
 
-    if (currentFrame > 3)
-      currentFrame = 0;
+      if (framesCounter >= (60 / framesSpeed)) {
+        framesCounter = 0;
+        currentFrame++;
 
-    frameRec.x = (float)currentFrame * (float)spr_Player.width / 7;
+        if (currentFrame > 3) {
+          currentFrame = 0;
+        }
+
+
+        frameRec.x = (float)currentFrame * (float)spr_Player.width / 7;
+      break;
+
+      case GameCharacter::state::ATTACK:
+
+        if (framesCounter >= (60 / framesSpeed)) {
+          framesCounter = 0;
+          currentFrame++;
+
+          if (currentFrame > 5)
+          {
+            State = state::IDLE;
+            currentFrame = 0;
+          }
+
+          frameRec.x = (float)currentFrame * (float)spr_Player.width / 7;
+          break;
+
+        default: State = GameCharacter::state::IDLE;
+          break;
+        }
+
+    }
   }
 
   //Player draw

@@ -26,10 +26,11 @@ public:
     virtual void heal() override;
 
     void draw() override;
+
+    GameCharacter::state State = GameCharacter::state::IDLE;
+
     //Battlesheet of Player
     Texture2D spr_Player = LoadTexture("assets/graphics/BattleScreen/Agypten/Nemo_Battle.png");
-
-    Rectangle battlerec = {};
 
     Rectangle frameRec = { 0.0f, 0.0f, (float)spr_Player.width / 7, (float)spr_Player.height };
     int currentFrame   = 0;

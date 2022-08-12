@@ -26,5 +26,16 @@ namespace Game
 
   void draw() override;
 
+  GameCharacter::state State = state::IDLE;
+
+  //Battlesheet of Player
+  Texture2D spr_mumy = LoadTexture("assets/graphics/BattleScreen/Agypten/Mumy_Battle.png");
+
+  Rectangle frameRec = { 0.0f, 0.0f, (float)spr_mumy.width / 4, (float)spr_mumy.height };
+  int currentFrame   = 0;
+  int framesCounter  = 0;
+  int framesSpeed    = 2; // animation fps
+  Rectangle mumyrec  = {}; //The attributes for the Rectangle will be set.
+
   };
 }

@@ -8,6 +8,8 @@ Game::Mumy::Mumy() : GameCharacter("Mumy",10, c_MaxHP, 2, 8)
 auto Game::Mumy::attack() -> std::vector<int>
 { 
 	//DrawText(TextFormat("You Receive %i", c_STR), 500, 330, 40, BLACK);
+  currentFrame = 2;
+  State = state::ATTACK;
     std::vector<int> vector;
     vector.push_back(c_STR);
     vector.push_back(0);
@@ -43,8 +45,45 @@ auto Game::Mumy::set_rec() -> Rectangle {
 }
 void Game::Mumy::draw()
 {
+
+  //Draw Enemy
+  mumyrec = {get_rec().x + 8, get_rec().y + 10, get_rec().width, get_rec().height};
+  DrawRectangleRec(mumyrec, Color{});
+  DrawTextureRec(spr_mumy, frameRec, {get_rec().x, get_rec().y}, WHITE);
+  // animation
+  framesCounter++;
+switch (State) {
+case GameCharacter::state::IDLE:
+  if (framesCounter >= (60 / framesSpeed)) {
+    framesCounter = 0;
+    currentFrame++;
+
+    if (currentFrame > 1)
+      currentFrame = 0;
+
+    frameRec.x = (float)currentFrame * (float)spr_mumy.width / 4;
+    break;
+
+  case GameCharacter::state::ATTACK:
+    if (framesCounter >= (60 / framesSpeed)) {
+      framesCounter = 0;
+      currentFrame++;
+
+      if (currentFrame > 3) {
+        State        = state::IDLE;
+        currentFrame = 0;
+      }
+
+      frameRec.x = (float)currentFrame * (float)spr_mumy.width / 4;
+      break;
+
+    default: State = GameCharacter::state::IDLE; break;
+    }
+  }
+}
+
   DrawText(TextFormat("Speed: %i", get_turnnumb()), set_rec().x, set_rec().y - 90, 20, RED);
-  DrawRectangleRec(set_rec(), RED);
+  //DrawRectangleRec(set_rec(), RED);
   DrawText(TextFormat("HP: %i", getLives()), set_rec().x, set_rec().y - 70, 20, RED);
   DrawText(TextFormat("STR: %i", getStrength()), set_rec().x, set_rec().y - 50, 20, RED);
   DrawText(TextFormat("DEF: %i", getArmor()), set_rec().x, set_rec().y - 30, 20, RED);

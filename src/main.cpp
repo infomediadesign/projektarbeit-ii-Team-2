@@ -37,7 +37,6 @@ int main() {
   //Titlescreen titlescreen;
 
   Map map;
-
   GameAudio::Load();
   Game::Level level;
   Game::Level levelcollision;

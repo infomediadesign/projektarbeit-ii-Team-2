@@ -151,7 +151,6 @@ void Game::Nemo::Update() {
       case direction::UP:
 
         DrawTextureRec(Back, frameRec, NemoPosition, WHITE); // Draw nemo animation backwards
-        nemorec;
         break;
 
       case direction::DOWN:
