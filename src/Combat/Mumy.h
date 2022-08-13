@@ -30,6 +30,9 @@ namespace Game
 
   //Battlesheet of Player
   Texture2D spr_mumy = LoadTexture("assets/graphics/BattleScreen/Agypten/Mumy_Battle.png");
+  Texture2D healthbar = LoadTexture("assets/graphics/battlescreen/Agypten/spr_healthbar_enemy.png");
+  Texture2D health = LoadTexture("assets/graphics/battlescreen/Agypten/spr_health_red.png");
+  Rectangle healthrec = {};
 
   Rectangle frameRec = { 0.0f, 0.0f, (float)spr_mumy.width / 4, (float)spr_mumy.height };
   int currentFrame   = 0;

@@ -20,6 +20,7 @@ namespace Game
     auto get_rec() -> Rectangle override;
 
     auto set_rec() -> Rectangle override;
+
   };
 
 } // namespace Game

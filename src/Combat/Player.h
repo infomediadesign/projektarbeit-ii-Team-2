@@ -31,6 +31,9 @@ public:
 
     //Battlesheet of Player
     Texture2D spr_Player = LoadTexture("assets/graphics/BattleScreen/Agypten/Nemo_Battle.png");
+    Texture2D healthbar = LoadTexture("assets/graphics/battlescreen/Agypten/spr_healthbar.png");
+    Texture2D health = LoadTexture("assets/graphics/battlescreen/Agypten/spr_health.png");
+    Rectangle healthrec = {};
 
     Rectangle frameRec = { 0.0f, 0.0f, (float)spr_Player.width / 7, (float)spr_Player.height };
     int currentFrame   = 0;

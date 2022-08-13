@@ -21,6 +21,7 @@ void Game::Mumy::getDamage(std::vector<int> damage)
   if (damage[0] - c_DEF > 0) 
   {
     c_HP -= damage[0] - c_DEF;
+    DrawText(TextFormat("- %i", damage[0] - c_DEF), set_rec().x - 50, set_rec().y, 20, RED);
   }
   //Sets the HP Automatically to 0. HP will not go Negative
   if (c_HP <= 0)
@@ -81,12 +82,14 @@ case GameCharacter::state::IDLE:
     }
   }
 }
+  //enemy Draw
+  healthrec = {0, 0, 192, 96};
 
+  DrawTexture(healthbar, set_rec().x - 20, set_rec().y - 197, WHITE);
+  DrawTextureRec(health, healthrec, {set_rec().x - 20, set_rec().y - 200}, WHITE);
   DrawText(TextFormat("Speed: %i", get_turnnumb()), set_rec().x, set_rec().y - 90, 20, RED);
-  //DrawRectangleRec(set_rec(), RED);
-  DrawText(TextFormat("HP: %i", getLives()), set_rec().x, set_rec().y - 70, 20, RED);
-  DrawText(TextFormat("STR: %i", getStrength()), set_rec().x, set_rec().y - 50, 20, RED);
-  DrawText(TextFormat("DEF: %i", getArmor()), set_rec().x, set_rec().y - 30, 20, RED);
+  DrawText(TextFormat("%i/%i", c_MaxHP, c_HP), set_rec().x + 50, set_rec().y - 160, 20, BLACK);
+  DrawText("MUMY",set_rec().x + 130, set_rec().y - 173, 10, BLACK);
 
 }
 auto Game::Mumy::get_turnnumb() -> int {

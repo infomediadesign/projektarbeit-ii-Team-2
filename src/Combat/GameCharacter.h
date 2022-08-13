@@ -51,5 +51,6 @@ namespace Game
     string name;
     int turnnumb = GetRandomValue(0, 100);
     Rectangle rec { 800, 320, 50, 50 };
+    int getDamageNumber();
   };
 }
