@@ -57,6 +57,8 @@ int main() {
                          // it is called. Do not touch it!!!
   bool NPCDraw = true;   // To set the drawing if it is true or false. In short if it is draw or deleted
 
+  bool Spawnpoint = true;
+
   //Map Markus stuff
     std::ifstream tilesetDescriptionFile("assets/graphics/map/Level1/PhyramidSheet.json"); //Pyramiden_SheetJamey.json needed as json, pls do in tiled
     assert(tilesetDescriptionFile.is_open());
@@ -143,7 +145,7 @@ int main() {
 
     case Game::Level::GameScreen::OVERWORLD:
 
-      //nemo.NemoPosition = {910.0, 400};
+
 
       //map
       Vector2 vec;
@@ -181,6 +183,13 @@ int main() {
       nemo.Update(); // nemo walking movement and animation
       nemo.Draw();   // nemo walking movement and animation
       camera.target = Vector2 { nemo.NemoPosition.x + 20.0f, nemo.NemoPosition.y + 20.0f };
+
+      //if (Spawnpoint)
+      //{
+      //  nemo.NemoPosition.x = 910.0;
+      //  nemo.NemoPosition.y = 400;
+      //}
+
 
       collision.update(); //collision mit
 

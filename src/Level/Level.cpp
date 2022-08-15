@@ -169,7 +169,10 @@ void Game::Level::ScreenDraw() {
 
 
 
-  case GameScreen::OVERWORLD: break;
+  case GameScreen::OVERWORLD:
+    //nemo->NemoPosition.x = 920.0;
+    //nemo->NemoPosition.y = 500;
+    break;
 
   case GameScreen::PYRAMIDE:
     DrawText("PYRAMIDE", 500, 320, 20, GRAY);
@@ -237,9 +240,13 @@ void Game::Level::Teleport() { //X 910-685, Y 276 + 780 X = 225, Y= 1056
   //bool true -> teleport...
   if (teleportcollisionOVERWORLDtoPYRAMID) { //if the collsion bool is true, nemo is transported to PYRAMIDE
     level->currentscreen = Game::Level::GameScreen::PYRAMIDE;
+    nemo->NemoPosition.x = doorPositionX - 670;
+    nemo->NemoPosition.y = doorPositionY + 700;
   }
   if (teleportcollisionPYRAMIDtoOVERWORLD) { //if the collsion bool is true, nemo is transported to PYRAMIDE
     level->currentscreen = Game::Level::GameScreen::OVERWORLD;
+    nemo->NemoPosition.x = doorPositionX + 20;
+    nemo->NemoPosition.y = doorPositionY + 60;
   }
   if (teleportcollisionPYRAMIDtoOCEAN) { //if the collsion bool is true, nemo is transported to PYRAMIDE
     level->currentscreen = Game::Level::GameScreen::OCEAN;
