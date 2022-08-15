@@ -83,7 +83,7 @@ case GameCharacter::state::IDLE:
   }
 }
   //enemy Draw
-  healthrec = {0, 0, 192, 96};
+  healthrec = {0, 0, static_cast<float>(192 * ((float)c_HP/(float)c_MaxHP)), 96};
 
   DrawTexture(healthbar, set_rec().x - 20, set_rec().y - 197, WHITE);
   DrawTextureRec(health, healthrec, {set_rec().x - 20, set_rec().y - 200}, WHITE);
