@@ -40,10 +40,14 @@ void Collision::update() {
       sleep_for(1s); // disable input -> (being stunned after colliding)
     }
   }
-} /** Temporary Klammer*/
+}
+  /**-----------------------------------------------------------------------------------------------------------------*/
 /*
+
     // Check collision between Nemo and Wall/ Interactables...
+
     wallCollision = CheckCollisionRecs(map->collisionRectangles, nemo->nemorec);
+    //wallCollision = CheckCollisionRecs(map->vector <Rectangle> collisionRectangles, nemo->nemorec);
 
     if (wallCollision) { //Change the Floats to Ints, that should solve the bugs
       if (IsKeyPressed(KEY_A) || IsKeyDown(KEY_A)) { //Left
@@ -68,20 +72,10 @@ void Collision::update() {
       }
     }
 }
-*/
-//void Collision::checkForCollisions() {}
 
-/*
-bool checkForCollisions(vector<Rectangle> walls)
-{
-  Rectangle playercollision = this->getCollision();
-  for (int i = 0; i < walls.size(); ++i) {
-    if(checkForCollisions(playercollision, walls[i]);
-    return true;
-  }
-  return false;
-}*/
-/*
+void Collision::checkForCollisions() {}
+
+
 bool checkForCollisions(vector<Rectangle> walls)
 {
   Rectangle playercollision = this->getCollision();
@@ -91,17 +85,27 @@ bool checkForCollisions(vector<Rectangle> walls)
   }
   return false;
 }
-*/
+
+bool checkForCollisions(vector<Rectangle> walls)
+{
+  Rectangle playercollision = this->getCollision();
+  for (int i = 0; i < walls.size(); ++i) {
+    if(checkForCollisions(playercollision, walls[i]);
+    return true;
+  }
+  return false;
+}
+
 /**Rectangle nemo::getCollision()
 {
   return{nemo->NemoPosition.x, nemo->NemoPosition.y, 32, 32}
 }*/
-/*
+
 Rectangle Collision::getCollision()
 {
   return{nemo->NemoPosition.x, nemo->NemoPosition.y, 32, 32};
 }
-*/
+
 
 void Collision::draw()
 {

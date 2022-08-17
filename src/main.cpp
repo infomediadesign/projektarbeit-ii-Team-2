@@ -131,10 +131,14 @@ int main() {
 
     // Using Switch Case to Initialize the requirements to move to certain positions
     switch (level.currentscreen) { // Get Ready for some Spaghetti Code
+
     case Game::Level::GameScreen::TITLESCREEN:
+
+      ClearBackground(BLACK);
 
       camera.target = Vector2 { Game::ScreenWidth / 2, Game::ScreenHeight / 2 };
       nemo.active   = false; // Erase Nemo
+
 
       //titlescreen.draw();
 

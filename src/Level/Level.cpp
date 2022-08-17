@@ -164,8 +164,9 @@ void Game::Level::ScreenDraw() {
   switch (Game::Level::currentscreen) // For this Switch we determine here, what is drawn here
   {
   case GameScreen::TITLESCREEN:
-    DrawText("TITLESCREEN FOR CUSTODIA", 500, 320, 20, GRAY);
-    DrawText("PRESS ENTER FOR GAME", 500, 340, 20, GRAY);
+    //DrawText("TITLESCREEN FOR CUSTODIA", 500, 320, 20, BLUE);
+    //DrawText("PRESS ENTER FOR GAME", 500, 340, 20, BLUE);
+    DrawText("TO ENTER CUSTODIA PRESS ENTER", 500, 340, 20, BLUE);
 
 
 
