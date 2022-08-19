@@ -47,8 +47,8 @@ void Collision::update() {
 /*
     // Check collision between Nemo and Wall/ Interactables...
 
-    wallCollision = CheckCollisionRecs(map->collisionRectangles, nemo->nemorec);
-    //wallCollision = CheckCollisionRecs(map->vector <Rectangle> collisionRectangles, nemo->nemorec);
+    //wallCollision =  CheckCollisionRecs(map->collisionRectangles, nemo->nemorec);
+    wallCollision = CheckCollisionRecs(vector<Rectangle> map->collisionRectangles, nemo->nemorec);
 
     if (wallCollision) { //Change the Floats to Ints, that should solve the bugs
       if (IsKeyPressed(KEY_A) || IsKeyDown(KEY_A)) { //Left
@@ -77,7 +77,7 @@ void Collision::update() {
 void Collision::checkForCollisions() {
 
 }
-
+*/
 /*
 bool checkForCollisions(vector<Rectangle> walls)
 {

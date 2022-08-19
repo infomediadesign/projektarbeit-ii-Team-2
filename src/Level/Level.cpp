@@ -170,6 +170,11 @@ void Game::Level::ScreenDraw() {
   {
   case GameScreen::TITLESCREEN:
 
+    /*if (!IsSoundPlaying(GameAudio::titlescreenmusic)) {
+    PlaySound(GameAudio::titlescreenmusic);
+    SetSoundVolume(GameAudio::titlescreenmusic, float(0.2));
+    }*/
+
     /** BUTTON FUNCTIONS */
     if (key_input == true) {
       if (IsKeyPressed(KEY_SPACE)) {
@@ -212,6 +217,8 @@ void Game::Level::ScreenDraw() {
   case GameScreen::OVERWORLD:
     //nemo->NemoPosition.x = 920.0;
     //nemo->NemoPosition.y = 500;
+
+
     break;
 
   case GameScreen::PYRAMIDE:
@@ -263,7 +270,7 @@ void Game::Level::ScreenDraw() {
 }
 //======================================================================================================================
 
-void Game::Level::Teleport() { //X 910-685, Y 276 + 780 X = 225, Y= 1056
+void Game::Level::Teleport() {
 
   // teleport coordinates
   teleportrecOVERWORLDtoPYRAMID = { doorPositionX, doorPositionY, doortileX, doortileY }; // rectangle in overworld to pyramid
