@@ -1,15 +1,11 @@
 #include "../INCLUDES.h"
 
-struct Animation;
-
 struct Item {
   int type;
   int id;
   bool is_stackable;
   int max_num_blocks_in_stack;
   int curr_num_of_blocks_in_stack;
-  Animation* used_animation; // if it is non nullable, you should consider to use it without a pointer (possibly a reference)
-  Animation* secondary_animation; // nullable - can be a pointer or std::optional
 };
 
 class Inventory

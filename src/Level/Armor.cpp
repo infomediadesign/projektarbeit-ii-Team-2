@@ -1,4 +1,4 @@
-#include"Armor.h"
+/*#include"Armor.h"
 
 dArr<std::string> Armor::names;
 
@@ -84,3 +84,4 @@ std::string Armor::toStringSave()const
   return str;
 }
 
+*/

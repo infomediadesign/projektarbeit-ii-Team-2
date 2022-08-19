@@ -161,14 +161,53 @@ void Game::Level::Screeninit() {
 }
 
 void Game::Level::ScreenDraw() {
+
+  bool key_input = true;
+
+  /** SWITCH CASE FOR ROOM SWITCHING */
+
   switch (Game::Level::currentscreen) // For this Switch we determine here, what is drawn here
   {
   case GameScreen::TITLESCREEN:
-    //DrawText("TITLESCREEN FOR CUSTODIA", 500, 320, 20, BLUE);
-    //DrawText("PRESS ENTER FOR GAME", 500, 340, 20, BLUE);
-    DrawText("TO ENTER CUSTODIA PRESS ENTER", 500, 340, 20, BLUE);
 
+    /** BUTTON FUNCTIONS */
+    if (key_input == true) {
+      if (IsKeyPressed(KEY_SPACE)) {
+        if (t_rec_start.x == box_rec.x && t_rec_start.y == box_rec.y && t_rec_start.width == box_rec.width &&
+            t_rec_start.height == box_rec.height) {
+          currentscreen = GameScreen::OVERWORLD;
+        }
+        if (t_rec_settings.x == box_rec.x && t_rec_settings.y == box_rec.y && t_rec_settings.width == box_rec.width &&
+            t_rec_settings.height == box_rec.height) {
+          currentscreen = GameScreen::PAUSEMENU;
+        }
+        if (t_rec_exit_game.x == box_rec.x && t_rec_exit_game.y == box_rec.y &&
+            t_rec_exit_game.width == box_rec.width && t_rec_exit_game.height == box_rec.height) {
+          SetExitKey(KEY_SPACE);
+        }
+      }
+    }
 
+    /** MOVE THE BOX */
+    if (IsKeyPressed(KEY_DOWN))
+    { box_rec_titlescreen.y += 50; }
+
+    if (IsKeyPressed(KEY_UP))
+    { box_rec_titlescreen.y -= 50; }
+
+    //Knopf soll nicht out of border gehen
+    if (box_rec_titlescreen.y < Game::ScreenHeight / 2 - 50) box_rec_titlescreen.y = Game::ScreenHeight / 2 - 50;
+    else if (box_rec_titlescreen.y > Game::ScreenHeight / 2 + 50) box_rec_titlescreen.y = Game::ScreenHeight / 2 + 50;
+
+    /** BUTTONS TITLESCREEN */
+    Draw9Slice(Box, t_rec_start, thickness, WHITE);
+    Draw9Slice(Box, t_rec_settings, thickness, WHITE);
+    Draw9Slice(Box, t_rec_exit_game, thickness, WHITE);
+    Draw9Slice(Box_S, box_rec_titlescreen, thickness, WHITE);
+
+    DrawText("START GAME", Game::ScreenWidth / 2 - 50 , Game::ScreenHeight / 2 - 40 , 17, WHITE);
+    DrawText("SETTINGS", Game::ScreenWidth / 2 - 50 , Game::ScreenHeight / 2 + 10, 17, WHITE);
+    DrawText("EXIT GAME", Game::ScreenWidth / 2 - 50 , Game::ScreenHeight / 2 + 60 , 17, WHITE);
 
   case GameScreen::OVERWORLD:
     //nemo->NemoPosition.x = 920.0;

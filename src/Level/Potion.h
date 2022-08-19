@@ -2,7 +2,7 @@
 
 #include"../INCLUDES.h"
 #include"Item.h"
-
+/*
 enum potionType { ATTACK = 0, HEAL, DEFENCE, ABILLITY};
 
 class Potions :
@@ -53,3 +53,4 @@ public:
   static dArr<std::string> names;
   static void initNames();
 };
+*/

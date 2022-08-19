@@ -2,7 +2,7 @@
 
 #include "../INCLUDES.h"
 
-enum itemTypes { POTION = 0, ARMOR};
+/*enum itemTypes { POTION = 0, ARMOR};
 
 class Item
 {
@@ -28,4 +28,4 @@ public:
 
   //Modifiers
   inline void setName(std::string name) { this->name = name; }
-};
+};*/

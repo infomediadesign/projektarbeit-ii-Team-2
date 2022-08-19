@@ -20,6 +20,7 @@ namespace Game {
     Texture2D Box = LoadTexture("assets/graphics/BattleScreen/Agypten/Auswahl_Cursor.png");
     Texture2D Box_S = LoadTexture("assets/graphics/BattleScreen/Agypten/Auswahl_Cursor_S.png");
     Texture2D Attack = LoadTexture("assets/graphics/BattleScreen/Agypten/Attack_Schrift.png");
+    Texture2D Titlescreen = LoadTexture("assets/graphics/backgrounds/testtitlescreen.png");
 
 //Class initialization
 
@@ -66,6 +67,12 @@ namespace Game {
     void ScreenDraw();
 
     void Draw();
+
+    Rectangle box_rec_titlescreen = {ScreenWidth / 2 - 50 , Game::ScreenHeight / 2 - 50, 78, 32};
+    Rectangle t_rec_start = {ScreenWidth / 2 - 50, Game::ScreenHeight / 2 - 50, 78, 32};
+    Rectangle t_rec_settings = {ScreenWidth / 2 - 50 , Game::ScreenHeight / 2, t_rec_start.width, t_rec_start.height};
+    Rectangle t_rec_exit_game = {ScreenWidth / 2 - 50, Game::ScreenHeight / 2 + 50, t_rec_start.width, t_rec_start.height};
+
 
     Rectangle t_rec_attack = {565, 470, 78, 32};
     Rectangle box_rec = {565, 470, 78, 32};

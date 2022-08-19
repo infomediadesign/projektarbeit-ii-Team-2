@@ -41,9 +41,10 @@ void Collision::update() {
     }
   }
 }
-  /**-----------------------------------------------------------------------------------------------------------------*/
-/*
 
+  /**-----------------------------------------------------------------------------------------------------------------*/
+
+/*
     // Check collision between Nemo and Wall/ Interactables...
 
     wallCollision = CheckCollisionRecs(map->collisionRectangles, nemo->nemorec);
@@ -73,9 +74,11 @@ void Collision::update() {
     }
 }
 
-void Collision::checkForCollisions() {}
+void Collision::checkForCollisions() {
 
+}
 
+/*
 bool checkForCollisions(vector<Rectangle> walls)
 {
   Rectangle playercollision = this->getCollision();
@@ -85,21 +88,7 @@ bool checkForCollisions(vector<Rectangle> walls)
   }
   return false;
 }
-
-bool checkForCollisions(vector<Rectangle> walls)
-{
-  Rectangle playercollision = this->getCollision();
-  for (int i = 0; i < walls.size(); ++i) {
-    if(checkForCollisions(playercollision, walls[i]);
-    return true;
-  }
-  return false;
-}
-
-/**Rectangle nemo::getCollision()
-{
-  return{nemo->NemoPosition.x, nemo->NemoPosition.y, 32, 32}
-}*/
+*/
 
 Rectangle Collision::getCollision()
 {
@@ -111,4 +100,4 @@ void Collision::draw()
 {
   rectangleObject = {400, 703 / 2, 32, 32};
   DrawRectangleRec(rectangleObject, YELLOW);
-}
+} // can be deleted

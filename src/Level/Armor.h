@@ -2,7 +2,7 @@
 
 #include"../INCLUDES.h"
 #include"Item.h"
-
+/*
 enum armorType { HEAD = 0, CHEST};
 
 class Armor :
@@ -41,3 +41,4 @@ public:
   static dArr<std::string> names;
   static void initNames();
 };
+*/
