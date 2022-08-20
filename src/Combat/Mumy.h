@@ -1,6 +1,6 @@
 #pragma once
 #include "../INCLUDES.h"
-#include <string.h>
+#include <cstring>
 #include "GameCharacter.h"
 
 
@@ -20,6 +20,10 @@ namespace Game
 
 	void updateCharacter() override;
 
+  auto getStrength() -> int override;
+
+  auto getDefense() -> int override;
+
 	Rectangle get_rec() override;
 
   Rectangle set_rec() override;
@@ -27,6 +31,9 @@ namespace Game
   void draw() override;
 
   GameCharacter::state State = state::IDLE;
+
+  bool damaged = false;
+  int framescounter;
 
   //Battlesheet of Player
   Texture2D spr_mumy = LoadTexture("assets/graphics/BattleScreen/Agypten/Mumy_Battle.png");

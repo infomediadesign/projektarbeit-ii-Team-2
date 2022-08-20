@@ -35,6 +35,11 @@ namespace Game {
     //UI *ui                      = new UI();
     Game::Level *level;
 
+    int p_framescounter;
+    int e_framescounter;
+    bool p_damaged = false;
+    bool e_damaged = false;
+
     //teleport stuff
     const float doortileX     = 67.0;
     const float doortileY     = 45.0;
@@ -56,7 +61,7 @@ namespace Game {
     enum class GameScreen { TITLESCREEN, OVERWORLD, COMBAT, PYRAMIDE, OCEAN, PAUSEMENU, CUTSCENE }; //This Enum Class is there to set the Screens to TITLE etc.
 
     //GameScreen currentscreen = GameScreen::COMBAT; //TitleScreens is the Start Screen
-    GameScreen currentscreen = GameScreen::TITLESCREEN; // TitleScreens is the Start Screen
+    GameScreen currentscreen = GameScreen::COMBAT; // TitleScreens is the Start Screen
 
     //teleport stuff
     //enum class OverworldState { INPYRAMIDE, OUTPYRAMIDE, OCEAN }; //This Enum Class is there to teleport

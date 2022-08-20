@@ -27,10 +27,12 @@ void Game::Level::combat()
     //After Player Attacks, the Mumy will attack the Player
     if (player->get_turnnumb() > enemy->get_turnnumb()) {
       player->getDamage(enemy->attack());
+      p_damaged = true;
     }
     //After Mumy Attack, the Player attacks the Mumy
     if (enemy->get_turnnumb() > player->get_turnnumb()) {
       enemy->getDamage(player->attack());
+      e_damaged = true;
     }
 
     timer = false;
@@ -84,11 +86,13 @@ void Game::Level::combat()
         //===============PLAYER ATTACK=========================
         if (player->get_turnnumb() >= enemy->get_turnnumb()) {
           enemy->getDamage(player->attack());
+          e_damaged = true;
 
         }
         //================ENEMY ATTACK=========================
         if (enemy->get_turnnumb() > player->get_turnnumb()) {
           player->getDamage(enemy->attack());
+          p_damaged = true;
         }
 
         timer = true;
@@ -123,6 +127,7 @@ void Game::Level::combat()
             if (energy > 0)
         {
               enemy->getDamage(player->attack());
+              e_damaged = true;
               energy--;
             }
 
@@ -246,11 +251,35 @@ void Game::Level::ScreenDraw() {
     //Timer
     //DrawText(TextFormat("Time: %i", framescounter), player->set_rec().x + 100, player->set_rec().y, 20, GREEN);
 
-
     //Player
     player->draw();
-    //Draw enemy
+    // Draw enemy
     enemy->draw();
+
+    //Drawing the Player Damage Number
+    if (p_damaged) {
+
+      p_framescounter++;
+
+      DrawText(TextFormat("- %i", enemy->getStrength() - player->getDefense()),player->set_rec().x + 80,player->set_rec().y,20,RED);
+
+      if (((p_framescounter / 60) % 2) == 1) {
+        p_framescounter = 0;
+        p_damaged = false;
+      }
+    }
+    //Drawing the Enemy Damage Number
+    if (e_damaged) {
+
+      e_framescounter++;
+
+      DrawText(TextFormat("- %i", player->getStrength() - enemy->getDefense()),enemy->set_rec().x - 40,enemy->set_rec().y,20,RED);
+
+      if (((e_framescounter / 60) % 2) == 1) {
+        e_framescounter = 0;
+        e_damaged  = false;
+      }
+    }
     combat();
 
 

@@ -19,12 +19,8 @@ auto Game::Player::attack() -> std::vector<int>
 void Game::Player::getDamage(std::vector<int> damage) 
 {
 
-  if (damage[0] - c_DEF > 0) 
-  {
+  if (damage[0] - c_DEF > 0) {
     c_HP -= damage[0] - c_DEF;
-
-    DrawText(TextFormat("- %i", damage[0] - c_DEF), set_rec().x + 80, set_rec().y, 20, RED);
-
   }
 
   //Sets the HP Automatically to 0. HP will not go Negative
@@ -108,11 +104,15 @@ void Game::Player::draw()
   DrawText(TextFormat("%i/%i", c_HP, c_MaxHP), set_rec().x - 30, set_rec().y - 160, 20, BLACK);
   DrawTexture(healthbar, set_rec().x - 100, set_rec().y - 200, WHITE);
 
-}
+  }
+
 auto Game::Player::get_turnnumb() -> int {
   return turnnumb;
 }
 void Game::Player::heal() {
   c_HP = c_MaxHP;
 }
-
+auto Game::Player::getStrength() -> int {
+  return c_STR;
+}
+auto Game::Player::getDefense() -> int { return c_DEF; }

@@ -25,6 +25,8 @@ namespace Game
 
     virtual auto getStrength() -> int;
 
+    virtual auto getDefense() -> int;
+
     virtual auto get_rec() -> Rectangle;
 
     virtual auto set_rec() -> Rectangle;
@@ -42,6 +44,8 @@ namespace Game
       IDLE,
       ATTACK,
     };
+
+    bool damaged = false;
 
     virtual ~GameCharacter() = default;
 

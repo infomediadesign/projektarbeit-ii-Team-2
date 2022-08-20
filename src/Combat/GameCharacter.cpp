@@ -41,3 +41,4 @@ string Game::GameCharacter::get_Name()
   return name;
 }
 void Game::GameCharacter::draw() {}
+auto Game::GameCharacter::getDefense() -> int { return 0; }

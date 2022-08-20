@@ -226,6 +226,12 @@ int main() {
 
       ClearBackground(BLACK);
 
+      if (IsKeyPressed(KEY_C))
+      {
+        std::cout << "X: " << nemo.NemoPosition.x << endl;
+        std::cout << "Y: " << nemo.NemoPosition.y << endl;
+      }
+
       Vector2 vecDungeon;
       Rectangle recDungeon;
 

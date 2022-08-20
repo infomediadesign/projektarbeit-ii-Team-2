@@ -17,7 +17,6 @@ void Game::Nemo::Update() {
         SetSoundVolume(GameAudio::walking, float(0.5)); // Set volume for a sound (1.0 is max level) This is a test
     }
 
-
    
   if (active) {
       /* if (IsKeyDown(KEY_W) && IsKeyDown(KEY_D) 

@@ -17,6 +17,10 @@ public:
 
     auto get_turnnumb() -> int override;
 
+    auto getStrength() -> int override;
+
+    auto getDefense() -> int override;
+
     void updateCharacter() override;
 
     auto get_rec() -> Rectangle override;
@@ -28,6 +32,8 @@ public:
     void draw() override;
 
     GameCharacter::state State = GameCharacter::state::IDLE;
+
+    int framescounter = 0;
 
     //Battlesheet of Player
     Texture2D spr_Player = LoadTexture("assets/graphics/BattleScreen/Agypten/Nemo_Battle.png");
