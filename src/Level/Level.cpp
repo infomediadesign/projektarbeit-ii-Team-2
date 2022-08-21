@@ -142,7 +142,7 @@ void Game::Level::combat()
 
       if (t_rec_escape.x == box_rec.x && t_rec_escape.y == box_rec.y && t_rec_escape.width == box_rec.width &&
           t_rec_escape.height == box_rec.height) {
-        currentscreen = GameScreen::OVERWORLD;
+        currentscreen = GameScreen::PYRAMIDE;
       }
     }
   }
