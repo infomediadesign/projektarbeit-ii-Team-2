@@ -20,7 +20,7 @@ namespace GameAudio {
     titlescreenmusic = LoadSound("assets/audio/sfx/Forever Lost.wav");    
     pausemenu        = LoadSound("assets/audio/sfx/12_Step_wood_03.wav"); // not right sound yet
     indungeon        = LoadSound("assets/audio/sfx/cave_theme_2.wav");    
-    outdungeon       = LoadSound("assets/audio/sfx/12_Step_wood_03.wav"); // not right sound yet
+    outdungeon       = LoadSound("assets/audio/sfx/Beginning of time.wav"); // not right sound yet
     battlemusic      = LoadSound("assets/audio/sfx/chibi-robot-b.ogg");   
   }
 

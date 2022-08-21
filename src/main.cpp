@@ -11,9 +11,12 @@
 
 #include "Sprite/Sprite.h"
 
-#include "Titlescreen.h"
 
-// Project = Custodia - Trapped in the past
+
+/** Project = Custodia - Trapped in time */
+
+//TODO make the vector Rectangle to a Rectangle that is allowed in CHeckCollisoionRec ( Collision.cpp / line. 50)
+//TODO find a way to make the sound faster/ slower to fit Nemos movements!!! (Nemo.cpp / update func line.13)
 
 int main() {
   // Raylib initialization
@@ -32,9 +35,10 @@ int main() {
   // Initialization
   //--------------------------------------------------------------------------------------------
   Texture2D StandStil = LoadTexture("assets/graphics/Charakter_Vorschlag_vorne_laufen1.png");
+  Texture2D EpanoxStil = LoadTexture("assets/graphics/Epanox_Standing - Kopie.png");
+
 
   Collision collision;
-  //Titlescreen titlescreen;
 
   Map map;
   GameAudio::Load();
@@ -51,13 +55,13 @@ int main() {
   level.level = &level;
   level.nemo = &nemo;
 
-  //titlescreen.level = &level;
-
   Rectangle NPCRec = {}; // Rectangle Position has to be set after it is drawn, leaving it free is so much better, until
                          // it is called. Do not touch it!!!
   bool NPCDraw = true;   // To set the drawing if it is true or false. In short if it is draw or deleted
 
-  bool Spawnpoint = true;
+  Rectangle  EpanoxRec = {961, 458, 16, 20};
+  //bool EpanoxDraw = false;
+  bool EpanoxCollision = false;
 
   //Map Markus stuff
     std::ifstream tilesetDescriptionFile("assets/graphics/map/Level1/PhyramidSheet.json"); //Pyramiden_SheetJamey.json needed as json, pls do in tiled
@@ -80,27 +84,6 @@ int main() {
     Texture2D tileAtlasTexture = LoadTexture("assets/graphics/map/Level1/Egypt-Sheet.png");
     //Texture2D tileAtlasTexture = LoadTexture((tilesetDescription["image"].get<std::string>()).c_str());
 
-    //Music Tests
-    /*
-  if (level.currentscreen == Game::Level::GameScreen::OVERWORLD)
-  {
-    StopSound(GameAudio::battlemusic);
-    PlaySound(GameAudio::outdungeon);
-    SetSoundVolume(GameAudio::outdungeon, float(0.5)); // Set volume for a sound (1.0 is max level) This is a test
-  }
-  else if (level.currentscreen == Game::Level::GameScreen::COMBAT)
-  {
-    StopSound(GameAudio::outdungeon);
-    PlaySound(GameAudio::battlemusic);
-    SetSoundVolume(GameAudio::outdungeon, float(0.5)); // Set volume for a sound (1.0 is max level) This is a test
-  }
-  else
-  {
-    StopSound(GameAudio::outdungeon);
-    StopSound(GameAudio::battlemusic);
-  }
-*/
-
     // Camera settings
   //--------------------------------------------------------------------------------------------
   Camera2D camera = { 0 };
@@ -117,13 +100,12 @@ int main() {
     /**map updates...*/
     map.update();
 
+
     // Begin drawing
     //--------------------------------------------------------------------------------------------
     BeginDrawing();
 
     ClearBackground(WHITE);
-
-    // map.draw(); //draw the map
 
     BeginMode2D(camera);
 
@@ -139,9 +121,6 @@ int main() {
       camera.target = Vector2 { Game::ScreenWidth / 2, Game::ScreenHeight / 2 };
       nemo.active   = false; // Erase Nemo
 
-
-      //titlescreen.draw();
-
       if (IsKeyDown(KEY_ENTER)) {
         level.currentscreen = Game::Level::GameScreen::OVERWORLD;
       }
@@ -149,7 +128,13 @@ int main() {
 
     case Game::Level::GameScreen::OVERWORLD:
 
+      ClearBackground(BLACK);
 
+      if (IsKeyPressed(KEY_M))
+      {
+        std::cout << "X: " << nemo.NemoPosition.x << endl;
+        std::cout << "Y: " << nemo.NemoPosition.y << endl;
+      }
 
       //map
       Vector2 vec;
@@ -181,21 +166,48 @@ int main() {
         }
       }
 
-      //Vector2 NemoPosition = {500,500};
-
       nemo.active = true;
       nemo.Update(); // nemo walking movement and animation
       nemo.Draw();   // nemo walking movement and animation
       camera.target = Vector2 { nemo.NemoPosition.x + 20.0f, nemo.NemoPosition.y + 20.0f };
 
-      //if (Spawnpoint)
-      //{
-      //  nemo.NemoPosition.x = 910.0;
-      //  nemo.NemoPosition.y = 400;
-      //}
+      DrawTexture(EpanoxStil, 961, 458, WHITE);
 
+      EpanoxCollision = CheckCollisionRecs(EpanoxRec, nemo.nemorec);
 
-      collision.update(); //collision mit
+      if (CheckCollisionRecs(EpanoxRec, nemo.nemorec)){
+        EpanoxCollision = true;
+      }
+
+      if (EpanoxCollision = true){
+        ui.DialogDraw();
+      }
+
+      //check collision between nemo and epanox
+      /*EpanoxCollision = CheckCollisionRecs(EpanoxRec, nemo.nemorec);
+
+      if (EpanoxCollision = true){
+        EpanoxDraw = true;
+        if (IsKeyPressed(KEY_A) || IsKeyDown(KEY_A)) {
+          nemo.NemoPosition.x += 5;
+        }
+        if (IsKeyPressed(KEY_D) || IsKeyDown(KEY_D)) {
+          nemo.NemoPosition.x += 5;
+        }
+        if (IsKeyPressed(KEY_W) || IsKeyDown(KEY_W)) {
+          nemo.NemoPosition.x += 5;
+        }
+        if (IsKeyPressed(KEY_S) || IsKeyDown(KEY_S)) {
+          nemo.NemoPosition.x += 5;
+        }
+      }
+
+      if (EpanoxDraw = true) {
+        DrawTexture(EpanoxStil, 961, 458, WHITE); // Drawing the Rectangle
+        ui.DialogDraw();
+      }*/
+
+      //collision.update();
 
       //teleport into pyramid
       level.Teleport();
@@ -222,7 +234,7 @@ int main() {
       }
       break;
 
-    case Game::Level::GameScreen::PYRAMIDE: //TODO CAMERA CENTER MOVEMENT!!!
+    case Game::Level::GameScreen::PYRAMIDE:
 
       ClearBackground(BLACK);
 
@@ -261,13 +273,10 @@ int main() {
         }
       }
 
-      //nemo.NemoPosition = {225,980};
-
       nemo.active = true;
       nemo.Update(); // nemo walking movement and animation
       nemo.Draw();   // nemo walking movement and animation
       camera.target = Vector2 { nemo.NemoPosition.x + 20.0f, nemo.NemoPosition.y + 20.0f };
-
 
       //teleport back to overworld
       level.Teleport();

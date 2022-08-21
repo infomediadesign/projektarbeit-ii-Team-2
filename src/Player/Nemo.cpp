@@ -9,14 +9,14 @@ void Game::Nemo::Update() {
   but this Code allows the user to press only one Key while walking. It is also a lazy way to prevent the user
   to run fast while running vertically.*/
 
-//walking sfx needs a buffer
-
-  if (IsKeyPressed(KEY_W) || IsKeyPressed(KEY_A) || IsKeyPressed(KEY_S) || IsKeyPressed(KEY_D))
-    {
-        PlaySound(GameAudio::walking);
-        SetSoundVolume(GameAudio::walking, float(0.5)); // Set volume for a sound (1.0 is max level) This is a test
-    }
-
+//TODO find a way to make the sound faster/ slower to fit Nemos movements!!!
+  while (IsKeyDown(KEY_W) || IsKeyDown(KEY_A) || IsKeyDown(KEY_S) || IsKeyDown(KEY_D)) {
+    if (!IsSoundPlaying(GameAudio::walking)){
+      PlaySound(GameAudio::walking);
+      SetSoundVolume(GameAudio::walking, float(0.04));
+      break;
+    }break;
+  }
    
   if (active) {
       /* if (IsKeyDown(KEY_W) && IsKeyDown(KEY_D) 

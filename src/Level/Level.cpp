@@ -180,10 +180,11 @@ void Game::Level::ScreenDraw() {
   {
   case GameScreen::TITLESCREEN:
 
-    /*if (!IsSoundPlaying(GameAudio::titlescreenmusic)) {
-    PlaySound(GameAudio::titlescreenmusic);
-    SetSoundVolume(GameAudio::titlescreenmusic, float(0.2));
-    }*/
+    if(!IsSoundPlaying(GameAudio::titlescreenmusic)){
+      PlaySound(GameAudio::titlescreenmusic);
+      SetSoundVolume(GameAudio::titlescreenmusic, float(0.01));
+    }
+    if (IsSoundPlaying(GameAudio::titlescreenmusic)){}
 
     /** BUTTON FUNCTIONS */
     if (key_input == true) {
@@ -210,7 +211,6 @@ void Game::Level::ScreenDraw() {
     if (IsKeyPressed(KEY_UP))
     { box_rec_titlescreen.y -= 50; }
 
-    //Knopf soll nicht out of border gehen
     if (box_rec_titlescreen.y < Game::ScreenHeight / 2 - 50) box_rec_titlescreen.y = Game::ScreenHeight / 2 - 50;
     else if (box_rec_titlescreen.y > Game::ScreenHeight / 2 + 50) box_rec_titlescreen.y = Game::ScreenHeight / 2 + 50;
 
@@ -224,14 +224,43 @@ void Game::Level::ScreenDraw() {
     DrawText("SETTINGS", Game::ScreenWidth / 2 - 50 , Game::ScreenHeight / 2 + 10, 17, WHITE);
     DrawText("EXIT GAME", Game::ScreenWidth / 2 - 50 , Game::ScreenHeight / 2 + 60 , 17, WHITE);
 
+    break;
+
   case GameScreen::OVERWORLD:
-    //nemo->NemoPosition.x = 920.0;
-    //nemo->NemoPosition.y = 500;
+    if (IsSoundPlaying(GameAudio::titlescreenmusic)){
+      StopSound(GameAudio::titlescreenmusic);
+    }
+    if (IsSoundPlaying(GameAudio::battlemusic)){
+      StopSound(GameAudio::battlemusic);
+    }
+    if (IsSoundPlaying(GameAudio::indungeon)){
+      StopSound(GameAudio::indungeon);
+    }
 
 
+    if(!IsSoundPlaying(GameAudio::outdungeon)){
+      PlaySound(GameAudio::outdungeon);
+      SetSoundVolume(GameAudio::outdungeon, float(0.01));
+    }
+    if (IsSoundPlaying(GameAudio::outdungeon)){}
     break;
 
   case GameScreen::PYRAMIDE:
+
+    if (IsSoundPlaying(GameAudio::battlemusic)){
+      StopSound(GameAudio::battlemusic);
+    }
+    if (IsSoundPlaying(GameAudio::outdungeon)){
+      StopSound(GameAudio::outdungeon);
+    }
+
+    if(!IsSoundPlaying(GameAudio::indungeon)){
+      PlaySound(GameAudio::indungeon);
+      SetSoundVolume(GameAudio::indungeon, float(0.01));
+    }
+    if (IsSoundPlaying(GameAudio::indungeon)){}
+    break;
+
     DrawText("PYRAMIDE", 500, 320, 20, GRAY);
     break;
   case GameScreen::OCEAN:
@@ -243,6 +272,19 @@ void Game::Level::ScreenDraw() {
   case GameScreen::COMBAT:
 
     bool inCombat;
+
+    if (IsSoundPlaying(GameAudio::indungeon)){
+      StopSound(GameAudio::indungeon);
+    }
+    if (IsSoundPlaying(GameAudio::outdungeon)){
+      StopSound(GameAudio::outdungeon);
+    }
+
+    if(!IsSoundPlaying(GameAudio::battlemusic)){
+      PlaySound(GameAudio::battlemusic);
+      SetSoundVolume(GameAudio::battlemusic, float(0.01));
+    }
+    if (IsSoundPlaying(GameAudio::battlemusic)){}
 
       /*if (inCombat)
       {
