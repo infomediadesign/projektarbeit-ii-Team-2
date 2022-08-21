@@ -7,6 +7,7 @@ class DialogueNode;
 
 class DialogueOption {
 public:
+  DialogueOption(string Text, int ReturnCode, DialogueNode *NextNode);
   string text;
   int returnCode;
   DialogueNode *nextNode;
@@ -14,6 +15,7 @@ public:
 
 class DialogueNode {
 public:
+  DialogueNode(string Text);
   string text;
   vector <DialogueOption> dialogueOptions;
 
