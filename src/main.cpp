@@ -8,6 +8,9 @@
 #include "Level/Collision.h"
 
 #include "Player/Nemo.h"
+#include "Enemy Overworld Sprites/Mumy.h"
+#include "Enemy Overworld Sprites/Shadow.h"
+#include "Enemy Overworld Sprites/Pharaoh.h"
 
 #include "Sprite/Sprite.h"
 
@@ -47,7 +50,14 @@ int main() {
   Game::UI ui;
   Game::Nemo nemo; // Initializing the Nemo (Player) Class
   Game::Sprite spr(nemo.NemoPosition.x, nemo.NemoPosition.y, nemo.Front);
-  Game::Sprite NPC(592, 721, StandStil);
+  Mumy *overworld_mumy          = new Mumy();
+  Pharaoh *overworld_pharaoh = new Pharaoh();
+  Shadow *overwold_shadow = new Shadow();
+
+  Game::Sprite Mumy_Sprite(592, 721, overworld_mumy->spr_mumy);
+  Game::Sprite Shadow_Sprite(590.5, 1014, overwold_shadow->spr_shadow);
+  Game::Sprite Pharaoh_Sprite(1455, 198, overworld_pharaoh->spr_Pharaoh);
+  //Game::Sprite NPC(592, 721, StandStil);
 
   collision.nemo = &nemo;
   collision.level = &level;
@@ -55,7 +65,7 @@ int main() {
   level.level = &level;
   level.nemo = &nemo;
 
-  Rectangle NPCRec = {}; // Rectangle Position has to be set after it is drawn, leaving it free is so much better, until
+  //Rectangle NPCRec = {}; // Rectangle Position has to be set after it is drawn, leaving it free is so much better, until
                          // it is called. Do not touch it!!!
   bool NPCDraw = true;   // To set the drawing if it is true or false. In short if it is draw or deleted
 
@@ -251,25 +261,24 @@ int main() {
               vecDungeon.x = 0;
               vecDungeon.y += (float) levelMapDungeon["tileheight"];
             }
-
-            if (NPCDraw == true) {
-              NPCRec = { 592 + 8, 712 + 5, 16, 20 };
+              //NPCRec = { 592 + 8, 712 + 5, 16, 20 };
               // DrawRectangleRec(NPCRec, Color(00));                    // COLOR is for the Transparency.
-              DrawTexture(NPC.texture_, NPC.pos_x, NPC.pos_y, WHITE); // Drawing the Rectangle
+              //DrawTexture(NPC.texture_, NPC.pos_x, NPC.pos_y, WHITE); // Drawing the Rectangle
+
+            overwold_shadow->Draw();
+            overworld_pharaoh->Draw();
+            if (NPCDraw) {
+              overworld_mumy->Draw();
               collision.draw();
             }
             // Collision check
-            while (CheckCollisionRecs(NPCRec, nemo.nemorec)) // Where the Collision between Two Objects happen happens
+            if (CheckCollisionRecs(overworld_mumy->getMumyRec(), nemo.nemorec)) // Where the Collision between Two Objects happen happens
             {
               level.currentscreen = Game::Level::GameScreen::COMBAT; // After Returning back to the OVERWORLD ya get
 
-              // immediately back to the Combat screen
-              // This happens, because the Player still collides with the player, deleting the NPC may work, but I still don´t
-              // know if it worked.
               NPCDraw = false; // NPC is deleted
-              NPCRec = {}; // His Rectangle doesn´t get a position, so it is deleted instead, if you would set the attributes,
-                               // the rectangleCollision remains active instead
-              // It might not be clean, but it solves the issue for now
+              overworld_mumy->MumyRec = {};
+              //NPCRec = {}; //
             }
           }
         }
