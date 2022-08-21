@@ -28,11 +28,13 @@ void Game::Level::combat()
     if (player->get_turnnumb() > enemy->get_turnnumb()) {
       player->getDamage(enemy->attack());
       p_damaged = true;
+      p_framescounter++;
     }
     //After Mumy Attack, the Player attacks the Mumy
     if (enemy->get_turnnumb() > player->get_turnnumb()) {
       enemy->getDamage(player->attack());
       e_damaged = true;
+      e_framescounter++;
     }
 
     timer = false;
@@ -87,12 +89,14 @@ void Game::Level::combat()
         if (player->get_turnnumb() >= enemy->get_turnnumb()) {
           enemy->getDamage(player->attack());
           e_damaged = true;
+          e_framescounter++;
 
         }
         //================ENEMY ATTACK=========================
         if (enemy->get_turnnumb() > player->get_turnnumb()) {
           player->getDamage(enemy->attack());
           p_damaged = true;
+          p_framescounter++;
         }
 
         timer = true;
@@ -128,6 +132,7 @@ void Game::Level::combat()
         {
               enemy->getDamage(player->attack());
               e_damaged = true;
+              e_framescounter++;
               energy--;
             }
 
@@ -137,7 +142,7 @@ void Game::Level::combat()
 
       if (t_rec_escape.x == box_rec.x && t_rec_escape.y == box_rec.y && t_rec_escape.width == box_rec.width &&
           t_rec_escape.height == box_rec.height) {
-        currentscreen = GameScreen::OVERWORLD;
+        currentscreen = GameScreen::PYRAMIDE;
       }
     }
   }

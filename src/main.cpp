@@ -50,7 +50,7 @@ int main() {
   Game::UI ui;
   Game::Nemo nemo; // Initializing the Nemo (Player) Class
   Game::Sprite spr(nemo.NemoPosition.x, nemo.NemoPosition.y, nemo.Front);
-  Game::Sprite NPC(100, 100, StandStil);
+  Game::Sprite NPC(592, 721, StandStil);
 
   collision.nemo = &nemo;
   collision.level = &level;
@@ -238,31 +238,12 @@ int main() {
         ui.DialogDraw();
       }*/
 
-      //collision.update();
+
 
       //teleport into pyramid
       level.Teleport();
       DrawRectangleRec(level.teleportrecOVERWORLDtoPYRAMID, Color{});
 
-      if (NPCDraw == true) {
-        NPCRec = { 100 + 8, 100 + 5, 16, 20 };
-        // DrawRectangleRec(NPCRec, Color(00));                    // COLOR is for the Transparency.
-        DrawTexture(NPC.texture_, NPC.pos_x, NPC.pos_y, WHITE); // Drawing the Rectangle
-        collision.draw();
-      }
-      // Collision check
-      while (CheckCollisionRecs(NPCRec, nemo.nemorec)) // Where the Collision between Two Objects happen happens
-      {
-        level.currentscreen = Game::Level::GameScreen::COMBAT; // After Returning back to the OVERWORLD ya get
-
-        // immediately back to the Combat screen
-        // This happens, because the Player still collides with the player, deleting the NPC may work, but I still don´t
-        // know if it worked.
-        NPCDraw = false; // NPC is deleted
-        NPCRec = {}; // His Rectangle doesn´t get a position, so it is deleted instead, if you would set the attributes,
-                     // the rectangleCollision remains active instead
-        // It might not be clean, but it solves the issue for now
-      }
       break;
 
     case Game::Level::GameScreen::PYRAMIDE:
@@ -274,6 +255,7 @@ int main() {
         std::cout << "X: " << nemo.NemoPosition.x << endl;
         std::cout << "Y: " << nemo.NemoPosition.y << endl;
       }
+
 
       Vector2 vecDungeon;
       Rectangle recDungeon;
@@ -300,6 +282,26 @@ int main() {
               vecDungeon.x = 0;
               vecDungeon.y += (float) levelMapDungeon["tileheight"];
             }
+
+            if (NPCDraw == true) {
+              NPCRec = { 592 + 8, 712 + 5, 16, 20 };
+              // DrawRectangleRec(NPCRec, Color(00));                    // COLOR is for the Transparency.
+              DrawTexture(NPC.texture_, NPC.pos_x, NPC.pos_y, WHITE); // Drawing the Rectangle
+              collision.draw();
+            }
+            // Collision check
+            while (CheckCollisionRecs(NPCRec, nemo.nemorec)) // Where the Collision between Two Objects happen happens
+            {
+              level.currentscreen = Game::Level::GameScreen::COMBAT; // After Returning back to the OVERWORLD ya get
+
+              // immediately back to the Combat screen
+              // This happens, because the Player still collides with the player, deleting the NPC may work, but I still don´t
+              // know if it worked.
+              NPCDraw = false; // NPC is deleted
+              NPCRec = {}; // His Rectangle doesn´t get a position, so it is deleted instead, if you would set the attributes,
+                               // the rectangleCollision remains active instead
+              // It might not be clean, but it solves the issue for now
+            }
           }
         }
       }
@@ -313,6 +315,8 @@ int main() {
       level.Teleport();
       DrawRectangleRec(level.teleportrecPYRAMIDtoOVERWORLD, Color{});
       DrawRectangleRec(level.teleportrecPYRAMIDtoOCEAN, Color{});
+
+      //collision.update();
 
       break;
 

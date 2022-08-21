@@ -12,23 +12,26 @@ void Collision::update() {
   }
 
   if (wallCollision) {
+
+    std::cout << "HIT!";
+
     if (IsKeyPressed(KEY_A) || IsKeyDown(KEY_A)) { // Left
-      nemo->NemoPosition.x += 10.0;
+      //nemo->NemoPosition.x += 10.0;
       PlaySound(GameAudio::collision);
       SetSoundVolume(GameAudio::collision, float(0.07));
     }
     if (IsKeyPressed(KEY_D) || IsKeyDown(KEY_D)) { // Right
-      nemo->NemoPosition.x -= 10.0;
+      //nemo->NemoPosition.x -= 10.0;
       PlaySound(GameAudio::collision);
       SetSoundVolume(GameAudio::collision, float(0.07));
     }
     if (IsKeyPressed(KEY_W) || IsKeyDown(KEY_W)) { // Up
-      nemo->NemoPosition.y += 10.0;
+      //nemo->NemoPosition.y += 10.0;
       PlaySound(GameAudio::collision);
       SetSoundVolume(GameAudio::collision, float(0.07));
     }
     if (IsKeyPressed(KEY_S) || IsKeyDown(KEY_S)) { // Down
-      nemo->NemoPosition.y -= 10.0;
+      //nemo->NemoPosition.y -= 10.0;
       PlaySound(GameAudio::collision);
       SetSoundVolume(GameAudio::collision, float(0.07));
     }
