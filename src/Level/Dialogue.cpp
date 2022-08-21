@@ -19,6 +19,14 @@ Dialogue::Dialogue()
 //sets up the tree
 void Dialogue::init()
 {
+  /*const char message[128] = "This sample illustrates a text writing\nanimation effect! Check it out! ;)";
+  int framesCounter = 0;
+
+  if (IsKeyDown(KEY_SPACE)) framesCounter += 8;
+  else framesCounter++;
+
+  if (IsKeyPressed(KEY_ENTER)) framesCounter = 0;*/
+
   DialogueNode *node0 = new DialogueNode("Welcome Nemo, I'm guessing this is your first time-travel? ");
   DialogueNode *node1 = new DialogueNode("Then dont get any help from me you twat!");
   DialogueNode *node2 = new DialogueNode("I'm Epanox a Time Guardian...");
