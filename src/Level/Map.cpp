@@ -53,7 +53,7 @@ void Map::update() { // scavenging through the json file to collect the INFO we 
                                        32 };
         collisionRectangles.push_back(createdRectangle);
       }
-      // TraceLog(LOG_INFO, "Walls were created");
+      TraceLog(LOG_INFO, "Walls were created");
     }
     std::cout <<"INFO: All collision boxes were created" << std::endl;
   }
