@@ -14,6 +14,8 @@
 
 #include "Sprite/Sprite.h"
 
+#include "Level/Dialogue.h"
+
 
 
 /** Project = Custodia - Trapped in time */
@@ -42,6 +44,7 @@ int main() {
 
 
   Collision collision;
+  Dialogue dialogue;
 
   Map map;
   GameAudio::Load();
@@ -73,6 +76,8 @@ int main() {
   //bool EpanoxDraw = false;
   bool EpanoxCollision = false;
 
+
+
   //Map Markus stuff
     std::ifstream tilesetDescriptionFile("assets/graphics/map/Level1/PhyramidSheet.json"); //Pyramiden_SheetJamey.json needed as json, pls do in tiled
     assert(tilesetDescriptionFile.is_open());
@@ -91,8 +96,21 @@ int main() {
     nlohmann::json levelMapDungeon = nlohmann::json::parse(levelMapFileDungeon);
     levelMapFileDungeon.close();
 
+    /** Waterworld */
+    /*std::ifstream tilesetDescriptionFileOcean("assets/graphics/map/Level1/PhyramidSheet.json"); //Pyramiden_SheetJamey.json needed as json, pls do in tiled
+    assert(tilesetDescriptionFileOcean.is_open());
+    nlohmann::json tilesetDescriptionOcean = nlohmann::json::parse(tilesetDescriptionFileOcean);
+    tilesetDescriptionFileOcean.close();
+
+    std::ifstream levelMapFileOcean("assets/graphics/map/Level1/PhyramidEntry.json");
+    assert(levelMapFileOcean.is_open());
+    nlohmann::json levelMapOcean = nlohmann::json::parse(levelMapFileOcean);
+    levelMapFileOcean.close();*/
+
     Texture2D tileAtlasTexture = LoadTexture("assets/graphics/map/Level1/Egypt-Sheet.png");
     //Texture2D tileAtlasTexture = LoadTexture((tilesetDescription["image"].get<std::string>()).c_str());
+    //Texture2D tileAtlasTexture = LoadTexture("assets/graphics/map/Level1/Egypt-Sheet.png");
+
 
     // Camera settings
   //--------------------------------------------------------------------------------------------
@@ -107,9 +125,8 @@ int main() {
   {
     // Update
 
-    /**map updates...*/
+    /** map updates... */
     map.update();
-
 
     // Begin drawing
     //--------------------------------------------------------------------------------------------
@@ -176,22 +193,42 @@ int main() {
         }
       }
 
+      //Draw Epanox
+      DrawTexture(EpanoxStil, 961, 458, WHITE);
+
       nemo.active = true;
       nemo.Update(); // nemo walking movement and animation
       nemo.Draw();   // nemo walking movement and animation
       camera.target = Vector2 { nemo.NemoPosition.x + 20.0f, nemo.NemoPosition.y + 20.0f };
 
-      DrawTexture(EpanoxStil, 961, 458, WHITE);
-
+      // Check collision between Nemo and Epanox
       EpanoxCollision = CheckCollisionRecs(EpanoxRec, nemo.nemorec);
 
-      if (CheckCollisionRecs(EpanoxRec, nemo.nemorec)){
-        EpanoxCollision = true;
+      if (EpanoxCollision){
+        //std::cout << "Dialog bla bla" << endl;
+        dialogue.init();
+
+        int rv = dialogue.performDialogue();
+        if (rv == 1) {
+          cout << "\nYou accepted the quest! Yay!\n";
+
+          dialogue.destroyDialogue();
+        }
       }
 
-      if (EpanoxCollision = true){
-        ui.DialogDraw();
-      }
+
+
+
+        /** Dialog Shit */
+        /* dialogue.init();
+
+        int rv = dialogue.performDialogue();
+        if (rv == 1) {
+          cout << "\nYou accepted the quest! Yay!\n";
+
+          dialogue.destroyDialogue();
+        }*/
+
 
       //check collision between nemo and epanox
       /*EpanoxCollision = CheckCollisionRecs(EpanoxRec, nemo.nemorec);
@@ -338,6 +375,7 @@ int main() {
 
   // De-initialization here
   //--------------------------------------------------------------------------------------------
+
 
   level.~Level();
 
