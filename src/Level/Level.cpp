@@ -38,14 +38,12 @@ void Game::Level::combat()
     if (player->get_turnnumb() > enemy->get_turnnumb()) {
       player->getDamage(enemy->attack());
       p_damaged = true;
-      p_framescounter++;
       b_currentFrame = 0;
     }
     //After Mumy Attack, the Player attacks the Mumy
     if (enemy->get_turnnumb() > player->get_turnnumb()) {
       enemy->getDamage(player->attack());
       e_damaged = true;
-      e_framescounter++;
       r_currentFrame = 0;
     }
 
@@ -107,16 +105,13 @@ void Game::Level::combat()
         if (player->get_turnnumb() > enemy->get_turnnumb()) {
           enemy->getDamage(player->attack());
           e_damaged = true;
-          e_framescounter++;
           b_currentFrame = 3;
-
 
         }
         //================ENEMY ATTACK=========================
         if (enemy->get_turnnumb() > player->get_turnnumb()) {
           player->getDamage(enemy->attack());
           p_damaged = true;
-          p_framescounter++;
           r_currentFrame = 3;
 
         }
@@ -184,11 +179,6 @@ void Game::Level::combat()
     timer = false;
     input = false;
   }
-
-}
-
-void Game::Level::Screeninit() {
-  //Here would normally come a Switch Case. For now, we initialize our Combat screen in the Main as a test
 
 }
 

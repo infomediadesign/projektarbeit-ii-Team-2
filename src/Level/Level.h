@@ -68,8 +68,6 @@ namespace Game {
     //enum class OverworldState { INPYRAMIDE, OUTPYRAMIDE, OCEAN }; //This Enum Class is there to teleport
     //OverworldState currentscreen = OverworldState::OUTPYRAMIDE; // TitleScreens is the Start Screen
 
-    void Screeninit();
-
     void ScreenDraw();
 
     void Draw();
@@ -94,8 +92,6 @@ namespace Game {
     Texture2D Blue_Clock = LoadTexture("assets/graphics/BattleScreen/Agypten/BlaueUhr-Sheet.png");
     Rectangle BlueClockFrameRec = { 0.0f, 0.0f, (float)Blue_Clock.width / 4, (float)Blue_Clock.height };
     int b_currentFrame   = 0;
-    int b_framesCounter  = 0;
-    int b_framesSpeed    = 0; // animation fps
     Rectangle Bluerec  = {}; //The attributes for the Rectangle will be set.
 
     //================END OF BLUE CLOCK======================================
@@ -105,8 +101,6 @@ namespace Game {
     Texture2D Red_Clock = LoadTexture("assets/graphics/BattleScreen/Agypten/RoteUhr-Sheet.png");
     Rectangle RedClockFrameRec = { 0.0f, 0.0f, (float)Red_Clock.width / 4, (float)Red_Clock.height };
     int r_currentFrame   = 0;
-    int r_framesCounter  = 0;
-    int r_framesSpeed    = 0; // animation fps
     Rectangle Redrec  = {}; //The attributes for the Rectangle will be set.
 
     //=================END OF RED CLOCK=====================================

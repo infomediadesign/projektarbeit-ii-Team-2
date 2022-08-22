@@ -84,7 +84,7 @@ void Game::Mumy::draw() {
 
   DrawTexture(healthbar, set_rec().x - 20, set_rec().y - 197, WHITE);
   DrawTextureRec(health, healthrec, { set_rec().x - 20, set_rec().y - 200 }, WHITE);
-  DrawText(TextFormat("Speed: %i", get_turnnumb()), set_rec().x, set_rec().y - 90, 20, RED);
+  //DrawText(TextFormat("Speed: %i", get_turnnumb()), set_rec().x, set_rec().y - 90, 20, RED);
   DrawText(TextFormat("%i/%i", c_HP, c_MaxHP), set_rec().x + 50, set_rec().y - 160, 20, BLACK);
   DrawText("MUMY", set_rec().x + 130, set_rec().y - 173, 10, BLACK);
   }
