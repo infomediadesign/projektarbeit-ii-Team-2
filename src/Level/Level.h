@@ -60,7 +60,7 @@ namespace Game {
 
     enum class GameScreen { TITLESCREEN, OVERWORLD, COMBAT, PYRAMIDE, OCEAN, PAUSEMENU, CUTSCENE }; //This Enum Class is there to set the Screens to TITLE etc.
 
-    GameScreen currentscreen = GameScreen::TITLESCREEN; //TitleScreens is the Start Screen
+    GameScreen currentscreen = GameScreen::COMBAT; //TitleScreens is the Start Screen
     //GameScreen currentscreen = GameScreen::COMBAT; // TitleScreens is the Start Screen
 
     //teleport stuff
@@ -85,6 +85,31 @@ namespace Game {
     Rectangle t_rec_item = {t_rec_attack.x, t_rec_attack.y + 35, t_rec_attack.width, t_rec_attack.height};
     Rectangle t_rec_escape = {t_rec_time.x, t_rec_time.y + 35, t_rec_attack.width, t_rec_attack.height };
     float thickness = 15;
+
+    int t_framescounter = 0;
+
+    //====================BLUE CLOCK=========================================
+
+    Texture2D Blue_Clock = LoadTexture("assets/graphics/BattleScreen/Agypten/BlaueUhr-Sheet.png");
+    Rectangle BlueClockFrameRec = { 0.0f, 0.0f, (float)Blue_Clock.width / 4, (float)Blue_Clock.height };
+    int b_currentFrame   = 0;
+    int b_framesCounter  = 0;
+    int b_framesSpeed    = 0; // animation fps
+    Rectangle Bluerec  = {}; //The attributes for the Rectangle will be set.
+
+    //================END OF BLUE CLOCK======================================
+
+    //====================RED CLOCK=========================================
+
+    Texture2D Red_Clock = LoadTexture("assets/graphics/BattleScreen/Agypten/RoteUhr-Sheet.png");
+    Rectangle RedClockFrameRec = { 0.0f, 0.0f, (float)Red_Clock.width / 4, (float)Red_Clock.height };
+    int r_currentFrame   = 0;
+    int r_framesCounter  = 0;
+    int r_framesSpeed    = 0; // animation fps
+    Rectangle Redrec  = {}; //The attributes for the Rectangle will be set.
+
+    //=================END OF RED CLOCK=====================================
+
 
     static void Draw9Slice(Texture2D& Box, Rectangle rec, float thickness, Color tint)
     {

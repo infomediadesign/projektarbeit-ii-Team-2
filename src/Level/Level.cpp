@@ -8,6 +8,16 @@ int h_amount = 2;
 
 void Game::Level::combat()
 {
+  if (((t_framescounter/120)%2) == 1) {
+    t_framescounter = 0;
+    b_currentFrame = 0;
+  }
+
+  if (((t_framescounter/120)%2) == 1) {
+    t_framescounter = 0;
+    r_currentFrame  = 0;
+  }
+
   //Setting an Input to prevent the Player from attacking, while the countdown runs
   bool input = true;
 
@@ -29,12 +39,14 @@ void Game::Level::combat()
       player->getDamage(enemy->attack());
       p_damaged = true;
       p_framescounter++;
+      b_currentFrame = 0;
     }
     //After Mumy Attack, the Player attacks the Mumy
     if (enemy->get_turnnumb() > player->get_turnnumb()) {
       enemy->getDamage(player->attack());
       e_damaged = true;
       e_framescounter++;
+      r_currentFrame = 0;
     }
 
     timer = false;
@@ -85,11 +97,19 @@ void Game::Level::combat()
         //=========================PLAYER ATTACK================
         player->set_turnnumb(0);
         enemy->set_turnnumb(0);
+
+        if (player->get_turnnumb() == enemy->get_turnnumb())
+        {
+          player->set_turnnumb(0);
+          enemy->set_turnnumb(0);
+        }
         //===============PLAYER ATTACK=========================
-        if (player->get_turnnumb() >= enemy->get_turnnumb()) {
+        if (player->get_turnnumb() > enemy->get_turnnumb()) {
           enemy->getDamage(player->attack());
           e_damaged = true;
           e_framescounter++;
+          b_currentFrame = 3;
+
 
         }
         //================ENEMY ATTACK=========================
@@ -97,6 +117,8 @@ void Game::Level::combat()
           player->getDamage(enemy->attack());
           p_damaged = true;
           p_framescounter++;
+          r_currentFrame = 3;
+
         }
 
         timer = true;
@@ -327,6 +349,23 @@ void Game::Level::ScreenDraw() {
         e_damaged  = false;
       }
     }
+
+    //=========================Blue TIMER===================================
+    //Draw Blue Clock
+    Bluerec = {440, 500, 32, 32};
+    DrawRectangleRec( Bluerec, Color{});
+    DrawTextureRec(Blue_Clock, BlueClockFrameRec, {440, 470}, WHITE);
+      BlueClockFrameRec.x = (float)b_currentFrame * (float)Blue_Clock.width / 4;
+      //=======================Blue TIMER END=================================
+
+      //=========================Red TIMER===================================
+      //Draw Blue Clock
+      Redrec = {790, 500, 32, 32};
+      DrawRectangleRec( Redrec, Color{});
+      DrawTextureRec(Red_Clock, RedClockFrameRec, {790, 470}, WHITE);
+      RedClockFrameRec.x = (float)r_currentFrame * (float)Red_Clock.width / 4;
+      //=======================Red TIMER END=================================
+
     combat();
 
 

@@ -69,8 +69,6 @@ void Game::Player::draw()
         if (currentFrame > 3) {
           currentFrame = 0;
         }
-
-
         frameRec.x = (float)currentFrame * (float)spr_Player.width / 7;
       break;
 
