@@ -19,6 +19,7 @@ Dialogue::Dialogue()
 //sets up the tree
 void Dialogue::init()
 {
+
   /*const char message[128] = "This sample illustrates a text writing\nanimation effect! Check it out! ;)";
   int framesCounter = 0;
 
@@ -27,7 +28,8 @@ void Dialogue::init()
 
   if (IsKeyPressed(KEY_ENTER)) framesCounter = 0;*/
 
-  DialogueNode *node0 = new DialogueNode("Welcome Nemo, I'm guessing this is your first time-travel? ");
+  DialogueNode *node0 = new DialogueNode("Welcome Nemo, I'm guessing this is your first time-travel?");
+  //DialogueNode *node0 = new DialogueNode("Welcome Nemo, I'm guessing this is your first time-travel?");
   DialogueNode *node1 = new DialogueNode("Then dont get any help from me you twat!");
   DialogueNode *node2 = new DialogueNode("I'm Epanox a Time Guardian...");
   DialogueNode *node3 = new DialogueNode("No I can't send you back because you are the one who's travelled through time, in order for you to travel back home you need to find the time crystals hidden in the dungeon.");
@@ -105,4 +107,7 @@ int Dialogue::performDialogue()
     cout << endl;
   }
   return 0;
+}
+void Dialogue::start() {
+  DrawText("Welcome to Custodia", 958, 593 , 10, BLACK);
 }

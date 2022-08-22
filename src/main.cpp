@@ -17,8 +17,12 @@
 
 /** Project = Custodia - Trapped in time */
 
-//TODO make the vector Rectangle to a Rectangle that is allowed in CHeckCollisoionRec ( Collision.cpp / line. 50)
+//TODO Collision with Walls aint working when, active my game crashes ( Collision.cpp )
 //TODO find a way to make the sound faster/ slower to fit Nemos movements!!! (Nemo.cpp / update func line.13)
+//TODO Dialog from the Dialog-tree into Text on screen not console (Dialog.h/cpp)
+//TODO Titlescreen Background, make it fit the screen... its way to big
+//TODO Fullscreen (Level.cpp / under PAUSEMENU / line. 259)
+//TODO EXIT key is a little stupid (Level.cpp / under Titlescreen )
 
 int main() {
   // Raylib initialization
@@ -118,6 +122,7 @@ int main() {
     /** map updates... */
     map.update();
 
+
     // Begin drawing
     //--------------------------------------------------------------------------------------------
     BeginDrawing();
@@ -133,7 +138,7 @@ int main() {
 
     case Game::Level::GameScreen::TITLESCREEN:
 
-      ClearBackground(BLACK);
+
 
       camera.target = Vector2 { Game::ScreenWidth / 2, Game::ScreenHeight / 2 };
       nemo.active   = false; // Erase Nemo
@@ -194,17 +199,20 @@ int main() {
       // Check collision between Nemo and Epanox
       EpanoxCollision = CheckCollisionRecs(EpanoxRec, nemo.nemorec);
 
+
       if (EpanoxCollision){
-        //std::cout << "Dialog bla bla" << endl;
-        dialogue.init();
+        std::cout << "Dialog start" << endl;
+        /*dialogue.init();
 
         int rv = dialogue.performDialogue();
         if (rv == 1) {
           cout << "\nYou accepted the quest! Yay!\n";
 
-          dialogue.destroyDialogue();
-        }
+          dialogue.destroyDialogue();*/
+
+        //dialogue.start();
       }
+
 
 
 
@@ -244,7 +252,9 @@ int main() {
         ui.DialogDraw();
       }*/
 
-
+      if (IsKeyPressed(KEY_P)){
+        level.currentscreen = Game::Level::GameScreen::PAUSEMENU;
+      }
 
       //teleport into pyramid
       level.Teleport();
@@ -323,6 +333,10 @@ int main() {
       DrawRectangleRec(level.teleportrecPYRAMIDtoOCEAN, Color{});
 
       //collision.update();
+
+      if (IsKeyPressed(KEY_P)){
+        level.currentscreen = Game::Level::GameScreen::PAUSEMENU;
+      }
 
       break;
 

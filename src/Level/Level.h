@@ -20,7 +20,8 @@ namespace Game {
     Texture2D Box = LoadTexture("assets/graphics/BattleScreen/Agypten/Auswahl_Cursor.png");
     Texture2D Box_S = LoadTexture("assets/graphics/BattleScreen/Agypten/Auswahl_Cursor_S.png");
     Texture2D Attack = LoadTexture("assets/graphics/BattleScreen/Agypten/Attack_Schrift.png");
-    Texture2D Titlescreen = LoadTexture("assets/graphics/backgrounds/testtitlescreen.png");
+    Texture2D Titlescreen = LoadTexture("assets/graphics/custodiatitlebild.png");
+    Texture2D TitlescreenText = LoadTexture("assets/graphics/Titel1.png");
 
 //Class initialization
 

@@ -16,6 +16,7 @@ public:
 class DialogueNode {
 public:
   DialogueNode(string Text);
+  //DialogueNode(const char);
   string text;
   vector <DialogueOption> dialogueOptions;
 
@@ -26,6 +27,7 @@ public:
   Dialogue();
 
   void init();
+  void start();
   void destroyDialogue();
 
   int performDialogue();
