@@ -195,7 +195,6 @@ void Game::Level::ScreenDraw() {
     ClearBackground(BLACK);
 
     DrawTexture(Titlescreen,0,0, WHITE);
-    DrawTexture(TitlescreenText,0,0,WHITE);
 
     if (IsSoundPlaying(GameAudio::pausemenu)){
       StopSound(GameAudio::pausemenu);
@@ -339,6 +338,8 @@ void Game::Level::ScreenDraw() {
     }
     if (IsSoundPlaying(GameAudio::indungeon)){}
     break;
+
+
 
 
   case GameScreen::OCEAN:

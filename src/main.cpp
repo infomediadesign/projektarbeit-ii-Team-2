@@ -6,6 +6,8 @@
 #include "Level/Map.h"
 #include "Level/UI.h"
 #include "Level/Collision.h"
+#include "Level/Dialogue.h"
+#include "Level/Puzzle.h"
 
 #include "Player/Nemo.h"
 #include "Enemy Overworld Sprites/Mumy.h"
@@ -14,7 +16,7 @@
 
 #include "Sprite/Sprite.h"
 
-#include "Level/Dialogue.h"
+
 
 
 
@@ -49,6 +51,7 @@ int main() {
 
   Collision collision;
   Dialogue dialogue;
+  Puzzle puzzle;
 
   Map map;
   GameAudio::Load();
@@ -71,6 +74,8 @@ int main() {
 
   level.level = &level;
   level.nemo = &nemo;
+
+  puzzle.nemo = &nemo;
 
   //Rectangle NPCRec = {}; // Rectangle Position has to be set after it is drawn, leaving it free is so much better, until
                          // it is called. Do not touch it!!!
@@ -131,6 +136,7 @@ int main() {
 
     /** map updates... */
     map.update();
+
 
 
     // Begin drawing
@@ -312,6 +318,10 @@ int main() {
               // DrawRectangleRec(NPCRec, Color(00));                    // COLOR is for the Transparency.
               //DrawTexture(NPC.texture_, NPC.pos_x, NPC.pos_y, WHITE); // Drawing the Rectangle
 
+            puzzle.chest_collision();
+            puzzle.helmet_collision();
+            puzzle.puzzle_collision();
+
             overwold_shadow->Draw();
             overworld_pharaoh->Draw();
             if (NPCDraw) {
@@ -394,6 +404,7 @@ int main() {
   level.~Level();
 
   //UnloadTexture(button);  // Unload button texture
+  puzzle.unloadTextures();
 
   CloseAudioDevice(); // Close audio device
 

@@ -20,7 +20,7 @@ namespace Game {
     Texture2D Box = LoadTexture("assets/graphics/BattleScreen/Agypten/Auswahl_Cursor.png");
     Texture2D Box_S = LoadTexture("assets/graphics/BattleScreen/Agypten/Auswahl_Cursor_S.png");
     Texture2D Attack = LoadTexture("assets/graphics/BattleScreen/Agypten/Attack_Schrift.png");
-    Texture2D Titlescreen = LoadTexture("assets/graphics/custodiatitlebild.png");
+    Texture2D Titlescreen = LoadTexture("assets/graphics/unknown (2).png");
     Texture2D TitlescreenText = LoadTexture("assets/graphics/Titel1.png");
 
 //Class initialization
@@ -61,7 +61,7 @@ namespace Game {
 
     enum class GameScreen { TITLESCREEN, OVERWORLD, COMBAT, PYRAMIDE, OCEAN, PAUSEMENU, CUTSCENE }; //This Enum Class is there to set the Screens to TITLE etc.
 
-    GameScreen currentscreen = GameScreen::COMBAT; //TitleScreens is the Start Screen
+    GameScreen currentscreen = GameScreen::TITLESCREEN; //TitleScreens is the Start Screen
     //GameScreen currentscreen = GameScreen::COMBAT; // TitleScreens is the Start Screen
 
     //teleport stuff
