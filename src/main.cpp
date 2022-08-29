@@ -138,7 +138,6 @@ int main() {
     map.update();
 
 
-
     // Begin drawing
     //--------------------------------------------------------------------------------------------
     BeginDrawing();
@@ -215,9 +214,27 @@ int main() {
       // Check collision between Nemo and Epanox
       EpanoxCollision = CheckCollisionRecs(EpanoxRec, nemo.nemorec);
 
+      /*ifstream file("assets/dialog_test_text.txt");
+      string str;
+      while (getline(file, str))
+      {
+        // Process str
+      }*/
 
       if (EpanoxCollision){
-        std::cout << "Dialog start" << endl;
+        //std::cout << "Dialog start" << endl;
+        fstream dialog_txt_file;
+        dialog_txt_file.open("assets/dialog_test_text.txt",ios::in); //open a file to perform read operation using file object
+        if (dialog_txt_file.is_open()){ //checking whether the file is open
+          if (IsKeyPressed(KEY_SPACE)){
+            string tp;
+            while(getline(dialog_txt_file, tp)){ //read data from file object and put it into string.
+              //cout << tp << "\n"; //print the data of the string
+              printf("%s\n", tp.c_str());
+            }
+            dialog_txt_file.close(); //close the file object.
+          }
+        }
         /*dialogue.init();
 
         int rv = dialogue.performDialogue();
