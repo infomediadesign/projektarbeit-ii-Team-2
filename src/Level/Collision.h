@@ -12,10 +12,13 @@ public:
 
   Rectangle rectangleObject    = {};
   Rectangle rectangleCollision = {};
+  Rectangle  EpanoxRec = {961, 458, 16, 20}; //EpanoxRec
 
   bool collisionObject = false; // Collision detection
   bool wallCollision = false;
+  bool EpanoxCollision = false;
 
+  void epanoxCollision();
   void update();
   void draw();
   void checkForCollisions();

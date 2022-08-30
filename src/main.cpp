@@ -46,21 +46,20 @@ int main() {
   // Initialization
   //--------------------------------------------------------------------------------------------
   Texture2D StandStil = LoadTexture("assets/graphics/Charakter_Vorschlag_vorne_laufen1.png");
-  Texture2D EpanoxStil = LoadTexture("assets/graphics/Epanox_Standing - Kopie.png");
-
 
   Collision collision;
   Dialogue dialogue;
   Puzzle puzzle;
-
   Map map;
+
   GameAudio::Load();
   Game::Level level;
   Game::Level levelcollision;
   Game::UI ui;
   Game::Nemo nemo; // Initializing the Nemo (Player) Class
   Game::Sprite spr(nemo.NemoPosition.x, nemo.NemoPosition.y, nemo.Front);
-  Mumy *overworld_mumy          = new Mumy();
+
+  Mumy *overworld_mumy = new Mumy();
   Pharaoh *overworld_pharaoh = new Pharaoh();
   Shadow *overwold_shadow = new Shadow();
 
@@ -81,13 +80,7 @@ int main() {
                          // it is called. Do not touch it!!!
   bool NPCDraw = true;   // To set the drawing if it is true or false. In short if it is draw or deleted
 
-  Rectangle  EpanoxRec = {961, 458, 16, 20};
-  //bool EpanoxDraw = false;
-  bool EpanoxCollision = false;
-
-
-
-  //Map Markus stuff
+  //Map stuff
     std::ifstream tilesetDescriptionFile("assets/graphics/map/Level1/PhyramidSheet.json"); //Pyramiden_SheetJamey.json needed as json, pls do in tiled
     assert(tilesetDescriptionFile.is_open());
     nlohmann::json tilesetDescription = nlohmann::json::parse(tilesetDescriptionFile);
@@ -105,21 +98,7 @@ int main() {
     nlohmann::json levelMapDungeon = nlohmann::json::parse(levelMapFileDungeon);
     levelMapFileDungeon.close();
 
-    /** Waterworld */
-    /*std::ifstream tilesetDescriptionFileOcean("assets/graphics/map/Level1/PhyramidSheet.json"); //Pyramiden_SheetJamey.json needed as json, pls do in tiled
-    assert(tilesetDescriptionFileOcean.is_open());
-    nlohmann::json tilesetDescriptionOcean = nlohmann::json::parse(tilesetDescriptionFileOcean);
-    tilesetDescriptionFileOcean.close();
-
-    std::ifstream levelMapFileOcean("assets/graphics/map/Level1/PhyramidEntry.json");
-    assert(levelMapFileOcean.is_open());
-    nlohmann::json levelMapOcean = nlohmann::json::parse(levelMapFileOcean);
-    levelMapFileOcean.close();*/
-
     Texture2D tileAtlasTexture = LoadTexture("assets/graphics/map/Level1/Egypt-Sheet.png");
-    //Texture2D tileAtlasTexture = LoadTexture((tilesetDescription["image"].get<std::string>()).c_str());
-    //Texture2D tileAtlasTexture = LoadTexture("assets/graphics/map/Level1/Egypt-Sheet.png");
-
 
     // Camera settings
   //--------------------------------------------------------------------------------------------
@@ -133,10 +112,8 @@ int main() {
   while (!WindowShouldClose()) // Detect window close button or ESC key
   {
     // Update
-
     /** map updates... */
     map.update();
-
 
     // Begin drawing
     //--------------------------------------------------------------------------------------------
@@ -153,25 +130,11 @@ int main() {
 
     case Game::Level::GameScreen::TITLESCREEN:
 
-
-
       camera.target = Vector2 { Game::ScreenWidth / 2, Game::ScreenHeight / 2 };
-      nemo.active   = false; // Erase Nemo
-
-      if (IsKeyDown(KEY_ENTER)) {
-        level.currentscreen = Game::Level::GameScreen::OVERWORLD;
-      }
+      camera.zoom     = 1.0f;
       break;
 
     case Game::Level::GameScreen::OVERWORLD:
-
-      ClearBackground(BLACK);
-
-      if (IsKeyPressed(KEY_M))
-      {
-        std::cout << "X: " << nemo.NemoPosition.x << endl;
-        std::cout << "Y: " << nemo.NemoPosition.y << endl;
-      }
 
       //map
       Vector2 vec;
@@ -202,53 +165,14 @@ int main() {
           }
         }
       }
-
-      //Draw Epanox
-      DrawTexture(EpanoxStil, 961, 458, WHITE);
+      spr.EpanoxDraw();
 
       nemo.active = true;
       nemo.Update(); // nemo walking movement and animation
       nemo.Draw();   // nemo walking movement and animation
       camera.target = Vector2 { nemo.NemoPosition.x + 20.0f, nemo.NemoPosition.y + 20.0f };
 
-      // Check collision between Nemo and Epanox
-      EpanoxCollision = CheckCollisionRecs(EpanoxRec, nemo.nemorec);
-
-      /*ifstream file("assets/dialog_test_text.txt");
-      string str;
-      while (getline(file, str))
-      {
-        // Process str
-      }*/
-
-      if (EpanoxCollision){
-        //std::cout << "Dialog start" << endl;
-        fstream dialog_txt_file;
-        dialog_txt_file.open("assets/dialog_test_text.txt",ios::in); //open a file to perform read operation using file object
-        if (dialog_txt_file.is_open()){ //checking whether the file is open
-          if (IsKeyPressed(KEY_SPACE)){
-            string tp;
-            while(getline(dialog_txt_file, tp)){ //read data from file object and put it into string.
-              //cout << tp << "\n"; //print the data of the string
-              printf("%s\n", tp.c_str());
-            }
-            dialog_txt_file.close(); //close the file object.
-          }
-        }
-        /*dialogue.init();
-
-        int rv = dialogue.performDialogue();
-        if (rv == 1) {
-          cout << "\nYou accepted the quest! Yay!\n";
-
-          dialogue.destroyDialogue();*/
-
-        //dialogue.start();
-      }
-
-
-
-
+      collision.epanoxCollision();
 
         /** Dialog Shit */
         /* dialogue.init();
@@ -260,30 +184,29 @@ int main() {
           dialogue.destroyDialogue();
         }*/
 
+        //check collision between nemo and epanox
+        /*EpanoxCollision = CheckCollisionRecs(EpanoxRec, nemo.nemorec);
 
-      //check collision between nemo and epanox
-      /*EpanoxCollision = CheckCollisionRecs(EpanoxRec, nemo.nemorec);
+        if (EpanoxCollision = true){
+          EpanoxDraw = true;
+          if (IsKeyPressed(KEY_A) || IsKeyDown(KEY_A)) {
+            nemo.NemoPosition.x += 5;
+          }
+          if (IsKeyPressed(KEY_D) || IsKeyDown(KEY_D)) {
+            nemo.NemoPosition.x += 5;
+          }
+          if (IsKeyPressed(KEY_W) || IsKeyDown(KEY_W)) {
+            nemo.NemoPosition.x += 5;
+          }
+          if (IsKeyPressed(KEY_S) || IsKeyDown(KEY_S)) {
+            nemo.NemoPosition.x += 5;
+          }
+        }
 
-      if (EpanoxCollision = true){
-        EpanoxDraw = true;
-        if (IsKeyPressed(KEY_A) || IsKeyDown(KEY_A)) {
-          nemo.NemoPosition.x += 5;
-        }
-        if (IsKeyPressed(KEY_D) || IsKeyDown(KEY_D)) {
-          nemo.NemoPosition.x += 5;
-        }
-        if (IsKeyPressed(KEY_W) || IsKeyDown(KEY_W)) {
-          nemo.NemoPosition.x += 5;
-        }
-        if (IsKeyPressed(KEY_S) || IsKeyDown(KEY_S)) {
-          nemo.NemoPosition.x += 5;
-        }
-      }
-
-      if (EpanoxDraw = true) {
-        DrawTexture(EpanoxStil, 961, 458, WHITE); // Drawing the Rectangle
-        ui.DialogDraw();
-      }*/
+        if (EpanoxDraw = true) {
+          DrawTexture(EpanoxStil, 961, 458, WHITE); // Drawing the Rectangle
+          ui.DialogDraw();
+        }*/
 
       if (IsKeyPressed(KEY_P)){
         level.currentscreen = Game::Level::GameScreen::PAUSEMENU;

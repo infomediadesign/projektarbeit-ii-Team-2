@@ -7,6 +7,7 @@
 #include "../INCLUDES.h"
 #include "../Player/Nemo.h"
 #include "UI.h"
+#include "../Sprite/Sprite.h"
 #include "config.h"
 
 
@@ -20,7 +21,7 @@ namespace Game {
     Texture2D Box = LoadTexture("assets/graphics/BattleScreen/Agypten/Auswahl_Cursor.png");
     Texture2D Box_S = LoadTexture("assets/graphics/BattleScreen/Agypten/Auswahl_Cursor_S.png");
     Texture2D Attack = LoadTexture("assets/graphics/BattleScreen/Agypten/Attack_Schrift.png");
-    Texture2D Titlescreen = LoadTexture("assets/graphics/unknown (2).png");
+    Texture2D Titlescreen = LoadTexture("assets/graphics/backgrounds/testtitlescreen.png");
     Texture2D TitlescreenText = LoadTexture("assets/graphics/Titel1.png");
 
 //Class initialization
@@ -35,6 +36,7 @@ namespace Game {
     //Level *level                = new Level();
     //UI *ui                      = new UI();
     Game::Level *level;
+    Game::Sprite *spr;
 
     int p_framescounter;
     int e_framescounter;
@@ -51,6 +53,7 @@ namespace Game {
     Rectangle teleportrecPYRAMIDtoOVERWORLD = {};
     Rectangle teleportrecPYRAMIDtoOCEAN = {};
     Rectangle teleportrecOCEANtoEND = {};
+
 
     bool teleportcollisionOVERWORLDtoPYRAMID = true;
     bool teleportcollisionPYRAMIDtoOVERWORLD = true;

@@ -196,6 +196,8 @@ void Game::Level::ScreenDraw() {
 
     DrawTexture(Titlescreen,0,0, WHITE);
 
+    nemo->active   = false; // Erase Nemo
+
     if (IsSoundPlaying(GameAudio::pausemenu)){
       StopSound(GameAudio::pausemenu);
     }
@@ -207,7 +209,6 @@ void Game::Level::ScreenDraw() {
     if (IsSoundPlaying(GameAudio::titlescreenmusic)){}
 
     /** BUTTON FUNCTIONS */
-
 
       if (IsKeyPressed(KEY_SPACE)) {
         if (t_rec_start.x == box_rec_titlescreen.x && t_rec_start.y == box_rec_titlescreen.y && t_rec_start.width == box_rec_titlescreen.width &&
@@ -224,7 +225,6 @@ void Game::Level::ScreenDraw() {
           SetExitKey(KEY_SPACE);
         }
       }
-
 
     /** MOVE THE BOX */
     if (IsKeyPressed(KEY_DOWN))
@@ -312,6 +312,9 @@ void Game::Level::ScreenDraw() {
     break;
 
   case GameScreen::OVERWORLD:
+
+    ClearBackground(BLACK);
+
     if (IsSoundPlaying(GameAudio::titlescreenmusic)){
       StopSound(GameAudio::titlescreenmusic);
     }
@@ -322,12 +325,18 @@ void Game::Level::ScreenDraw() {
       StopSound(GameAudio::indungeon);
     }
 
-
     if(!IsSoundPlaying(GameAudio::outdungeon)){
       PlaySound(GameAudio::outdungeon);
       SetSoundVolume(GameAudio::outdungeon, float(0.1));
     }
     if (IsSoundPlaying(GameAudio::outdungeon)){}
+
+    if (IsKeyPressed(KEY_M))
+    {
+      std::cout << "X: " << nemo->NemoPosition.x << endl;
+      std::cout << "Y: " << nemo->NemoPosition.y << endl;
+    }
+
     break;
 
   case GameScreen::PYRAMIDE:
