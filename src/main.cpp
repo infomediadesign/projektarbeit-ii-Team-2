@@ -134,7 +134,15 @@ int main() {
       camera.zoom     = 1.0f;
       break;
 
+    case Game::Level::GameScreen::PAUSEMENU:
+
+      camera.target = Vector2 { Game::ScreenWidth / 2, Game::ScreenHeight / 2 };
+      camera.zoom     = 1.0f;
+      break;
+
     case Game::Level::GameScreen::OVERWORLD:
+
+      camera.zoom     = 2.0f;
 
       //map
       Vector2 vec;
@@ -220,6 +228,8 @@ int main() {
 
     case Game::Level::GameScreen::PYRAMIDE:
 
+      camera.zoom     = 2.0f;
+
       ClearBackground(BLACK);
 
       if (IsKeyPressed(KEY_C))
@@ -299,20 +309,10 @@ int main() {
 
       break;
 
-    case Game::Level::GameScreen::OCEAN:
+    case Game::Level::GameScreen::ENDSCREEN:
 
-      nemo.active = true;
-      nemo.Update(); // nemo walking movement and animation
-      nemo.Draw();   // nemo walking movement and animation
-      camera.target = Vector2 { nemo.NemoPosition.x + 20.0f, nemo.NemoPosition.y + 20.0f };
-
-      //teleport back to overworld
-      if (IsKeyDown(KEY_ENTER)) {
-        level.currentscreen = Game::Level::GameScreen::OVERWORLD;
-      }
-
+      camera.target = Vector2 { Game::ScreenWidth / 2, Game::ScreenHeight / 2 };
       break;
-
 
     case Game::Level::GameScreen::COMBAT:
 
