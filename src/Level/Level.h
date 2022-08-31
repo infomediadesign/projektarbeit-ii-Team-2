@@ -23,17 +23,26 @@ namespace Game {
     Texture2D Titlescreen = LoadTexture("assets/graphics/unknown (2).png");
     Texture2D TitlescreenText = LoadTexture("assets/graphics/Titel1.png");
 
+
+
+    //Setting up a timer and Frame Counter.
+    bool timer = false;
+    int framescounter = 0;
+    int h_amount = 2;
+
 //Class initialization
 
     //GameCharacter *player          = new Player();
     unique_ptr<GameCharacter> player = std::make_unique<Player>();
-    unique_ptr<GameCharacter> enemy = std::make_unique<Mumy>();
-    //GameCharacter *enemy          = new Mumy();
+    // unique_ptr<GameCharacter> shadow = std::make_unique<Shadow>();
+
+    GameCharacter *enemy          = new Mumy();
     GameCharacter *shadow         = new Shadow();
     GameCharacter *pharaoh        = new Pharaoh();
     Nemo *nemo                    = new Nemo();
     //Level *level                = new Level();
     //UI *ui                      = new UI();
+
     Game::Level *level;
 
     int p_framescounter;
@@ -57,12 +66,15 @@ namespace Game {
     bool teleportcollisionPYRAMIDtoOCEAN = true;
     bool teleportcollisionOCEANtoEND = true;
 
-    void combat();
+    void combat(GameCharacter *c_enemy);
 
     enum class GameScreen { TITLESCREEN, OVERWORLD, COMBAT, PYRAMIDE, OCEAN, PAUSEMENU, CUTSCENE }; //This Enum Class is there to set the Screens to TITLE etc.
 
-    GameScreen currentscreen = GameScreen::TITLESCREEN; //TitleScreens is the Start Screen
-    //GameScreen currentscreen = GameScreen::COMBAT; // TitleScreens is the Start Screen
+    GameScreen currentscreen = GameScreen::PYRAMIDE; //TitleScreens is the Start Screen
+
+    enum class EnemyType {NONE, MUMY, SHADOW, PHARAOH};
+
+    EnemyType opponent = EnemyType::NONE;
 
     //teleport stuff
     //enum class OverworldState { INPYRAMIDE, OUTPYRAMIDE, OCEAN }; //This Enum Class is there to teleport
@@ -133,6 +145,35 @@ namespace Game {
     void Teleport();
 
     ~Level();
+
+    void damaged(GameCharacter *enemy_)
+    {
+      //Drawing Player received damage number
+      if (p_damaged) {
+
+        p_framescounter++;
+
+        DrawText(TextFormat("- %i", enemy_->getStrength() - player->getDefense()),player->set_rec().x + 80,player->set_rec().y,20,RED);
+
+        if (((p_framescounter / 60) % 2) == 1) {
+          p_framescounter = 0;
+          p_damaged = false;
+        }
+      }
+
+      //Drawing the Enemy Damage received number
+      if (e_damaged) {
+
+        e_framescounter++;
+
+        DrawText(TextFormat("- %i", player->getStrength() - enemy_->getDefense()),enemy_->set_rec().x - 40,enemy_->set_rec().y,20,RED);
+
+        if (((e_framescounter / 60) % 2) == 1) {
+          e_framescounter = 0;
+          e_damaged  = false;
+        }
+      }
+    }
 
   };
 } 

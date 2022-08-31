@@ -96,11 +96,9 @@ void Game::Player::draw()
 
   //Player draw
   healthrec = {0, 0, static_cast<float>(192 * ((float)c_HP/(float)c_MaxHP)), 96};
-  //DrawText(TextFormat("Speed: %i", get_turnnumb()), set_rec().x, set_rec().y - 90, 20, BLUE);
-  DrawTextureRec(health, healthrec, {set_rec().x - 100, set_rec().y - 200}, WHITE);
-  DrawText("NEMO",set_rec().x - 88, set_rec().y - 173, 10, BLACK);
-  DrawText(TextFormat("%i/%i", c_HP, c_MaxHP), set_rec().x - 30, set_rec().y - 160, 20, BLACK);
-  DrawTexture(healthbar, set_rec().x - 100, set_rec().y - 200, WHITE);
+  DrawTextureRec(health, healthrec, {set_rec().x - 100, set_rec().y - 180}, WHITE);
+  DrawText(TextFormat("%i/%i", c_HP, c_MaxHP), set_rec().x - 30, set_rec().y - 140, 20, BLACK);
+  DrawTexture(healthbar, set_rec().x - 100, set_rec().y - 180, WHITE);
 
   }
 

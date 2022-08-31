@@ -15,4 +15,4 @@ void Pharaoh::Draw() {
   framesCounter++;
 }
 
-Rectangle Pharaoh::getPharaohRec() { return Rectangle(); }
+Rectangle Pharaoh::getPharaohRec() { return Pharaohrec; }

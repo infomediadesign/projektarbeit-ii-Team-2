@@ -79,7 +79,9 @@ int main() {
 
   //Rectangle NPCRec = {}; // Rectangle Position has to be set after it is drawn, leaving it free is so much better, until
                          // it is called. Do not touch it!!!
-  bool NPCDraw = true;   // To set the drawing if it is true or false. In short if it is draw or deleted
+  bool MumyDraw = true;   // To set the drawing if it is true or false. In short if it is draw or deleted
+  bool ShadowDraw = true;
+  bool PharaohDraw = true;
 
   Rectangle  EpanoxRec = {961, 458, 16, 20};
   //bool EpanoxDraw = false;
@@ -339,21 +341,53 @@ int main() {
             puzzle.helmet_collision();
             puzzle.puzzle_collision();
 
-            overwold_shadow->Draw();
+            //Collision with SHADOW starting Fight with Shadow
+            if (ShadowDraw) {
+              overwold_shadow->Draw();
+              collision.draw();
+            }
+
+            if (CheckCollisionRecs(overwold_shadow->getShadowRec(), nemo.nemorec))
+            {
+              level.currentscreen = Game::Level::GameScreen::COMBAT; // After Returning back to the OVERWORLD ya get
+              level.opponent = Game::Level::EnemyType::SHADOW;
+              ShadowDraw = false; // NPC is deleted
+              overwold_shadow->shadowrec = {};
+            }
+            //Collision with PHARAOH starting with Pharaoh
+          if (PharaohDraw) {
             overworld_pharaoh->Draw();
-            if (NPCDraw) {
+            collision.draw();
+          }
+
+
+          if (CheckCollisionRecs(overworld_pharaoh->getPharaohRec(), nemo.nemorec))
+          {
+            level.currentscreen = Game::Level::GameScreen::COMBAT; // After Returning back to the OVERWORLD ya get
+            level.opponent = Game::Level::EnemyType::PHARAOH;
+            PharaohDraw = false; // NPC is deleted
+            overworld_pharaoh->Pharaohrec = {};
+          }
+
+            //Collision with MUMY starting Fight with Mumy
+
+            if (MumyDraw) {
               overworld_mumy->Draw();
               collision.draw();
             }
+
             // Collision check
             if (CheckCollisionRecs(overworld_mumy->getMumyRec(), nemo.nemorec)) // Where the Collision between Two Objects happen happens
             {
               level.currentscreen = Game::Level::GameScreen::COMBAT; // After Returning back to the OVERWORLD ya get
-
-              NPCDraw = false; // NPC is deleted
+              level.opponent = Game::Level::EnemyType::MUMY;
+              PharaohDraw = false; // NPC is deleted
               overworld_mumy->MumyRec = {};
               //NPCRec = {}; //
             }
+
+            DrawFPS(nemo.NemoPosition.x - 280, nemo.NemoPosition.y - 150);
+
           }
         }
       }
@@ -366,7 +400,7 @@ int main() {
       //teleport back to overworld
       level.Teleport();
       DrawRectangleRec(level.teleportrecPYRAMIDtoOVERWORLD, Color{});
-      DrawRectangleRec(level.teleportrecPYRAMIDtoOCEAN, Color{});
+     // DrawRectangleRec(level.teleportrecPYRAMIDtoOCEAN, Color{});
 
       //collision.update();
 
@@ -375,7 +409,7 @@ int main() {
       }
 
       break;
-
+/*
     case Game::Level::GameScreen::OCEAN:
 
       nemo.active = true;
@@ -387,7 +421,7 @@ int main() {
       if (IsKeyDown(KEY_ENTER)) {
         level.currentscreen = Game::Level::GameScreen::OVERWORLD;
       }
-
+*/
       break;
 
 

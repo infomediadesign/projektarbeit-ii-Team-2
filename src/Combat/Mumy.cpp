@@ -6,8 +6,7 @@ Game::Mumy::Mumy() : GameCharacter("Mumy",10, c_MaxHP, 2, 8)
 }
 
 auto Game::Mumy::attack() -> std::vector<int>
-{ 
-	//DrawText(TextFormat("You Receive %i", c_STR), 500, 330, 40, BLACK);
+{
   currentFrame = 2;
   State = state::ATTACK;
     std::vector<int> vector;
@@ -82,11 +81,9 @@ void Game::Mumy::draw() {
   // enemy Draw
   healthrec = { 0, 0, static_cast<float>(192 * ((float)c_HP / (float)c_MaxHP)), 96 };
 
-  DrawTexture(healthbar, set_rec().x - 20, set_rec().y - 197, WHITE);
-  DrawTextureRec(health, healthrec, { set_rec().x - 20, set_rec().y - 200 }, WHITE);
-  //DrawText(TextFormat("Speed: %i", get_turnnumb()), set_rec().x, set_rec().y - 90, 20, RED);
-  DrawText(TextFormat("%i/%i", c_HP, c_MaxHP), set_rec().x + 50, set_rec().y - 160, 20, BLACK);
-  DrawText("MUMY", set_rec().x + 130, set_rec().y - 173, 10, BLACK);
+  DrawTexture(healthbar, set_rec().x - 20, set_rec().y - 177, WHITE);
+  DrawTextureRec(health, healthrec, { set_rec().x - 20, set_rec().y - 180 }, WHITE);
+  DrawText(TextFormat("%i/%i", c_HP, c_MaxHP), set_rec().x + 50, set_rec().y - 140, 20, BLACK);
   }
 
 auto Game::Mumy::get_turnnumb() -> int {

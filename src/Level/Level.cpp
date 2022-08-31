@@ -1,12 +1,8 @@
 #include "Level.h"
 
-//Setting up a timer and Frame Counter.
-bool timer = false;
-int framescounter = 0;
-int h_amount = 2;
 //bool collision = false; // Collision detection
 
-void Game::Level::combat()
+void Game::Level::combat(Game::GameCharacter *c_enemy)
 {
   if (((t_framescounter/120)%2) == 1) {
     t_framescounter = 0;
@@ -35,14 +31,14 @@ void Game::Level::combat()
     framescounter = 0;
 
     //After Player Attacks, the Mumy will attack the Player
-    if (player->get_turnnumb() > enemy->get_turnnumb()) {
-      player->getDamage(enemy->attack());
+    if (player->get_turnnumb() > c_enemy->get_turnnumb()) {
+      player->getDamage(c_enemy->attack());
       p_damaged = true;
       b_currentFrame = 0;
     }
     //After Mumy Attack, the Player attacks the Mumy
-    if (enemy->get_turnnumb() > player->get_turnnumb()) {
-      enemy->getDamage(player->attack());
+    if (c_enemy->get_turnnumb() > c_enemy->get_turnnumb()) {
+      c_enemy->getDamage(player->attack());
       e_damaged = true;
       r_currentFrame = 0;
     }
@@ -51,7 +47,7 @@ void Game::Level::combat()
     input = true;
   }
 
-//Bewegung der Box
+  //Bewegung der Box
   if(IsKeyPressed(KEY_RIGHT))
   {
     box_rec.x += 90;
@@ -85,7 +81,7 @@ void Game::Level::combat()
   //PLAYER ENERGY
   int energy = 2;
 
-//Wenn eine Taste gedrückt wurde
+  //Wenn eine Taste gedrückt wurde
   if (input == true)
   {
     if (IsKeyPressed(KEY_SPACE) ) {
@@ -94,26 +90,25 @@ void Game::Level::combat()
       {
         //=========================PLAYER ATTACK================
         player->set_turnnumb(0);
-        enemy->set_turnnumb(0);
+        c_enemy->set_turnnumb(0);
 
-        if (player->get_turnnumb() == enemy->get_turnnumb())
+        if (player->get_turnnumb() == c_enemy->get_turnnumb())
         {
           player->set_turnnumb(0);
-          enemy->set_turnnumb(0);
+          c_enemy->set_turnnumb(0);
         }
         //===============PLAYER ATTACK=========================
-        if (player->get_turnnumb() > enemy->get_turnnumb()) {
-          enemy->getDamage(player->attack());
+        if (player->get_turnnumb() > c_enemy->get_turnnumb()) {
+          c_enemy->getDamage(player->attack());
           e_damaged = true;
           b_currentFrame = 3;
 
         }
         //================ENEMY ATTACK=========================
-        if (enemy->get_turnnumb() > player->get_turnnumb()) {
-          player->getDamage(enemy->attack());
+        if (c_enemy->get_turnnumb() > player->get_turnnumb()) {
+          player->getDamage(c_enemy->attack());
           p_damaged = true;
           r_currentFrame = 3;
-
         }
 
         timer = true;
@@ -125,15 +120,15 @@ void Game::Level::combat()
         if (h_amount > 0) {
           //======================HEAL!!!!=========================
           player->set_turnnumb(0);
-          enemy->set_turnnumb(0);
+          c_enemy->set_turnnumb(0);
           // Player heals first, then gets Damage
-          if (player->get_turnnumb() >= enemy->get_turnnumb()) {
+          if (player->get_turnnumb() >= c_enemy->get_turnnumb()) {
             player->heal();
             //player->getDamage(enemy->attack());
             h_amount--;
           }
           // Mumy Attacks first, then Player heals.
-          if (enemy->get_turnnumb() >= player->get_turnnumb()) {
+          if (c_enemy->get_turnnumb() >= player->get_turnnumb()) {
             //player->getDamage(enemy->attack());
             player->heal();
             h_amount--;
@@ -145,13 +140,13 @@ void Game::Level::combat()
       if (t_rec_time.x == box_rec.x && t_rec_time.y == box_rec.y && t_rec_time.width == box_rec.width &&
           t_rec_time.height == box_rec.height)
       {
-            if (energy > 0)
+        if (energy > 0)
         {
-              enemy->getDamage(player->attack());
-              e_damaged = true;
-              e_framescounter++;
-              energy--;
-            }
+          c_enemy->getDamage(player->attack());
+          e_damaged = true;
+          e_framescounter++;
+          energy--;
+        }
 
         timer = true;
 
@@ -163,7 +158,7 @@ void Game::Level::combat()
       }
     }
   }
-  if (enemy->getLives() <= 0)
+  if (c_enemy->getLives() <= 0)
   {
     //delete enemy;
 
@@ -180,6 +175,8 @@ void Game::Level::combat()
     input = false;
   }
 
+  player->draw();
+  c_enemy->draw();
 }
 
 void Game::Level::ScreenDraw() {
@@ -348,13 +345,14 @@ void Game::Level::ScreenDraw() {
 
 
 
-
+/*
   case GameScreen::OCEAN:
     DrawText("IM UNDER THE WATER", 500, 320, 20, DARKBLUE);
     DrawText("BLUB BLUB BLUB...", 500, 340, 20, DARKBLUE);
     DrawText("Enter to get back to overworld", 500, 360, 20, DARKBLUE);
     DrawTexture(Fish, 400, 400, WHITE);
     break;
+    */
   case GameScreen::COMBAT:
 
     bool inCombat;
@@ -382,37 +380,8 @@ void Game::Level::ScreenDraw() {
     DrawTexture(Battlescreen, GetScreenWidth()/2 - 350, GetScreenHeight()/2 - 180, WHITE);
 
     //Timer
-    //DrawText(TextFormat("Time: %i", framescounter), player->set_rec().x + 100, player->set_rec().y, 20, GREEN);
-
-    //Player
-    player->draw();
-    // Draw enemy
-    enemy->draw();
-
-    //Drawing the Player Damage Number
-    if (p_damaged) {
-
-      p_framescounter++;
-
-      DrawText(TextFormat("- %i", enemy->getStrength() - player->getDefense()),player->set_rec().x + 80,player->set_rec().y,20,RED);
-
-      if (((p_framescounter / 60) % 2) == 1) {
-        p_framescounter = 0;
-        p_damaged = false;
-      }
-    }
-    //Drawing the Enemy Damage Number
-    if (e_damaged) {
-
-      e_framescounter++;
-
-      DrawText(TextFormat("- %i", player->getStrength() - enemy->getDefense()),enemy->set_rec().x - 40,enemy->set_rec().y,20,RED);
-
-      if (((e_framescounter / 60) % 2) == 1) {
-        e_framescounter = 0;
-        e_damaged  = false;
-      }
-    }
+    DrawText(TextFormat("Time: %i", framescounter), player->set_rec().x + 100, player->set_rec().y, 20, GREEN);
+    DrawFPS(player->set_rec().x + 200, player->set_rec().y);
 
     //=========================Blue TIMER===================================
     //Draw Blue Clock
@@ -430,8 +399,26 @@ void Game::Level::ScreenDraw() {
       RedClockFrameRec.x = (float)r_currentFrame * (float)Red_Clock.width / 4;
       //=======================Red TIMER END=================================
 
-    combat();
+      switch (opponent)
+      {
+      case EnemyType::MUMY:
+        combat(enemy);
+        damaged(enemy);
+        break;
 
+      case EnemyType::SHADOW:
+        combat(shadow);
+        damaged(shadow);
+        break;
+
+      case EnemyType::PHARAOH:
+        combat(pharaoh);
+        damaged(pharaoh);
+        break;
+
+      default:
+        break;
+      }
 
     Draw9Slice(Box, t_rec_attack, thickness, WHITE);
     Draw9Slice(Box, t_rec_time, thickness, WHITE);
@@ -474,16 +461,21 @@ void Game::Level::Teleport() {
     nemo->NemoPosition.x = doorPositionX + 20;
     nemo->NemoPosition.y = doorPositionY + 60;
   }
+  /*
   if (teleportcollisionPYRAMIDtoOCEAN) { //if the collsion bool is true, nemo is transported to PYRAMIDE
     level->currentscreen = Game::Level::GameScreen::OCEAN;
   }
+
   if (teleportcollisionOCEANtoEND) {
     level->currentscreen = Game::Level::GameScreen::TITLESCREEN;
   }
+   */
 }
 
 Game::Level::~Level()
 {
   std::cout<<"Destructor Level\n";
+  delete enemy;
+  delete shadow;
+  delete pharaoh;
 }
-

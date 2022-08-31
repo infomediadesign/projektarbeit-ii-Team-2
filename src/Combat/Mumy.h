@@ -32,10 +32,9 @@ namespace Game
 
   GameCharacter::state State = state::IDLE;
 
-  bool damaged = false;
   int framescounter;
 
-  //Battlesheet of Player
+  //Battlesheet of Mumy
   Texture2D spr_mumy = LoadTexture("assets/graphics/BattleScreen/Agypten/Mumy_Battle.png");
   Texture2D healthbar = LoadTexture("assets/graphics/battlescreen/Agypten/spr_healthbar_enemy.png");
   Texture2D health = LoadTexture("assets/graphics/battlescreen/Agypten/spr_health_red.png");
