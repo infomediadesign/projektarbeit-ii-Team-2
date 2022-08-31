@@ -20,7 +20,7 @@ void Game::Level::combat(Game::GameCharacter *c_enemy)
   //Combat initialization
 
   //If the Timer is true, the seconds will Run and the Player can´t press any buttons, while the Mumy Attacks
-  if (timer == true) {
+  if (timer) {
     framescounter++;
     input = false;
   }
@@ -37,7 +37,7 @@ void Game::Level::combat(Game::GameCharacter *c_enemy)
       b_currentFrame = 0;
     }
     //After Mumy Attack, the Player attacks the Mumy
-    if (c_enemy->get_turnnumb() > c_enemy->get_turnnumb()) {
+    if (c_enemy->get_turnnumb() > player->get_turnnumb()) {
       c_enemy->getDamage(player->attack());
       e_damaged = true;
       r_currentFrame = 0;
@@ -47,7 +47,7 @@ void Game::Level::combat(Game::GameCharacter *c_enemy)
     input = true;
   }
 
-  //Bewegung der Box
+  //Box Movement
   if(IsKeyPressed(KEY_RIGHT))
   {
     box_rec.x += 90;
@@ -81,8 +81,8 @@ void Game::Level::combat(Game::GameCharacter *c_enemy)
   //PLAYER ENERGY
   int energy = 2;
 
-  //Wenn eine Taste gedrückt wurde
-  if (input == true)
+  //If a button is pressed
+  if (input)
   {
     if (IsKeyPressed(KEY_SPACE) ) {
       if (t_rec_attack.x == box_rec.x && t_rec_attack.y == box_rec.y && t_rec_attack.width == box_rec.width &&

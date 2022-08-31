@@ -26,13 +26,6 @@ namespace Game {
     Texture2D Pausescreen = LoadTexture("assets/graphics/backgrounds/testtitlescreen.png");
     Texture2D TitlescreenText = LoadTexture("assets/graphics/Titel1.png");
 
-
-
-    //Setting up a timer and Frame Counter.
-    bool timer = false;
-    int framescounter = 0;
-    int h_amount = 2;
-
 //Class initialization
 
     //GameCharacter *player          = new Player();
@@ -49,6 +42,11 @@ namespace Game {
     Game::Level *level;
     Game::Sprite *spr;
     Endscreen endscreen;
+
+    //Setting up a timer and Frame Counter.
+    bool timer = false;
+    int framescounter = 0;
+    int h_amount = 2;
 
     int p_framescounter;
     int e_framescounter;
