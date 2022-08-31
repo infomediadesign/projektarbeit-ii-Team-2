@@ -11,6 +11,7 @@ public:
   Texture2D PuzzelTriangle = LoadTexture("assets/graphics/Items/DreieckBodenPlattenSenkung.png");
   Texture2D HelmetItem     = LoadTexture("assets/graphics/Nemo_StandingMutze.png");
   Texture2D DungeonFloorTile = LoadTexture("assets/graphics/Items/DungeonFloorPlate.png");
+  Texture2D FloorTile = LoadTexture("assets/graphics/Items/Druckplatte.png");
 
   Rectangle Chest = {608.5, 386.5, 28, 32};
   Rectangle Puzzle = {639, 1046, 32, 32};
@@ -25,6 +26,8 @@ public:
   void chest_collision();
   void puzzle_collision();
   void helmet_collision();
+
+  void draw();
 
   // divide sprite-sheet into frames
   Rectangle frameRec = { 0.0f, 0.0f, (float)PuzzelTriangle.width / 3, (float)PuzzelTriangle.height };
