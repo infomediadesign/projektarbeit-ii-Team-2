@@ -250,7 +250,7 @@ void Game::Level::ScreenDraw() {
 
     auto IsWindowFullscreen () -> bool;
 
-    ClearBackground(BLUE);
+    ClearBackground(BLACK);
 
     DrawTexture(Pausescreen,0,0, WHITE);
 

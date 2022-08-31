@@ -255,10 +255,8 @@ int main() {
         }
       }
 
-      puzzle.chest_collision();
-      puzzle.helmet_collision();
-      puzzle.puzzle_collision();
-
+      puzzle.collision();
+      puzzle.update();
       puzzle.draw();
 
       DrawFPS(nemo.NemoPosition.x - 280, nemo.NemoPosition.y - 150);
