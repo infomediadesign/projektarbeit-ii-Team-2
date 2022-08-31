@@ -274,11 +274,7 @@ void Game::Level::ScreenDraw() {
       if (t_rec_settings.x == box_rec_titlescreen.x && t_rec_settings.y == box_rec_titlescreen.y && t_rec_settings.width == box_rec_titlescreen.width &&
           t_rec_settings.height == box_rec_titlescreen.height) {
         std::cout << "Fullscreen on" << endl;
-
-        if ( !IsWindowFullscreen ) {
-          void MaximizeWindow(void);
-        }
-        void MinimizeWindow(void);
+        ToggleFullscreen();
       }
 
       // BACK

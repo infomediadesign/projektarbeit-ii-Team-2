@@ -39,6 +39,7 @@ int main() {
   InitAudioDevice(); // Initialize audio device
   SetTargetFPS(60);
 
+
 #ifdef GAME_START_FULLSCREEN
 
 #endif
@@ -173,6 +174,7 @@ int main() {
           }
         }
       }
+
       spr.EpanoxDraw();
 
       nemo.active = true;
@@ -181,40 +183,6 @@ int main() {
       camera.target = Vector2 { nemo.NemoPosition.x + 20.0f, nemo.NemoPosition.y + 20.0f };
 
       collision.epanoxCollision();
-
-        /** Dialog Shit */
-        /* dialogue.init();
-
-        int rv = dialogue.performDialogue();
-        if (rv == 1) {
-          cout << "\nYou accepted the quest! Yay!\n";
-
-          dialogue.destroyDialogue();
-        }*/
-
-        //check collision between nemo and epanox
-        /*EpanoxCollision = CheckCollisionRecs(EpanoxRec, nemo.nemorec);
-
-        if (EpanoxCollision = true){
-          EpanoxDraw = true;
-          if (IsKeyPressed(KEY_A) || IsKeyDown(KEY_A)) {
-            nemo.NemoPosition.x += 5;
-          }
-          if (IsKeyPressed(KEY_D) || IsKeyDown(KEY_D)) {
-            nemo.NemoPosition.x += 5;
-          }
-          if (IsKeyPressed(KEY_W) || IsKeyDown(KEY_W)) {
-            nemo.NemoPosition.x += 5;
-          }
-          if (IsKeyPressed(KEY_S) || IsKeyDown(KEY_S)) {
-            nemo.NemoPosition.x += 5;
-          }
-        }
-
-        if (EpanoxDraw = true) {
-          DrawTexture(EpanoxStil, 961, 458, WHITE); // Drawing the Rectangle
-          ui.DialogDraw();
-        }*/
 
       if (IsKeyPressed(KEY_P)){
         level.currentscreen = Game::Level::GameScreen::PAUSEMENU;
@@ -268,10 +236,6 @@ int main() {
               // DrawRectangleRec(NPCRec, Color(00));                    // COLOR is for the Transparency.
               //DrawTexture(NPC.texture_, NPC.pos_x, NPC.pos_y, WHITE); // Drawing the Rectangle
 
-            puzzle.chest_collision();
-            puzzle.helmet_collision();
-            puzzle.puzzle_collision();
-
             overwold_shadow->Draw();
             overworld_pharaoh->Draw();
             if (NPCDraw) {
@@ -290,6 +254,14 @@ int main() {
           }
         }
       }
+
+      puzzle.chest_collision();
+      puzzle.helmet_collision();
+      puzzle.puzzle_collision();
+
+      puzzle.draw();
+
+      DrawFPS(nemo.NemoPosition.x - 280, nemo.NemoPosition.y - 150);
 
       nemo.active = true;
       nemo.Update(); // nemo walking movement and animation
