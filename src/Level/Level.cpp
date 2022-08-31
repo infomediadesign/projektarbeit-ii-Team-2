@@ -249,7 +249,7 @@ void Game::Level::ScreenDraw() {
 
     auto IsWindowFullscreen () -> bool;
 
-    ClearBackground(BLUE);
+    ClearBackground(BLACK);
 
     if (IsSoundPlaying(GameAudio::titlescreenmusic)){
       StopSound(GameAudio::titlescreenmusic);
