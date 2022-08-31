@@ -7,7 +7,7 @@ Game::Shadow::Shadow() : GameCharacter("Shadow",15, c_MaxHP, 1, 9)
 
 auto Game::Shadow::attack() -> std::vector<int>
 {
-  currentFrame = 2;
+  currentFrame = 6;
   State = state::ATTACK;
   std::vector<int> vector;
   vector.push_back(c_STR);
@@ -88,12 +88,12 @@ void Game::Shadow::draw() {
         framesCounter = 0;
         currentFrame++;
 
-        if (currentFrame > 3) {
+        if (currentFrame > 8) {
           State        = state::IDLE;
           currentFrame = 0;
         }
 
-        frameRec.x = (float)currentFrame * (float)spr_shadow.width / 6;
+        frameRec.x = (float)currentFrame * (float)spr_shadow.width / 8;
         break;
 
       default: State = GameCharacter::state::IDLE; break;
