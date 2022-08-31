@@ -79,7 +79,9 @@ int main() {
 
   //Rectangle NPCRec = {}; // Rectangle Position has to be set after it is drawn, leaving it free is so much better, until
                          // it is called. Do not touch it!!!
-  bool NPCDraw = true;   // To set the drawing if it is true or false. In short if it is draw or deleted
+  bool MumyDraw = true;   // To set the drawing if it is true or false. In short if it is draw or deleted
+  bool ShadowDraw = true;
+  bool PharaohDraw = true;
 
   //Map stuff
     std::ifstream tilesetDescriptionFile("assets/graphics/map/Level1/PhyramidSheet.json"); //Pyramiden_SheetJamey.json needed as json, pls do in tiled
@@ -236,21 +238,51 @@ int main() {
               // DrawRectangleRec(NPCRec, Color(00));                    // COLOR is for the Transparency.
               //DrawTexture(NPC.texture_, NPC.pos_x, NPC.pos_y, WHITE); // Drawing the Rectangle
 
-            overwold_shadow->Draw();
-            overworld_pharaoh->Draw();
-            if (NPCDraw) {
+            //=============================INITIALIZE COMBAT ONCE BEEING ENCOUNTERED====================================
+
+//====================================================MUMMY=============================================================
+            if (MumyDraw) {
               overworld_mumy->Draw();
-              collision.draw();
             }
             // Collision check
             if (CheckCollisionRecs(overworld_mumy->getMumyRec(), nemo.nemorec)) // Where the Collision between Two Objects happen happens
             {
               level.currentscreen = Game::Level::GameScreen::COMBAT; // After Returning back to the OVERWORLD ya get
+              level.opponent = Game::Level::EnemyType::MUMY;
 
-              NPCDraw = false; // NPC is deleted
+              MumyDraw = false; // NPC is deleted
               overworld_mumy->MumyRec = {};
-              //NPCRec = {}; //
             }
+//====================================================TIME SHADOW=======================================================
+            if (ShadowDraw)
+            {
+              overwold_shadow->Draw();
+            }
+
+            if (CheckCollisionRecs(overwold_shadow->getShadowRec(), nemo.nemorec))
+            {
+              level.currentscreen = Game::Level::GameScreen::COMBAT;
+              level.opponent = Game::Level::EnemyType::SHADOW;
+
+              ShadowDraw = false;
+              overwold_shadow->Shadowrec = {};
+
+            }
+//====================================================PHARAOH===========================================================
+            if (PharaohDraw)
+            {
+              overworld_pharaoh->Draw();
+            }
+
+            if (CheckCollisionRecs(overworld_pharaoh->getPharaohRec(), nemo.nemorec))
+            {
+              level.currentscreen = Game::Level::GameScreen::COMBAT;
+              level.opponent = Game::Level::EnemyType::PHARAOH;
+
+              PharaohDraw = false;
+              overworld_pharaoh->Pharaohrec = {};
+            }
+            //==========================================THE END=========================================================
           }
         }
       }

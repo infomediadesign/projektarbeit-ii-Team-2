@@ -29,7 +29,7 @@ struct
   //std::vector<int> layerCollision; //TODO make a Collision Layer on a Gridlayer aswell...
   int mapWidth;
   int mapHeight;
-} mapData;
+} mapData; //Wird nicht gelesen!
 
 void update();
 

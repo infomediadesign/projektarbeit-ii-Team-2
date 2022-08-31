@@ -12,7 +12,7 @@ public:
   Rectangle getPharaohRec();
 
   Texture2D spr_Pharaoh = LoadTexture("assets/graphics/map/Level1/Pharao_Final-Sheet.png");
-  Rectangle Pharaohrec = { 1455 + 8, 198 + 5, 16, 20 }
+  Rectangle Pharaohrec = { 1455 + 8, 198 + 5, 16, 20 };
   Rectangle pharaohrec  = {}; //The attributes for the Rectangle will be set.
 private:
 

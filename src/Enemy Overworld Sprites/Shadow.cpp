@@ -16,4 +16,4 @@ void Shadow::Update() {
 
 }
 
-Rectangle Shadow::getShadowRec() { return shadowrec; }
+Rectangle Shadow::getShadowRec() { return Shadowrec; }
