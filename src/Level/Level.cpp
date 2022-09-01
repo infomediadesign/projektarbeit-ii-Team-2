@@ -321,6 +321,8 @@ void Game::Level::ScreenDraw() {
     break;
 
   case GameScreen::OVERWORLD:
+
+    /** sounds */
     if (IsSoundPlaying(GameAudio::titlescreenmusic)){
       StopSound(GameAudio::titlescreenmusic);
     }
@@ -337,6 +339,15 @@ void Game::Level::ScreenDraw() {
       SetSoundVolume(GameAudio::outdungeon, float(0.1));
     }
     if (IsSoundPlaying(GameAudio::outdungeon)){}
+
+    /** update */
+    if (IsKeyPressed(KEY_P)){
+      level->currentscreen = Game::Level::GameScreen::PAUSEMENU;
+    }
+    /** draw */
+    ClearBackground(BLACK);
+
+
     break;
 
   case GameScreen::PYRAMIDE:

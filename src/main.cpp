@@ -23,11 +23,9 @@
 /** Project = Custodia - Trapped in time */
 
 //TODO Collision with Walls aint working when, active my game crashes ( Collision.cpp )
-//TODO find a way to make the sound faster/ slower to fit Nemos movements!!! (Nemo.cpp / update func line.13)
+//TODO find a way to make the sound faster/ slower to fit Nemos movements!!! (Nemo.cpp / update func line.13) -> in audacity manualy
 //TODO Dialog from the Dialog-tree into Text on screen not console (Dialog.h/cpp)
-//TODO Titlescreen Background, make it fit the screen... its way to big
-//TODO Fullscreen (Level.cpp / under PAUSEMENU / line. 259)
-//TODO EXIT key is a little stupid (Level.cpp / under Titlescreen )
+
 
 int main() {
   // Raylib initialization
@@ -74,6 +72,7 @@ int main() {
 
   level.level = &level;
   level.nemo = &nemo;
+  level.spr = &spr;
 
   puzzle.nemo = &nemo;
 
@@ -115,18 +114,16 @@ int main() {
   while (!WindowShouldClose()) // Detect window close button or ESC key
   {
     // Update
-    /** map updates... */
-    map.update();
 
     // Begin drawing
     //--------------------------------------------------------------------------------------------
     BeginDrawing();
 
-    ClearBackground(WHITE);
+    ClearBackground(BLACK);
 
     BeginMode2D(camera);
 
-    level.ScreenDraw();
+    level.ScreenDraw(); //the switchcase for switching between rooms (in the level.cpp) (the same as is underneath this)
 
     // Using Switch Case to Initialize the requirements to move to certain positions
     switch (level.currentscreen) { // Get Ready for some Spaghetti Code
@@ -186,13 +183,11 @@ int main() {
 
       collision.epanoxCollision();
 
-      if (IsKeyPressed(KEY_P)){
-        level.currentscreen = Game::Level::GameScreen::PAUSEMENU;
-      }
+      ui.Draw(); // controlls description
 
       //teleport into pyramid
       level.Teleport();
-      DrawRectangleRec(level.teleportrecOVERWORLDtoPYRAMID, RED);
+      DrawRectangleRec(level.teleportrecOVERWORLDtoPYRAMID, Color{});
 
       break;
 
@@ -301,10 +296,11 @@ int main() {
 
       //teleport back to overworld
       level.Teleport();
-      DrawRectangleRec(level.teleportrecPYRAMIDtoOVERWORLD, RED);
-      DrawRectangleRec(level.teleportrecPYRAMIDtoOCEAN, RED);
+      DrawRectangleRec(level.teleportrecPYRAMIDtoOVERWORLD, Color{});
+      DrawRectangleRec(level.teleportrecPYRAMIDtoOCEAN, Color{});
 
-      //collision.update();
+      map.update();
+      //collision.update(); //TODO the rectangle doesnt have anything init which doesnt alway it to collide with anything... theres an error and the game crashes
 
       if (IsKeyPressed(KEY_P)){
         level.currentscreen = Game::Level::GameScreen::PAUSEMENU;
@@ -328,12 +324,6 @@ int main() {
 
     EndMode2D(); // camera
 
-    if (level.currentscreen ==
-        Game::Level::GameScreen::OVERWORLD) // Setting it on an if case, so it is only drawn in OVERWORLD
-    {
-      ui.Draw(); // controlls description
-    }
-
     EndDrawing();
     //--------------------------------------------------------------------------------------------
   }
@@ -346,7 +336,6 @@ int main() {
 
   level.~Level();
 
-  //UnloadTexture(button);  // Unload button texture
   puzzle.unloadTextures();
 
   CloseAudioDevice(); // Close audio device

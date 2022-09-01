@@ -20,37 +20,6 @@ void Puzzle::collision() {
   helmetCollision = CheckCollisionRecs(Helmet, nemo->nemorec);
 }
 
-/*
-void Puzzle::chest_collision() {
-
-  // Check collision between Nemo and chest
-  chestCollision = CheckCollisionRecs(Chest, nemo->nemorec);
-}
-
-void Puzzle::puzzle_collision1() { //triangle puzzle
-
-  // Check collision between Nemo and puzzle
-  puzzleCollision1 = CheckCollisionRecs(PuzzleTriangle, nemo->nemorec);
-}
-
-void Puzzle::puzzle_collision2() { //circle puzzle
-
-  // Check collision between Nemo and puzzle
-  puzzleCollision2 = CheckCollisionRecs(PuzzleCircle, nemo->nemorec);
-}
-
-void Puzzle::puzzle_collision3() { //square puzzle
-
-  // Check collision between Nemo and puzzle
-  puzzleCollision3 = CheckCollisionRecs(PuzzleSquare, nemo->nemorec);
-}
-
-void Puzzle::helmet_collision() {
-
-  // Check collision between Nemo and chest
-  helmetCollision = CheckCollisionRecs(Helmet, nemo->nemorec);
-} */
-
 /** Update the Items/ Chests/ Puzzles */
 void Puzzle::update() {
 
