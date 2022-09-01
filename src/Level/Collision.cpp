@@ -41,27 +41,43 @@ void Collision::update() { ;
 
 void Collision::epanoxCollision() { //Epanox collision
 
+
   // Check collision between Nemo and Epanox
   EpanoxCollision = CheckCollisionRecs(EpanoxRec, nemo->nemorec);
 
-  if (EpanoxCollision) {
-    std::cout << "Dialog start" << endl;
-
+  while (EpanoxCollision) {
+    dialogactive = true;
+    DrawText(" [SPACE] ", nemo->NemoPosition.x - 7, nemo->NemoPosition.y - 10, 2, DARKGRAY);
+  break;
+   /*
     fstream dialog_txt_file;
-    dialog_txt_file.open("assets/dialog_test_text.txt", ios::in); // open a file to perform read operation using file object
-    if (dialog_txt_file.is_open()) { // checking whether the file is open
+dialog_txt_file.open("assets/dialog_test_text.txt", ios::in); // open a file to perform read operation using file object
+if (dialog_txt_file.is_open()) { // checking whether the file is open
 
-      if (IsKeyPressed(KEY_SPACE)) {
-        string tp;
-        while (getline(dialog_txt_file, tp)) { // read data from file object and put it into string.
+if (IsKeyPressed(KEY_SPACE)) {
+ string tp;
+ while (getline(dialog_txt_file, tp)) { // read data from file object and put it into string.
 
-          // cout << tp << "\n"; //print the data of the string
+   // cout << tp << "\n"; //print the data of the string
 
-          printf("%s\n", tp.c_str());
-        }
-        dialog_txt_file.close(); // close the file object.
-      }
+   printf("%s\n", tp.c_str());
+ }
+ dialog_txt_file.close(); // close the file object.
+}
+}
+    */
+  }
+
+  while (dialogactive){
+    if (IsKeyPressed(KEY_SPACE)){
+      dialogbox = true;
+      std::cout << "Dialog start" << endl;
     }
+    break;
+  }
+
+  if (dialogbox){
+    DrawRectangle(nemo->NemoPosition.x - 100, nemo->NemoPosition.y + 100, 400, 100, GRAY);
   }
 }
 

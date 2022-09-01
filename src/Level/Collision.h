@@ -18,6 +18,8 @@ public:
   bool collisionObject = false; // Collision detection
   bool wallCollision = false;
   bool EpanoxCollision = false;
+  bool dialogactive = false;
+  bool dialogbox = false;
 
   void epanoxCollision();
   void update();
