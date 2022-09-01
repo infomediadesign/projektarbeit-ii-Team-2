@@ -309,6 +309,13 @@ void Game::Level::ScreenDraw() {
     break;
 
   case GameScreen::ENDSCREEN:
+
+    ClearBackground(BLACK);
+
+    if(IsKeyPressed(KEY_SPACE)){
+      currentscreen = GameScreen::TITLESCREEN;
+    }
+
     endscreen.update();
     endscreen.draw();
     break;
@@ -348,16 +355,6 @@ void Game::Level::ScreenDraw() {
     if (IsSoundPlaying(GameAudio::indungeon)){}
     break;
 
-
-
-/*
-  case GameScreen::OCEAN:
-    DrawText("IM UNDER THE WATER", 500, 320, 20, DARKBLUE);
-    DrawText("BLUB BLUB BLUB...", 500, 340, 20, DARKBLUE);
-    DrawText("Enter to get back to overworld", 500, 360, 20, DARKBLUE);
-    DrawTexture(Fish, 400, 400, WHITE);
-    break;
-    */
   case GameScreen::COMBAT:
 
     bool inCombat;
@@ -466,15 +463,14 @@ void Game::Level::Teleport() {
     nemo->NemoPosition.x = doorPositionX + 20;
     nemo->NemoPosition.y = doorPositionY + 60;
   }
-  /*
+
   if (teleportcollisionPYRAMIDtoOCEAN) { //if the collsion bool is true, nemo is transported to PYRAMIDE
-    level->currentscreen = Game::Level::GameScreen::OCEAN;
+    level->currentscreen = Game::Level::GameScreen::ENDSCREEN;
   }
 
   if (teleportcollisionOCEANtoEND) {
     level->currentscreen = Game::Level::GameScreen::TITLESCREEN;
   }
-   */
 }
 
 Game::Level::~Level()

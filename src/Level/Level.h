@@ -64,7 +64,6 @@ namespace Game {
     Rectangle teleportrecPYRAMIDtoOCEAN = {};
     Rectangle teleportrecOCEANtoEND = {};
 
-
     bool teleportcollisionOVERWORLDtoPYRAMID = true;
     bool teleportcollisionPYRAMIDtoOVERWORLD = true;
     bool teleportcollisionPYRAMIDtoOCEAN = true;
@@ -80,10 +79,6 @@ namespace Game {
     enum class EnemyType {NONE, MUMY, SHADOW, PHARAOH};
 
     EnemyType opponent = EnemyType::NONE;
-
-    //teleport stuff
-    //enum class OverworldState { INPYRAMIDE, OUTPYRAMIDE, ENDSCREEN }; //This Enum Class is there to teleport
-    //OverworldState currentscreen = OverworldState::OUTPYRAMIDE; // TitleScreens is the Start Screen
 
     void ScreenDraw();
 

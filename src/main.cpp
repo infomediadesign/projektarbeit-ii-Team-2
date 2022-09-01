@@ -192,7 +192,7 @@ int main() {
 
       //teleport into pyramid
       level.Teleport();
-      DrawRectangleRec(level.teleportrecOVERWORLDtoPYRAMID, Color{});
+      DrawRectangleRec(level.teleportrecOVERWORLDtoPYRAMID, RED);
 
       break;
 
@@ -301,8 +301,8 @@ int main() {
 
       //teleport back to overworld
       level.Teleport();
-      DrawRectangleRec(level.teleportrecPYRAMIDtoOVERWORLD, Color{});
-      DrawRectangleRec(level.teleportrecPYRAMIDtoOCEAN, Color{});
+      DrawRectangleRec(level.teleportrecPYRAMIDtoOVERWORLD, RED);
+      DrawRectangleRec(level.teleportrecPYRAMIDtoOCEAN, RED);
 
       //collision.update();
 
