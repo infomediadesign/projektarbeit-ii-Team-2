@@ -47,7 +47,7 @@ void Collision::epanoxCollision() { //Epanox collision
 
   while (EpanoxCollision) {
     dialogactive = true;
-    DrawText(" [SPACE] ", nemo->NemoPosition.x - 7, nemo->NemoPosition.y - 10, 2, DARKGRAY);
+    DrawText("[SPACE]", nemo->NemoPosition.x - 7, nemo->NemoPosition.y - 10, 2, DARKGRAY);
   break;
    /*
     fstream dialog_txt_file;
