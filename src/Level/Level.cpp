@@ -224,10 +224,10 @@ void Game::Level::ScreenDraw() {
 
 
     /** MOVE THE BOX */
-    if (IsKeyPressed(KEY_DOWN))
+    if (IsKeyPressed(KEY_S))
     { box_rec_titlescreen.y += 50; }
 
-    if (IsKeyPressed(KEY_UP))
+    if (IsKeyPressed(KEY_W))
     { box_rec_titlescreen.y -= 50; }
 
     if (box_rec_titlescreen.y < Game::ScreenHeight / 2 - 50) box_rec_titlescreen.y = Game::ScreenHeight / 2 - 50;

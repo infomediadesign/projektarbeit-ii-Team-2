@@ -33,10 +33,10 @@ int main() {
   Image Epanox = LoadImage("assets/graphics/Epanox_Standing - Kopie.png");
 
   InitWindow(Game::ScreenWidth, Game::ScreenHeight, Game::PROJECT_NAME);
-  SetWindowIcon(Epanox);
   InitAudioDevice(); // Initialize audio device
-  SetTargetFPS(60);
 
+  SetWindowIcon(Epanox);
+  SetTargetFPS(60);
 
 #ifdef GAME_START_FULLSCREEN
 
@@ -44,7 +44,6 @@ int main() {
 
   // Initialization
   //--------------------------------------------------------------------------------------------
-  Texture2D StandStil = LoadTexture("assets/graphics/Charakter_Vorschlag_vorne_laufen1.png");
 
   Collision collision;
   Dialogue dialogue;
@@ -52,6 +51,7 @@ int main() {
   Map map;
 
   GameAudio::Load();
+
   Game::Level level;
   Game::Level levelcollision;
   Game::UI ui;
@@ -65,7 +65,6 @@ int main() {
   Game::Sprite Mumy_Sprite(592, 721, overworld_mumy->spr_mumy);
   Game::Sprite Shadow_Sprite(590.5, 1014, overwold_shadow->spr_shadow);
   Game::Sprite Pharaoh_Sprite(1455, 198, overworld_pharaoh->spr_Pharaoh);
-  //Game::Sprite NPC(592, 721, StandStil);
 
   collision.nemo = &nemo;
   collision.level = &level;
@@ -76,13 +75,11 @@ int main() {
 
   puzzle.nemo = &nemo;
 
-  //Rectangle NPCRec = {}; // Rectangle Position has to be set after it is drawn, leaving it free is so much better, until
-                         // it is called. Do not touch it!!!
   bool MumyDraw = true;   // To set the drawing if it is true or false. In short if it is draw or deleted
   bool ShadowDraw = true;
   bool PharaohDraw = true;
 
-  //Map stuff
+    //Map stuff -> relocate this into map.h/ and .cpp
     std::ifstream tilesetDescriptionFile("assets/graphics/map/Level1/PhyramidSheet.json"); //Pyramiden_SheetJamey.json needed as json, pls do in tiled
     assert(tilesetDescriptionFile.is_open());
     nlohmann::json tilesetDescription = nlohmann::json::parse(tilesetDescriptionFile);
@@ -114,6 +111,7 @@ int main() {
   while (!WindowShouldClose()) // Detect window close button or ESC key
   {
     // Update
+
 
     // Begin drawing
     //--------------------------------------------------------------------------------------------
