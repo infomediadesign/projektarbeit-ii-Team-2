@@ -77,10 +77,6 @@ void Game::Level::combat(Game::GameCharacter *c_enemy)
   else if (box_rec.x > 655) box_rec.x = 655;
   //==========================================
 
-
-  //PLAYER ENERGY
-  int energy = 2;
-
   //If a button is pressed
   if (input)
   {
@@ -143,9 +139,14 @@ void Game::Level::combat(Game::GameCharacter *c_enemy)
         if (energy > 0)
         {
           c_enemy->getDamage(player->attack());
+          c_enemy->getDamage(player->attack());
           e_damaged = true;
           e_framescounter++;
           energy--;
+        }
+        if (0 > energy)
+        {
+          timer = false;
         }
 
         timer = true;
@@ -160,16 +161,12 @@ void Game::Level::combat(Game::GameCharacter *c_enemy)
   }
   if (c_enemy->getLives() <= 0)
   {
-    //delete enemy;
-
     DrawText("YOU WON!", 600, 320, 20, BLACK);
     timer = false;
     input = false;
   }
   else if (player->getLives() <= 0)
   {
-    // delete enemy;
-    // delete player;
     DrawText("YOU LOST!", 600, 320, 20, BLACK);
     timer = false;
     input = false;
@@ -399,6 +396,7 @@ void Game::Level::ScreenDraw() {
       RedClockFrameRec.x = (float)r_currentFrame * (float)Red_Clock.width / 4;
       //=======================Red TIMER END=================================
 
+      //Initialize the combat with the enemy
       switch (opponent)
       {
       case EnemyType::MUMY:
@@ -419,6 +417,8 @@ void Game::Level::ScreenDraw() {
       default:
         break;
       }
+
+      DrawText(TextFormat("ENERGY: %i", energy), 500, 300, 20, BLACK);
 
     Draw9Slice(Box, t_rec_attack, thickness, WHITE);
     Draw9Slice(Box, t_rec_time, thickness, WHITE);
@@ -442,13 +442,13 @@ void Game::Level::Teleport() {
   teleportrecOVERWORLDtoPYRAMID = { doorPositionX, doorPositionY, doortileX, doortileY }; // rectangle in overworld to pyramid
   teleportrecPYRAMIDtoOVERWORLD = { doorPositionX - 685, doorPositionY + 780, doortileX, doortileY }; //rectangle in pyramid to overworld
   teleportrecPYRAMIDtoOCEAN = { doorPositionX + 528 , doorPositionY - 200, doortileX, doortileY }; //rectangle in pyramid to ocean
-  teleportrecOCEANtoEND = { doorPositionX - 200, doorPositionY - 100, doortileX, doortileY }; //rectangle in ocean to endscreen
+  //teleportrecOCEANtoEND = { doorPositionX - 200, doorPositionY - 100, doortileX, doortileY }; //rectangle in ocean to endscreen
 
   // collision check with the door & nemo
   teleportcollisionOVERWORLDtoPYRAMID = CheckCollisionRecs(teleportrecOVERWORLDtoPYRAMID, nemo->nemorec); //check collision between door and nemo
   teleportcollisionPYRAMIDtoOVERWORLD = CheckCollisionRecs(teleportrecPYRAMIDtoOVERWORLD, nemo->nemorec);
-  teleportcollisionPYRAMIDtoOCEAN = CheckCollisionRecs(teleportrecPYRAMIDtoOCEAN, nemo->nemorec);
-  teleportcollisionOCEANtoEND = CheckCollisionRecs(teleportrecOCEANtoEND, nemo->nemorec);
+  //teleportcollisionPYRAMIDtoOCEAN = CheckCollisionRecs(teleportrecPYRAMIDtoOCEAN, nemo->nemorec);
+  //teleportcollisionOCEANtoEND = CheckCollisionRecs(teleportrecOCEANtoEND, nemo->nemorec);
 
   //bool true -> teleport...
   if (teleportcollisionOVERWORLDtoPYRAMID) { //if the collsion bool is true, nemo is transported to PYRAMIDE

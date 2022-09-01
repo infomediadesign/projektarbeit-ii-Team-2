@@ -28,9 +28,9 @@ namespace Game {
 
 //Class initialization
 
-    //GameCharacter *player          = new Player();
+    int energy = 2;
+
     unique_ptr<GameCharacter> player = std::make_unique<Player>();
-    // unique_ptr<GameCharacter> shadow = std::make_unique<Shadow>();
 
     GameCharacter *enemy          = new Mumy();
     GameCharacter *shadow         = new Shadow();
@@ -62,13 +62,13 @@ namespace Game {
     Rectangle teleportrecOVERWORLDtoPYRAMID = {};
     Rectangle teleportrecPYRAMIDtoOVERWORLD = {};
     Rectangle teleportrecPYRAMIDtoOCEAN = {};
-    Rectangle teleportrecOCEANtoEND = {};
+    //Rectangle teleportrecOCEANtoEND = {};
 
 
     bool teleportcollisionOVERWORLDtoPYRAMID = true;
     bool teleportcollisionPYRAMIDtoOVERWORLD = true;
-    bool teleportcollisionPYRAMIDtoOCEAN = true;
-    bool teleportcollisionOCEANtoEND = true;
+    //bool teleportcollisionPYRAMIDtoOCEAN = true;
+    //bool teleportcollisionOCEANtoEND = true;
 
     void combat(GameCharacter *c_enemy);
 
@@ -86,8 +86,6 @@ namespace Game {
     //OverworldState currentscreen = OverworldState::OUTPYRAMIDE; // TitleScreens is the Start Screen
 
     void ScreenDraw();
-
-    void Draw();
 
     Rectangle box_rec_titlescreen = {ScreenWidth / 2 - 50 , Game::ScreenHeight / 2 - 50, 78, 32};
     Rectangle t_rec_start = {ScreenWidth / 2 - 50, Game::ScreenHeight / 2 - 50, 78, 32};
