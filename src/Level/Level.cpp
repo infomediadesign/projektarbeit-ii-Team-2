@@ -221,10 +221,10 @@ void Game::Level::ScreenDraw() {
 
 
     /** MOVE THE BOX */
-    if (IsKeyPressed(KEY_DOWN))
+    if (IsKeyPressed(KEY_S))
     { box_rec_titlescreen.y += 50; }
 
-    if (IsKeyPressed(KEY_UP))
+    if (IsKeyPressed(KEY_W))
     { box_rec_titlescreen.y -= 50; }
 
     if (box_rec_titlescreen.y < Game::ScreenHeight / 2 - 50) box_rec_titlescreen.y = Game::ScreenHeight / 2 - 50;
@@ -305,7 +305,21 @@ void Game::Level::ScreenDraw() {
 
     break;
 
+  case GameScreen::ENDSCREEN:
+
+    ClearBackground(BLACK);
+
+    if(IsKeyPressed(KEY_SPACE)){
+      currentscreen = GameScreen::TITLESCREEN;
+    }
+
+    endscreen.update();
+    endscreen.draw();
+    break;
+
   case GameScreen::OVERWORLD:
+
+    /** sounds */
     if (IsSoundPlaying(GameAudio::titlescreenmusic)){
       StopSound(GameAudio::titlescreenmusic);
     }
@@ -322,6 +336,15 @@ void Game::Level::ScreenDraw() {
       SetSoundVolume(GameAudio::outdungeon, float(0.1));
     }
     if (IsSoundPlaying(GameAudio::outdungeon)){}
+
+    /** update */
+    if (IsKeyPressed(KEY_P)){
+      level->currentscreen = Game::Level::GameScreen::PAUSEMENU;
+    }
+    /** draw */
+    ClearBackground(BLACK);
+
+
     break;
 
   case GameScreen::PYRAMIDE:
@@ -340,16 +363,6 @@ void Game::Level::ScreenDraw() {
     if (IsSoundPlaying(GameAudio::indungeon)){}
     break;
 
-
-
-/*
-  case GameScreen::OCEAN:
-    DrawText("IM UNDER THE WATER", 500, 320, 20, DARKBLUE);
-    DrawText("BLUB BLUB BLUB...", 500, 340, 20, DARKBLUE);
-    DrawText("Enter to get back to overworld", 500, 360, 20, DARKBLUE);
-    DrawTexture(Fish, 400, 400, WHITE);
-    break;
-    */
   case GameScreen::COMBAT:
 
     bool inCombat;
@@ -461,15 +474,14 @@ void Game::Level::Teleport() {
     nemo->NemoPosition.x = doorPositionX + 20;
     nemo->NemoPosition.y = doorPositionY + 60;
   }
-  /*
+
   if (teleportcollisionPYRAMIDtoOCEAN) { //if the collsion bool is true, nemo is transported to PYRAMIDE
-    level->currentscreen = Game::Level::GameScreen::OCEAN;
+    level->currentscreen = Game::Level::GameScreen::ENDSCREEN;
   }
 
   if (teleportcollisionOCEANtoEND) {
     level->currentscreen = Game::Level::GameScreen::TITLESCREEN;
   }
-   */
 }
 
 Game::Level::~Level()

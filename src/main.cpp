@@ -23,11 +23,9 @@
 /** Project = Custodia - Trapped in time */
 
 //TODO Collision with Walls aint working when, active my game crashes ( Collision.cpp )
-//TODO find a way to make the sound faster/ slower to fit Nemos movements!!! (Nemo.cpp / update func line.13)
+//TODO find a way to make the sound faster/ slower to fit Nemos movements!!! (Nemo.cpp / update func line.13) -> in audacity manualy
 //TODO Dialog from the Dialog-tree into Text on screen not console (Dialog.h/cpp)
-//TODO Titlescreen Background, make it fit the screen... its way to big
-//TODO Fullscreen (Level.cpp / under PAUSEMENU / line. 259)
-//TODO EXIT key is a little stupid (Level.cpp / under Titlescreen )
+
 
 int main() {
   // Raylib initialization
@@ -35,10 +33,10 @@ int main() {
   Image Epanox = LoadImage("assets/graphics/Epanox_Standing - Kopie.png");
 
   InitWindow(Game::ScreenWidth, Game::ScreenHeight, Game::PROJECT_NAME);
-  SetWindowIcon(Epanox);
   InitAudioDevice(); // Initialize audio device
-  SetTargetFPS(60);
 
+  SetWindowIcon(Epanox);
+  SetTargetFPS(60);
 
 #ifdef GAME_START_FULLSCREEN
 
@@ -46,7 +44,6 @@ int main() {
 
   // Initialization
   //--------------------------------------------------------------------------------------------
-  Texture2D StandStil = LoadTexture("assets/graphics/Charakter_Vorschlag_vorne_laufen1.png");
 
   Collision collision;
   Dialogue dialogue;
@@ -54,6 +51,7 @@ int main() {
   Map map;
 
   GameAudio::Load();
+
   Game::Level level;
   Game::Level levelcollision;
   Game::UI ui;
@@ -67,23 +65,21 @@ int main() {
   Game::Sprite Mumy_Sprite(592, 721, overworld_mumy->spr_mumy);
   Game::Sprite Shadow_Sprite(590.5, 1014, overwold_shadow->spr_shadow);
   Game::Sprite Pharaoh_Sprite(1455, 198, overworld_pharaoh->spr_Pharaoh);
-  //Game::Sprite NPC(592, 721, StandStil);
 
   collision.nemo = &nemo;
   collision.level = &level;
 
   level.level = &level;
   level.nemo = &nemo;
+  level.spr = &spr;
 
   puzzle.nemo = &nemo;
 
-  //Rectangle NPCRec = {}; // Rectangle Position has to be set after it is drawn, leaving it free is so much better, until
-                         // it is called. Do not touch it!!!
   bool MumyDraw = true;   // To set the drawing if it is true or false. In short if it is draw or deleted
   bool ShadowDraw = true;
   bool PharaohDraw = true;
 
-  //Map stuff
+    //Map stuff -> relocate this into map.h/ and .cpp
     std::ifstream tilesetDescriptionFile("assets/graphics/map/Level1/PhyramidSheet.json"); //Pyramiden_SheetJamey.json needed as json, pls do in tiled
     assert(tilesetDescriptionFile.is_open());
     nlohmann::json tilesetDescription = nlohmann::json::parse(tilesetDescriptionFile);
@@ -115,18 +111,17 @@ int main() {
   while (!WindowShouldClose()) // Detect window close button or ESC key
   {
     // Update
-    /** map updates... */
-    map.update();
+
 
     // Begin drawing
     //--------------------------------------------------------------------------------------------
     BeginDrawing();
 
-    ClearBackground(WHITE);
+    ClearBackground(BLACK);
 
     BeginMode2D(camera);
 
-    level.ScreenDraw();
+    level.ScreenDraw(); //the switchcase for switching between rooms (in the level.cpp) (the same as is underneath this)
 
     // Using Switch Case to Initialize the requirements to move to certain positions
     switch (level.currentscreen) { // Get Ready for some Spaghetti Code
@@ -186,9 +181,7 @@ int main() {
 
       collision.epanoxCollision();
 
-      if (IsKeyPressed(KEY_P)){
-        level.currentscreen = Game::Level::GameScreen::PAUSEMENU;
-      }
+      ui.Draw(); // controlls description
 
       //teleport into pyramid
       level.Teleport();
@@ -234,58 +227,59 @@ int main() {
               vecDungeon.x = 0;
               vecDungeon.y += (float) levelMapDungeon["tileheight"];
             }
-              //NPCRec = { 592 + 8, 712 + 5, 16, 20 };
-              // DrawRectangleRec(NPCRec, Color(00));                    // COLOR is for the Transparency.
-              //DrawTexture(NPC.texture_, NPC.pos_x, NPC.pos_y, WHITE); // Drawing the Rectangle
-
-            //=============================INITIALIZE COMBAT ONCE BEEING ENCOUNTERED====================================
-
-//====================================================MUMMY=============================================================
-            if (MumyDraw) {
-              overworld_mumy->Draw();
-            }
-            // Collision check
-            if (CheckCollisionRecs(overworld_mumy->getMumyRec(), nemo.nemorec)) // Where the Collision between Two Objects happen happens
-            {
-              level.currentscreen = Game::Level::GameScreen::COMBAT; // After Returning back to the OVERWORLD ya get
-              level.opponent = Game::Level::EnemyType::MUMY;
-
-              MumyDraw = false; // NPC is deleted
-              overworld_mumy->MumyRec = {};
-            }
-//====================================================TIME SHADOW=======================================================
-            if (ShadowDraw)
-            {
-              overwold_shadow->Draw();
-            }
-
-            if (CheckCollisionRecs(overwold_shadow->getShadowRec(), nemo.nemorec))
-            {
-              level.currentscreen = Game::Level::GameScreen::COMBAT;
-              level.opponent = Game::Level::EnemyType::SHADOW;
-
-              ShadowDraw = false;
-              overwold_shadow->Shadowrec = {};
-
-            }
-//====================================================PHARAOH===========================================================
-            if (PharaohDraw)
-            {
-              overworld_pharaoh->Draw();
-            }
-
-            if (CheckCollisionRecs(overworld_pharaoh->getPharaohRec(), nemo.nemorec))
-            {
-              level.currentscreen = Game::Level::GameScreen::COMBAT;
-              level.opponent = Game::Level::EnemyType::PHARAOH;
-
-              PharaohDraw = false;
-              overworld_pharaoh->Pharaohrec = {};
-            }
-            //==========================================THE END=========================================================
           }
         }
       }
+
+      //NPCRec = { 592 + 8, 712 + 5, 16, 20 };
+      // DrawRectangleRec(NPCRec, Color(00));                    // COLOR is for the Transparency.
+      //DrawTexture(NPC.texture_, NPC.pos_x, NPC.pos_y, WHITE); // Drawing the Rectangle
+
+      //=============================INITIALIZE COMBAT ONCE BEEING ENCOUNTERED====================================
+
+      //====================================================MUMMY=============================================================
+      if (MumyDraw) {
+        overworld_mumy->Draw();
+      }
+      // Collision check
+      if (CheckCollisionRecs(overworld_mumy->getMumyRec(), nemo.nemorec)) // Where the Collision between Two Objects happen happens
+      {
+        level.currentscreen = Game::Level::GameScreen::COMBAT; // After Returning back to the OVERWORLD ya get
+        level.opponent = Game::Level::EnemyType::MUMY;
+
+        MumyDraw = false; // NPC is deleted
+        overworld_mumy->MumyRec = {};
+      }
+      //====================================================TIME SHADOW=======================================================
+      if (ShadowDraw)
+      {
+        overwold_shadow->Draw();
+      }
+
+      if (CheckCollisionRecs(overwold_shadow->getShadowRec(), nemo.nemorec))
+      {
+        level.currentscreen = Game::Level::GameScreen::COMBAT;
+        level.opponent = Game::Level::EnemyType::SHADOW;
+
+        ShadowDraw = false;
+        overwold_shadow->Shadowrec = {};
+
+      }
+      //====================================================PHARAOH===========================================================
+      if (PharaohDraw)
+      {
+        overworld_pharaoh->Draw();
+      }
+
+      if (CheckCollisionRecs(overworld_pharaoh->getPharaohRec(), nemo.nemorec))
+      {
+        level.currentscreen = Game::Level::GameScreen::COMBAT;
+        level.opponent = Game::Level::EnemyType::PHARAOH;
+
+        PharaohDraw = false;
+        overworld_pharaoh->Pharaohrec = {};
+      }
+      //==========================================THE END=========================================================
 
       puzzle.collision();
       puzzle.update();
@@ -303,7 +297,8 @@ int main() {
       DrawRectangleRec(level.teleportrecPYRAMIDtoOVERWORLD, Color{});
       DrawRectangleRec(level.teleportrecPYRAMIDtoOCEAN, Color{});
 
-      //collision.update();
+      map.update();
+      //collision.update(); //TODO the rectangle doesnt have anything init which doesnt alway it to collide with anything... theres an error and the game crashes
 
       if (IsKeyPressed(KEY_P)){
         level.currentscreen = Game::Level::GameScreen::PAUSEMENU;
@@ -312,7 +307,6 @@ int main() {
       break;
 
     case Game::Level::GameScreen::ENDSCREEN:
-
 
       camera.target = Vector2 { Game::ScreenWidth / 2, Game::ScreenHeight / 2 };
       break;
@@ -328,12 +322,6 @@ int main() {
 
     EndMode2D(); // camera
 
-    if (level.currentscreen ==
-        Game::Level::GameScreen::OVERWORLD) // Setting it on an if case, so it is only drawn in OVERWORLD
-    {
-      ui.Draw(); // controlls description
-    }
-
     EndDrawing();
     //--------------------------------------------------------------------------------------------
   }
@@ -346,7 +334,6 @@ int main() {
 
   level.~Level();
 
-  //UnloadTexture(button);  // Unload button texture
   puzzle.unloadTextures();
 
   CloseAudioDevice(); // Close audio device

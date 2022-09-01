@@ -23,9 +23,10 @@ struct
 struct
 {
   std::vector<int> layerGround;
-  std::vector<int> layerObject;
-  //std::vector<int> layerInteractables;
-  std::vector<bool> layerInteractables;
+  //std::vector<int> layerObject;
+  std::vector<bool> layerObject;
+  std::vector<int> layerInteractables;
+  //std::vector<bool> layerInteractables;
   //std::vector<int> layerCollision; //TODO make a Collision Layer on a Gridlayer aswell...
   int mapWidth;
   int mapHeight;
