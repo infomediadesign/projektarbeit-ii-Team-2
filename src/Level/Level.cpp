@@ -308,6 +308,11 @@ void Game::Level::ScreenDraw() {
 
     break;
 
+  case GameScreen::ENDSCREEN:
+    endscreen.update();
+    endscreen.draw();
+    break;
+
   case GameScreen::OVERWORLD:
     if (IsSoundPlaying(GameAudio::titlescreenmusic)){
       StopSound(GameAudio::titlescreenmusic);
