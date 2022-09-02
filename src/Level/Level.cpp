@@ -256,6 +256,8 @@ void Game::Level::ScreenDraw() {
 
     ClearBackground(BLUE);
 
+    DrawTexture(Titlescreen,0,0, WHITE);
+
     if (IsSoundPlaying(GameAudio::titlescreenmusic)) {
       StopSound(GameAudio::titlescreenmusic);
     }
@@ -277,21 +279,22 @@ void Game::Level::ScreenDraw() {
           t_rec_settings.width == box_rec_titlescreen.width && t_rec_settings.height == box_rec_titlescreen.height) {
         std::cout << "Fullscreen on" << endl;
         ToggleFullscreen();
-
-        // BACK
-        if (t_rec_exit_game.x == box_rec_titlescreen.x && t_rec_exit_game.y == box_rec_titlescreen.y &&
-            t_rec_exit_game.width == box_rec_titlescreen.width &&
-            t_rec_exit_game.height == box_rec_titlescreen.height) {
-          currentscreen = GameScreen::TITLESCREEN;
-        }
       }
 
+        // BACK
+      if (t_rec_exit_game.x == box_rec_titlescreen.x && t_rec_exit_game.y == box_rec_titlescreen.y &&
+          t_rec_exit_game.width == box_rec_titlescreen.width &&
+          t_rec_exit_game.height == box_rec_titlescreen.height) {
+        currentscreen = GameScreen::TITLESCREEN;
+      }
+    }
+
       /** MOVE THE BOX */
-      if (IsKeyPressed(KEY_DOWN)) {
+      if (IsKeyPressed(KEY_S)) {
         box_rec_titlescreen.y += 50;
       }
 
-      if (IsKeyPressed(KEY_UP)) {
+      if (IsKeyPressed(KEY_W)) {
         box_rec_titlescreen.y -= 50;
       }
 
@@ -446,7 +449,7 @@ void Game::Level::ScreenDraw() {
       break;
     }
   }
-}
+
 //======================================================================================================================
 
 void Game::Level::Teleport() {

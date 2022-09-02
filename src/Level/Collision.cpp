@@ -39,45 +39,49 @@ void Collision::update() { ;
   }
 }
 
-void Collision::epanoxCollision() { //Epanox collision
-
+void Collision::epanoxCollision() { // Epanox collision
 
   // Check collision between Nemo and Epanox
   EpanoxCollision = CheckCollisionRecs(EpanoxRec, nemo->nemorec);
 
   while (EpanoxCollision) {
     dialogactive = true;
-    DrawText("[SPACE]", nemo->NemoPosition.x - 7, nemo->NemoPosition.y - 10, 2, DARKGRAY);
-  break;
-   /*
-    fstream dialog_txt_file;
-dialog_txt_file.open("assets/dialog_test_text.txt", ios::in); // open a file to perform read operation using file object
-if (dialog_txt_file.is_open()) { // checking whether the file is open
+    DrawText("[F]", nemo->NemoPosition.x + 10, nemo->NemoPosition.y - 10, 2, BLACK);
+    break;
 
-if (IsKeyPressed(KEY_SPACE)) {
- string tp;
- while (getline(dialog_txt_file, tp)) { // read data from file object and put it into string.
+    /*
+     fstream dialog_txt_file;
+ dialog_txt_file.open("assets/dialog_test_text.txt", ios::in); // open a file to perform read operation using file
+ object if (dialog_txt_file.is_open()) { // checking whether the file is open
 
-   // cout << tp << "\n"; //print the data of the string
+ if (IsKeyPressed(KEY_SPACE)) {
+  string tp;
+  while (getline(dialog_txt_file, tp)) { // read data from file object and put it into string.
 
-   printf("%s\n", tp.c_str());
+    // cout << tp << "\n"; //print the data of the string
+
+    printf("%s\n", tp.c_str());
+  }
+  dialog_txt_file.close(); // close the file object.
  }
- dialog_txt_file.close(); // close the file object.
-}
-}
-    */
+ }
+     */
   }
 
-  while (dialogactive){
-    if (IsKeyPressed(KEY_SPACE)){
+  while (dialogactive) {
+    if (IsKeyPressed(KEY_F)) {
       dialogbox = true;
       std::cout << "Dialog start" << endl;
+    }
+    if (IsKeyPressed(KEY_F)) {
+      dialogbox = false;
     }
     break;
   }
 
-  if (dialogbox){
-    DrawRectangle(nemo->NemoPosition.x - 100, nemo->NemoPosition.y + 100, 400, 100, GRAY);
+  while (dialogbox) {
+    DrawRectangle(nemo->NemoPosition.x - 220, nemo->NemoPosition.y + 100, 400, 100, GRAY);
+    break;
   }
 }
 
