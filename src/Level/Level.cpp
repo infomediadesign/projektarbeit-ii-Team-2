@@ -137,8 +137,6 @@ void Game::Level::combat(Game::GameCharacter *c_enemy)
         }
       }
 
-      //==============================TIME ATTACK!!!!====================
-
       if (t_rec_time.x == box_rec.x && t_rec_time.y == box_rec.y && t_rec_time.width == box_rec.width &&
           t_rec_time.height == box_rec.height)
       {
@@ -213,43 +211,44 @@ void Game::Level::ScreenDraw() {
 
     /** BUTTON FUNCTIONS */
 
-
-      if (IsKeyPressed(KEY_SPACE)) {
-        if (t_rec_start.x == box_rec_titlescreen.x && t_rec_start.y == box_rec_titlescreen.y && t_rec_start.width == box_rec_titlescreen.width &&
-            t_rec_start.height == box_rec_titlescreen.height) {
-            currentscreen = GameScreen::OVERWORLD;
-        }
-        if (t_rec_settings.x == box_rec_titlescreen.x && t_rec_settings.y == box_rec_titlescreen.y && t_rec_settings.width == box_rec_titlescreen.width &&
-            t_rec_settings.height == box_rec_titlescreen.height) {
-          currentscreen = GameScreen::PAUSEMENU;
-        }
-        if (t_rec_exit_game.x == box_rec_titlescreen.x && t_rec_exit_game.y == box_rec_titlescreen.y &&
-            t_rec_exit_game.width == box_rec_titlescreen.width && t_rec_exit_game.height == box_rec_titlescreen.height) {
-          DrawText("If you really want to exit the game press SPACE again", Game::ScreenWidth / 2 - 40 , Game::ScreenHeight / 2 + 60 , 10, WHITE);
-          SetExitKey(KEY_SPACE);
-        }
+    if (IsKeyPressed(KEY_SPACE)) {
+      if (t_rec_start.x == box_rec_titlescreen.x && t_rec_start.y == box_rec_titlescreen.y &&
+          t_rec_start.width == box_rec_titlescreen.width && t_rec_start.height == box_rec_titlescreen.height) {
+        currentscreen = GameScreen::OVERWORLD;
       }
-
+      if (t_rec_settings.x == box_rec_titlescreen.x && t_rec_settings.y == box_rec_titlescreen.y &&
+          t_rec_settings.width == box_rec_titlescreen.width && t_rec_settings.height == box_rec_titlescreen.height) {
+        currentscreen = GameScreen::PAUSEMENU;
+      }
+      if (t_rec_exit_game.x == box_rec_titlescreen.x && t_rec_exit_game.y == box_rec_titlescreen.y &&
+          t_rec_exit_game.width == box_rec_titlescreen.width && t_rec_exit_game.height == box_rec_titlescreen.height) {
+        exit(0);
+      }
+    }
 
     /** MOVE THE BOX */
-    if (IsKeyPressed(KEY_S))
-    { box_rec_titlescreen.y += 50; }
+    if (IsKeyPressed(KEY_S)) {
+      box_rec_titlescreen.y += 100;
+    }
 
-    if (IsKeyPressed(KEY_W))
-    { box_rec_titlescreen.y -= 50; }
+    if (IsKeyPressed(KEY_W)) {
+      box_rec_titlescreen.y -= 100;
+    }
 
-    if (box_rec_titlescreen.y < Game::ScreenHeight / 2 - 50) box_rec_titlescreen.y = Game::ScreenHeight / 2 - 50;
-    else if (box_rec_titlescreen.y > Game::ScreenHeight / 2 + 50) box_rec_titlescreen.y = Game::ScreenHeight / 2 + 50;
+    if (box_rec_titlescreen.y < Game::ScreenHeight / 2 - 50)
+      box_rec_titlescreen.y = Game::ScreenHeight / 2 - 50;
+    else if (box_rec_titlescreen.y > Game::ScreenHeight / 2 + 150)
+      box_rec_titlescreen.y = Game::ScreenHeight / 2 + 150;
 
     /** BUTTONS TITLESCREEN */
-    Draw9Slice(Box, t_rec_start, thickness, WHITE);
-    Draw9Slice(Box, t_rec_settings, thickness, WHITE);
-    Draw9Slice(Box, t_rec_exit_game, thickness, WHITE);
-    Draw9Slice(Box_S, box_rec_titlescreen, thickness, WHITE);
+    Draw9Slice(Box, t_rec_start, thick, WHITE);
+    Draw9Slice(Box, t_rec_settings, thick, WHITE);
+    Draw9Slice(Box, t_rec_exit_game, thick, WHITE);
+    Draw9Slice(Box_S, box_rec_titlescreen, thick, WHITE);
 
-    DrawText("START GAME", Game::ScreenWidth / 2 - 45 , Game::ScreenHeight / 2 - 40 , 10, WHITE);
-    DrawText("SETTINGS", Game::ScreenWidth / 2 - 40 , Game::ScreenHeight / 2 + 10, 10, WHITE);
-    DrawText("EXIT GAME", Game::ScreenWidth / 2 - 40 , Game::ScreenHeight / 2 + 60 , 10, WHITE);
+    DrawText("START GAME", Game::ScreenWidth / 2 - 115, Game::ScreenHeight / 2 - 30, 30, WHITE);
+    DrawText("SETTINGS", Game::ScreenWidth / 2 - 100, Game::ScreenHeight / 2 + 70, 30, WHITE);
+    DrawText("EXIT GAME", Game::ScreenWidth / 2 - 100, Game::ScreenHeight / 2 + 170, 30, WHITE);
 
     break;
 
