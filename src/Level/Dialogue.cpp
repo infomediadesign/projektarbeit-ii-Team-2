@@ -118,18 +118,17 @@ Game::Dialog::Dialog() {
 }
 
 void Game::Dialog::DialogStart() {
-  if (dialog_txt_file.is_open()) { // checking whether the file is open
 
-    if (IsKeyPressed(KEY_SPACE)) {
+  if (dialog_txt_file.is_open()) { // checking whether the file is open
       std::string dialog_str;
       std::string file_contents;
+
       while (std::getline(dialog_txt_file, dialog_str))
       {
         file_contents += dialog_str;
         file_contents.push_back('\n');
       }
         std::cout << dialog_str << "\n"; //print the data of the string
-    }
   }
 }
 
