@@ -45,8 +45,17 @@ void Collision::epanoxCollision() { // Epanox collision
   EpanoxCollision = CheckCollisionRecs(EpanoxRec, nemo->nemorec);
 
   while (EpanoxCollision) {
-    dialogactive = true;
+    //dialogactive = true;
     DrawText("[F]", nemo->NemoPosition.x + 10, nemo->NemoPosition.y - 10, 2, BLACK);
+    if (IsKeyPressed(KEY_F)) {
+      dialogbox = true;
+      break;
+    }
+    if (dialogbox) {
+      std::cout << "Dialog start" << endl;
+      DrawRectangle(nemo->NemoPosition.x - 190, nemo->NemoPosition.y + 100, 400, 100, GRAY);
+      break;
+    }
     break;
 
     /*
@@ -66,23 +75,6 @@ void Collision::epanoxCollision() { // Epanox collision
  }
  }
      */
-  }
-
-  while (dialogactive) {
-    if (IsKeyPressed(KEY_F)) {
-      dialogbox = true;
-      break;
-    }
-    if (IsKeyPressed(KEY_SPACE)) {
-      dialogbox = false;
-    }
-    break;
-  }
-
-  while (dialogbox) {
-    std::cout << "Dialog start" << endl;
-    DrawRectangle(nemo->NemoPosition.x - 220, nemo->NemoPosition.y + 100, 400, 100, GRAY);
-    break;
   }
 }
 

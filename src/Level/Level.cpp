@@ -254,9 +254,9 @@ void Game::Level::ScreenDraw() {
 
   case GameScreen::PAUSEMENU:
 
-    auto IsWindowFullscreen () -> bool;
+    ClearBackground(BLACK);
 
-    ClearBackground(BLUE);
+    DrawTexture(Titlescreen,0,0, WHITE);
 
     if (IsSoundPlaying(GameAudio::titlescreenmusic)){
       StopSound(GameAudio::titlescreenmusic);
@@ -278,11 +278,7 @@ void Game::Level::ScreenDraw() {
       if (t_rec_settings.x == box_rec_titlescreen.x && t_rec_settings.y == box_rec_titlescreen.y && t_rec_settings.width == box_rec_titlescreen.width &&
           t_rec_settings.height == box_rec_titlescreen.height) {
         std::cout << "Fullscreen on" << endl;
-
-        if ( !IsWindowFullscreen ) {
-          void MaximizeWindow(void);
-        }
-        void MinimizeWindow(void);
+        ToggleFullscreen();
       }
 
       // BACK
@@ -294,27 +290,27 @@ void Game::Level::ScreenDraw() {
 
       /** MOVE THE BOX */
       if (IsKeyPressed(KEY_S)) {
-        box_rec_titlescreen.y += 50;
+        box_rec_titlescreen.y += 100;
       }
 
       if (IsKeyPressed(KEY_W)) {
-        box_rec_titlescreen.y -= 50;
+        box_rec_titlescreen.y -= 100;
       }
 
       if (box_rec_titlescreen.y < Game::ScreenHeight / 2 - 50)
         box_rec_titlescreen.y = Game::ScreenHeight / 2 - 50;
-      else if (box_rec_titlescreen.y > Game::ScreenHeight / 2 + 50)
-        box_rec_titlescreen.y = Game::ScreenHeight / 2 + 50;
+      else if (box_rec_titlescreen.y > Game::ScreenHeight / 2 + 150)
+        box_rec_titlescreen.y = Game::ScreenHeight / 2 + 150;
 
       /** BUTTONS TITLESCREEN */
-      Draw9Slice(Box, t_rec_start, thickness, WHITE);
-      Draw9Slice(Box, t_rec_settings, thickness, WHITE);
-      Draw9Slice(Box, t_rec_exit_game, thickness, WHITE);
-      Draw9Slice(Box_S, box_rec_titlescreen, thickness, WHITE);
+      Draw9Slice(Box, t_rec_start, thick, WHITE);
+      Draw9Slice(Box, t_rec_settings, thick, WHITE);
+      Draw9Slice(Box, t_rec_exit_game, thick, WHITE);
+      Draw9Slice(Box_S, box_rec_titlescreen, thick, WHITE);
 
-      DrawText("TURN OFF/ON MUSIC", Game::ScreenWidth / 2 - 45, Game::ScreenHeight / 2 - 40, 10, WHITE);
-      DrawText("FULLSCREEN", Game::ScreenWidth / 2 - 40, Game::ScreenHeight / 2 + 10, 10, WHITE);
-      DrawText("BACK", Game::ScreenWidth / 2 - 40, Game::ScreenHeight / 2 + 60, 10, WHITE);
+      DrawText("MUSIC ON/OFF", Game::ScreenWidth / 2 - 117, Game::ScreenHeight / 2 - 30, 28, WHITE);
+      DrawText("FULLSCREEN", Game::ScreenWidth / 2 - 113, Game::ScreenHeight / 2 + 70, 30, WHITE);
+      DrawText("BACK", Game::ScreenWidth / 2 - 57, Game::ScreenHeight / 2 + 170, 30, WHITE);
 
       break;
 
