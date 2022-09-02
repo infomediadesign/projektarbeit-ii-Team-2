@@ -9,7 +9,7 @@ public:
 
   Texture2D ChestOpen = LoadTexture("assets/graphics/Items/OpenChest.png");
   Texture2D PuzzelTriangle = LoadTexture("assets/graphics/Items/DreieckBodenPlattenSenkung.png");
-  Texture2D HelmetItem     = LoadTexture("assets/graphics/Items/Helm.png");
+  Texture2D HelmetItem = LoadTexture("assets/graphics/Items/Helm.png");
   Texture2D DungeonFloorTile = LoadTexture("assets/graphics/Items/DungeonFloorPlate.png");
   Texture2D TriangleTrapDoor = LoadTexture("assets/graphics/Items/Druckplatte.png");
   Texture2D CircleTrapDoor = LoadTexture("assets/graphics/Items/CircleTrapDoor.png");
@@ -35,12 +35,6 @@ public:
   bool helmetIsDrawn = false;
 
   bool wallIsOpen = false;
-
-  void chest_collision();
-  void puzzle_collision1();
-  void puzzle_collision2();
-  void puzzle_collision3();
-  void helmet_collision();
 
   void collision();
 

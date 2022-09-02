@@ -63,14 +63,14 @@ void Puzzle::draw() {
 
   //chest draw
   if(chestIsDrawn){
-    DrawTexture(DungeonFloorTile, 609.5, 390, WHITE);
-    DrawTexture(ChestOpen, 609.5, 391, WHITE);
+    DrawTexture(DungeonFloorTile, 609, 385, WHITE);
+    DrawTexture(ChestOpen, 609, 386, WHITE);
   }
 
   //helmet draw
   if (helmetIsDrawn){
     //DrawTexture(HelmetItem, 574, 383.5, WHITE);
-    DrawTexture(HelmetItem, 609.5, 390, WHITE);
+    DrawTexture(HelmetItem, 574, 383.5, WHITE);
   }
   //helmet erase (when picked up)
   if (!helmetIsDrawn) {

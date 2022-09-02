@@ -77,6 +77,10 @@ void Game::Level::combat(Game::GameCharacter *c_enemy)
   else if (box_rec.x > 655) box_rec.x = 655;
   //==========================================
 
+
+  //PLAYER ENERGY
+  int energy = 2;
+
   //If a button is pressed
   if (input)
   {
@@ -164,12 +168,16 @@ void Game::Level::combat(Game::GameCharacter *c_enemy)
   //==================================TIME ATTACK END!!!==============================================
   if (c_enemy->getLives() <= 0)
   {
+    //delete enemy;
+
     DrawText("YOU WON!", 600, 320, 20, BLACK);
     timer = false;
     input = false;
   }
   else if (player->getLives() <= 0)
   {
+    // delete enemy;
+    // delete player;
     DrawText("YOU LOST!", 600, 320, 20, BLACK);
     timer = false;
     input = false;
@@ -285,103 +293,104 @@ void Game::Level::ScreenDraw() {
       }
     }
 
+      /** MOVE THE BOX */
+      if (IsKeyPressed(KEY_S)) {
+        box_rec_titlescreen.y += 50;
+      }
 
-    /** MOVE THE BOX */
-    if (IsKeyPressed(KEY_DOWN))
-    { box_rec_titlescreen.y += 50; }
+      if (IsKeyPressed(KEY_W)) {
+        box_rec_titlescreen.y -= 50;
+      }
 
-    if (IsKeyPressed(KEY_UP))
-    { box_rec_titlescreen.y -= 50; }
+      if (box_rec_titlescreen.y < Game::ScreenHeight / 2 - 50)
+        box_rec_titlescreen.y = Game::ScreenHeight / 2 - 50;
+      else if (box_rec_titlescreen.y > Game::ScreenHeight / 2 + 50)
+        box_rec_titlescreen.y = Game::ScreenHeight / 2 + 50;
 
-    if (box_rec_titlescreen.y < Game::ScreenHeight / 2 - 50) box_rec_titlescreen.y = Game::ScreenHeight / 2 - 50;
-    else if (box_rec_titlescreen.y > Game::ScreenHeight / 2 + 50) box_rec_titlescreen.y = Game::ScreenHeight / 2 + 50;
+      /** BUTTONS TITLESCREEN */
+      Draw9Slice(Box, t_rec_start, thickness, WHITE);
+      Draw9Slice(Box, t_rec_settings, thickness, WHITE);
+      Draw9Slice(Box, t_rec_exit_game, thickness, WHITE);
+      Draw9Slice(Box_S, box_rec_titlescreen, thickness, WHITE);
 
-    /** BUTTONS TITLESCREEN */
-    Draw9Slice(Box, t_rec_start, thickness, WHITE);
-    Draw9Slice(Box, t_rec_settings, thickness, WHITE);
-    Draw9Slice(Box, t_rec_exit_game, thickness, WHITE);
-    Draw9Slice(Box_S, box_rec_titlescreen, thickness, WHITE);
+      DrawText("TURN OFF/ON MUSIC", Game::ScreenWidth / 2 - 45, Game::ScreenHeight / 2 - 40, 10, WHITE);
+      DrawText("FULLSCREEN", Game::ScreenWidth / 2 - 40, Game::ScreenHeight / 2 + 10, 10, WHITE);
+      DrawText("BACK", Game::ScreenWidth / 2 - 40, Game::ScreenHeight / 2 + 60, 10, WHITE);
 
-    DrawText("TURN OFF/ON MUSIC", Game::ScreenWidth / 2 - 45 , Game::ScreenHeight / 2 - 40 , 10, WHITE);
-    DrawText("FULLSCREEN", Game::ScreenWidth / 2 - 40 , Game::ScreenHeight / 2 + 10, 10, WHITE);
-    DrawText("BACK", Game::ScreenWidth / 2 - 40 , Game::ScreenHeight / 2 + 60 , 10, WHITE);
+      break;
 
-    break;
+    case GameScreen::ENDSCREEN:
 
-  case GameScreen::ENDSCREEN:
+      ClearBackground(BLACK);
 
-    ClearBackground(BLACK);
+      if (IsKeyPressed(KEY_SPACE)) {
+        currentscreen = GameScreen::TITLESCREEN;
+      }
 
-    if(IsKeyPressed(KEY_SPACE)){
-      currentscreen = GameScreen::TITLESCREEN;
-    }
+      endscreen.update();
+      endscreen.draw();
+      break;
 
-    endscreen.update();
-    endscreen.draw();
-    break;
+    case GameScreen::OVERWORLD:
 
-  case GameScreen::OVERWORLD:
+      /** sounds */
+      if (IsSoundPlaying(GameAudio::titlescreenmusic)) {
+        StopSound(GameAudio::titlescreenmusic);
+      }
+      if (IsSoundPlaying(GameAudio::battlemusic)) {
+        StopSound(GameAudio::battlemusic);
+      }
+      if (IsSoundPlaying(GameAudio::indungeon)) {
+        StopSound(GameAudio::indungeon);
+      }
 
-    /** sounds */
-    if (IsSoundPlaying(GameAudio::titlescreenmusic)){
-      StopSound(GameAudio::titlescreenmusic);
-    }
-    if (IsSoundPlaying(GameAudio::battlemusic)){
-      StopSound(GameAudio::battlemusic);
-    }
-    if (IsSoundPlaying(GameAudio::indungeon)){
-      StopSound(GameAudio::indungeon);
-    }
+      if (!IsSoundPlaying(GameAudio::outdungeon)) {
+        PlaySound(GameAudio::outdungeon);
+        SetSoundVolume(GameAudio::outdungeon, float(0.1));
+      }
+      if (IsSoundPlaying(GameAudio::outdungeon)) {}
 
+      /** update */
+      if (IsKeyPressed(KEY_P)) {
+        level->currentscreen = Game::Level::GameScreen::PAUSEMENU;
+      }
+      /** draw */
+      ClearBackground(BLACK);
 
-    if(!IsSoundPlaying(GameAudio::outdungeon)){
-      PlaySound(GameAudio::outdungeon);
-      SetSoundVolume(GameAudio::outdungeon, float(0.1));
-    }
-    if (IsSoundPlaying(GameAudio::outdungeon)){}
+      break;
 
-    /** update */
-    if (IsKeyPressed(KEY_P)){
-      level->currentscreen = Game::Level::GameScreen::PAUSEMENU;
-    }
-    /** draw */
-    ClearBackground(BLACK);
+    case GameScreen::PYRAMIDE:
 
+      if (IsSoundPlaying(GameAudio::battlemusic)) {
+        StopSound(GameAudio::battlemusic);
+      }
+      if (IsSoundPlaying(GameAudio::outdungeon)) {
+        StopSound(GameAudio::outdungeon);
+      }
 
-    break;
+      if (!IsSoundPlaying(GameAudio::indungeon)) {
+        PlaySound(GameAudio::indungeon);
+        SetSoundVolume(GameAudio::indungeon, float(0.1));
+      }
+      if (IsSoundPlaying(GameAudio::indungeon)) {}
+      break;
 
-  case GameScreen::PYRAMIDE:
+    case GameScreen::COMBAT:
 
-    if (IsSoundPlaying(GameAudio::battlemusic)){
-      StopSound(GameAudio::battlemusic);
-    }
-    if (IsSoundPlaying(GameAudio::outdungeon)){
-      StopSound(GameAudio::outdungeon);
-    }
+      bool inCombat;
 
-    if(!IsSoundPlaying(GameAudio::indungeon)){
-      PlaySound(GameAudio::indungeon);
-      SetSoundVolume(GameAudio::indungeon, float(0.1));
-    }
-    if (IsSoundPlaying(GameAudio::indungeon)){}
-    break;
+      if (IsSoundPlaying(GameAudio::indungeon)) {
+        StopSound(GameAudio::indungeon);
+      }
+      if (IsSoundPlaying(GameAudio::outdungeon)) {
+        StopSound(GameAudio::outdungeon);
+      }
 
-  case GameScreen::COMBAT:
-
-    bool inCombat;
-
-    if (IsSoundPlaying(GameAudio::indungeon)){
-      StopSound(GameAudio::indungeon);
-    }
-    if (IsSoundPlaying(GameAudio::outdungeon)){
-      StopSound(GameAudio::outdungeon);
-    }
-
-    if(!IsSoundPlaying(GameAudio::battlemusic)){
-      PlaySound(GameAudio::battlemusic);
-      SetSoundVolume(GameAudio::battlemusic, float(0.1));
-    }
-    if (IsSoundPlaying(GameAudio::battlemusic)){}
+      if (!IsSoundPlaying(GameAudio::battlemusic)) {
+        PlaySound(GameAudio::battlemusic);
+        SetSoundVolume(GameAudio::battlemusic, float(0.1));
+      }
+      if (IsSoundPlaying(GameAudio::battlemusic)) {}
 
       /*if (inCombat)
       {
@@ -389,26 +398,26 @@ void Game::Level::ScreenDraw() {
         SetSoundVolume(GameAudio::battlemusic, float(1.0)); // Set volume for a sound (1.0 is max level) This is a test
       }
 */
-  //=====================================DRAWING THE PLAYER AND ENEMY===================================================
-    DrawTexture(Battlescreen, GetScreenWidth()/2 - 350, GetScreenHeight()/2 - 180, WHITE);
+      //=====================================DRAWING THE PLAYER AND ENEMY===================================================
+      DrawTexture(Battlescreen, GetScreenWidth() / 2 - 350, GetScreenHeight() / 2 - 180, WHITE);
 
-    //Timer
-    DrawText(TextFormat("Time: %i", framescounter), player->set_rec().x + 100, player->set_rec().y, 20, GREEN);
-    DrawFPS(player->set_rec().x + 200, player->set_rec().y);
+      // Timer
+      DrawText(TextFormat("Time: %i", framescounter), player->set_rec().x + 100, player->set_rec().y, 20, GREEN);
+      DrawFPS(player->set_rec().x + 200, player->set_rec().y);
 
-    //=========================Blue TIMER===================================
-    //Draw Blue Clock
-    Bluerec = {440, 500, 32, 32};
-    DrawRectangleRec( Bluerec, Color{});
-    DrawTextureRec(Blue_Clock, BlueClockFrameRec, {440, 470}, WHITE);
+      //=========================Blue TIMER===================================
+      // Draw Blue Clock
+      Bluerec = { 440, 500, 32, 32 };
+      DrawRectangleRec(Bluerec, Color {});
+      DrawTextureRec(Blue_Clock, BlueClockFrameRec, { 440, 470 }, WHITE);
       BlueClockFrameRec.x = (float)b_currentFrame * (float)Blue_Clock.width / 4;
       //=======================Blue TIMER END=================================
 
       //=========================Red TIMER===================================
-      //Draw Blue Clock
-      Redrec = {790, 500, 32, 32};
-      DrawRectangleRec( Redrec, Color{});
-      DrawTextureRec(Red_Clock, RedClockFrameRec, {790, 470}, WHITE);
+      // Draw Blue Clock
+      Redrec = { 790, 500, 32, 32 };
+      DrawRectangleRec(Redrec, Color {});
+      DrawTextureRec(Red_Clock, RedClockFrameRec, { 790, 470 }, WHITE);
       RedClockFrameRec.x = (float)r_currentFrame * (float)Red_Clock.width / 4;
       //=======================Red TIMER END=================================
 
@@ -430,8 +439,7 @@ void Game::Level::ScreenDraw() {
         damaged(pharaoh);
         break;
 
-      default:
-        break;
+      default: break;
       }
 
       DrawText(TextFormat("ENERGY: %i", energy), 500, 300, 20, BLACK);
@@ -444,12 +452,12 @@ void Game::Level::ScreenDraw() {
     DrawText("ATTACK",t_rec_attack.x + 5, t_rec_attack.y + 10, 17, WHITE);
     DrawText("TIME",t_rec_time.x + 15, t_rec_time.y + 10, 17, WHITE);
     DrawText("ITEM",t_rec_item.x + 15, t_rec_item.y + 10, 17, WHITE);
-    DrawText("ESCAPE",t_rec_escape.x + 5, t_rec_escape.y + 10, 17, WHITE);
+    DrawText("ESCAPE",t_rec_escape.x + 5, t_rec_escape.y + 10, 17, WHITE)
 
-
-    break;
+      break;
+    }
   }
-}
+
 //======================================================================================================================
 
 void Game::Level::Teleport() {
