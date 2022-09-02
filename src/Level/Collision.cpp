@@ -51,10 +51,10 @@ void Collision::epanoxCollision() { // Epanox collision
       break;
     }
     if (dialogbox) {
-
-      DrawRectangle(nemo->NemoPosition.x - 190, nemo->NemoPosition.y + 100, 400, 100, GRAY);
+      //DrawRectangle(nemo->NemoPosition.x - 190, nemo->NemoPosition.y + 100, 400, 100, DARKGRAY);
+      DrawRectangle(827,561, 400, 100, DARKGRAY);
       std::cout << "Dialog start" << endl;
-      dialog->DialogStart();
+      dialog.DialogStart();
       break;
     }
     break;

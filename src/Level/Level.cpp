@@ -346,6 +346,11 @@ void Game::Level::ScreenDraw() {
       if (IsSoundPlaying(GameAudio::outdungeon)) {}
 
       /** update */
+      if (IsKeyPressed(KEY_C))
+      {
+        std::cout << "X: " << nemo->NemoPosition.x << endl;
+        std::cout << "Y: " << nemo->NemoPosition.y << endl;
+      }
       if (IsKeyPressed(KEY_P)) {
         level->currentscreen = Game::Level::GameScreen::PAUSEMENU;
       }
@@ -368,6 +373,8 @@ void Game::Level::ScreenDraw() {
         SetSoundVolume(GameAudio::indungeon, float(0.1));
       }
       if (IsSoundPlaying(GameAudio::indungeon)) {}
+
+
       break;
 
     case GameScreen::COMBAT:

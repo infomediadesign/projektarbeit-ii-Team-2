@@ -41,12 +41,11 @@ private:
 namespace Game {
   class Dialog {
   public:
-    std::fstream dialog_txt_file;
+
+    Vector2 text_position = {850,600};
 
     Dialog();
-
     void DialogStart();
-
     ~Dialog();
   };
 }

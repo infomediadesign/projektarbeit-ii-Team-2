@@ -12,7 +12,7 @@ public:
   Game::Level * level;
   Map * map;
 
-  Game::Dialog * dialog;
+  Game::Dialog dialog;
 
   Rectangle rectangleObject    = {};
   Rectangle rectangleCollision = {};

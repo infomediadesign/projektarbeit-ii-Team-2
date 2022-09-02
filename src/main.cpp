@@ -22,9 +22,13 @@
 
 /** Project = Custodia - Trapped in time */
 
-//TODO Collision with Walls aint working when, active my game crashes ( Collision.cpp )
+//TODO Collision with Walls aint working when, active my game crashes ( Collision.cpp )!!!!!!!!!
+
 //TODO find a way to make the sound faster/ slower to fit Nemos movements!!! (Nemo.cpp / update func line.13) -> in audacity manualy
-//TODO Dialog from the Dialog-tree into Text on screen not console (Dialog.h/cpp)
+
+//TODO Dialog (Dialog.h/cpp)
+
+//TODO theres a teleport in the pyramid that put you back to the spawn of the pyramid... find it and delete it
 
 
 int main() {
@@ -182,6 +186,8 @@ int main() {
 
       ui.Draw(); // controlls description
 
+      DrawFPS(nemo.NemoPosition.x - 280, nemo.NemoPosition.y - 150);
+
       //teleport into pyramid
       level.Teleport();
       DrawRectangleRec(level.teleportrecOVERWORLDtoPYRAMID, Color{});
@@ -311,6 +317,7 @@ int main() {
       break;
 
     case Game::Level::GameScreen::COMBAT:
+      camera.zoom     = 2.0f;
 
       nemo.active = false; // Nemo is set to false, so that he is not drawn in the Combat screen.
       camera.target =

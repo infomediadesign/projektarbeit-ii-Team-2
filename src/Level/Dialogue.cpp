@@ -114,25 +114,15 @@ void Dialogue::start() {
 }
 */
 Game::Dialog::Dialog() {
-  dialog_txt_file.open("assets/dialog_test_text.txt", std::ios::in); // open a file to perform read operation using file
+
 }
 
 void Game::Dialog::DialogStart() {
-
-  if (dialog_txt_file.is_open()) { // checking whether the file is open
-      std::string dialog_str;
-      std::string file_contents;
-
-      while (std::getline(dialog_txt_file, dialog_str))
-      {
-        file_contents += dialog_str;
-        file_contents.push_back('\n');
-      }
-        std::cout << dialog_str << "\n"; //print the data of the string
-  }
+  //DrawTextEx("FontType", "",text_position, 20.0, 0, WHITE);
+  DrawText("Welcome to Narnia", text_position.x, text_position.y,30,WHITE);
 }
 
 Game::Dialog::~Dialog() {
-  dialog_txt_file.close();
+
 }
 

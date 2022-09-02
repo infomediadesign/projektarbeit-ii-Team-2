@@ -2,7 +2,7 @@
 
 void Game::UI::Draw() {
 
-  DrawFPS(10, 10);
+  /*DrawFPS(10, 10);
 
   DrawText("***********************Controlls**************************", 10, 40, 10, BLACK);
   DrawText("*-> Move with W,A,S,D", 10, 50, 10, BLACK); // x, y , size of text
@@ -10,7 +10,7 @@ void Game::UI::Draw() {
   DrawText("*-> Exit game with ESC", 10, 60, 10, BLACK);
   DrawText("*-> toggle between windowed mode and fullscreen mode press F", 10, 80, 10, BLACK);
   DrawText("*********************************************************", 10, 90, 10, BLACK);
+   */
 }
-void Game::UI::DialogDraw() {
 
-}
+
