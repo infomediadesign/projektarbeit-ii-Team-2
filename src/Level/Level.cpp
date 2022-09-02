@@ -452,7 +452,7 @@ void Game::Level::ScreenDraw() {
     DrawText("ATTACK",t_rec_attack.x + 5, t_rec_attack.y + 10, 17, WHITE);
     DrawText("TIME",t_rec_time.x + 15, t_rec_time.y + 10, 17, WHITE);
     DrawText("ITEM",t_rec_item.x + 15, t_rec_item.y + 10, 17, WHITE);
-    DrawText("ESCAPE",t_rec_escape.x + 5, t_rec_escape.y + 10, 17, WHITE)
+    DrawText("ESCAPE",t_rec_escape.x + 5, t_rec_escape.y + 10, 17, WHITE);
 
       break;
     }
