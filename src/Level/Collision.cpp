@@ -71,15 +71,16 @@ void Collision::epanoxCollision() { // Epanox collision
   while (dialogactive) {
     if (IsKeyPressed(KEY_F)) {
       dialogbox = true;
-      std::cout << "Dialog start" << endl;
+      break;
     }
-    if (IsKeyPressed(KEY_F)) {
+    if (IsKeyPressed(KEY_SPACE)) {
       dialogbox = false;
     }
     break;
   }
 
   while (dialogbox) {
+    std::cout << "Dialog start" << endl;
     DrawRectangle(nemo->NemoPosition.x - 220, nemo->NemoPosition.y + 100, 400, 100, GRAY);
     break;
   }

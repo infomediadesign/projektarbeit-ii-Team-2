@@ -84,11 +84,11 @@ namespace Game {
 
     void Draw();
 
-    Rectangle box_rec_titlescreen = {ScreenWidth / 2 - 50 , Game::ScreenHeight / 2 - 50, 78, 32};
-    Rectangle t_rec_start = {ScreenWidth / 2 - 50, Game::ScreenHeight / 2 - 50, 78, 32};
-    Rectangle t_rec_settings = {ScreenWidth / 2 - 50 , Game::ScreenHeight / 2, t_rec_start.width, t_rec_start.height};
-    Rectangle t_rec_exit_game = {ScreenWidth / 2 - 50, Game::ScreenHeight / 2 + 50, t_rec_start.width, t_rec_start.height};
-
+    Rectangle box_rec_titlescreen = {ScreenWidth / 2 - 130 , Game::ScreenHeight / 2 - 50, 234, 64};
+    Rectangle t_rec_start = {ScreenWidth / 2 - 130, Game::ScreenHeight / 2 - 50, 234, 64};
+    Rectangle t_rec_settings = {ScreenWidth / 2 - 130 , Game::ScreenHeight / 2 + 50, t_rec_start.width, t_rec_start.height};
+    Rectangle t_rec_exit_game = {ScreenWidth / 2 - 130, Game::ScreenHeight / 2 + 150, t_rec_start.width, t_rec_start.height};
+    float thick = 30;
 
     Rectangle t_rec_attack = {565, 470, 78, 32};
     Rectangle box_rec = {565, 470, 78, 32};
