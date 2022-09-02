@@ -133,6 +133,8 @@ void Game::Level::combat(Game::GameCharacter *c_enemy)
         }
       }
 
+      //==============================TIME ATTACK!!!!====================
+
       if (t_rec_time.x == box_rec.x && t_rec_time.y == box_rec.y && t_rec_time.width == box_rec.width &&
           t_rec_time.height == box_rec.height)
       {
@@ -140,7 +142,7 @@ void Game::Level::combat(Game::GameCharacter *c_enemy)
         {
           c_enemy->getDamage(player->attack());
           c_enemy->getDamage(player->attack());
-          e_damaged = true;
+          T_damaged = true;
           e_framescounter++;
           energy--;
         }
@@ -159,6 +161,7 @@ void Game::Level::combat(Game::GameCharacter *c_enemy)
       }
     }
   }
+  //==================================TIME ATTACK END!!!==============================================
   if (c_enemy->getLives() <= 0)
   {
     DrawText("YOU WON!", 600, 320, 20, BLACK);
@@ -474,7 +477,7 @@ void Game::Level::Teleport() {
     nemo->NemoPosition.x = doorPositionX + 20;
     nemo->NemoPosition.y = doorPositionY + 60;
   }
-
+  /*
   if (teleportcollisionPYRAMIDtoOCEAN) { //if the collsion bool is true, nemo is transported to PYRAMIDE
     level->currentscreen = Game::Level::GameScreen::ENDSCREEN;
   }
@@ -482,6 +485,7 @@ void Game::Level::Teleport() {
   if (teleportcollisionOCEANtoEND) {
     level->currentscreen = Game::Level::GameScreen::TITLESCREEN;
   }
+   */
 }
 
 Game::Level::~Level()

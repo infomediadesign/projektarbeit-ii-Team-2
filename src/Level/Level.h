@@ -51,6 +51,7 @@ namespace Game {
     int p_framescounter;
     int e_framescounter;
     bool p_damaged = false;
+    bool T_damaged = false;
     bool e_damaged = false;
 
     //teleport stuff
@@ -157,6 +158,19 @@ namespace Game {
           p_framescounter = 0;
           p_damaged = false;
         }
+      }
+
+      if (T_damaged)
+      {
+        e_framescounter++;
+
+        DrawText(TextFormat("- %i", (player->getStrength() * 2) - enemy_->getDefense() - 2),enemy_->set_rec().x - 40,enemy_->set_rec().y,20,RED);
+
+        if (((e_framescounter / 60) % 2) == 1) {
+          e_framescounter = 0;
+          T_damaged       = false;
+        }
+
       }
 
       //Drawing the Enemy Damage received number
