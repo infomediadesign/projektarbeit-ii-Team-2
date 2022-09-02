@@ -1,5 +1,6 @@
 #include "Dialogue.h"
 
+/*
 DialogueNode::DialogueNode(string Text) {
   text = Text;
 }
@@ -26,7 +27,7 @@ void Dialogue::init()
   if (IsKeyDown(KEY_SPACE)) framesCounter += 8;
   else framesCounter++;
 
-  if (IsKeyPressed(KEY_ENTER)) framesCounter = 0;*/
+  if (IsKeyPressed(KEY_ENTER)) framesCounter = 0;
 
   DialogueNode *node0 = new DialogueNode("Welcome Nemo, I'm guessing this is your first time-travel?");
   //DialogueNode *node0 = new DialogueNode("Welcome Nemo, I'm guessing this is your first time-travel?");
@@ -111,3 +112,28 @@ int Dialogue::performDialogue()
 void Dialogue::start() {
   DrawText("Welcome to Custodia", 958, 593 , 10, BLACK);
 }
+*/
+Game::Dialog::Dialog() {
+  dialog_txt_file.open("assets/dialog_test_text.txt", std::ios::in); // open a file to perform read operation using file
+}
+
+void Game::Dialog::DialogStart() {
+  if (dialog_txt_file.is_open()) { // checking whether the file is open
+
+    if (IsKeyPressed(KEY_SPACE)) {
+      std::string dialog_str;
+      std::string file_contents;
+      while (std::getline(dialog_txt_file, dialog_str))
+      {
+        file_contents += dialog_str;
+        file_contents.push_back('\n');
+      }
+        std::cout << dialog_str << "\n"; //print the data of the string
+    }
+  }
+}
+
+Game::Dialog::~Dialog() {
+  dialog_txt_file.close();
+}
+

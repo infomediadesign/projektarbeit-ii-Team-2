@@ -45,7 +45,6 @@ void Collision::epanoxCollision() { // Epanox collision
   EpanoxCollision = CheckCollisionRecs(EpanoxRec, nemo->nemorec);
 
   while (EpanoxCollision) {
-    //dialogactive = true;
     DrawText("[F]", nemo->NemoPosition.x + 10, nemo->NemoPosition.y - 10, 2, BLACK);
     if (IsKeyPressed(KEY_F)) {
       dialogbox = true;

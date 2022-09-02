@@ -1,6 +1,7 @@
 #pragma once
 #include "../INCLUDES.h"
 
+/*
 using namespace std;
 
 class DialogueNode;
@@ -36,3 +37,16 @@ private:
   vector<DialogueNode *> dialogueNodes;
 };
 
+*/
+namespace Game {
+  class Dialog {
+  public:
+    std::fstream dialog_txt_file;
+
+    Dialog();
+
+    void DialogStart();
+
+    ~Dialog();
+  };
+}

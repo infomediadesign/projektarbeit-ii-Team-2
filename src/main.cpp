@@ -46,7 +46,6 @@ int main() {
   //--------------------------------------------------------------------------------------------
 
   Collision collision;
-  Dialogue dialogue;
   Puzzle puzzle;
   Map map;
 
