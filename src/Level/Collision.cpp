@@ -85,6 +85,8 @@ void Collision::epanoxCollision() { // Epanox collision
   }
 }
 
-void Collision::draw() {}
+void Collision::draw() {
+
+}
 
 
