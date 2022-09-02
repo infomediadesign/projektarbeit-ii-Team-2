@@ -2,6 +2,7 @@
 #include "../Level/Level.h"
 #include "../Level/Map.h"
 #include "../Player/Nemo.h"
+#include "../Level/Dialogue.h"
 
 class Collision {
 private:
@@ -10,6 +11,8 @@ public:
   Game::Nemo * nemo;
   Game::Level * level;
   Map * map;
+
+  Game::Dialog * dialog;
 
   Rectangle rectangleObject    = {};
   Rectangle rectangleCollision = {};
