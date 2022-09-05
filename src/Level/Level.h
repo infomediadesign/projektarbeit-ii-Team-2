@@ -69,7 +69,6 @@ namespace Game {
     bool teleportcollisionOVERWORLDtoPYRAMID = true;
     bool teleportcollisionPYRAMIDtoOVERWORLD = true;
     bool teleportcollisionPYRAMIDtoENDSCREEN = true;
-    bool teleportcollisionOCEANtoEND = true;
 
     void combat(GameCharacter *c_enemy);
 

@@ -55,6 +55,7 @@ void Puzzle::update() {
       if(chestIsDrawn){
         helmetIsDrawn = true;
         keyIsDrawn = true;
+        Chest = {};
         break;
       }
       break;
@@ -70,6 +71,7 @@ void Puzzle::update() {
       chest2IsDrawn = true;
       if(chest2IsDrawn){
         chestplateIsDrawn = true;
+        Chest2 = {};
         break;
       }
       break;
@@ -85,6 +87,7 @@ void Puzzle::update() {
       chest3IsDrawn = true;
       if(chest3IsDrawn){
         hpPotionIsDrawn = true;
+        Chest3 = {};
         break;
       }
       break;
@@ -98,6 +101,7 @@ void Puzzle::update() {
     std::cout << "you picked up a helmet" << std::endl;
 
     helmetIsDrawn = false;
+    Helmet = {};
   }
 
   //chestplate update
@@ -105,6 +109,7 @@ void Puzzle::update() {
     std::cout << "you picked up a chestplate" << std::endl;
 
     chestplateIsDrawn = false;
+    Chestplate = {};
   }
 
   //hp potion update
@@ -112,6 +117,7 @@ void Puzzle::update() {
     std::cout << "you picked up a hp potion" << std::endl;
 
     hpPotionIsDrawn = false;
+    HpPotion = {};
   }
 
   //key update
@@ -120,6 +126,7 @@ void Puzzle::update() {
 
     keyIsDrawn = false;
     isKeyPickedUp = true;
+    Key = {};
   }
 
   /** Update Puzzle */
