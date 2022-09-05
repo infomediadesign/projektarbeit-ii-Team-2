@@ -25,13 +25,13 @@ namespace Game {
     Texture2D Titlescreen = LoadTexture("assets/graphics/titlepic.png");
     Texture2D Pausescreen = LoadTexture("assets/graphics/backgrounds/testtitlescreen.png");
     Texture2D TitlescreenText = LoadTexture("assets/graphics/Titel1.png");
+    Texture2D spr_Battery = LoadTexture("assets/graphics/BattleScreen/Agypten/Batterieanzeige-Sheet.png");
 
 //Class initialization
 
-    int energy = 2;
+
 
     unique_ptr<GameCharacter> player = std::make_unique<Player>();
-    // unique_ptr<GameCharacter> shadow = std::make_unique<Shadow>();
 
     GameCharacter *enemy          = new Mumy();
     GameCharacter *shadow         = new Shadow();
@@ -39,6 +39,20 @@ namespace Game {
     Nemo *nemo                    = new Nemo();
     //Level *level                = new Level();
     //UI *ui                      = new UI();
+
+    //===================ENERGY BATTERY======================================
+    int energy = 2;
+    Rectangle batteryrec1 = {0, 0, (float)spr_Battery.width/2, (float)spr_Battery.height};
+    int b1_c_frame = 0;
+    Rectangle B1rec = {};
+
+
+    Rectangle batteryrec2 = {0, 0, (float)spr_Battery.width/2, (float)spr_Battery.height};
+    int b2_c_frame = 0;
+    Rectangle B2rec = {};
+
+    //===================END ENERGY BATTERY==================================
+
 
     Game::Level *level;
     Game::Sprite *spr;

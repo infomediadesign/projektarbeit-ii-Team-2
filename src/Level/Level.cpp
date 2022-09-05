@@ -448,8 +448,33 @@ void Game::Level::ScreenDraw() {
       default: break;
       }
 
+      //==================DEBUG====================================================
       DrawText(TextFormat("ENERGY: %i", energy), 500, 300, 20, BLACK);
-      DrawText(TextFormat("Heal Amount: %i", h_amount), 500, 320, 20, BLACK);
+      //DrawText(TextFormat("Heal Amount: %i", h_amount), 500, 320, 20, BLACK);
+      //DrawTexture(spr_Battery, 500, 300, WHITE);
+
+      //==================================DRAWING BATTERY!!!!====================================================
+      B1rec = {player->set_rec().x - 60, player->set_rec().y - 130, 48, 48};
+      DrawRectangleRec(B1rec, Color{});
+      DrawTextureRec(spr_Battery,batteryrec1, {player->set_rec().x - 60, player->set_rec().y - 130}, WHITE);
+      batteryrec1.x = (float)b1_c_frame * (float)spr_Battery.width / 2;
+
+      if (energy <= 1)
+      {
+        b2_c_frame = 1;
+      }
+
+      if (energy == 0)
+      {
+        b1_c_frame = 1;
+      }
+
+      B2rec = {player->set_rec().x + 10, player->set_rec().y - 130, 48, 48};
+      DrawRectangleRec(B2rec, Color{});
+      DrawTextureRec(spr_Battery,batteryrec2, {player->set_rec().x + 10, player->set_rec().y - 130}, WHITE);
+      batteryrec2.x = (float)b2_c_frame * (float)spr_Battery.width / 2;
+      //=================================DRAWING BATTERY END!!!!=================================================
+
 
     Draw9Slice(Box, t_rec_attack, thickness, WHITE);
     Draw9Slice(Box, t_rec_time, thickness, WHITE);
