@@ -29,6 +29,7 @@
 //TODO Dialog (Dialog.h/cpp)
 
 //TODO theres a teleport in the pyramid that put you back to the spawn of the pyramid... find it and delete it
+//-> its the teleport from the outside that is still active when inside the pyramide
 
 
 int main() {
@@ -190,7 +191,8 @@ int main() {
 
       //teleport into pyramid
       level.Teleport();
-      DrawRectangleRec(level.teleportrecOVERWORLDtoPYRAMID, Color{});
+      //DrawRectangleRec(level.teleportrecOVERWORLDtoPYRAMID, Color{});
+      DrawRectangleRec(level.teleportrecOVERWORLDtoPYRAMID, RED);
 
       break;
 
@@ -298,9 +300,9 @@ int main() {
       camera.target = Vector2 { nemo.NemoPosition.x + 20.0f, nemo.NemoPosition.y + 20.0f };
 
       //teleport back to overworld
-      level.Teleport();
-      DrawRectangleRec(level.teleportrecPYRAMIDtoOVERWORLD, Color{});
-      DrawRectangleRec(level.teleportrecPYRAMIDtoOCEAN, Color{});
+      //level.Teleport();
+      DrawRectangleRec(level.teleportrecPYRAMIDtoOVERWORLD, BLUE);
+      DrawRectangleRec(level.teleportrecPYRAMIDtoOCEAN, GREEN);
 
       map.update();
       //collision.update(); //TODO the rectangle doesnt have anything init which doesnt alway it to collide with anything... theres an error and the game crashes
@@ -339,8 +341,7 @@ int main() {
 
 
   level.~Level();
-
-  puzzle.unloadTextures();
+  puzzle.~Puzzle();
 
   CloseAudioDevice(); // Close audio device
 

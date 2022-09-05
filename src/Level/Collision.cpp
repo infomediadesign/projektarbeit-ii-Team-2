@@ -3,7 +3,6 @@
 void Collision::update() { ;
 
   /** Check collision between Nemo and Wall/ Interactables... */
-
   wallCollision = false;
   for (auto &rect : map->collisionRectangles) { //change the vector into a rectangle
     if (CheckCollisionRecs(rect, nemo->nemorec)) { //check the collision between said rectangle and nemo
@@ -37,6 +36,9 @@ void Collision::update() { ;
       SetSoundVolume(GameAudio::collision, float(0.07));
     }
   }
+
+
+
 }
 
 void Collision::epanoxCollision() { // Epanox collision
