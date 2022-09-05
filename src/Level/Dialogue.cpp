@@ -113,16 +113,64 @@ void Dialogue::start() {
   DrawText("Welcome to Custodia", 958, 593 , 10, BLACK);
 }
 */
-Game::Dialog::Dialog() {
-
-}
+Game::Dialog::Dialog() {}
 
 void Game::Dialog::DialogStart() {
   //DrawTextEx("FontType", "",text_position, 20.0, 0, WHITE);
-  DrawText("Welcome to Narnia", text_position.x, text_position.y,30,WHITE);
+  //DrawText("Welcome to Narnia", text_position.x, text_position.y,30,WHITE);
+
+  /*std::fstream dialog_txt_file;
+
+  // open a file to perform read operation using file
+  dialog_txt_file.open("assets/dialog_test_text.txt", std::ios::in);
+
+  // checking whether the file is open
+  if (dialog_txt_file.is_open()) {
+    if (IsKeyPressed(KEY_SPACE)) {
+      std::string text;
+      while (getline(dialog_txt_file, text)) { // read data from file object and put it into string.
+        std::cout << text << "\n"; //print the data of the string
+        //DrawText(text, text_position.x, text_position.y, 10, WHITE);
+      }
+      dialog_txt_file.close(); // close the file object.
+    }
+  }*/
+
+  textState = 0;
+
+  if (IsKeyPressed(KEY_SPACE) && textState == 0) {
+    textState = 1;
+  }
+  else if (IsKeyPressed(KEY_SPACE) && textState == 1) {
+    textState = 2;
+  }
+  else if (IsKeyPressed(KEY_SPACE) && textState == 2) {
+    textState = 3;
+  }
+  else if (IsKeyPressed(KEY_SPACE) && textState == 3) {
+    textState = 0;
+  }
+
+ // if (IsKeyPressed(KEY_SPACE)){ textState + 1; }
+
+  switch (textState) {
+  default:
+    break;
+  case 1: DrawText("Line 1", 850,600, 10, WHITE);
+    break;
+  case 2: DrawText("Line 2", 850,600, 10, WHITE);
+    break;
+  case 3: DrawText("Line 3", 850,600, 10, WHITE);
+    break;
+  case 4: text = false;
+    break;
+  }
 }
 
-Game::Dialog::~Dialog() {
 
-}
 
+void Game::Dialog::DialogNext() {}
+
+void Game::Dialog::DialogEnd() {}
+
+Game::Dialog::~Dialog() {}

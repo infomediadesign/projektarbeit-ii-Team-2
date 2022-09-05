@@ -44,8 +44,13 @@ namespace Game {
 
     Vector2 text_position = {850,600};
 
+    int textState;
+    bool text = false;
+
     Dialog();
     void DialogStart();
+    void DialogNext();
+    void DialogEnd();
     ~Dialog();
   };
 }

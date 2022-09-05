@@ -24,6 +24,9 @@ public:
   bool dialogactive = false;
   bool dialogbox = false;
 
+  int textState = 1;
+  bool text = false;
+
   void epanoxCollision();
   void update();
   void draw();

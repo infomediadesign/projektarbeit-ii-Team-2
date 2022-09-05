@@ -363,6 +363,7 @@ void Game::Level::ScreenDraw() {
         level->currentscreen = Game::Level::GameScreen::PAUSEMENU;
       }
 
+
       //teleport conditions
       if (teleportcollisionOVERWORLDtoPYRAMID) { //if the collision bool is true, nemo is transported to PYRAMIDE
         level->currentscreen = Game::Level::GameScreen::PYRAMIDE;

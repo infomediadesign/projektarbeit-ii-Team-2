@@ -191,8 +191,8 @@ int main() {
 
       //teleport into pyramid
       level.Teleport();
-      //DrawRectangleRec(level.teleportrecOVERWORLDtoPYRAMID, Color{});
-      DrawRectangleRec(level.teleportrecOVERWORLDtoPYRAMID, RED);
+      DrawRectangleRec(level.teleportrecOVERWORLDtoPYRAMID, Color{});
+      //DrawRectangleRec(level.teleportrecOVERWORLDtoPYRAMID, RED);
 
       break;
 
@@ -301,8 +301,8 @@ int main() {
 
       //teleport back to overworld
       level.Teleport();
-      DrawRectangleRec(level.teleportrecPYRAMIDtoOVERWORLD, BLUE);
-      DrawRectangleRec(level.teleportrecPYRAMIDtoENDSCREEN, GREEN);
+      DrawRectangleRec(level.teleportrecPYRAMIDtoOVERWORLD, Color{});
+      DrawRectangleRec(level.teleportrecPYRAMIDtoENDSCREEN, Color{});
 
       map.update();
       //collision.update(); //TODO the rectangle doesnt have anything init which doesnt alway it to collide with anything... theres an error and the game crashes

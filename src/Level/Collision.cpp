@@ -36,9 +36,6 @@ void Collision::update() { ;
       SetSoundVolume(GameAudio::collision, float(0.07));
     }
   }
-
-
-
 }
 
 void Collision::epanoxCollision() { // Epanox collision
@@ -46,38 +43,40 @@ void Collision::epanoxCollision() { // Epanox collision
   // Check collision between Nemo and Epanox
   EpanoxCollision = CheckCollisionRecs(EpanoxRec, nemo->nemorec);
 
-  while (EpanoxCollision) {
+
+  if (EpanoxCollision) {
     DrawText("[F]", nemo->NemoPosition.x + 10, nemo->NemoPosition.y - 10, 2, BLACK);
     if (IsKeyPressed(KEY_F)) {
-      dialogbox = true;
-      break;
+      text = true;
     }
-    if (dialogbox) {
-      //DrawRectangle(nemo->NemoPosition.x - 190, nemo->NemoPosition.y + 100, 400, 100, DARKGRAY);
-      DrawRectangle(827,561, 400, 100, DARKGRAY);
-      std::cout << "Dialog start" << endl;
-      dialog.DialogStart();
-      break;
+
+    if (!EpanoxCollision){text = false;}
+
+    if (text) {
+      DrawRectangle(827, 561, 400, 100, DARKGRAY);
+      if (IsKeyPressed(KEY_SPACE)){
+        textState + 1;
+      }
+
+      if (IsKeyPressed(KEY_SPACE) && textState == 0) {
+        textState = 1;
+      } else if (IsKeyPressed(KEY_SPACE) && textState == 1) {
+        textState = 2;
+      } else if (IsKeyPressed(KEY_SPACE) && textState == 2) {
+        textState = 3;
+      } else if (IsKeyPressed(KEY_SPACE) && textState == 3) {
+        textState = 4;
+      }
+
+      switch (textState) {
+      default: break;
+      case 1: DrawText("Welcome traveller", 850, 600, 10, WHITE); break;
+      case 2: DrawText("Having Fun? ", 850, 600, 10, WHITE); break;
+      case 3: DrawText("Well i dont care what think, so fuck off!", 850, 600, 10, WHITE); break;
+      case 4: textState = 1;
+        text = false; break;
+      }
     }
-    break;
-
-    /*
-     fstream dialog_txt_file;
- dialog_txt_file.open("assets/dialog_test_text.txt", ios::in); // open a file to perform read operation using file
- object if (dialog_txt_file.is_open()) { // checking whether the file is open
-
- if (IsKeyPressed(KEY_SPACE)) {
-  string tp;
-  while (getline(dialog_txt_file, tp)) { // read data from file object and put it into string.
-
-    // cout << tp << "\n"; //print the data of the string
-
-    printf("%s\n", tp.c_str());
-  }
-  dialog_txt_file.close(); // close the file object.
- }
- }
-     */
   }
 }
 

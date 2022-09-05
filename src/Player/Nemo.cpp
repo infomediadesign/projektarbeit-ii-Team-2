@@ -3,7 +3,6 @@
 #include "../Level/Level.h"
 
 
-
 void Game::Nemo::Update() {
   /*there are many "or" stuff and it makes the code look like Spaghetti Bolognese,
   but this Code allows the user to press only one Key while walking. It is also a lazy way to prevent the user
@@ -30,7 +29,7 @@ void Game::Nemo::Update() {
       framesCounter = 0;
     } else*/ if (IsKeyDown(KEY_LEFT_SHIFT)) // Sprinting 
     {
-      walkspeed = 2.0;
+      walkspeed = 2.5;
     } else if (IsKeyDown(KEY_W) || IsKeyDown(KEY_S) || IsKeyDown(KEY_D) ||
                IsKeyDown(KEY_A)) // Better alternative than else walkspeed 1.5
     {
@@ -178,3 +177,5 @@ Game::Nemo::~Nemo() {
   UnloadTexture(Right);
   UnloadTexture(Left);
  }
+
+
