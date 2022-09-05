@@ -1,5 +1,6 @@
 #include "Dialogue.h"
 
+/*
 DialogueNode::DialogueNode(string Text) {
   text = Text;
 }
@@ -26,7 +27,7 @@ void Dialogue::init()
   if (IsKeyDown(KEY_SPACE)) framesCounter += 8;
   else framesCounter++;
 
-  if (IsKeyPressed(KEY_ENTER)) framesCounter = 0;*/
+  if (IsKeyPressed(KEY_ENTER)) framesCounter = 0;
 
   DialogueNode *node0 = new DialogueNode("Welcome Nemo, I'm guessing this is your first time-travel?");
   //DialogueNode *node0 = new DialogueNode("Welcome Nemo, I'm guessing this is your first time-travel?");
@@ -111,3 +112,17 @@ int Dialogue::performDialogue()
 void Dialogue::start() {
   DrawText("Welcome to Custodia", 958, 593 , 10, BLACK);
 }
+*/
+Game::Dialog::Dialog() {
+
+}
+
+void Game::Dialog::DialogStart() {
+  //DrawTextEx("FontType", "",text_position, 20.0, 0, WHITE);
+  DrawText("Welcome to Narnia", text_position.x, text_position.y,30,WHITE);
+}
+
+Game::Dialog::~Dialog() {
+
+}
+

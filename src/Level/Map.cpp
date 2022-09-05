@@ -1,20 +1,23 @@
 #include "Map.h"
 
-void Map::update() { // scavenging through the json file to collect the INFO we need
-  // scavenging through the json file to collect the INFO we need
-  for (auto const &layer : levelMap["layers"]) {
+void Map::update() {
+    // scavenging through the json file to collect the INFO we need
+    // scavenging through the json file to collect the INFO we need
+  for (auto const &layer : levelMap["layers"]) { std::cout << "layers found!";
     if (layer["name"] == "Ground") {
       for (auto const &tileID : layer["data"]) {
         mapData.layerGround.push_back(((int)tileID) - 1);
       }
     }
-    if (layer["name"] == "Object") {
-      for (auto const &tileID : layer["data"]) {
-        mapData.layerObject.push_back(((int)tileID) - 1);
-      }
-    }
 
-    /**if (layer["name"] == "Interactables") {
+
+    /**
+     * if (layer["name"] == "Object") {
+for (auto const &tileID : layer["data"]) {
+  mapData.layerObject.push_back(((int)tileID) - 1);
+}
+}
+     * if (layer["name"] == "Interactables") {
       for (auto const& tileID : layer["data"]) {
         tilemapData.layerInteractables.push_back(((int)tileID)-1);
       }
@@ -35,7 +38,7 @@ void Map::update() { // scavenging through the json file to collect the INFO we 
         }
       }
     }*/
-
+/*
     if (layer["name"] == "Interactables") {
       for (auto const &tileID : layer["data"]) {
         if (tileID == 0) {
@@ -52,9 +55,32 @@ void Map::update() { // scavenging through the json file to collect the INFO we 
                                        32,
                                        32 };
         collisionRectangles.push_back(createdRectangle);
+        TraceLog(LOG_INFO, "createdRectangle - element added");
+      }
+      TraceLog(LOG_INFO, "Walls were created");
+    }*/
+
+    if (layer["name"] == "Object") { TraceLog(LOG_INFO, "object found");
+      for (auto const &tileID : layer["data"]) {
+        if (tileID == 0) {
+          mapData.layerObject.push_back(false);
+        } else {
+          mapData.layerObject.push_back(true);
+        }
+      }
+    }
+    for (int i = 0; i < mapData.layerObject.size(); i++) {
+      if (mapData.layerObject[i]) {
+        Rectangle createdRectangle = { static_cast<float>((i % this->mapData.mapWidth * 32)),
+                                       static_cast<float>((i / this->mapData.mapWidth * 32)),
+                                       32,
+                                       32 };
+        collisionRectangles.push_back(createdRectangle);
+        TraceLog(LOG_INFO, "createdRectangle - element added");
       }
       TraceLog(LOG_INFO, "Walls were created");
     }
+
     std::cout <<"INFO: All collision boxes were created" << std::endl;
   }
 }

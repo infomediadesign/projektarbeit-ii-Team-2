@@ -1,6 +1,7 @@
 #pragma once
 #include "../INCLUDES.h"
 
+/*
 using namespace std;
 
 class DialogueNode;
@@ -36,3 +37,15 @@ private:
   vector<DialogueNode *> dialogueNodes;
 };
 
+*/
+namespace Game {
+  class Dialog {
+  public:
+
+    Vector2 text_position = {850,600};
+
+    Dialog();
+    void DialogStart();
+    ~Dialog();
+  };
+}

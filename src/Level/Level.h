@@ -26,18 +26,10 @@ namespace Game {
     Texture2D Pausescreen = LoadTexture("assets/graphics/backgrounds/testtitlescreen.png");
     Texture2D TitlescreenText = LoadTexture("assets/graphics/Titel1.png");
 
-    //PLAYER ENERGY
-    int energy = 2;
-
-
-    //Setting up a timer and Frame Counter.
-    bool timer = false;
-    int framescounter = 0;
-    int h_amount = 2;
-
 //Class initialization
 
-    //GameCharacter *player          = new Player();
+    int energy = 2;
+
     unique_ptr<GameCharacter> player = std::make_unique<Player>();
     // unique_ptr<GameCharacter> shadow = std::make_unique<Shadow>();
 
@@ -52,9 +44,15 @@ namespace Game {
     Game::Sprite *spr;
     Endscreen endscreen;
 
+    //Setting up a timer and Frame Counter.
+    bool timer = false;
+    int framescounter = 0;
+    int h_amount = 2;
+
     int p_framescounter;
     int e_framescounter;
     bool p_damaged = false;
+    bool T_damaged = false;
     bool e_damaged = false;
 
     //teleport stuff
@@ -68,10 +66,9 @@ namespace Game {
     Rectangle teleportrecPYRAMIDtoOCEAN = {};
     Rectangle teleportrecOCEANtoEND = {};
 
-
     bool teleportcollisionOVERWORLDtoPYRAMID = true;
     bool teleportcollisionPYRAMIDtoOVERWORLD = true;
-    bool teleportcollisionPYRAMIDtoOCEAN = true;
+    bool teleportcollisionPYRAMIDtoENDSCREEN = true;
     bool teleportcollisionOCEANtoEND = true;
 
     void combat(GameCharacter *c_enemy);
@@ -79,25 +76,22 @@ namespace Game {
     enum class GameScreen { TITLESCREEN, OVERWORLD, COMBAT, PYRAMIDE,
       ENDSCREEN, PAUSEMENU, CUTSCENE }; //This Enum Class is there to set the Screens to TITLE etc.
 
+    //GameScreen currentscreen = GameScreen::TITLESCREEN; //TitleScreens is the Start Screen
     GameScreen currentscreen = GameScreen::PYRAMIDE; //TitleScreens is the Start Screen
 
     enum class EnemyType {NONE, MUMY, SHADOW, PHARAOH};
 
     EnemyType opponent = EnemyType::NONE;
 
-    //teleport stuff
-    //enum class OverworldState { INPYRAMIDE, OUTPYRAMIDE, ENDSCREEN }; //This Enum Class is there to teleport
-    //OverworldState currentscreen = OverworldState::OUTPYRAMIDE; // TitleScreens is the Start Screen
-
     void ScreenDraw();
 
     void Draw();
 
-    Rectangle box_rec_titlescreen = {ScreenWidth / 2 - 50 , Game::ScreenHeight / 2 - 50, 78, 32};
-    Rectangle t_rec_start = {ScreenWidth / 2 - 50, Game::ScreenHeight / 2 - 50, 78, 32};
-    Rectangle t_rec_settings = {ScreenWidth / 2 - 50 , Game::ScreenHeight / 2, t_rec_start.width, t_rec_start.height};
-    Rectangle t_rec_exit_game = {ScreenWidth / 2 - 50, Game::ScreenHeight / 2 + 50, t_rec_start.width, t_rec_start.height};
-
+    Rectangle box_rec_titlescreen = {ScreenWidth / 2 - 130 , Game::ScreenHeight / 2 - 50, 234, 64};
+    Rectangle t_rec_start = {ScreenWidth / 2 - 130, Game::ScreenHeight / 2 - 50, 234, 64};
+    Rectangle t_rec_settings = {ScreenWidth / 2 - 130 , Game::ScreenHeight / 2 + 50, t_rec_start.width, t_rec_start.height};
+    Rectangle t_rec_exit_game = {ScreenWidth / 2 - 130, Game::ScreenHeight / 2 + 150, t_rec_start.width, t_rec_start.height};
+    float thick = 30;
 
     Rectangle t_rec_attack = {565, 470, 78, 32};
     Rectangle box_rec = {565, 470, 78, 32};
@@ -168,6 +162,19 @@ namespace Game {
           p_framescounter = 0;
           p_damaged = false;
         }
+      }
+
+      if (T_damaged)
+      {
+        e_framescounter++;
+
+        DrawText(TextFormat("- %i", (player->getStrength() * 2) - enemy_->getDefense() - 2),enemy_->set_rec().x - 40,enemy_->set_rec().y,20,RED);
+
+        if (((e_framescounter / 60) % 2) == 1) {
+          e_framescounter = 0;
+          T_damaged       = false;
+        }
+
       }
 
       //Drawing the Enemy Damage received number
