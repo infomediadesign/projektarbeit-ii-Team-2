@@ -44,6 +44,9 @@ namespace Game {
     Game::Sprite *spr;
     Endscreen endscreen;
 
+    //Setting an Input to prevent the Player from attacking, while the countdown runs
+    bool input = true;
+
     //Setting up a timer and Frame Counter.
     bool timer = false;
     int framescounter = 0;

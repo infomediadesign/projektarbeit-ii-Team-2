@@ -14,9 +14,6 @@ void Game::Level::combat(Game::GameCharacter *c_enemy)
     r_currentFrame  = 0;
   }
 
-  //Setting an Input to prevent the Player from attacking, while the countdown runs
-  bool input = true;
-
   //Combat initialization
 
   //If the Timer is true, the seconds will Run and the Player can´t press any buttons, while the Mumy Attacks
@@ -48,22 +45,22 @@ void Game::Level::combat(Game::GameCharacter *c_enemy)
   }
 
   //Box Movement
-  if(IsKeyPressed(KEY_RIGHT))
+  if(IsKeyPressed(KEY_D))
   {
     box_rec.x += 90;
   }
 
-  if (IsKeyPressed(KEY_LEFT))
+  if (IsKeyPressed(KEY_A))
   {
     box_rec.x -= 90;
   }
 
-  if (IsKeyPressed(KEY_DOWN))
+  if (IsKeyPressed(KEY_S))
   {
     box_rec.y += 35;
   }
 
-  if (IsKeyPressed(KEY_UP))
+  if (IsKeyPressed(KEY_W))
   {
     box_rec.y -= 35;
   }
@@ -76,10 +73,6 @@ void Game::Level::combat(Game::GameCharacter *c_enemy)
   if (box_rec.x < 565) box_rec.x = 565;
   else if (box_rec.x > 655) box_rec.x = 655;
   //==========================================
-
-
-  //PLAYER ENERGY
-  int energy = 2;
 
   //If a button is pressed
   if (input)
@@ -114,48 +107,65 @@ void Game::Level::combat(Game::GameCharacter *c_enemy)
         timer = true;
         //========================ATTACK END!!!================
       }
+
+      if (h_amount > 0)
+      {
+
       if (t_rec_item.x == box_rec.x && t_rec_item.y == box_rec.y && t_rec_item.width == box_rec.width &&
           t_rec_item.height == box_rec.height)
       {
-        if (h_amount > 0) {
           //======================HEAL!!!!=========================
           player->set_turnnumb(0);
           c_enemy->set_turnnumb(0);
           // Player heals first, then gets Damage
           if (player->get_turnnumb() >= c_enemy->get_turnnumb()) {
             player->heal();
-            //player->getDamage(enemy->attack());
+            // player->getDamage(enemy->attack());
             h_amount--;
           }
           // Mumy Attacks first, then Player heals.
           if (c_enemy->get_turnnumb() >= player->get_turnnumb()) {
-            //player->getDamage(enemy->attack());
+            // player->getDamage(enemy->attack());
             player->heal();
             h_amount--;
           }
+
+          if (0 >= h_amount)
+          {
+            timer = false;
+            input = false;
+          }
           //=========================HEAL END!!!!=================
         }
+        timer = true;
       }
 
-      if (t_rec_time.x == box_rec.x && t_rec_time.y == box_rec.y && t_rec_time.width == box_rec.width &&
-          t_rec_time.height == box_rec.height)
+      //=============================TIME ATTACK!!!=================
+
+      //If 2 Seconds has Passed, the Player will receive Damage from the Mumy and the timer will be stopped, the Player can
+      //then attack again
+
+      if (energy > 0)
       {
-        if (energy > 0)
-        {
-          c_enemy->getDamage(player->attack());
-          c_enemy->getDamage(player->attack());
-          T_damaged = true;
-          e_framescounter++;
-          energy--;
-        }
-        if (0 > energy)
+       if (t_rec_time.x == box_rec.x && t_rec_time.y == box_rec.y && t_rec_time.width == box_rec.width &&
+          t_rec_time.height == box_rec.height) {
+
+           c_enemy->getDamage(player->attack());
+           c_enemy->getDamage(player->attack());
+           T_damaged = true;
+           e_framescounter++;
+           energy--;
+       }
+        if (0 == energy)
         {
           timer = false;
+          //input = false;
         }
 
-        timer = true;
+        //timer = true;
 
       }
+      //=================================TIME ATTACK END!!!==============
 
       if (t_rec_escape.x == box_rec.x && t_rec_escape.y == box_rec.y && t_rec_escape.width == box_rec.width &&
           t_rec_escape.height == box_rec.height) {
@@ -170,7 +180,6 @@ void Game::Level::combat(Game::GameCharacter *c_enemy)
 
     DrawText("YOU WON!", 600, 320, 20, BLACK);
     timer = false;
-    input = false;
   }
   else if (player->getLives() <= 0)
   {
@@ -178,7 +187,6 @@ void Game::Level::combat(Game::GameCharacter *c_enemy)
     // delete player;
     DrawText("YOU LOST!", 600, 320, 20, BLACK);
     timer = false;
-    input = false;
   }
 
   player->draw();
@@ -441,6 +449,7 @@ void Game::Level::ScreenDraw() {
       }
 
       DrawText(TextFormat("ENERGY: %i", energy), 500, 300, 20, BLACK);
+      DrawText(TextFormat("Heal Amount: %i", h_amount), 500, 320, 20, BLACK);
 
     Draw9Slice(Box, t_rec_attack, thickness, WHITE);
     Draw9Slice(Box, t_rec_time, thickness, WHITE);
