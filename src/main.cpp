@@ -300,9 +300,9 @@ int main() {
       camera.target = Vector2 { nemo.NemoPosition.x + 20.0f, nemo.NemoPosition.y + 20.0f };
 
       //teleport back to overworld
-      //level.Teleport();
+      level.Teleport();
       DrawRectangleRec(level.teleportrecPYRAMIDtoOVERWORLD, BLUE);
-      DrawRectangleRec(level.teleportrecPYRAMIDtoOCEAN, GREEN);
+      DrawRectangleRec(level.teleportrecPYRAMIDtoENDSCREEN, GREEN);
 
       map.update();
       //collision.update(); //TODO the rectangle doesnt have anything init which doesnt alway it to collide with anything... theres an error and the game crashes
