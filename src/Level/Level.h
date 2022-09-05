@@ -26,6 +26,8 @@ namespace Game {
     Texture2D Pausescreen = LoadTexture("assets/graphics/backgrounds/testtitlescreen.png");
     Texture2D TitlescreenText = LoadTexture("assets/graphics/Titel1.png");
 
+    //PLAYER ENERGY
+    int energy = 2;
 
 
     //Setting up a timer and Frame Counter.

@@ -77,10 +77,6 @@ void Game::Level::combat(Game::GameCharacter *c_enemy)
   else if (box_rec.x > 655) box_rec.x = 655;
   //==========================================
 
-
-  //PLAYER ENERGY
-  int energy = 2;
-
   //Wenn eine Taste gedrückt wurde
   if (input == true)
   {
@@ -142,7 +138,7 @@ void Game::Level::combat(Game::GameCharacter *c_enemy)
       {
         if (energy > 0)
         {
-          c_enemy->getDamage(player->attack());
+          c_enemy->getDamage(player->attack()) ;
           e_damaged = true;
           e_framescounter++;
           energy--;
