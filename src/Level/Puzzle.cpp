@@ -50,7 +50,7 @@ void Puzzle::update() {
   while (chestCollision) {
     DrawText("[F]", nemo->NemoPosition.x + 10, nemo->NemoPosition.y - 10, 2, BLACK);
     if (IsKeyPressed(KEY_F)){
-      std::cout << "Open Chest" << std::endl;
+      //std::cout << "Open Chest" << std::endl;
       chestIsDrawn = true;
       if(chestIsDrawn){
         helmetIsDrawn = true;
@@ -67,7 +67,7 @@ void Puzzle::update() {
   while (chestCollision2) {
     DrawText("[F]", nemo->NemoPosition.x + 10, nemo->NemoPosition.y - 10, 2, BLACK);
     if (IsKeyPressed(KEY_F)){
-      std::cout << "Open Chest" << std::endl;
+      //std::cout << "Open Chest" << std::endl;
       chest2IsDrawn = true;
       if(chest2IsDrawn){
         chestplateIsDrawn = true;
@@ -83,7 +83,7 @@ void Puzzle::update() {
   while (chestCollision3) {
     DrawText("[F]", nemo->NemoPosition.x + 10, nemo->NemoPosition.y - 10, 2, BLACK);
     if (IsKeyPressed(KEY_F)){
-      std::cout << "Open Chest" << std::endl;
+      //std::cout << "Open Chest" << std::endl;
       chest3IsDrawn = true;
       if(chest3IsDrawn){
         hpPotionIsDrawn = true;
@@ -98,7 +98,7 @@ void Puzzle::update() {
   /** Update Items */
   //helmet update
   if (helmetCollision){
-    std::cout << "you picked up a helmet" << std::endl;
+    //std::cout << "you picked up a helmet" << std::endl;
 
     helmetIsDrawn = false;
     Helmet = {};
@@ -106,7 +106,7 @@ void Puzzle::update() {
 
   //chestplate update
   if (chestplateCollision){
-    std::cout << "you picked up a chestplate" << std::endl;
+    //std::cout << "you picked up a chestplate" << std::endl;
 
     chestplateIsDrawn = false;
     Chestplate = {};
@@ -114,7 +114,7 @@ void Puzzle::update() {
 
   //hp potion update
   if (hp_potionCollision){
-    std::cout << "you picked up a hp potion" << std::endl;
+    //std::cout << "you picked up a hp potion" << std::endl;
 
     hpPotionIsDrawn = false;
     HpPotion = {};
@@ -122,24 +122,17 @@ void Puzzle::update() {
 
   //key update
   if (keyCollision){
-    std::cout << "you picked up a key" << std::endl;
+    //std::cout << "you picked up a key" << std::endl;
 
     keyIsDrawn = false;
     isKeyPickedUp = true;
+
     Key = {};
   }
 
   /** Update Puzzle */
   //puzzle update
-  while (puzzleCollision1) {
-    std::cout << "Door open" << std::endl;
-    break;
-  }
-
-  //puzzle update
-  if (puzzleCollision1) {
-    wallIsOpen = true;
-  }
+  if (puzzleCollision1) { wallIsOpen = true; }
 }
 
 /** Draw the Items/ Chests/ Puzzles */
@@ -222,4 +215,3 @@ Puzzle::~Puzzle() {
   UnloadTexture (WallTile);
   UnloadTexture (DungeonFloorTile);
 }
-
