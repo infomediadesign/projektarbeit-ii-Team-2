@@ -25,16 +25,16 @@ public:
   Texture2D WallTile = LoadTexture("assets/graphics/Items/Wand.png");
   Texture2D DungeonFloorTile = LoadTexture("assets/graphics/Items/DungeonFloorPlate.png");
 
-  Rectangle Chest = {608.5, 386.5, 28, 32};
-  Rectangle Chest2 = {887, 285, 28, 32};
-  Rectangle Chest3 = {1490, 480.5, 28, 32};
+  Rectangle Chest = {608, 385, 28, 32};
+  Rectangle Chest2 = {896, 288, 28, 32};
+  Rectangle Chest3 = {1504, 480.5, 28, 32};
   Rectangle PuzzleTriangle = {639, 1046, 32, 32}; //triangle
   Rectangle PuzzleCircle   = {575, 1046, 32, 32}; //circle
   Rectangle PuzzleSquare   = {703, 1046, 32, 32}; //square
   Rectangle Helmet = {574, 383.5, 17, 19};
-  Rectangle Chestplate = {574, 383.5, 17, 19};
-  Rectangle HpPotion = {574, 383.5, 17, 19};
-  Rectangle Key = {574, 383.5, 17, 19};
+  Rectangle Chestplate = {935, 276, 17, 19};
+  Rectangle HpPotion = {1452, 504, 17, 19};
+  Rectangle Key = {645, 380, 17, 19};
 
 
   /** Vector's */
@@ -58,6 +58,11 @@ public:
   bool chest2IsDrawn = false;
   bool chest3IsDrawn = false;
   bool helmetIsDrawn = false;
+  bool chestplateIsDrawn = false;
+  bool hpPotionIsDrawn = false;
+  bool keyIsDrawn = false;
+
+  bool isKeyPickedUp = false;
 
   bool wallIsOpen = false;
 
