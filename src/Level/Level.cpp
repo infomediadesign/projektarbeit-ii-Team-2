@@ -472,7 +472,7 @@ void Game::Level::ScreenDraw() {
       DrawRectangleRec(B1rec, Color{});
       DrawTextureRec(spr_Battery,batteryrec1, {player->set_rec().x - 60, player->set_rec().y - 130}, WHITE);
       batteryrec1.x = (float)b1_c_frame * (float)spr_Battery.width / 2;
-
+//Battery Conditions
       if (energy <= 1)
       {
         b2_c_frame = 1;
