@@ -363,6 +363,13 @@ void Game::Level::ScreenDraw() {
         level->currentscreen = Game::Level::GameScreen::PAUSEMENU;
       }
 
+      //teleport conditions
+      if (teleportcollisionOVERWORLDtoPYRAMID) { //if the collision bool is true, nemo is transported to PYRAMIDE
+        level->currentscreen = Game::Level::GameScreen::PYRAMIDE;
+        nemo->NemoPosition.x = doorPositionX - 670;
+        nemo->NemoPosition.y = doorPositionY + 700;
+      }
+
       /** draw */
       ClearBackground(BLACK);
 
@@ -383,8 +390,15 @@ void Game::Level::ScreenDraw() {
       }
       if (IsSoundPlaying(GameAudio::indungeon)) {}
 
-
-
+      //teleport conditions
+      if (teleportcollisionPYRAMIDtoOVERWORLD) { //if the collision bool is true, nemo is transported to PYRAMIDE
+        level->currentscreen = Game::Level::GameScreen::OVERWORLD;
+        nemo->NemoPosition.x = doorPositionX + 20;
+        nemo->NemoPosition.y = doorPositionY + 60;
+      }
+      if (teleportcollisionPYRAMIDtoENDSCREEN) { //if the collision bool is true, nemo is transported to the ENDSCREEN
+        level->currentscreen = Game::Level::GameScreen::ENDSCREEN;
+      }
       break;
 
     case GameScreen::COMBAT:
@@ -494,16 +508,17 @@ void Game::Level::ScreenDraw() {
 
 void Game::Level::Teleport() {
 
-  // teleport coordinates
+  // teleport coordinates (JUST FOR DRAW)
   teleportrecOVERWORLDtoPYRAMID = { doorPositionX, doorPositionY, doortileX, doortileY }; // rectangle in overworld to pyramid
   teleportrecPYRAMIDtoOVERWORLD = { doorPositionX - 685, doorPositionY + 780, doortileX, doortileY }; //rectangle in pyramid to overworld
-  teleportrecPYRAMIDtoOCEAN = { doorPositionX + 528 , doorPositionY - 200, doortileX, doortileY }; //rectangle in pyramid to endscreen
+  teleportrecPYRAMIDtoENDSCREEN = { doorPositionX + 528 , doorPositionY - 200, doortileX, doortileY }; //rectangle in pyramid to endscreen
 
-  // collision check with the door & nemo
+  // collision check with the door & nemo (RECTANGLES FOR COLLISION)
   teleportcollisionOVERWORLDtoPYRAMID = CheckCollisionRecs(teleportrecOVERWORLDtoPYRAMID, nemo->nemorec); //check collision between door and nemo
   teleportcollisionPYRAMIDtoOVERWORLD = CheckCollisionRecs(teleportrecPYRAMIDtoOVERWORLD, nemo->nemorec);
-  teleportcollisionPYRAMIDtoENDSCREEN = CheckCollisionRecs(teleportrecPYRAMIDtoOCEAN, nemo->nemorec);
+  teleportcollisionPYRAMIDtoENDSCREEN = CheckCollisionRecs(teleportrecPYRAMIDtoENDSCREEN, nemo->nemorec);
 
+  /*
   //bool true -> teleport...
   if (teleportcollisionOVERWORLDtoPYRAMID) { //if the collision bool is true, nemo is transported to PYRAMIDE
     level->currentscreen = Game::Level::GameScreen::PYRAMIDE;
@@ -518,6 +533,7 @@ void Game::Level::Teleport() {
   if (teleportcollisionPYRAMIDtoENDSCREEN) { //if the collision bool is true, nemo is transported to PYRAMIDE
     level->currentscreen = Game::Level::GameScreen::ENDSCREEN;
   }
+   */
 }
 
 //Destrucotr
