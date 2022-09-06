@@ -25,10 +25,10 @@
 var NAVTREE =
 [
   [ "raylibstarter", "index.html", [
-    [ "FAQ", "md__c___users_user_source_repos_projektarbeit_ii_team2_doxygen_faq.html", [
-      [ "Is it a complete game engine?", "md__c___users_user_source_repos_projektarbeit_ii_team2_doxygen_faq.html#autotoc_md1", null ],
-      [ "What do I have to do if I want to develop my own game?", "md__c___users_user_source_repos_projektarbeit_ii_team2_doxygen_faq.html#autotoc_md2", null ],
-      [ "Is this project template based on raylib-cpp?", "md__c___users_user_source_repos_projektarbeit_ii_team2_doxygen_faq.html#autotoc_md3", null ]
+    [ "FAQ", "md__c___users__fried__c_lion_projects_projektarbeit_ii__team_2_doxygen_faq.html", [
+      [ "Is it a complete game engine?", "md__c___users__fried__c_lion_projects_projektarbeit_ii__team_2_doxygen_faq.html#autotoc_md1", null ],
+      [ "What do I have to do if I want to develop my own game?", "md__c___users__fried__c_lion_projects_projektarbeit_ii__team_2_doxygen_faq.html#autotoc_md2", null ],
+      [ "Is this project template based on raylib-cpp?", "md__c___users__fried__c_lion_projects_projektarbeit_ii__team_2_doxygen_faq.html#autotoc_md3", null ]
     ] ],
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],
@@ -43,9 +43,9 @@ var NAVTREE =
       [ "Class Index", "classes.html", null ],
       [ "Class Hierarchy", "hierarchy.html", "hierarchy" ],
       [ "Class Members", "functions.html", [
-        [ "All", "functions.html", null ],
+        [ "All", "functions.html", "functions_dup" ],
         [ "Functions", "functions_func.html", null ],
-        [ "Variables", "functions_vars.html", null ],
+        [ "Variables", "functions_vars.html", "functions_vars" ],
         [ "Enumerations", "functions_enum.html", null ]
       ] ]
     ] ],
@@ -61,8 +61,10 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"_enemy_8cpp.html",
-"functions_vars.html"
+"_collision_8cpp.html",
+"class_game_1_1_level.html#a30e0528a5bb0a587df5768fe3a6350c6",
+"class_game_1_1_pharaoh.html#a4413a69e7aa43b65fdad25aea992af54",
+"class_shadow.html#a237a15c996f75509f9b66760d2e90909"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

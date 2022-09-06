@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['enemy_0',['Enemy',['../class_game_1_1_enemy.html#ac6d6dbf0a25e6bac6dd476fec38f7417',1,'Game::Enemy']]]
+  ['epanoxcollision_0',['epanoxCollision',['../class_collision.html#a8cf3e55792219f004ff75ea1f36a1fd0',1,'Collision']]],
+  ['epanoxdraw_1',['EpanoxDraw',['../class_game_1_1_sprite.html#a30d8a7119e061faaecea616ee0a864ea',1,'Game::Sprite']]]
 ];
