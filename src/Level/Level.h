@@ -26,6 +26,7 @@ namespace Game {
     Texture2D Pausescreen = LoadTexture("assets/graphics/backgrounds/testtitlescreen.png");
     Texture2D TitlescreenText = LoadTexture("assets/graphics/Titel1.png");
     Texture2D spr_Battery = LoadTexture("assets/graphics/BattleScreen/Agypten/Batterieanzeige-Sheet.png");
+    Texture2D gameover = LoadTexture("assets/graphics/backgrounds/GameOverScreen.png");
 
 //Class initialization
 
@@ -89,7 +90,7 @@ namespace Game {
     void combat(GameCharacter *c_enemy);
 
     enum class GameScreen { TITLESCREEN, OVERWORLD, COMBAT, PYRAMIDE,
-      ENDSCREEN, PAUSEMENU, CUTSCENE }; //This Enum Class is there to set the Screens to TITLE etc.
+      ENDSCREEN, PAUSEMENU, CUTSCENE, GAMEOVER}; //This Enum Class is there to set the Screens to TITLE etc.
 
     GameScreen currentscreen = GameScreen::TITLESCREEN; //TitleScreens is the Start Screen
     //GameScreen currentscreen = GameScreen::PYRAMIDE; //TitleScreens is the Start Screen

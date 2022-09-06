@@ -185,7 +185,7 @@ void Game::Level::combat(Game::GameCharacter *c_enemy)
   {
     // delete enemy;
     // delete player;
-    DrawText("YOU LOST!", 600, 320, 20, BLACK);
+    currentscreen = GameScreen::GAMEOVER;
     timer = false;
   }
 
@@ -502,7 +502,18 @@ void Game::Level::ScreenDraw() {
     DrawText("ESCAPE",t_rec_escape.x + 5, t_rec_escape.y + 10, 17, WHITE);
 
       break;
+
+    case GameScreen::GAMEOVER:
+      DrawTexture(gameover, GetScreenWidth() / 2 - 15, GetScreenHeight() / 2 - 20, WHITE);
+      DrawText("GAME OVER!", GetScreenWidth() / 2 + 280, GetScreenHeight() / 2 + 100, 50, RED);
+      DrawText("PRESS <<ENTER>> TO RESTART", GetScreenWidth()/ 2 + 280, GetScreenHeight() / 2 + 150, 20, YELLOW);
+      if (IsKeyPressed(KEY_ENTER))
+      {
+        currentscreen = GameScreen::TITLESCREEN;
+      }
+    break;
     }
+
   }
 
 //======================================================================================================================

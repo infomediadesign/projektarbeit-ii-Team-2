@@ -326,6 +326,10 @@ int main() {
         Vector2 { Game::ScreenWidth / 2,
                   Game::ScreenHeight / 2 }; // Setting Camera to a Constant Position. Otherwise it would follow Nemo
       break;
+
+    case Game::Level::GameScreen::GAMEOVER:
+      camera.target = Vector2 {Game::ScreenWidth / 2 + 305, Game::ScreenHeight / 2 + 155};
+      break;
     }
 
     EndMode2D(); // camera
