@@ -25,10 +25,10 @@
 var NAVTREE =
 [
   [ "raylibstarter", "index.html", [
-    [ "FAQ", "md__c___users_user__c_lion_projects__custodia_doxygen_faq.html", [
-      [ "Is it a complete game engine?", "md__c___users_user__c_lion_projects__custodia_doxygen_faq.html#autotoc_md1", null ],
-      [ "What do I have to do if I want to develop my own game?", "md__c___users_user__c_lion_projects__custodia_doxygen_faq.html#autotoc_md2", null ],
-      [ "Is this project template based on raylib-cpp?", "md__c___users_user__c_lion_projects__custodia_doxygen_faq.html#autotoc_md3", null ]
+    [ "FAQ", "md__c___users__fried__c_lion_projects_projektarbeit_ii__team_2_doxygen_faq.html", [
+      [ "Is it a complete game engine?", "md__c___users__fried__c_lion_projects_projektarbeit_ii__team_2_doxygen_faq.html#autotoc_md1", null ],
+      [ "What do I have to do if I want to develop my own game?", "md__c___users__fried__c_lion_projects_projektarbeit_ii__team_2_doxygen_faq.html#autotoc_md2", null ],
+      [ "Is this project template based on raylib-cpp?", "md__c___users__fried__c_lion_projects_projektarbeit_ii__team_2_doxygen_faq.html#autotoc_md3", null ]
     ] ],
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],

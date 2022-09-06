@@ -44,10 +44,15 @@ void Collision::epanoxCollision() { // Epanox collision
   EpanoxCollision = CheckCollisionRecs(EpanoxRec, nemo->nemorec);
 
 
-  if (EpanoxCollision) {
+  while (EpanoxCollision) {
+    nemo->walkspeed = 0;
+    nemo->Update();
     DrawText("[F]", nemo->NemoPosition.x + 10, nemo->NemoPosition.y - 10, 2, BLACK);
     if (IsKeyPressed(KEY_F)) {
       text = true;
+      //nemo->active = false;
+
+      break;
     }
 
     if (!EpanoxCollision){text = false;}
@@ -77,8 +82,11 @@ void Collision::epanoxCollision() { // Epanox collision
         text = false; break;
       }
     }
+    break;
   }
+
 }
+
 
 void Collision::draw() {
 
