@@ -5,5 +5,13 @@ digraph "Graphical Class Hierarchy"
   edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
   node [fontname="Helvetica",fontsize="10",shape=record];
   rankdir="LR";
-  Node0 [label="Game::Sprite",height=0.2,width=0.4,color="black",URL="$class_game_1_1_sprite.html",tooltip=" "];
+  Node0 [label="Game::GameCharacter",height=0.2,width=0.4,color="black",URL="$class_game_1_1_game_character.html",tooltip=" "];
+  Node0 -> Node1 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node1 [label="Game::Mumy",height=0.2,width=0.4,color="black",URL="$class_game_1_1_mumy.html",tooltip=" "];
+  Node0 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="Game::Pharaoh",height=0.2,width=0.4,color="black",URL="$class_game_1_1_pharaoh.html",tooltip=" "];
+  Node0 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="Game::Player",height=0.2,width=0.4,color="black",URL="$class_game_1_1_player.html",tooltip=" "];
+  Node0 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="Game::Shadow",height=0.2,width=0.4,color="black",URL="$class_game_1_1_shadow.html",tooltip=" "];
 }

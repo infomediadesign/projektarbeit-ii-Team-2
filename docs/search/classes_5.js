@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['sprite_0',['Sprite',['../class_game_1_1_sprite.html',1,'Game']]]
+  ['level_0',['Level',['../class_game_1_1_level.html',1,'Game']]]
 ];

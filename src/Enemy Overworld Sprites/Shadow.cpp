@@ -6,9 +6,9 @@
 
 void Shadow::Draw() {
 
-  shadowrec = { 590.5 + 8, 1014 + 10, 16, 32 };
+  shadowrec = { 590.5 + 8, 918 + 10, 16, 32 };
   DrawRectangleRec(shadowrec, Color {});
-  DrawTextureRec(spr_shadow, frameRec, { 590.5, 1014 }, WHITE);
+  DrawTextureRec(spr_shadow, frameRec, { 590.5, 918 }, WHITE);
 
 }
 

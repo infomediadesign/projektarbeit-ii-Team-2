@@ -95,11 +95,14 @@ $(document).ready(function(){initNavTree('class_game_1_1_sprite.html',''); initR
 <div class="dynheader">
 Collaboration diagram for Game::Sprite:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_game_1_1_sprite__coll__graph.svg" width="159" height="302"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><!-- SVG 0 -->
+</div>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:a30d8a7119e061faaecea616ee0a864ea"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_1_1_sprite.html#a30d8a7119e061faaecea616ee0a864ea">EpanoxDraw</a> ()</td></tr>
+<tr class="separator:a30d8a7119e061faaecea616ee0a864ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa4e4f198817b4d578ce238778a446e25"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_1_1_sprite.html#aa4e4f198817b4d578ce238778a446e25">Sprite</a> ()=delete</td></tr>
 <tr class="separator:aa4e4f198817b4d578ce238778a446e25"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1bccb0fa9fd272a6dd21bed41ce9f531"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_1_1_sprite.html#a1bccb0fa9fd272a6dd21bed41ce9f531">Sprite</a> (int <a class="el" href="class_game_1_1_sprite.html#afcd5ba6136f3a917c15413193cdf6abf">pos_x</a>, int <a class="el" href="class_game_1_1_sprite.html#a97a94c24c8a0ec142dfa6ab8f33e1328">pos_y</a>, Texture2D texture)</td></tr>
@@ -119,10 +122,16 @@ Public Attributes</h2></td></tr>
 <tr class="separator:a97a94c24c8a0ec142dfa6ab8f33e1328"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5c91f139a28bd5b8a0c4c9a8c0224f14"><td class="memItemLeft" align="right" valign="top">Texture2D&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_1_1_sprite.html#a5c91f139a28bd5b8a0c4c9a8c0224f14">texture_</a></td></tr>
 <tr class="separator:a5c91f139a28bd5b8a0c4c9a8c0224f14"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a627adaba9c962ea6548855f3b7dafc75"><td class="memItemLeft" align="right" valign="top">Texture2D&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_1_1_sprite.html#a627adaba9c962ea6548855f3b7dafc75">EpanoxStil</a> = LoadTexture(&quot;assets/graphics/Epanox_Standing - Kopie.png&quot;)</td></tr>
+<tr class="separator:a627adaba9c962ea6548855f3b7dafc75"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac510137de7b82afc43b4b587f6201073"><td class="memItemLeft" align="right" valign="top">Rectangle&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_1_1_sprite.html#ac510137de7b82afc43b4b587f6201073">EpanoxRec</a> = {961, 458, 16, 20}</td></tr>
+<tr class="separator:ac510137de7b82afc43b4b587f6201073"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3a05fbbe9bcd5d01f85fa434a0e51d5d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_1_1_sprite.html#a3a05fbbe9bcd5d01f85fa434a0e51d5d">EpanoxCollision</a> = false</td></tr>
+<tr class="separator:a3a05fbbe9bcd5d01f85fa434a0e51d5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p class="definition">Definition at line <a class="el" href="_sprite_8h_source.html#l00007">7</a> of file <a class="el" href="_sprite_8h_source.html">Sprite.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_sprite_8h_source.html#l00006">6</a> of file <a class="el" href="_sprite_8h_source.html">Sprite.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="aa4e4f198817b4d578ce238778a446e25" name="aa4e4f198817b4d578ce238778a446e25"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa4e4f198817b4d578ce238778a446e25">&#9670;&nbsp;</a></span>Sprite() <span class="overload">[1/4]</span></h2>
@@ -276,7 +285,75 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a30d8a7119e061faaecea616ee0a864ea" name="a30d8a7119e061faaecea616ee0a864ea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a30d8a7119e061faaecea616ee0a864ea">&#9670;&nbsp;</a></span>EpanoxDraw()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Game::Sprite::EpanoxDraw </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_sprite_8cpp_source.html#l00026">26</a> of file <a class="el" href="_sprite_8cpp_source.html">Sprite.cpp</a>.</p>
+
+</div>
+</div>
 <h2 class="groupheader">Member Data Documentation</h2>
+<a id="a3a05fbbe9bcd5d01f85fa434a0e51d5d" name="a3a05fbbe9bcd5d01f85fa434a0e51d5d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3a05fbbe9bcd5d01f85fa434a0e51d5d">&#9670;&nbsp;</a></span>EpanoxCollision</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Game::Sprite::EpanoxCollision = false</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_sprite_8h_source.html#l00016">16</a> of file <a class="el" href="_sprite_8h_source.html">Sprite.h</a>.</p>
+
+</div>
+</div>
+<a id="ac510137de7b82afc43b4b587f6201073" name="ac510137de7b82afc43b4b587f6201073"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac510137de7b82afc43b4b587f6201073">&#9670;&nbsp;</a></span>EpanoxRec</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Rectangle Game::Sprite::EpanoxRec = {961, 458, 16, 20}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_sprite_8h_source.html#l00015">15</a> of file <a class="el" href="_sprite_8h_source.html">Sprite.h</a>.</p>
+
+</div>
+</div>
+<a id="a627adaba9c962ea6548855f3b7dafc75" name="a627adaba9c962ea6548855f3b7dafc75"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a627adaba9c962ea6548855f3b7dafc75">&#9670;&nbsp;</a></span>EpanoxStil</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Texture2D Game::Sprite::EpanoxStil = LoadTexture(&quot;assets/graphics/Epanox_Standing - Kopie.png&quot;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_sprite_8h_source.html#l00012">12</a> of file <a class="el" href="_sprite_8h_source.html">Sprite.h</a>.</p>
+
+</div>
+</div>
 <a id="afcd5ba6136f3a917c15413193cdf6abf" name="afcd5ba6136f3a917c15413193cdf6abf"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#afcd5ba6136f3a917c15413193cdf6abf">&#9670;&nbsp;</a></span>pos_x</h2>
 
@@ -289,7 +366,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_sprite_8h_source.html#l00009">9</a> of file <a class="el" href="_sprite_8h_source.html">Sprite.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_sprite_8h_source.html#l00008">8</a> of file <a class="el" href="_sprite_8h_source.html">Sprite.h</a>.</p>
 
 </div>
 </div>
@@ -305,7 +382,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_sprite_8h_source.html#l00010">10</a> of file <a class="el" href="_sprite_8h_source.html">Sprite.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_sprite_8h_source.html#l00009">9</a> of file <a class="el" href="_sprite_8h_source.html">Sprite.h</a>.</p>
 
 </div>
 </div>
@@ -321,7 +398,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_sprite_8h_source.html#l00011">11</a> of file <a class="el" href="_sprite_8h_source.html">Sprite.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_sprite_8h_source.html#l00010">10</a> of file <a class="el" href="_sprite_8h_source.html">Sprite.h</a>.</p>
 
 </div>
 </div>

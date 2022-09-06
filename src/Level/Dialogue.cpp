@@ -173,4 +173,4 @@ void Game::Dialog::DialogNext() {}
 
 void Game::Dialog::DialogEnd() {}
 
-Game::Dialog::~Dialog() {}
+Game::Dialog::~Dialog() = default;

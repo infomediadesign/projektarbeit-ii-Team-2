@@ -84,7 +84,10 @@ $(document).ready(function(){initNavTree('class_game_1_1_game_character.html',''
 
 <div class="header">
   <div class="summary">
+<a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-attribs">Public Attributes</a> &#124;
+<a href="#pro-methods">Protected Member Functions</a> &#124;
 <a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="class_game_1_1_game_character-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">Game::GameCharacter Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div></div>
@@ -105,37 +108,72 @@ Collaboration diagram for Game::GameCharacter:</div>
 </div>
 </div>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:a9a877164078c49c6c1c098f3887e7a3f"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_1_1_game_character.html#a9a877164078c49c6c1c098f3887e7a3f">state</a> { <a class="el" href="class_game_1_1_game_character.html#a9a877164078c49c6c1c098f3887e7a3faa5daf7f2ebbba4975d61dab1c40188c7">IDLE</a>
+, <a class="el" href="class_game_1_1_game_character.html#a9a877164078c49c6c1c098f3887e7a3fac6ddd0f72ff2fd344693b9ca8d483871">ATTACK</a>
+ }</td></tr>
+<tr class="separator:a9a877164078c49c6c1c098f3887e7a3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a43b8bca0c9d622b01d223494642de93d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_1_1_game_character.html#a43b8bca0c9d622b01d223494642de93d">GameCharacter</a> (int HP, int DEF, int STR)</td></tr>
-<tr class="separator:a43b8bca0c9d622b01d223494642de93d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aea0770698e6908b64a72bfd7a3365dfc"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_1_1_game_character.html#aea0770698e6908b64a72bfd7a3365dfc">GameCharacter</a> (string n_name, int max_HP, int HP, int DEF, int STR)</td></tr>
+<tr class="separator:aea0770698e6908b64a72bfd7a3365dfc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a229b75d31281fd2f8632487bea2125e4"><td class="memItemLeft" align="right" valign="top">virtual string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_1_1_game_character.html#a229b75d31281fd2f8632487bea2125e4">get_Name</a> ()</td></tr>
+<tr class="separator:a229b75d31281fd2f8632487bea2125e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adb45fbc96be4e402691d8daf4f4ca5fb"><td class="memItemLeft" align="right" valign="top">virtual std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_1_1_game_character.html#adb45fbc96be4e402691d8daf4f4ca5fb">attack</a> ()=0</td></tr>
 <tr class="separator:adb45fbc96be4e402691d8daf4f4ca5fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad57eb1765c2686f6f629febe31bf3a75"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_1_1_game_character.html#ad57eb1765c2686f6f629febe31bf3a75">getDamage</a> (std::vector&lt; int &gt; damage)=0</td></tr>
 <tr class="separator:ad57eb1765c2686f6f629febe31bf3a75"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a361d040ed5c1de9565e1b2e532a9526c"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_1_1_game_character.html#a361d040ed5c1de9565e1b2e532a9526c">updateCharacter</a> ()=0</td></tr>
 <tr class="separator:a361d040ed5c1de9565e1b2e532a9526c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af4d2af2b244b68530d15bda98020bedf"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_1_1_game_character.html#af4d2af2b244b68530d15bda98020bedf">getLives</a> ()</td></tr>
-<tr class="separator:af4d2af2b244b68530d15bda98020bedf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac50a3e474e71b3d7707386b771d0c272"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_1_1_game_character.html#ac50a3e474e71b3d7707386b771d0c272">getArmor</a> ()</td></tr>
-<tr class="separator:ac50a3e474e71b3d7707386b771d0c272"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad9e63ba42e254d9422a3b7aefa296bb4"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_1_1_game_character.html#ad9e63ba42e254d9422a3b7aefa296bb4">getStrength</a> ()</td></tr>
-<tr class="separator:ad9e63ba42e254d9422a3b7aefa296bb4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af74c0a48815fc061f9c48702bc9e04cd"><td class="memItemLeft" align="right" valign="top">virtual Rectangle&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_1_1_game_character.html#af74c0a48815fc061f9c48702bc9e04cd">get_rec</a> ()</td></tr>
-<tr class="separator:af74c0a48815fc061f9c48702bc9e04cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a08d163f4d8cc43fdfac94747930250a2"><td class="memItemLeft" align="right" valign="top">virtual Rectangle&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_1_1_game_character.html#a08d163f4d8cc43fdfac94747930250a2">set_rec</a> ()</td></tr>
-<tr class="separator:a08d163f4d8cc43fdfac94747930250a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a094623b9c5cdb779619b9b5f24352da4"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_1_1_game_character.html#a094623b9c5cdb779619b9b5f24352da4">get_turnnumb</a> ()</td></tr>
-<tr class="separator:a094623b9c5cdb779619b9b5f24352da4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afc94877a9f793746927d958b29fdf720"><td class="memItemLeft" align="right" valign="top">virtual auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_1_1_game_character.html#afc94877a9f793746927d958b29fdf720">getLives</a> () -&gt; int</td></tr>
+<tr class="separator:afc94877a9f793746927d958b29fdf720"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9fab947e82a0d36473f877b9cae18d78"><td class="memItemLeft" align="right" valign="top">virtual auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_1_1_game_character.html#a9fab947e82a0d36473f877b9cae18d78">getArmor</a> () -&gt; int</td></tr>
+<tr class="separator:a9fab947e82a0d36473f877b9cae18d78"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9c123ecdb29f764c2a23a74cbcd22146"><td class="memItemLeft" align="right" valign="top">virtual auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_1_1_game_character.html#a9c123ecdb29f764c2a23a74cbcd22146">getStrength</a> () -&gt; int</td></tr>
+<tr class="separator:a9c123ecdb29f764c2a23a74cbcd22146"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afca2c47358aad478b58285a9b9a4d50e"><td class="memItemLeft" align="right" valign="top">virtual auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_1_1_game_character.html#afca2c47358aad478b58285a9b9a4d50e">getDefense</a> () -&gt; int</td></tr>
+<tr class="separator:afca2c47358aad478b58285a9b9a4d50e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaca5aa874c489ce22a4e3e66e4b88255"><td class="memItemLeft" align="right" valign="top">virtual auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_1_1_game_character.html#aaca5aa874c489ce22a4e3e66e4b88255">get_rec</a> () -&gt; Rectangle</td></tr>
+<tr class="separator:aaca5aa874c489ce22a4e3e66e4b88255"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a981813c5d94adb96c76735744be07991"><td class="memItemLeft" align="right" valign="top">virtual auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_1_1_game_character.html#a981813c5d94adb96c76735744be07991">set_rec</a> () -&gt; Rectangle</td></tr>
+<tr class="separator:a981813c5d94adb96c76735744be07991"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad00971d301257504a5c1eb0a956658c1"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_1_1_game_character.html#ad00971d301257504a5c1eb0a956658c1">heal</a> ()</td></tr>
+<tr class="separator:ad00971d301257504a5c1eb0a956658c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4ac446b6b1dc94f090d3f796f97f6354"><td class="memItemLeft" align="right" valign="top">virtual auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_1_1_game_character.html#a4ac446b6b1dc94f090d3f796f97f6354">get_turnnumb</a> () -&gt; int</td></tr>
+<tr class="separator:a4ac446b6b1dc94f090d3f796f97f6354"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5ef314c9083dc51e51f3ebf4664afb65"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_1_1_game_character.html#a5ef314c9083dc51e51f3ebf4664afb65">set_turnnumb</a> (int luck)</td></tr>
+<tr class="separator:a5ef314c9083dc51e51f3ebf4664afb65"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad16ea8a46195550dc63932890f82098b"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_1_1_game_character.html#ad16ea8a46195550dc63932890f82098b">draw</a> ()</td></tr>
+<tr class="separator:ad16ea8a46195550dc63932890f82098b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3265b699dab509a7cb5f33d09c4a0044"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_1_1_game_character.html#a3265b699dab509a7cb5f33d09c4a0044">~GameCharacter</a> ()=default</td></tr>
+<tr class="separator:a3265b699dab509a7cb5f33d09c4a0044"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
+Public Attributes</h2></td></tr>
+<tr class="memitem:abbf03306d131729b00dcd57cf9109036"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_1_1_game_character.html#abbf03306d131729b00dcd57cf9109036">damaged</a> = false</td></tr>
+<tr class="separator:abbf03306d131729b00dcd57cf9109036"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-methods" name="pro-methods"></a>
+Protected Member Functions</h2></td></tr>
+<tr class="memitem:af5bd250f1ecdc136ff3aedc37a2f17b6"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_1_1_game_character.html#af5bd250f1ecdc136ff3aedc37a2f17b6">getDamageNumber</a> ()</td></tr>
+<tr class="separator:af5bd250f1ecdc136ff3aedc37a2f17b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
+<tr class="memitem:a00b99b84040b3cb2dbb588b0a4cdceee"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_1_1_game_character.html#a00b99b84040b3cb2dbb588b0a4cdceee">c_MaxHP</a></td></tr>
+<tr class="separator:a00b99b84040b3cb2dbb588b0a4cdceee"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa9e20c7fc2761bd08ffd3b1016fd06ee"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_1_1_game_character.html#aa9e20c7fc2761bd08ffd3b1016fd06ee">c_HP</a></td></tr>
 <tr class="separator:aa9e20c7fc2761bd08ffd3b1016fd06ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3f07761b3b4bce68d6405542cf1ec501"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_1_1_game_character.html#a3f07761b3b4bce68d6405542cf1ec501">c_DEF</a></td></tr>
 <tr class="separator:a3f07761b3b4bce68d6405542cf1ec501"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1dda674707377b5dc559fc00e23fd11f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_1_1_game_character.html#a1dda674707377b5dc559fc00e23fd11f">c_STR</a></td></tr>
 <tr class="separator:a1dda674707377b5dc559fc00e23fd11f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a02c04222577cf9afb5c2eddb479bd557"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_1_1_game_character.html#a02c04222577cf9afb5c2eddb479bd557">c_timeattack</a> = <a class="el" href="class_game_1_1_game_character.html#a1dda674707377b5dc559fc00e23fd11f">c_STR</a> * 2</td></tr>
+<tr class="separator:a02c04222577cf9afb5c2eddb479bd557"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acf04e64278f1d6a0749dee0c55cb877a"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_1_1_game_character.html#acf04e64278f1d6a0749dee0c55cb877a">name</a></td></tr>
+<tr class="separator:acf04e64278f1d6a0749dee0c55cb877a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac288b932bd89ee159646d12534c3956c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_1_1_game_character.html#ac288b932bd89ee159646d12534c3956c">turnnumb</a> = GetRandomValue(0, 100)</td></tr>
 <tr class="separator:ac288b932bd89ee159646d12534c3956c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af864fa70bfe9c171d677bc136aa2e3c7"><td class="memItemLeft" align="right" valign="top">Rectangle&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_1_1_game_character.html#af864fa70bfe9c171d677bc136aa2e3c7">rec</a> { 800, 320, 50, 50 }</td></tr>
@@ -143,10 +181,39 @@ Protected Attributes</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p class="definition">Definition at line <a class="el" href="_game_character_8h_source.html#l00007">7</a> of file <a class="el" href="_game_character_8h_source.html">GameCharacter.h</a>.</p>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a43b8bca0c9d622b01d223494642de93d" name="a43b8bca0c9d622b01d223494642de93d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a43b8bca0c9d622b01d223494642de93d">&#9670;&nbsp;</a></span>GameCharacter()</h2>
+<p class="definition">Definition at line <a class="el" href="_game_character_8h_source.html#l00009">9</a> of file <a class="el" href="_game_character_8h_source.html">GameCharacter.h</a>.</p>
+</div><h2 class="groupheader">Member Enumeration Documentation</h2>
+<a id="a9a877164078c49c6c1c098f3887e7a3f" name="a9a877164078c49c6c1c098f3887e7a3f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9a877164078c49c6c1c098f3887e7a3f">&#9670;&nbsp;</a></span>state</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="class_game_1_1_game_character.html#a9a877164078c49c6c1c098f3887e7a3f">Game::GameCharacter::state</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a9a877164078c49c6c1c098f3887e7a3faa5daf7f2ebbba4975d61dab1c40188c7" name="a9a877164078c49c6c1c098f3887e7a3faa5daf7f2ebbba4975d61dab1c40188c7"></a>IDLE&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a9a877164078c49c6c1c098f3887e7a3fac6ddd0f72ff2fd344693b9ca8d483871" name="a9a877164078c49c6c1c098f3887e7a3fac6ddd0f72ff2fd344693b9ca8d483871"></a>ATTACK&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+<p class="definition">Definition at line <a class="el" href="_game_character_8h_source.html#l00042">42</a> of file <a class="el" href="_game_character_8h_source.html">GameCharacter.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="aea0770698e6908b64a72bfd7a3365dfc" name="aea0770698e6908b64a72bfd7a3365dfc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aea0770698e6908b64a72bfd7a3365dfc">&#9670;&nbsp;</a></span>GameCharacter()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -154,6 +221,18 @@ Protected Attributes</h2></td></tr>
         <tr>
           <td class="memname">Game::GameCharacter::GameCharacter </td>
           <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>n_name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>max_HP</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
           <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>HP</em>, </td>
         </tr>
@@ -177,7 +256,32 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_game_character_8cpp_source.html#l00003">3</a> of file <a class="el" href="_game_character_8cpp_source.html">GameCharacter.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_game_character_8cpp_source.html#l00005">5</a> of file <a class="el" href="_game_character_8cpp_source.html">GameCharacter.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a3265b699dab509a7cb5f33d09c4a0044" name="a3265b699dab509a7cb5f33d09c4a0044"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3265b699dab509a7cb5f33d09c4a0044">&#9670;&nbsp;</a></span>~GameCharacter()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual Game::GameCharacter::~GameCharacter </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -205,12 +309,12 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implemented in <a class="el" href="class_game_1_1_enemy.html#a4db5c31ce7f864a39671a2c82ba31e04">Game::Enemy</a>, and <a class="el" href="class_game_1_1_player.html#a927e7bfadb327c0dfd1df6a35d266d82">Game::Player</a>.</p>
+<p>Implemented in <a class="el" href="class_game_1_1_mumy.html#a1b69f940af37e9a399085473ec8e5ed2">Game::Mumy</a>, <a class="el" href="class_game_1_1_pharaoh.html#a4a94c9279a384cd10bb2467f572cd659">Game::Pharaoh</a>, <a class="el" href="class_game_1_1_shadow.html#a82b62ba66fc2943eaf51c4f7d476fe14">Game::Shadow</a>, and <a class="el" href="class_game_1_1_player.html#a804bca8fc2119d1d54e341866912ab6c">Game::Player</a>.</p>
 
 </div>
 </div>
-<a id="af74c0a48815fc061f9c48702bc9e04cd" name="af74c0a48815fc061f9c48702bc9e04cd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af74c0a48815fc061f9c48702bc9e04cd">&#9670;&nbsp;</a></span>get_rec()</h2>
+<a id="ad16ea8a46195550dc63932890f82098b" name="ad16ea8a46195550dc63932890f82098b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad16ea8a46195550dc63932890f82098b">&#9670;&nbsp;</a></span>draw()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -219,7 +323,7 @@ Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Rectangle Game::GameCharacter::get_rec </td>
+          <td class="memname">void Game::GameCharacter::draw </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -232,14 +336,14 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Reimplemented in <a class="el" href="class_game_1_1_enemy.html#a4e9889be9f7ae8ae744aec290ac57fd3">Game::Enemy</a>, and <a class="el" href="class_game_1_1_player.html#aa469ab4f28c559371b6bc130bfe9d686">Game::Player</a>.</p>
+<p>Reimplemented in <a class="el" href="class_game_1_1_mumy.html#a60b87f32b5e580b9990c8b7bb4fc4b37">Game::Mumy</a>, <a class="el" href="class_game_1_1_pharaoh.html#a077ab6bc53a6fe0c97aa1cdf069b7ab2">Game::Pharaoh</a>, <a class="el" href="class_game_1_1_player.html#a84e4429b778b9cf906a66d22159fac8f">Game::Player</a>, and <a class="el" href="class_game_1_1_shadow.html#a758d9f1ea6d5aafb59641097b60ddb95">Game::Shadow</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_game_character_8cpp_source.html#l00014">14</a> of file <a class="el" href="_game_character_8cpp_source.html">GameCharacter.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_game_character_8cpp_source.html#l00043">43</a> of file <a class="el" href="_game_character_8cpp_source.html">GameCharacter.cpp</a>.</p>
 
 </div>
 </div>
-<a id="a094623b9c5cdb779619b9b5f24352da4" name="a094623b9c5cdb779619b9b5f24352da4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a094623b9c5cdb779619b9b5f24352da4">&#9670;&nbsp;</a></span>get_turnnumb()</h2>
+<a id="a229b75d31281fd2f8632487bea2125e4" name="a229b75d31281fd2f8632487bea2125e4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a229b75d31281fd2f8632487bea2125e4">&#9670;&nbsp;</a></span>get_Name()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -248,7 +352,7 @@ Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">int Game::GameCharacter::get_turnnumb </td>
+          <td class="memname">string Game::GameCharacter::get_Name </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -261,12 +365,12 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_game_character_8cpp_source.html#l00022">22</a> of file <a class="el" href="_game_character_8cpp_source.html">GameCharacter.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_game_character_8cpp_source.html#l00039">39</a> of file <a class="el" href="_game_character_8cpp_source.html">GameCharacter.cpp</a>.</p>
 
 </div>
 </div>
-<a id="ac50a3e474e71b3d7707386b771d0c272" name="ac50a3e474e71b3d7707386b771d0c272"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac50a3e474e71b3d7707386b771d0c272">&#9670;&nbsp;</a></span>getArmor()</h2>
+<a id="aaca5aa874c489ce22a4e3e66e4b88255" name="aaca5aa874c489ce22a4e3e66e4b88255"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaca5aa874c489ce22a4e3e66e4b88255">&#9670;&nbsp;</a></span>get_rec()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -275,10 +379,10 @@ Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">int Game::GameCharacter::getArmor </td>
+          <td class="memname">auto Game::GameCharacter::get_rec </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td> -&gt; Rectangle</td>
         </tr>
       </table>
   </td>
@@ -288,7 +392,65 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_game_character_8cpp_source.html#l00010">10</a> of file <a class="el" href="_game_character_8cpp_source.html">GameCharacter.cpp</a>.</p>
+<p>Reimplemented in <a class="el" href="class_game_1_1_pharaoh.html#ae23c70a671f32bdfbaa040896dbc1949">Game::Pharaoh</a>, <a class="el" href="class_game_1_1_player.html#a67c5ec38ecb2c3033acce7e0e845c7f4">Game::Player</a>, <a class="el" href="class_game_1_1_shadow.html#a2d0861c42062b4cd1eb34268eaebf6e4">Game::Shadow</a>, and <a class="el" href="class_game_1_1_mumy.html#ad556873b4e8c51c9565de0ce6c451027">Game::Mumy</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="_game_character_8cpp_source.html#l00017">17</a> of file <a class="el" href="_game_character_8cpp_source.html">GameCharacter.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a4ac446b6b1dc94f090d3f796f97f6354" name="a4ac446b6b1dc94f090d3f796f97f6354"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4ac446b6b1dc94f090d3f796f97f6354">&#9670;&nbsp;</a></span>get_turnnumb()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">auto Game::GameCharacter::get_turnnumb </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> -&gt; int</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reimplemented in <a class="el" href="class_game_1_1_mumy.html#a2ea8ab66012c00197055ea8a14fea68c">Game::Mumy</a>, <a class="el" href="class_game_1_1_pharaoh.html#aba15c725bf8c94f5bd43694b7ad18c2d">Game::Pharaoh</a>, <a class="el" href="class_game_1_1_player.html#a81b8de9417fe0737c4ab2d50e96ef4ba">Game::Player</a>, and <a class="el" href="class_game_1_1_shadow.html#a6edd60d270f469f4f877ee864fb83193">Game::Shadow</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="_game_character_8cpp_source.html#l00030">30</a> of file <a class="el" href="_game_character_8cpp_source.html">GameCharacter.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a9fab947e82a0d36473f877b9cae18d78" name="a9fab947e82a0d36473f877b9cae18d78"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9fab947e82a0d36473f877b9cae18d78">&#9670;&nbsp;</a></span>getArmor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">auto Game::GameCharacter::getArmor </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> -&gt; int</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_game_character_8cpp_source.html#l00013">13</a> of file <a class="el" href="_game_character_8cpp_source.html">GameCharacter.cpp</a>.</p>
 
 </div>
 </div>
@@ -316,12 +478,12 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implemented in <a class="el" href="class_game_1_1_enemy.html#af63eefc8a73168c1ed111a9eab81997c">Game::Enemy</a>, and <a class="el" href="class_game_1_1_player.html#afe41ddb0340a1d04c64d29fb86cd5343">Game::Player</a>.</p>
+<p>Implemented in <a class="el" href="class_game_1_1_mumy.html#ac6ef82f761526fa2dd2408a78c705526">Game::Mumy</a>, <a class="el" href="class_game_1_1_pharaoh.html#a77503ce124c769cb8c647145e0f477c3">Game::Pharaoh</a>, <a class="el" href="class_game_1_1_player.html#afe41ddb0340a1d04c64d29fb86cd5343">Game::Player</a>, and <a class="el" href="class_game_1_1_shadow.html#af2a56aeb6b901d0c2832e4248673bb1c">Game::Shadow</a>.</p>
 
 </div>
 </div>
-<a id="af4d2af2b244b68530d15bda98020bedf" name="af4d2af2b244b68530d15bda98020bedf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af4d2af2b244b68530d15bda98020bedf">&#9670;&nbsp;</a></span>getLives()</h2>
+<a id="af5bd250f1ecdc136ff3aedc37a2f17b6" name="af5bd250f1ecdc136ff3aedc37a2f17b6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af5bd250f1ecdc136ff3aedc37a2f17b6">&#9670;&nbsp;</a></span>getDamageNumber()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -330,7 +492,117 @@ Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">int Game::GameCharacter::getLives </td>
+          <td class="memname">int Game::GameCharacter::getDamageNumber </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="afca2c47358aad478b58285a9b9a4d50e" name="afca2c47358aad478b58285a9b9a4d50e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afca2c47358aad478b58285a9b9a4d50e">&#9670;&nbsp;</a></span>getDefense()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">auto Game::GameCharacter::getDefense </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> -&gt; int</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reimplemented in <a class="el" href="class_game_1_1_mumy.html#a9dc3b6069d4408f04ae2ec2b2cc0df36">Game::Mumy</a>, <a class="el" href="class_game_1_1_pharaoh.html#a4413a69e7aa43b65fdad25aea992af54">Game::Pharaoh</a>, <a class="el" href="class_game_1_1_player.html#a52a3ce8bab71da883ef5eb50c9987b64">Game::Player</a>, and <a class="el" href="class_game_1_1_shadow.html#aa2c0068047b81a345e582fa69c45f9f6">Game::Shadow</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="_game_character_8cpp_source.html#l00044">44</a> of file <a class="el" href="_game_character_8cpp_source.html">GameCharacter.cpp</a>.</p>
+
+</div>
+</div>
+<a id="afc94877a9f793746927d958b29fdf720" name="afc94877a9f793746927d958b29fdf720"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afc94877a9f793746927d958b29fdf720">&#9670;&nbsp;</a></span>getLives()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">auto Game::GameCharacter::getLives </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> -&gt; int</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_game_character_8cpp_source.html#l00008">8</a> of file <a class="el" href="_game_character_8cpp_source.html">GameCharacter.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a9c123ecdb29f764c2a23a74cbcd22146" name="a9c123ecdb29f764c2a23a74cbcd22146"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9c123ecdb29f764c2a23a74cbcd22146">&#9670;&nbsp;</a></span>getStrength()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">auto Game::GameCharacter::getStrength </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> -&gt; int</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reimplemented in <a class="el" href="class_game_1_1_mumy.html#a843cfd5a319cf426b62ce301b5dd8db3">Game::Mumy</a>, <a class="el" href="class_game_1_1_pharaoh.html#a668b777a2fde7879d9c6aa104bd6cce5">Game::Pharaoh</a>, <a class="el" href="class_game_1_1_player.html#afce54ae9b0fc52b06ce5e74eeb66e690">Game::Player</a>, and <a class="el" href="class_game_1_1_shadow.html#af5d1a25bef6381a51bb4b2b19de94e04">Game::Shadow</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="_game_character_8cpp_source.html#l00015">15</a> of file <a class="el" href="_game_character_8cpp_source.html">GameCharacter.cpp</a>.</p>
+
+</div>
+</div>
+<a id="ad00971d301257504a5c1eb0a956658c1" name="ad00971d301257504a5c1eb0a956658c1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad00971d301257504a5c1eb0a956658c1">&#9670;&nbsp;</a></span>heal()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Game::GameCharacter::heal </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -343,12 +615,14 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_game_character_8cpp_source.html#l00005">5</a> of file <a class="el" href="_game_character_8cpp_source.html">GameCharacter.cpp</a>.</p>
+<p>Reimplemented in <a class="el" href="class_game_1_1_player.html#a351d599ea0841c447566479074f5a996">Game::Player</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="_game_character_8cpp_source.html#l00022">22</a> of file <a class="el" href="_game_character_8cpp_source.html">GameCharacter.cpp</a>.</p>
 
 </div>
 </div>
-<a id="ad9e63ba42e254d9422a3b7aefa296bb4" name="ad9e63ba42e254d9422a3b7aefa296bb4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad9e63ba42e254d9422a3b7aefa296bb4">&#9670;&nbsp;</a></span>getStrength()</h2>
+<a id="a981813c5d94adb96c76735744be07991" name="a981813c5d94adb96c76735744be07991"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a981813c5d94adb96c76735744be07991">&#9670;&nbsp;</a></span>set_rec()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -357,9 +631,39 @@ Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">int Game::GameCharacter::getStrength </td>
+          <td class="memname">auto Game::GameCharacter::set_rec </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
+          <td> -&gt; Rectangle</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reimplemented in <a class="el" href="class_game_1_1_pharaoh.html#ade68c1f20ceba44d5b8f465d64fec958">Game::Pharaoh</a>, <a class="el" href="class_game_1_1_player.html#a9092d8123b84f9c087bce97b010b87df">Game::Player</a>, <a class="el" href="class_game_1_1_shadow.html#a343cb7c50685376d3e5c539f4c7f70ff">Game::Shadow</a>, and <a class="el" href="class_game_1_1_mumy.html#a25f31ac27b92b436d2ffe37cbb412b67">Game::Mumy</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="_game_character_8cpp_source.html#l00027">27</a> of file <a class="el" href="_game_character_8cpp_source.html">GameCharacter.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a5ef314c9083dc51e51f3ebf4664afb65" name="a5ef314c9083dc51e51f3ebf4664afb65"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5ef314c9083dc51e51f3ebf4664afb65">&#9670;&nbsp;</a></span>set_turnnumb()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Game::GameCharacter::set_turnnumb </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>luck</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -370,36 +674,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_game_character_8cpp_source.html#l00012">12</a> of file <a class="el" href="_game_character_8cpp_source.html">GameCharacter.cpp</a>.</p>
-
-</div>
-</div>
-<a id="a08d163f4d8cc43fdfac94747930250a2" name="a08d163f4d8cc43fdfac94747930250a2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a08d163f4d8cc43fdfac94747930250a2">&#9670;&nbsp;</a></span>set_rec()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">Rectangle Game::GameCharacter::set_rec </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Reimplemented in <a class="el" href="class_game_1_1_enemy.html#a55c6842301c53337e810447db4e673b0">Game::Enemy</a>, and <a class="el" href="class_game_1_1_player.html#a46d41ac5eef51a521e2411961ad0f566">Game::Player</a>.</p>
-
-<p class="definition">Definition at line <a class="el" href="_game_character_8cpp_source.html#l00019">19</a> of file <a class="el" href="_game_character_8cpp_source.html">GameCharacter.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_game_character_8cpp_source.html#l00035">35</a> of file <a class="el" href="_game_character_8cpp_source.html">GameCharacter.cpp</a>.</p>
 
 </div>
 </div>
@@ -426,7 +701,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implemented in <a class="el" href="class_game_1_1_enemy.html#a0fa906e9114d7219e2389b5bd90673f8">Game::Enemy</a>, and <a class="el" href="class_game_1_1_player.html#ab765027f9a54ee46d52f8d50d8a17854">Game::Player</a>.</p>
+<p>Implemented in <a class="el" href="class_game_1_1_mumy.html#a79cafc1fdcb506b436874f6de17d2c82">Game::Mumy</a>, <a class="el" href="class_game_1_1_pharaoh.html#a2c46bedf84914a4c643c75e03c1d3cde">Game::Pharaoh</a>, <a class="el" href="class_game_1_1_player.html#ab765027f9a54ee46d52f8d50d8a17854">Game::Player</a>, and <a class="el" href="class_game_1_1_shadow.html#af60cbc59c95e4e3e17989b14afc5de05">Game::Shadow</a>.</p>
 
 </div>
 </div>
@@ -451,7 +726,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_game_character_8h_source.html#l00031">31</a> of file <a class="el" href="_game_character_8h_source.html">GameCharacter.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_game_character_8h_source.html#l00053">53</a> of file <a class="el" href="_game_character_8h_source.html">GameCharacter.h</a>.</p>
 
 </div>
 </div>
@@ -475,7 +750,31 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_game_character_8h_source.html#l00031">31</a> of file <a class="el" href="_game_character_8h_source.html">GameCharacter.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_game_character_8h_source.html#l00053">53</a> of file <a class="el" href="_game_character_8h_source.html">GameCharacter.h</a>.</p>
+
+</div>
+</div>
+<a id="a00b99b84040b3cb2dbb588b0a4cdceee" name="a00b99b84040b3cb2dbb588b0a4cdceee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a00b99b84040b3cb2dbb588b0a4cdceee">&#9670;&nbsp;</a></span>c_MaxHP</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Game::GameCharacter::c_MaxHP</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_game_character_8h_source.html#l00053">53</a> of file <a class="el" href="_game_character_8h_source.html">GameCharacter.h</a>.</p>
 
 </div>
 </div>
@@ -499,7 +798,71 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_game_character_8h_source.html#l00031">31</a> of file <a class="el" href="_game_character_8h_source.html">GameCharacter.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_game_character_8h_source.html#l00053">53</a> of file <a class="el" href="_game_character_8h_source.html">GameCharacter.h</a>.</p>
+
+</div>
+</div>
+<a id="a02c04222577cf9afb5c2eddb479bd557" name="a02c04222577cf9afb5c2eddb479bd557"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a02c04222577cf9afb5c2eddb479bd557">&#9670;&nbsp;</a></span>c_timeattack</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Game::GameCharacter::c_timeattack = <a class="el" href="class_game_1_1_game_character.html#a1dda674707377b5dc559fc00e23fd11f">c_STR</a> * 2</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_game_character_8h_source.html#l00054">54</a> of file <a class="el" href="_game_character_8h_source.html">GameCharacter.h</a>.</p>
+
+</div>
+</div>
+<a id="abbf03306d131729b00dcd57cf9109036" name="abbf03306d131729b00dcd57cf9109036"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abbf03306d131729b00dcd57cf9109036">&#9670;&nbsp;</a></span>damaged</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Game::GameCharacter::damaged = false</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_game_character_8h_source.html#l00048">48</a> of file <a class="el" href="_game_character_8h_source.html">GameCharacter.h</a>.</p>
+
+</div>
+</div>
+<a id="acf04e64278f1d6a0749dee0c55cb877a" name="acf04e64278f1d6a0749dee0c55cb877a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acf04e64278f1d6a0749dee0c55cb877a">&#9670;&nbsp;</a></span>name</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">string Game::GameCharacter::name</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_game_character_8h_source.html#l00055">55</a> of file <a class="el" href="_game_character_8h_source.html">GameCharacter.h</a>.</p>
 
 </div>
 </div>
@@ -523,7 +886,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_game_character_8h_source.html#l00033">33</a> of file <a class="el" href="_game_character_8h_source.html">GameCharacter.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_game_character_8h_source.html#l00057">57</a> of file <a class="el" href="_game_character_8h_source.html">GameCharacter.h</a>.</p>
 
 </div>
 </div>
@@ -547,7 +910,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_game_character_8h_source.html#l00032">32</a> of file <a class="el" href="_game_character_8h_source.html">GameCharacter.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_game_character_8h_source.html#l00056">56</a> of file <a class="el" href="_game_character_8h_source.html">GameCharacter.h</a>.</p>
 
 </div>
 </div>

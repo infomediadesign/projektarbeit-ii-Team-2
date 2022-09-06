@@ -13,7 +13,7 @@ public:
   Rectangle getShadowRec();
 
   Texture2D spr_shadow = LoadTexture("assets/graphics/map/Level1/Timeshadow_Final-Sheet.png");
-  Rectangle Shadowrec = { 590.5 + 8, 1014 + 5, 16, 20 };
+  Rectangle Shadowrec = { 590.5 + 8, 918 + 5, 16, 20 };
 
 private:
 
