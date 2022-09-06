@@ -502,7 +502,7 @@ void Game::Level::ScreenDraw() {
     DrawText("ESCAPE",t_rec_escape.x + 5, t_rec_escape.y + 10, 17, WHITE);
 
       break;
-
+//GameOver Screen
     case GameScreen::GAMEOVER:
       DrawTexture(gameover, GetScreenWidth() / 2 - 15, GetScreenHeight() / 2 - 20, WHITE);
       DrawText("GAME OVER!", GetScreenWidth() / 2 + 280, GetScreenHeight() / 2 + 100, 50, RED);

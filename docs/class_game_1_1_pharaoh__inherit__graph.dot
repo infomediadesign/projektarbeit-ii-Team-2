@@ -1,0 +1,10 @@
+digraph "Game::Pharaoh"
+{
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node1 [label="{Game::Pharaoh\n|+ State\l+ framescounter\l+ spr_pharaoh\l+ healthbar\l+ health\l+ healthrec\l+ frameRec\l+ currentFrame\l+ framesCounter\l+ framesSpeed\l+ mumyrec\l|+ Pharaoh()\l+ attack()\l+ getDamage()\l+ get_turnnumb()\l+ updateCharacter()\l+ getStrength()\l+ getDefense()\l+ get_rec()\l+ set_rec()\l+ draw()\l}",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
+  Node2 -> Node1 [dir="back",color="midnightblue",fontsize="10",style="solid",arrowtail="onormal",fontname="Helvetica"];
+  Node2 [label="{Game::GameCharacter\n|+ damaged\l# c_MaxHP\l# c_HP\l# c_DEF\l# c_STR\l# c_timeattack\l# name\l# turnnumb\l# rec\l|+ GameCharacter()\l+ get_Name()\l+ attack()\l+ getDamage()\l+ updateCharacter()\l+ getLives()\l+ getArmor()\l+ getStrength()\l+ getDefense()\l+ get_rec()\l+ set_rec()\l+ heal()\l+ get_turnnumb()\l+ set_turnnumb()\l+ draw()\l+ ~GameCharacter()\l# getDamageNumber()\l}",height=0.2,width=0.4,color="black",URL="$class_game_1_1_game_character.html",tooltip=" "];
+}
