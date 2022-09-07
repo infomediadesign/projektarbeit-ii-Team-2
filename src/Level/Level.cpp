@@ -548,7 +548,7 @@ void Game::Level::Teleport() {
    */
 }
 
-//Destrucotr
+//Destructor
 Game::Level::~Level()
 {
   std::cout<<"Destructor Level\n";
