@@ -29,7 +29,7 @@ void Game::Nemo::Update() {
       framesCounter = 0;
     } else*/ if (IsKeyDown(KEY_LEFT_SHIFT)) // Sprinting 
     {
-      walkspeed = 2.5;
+      walkspeed = 2.0;
     } else if (IsKeyDown(KEY_W) || IsKeyDown(KEY_S) || IsKeyDown(KEY_D) ||
                IsKeyDown(KEY_A)) // Better alternative than else walkspeed 1.5
     {
