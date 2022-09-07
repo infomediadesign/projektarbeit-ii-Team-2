@@ -176,7 +176,9 @@ int main() {
         }
       }
 
-      spr.EpanoxDraw();
+      //spr.EpanoxDraw();
+
+      collision.draw();
 
       nemo.active = true;
       nemo.Update(); // nemo walking movement and animation
@@ -184,6 +186,8 @@ int main() {
       camera.target = Vector2 { nemo.NemoPosition.x + 20.0f, nemo.NemoPosition.y + 20.0f };
 
       collision.epanoxCollision();
+      collision.outPyraWallCollision();
+
 
       ui.Draw(); // controlls description
 
