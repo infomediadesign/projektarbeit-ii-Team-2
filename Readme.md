@@ -1,7 +1,7 @@
 ***			Projektarbeit 2			***
 *** Custodia - gefangen in der Zeit ***
 
-Coder: Görkem, Nicolas
+Coder: GÃ¶rkem, Nicolas
 In this Project we'll programm a 2D Top Down Dungeon Crawler.
 More details will follow...
 
