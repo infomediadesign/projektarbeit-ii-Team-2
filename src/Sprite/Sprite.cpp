@@ -23,7 +23,3 @@ Game::Sprite::~Sprite() {
   TraceLog(LOG_INFO, "Custodia - trapped in time");
   UnloadTexture(texture_);
 }
-void Game::Sprite::EpanoxDraw() {
-  //Draw Epanox
-  DrawTexture(EpanoxStil, 961, 458, WHITE);
-}

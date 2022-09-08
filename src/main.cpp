@@ -52,7 +52,7 @@ int main() {
 
   Collision collision;
   Puzzle puzzle;
-  Map map;
+  LevelMap map;
 
   GameAudio::Load();
 
@@ -83,25 +83,29 @@ int main() {
   bool ShadowDraw = true;
   bool PharaohDraw = true;
 
-    //Map stuff -> relocate this into map.h/ and .cpp
-    std::ifstream tilesetDescriptionFile("assets/graphics/map/Level1/PhyramidSheet.json"); //Pyramiden_SheetJamey.json needed as json, pls do in tiled
-    assert(tilesetDescriptionFile.is_open());
-    nlohmann::json tilesetDescription = nlohmann::json::parse(tilesetDescriptionFile);
-    tilesetDescriptionFile.close();
+  //LevelMap();
 
-    /** Outside the Pyramid*/
-    std::ifstream levelMapFile("assets/graphics/map/Level1/PhyramidEntry.json");
-    assert(levelMapFile.is_open());
-    nlohmann::json levelMap = nlohmann::json::parse(levelMapFile);
-    levelMapFile.close();
+  //Map stuff -> relocate this into map.h/ and .cpp
+  std::ifstream tilesetDescriptionFile("assets/graphics/map/Level1/PhyramidSheet.json"); //Pyramiden_SheetJamey.json needed as json, pls do in tiled
+  assert(tilesetDescriptionFile.is_open());
+  nlohmann::json tilesetDescription = nlohmann::json::parse(tilesetDescriptionFile);
+  tilesetDescriptionFile.close();
 
-    /** Inside the Pyramid*/
-    std::ifstream levelMapFileDungeon("assets/graphics/map/Level1/PhyramidDungeon.json");
-    assert(levelMapFileDungeon.is_open());
-    nlohmann::json levelMapDungeon = nlohmann::json::parse(levelMapFileDungeon);
-    levelMapFileDungeon.close();
+  //Outside the Pyramid
+  std::ifstream levelMapFile("assets/graphics/map/Level1/PhyramidEntry.json");
+  assert(levelMapFile.is_open());
+  nlohmann::json levelMap = nlohmann::json::parse(levelMapFile);
+  levelMapFile.close();
 
-    Texture2D tileAtlasTexture = LoadTexture("assets/graphics/map/Level1/Egypt-Sheet.png");
+  //Inside the Pyramid
+  std::ifstream levelMapFileDungeon("assets/graphics/map/Level1/PhyramidDungeon.json");
+  assert(levelMapFileDungeon.is_open());
+  nlohmann::json levelMapDungeon = nlohmann::json::parse(levelMapFileDungeon);
+  levelMapFileDungeon.close();
+
+  Texture2D tileAtlasTexture = LoadTexture("assets/graphics/map/Level1/Egypt-Sheet.png");
+  /**/
+
 
     // Camera settings
   //--------------------------------------------------------------------------------------------
@@ -146,6 +150,8 @@ int main() {
 
       camera.zoom     = 2.0f;
 
+      //map.drawOVERWORLD();
+
       //map
       Vector2 vec;
       Rectangle rec;
@@ -176,7 +182,7 @@ int main() {
         }
       }
 
-      //spr.EpanoxDraw();
+      /**/
 
       collision.draw();
 
@@ -187,7 +193,6 @@ int main() {
 
       collision.epanoxCollision();
       collision.outPyraWallCollision();
-
 
       ui.Draw(); // controlls description
 
@@ -204,14 +209,7 @@ int main() {
 
       camera.zoom     = 2.0f;
 
-      ClearBackground(BLACK);
-
-      if (IsKeyPressed(KEY_C))
-      {
-        std::cout << "X: " << nemo.NemoPosition.x << endl;
-        std::cout << "Y: " << nemo.NemoPosition.y << endl;
-      }
-
+      //map.drawPYRAMID();
 
       Vector2 vecDungeon;
       Rectangle recDungeon;
@@ -228,9 +226,9 @@ int main() {
             counter--;
             if (counter != -1) {
               recDungeon.x = (float) ((int) counter % (int) tilesetDescription["columns"]) *
-                      (float) levelMap["tilewidth"];
+                             (float) levelMap["tilewidth"];
               recDungeon.y = (float) floor((float) counter / (float) tilesetDescription["columns"]) *
-                      (float) levelMap["tileheight"];
+                             (float) levelMap["tileheight"];
               DrawTextureRec(tileAtlasTexture, recDungeon, vecDungeon, WHITE); //entkoppeln, 2 vektoren machen
             }
             vecDungeon.x += (float) levelMapDungeon["tilewidth"];
@@ -241,6 +239,8 @@ int main() {
           }
         }
       }
+
+      /**/
 
       //NPCRec = { 592 + 8, 712 + 5, 16, 20 };
       // DrawRectangleRec(NPCRec, Color(00));                    // COLOR is for the Transparency.
@@ -308,7 +308,7 @@ int main() {
       DrawRectangleRec(level.teleportrecPYRAMIDtoOVERWORLD, Color{});
       DrawRectangleRec(level.teleportrecPYRAMIDtoENDSCREEN, Color{});
 
-      map.update();
+      //map.update();
       //collision.update(); //TODO the rectangle doesnt have anything init which doesnt alway it to collide with anything... theres an error and the game crashes
 
       if (IsKeyPressed(KEY_P)){
@@ -350,6 +350,7 @@ int main() {
 
   level.~Level();
   puzzle.~Puzzle();
+  //map.~LevelMap();
 
   CloseAudioDevice(); // Close audio device
 

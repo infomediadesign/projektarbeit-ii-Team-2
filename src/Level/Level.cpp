@@ -372,7 +372,7 @@ void Game::Level::ScreenDraw() {
       }
 
       /** draw */
-      ClearBackground(BLACK);
+
 
       break;
 
@@ -390,6 +390,14 @@ void Game::Level::ScreenDraw() {
         SetSoundVolume(GameAudio::indungeon, float(0.1));
       }
       if (IsSoundPlaying(GameAudio::indungeon)) {}
+
+      if (IsKeyPressed(KEY_C))
+      {
+        std::cout << "X: " << nemo->NemoPosition.x << endl;
+        std::cout << "Y: " << nemo->NemoPosition.y << endl;
+      }
+
+      //Teleport();
 
       //teleport conditions
       if (teleportcollisionPYRAMIDtoOVERWORLD) { //if the collision bool is true, nemo is transported to PYRAMIDE

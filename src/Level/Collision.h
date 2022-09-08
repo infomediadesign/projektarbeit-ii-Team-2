@@ -10,7 +10,7 @@ public:
 
   Game::Nemo * nemo;
   Game::Level * level;
-  Map * map;
+  LevelMap * map;
 
   Game::Dialog dialog;
 
