@@ -9,6 +9,7 @@ var namespaces_dup =
       [ "buttonpress", "namespace_game_audio.html#a199d99482ee42a248fed3c432d57a8e7", null ],
       [ "collision", "namespace_game_audio.html#ac9583206694ae9c461dbd24aaaeef65c", null ],
       [ "dialoge", "namespace_game_audio.html#a07dac752a5314e5df20c556e502df807", null ],
+      [ "epanoxsfx", "namespace_game_audio.html#ab3c1496449475bb91721c4df7bc6eee9", null ],
       [ "indungeon", "namespace_game_audio.html#a7cc59897fb7bff1f5e90f6c1736edc14", null ],
       [ "openchest", "namespace_game_audio.html#acc4e0a57c7699d7caa4ee90a725415d7", null ],
       [ "outdungeon", "namespace_game_audio.html#acf7f76477661dff36b7e6158e5b6d6c6", null ],

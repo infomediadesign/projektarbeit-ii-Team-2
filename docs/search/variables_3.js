@@ -2,13 +2,19 @@ var searchData=
 [
   ['damaged_0',['damaged',['../class_game_1_1_game_character.html#abbf03306d131729b00dcd57cf9109036',1,'Game::GameCharacter']]],
   ['dialog_1',['dialog',['../class_collision.html#af405a04b954afd903c436c258561303c',1,'Collision']]],
-  ['dialogactive_2',['dialogactive',['../class_collision.html#ad141863e817bd1f1997c64bf52ce1300',1,'Collision']]],
-  ['dialogbox_3',['dialogbox',['../class_collision.html#a86c5fd8c862285bf820e4d869b5b7131',1,'Collision']]],
-  ['dialoge_4',['dialoge',['../namespace_game_audio.html#a07dac752a5314e5df20c556e502df807',1,'GameAudio']]],
-  ['direction_5',['Direction',['../class_game_1_1_nemo.html#a9773212bb880099d5af6eedf28dffead',1,'Game::Nemo']]],
-  ['doorpositionx_6',['doorPositionX',['../class_game_1_1_level.html#a4954e307e957b98e0aaf11dcb6e67378',1,'Game::Level']]],
-  ['doorpositiony_7',['doorPositionY',['../class_game_1_1_level.html#a2a913abec4c2cd96e8cee95a9ff60be1',1,'Game::Level']]],
-  ['doortilex_8',['doortileX',['../class_game_1_1_level.html#a306bc7a6e67cd87301e476a5d8d38dc5',1,'Game::Level']]],
-  ['doortiley_9',['doortileY',['../class_game_1_1_level.html#a48460d58a544e51270fd294f42c76557',1,'Game::Level']]],
-  ['dungeonfloortile_10',['DungeonFloorTile',['../class_puzzle.html#ab8b73ec9f15bae0a080f91fd47bf0160',1,'Puzzle']]]
+  ['dialogbox_2',['Dialogbox',['../class_collision.html#a599e0cb4de2913001735e7bb841db100',1,'Collision']]],
+  ['dialoge_3',['dialoge',['../namespace_game_audio.html#a07dac752a5314e5df20c556e502df807',1,'GameAudio']]],
+  ['direction_4',['Direction',['../class_game_1_1_nemo.html#a9773212bb880099d5af6eedf28dffead',1,'Game::Nemo']]],
+  ['door1_5',['door1',['../class_puzzle.html#aef68a3918b10a2ee3392d8ece988fdab',1,'Puzzle']]],
+  ['door2_6',['door2',['../class_puzzle.html#a40d4ad2cd1fc7d00ce6ea696e6f3e612',1,'Puzzle']]],
+  ['door3_7',['door3',['../class_puzzle.html#a6aea49d7bfe183b9ab31e74661d32c39',1,'Puzzle']]],
+  ['doorcollision_8',['doorcollision',['../class_puzzle.html#adc10d1ac9f4a458e668f118a730a7c22',1,'Puzzle']]],
+  ['doorcollision1_9',['doorcollision1',['../class_puzzle.html#aa8f1792af4d4e4e772fbb8c444215828',1,'Puzzle']]],
+  ['doorcollision2_10',['doorcollision2',['../class_puzzle.html#a8b7267f21f6d56430ec8d8349c2c0923',1,'Puzzle']]],
+  ['doorcollision3_11',['doorcollision3',['../class_puzzle.html#a3e21cac1bbe1fd707c13d5ad6a201a8d',1,'Puzzle']]],
+  ['doorpositionx_12',['doorPositionX',['../class_game_1_1_level.html#a4954e307e957b98e0aaf11dcb6e67378',1,'Game::Level']]],
+  ['doorpositiony_13',['doorPositionY',['../class_game_1_1_level.html#a2a913abec4c2cd96e8cee95a9ff60be1',1,'Game::Level']]],
+  ['doortilex_14',['doortileX',['../class_game_1_1_level.html#a306bc7a6e67cd87301e476a5d8d38dc5',1,'Game::Level']]],
+  ['doortiley_15',['doortileY',['../class_game_1_1_level.html#a48460d58a544e51270fd294f42c76557',1,'Game::Level']]],
+  ['dungeonfloortile_16',['DungeonFloorTile',['../class_puzzle.html#ab8b73ec9f15bae0a080f91fd47bf0160',1,'Puzzle']]]
 ];

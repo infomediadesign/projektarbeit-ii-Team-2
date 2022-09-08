@@ -97,7 +97,7 @@ $(document).ready(function(){initNavTree('class_game_1_1_level.html',''); initRe
 <div class="dynheader">
 Collaboration diagram for Game::Level:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_game_1_1_level__coll__graph.svg" width="2326" height="970"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_game_1_1_level__coll__graph.svg" width="2326" height="984"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <table class="memberdecls">
@@ -112,6 +112,7 @@ Public Types</h2></td></tr>
 &#160;&#160;<a class="el" href="class_game_1_1_level.html#a605a468eab80cc37fd022e5f4541b92da25cd5d7590da7b2a4e474984bf1dd5ae">ENDSCREEN</a>
 , <a class="el" href="class_game_1_1_level.html#a605a468eab80cc37fd022e5f4541b92da36652ad71a00419c20c7ba1a7042682f">PAUSEMENU</a>
 , <a class="el" href="class_game_1_1_level.html#a605a468eab80cc37fd022e5f4541b92dadff094de00cf223dc8bda16d75e85efc">CUTSCENE</a>
+, <a class="el" href="class_game_1_1_level.html#a605a468eab80cc37fd022e5f4541b92da5ec7230608d2c1c4505d756b77e0c76a">GAMEOVER</a>
 <br />
  }</td></tr>
 <tr class="separator:a605a468eab80cc37fd022e5f4541b92d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -164,6 +165,8 @@ Public Attributes</h2></td></tr>
 <tr class="separator:a5b46242d313e2b3855dde8f179d38ded"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aebbf812b240bc15ae8e9c652d8d9e88b"><td class="memItemLeft" align="right" valign="top">Texture2D&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_1_1_level.html#aebbf812b240bc15ae8e9c652d8d9e88b">spr_Battery</a> = LoadTexture(&quot;assets/graphics/BattleScreen/Agypten/Batterieanzeige-Sheet.png&quot;)</td></tr>
 <tr class="separator:aebbf812b240bc15ae8e9c652d8d9e88b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7dfb9b736b149d90d967c066d2109372"><td class="memItemLeft" align="right" valign="top">Texture2D&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_1_1_level.html#a7dfb9b736b149d90d967c066d2109372">gameover</a> = LoadTexture(&quot;assets/graphics/backgrounds/GameOverScreen.png&quot;)</td></tr>
+<tr class="separator:a7dfb9b736b149d90d967c066d2109372"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a268c33365c73e5cef4036f4f97e86f81"><td class="memItemLeft" align="right" valign="top">unique_ptr&lt; <a class="el" href="class_game_1_1_game_character.html">GameCharacter</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_1_1_level.html#a268c33365c73e5cef4036f4f97e86f81">player</a> = std::make_unique&lt;<a class="el" href="class_game_1_1_player.html">Player</a>&gt;()</td></tr>
 <tr class="separator:a268c33365c73e5cef4036f4f97e86f81"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a51d46df15d6246916308a35804b672fd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_game_1_1_game_character.html">GameCharacter</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_1_1_level.html#a51d46df15d6246916308a35804b672fd">enemy</a> = new <a class="el" href="class_game_1_1_mumy.html">Mumy</a>()</td></tr>
@@ -307,7 +310,7 @@ Public Attributes</h2></td></tr>
 <tr><td class="fieldname"><a id="a1869c9a90dd864b19f379411c5e44952a0ddb78807b616941d9de350c30e952a7" name="a1869c9a90dd864b19f379411c5e44952a0ddb78807b616941d9de350c30e952a7"></a>PHARAOH&#160;</td><td class="fielddoc"></td></tr>
 </table>
 
-<p class="definition">Definition at line <a class="el" href="_level_8h_source.html#l00097">97</a> of file <a class="el" href="_level_8h_source.html">Level.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_level_8h_source.html#l00098">98</a> of file <a class="el" href="_level_8h_source.html">Level.h</a>.</p>
 
 </div>
 </div>
@@ -338,9 +341,10 @@ Public Attributes</h2></td></tr>
 <tr><td class="fieldname"><a id="a605a468eab80cc37fd022e5f4541b92da25cd5d7590da7b2a4e474984bf1dd5ae" name="a605a468eab80cc37fd022e5f4541b92da25cd5d7590da7b2a4e474984bf1dd5ae"></a>ENDSCREEN&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a605a468eab80cc37fd022e5f4541b92da36652ad71a00419c20c7ba1a7042682f" name="a605a468eab80cc37fd022e5f4541b92da36652ad71a00419c20c7ba1a7042682f"></a>PAUSEMENU&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a605a468eab80cc37fd022e5f4541b92dadff094de00cf223dc8bda16d75e85efc" name="a605a468eab80cc37fd022e5f4541b92dadff094de00cf223dc8bda16d75e85efc"></a>CUTSCENE&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a605a468eab80cc37fd022e5f4541b92da5ec7230608d2c1c4505d756b77e0c76a" name="a605a468eab80cc37fd022e5f4541b92da5ec7230608d2c1c4505d756b77e0c76a"></a>GAMEOVER&#160;</td><td class="fielddoc"></td></tr>
 </table>
 
-<p class="definition">Definition at line <a class="el" href="_level_8h_source.html#l00091">91</a> of file <a class="el" href="_level_8h_source.html">Level.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_level_8h_source.html#l00092">92</a> of file <a class="el" href="_level_8h_source.html">Level.h</a>.</p>
 
 </div>
 </div>
@@ -360,7 +364,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_level_8cpp_source.html#l00541">541</a> of file <a class="el" href="_level_8cpp_source.html">Level.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_level_8cpp_source.html#l00581">581</a> of file <a class="el" href="_level_8cpp_source.html">Level.cpp</a>.</p>
 
 </div>
 </div>
@@ -409,7 +413,7 @@ Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_level_8h_source.html#l00167">167</a> of file <a class="el" href="_level_8h_source.html">Level.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_level_8h_source.html#l00168">168</a> of file <a class="el" href="_level_8h_source.html">Level.h</a>.</p>
 
 </div>
 </div>
@@ -476,7 +480,7 @@ Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_level_8h_source.html#l00139">139</a> of file <a class="el" href="_level_8h_source.html">Level.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_level_8h_source.html#l00140">140</a> of file <a class="el" href="_level_8h_source.html">Level.h</a>.</p>
 
 </div>
 </div>
@@ -524,7 +528,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_level_8cpp_source.html#l00510">510</a> of file <a class="el" href="_level_8cpp_source.html">Level.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_level_8cpp_source.html#l00550">550</a> of file <a class="el" href="_level_8cpp_source.html">Level.cpp</a>.</p>
 
 </div>
 </div>
@@ -557,7 +561,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_level_8h_source.html#l00046">46</a> of file <a class="el" href="_level_8h_source.html">Level.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_level_8h_source.html#l00047">47</a> of file <a class="el" href="_level_8h_source.html">Level.h</a>.</p>
 
 </div>
 </div>
@@ -573,7 +577,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_level_8h_source.html#l00047">47</a> of file <a class="el" href="_level_8h_source.html">Level.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_level_8h_source.html#l00048">48</a> of file <a class="el" href="_level_8h_source.html">Level.h</a>.</p>
 
 </div>
 </div>
@@ -589,7 +593,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_level_8h_source.html#l00051">51</a> of file <a class="el" href="_level_8h_source.html">Level.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_level_8h_source.html#l00052">52</a> of file <a class="el" href="_level_8h_source.html">Level.h</a>.</p>
 
 </div>
 </div>
@@ -605,7 +609,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_level_8h_source.html#l00052">52</a> of file <a class="el" href="_level_8h_source.html">Level.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_level_8h_source.html#l00053">53</a> of file <a class="el" href="_level_8h_source.html">Level.h</a>.</p>
 
 </div>
 </div>
@@ -621,7 +625,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_level_8h_source.html#l00124">124</a> of file <a class="el" href="_level_8h_source.html">Level.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_level_8h_source.html#l00125">125</a> of file <a class="el" href="_level_8h_source.html">Level.h</a>.</p>
 
 </div>
 </div>
@@ -637,7 +641,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_level_8h_source.html#l00045">45</a> of file <a class="el" href="_level_8h_source.html">Level.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_level_8h_source.html#l00046">46</a> of file <a class="el" href="_level_8h_source.html">Level.h</a>.</p>
 
 </div>
 </div>
@@ -653,7 +657,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_level_8h_source.html#l00050">50</a> of file <a class="el" href="_level_8h_source.html">Level.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_level_8h_source.html#l00051">51</a> of file <a class="el" href="_level_8h_source.html">Level.h</a>.</p>
 
 </div>
 </div>
@@ -685,7 +689,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_level_8h_source.html#l00122">122</a> of file <a class="el" href="_level_8h_source.html">Level.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_level_8h_source.html#l00123">123</a> of file <a class="el" href="_level_8h_source.html">Level.h</a>.</p>
 
 </div>
 </div>
@@ -701,7 +705,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_level_8h_source.html#l00123">123</a> of file <a class="el" href="_level_8h_source.html">Level.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_level_8h_source.html#l00124">124</a> of file <a class="el" href="_level_8h_source.html">Level.h</a>.</p>
 
 </div>
 </div>
@@ -717,7 +721,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_level_8h_source.html#l00125">125</a> of file <a class="el" href="_level_8h_source.html">Level.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_level_8h_source.html#l00126">126</a> of file <a class="el" href="_level_8h_source.html">Level.h</a>.</p>
 
 </div>
 </div>
@@ -749,7 +753,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_level_8h_source.html#l00112">112</a> of file <a class="el" href="_level_8h_source.html">Level.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_level_8h_source.html#l00113">113</a> of file <a class="el" href="_level_8h_source.html">Level.h</a>.</p>
 
 </div>
 </div>
@@ -765,7 +769,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_level_8h_source.html#l00105">105</a> of file <a class="el" href="_level_8h_source.html">Level.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_level_8h_source.html#l00106">106</a> of file <a class="el" href="_level_8h_source.html">Level.h</a>.</p>
 
 </div>
 </div>
@@ -797,7 +801,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_level_8h_source.html#l00094">94</a> of file <a class="el" href="_level_8h_source.html">Level.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_level_8h_source.html#l00095">95</a> of file <a class="el" href="_level_8h_source.html">Level.h</a>.</p>
 
 </div>
 </div>
@@ -813,7 +817,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_level_8h_source.html#l00078">78</a> of file <a class="el" href="_level_8h_source.html">Level.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_level_8h_source.html#l00079">79</a> of file <a class="el" href="_level_8h_source.html">Level.h</a>.</p>
 
 </div>
 </div>
@@ -829,7 +833,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_level_8h_source.html#l00079">79</a> of file <a class="el" href="_level_8h_source.html">Level.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_level_8h_source.html#l00080">80</a> of file <a class="el" href="_level_8h_source.html">Level.h</a>.</p>
 
 </div>
 </div>
@@ -845,7 +849,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_level_8h_source.html#l00076">76</a> of file <a class="el" href="_level_8h_source.html">Level.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_level_8h_source.html#l00077">77</a> of file <a class="el" href="_level_8h_source.html">Level.h</a>.</p>
 
 </div>
 </div>
@@ -861,7 +865,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_level_8h_source.html#l00077">77</a> of file <a class="el" href="_level_8h_source.html">Level.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_level_8h_source.html#l00078">78</a> of file <a class="el" href="_level_8h_source.html">Level.h</a>.</p>
 
 </div>
 </div>
@@ -877,7 +881,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_level_8h_source.html#l00073">73</a> of file <a class="el" href="_level_8h_source.html">Level.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_level_8h_source.html#l00074">74</a> of file <a class="el" href="_level_8h_source.html">Level.h</a>.</p>
 
 </div>
 </div>
@@ -893,7 +897,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_level_8h_source.html#l00070">70</a> of file <a class="el" href="_level_8h_source.html">Level.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_level_8h_source.html#l00071">71</a> of file <a class="el" href="_level_8h_source.html">Level.h</a>.</p>
 
 </div>
 </div>
@@ -909,7 +913,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_level_8h_source.html#l00059">59</a> of file <a class="el" href="_level_8h_source.html">Level.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_level_8h_source.html#l00060">60</a> of file <a class="el" href="_level_8h_source.html">Level.h</a>.</p>
 
 </div>
 </div>
@@ -925,7 +929,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_level_8h_source.html#l00036">36</a> of file <a class="el" href="_level_8h_source.html">Level.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_level_8h_source.html#l00037">37</a> of file <a class="el" href="_level_8h_source.html">Level.h</a>.</p>
 
 </div>
 </div>
@@ -941,7 +945,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_level_8h_source.html#l00044">44</a> of file <a class="el" href="_level_8h_source.html">Level.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_level_8h_source.html#l00045">45</a> of file <a class="el" href="_level_8h_source.html">Level.h</a>.</p>
 
 </div>
 </div>
@@ -973,7 +977,23 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_level_8h_source.html#l00066">66</a> of file <a class="el" href="_level_8h_source.html">Level.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_level_8h_source.html#l00067">67</a> of file <a class="el" href="_level_8h_source.html">Level.h</a>.</p>
+
+</div>
+</div>
+<a id="a7dfb9b736b149d90d967c066d2109372" name="a7dfb9b736b149d90d967c066d2109372"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7dfb9b736b149d90d967c066d2109372">&#9670;&nbsp;</a></span>gameover</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Texture2D Game::Level::gameover = LoadTexture(&quot;assets/graphics/backgrounds/GameOverScreen.png&quot;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_level_8h_source.html#l00029">29</a> of file <a class="el" href="_level_8h_source.html">Level.h</a>.</p>
 
 </div>
 </div>
@@ -989,7 +1009,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_level_8h_source.html#l00067">67</a> of file <a class="el" href="_level_8h_source.html">Level.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_level_8h_source.html#l00068">68</a> of file <a class="el" href="_level_8h_source.html">Level.h</a>.</p>
 
 </div>
 </div>
@@ -1005,7 +1025,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_level_8h_source.html#l00062">62</a> of file <a class="el" href="_level_8h_source.html">Level.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_level_8h_source.html#l00063">63</a> of file <a class="el" href="_level_8h_source.html">Level.h</a>.</p>
 
 </div>
 </div>
@@ -1021,7 +1041,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_level_8h_source.html#l00057">57</a> of file <a class="el" href="_level_8h_source.html">Level.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_level_8h_source.html#l00058">58</a> of file <a class="el" href="_level_8h_source.html">Level.h</a>.</p>
 
 </div>
 </div>
@@ -1053,7 +1073,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_level_8h_source.html#l00039">39</a> of file <a class="el" href="_level_8h_source.html">Level.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_level_8h_source.html#l00040">40</a> of file <a class="el" href="_level_8h_source.html">Level.h</a>.</p>
 
 </div>
 </div>
@@ -1069,7 +1089,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_level_8h_source.html#l00099">99</a> of file <a class="el" href="_level_8h_source.html">Level.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_level_8h_source.html#l00100">100</a> of file <a class="el" href="_level_8h_source.html">Level.h</a>.</p>
 
 </div>
 </div>
@@ -1085,7 +1105,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_level_8h_source.html#l00071">71</a> of file <a class="el" href="_level_8h_source.html">Level.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_level_8h_source.html#l00072">72</a> of file <a class="el" href="_level_8h_source.html">Level.h</a>.</p>
 
 </div>
 </div>
@@ -1101,7 +1121,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_level_8h_source.html#l00069">69</a> of file <a class="el" href="_level_8h_source.html">Level.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_level_8h_source.html#l00070">70</a> of file <a class="el" href="_level_8h_source.html">Level.h</a>.</p>
 
 </div>
 </div>
@@ -1133,7 +1153,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_level_8h_source.html#l00038">38</a> of file <a class="el" href="_level_8h_source.html">Level.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_level_8h_source.html#l00039">39</a> of file <a class="el" href="_level_8h_source.html">Level.h</a>.</p>
 
 </div>
 </div>
@@ -1149,7 +1169,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_level_8h_source.html#l00034">34</a> of file <a class="el" href="_level_8h_source.html">Level.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_level_8h_source.html#l00035">35</a> of file <a class="el" href="_level_8h_source.html">Level.h</a>.</p>
 
 </div>
 </div>
@@ -1165,7 +1185,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_level_8h_source.html#l00133">133</a> of file <a class="el" href="_level_8h_source.html">Level.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_level_8h_source.html#l00134">134</a> of file <a class="el" href="_level_8h_source.html">Level.h</a>.</p>
 
 </div>
 </div>
@@ -1181,7 +1201,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_level_8h_source.html#l00131">131</a> of file <a class="el" href="_level_8h_source.html">Level.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_level_8h_source.html#l00132">132</a> of file <a class="el" href="_level_8h_source.html">Level.h</a>.</p>
 
 </div>
 </div>
@@ -1197,7 +1217,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_level_8h_source.html#l00132">132</a> of file <a class="el" href="_level_8h_source.html">Level.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_level_8h_source.html#l00133">133</a> of file <a class="el" href="_level_8h_source.html">Level.h</a>.</p>
 
 </div>
 </div>
@@ -1213,7 +1233,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_level_8h_source.html#l00134">134</a> of file <a class="el" href="_level_8h_source.html">Level.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_level_8h_source.html#l00135">135</a> of file <a class="el" href="_level_8h_source.html">Level.h</a>.</p>
 
 </div>
 </div>
@@ -1229,7 +1249,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_level_8h_source.html#l00037">37</a> of file <a class="el" href="_level_8h_source.html">Level.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_level_8h_source.html#l00038">38</a> of file <a class="el" href="_level_8h_source.html">Level.h</a>.</p>
 
 </div>
 </div>
@@ -1245,7 +1265,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_level_8h_source.html#l00058">58</a> of file <a class="el" href="_level_8h_source.html">Level.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_level_8h_source.html#l00059">59</a> of file <a class="el" href="_level_8h_source.html">Level.h</a>.</p>
 
 </div>
 </div>
@@ -1277,7 +1297,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_level_8h_source.html#l00072">72</a> of file <a class="el" href="_level_8h_source.html">Level.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_level_8h_source.html#l00073">73</a> of file <a class="el" href="_level_8h_source.html">Level.h</a>.</p>
 
 </div>
 </div>
@@ -1293,7 +1313,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_level_8h_source.html#l00118">118</a> of file <a class="el" href="_level_8h_source.html">Level.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_level_8h_source.html#l00119">119</a> of file <a class="el" href="_level_8h_source.html">Level.h</a>.</p>
 
 </div>
 </div>
@@ -1309,7 +1329,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_level_8h_source.html#l00111">111</a> of file <a class="el" href="_level_8h_source.html">Level.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_level_8h_source.html#l00112">112</a> of file <a class="el" href="_level_8h_source.html">Level.h</a>.</p>
 
 </div>
 </div>
@@ -1325,7 +1345,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_level_8h_source.html#l00115">115</a> of file <a class="el" href="_level_8h_source.html">Level.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_level_8h_source.html#l00116">116</a> of file <a class="el" href="_level_8h_source.html">Level.h</a>.</p>
 
 </div>
 </div>
@@ -1341,7 +1361,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_level_8h_source.html#l00108">108</a> of file <a class="el" href="_level_8h_source.html">Level.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_level_8h_source.html#l00109">109</a> of file <a class="el" href="_level_8h_source.html">Level.h</a>.</p>
 
 </div>
 </div>
@@ -1357,7 +1377,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_level_8h_source.html#l00114">114</a> of file <a class="el" href="_level_8h_source.html">Level.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_level_8h_source.html#l00115">115</a> of file <a class="el" href="_level_8h_source.html">Level.h</a>.</p>
 
 </div>
 </div>
@@ -1373,7 +1393,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_level_8h_source.html#l00107">107</a> of file <a class="el" href="_level_8h_source.html">Level.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_level_8h_source.html#l00108">108</a> of file <a class="el" href="_level_8h_source.html">Level.h</a>.</p>
 
 </div>
 </div>
@@ -1389,7 +1409,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_level_8h_source.html#l00106">106</a> of file <a class="el" href="_level_8h_source.html">Level.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_level_8h_source.html#l00107">107</a> of file <a class="el" href="_level_8h_source.html">Level.h</a>.</p>
 
 </div>
 </div>
@@ -1405,7 +1425,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_level_8h_source.html#l00113">113</a> of file <a class="el" href="_level_8h_source.html">Level.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_level_8h_source.html#l00114">114</a> of file <a class="el" href="_level_8h_source.html">Level.h</a>.</p>
 
 </div>
 </div>
@@ -1421,7 +1441,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_level_8h_source.html#l00085">85</a> of file <a class="el" href="_level_8h_source.html">Level.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_level_8h_source.html#l00086">86</a> of file <a class="el" href="_level_8h_source.html">Level.h</a>.</p>
 
 </div>
 </div>
@@ -1437,7 +1457,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_level_8h_source.html#l00087">87</a> of file <a class="el" href="_level_8h_source.html">Level.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_level_8h_source.html#l00088">88</a> of file <a class="el" href="_level_8h_source.html">Level.h</a>.</p>
 
 </div>
 </div>
@@ -1453,7 +1473,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_level_8h_source.html#l00086">86</a> of file <a class="el" href="_level_8h_source.html">Level.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_level_8h_source.html#l00087">87</a> of file <a class="el" href="_level_8h_source.html">Level.h</a>.</p>
 
 </div>
 </div>
@@ -1469,7 +1489,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_level_8h_source.html#l00081">81</a> of file <a class="el" href="_level_8h_source.html">Level.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_level_8h_source.html#l00082">82</a> of file <a class="el" href="_level_8h_source.html">Level.h</a>.</p>
 
 </div>
 </div>
@@ -1485,7 +1505,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_level_8h_source.html#l00083">83</a> of file <a class="el" href="_level_8h_source.html">Level.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_level_8h_source.html#l00084">84</a> of file <a class="el" href="_level_8h_source.html">Level.h</a>.</p>
 
 </div>
 </div>
@@ -1501,7 +1521,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_level_8h_source.html#l00082">82</a> of file <a class="el" href="_level_8h_source.html">Level.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_level_8h_source.html#l00083">83</a> of file <a class="el" href="_level_8h_source.html">Level.h</a>.</p>
 
 </div>
 </div>
@@ -1517,7 +1537,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_level_8h_source.html#l00109">109</a> of file <a class="el" href="_level_8h_source.html">Level.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_level_8h_source.html#l00110">110</a> of file <a class="el" href="_level_8h_source.html">Level.h</a>.</p>
 
 </div>
 </div>
@@ -1533,7 +1553,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_level_8h_source.html#l00116">116</a> of file <a class="el" href="_level_8h_source.html">Level.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_level_8h_source.html#l00117">117</a> of file <a class="el" href="_level_8h_source.html">Level.h</a>.</p>
 
 </div>
 </div>
@@ -1549,7 +1569,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_level_8h_source.html#l00065">65</a> of file <a class="el" href="_level_8h_source.html">Level.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_level_8h_source.html#l00066">66</a> of file <a class="el" href="_level_8h_source.html">Level.h</a>.</p>
 
 </div>
 </div>

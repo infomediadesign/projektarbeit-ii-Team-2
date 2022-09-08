@@ -130,29 +130,13 @@ void Collision::epanoxCollision() { // Epanox collision
 void Collision::outPyraWallCollision() {
 
   wallCollision = CheckCollisionRecs(OutsideWallLeft, nemo->nemorec);
-  wallCollision = CheckCollisionRecs(OutsideWallRight, nemo->nemorec);
-  wallCollision = CheckCollisionRecs(OutsideWallBottom, nemo->nemorec);
+  wallCollision2 = CheckCollisionRecs(OutsideWallRight, nemo->nemorec);
+  wallCollision3 = CheckCollisionRecs(OutsideWallBottom, nemo->nemorec);
 
+  if (wallCollision){ stopnemo(); }
+  if (wallCollision2){ stopnemo(); }
+  if (wallCollision3){ stopnemo(); }
 
-
-while (wallCollision){
-  //walking
-  if (IsKeyPressed(KEY_A) || IsKeyDown(KEY_A)) { nemo->NemoPosition.x += 1.5; }
-  if (IsKeyPressed(KEY_D) || IsKeyDown(KEY_D)) { nemo->NemoPosition.x -= 1.5; }
-  if (IsKeyPressed(KEY_W) || IsKeyDown(KEY_W)) { nemo->NemoPosition.y += 1.5; }
-  if (IsKeyPressed(KEY_S) || IsKeyDown(KEY_S)) { nemo->NemoPosition.y -= 1.5; }
-
-  //sprinting
-  if (IsKeyPressed(KEY_A) && IsKeyDown(KEY_LEFT_SHIFT) || IsKeyDown(KEY_A) && IsKeyDown(KEY_LEFT_SHIFT) )
-  { nemo->NemoPosition.x += 2.0; }
-  if (IsKeyPressed(KEY_D) && IsKeyDown(KEY_LEFT_SHIFT) || IsKeyDown(KEY_D) && IsKeyDown(KEY_LEFT_SHIFT))
-  { nemo->NemoPosition.x -= 2.0; }
-  if (IsKeyPressed(KEY_W) && IsKeyDown(KEY_LEFT_SHIFT) || IsKeyDown(KEY_W) && IsKeyDown(KEY_LEFT_SHIFT))
-  { nemo->NemoPosition.y += 2.0; }
-  if (IsKeyPressed(KEY_S) && IsKeyDown(KEY_LEFT_SHIFT) || IsKeyDown(KEY_S) && IsKeyDown(KEY_LEFT_SHIFT))
-  { nemo->NemoPosition.y -= 2.0; }
-  break;
-  }
 }
 
 

@@ -13,7 +13,8 @@ var class_game_1_1_level =
       [ "PYRAMIDE", "class_game_1_1_level.html#a605a468eab80cc37fd022e5f4541b92da87ad2b9aff4a2c36a97a8c20847e9e62", null ],
       [ "ENDSCREEN", "class_game_1_1_level.html#a605a468eab80cc37fd022e5f4541b92da25cd5d7590da7b2a4e474984bf1dd5ae", null ],
       [ "PAUSEMENU", "class_game_1_1_level.html#a605a468eab80cc37fd022e5f4541b92da36652ad71a00419c20c7ba1a7042682f", null ],
-      [ "CUTSCENE", "class_game_1_1_level.html#a605a468eab80cc37fd022e5f4541b92dadff094de00cf223dc8bda16d75e85efc", null ]
+      [ "CUTSCENE", "class_game_1_1_level.html#a605a468eab80cc37fd022e5f4541b92dadff094de00cf223dc8bda16d75e85efc", null ],
+      [ "GAMEOVER", "class_game_1_1_level.html#a605a468eab80cc37fd022e5f4541b92da5ec7230608d2c1c4505d756b77e0c76a", null ]
     ] ],
     [ "~Level", "class_game_1_1_level.html#a70875e348acd232acba7df8fd188f657", null ],
     [ "combat", "class_game_1_1_level.html#a67b3f3c5707587cddc19ed0631f435aa", null ],
@@ -49,6 +50,7 @@ var class_game_1_1_level =
     [ "energy", "class_game_1_1_level.html#a22c58f7b5977b5045410e9c9f79b5d46", null ],
     [ "Fish", "class_game_1_1_level.html#a826d8fb52c24c0f875ed173bbd195284", null ],
     [ "framescounter", "class_game_1_1_level.html#a0801b9cba61bc17841583b93a5b3f60f", null ],
+    [ "gameover", "class_game_1_1_level.html#a7dfb9b736b149d90d967c066d2109372", null ],
     [ "h_amount", "class_game_1_1_level.html#ac986f92f894a23ea66560f4a03d2b31c", null ],
     [ "input", "class_game_1_1_level.html#aa0fb36046d692037715d0f43863d0e13", null ],
     [ "level", "class_game_1_1_level.html#a0e153c895cad2e13602b41d69b907f7f", null ],

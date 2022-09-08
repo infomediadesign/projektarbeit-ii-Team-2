@@ -12,7 +12,7 @@ var hierarchy =
     [ "Inventory", "class_inventory.html", null ],
     [ "Item", "struct_item.html", null ],
     [ "Game::Level", "class_game_1_1_level.html", null ],
-    [ "Map", "class_map.html", null ],
+    [ "LevelMap", "class_level_map.html", null ],
     [ "Mumy", "class_mumy.html", null ],
     [ "Game::Nemo", "class_game_1_1_nemo.html", null ],
     [ "Pharaoh", "class_pharaoh.html", null ],

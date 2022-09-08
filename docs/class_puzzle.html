@@ -95,7 +95,7 @@ $(document).ready(function(){initNavTree('class_puzzle.html',''); initResizable(
 <div class="dynheader">
 Collaboration diagram for Puzzle:</div>
 <div class="dyncontent">
-<div class="center"><!-- SVG 0 -->
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_puzzle__coll__graph.svg" width="2698" height="2020"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <table class="memberdecls">
@@ -103,8 +103,10 @@ Collaboration diagram for Puzzle:</div>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:afc08aec562d7d5a4e7737ce80e45eeb6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_puzzle.html#afc08aec562d7d5a4e7737ce80e45eeb6">Puzzle</a> ()</td></tr>
 <tr class="separator:afc08aec562d7d5a4e7737ce80e45eeb6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abf6e4884b7ac9971f9349806196cc57e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_puzzle.html#abf6e4884b7ac9971f9349806196cc57e">collision</a> ()</td></tr>
-<tr class="separator:abf6e4884b7ac9971f9349806196cc57e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a201b7d72417c1134df4745fd9553cd63"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_puzzle.html#a201b7d72417c1134df4745fd9553cd63">collisionChecks</a> ()</td></tr>
+<tr class="separator:a201b7d72417c1134df4745fd9553cd63"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a536546926838bd5b293c08749fd46a23"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_puzzle.html#a536546926838bd5b293c08749fd46a23">stopNemo</a> ()</td></tr>
+<tr class="separator:a536546926838bd5b293c08749fd46a23"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a31f9260f3d4bf4c738305c5d6823475d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_puzzle.html#a31f9260f3d4bf4c738305c5d6823475d">update</a> ()</td></tr>
 <tr class="separator:a31f9260f3d4bf4c738305c5d6823475d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5ff608ec8195a89e9e0a6eedbde61b47"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_puzzle.html#a5ff608ec8195a89e9e0a6eedbde61b47">draw</a> ()</td></tr>
@@ -118,6 +120,8 @@ Public Member Functions</h2></td></tr>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a0fce4afcc331c6eed9ec1873132b12eb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_game_1_1_nemo.html">Game::Nemo</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_puzzle.html#a0fce4afcc331c6eed9ec1873132b12eb">nemo</a> = new <a class="el" href="class_game_1_1_nemo.html">Game::Nemo</a>()</td></tr>
 <tr class="separator:a0fce4afcc331c6eed9ec1873132b12eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afde28f24ddc360552e767ec326cef05b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_collision.html">Collision</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_puzzle.html#afde28f24ddc360552e767ec326cef05b">collision</a></td></tr>
+<tr class="separator:afde28f24ddc360552e767ec326cef05b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5c027041ccfaa0cd58d3c6e4385cb063"><td class="memItemLeft" align="right" valign="top">Texture2D&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_puzzle.html#a5c027041ccfaa0cd58d3c6e4385cb063">ChestOpen</a> = LoadTexture(&quot;assets/graphics/Items/OpenChest.png&quot;)</td></tr>
 <tr class="separator:a5c027041ccfaa0cd58d3c6e4385cb063"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7302eb8e88e775ebf5da7d8653f46855"><td class="memItemLeft" align="right" valign="top">Texture2D&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_puzzle.html#a7302eb8e88e775ebf5da7d8653f46855">HelmetItem</a> = LoadTexture(&quot;assets/graphics/Items/Helm.png&quot;)</td></tr>
@@ -162,6 +166,12 @@ Public Attributes</h2></td></tr>
 <tr class="separator:ad35cf760c3c616be7bc96307f3f71ddb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a45180526997f5d63e5f63ac95ba0651d"><td class="memItemLeft" align="right" valign="top">Rectangle&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_puzzle.html#a45180526997f5d63e5f63ac95ba0651d">Key</a> = {645, 380, 17, 19}</td></tr>
 <tr class="separator:a45180526997f5d63e5f63ac95ba0651d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aef68a3918b10a2ee3392d8ece988fdab"><td class="memItemLeft" align="right" valign="top">Rectangle&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_puzzle.html#aef68a3918b10a2ee3392d8ece988fdab">door1</a> = {736, 673.5, 32, 96}</td></tr>
+<tr class="separator:aef68a3918b10a2ee3392d8ece988fdab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a40d4ad2cd1fc7d00ce6ea696e6f3e612"><td class="memItemLeft" align="right" valign="top">Rectangle&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_puzzle.html#a40d4ad2cd1fc7d00ce6ea696e6f3e612">door2</a> = {576, 896, 64, 32}</td></tr>
+<tr class="separator:a40d4ad2cd1fc7d00ce6ea696e6f3e612"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6aea49d7bfe183b9ab31e74661d32c39"><td class="memItemLeft" align="right" valign="top">Rectangle&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_puzzle.html#a6aea49d7bfe183b9ab31e74661d32c39">door3</a> = {800, 992, 32, 96}</td></tr>
+<tr class="separator:a6aea49d7bfe183b9ab31e74661d32c39"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2eabec401c909a733b34d260a161306f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_puzzle.html#a2eabec401c909a733b34d260a161306f">chestCollision</a> = false</td></tr>
 <tr class="separator:a2eabec401c909a733b34d260a161306f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7a758335ab1b665d9ea130e3b03b2570"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_puzzle.html#a7a758335ab1b665d9ea130e3b03b2570">chestCollision2</a> = false</td></tr>
@@ -200,6 +210,14 @@ Public Attributes</h2></td></tr>
 <tr class="separator:a3aea006ec3c9ea3abae3b485b1210e6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af44f4798f50a91120dc6bfe8db16bc6f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_puzzle.html#af44f4798f50a91120dc6bfe8db16bc6f">wallIsOpen</a> = false</td></tr>
 <tr class="separator:af44f4798f50a91120dc6bfe8db16bc6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adc10d1ac9f4a458e668f118a730a7c22"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_puzzle.html#adc10d1ac9f4a458e668f118a730a7c22">doorcollision</a> = false</td></tr>
+<tr class="separator:adc10d1ac9f4a458e668f118a730a7c22"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa8f1792af4d4e4e772fbb8c444215828"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_puzzle.html#aa8f1792af4d4e4e772fbb8c444215828">doorcollision1</a> = false</td></tr>
+<tr class="separator:aa8f1792af4d4e4e772fbb8c444215828"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8b7267f21f6d56430ec8d8349c2c0923"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_puzzle.html#a8b7267f21f6d56430ec8d8349c2c0923">doorcollision2</a> = false</td></tr>
+<tr class="separator:a8b7267f21f6d56430ec8d8349c2c0923"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3e21cac1bbe1fd707c13d5ad6a201a8d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_puzzle.html#a3e21cac1bbe1fd707c13d5ad6a201a8d">doorcollision3</a> = false</td></tr>
+<tr class="separator:a3e21cac1bbe1fd707c13d5ad6a201a8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac79222bc20b62745684d7ddda42e1e9f"><td class="memItemLeft" align="right" valign="top">Rectangle&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_puzzle.html#ac79222bc20b62745684d7ddda42e1e9f">frameRec</a> = { 0.0f, 0.0f, (float)PuzzelTriangle.width / 3, (float)PuzzelTriangle.height }</td></tr>
 <tr class="separator:ac79222bc20b62745684d7ddda42e1e9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abf51d697879dc656a6b9c12af763e4bd"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_puzzle.html#abf51d697879dc656a6b9c12af763e4bd">currentFrame</a> = 0</td></tr>
@@ -211,7 +229,7 @@ Public Attributes</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p class="definition">Definition at line <a class="el" href="_puzzle_8h_source.html#l00004">4</a> of file <a class="el" href="_puzzle_8h_source.html">Puzzle.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_puzzle_8h_source.html#l00005">5</a> of file <a class="el" href="_puzzle_8h_source.html">Puzzle.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="afc08aec562d7d5a4e7737ce80e45eeb6" name="afc08aec562d7d5a4e7737ce80e45eeb6"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#afc08aec562d7d5a4e7737ce80e45eeb6">&#9670;&nbsp;</a></span>Puzzle()</h2>
@@ -249,19 +267,19 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p >Unload Textures</p>
 
-<p class="definition">Definition at line <a class="el" href="_puzzle_8cpp_source.html#l00199">199</a> of file <a class="el" href="_puzzle_8cpp_source.html">Puzzle.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_puzzle_8cpp_source.html#l00234">234</a> of file <a class="el" href="_puzzle_8cpp_source.html">Puzzle.cpp</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="abf6e4884b7ac9971f9349806196cc57e" name="abf6e4884b7ac9971f9349806196cc57e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abf6e4884b7ac9971f9349806196cc57e">&#9670;&nbsp;</a></span>collision()</h2>
+<a id="a201b7d72417c1134df4745fd9553cd63" name="a201b7d72417c1134df4745fd9553cd63"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a201b7d72417c1134df4745fd9553cd63">&#9670;&nbsp;</a></span>collisionChecks()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void Puzzle::collision </td>
+          <td class="memname">void Puzzle::collisionChecks </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -272,6 +290,7 @@ Public Attributes</h2></td></tr>
 <p ><a class="el" href="class_collision.html">Collision</a> Checks Chests</p>
 <p ><a class="el" href="class_collision.html">Collision</a> Checks Items</p>
 <p ><a class="el" href="class_collision.html">Collision</a> Checks <a class="el" href="class_puzzle.html">Puzzle</a></p>
+<p ><a class="el" href="class_collision.html">Collision</a> Checks Doors</p>
 
 <p class="definition">Definition at line <a class="el" href="_puzzle_8cpp_source.html#l00009">9</a> of file <a class="el" href="_puzzle_8cpp_source.html">Puzzle.cpp</a>.</p>
 
@@ -296,8 +315,28 @@ Public Attributes</h2></td></tr>
 <p >ITEMS</p>
 <p >WALL PARTS/ DOOR</p>
 <p >PUZZLE</p>
+<p >RECTANGLES</p>
 
-<p class="definition">Definition at line <a class="el" href="_puzzle_8cpp_source.html#l00139">139</a> of file <a class="el" href="_puzzle_8cpp_source.html">Puzzle.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_puzzle_8cpp_source.html#l00169">169</a> of file <a class="el" href="_puzzle_8cpp_source.html">Puzzle.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a536546926838bd5b293c08749fd46a23" name="a536546926838bd5b293c08749fd46a23"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a536546926838bd5b293c08749fd46a23">&#9670;&nbsp;</a></span>stopNemo()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Puzzle::stopNemo </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_puzzle_8cpp_source.html#l00253">253</a> of file <a class="el" href="_puzzle_8cpp_source.html">Puzzle.cpp</a>.</p>
 
 </div>
 </div>
@@ -336,8 +375,9 @@ Public Attributes</h2></td></tr>
 <p >Update Chests</p>
 <p >Update Items</p>
 <p >Update <a class="el" href="class_puzzle.html">Puzzle</a></p>
+<p >Stop Nemo</p>
 
-<p class="definition">Definition at line <a class="el" href="_puzzle_8cpp_source.html#l00046">46</a> of file <a class="el" href="_puzzle_8cpp_source.html">Puzzle.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_puzzle_8cpp_source.html#l00056">56</a> of file <a class="el" href="_puzzle_8cpp_source.html">Puzzle.cpp</a>.</p>
 
 </div>
 </div>
@@ -354,7 +394,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_puzzle_8h_source.html#l00028">28</a> of file <a class="el" href="_puzzle_8h_source.html">Puzzle.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_puzzle_8h_source.html#l00030">30</a> of file <a class="el" href="_puzzle_8h_source.html">Puzzle.h</a>.</p>
 
 </div>
 </div>
@@ -370,7 +410,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_puzzle_8h_source.html#l00029">29</a> of file <a class="el" href="_puzzle_8h_source.html">Puzzle.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_puzzle_8h_source.html#l00031">31</a> of file <a class="el" href="_puzzle_8h_source.html">Puzzle.h</a>.</p>
 
 </div>
 </div>
@@ -386,7 +426,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_puzzle_8h_source.html#l00058">58</a> of file <a class="el" href="_puzzle_8h_source.html">Puzzle.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_puzzle_8h_source.html#l00064">64</a> of file <a class="el" href="_puzzle_8h_source.html">Puzzle.h</a>.</p>
 
 </div>
 </div>
@@ -402,7 +442,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_puzzle_8h_source.html#l00030">30</a> of file <a class="el" href="_puzzle_8h_source.html">Puzzle.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_puzzle_8h_source.html#l00032">32</a> of file <a class="el" href="_puzzle_8h_source.html">Puzzle.h</a>.</p>
 
 </div>
 </div>
@@ -418,7 +458,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_puzzle_8h_source.html#l00059">59</a> of file <a class="el" href="_puzzle_8h_source.html">Puzzle.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_puzzle_8h_source.html#l00065">65</a> of file <a class="el" href="_puzzle_8h_source.html">Puzzle.h</a>.</p>
 
 </div>
 </div>
@@ -435,7 +475,7 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p >Vector's Bool's </p>
 
-<p class="definition">Definition at line <a class="el" href="_puzzle_8h_source.html#l00044">44</a> of file <a class="el" href="_puzzle_8h_source.html">Puzzle.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_puzzle_8h_source.html#l00050">50</a> of file <a class="el" href="_puzzle_8h_source.html">Puzzle.h</a>.</p>
 
 </div>
 </div>
@@ -451,7 +491,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_puzzle_8h_source.html#l00045">45</a> of file <a class="el" href="_puzzle_8h_source.html">Puzzle.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_puzzle_8h_source.html#l00051">51</a> of file <a class="el" href="_puzzle_8h_source.html">Puzzle.h</a>.</p>
 
 </div>
 </div>
@@ -467,7 +507,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_puzzle_8h_source.html#l00046">46</a> of file <a class="el" href="_puzzle_8h_source.html">Puzzle.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_puzzle_8h_source.html#l00052">52</a> of file <a class="el" href="_puzzle_8h_source.html">Puzzle.h</a>.</p>
 
 </div>
 </div>
@@ -483,7 +523,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_puzzle_8h_source.html#l00057">57</a> of file <a class="el" href="_puzzle_8h_source.html">Puzzle.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_puzzle_8h_source.html#l00063">63</a> of file <a class="el" href="_puzzle_8h_source.html">Puzzle.h</a>.</p>
 
 </div>
 </div>
@@ -500,7 +540,7 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p >Textures </p>
 
-<p class="definition">Definition at line <a class="el" href="_puzzle_8h_source.html#l00011">11</a> of file <a class="el" href="_puzzle_8h_source.html">Puzzle.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_puzzle_8h_source.html#l00013">13</a> of file <a class="el" href="_puzzle_8h_source.html">Puzzle.h</a>.</p>
 
 </div>
 </div>
@@ -516,7 +556,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_puzzle_8h_source.html#l00035">35</a> of file <a class="el" href="_puzzle_8h_source.html">Puzzle.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_puzzle_8h_source.html#l00037">37</a> of file <a class="el" href="_puzzle_8h_source.html">Puzzle.h</a>.</p>
 
 </div>
 </div>
@@ -532,7 +572,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_puzzle_8h_source.html#l00053">53</a> of file <a class="el" href="_puzzle_8h_source.html">Puzzle.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_puzzle_8h_source.html#l00059">59</a> of file <a class="el" href="_puzzle_8h_source.html">Puzzle.h</a>.</p>
 
 </div>
 </div>
@@ -548,7 +588,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_puzzle_8h_source.html#l00061">61</a> of file <a class="el" href="_puzzle_8h_source.html">Puzzle.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_puzzle_8h_source.html#l00067">67</a> of file <a class="el" href="_puzzle_8h_source.html">Puzzle.h</a>.</p>
 
 </div>
 </div>
@@ -564,7 +604,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_puzzle_8h_source.html#l00015">15</a> of file <a class="el" href="_puzzle_8h_source.html">Puzzle.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_puzzle_8h_source.html#l00017">17</a> of file <a class="el" href="_puzzle_8h_source.html">Puzzle.h</a>.</p>
 
 </div>
 </div>
@@ -580,7 +620,23 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_puzzle_8h_source.html#l00022">22</a> of file <a class="el" href="_puzzle_8h_source.html">Puzzle.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_puzzle_8h_source.html#l00024">24</a> of file <a class="el" href="_puzzle_8h_source.html">Puzzle.h</a>.</p>
+
+</div>
+</div>
+<a id="afde28f24ddc360552e767ec326cef05b" name="afde28f24ddc360552e767ec326cef05b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afde28f24ddc360552e767ec326cef05b">&#9670;&nbsp;</a></span>collision</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_collision.html">Collision</a> Puzzle::collision</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_puzzle_8h_source.html#l00010">10</a> of file <a class="el" href="_puzzle_8h_source.html">Puzzle.h</a>.</p>
 
 </div>
 </div>
@@ -596,7 +652,119 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_puzzle_8h_source.html#l00079">79</a> of file <a class="el" href="_puzzle_8h_source.html">Puzzle.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_puzzle_8h_source.html#l00092">92</a> of file <a class="el" href="_puzzle_8h_source.html">Puzzle.h</a>.</p>
+
+</div>
+</div>
+<a id="aef68a3918b10a2ee3392d8ece988fdab" name="aef68a3918b10a2ee3392d8ece988fdab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aef68a3918b10a2ee3392d8ece988fdab">&#9670;&nbsp;</a></span>door1</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Rectangle Puzzle::door1 = {736, 673.5, 32, 96}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_puzzle_8h_source.html#l00041">41</a> of file <a class="el" href="_puzzle_8h_source.html">Puzzle.h</a>.</p>
+
+</div>
+</div>
+<a id="a40d4ad2cd1fc7d00ce6ea696e6f3e612" name="a40d4ad2cd1fc7d00ce6ea696e6f3e612"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a40d4ad2cd1fc7d00ce6ea696e6f3e612">&#9670;&nbsp;</a></span>door2</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Rectangle Puzzle::door2 = {576, 896, 64, 32}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_puzzle_8h_source.html#l00042">42</a> of file <a class="el" href="_puzzle_8h_source.html">Puzzle.h</a>.</p>
+
+</div>
+</div>
+<a id="a6aea49d7bfe183b9ab31e74661d32c39" name="a6aea49d7bfe183b9ab31e74661d32c39"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6aea49d7bfe183b9ab31e74661d32c39">&#9670;&nbsp;</a></span>door3</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Rectangle Puzzle::door3 = {800, 992, 32, 96}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_puzzle_8h_source.html#l00043">43</a> of file <a class="el" href="_puzzle_8h_source.html">Puzzle.h</a>.</p>
+
+</div>
+</div>
+<a id="adc10d1ac9f4a458e668f118a730a7c22" name="adc10d1ac9f4a458e668f118a730a7c22"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adc10d1ac9f4a458e668f118a730a7c22">&#9670;&nbsp;</a></span>doorcollision</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Puzzle::doorcollision = false</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_puzzle_8h_source.html#l00075">75</a> of file <a class="el" href="_puzzle_8h_source.html">Puzzle.h</a>.</p>
+
+</div>
+</div>
+<a id="aa8f1792af4d4e4e772fbb8c444215828" name="aa8f1792af4d4e4e772fbb8c444215828"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa8f1792af4d4e4e772fbb8c444215828">&#9670;&nbsp;</a></span>doorcollision1</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Puzzle::doorcollision1 = false</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_puzzle_8h_source.html#l00076">76</a> of file <a class="el" href="_puzzle_8h_source.html">Puzzle.h</a>.</p>
+
+</div>
+</div>
+<a id="a8b7267f21f6d56430ec8d8349c2c0923" name="a8b7267f21f6d56430ec8d8349c2c0923"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8b7267f21f6d56430ec8d8349c2c0923">&#9670;&nbsp;</a></span>doorcollision2</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Puzzle::doorcollision2 = false</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_puzzle_8h_source.html#l00077">77</a> of file <a class="el" href="_puzzle_8h_source.html">Puzzle.h</a>.</p>
+
+</div>
+</div>
+<a id="a3e21cac1bbe1fd707c13d5ad6a201a8d" name="a3e21cac1bbe1fd707c13d5ad6a201a8d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3e21cac1bbe1fd707c13d5ad6a201a8d">&#9670;&nbsp;</a></span>doorcollision3</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Puzzle::doorcollision3 = false</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_puzzle_8h_source.html#l00078">78</a> of file <a class="el" href="_puzzle_8h_source.html">Puzzle.h</a>.</p>
 
 </div>
 </div>
@@ -612,7 +780,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_puzzle_8h_source.html#l00026">26</a> of file <a class="el" href="_puzzle_8h_source.html">Puzzle.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_puzzle_8h_source.html#l00028">28</a> of file <a class="el" href="_puzzle_8h_source.html">Puzzle.h</a>.</p>
 
 </div>
 </div>
@@ -629,7 +797,7 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p >Animation </p>
 
-<p class="definition">Definition at line <a class="el" href="_puzzle_8h_source.html#l00078">78</a> of file <a class="el" href="_puzzle_8h_source.html">Puzzle.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_puzzle_8h_source.html#l00091">91</a> of file <a class="el" href="_puzzle_8h_source.html">Puzzle.h</a>.</p>
 
 </div>
 </div>
@@ -645,7 +813,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_puzzle_8h_source.html#l00080">80</a> of file <a class="el" href="_puzzle_8h_source.html">Puzzle.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_puzzle_8h_source.html#l00093">93</a> of file <a class="el" href="_puzzle_8h_source.html">Puzzle.h</a>.</p>
 
 </div>
 </div>
@@ -661,7 +829,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_puzzle_8h_source.html#l00081">81</a> of file <a class="el" href="_puzzle_8h_source.html">Puzzle.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_puzzle_8h_source.html#l00094">94</a> of file <a class="el" href="_puzzle_8h_source.html">Puzzle.h</a>.</p>
 
 </div>
 </div>
@@ -677,7 +845,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_puzzle_8h_source.html#l00034">34</a> of file <a class="el" href="_puzzle_8h_source.html">Puzzle.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_puzzle_8h_source.html#l00036">36</a> of file <a class="el" href="_puzzle_8h_source.html">Puzzle.h</a>.</p>
 
 </div>
 </div>
@@ -693,7 +861,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_puzzle_8h_source.html#l00052">52</a> of file <a class="el" href="_puzzle_8h_source.html">Puzzle.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_puzzle_8h_source.html#l00058">58</a> of file <a class="el" href="_puzzle_8h_source.html">Puzzle.h</a>.</p>
 
 </div>
 </div>
@@ -709,7 +877,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_puzzle_8h_source.html#l00060">60</a> of file <a class="el" href="_puzzle_8h_source.html">Puzzle.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_puzzle_8h_source.html#l00066">66</a> of file <a class="el" href="_puzzle_8h_source.html">Puzzle.h</a>.</p>
 
 </div>
 </div>
@@ -725,7 +893,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_puzzle_8h_source.html#l00013">13</a> of file <a class="el" href="_puzzle_8h_source.html">Puzzle.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_puzzle_8h_source.html#l00015">15</a> of file <a class="el" href="_puzzle_8h_source.html">Puzzle.h</a>.</p>
 
 </div>
 </div>
@@ -741,7 +909,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_puzzle_8h_source.html#l00014">14</a> of file <a class="el" href="_puzzle_8h_source.html">Puzzle.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_puzzle_8h_source.html#l00016">16</a> of file <a class="el" href="_puzzle_8h_source.html">Puzzle.h</a>.</p>
 
 </div>
 </div>
@@ -757,7 +925,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_puzzle_8h_source.html#l00054">54</a> of file <a class="el" href="_puzzle_8h_source.html">Puzzle.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_puzzle_8h_source.html#l00060">60</a> of file <a class="el" href="_puzzle_8h_source.html">Puzzle.h</a>.</p>
 
 </div>
 </div>
@@ -773,7 +941,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_puzzle_8h_source.html#l00036">36</a> of file <a class="el" href="_puzzle_8h_source.html">Puzzle.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_puzzle_8h_source.html#l00038">38</a> of file <a class="el" href="_puzzle_8h_source.html">Puzzle.h</a>.</p>
 
 </div>
 </div>
@@ -789,7 +957,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_puzzle_8h_source.html#l00062">62</a> of file <a class="el" href="_puzzle_8h_source.html">Puzzle.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_puzzle_8h_source.html#l00068">68</a> of file <a class="el" href="_puzzle_8h_source.html">Puzzle.h</a>.</p>
 
 </div>
 </div>
@@ -805,7 +973,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_puzzle_8h_source.html#l00016">16</a> of file <a class="el" href="_puzzle_8h_source.html">Puzzle.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_puzzle_8h_source.html#l00018">18</a> of file <a class="el" href="_puzzle_8h_source.html">Puzzle.h</a>.</p>
 
 </div>
 </div>
@@ -821,7 +989,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_puzzle_8h_source.html#l00065">65</a> of file <a class="el" href="_puzzle_8h_source.html">Puzzle.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_puzzle_8h_source.html#l00071">71</a> of file <a class="el" href="_puzzle_8h_source.html">Puzzle.h</a>.</p>
 
 </div>
 </div>
@@ -837,7 +1005,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_puzzle_8h_source.html#l00037">37</a> of file <a class="el" href="_puzzle_8h_source.html">Puzzle.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_puzzle_8h_source.html#l00039">39</a> of file <a class="el" href="_puzzle_8h_source.html">Puzzle.h</a>.</p>
 
 </div>
 </div>
@@ -853,7 +1021,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_puzzle_8h_source.html#l00055">55</a> of file <a class="el" href="_puzzle_8h_source.html">Puzzle.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_puzzle_8h_source.html#l00061">61</a> of file <a class="el" href="_puzzle_8h_source.html">Puzzle.h</a>.</p>
 
 </div>
 </div>
@@ -869,7 +1037,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_puzzle_8h_source.html#l00063">63</a> of file <a class="el" href="_puzzle_8h_source.html">Puzzle.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_puzzle_8h_source.html#l00069">69</a> of file <a class="el" href="_puzzle_8h_source.html">Puzzle.h</a>.</p>
 
 </div>
 </div>
@@ -885,7 +1053,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_puzzle_8h_source.html#l00017">17</a> of file <a class="el" href="_puzzle_8h_source.html">Puzzle.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_puzzle_8h_source.html#l00019">19</a> of file <a class="el" href="_puzzle_8h_source.html">Puzzle.h</a>.</p>
 
 </div>
 </div>
@@ -901,7 +1069,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_puzzle_8h_source.html#l00008">8</a> of file <a class="el" href="_puzzle_8h_source.html">Puzzle.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_puzzle_8h_source.html#l00009">9</a> of file <a class="el" href="_puzzle_8h_source.html">Puzzle.h</a>.</p>
 
 </div>
 </div>
@@ -917,7 +1085,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_puzzle_8h_source.html#l00019">19</a> of file <a class="el" href="_puzzle_8h_source.html">Puzzle.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_puzzle_8h_source.html#l00021">21</a> of file <a class="el" href="_puzzle_8h_source.html">Puzzle.h</a>.</p>
 
 </div>
 </div>
@@ -933,7 +1101,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_puzzle_8h_source.html#l00032">32</a> of file <a class="el" href="_puzzle_8h_source.html">Puzzle.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_puzzle_8h_source.html#l00034">34</a> of file <a class="el" href="_puzzle_8h_source.html">Puzzle.h</a>.</p>
 
 </div>
 </div>
@@ -949,7 +1117,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_puzzle_8h_source.html#l00048">48</a> of file <a class="el" href="_puzzle_8h_source.html">Puzzle.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_puzzle_8h_source.html#l00054">54</a> of file <a class="el" href="_puzzle_8h_source.html">Puzzle.h</a>.</p>
 
 </div>
 </div>
@@ -965,7 +1133,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_puzzle_8h_source.html#l00049">49</a> of file <a class="el" href="_puzzle_8h_source.html">Puzzle.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_puzzle_8h_source.html#l00055">55</a> of file <a class="el" href="_puzzle_8h_source.html">Puzzle.h</a>.</p>
 
 </div>
 </div>
@@ -981,7 +1149,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_puzzle_8h_source.html#l00050">50</a> of file <a class="el" href="_puzzle_8h_source.html">Puzzle.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_puzzle_8h_source.html#l00056">56</a> of file <a class="el" href="_puzzle_8h_source.html">Puzzle.h</a>.</p>
 
 </div>
 </div>
@@ -997,7 +1165,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_puzzle_8h_source.html#l00033">33</a> of file <a class="el" href="_puzzle_8h_source.html">Puzzle.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_puzzle_8h_source.html#l00035">35</a> of file <a class="el" href="_puzzle_8h_source.html">Puzzle.h</a>.</p>
 
 </div>
 </div>
@@ -1013,7 +1181,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_puzzle_8h_source.html#l00031">31</a> of file <a class="el" href="_puzzle_8h_source.html">Puzzle.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_puzzle_8h_source.html#l00033">33</a> of file <a class="el" href="_puzzle_8h_source.html">Puzzle.h</a>.</p>
 
 </div>
 </div>
@@ -1029,7 +1197,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_puzzle_8h_source.html#l00023">23</a> of file <a class="el" href="_puzzle_8h_source.html">Puzzle.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_puzzle_8h_source.html#l00025">25</a> of file <a class="el" href="_puzzle_8h_source.html">Puzzle.h</a>.</p>
 
 </div>
 </div>
@@ -1045,7 +1213,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_puzzle_8h_source.html#l00021">21</a> of file <a class="el" href="_puzzle_8h_source.html">Puzzle.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_puzzle_8h_source.html#l00023">23</a> of file <a class="el" href="_puzzle_8h_source.html">Puzzle.h</a>.</p>
 
 </div>
 </div>
@@ -1061,7 +1229,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_puzzle_8h_source.html#l00067">67</a> of file <a class="el" href="_puzzle_8h_source.html">Puzzle.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_puzzle_8h_source.html#l00073">73</a> of file <a class="el" href="_puzzle_8h_source.html">Puzzle.h</a>.</p>
 
 </div>
 </div>
@@ -1077,7 +1245,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_puzzle_8h_source.html#l00025">25</a> of file <a class="el" href="_puzzle_8h_source.html">Puzzle.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_puzzle_8h_source.html#l00027">27</a> of file <a class="el" href="_puzzle_8h_source.html">Puzzle.h</a>.</p>
 
 </div>
 </div>

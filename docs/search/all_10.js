@@ -5,14 +5,14 @@ var searchData=
   ['set_5fturnnumb_2',['set_turnnumb',['../class_game_1_1_game_character.html#a5ef314c9083dc51e51f3ebf4664afb65',1,'Game::GameCharacter']]],
   ['shadow_3',['Shadow',['../class_game_1_1_shadow.html',1,'Game::Shadow'],['../class_shadow.html',1,'Shadow']]],
   ['shadow_4',['shadow',['../class_game_1_1_level.html#ab16ebb9eaebda1d1745d0752c8d15aad',1,'Game::Level']]],
-  ['shadow_5',['SHADOW',['../class_game_1_1_level.html#a1869c9a90dd864b19f379411c5e44952a8160fba05a5a291372a94bc22b55f62b',1,'Game::Level']]],
-  ['shadow_6',['Shadow',['../class_game_1_1_shadow.html#a9d3360ddba26f0a9ca2d7d7ff52350d1',1,'Game::Shadow']]],
+  ['shadow_5',['Shadow',['../class_game_1_1_shadow.html#a9d3360ddba26f0a9ca2d7d7ff52350d1',1,'Game::Shadow']]],
+  ['shadow_6',['SHADOW',['../class_game_1_1_level.html#a1869c9a90dd864b19f379411c5e44952a8160fba05a5a291372a94bc22b55f62b',1,'Game::Level']]],
   ['shadowrec_7',['Shadowrec',['../class_shadow.html#a5114e9b1dbb9ca907cf7d4ffda33f9f1',1,'Shadow']]],
   ['shadowrec_8',['shadowrec',['../class_game_1_1_shadow.html#a84d21f5657f942bca22e506a249a87cd',1,'Game::Shadow::shadowrec()'],['../class_shadow.html#ac27af3e5361a073a422a718148353a20',1,'Shadow::shadowrec()']]],
   ['sound_9',['sound',['../class_game_1_1_nemo.html#aad44e0dd99a5b68876b7cec0be202d4c',1,'Game::Nemo']]],
   ['spr_10',['spr',['../class_game_1_1_level.html#a4825a2ba7815a48bb027e7aba7ac0f8b',1,'Game::Level']]],
   ['spr_5fbattery_11',['spr_Battery',['../class_game_1_1_level.html#aebbf812b240bc15ae8e9c652d8d9e88b',1,'Game::Level']]],
-  ['spr_5fmumy_12',['spr_mumy',['../class_mumy.html#a0a49eff836bc7e8f59cdfd53d4da1600',1,'Mumy::spr_mumy()'],['../class_game_1_1_mumy.html#aa6c9ac33d11f3ae28c3919cc3de7dc08',1,'Game::Mumy::spr_mumy()']]],
+  ['spr_5fmumy_12',['spr_mumy',['../class_game_1_1_mumy.html#aa6c9ac33d11f3ae28c3919cc3de7dc08',1,'Game::Mumy::spr_mumy()'],['../class_mumy.html#a0a49eff836bc7e8f59cdfd53d4da1600',1,'Mumy::spr_mumy()']]],
   ['spr_5fpharaoh_13',['spr_pharaoh',['../class_game_1_1_pharaoh.html#a1a22dc782f821902e5b5ec693eea36c5',1,'Game::Pharaoh']]],
   ['spr_5fpharaoh_14',['spr_Pharaoh',['../class_pharaoh.html#a15abad67b156fa1bae84a669066c9be6',1,'Pharaoh']]],
   ['spr_5fplayer_15',['spr_Player',['../class_game_1_1_player.html#adf5e2245db428ee39ceb7d9d58652c54',1,'Game::Player']]],
@@ -29,5 +29,7 @@ var searchData=
   ['stand_5fnemorec_26',['Stand_nemorec',['../class_game_1_1_nemo.html#af15fde38f8bb936d2d971d143369222e',1,'Game::Nemo']]],
   ['standframerec_27',['StandframeRec',['../class_game_1_1_nemo.html#a8e5fbf7fb9e5cdf5f947922e68b21c7d',1,'Game::Nemo']]],
   ['state_28',['state',['../class_game_1_1_game_character.html#a9a877164078c49c6c1c098f3887e7a3f',1,'Game::GameCharacter']]],
-  ['state_29',['State',['../class_game_1_1_mumy.html#a7ee707b789da1988cf591bc416e0125f',1,'Game::Mumy::State()'],['../class_game_1_1_pharaoh.html#a7b74b79123f64fcfd61b833bf804657c',1,'Game::Pharaoh::State()'],['../class_game_1_1_player.html#a477400e7601386db036d8d95f8217e7f',1,'Game::Player::State()'],['../class_game_1_1_shadow.html#a442cc3961251f347c109119f698758ff',1,'Game::Shadow::State()']]]
+  ['state_29',['State',['../class_game_1_1_mumy.html#a7ee707b789da1988cf591bc416e0125f',1,'Game::Mumy::State()'],['../class_game_1_1_pharaoh.html#a7b74b79123f64fcfd61b833bf804657c',1,'Game::Pharaoh::State()'],['../class_game_1_1_player.html#a477400e7601386db036d8d95f8217e7f',1,'Game::Player::State()'],['../class_game_1_1_shadow.html#a442cc3961251f347c109119f698758ff',1,'Game::Shadow::State()']]],
+  ['stopnemo_30',['stopnemo',['../class_collision.html#a1582099b20c05db11f80eced4de46e83',1,'Collision']]],
+  ['stopnemo_31',['stopNemo',['../class_puzzle.html#a536546926838bd5b293c08749fd46a23',1,'Puzzle']]]
 ];

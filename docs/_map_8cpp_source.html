@@ -88,95 +88,287 @@ $(document).ready(function(){initNavTree('_map_8cpp_source.html',''); initResiza
 <div class="contents">
 <a href="_map_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#include &quot;<a class="code" href="_map_8h.html">Map.h</a>&quot;</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno"><a class="line" href="class_map.html#ab12643cc3a8d5e48f566c1abb571e9bf">    3</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_map.html#ab12643cc3a8d5e48f566c1abb571e9bf">Map::update</a>() {</div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span>    <span class="comment">// scavenging through the json file to collect the INFO we need</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span>    <span class="comment">// scavenging through the json file to collect the INFO we need</span></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span>  <span class="keywordflow">for</span> (<span class="keyword">auto</span> <span class="keyword">const</span> &amp;layer : <a class="code hl_variable" href="class_map.html#a7d2a3b475e92e104996fb94695ff98c6">levelMap</a>[<span class="stringliteral">&quot;layers&quot;</span>]) { std::cout &lt;&lt; <span class="stringliteral">&quot;layers found!&quot;</span>;</div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span>    <span class="keywordflow">if</span> (layer[<span class="stringliteral">&quot;name&quot;</span>] == <span class="stringliteral">&quot;Ground&quot;</span>) {</div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>      <span class="keywordflow">for</span> (<span class="keyword">auto</span> <span class="keyword">const</span> &amp;tileID : layer[<span class="stringliteral">&quot;data&quot;</span>]) {</div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>        <a class="code hl_variable" href="class_map.html#a08ffb027a5e99e6115ffe625e0144738">mapData</a>.layerGround.push_back(((<span class="keywordtype">int</span>)tileID) - 1);</div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>      }</div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>    }</div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment"> void LevelMap::update() {</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment">   // scavenging through the json file to collect the INFO we need</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment">   // scavenging through the json file to collect the INFO we need</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment"> for (auto const &amp;layer : levelMap[&quot;layers&quot;]) { std::cout &lt;&lt; &quot;layers found!&quot;;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment">   if (layer[&quot;name&quot;] == &quot;Ground&quot;) {</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment">     for (auto const &amp;tileID : layer[&quot;data&quot;]) {</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="comment">       mapData.layerGround.push_back(((int)tileID) - 1);</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="comment">     }</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="comment">   }</span></div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="comment"></span> </div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="comment">    /**</span></div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="comment">     * if (layer[&quot;name&quot;] == &quot;Object&quot;) {</span></div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="comment">for (auto const &amp;tileID : layer[&quot;data&quot;]) {</span></div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="comment">  mapData.layerObject.push_back(((int)tileID) - 1);</span></div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="comment">}</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="comment"></span><span class="comment"></span> </div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="comment">* if (layer[&quot;name&quot;] == &quot;Object&quot;) {</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="comment">for (auto const &amp;tileID : layer[&quot;data&quot;]) {</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="comment">mapData.layerObject.push_back(((int)tileID) - 1);</span></div>
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="comment">}</span></div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="comment">     * if (layer[&quot;name&quot;] == &quot;Interactables&quot;) {</span></div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="comment">      for (auto const&amp; tileID : layer[&quot;data&quot;]) {</span></div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="comment">        tilemapData.layerInteractables.push_back(((int)tileID)-1);</span></div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="comment">      }</span></div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="comment">    }*/</span></div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <span class="comment">// layerCollision, Collision_rectangles are created from the json file data</span></div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <span class="comment">// TODO add a collision layer to the tilemap... on the &quot;kachelebene&quot;</span></div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="comment"></span> </div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="comment">    /**if(layer[&quot;name&quot;] == &quot;Collision&quot;){</span></div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="comment">      for (auto const&amp; tileID : layer[&quot;data&quot;]){</span></div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="comment">        if(tileID == 0)</span></div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="comment">        {</span></div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="comment">          tilemapData.layerCollision.push_back(false);</span></div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="comment">        }</span></div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="comment">        else</span></div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="comment">        {</span></div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="comment">          tilemapData.layerCollision.push_back (true);</span></div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="comment">        }</span></div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="comment">      }</span></div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="comment">    }*/</span></div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="comment">/*</span></div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="comment">    if (layer[&quot;name&quot;] == &quot;Interactables&quot;) {</span></div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="comment">      for (auto const &amp;tileID : layer[&quot;data&quot;]) {</span></div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="comment">        if (tileID == 0) {</span></div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="comment">          mapData.layerInteractables.push_back(false);</span></div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="comment">        } else {</span></div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="comment">          mapData.layerInteractables.push_back(true);</span></div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="comment">        }</span></div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="comment">      }</span></div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="comment">    }</span></div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="comment">    for (int i = 0; i &lt; mapData.layerInteractables.size(); i++) {</span></div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="comment">      if (mapData.layerInteractables[i]) {</span></div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="comment">        Rectangle createdRectangle = { static_cast&lt;float&gt;((i % this-&gt;mapData.mapWidth * 32)),</span></div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="comment">                                       static_cast&lt;float&gt;((i / this-&gt;mapData.mapWidth * 32)),</span></div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="comment">                                       32,</span></div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span><span class="comment">                                       32 };</span></div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span><span class="comment">        collisionRectangles.push_back(createdRectangle);</span></div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span><span class="comment">        TraceLog(LOG_INFO, &quot;createdRectangle - element added&quot;);</span></div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span><span class="comment">      }</span></div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span><span class="comment">      TraceLog(LOG_INFO, &quot;Walls were created&quot;);</span></div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span><span class="comment">    }*/</span></div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    <span class="keywordflow">if</span> (layer[<span class="stringliteral">&quot;name&quot;</span>] == <span class="stringliteral">&quot;Object&quot;</span>) { TraceLog(LOG_INFO, <span class="stringliteral">&quot;object found&quot;</span>);</div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>      <span class="keywordflow">for</span> (<span class="keyword">auto</span> <span class="keyword">const</span> &amp;tileID : layer[<span class="stringliteral">&quot;data&quot;</span>]) {</div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>        <span class="keywordflow">if</span> (tileID == 0) {</div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>          <a class="code hl_variable" href="class_map.html#a08ffb027a5e99e6115ffe625e0144738">mapData</a>.layerObject.push_back(<span class="keyword">false</span>);</div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>        } <span class="keywordflow">else</span> {</div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>          <a class="code hl_variable" href="class_map.html#a08ffb027a5e99e6115ffe625e0144738">mapData</a>.layerObject.push_back(<span class="keyword">true</span>);</div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>        }</div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>      }</div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    }</div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; <a class="code hl_variable" href="class_map.html#a08ffb027a5e99e6115ffe625e0144738">mapData</a>.layerObject.size(); i++) {</div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>      <span class="keywordflow">if</span> (<a class="code hl_variable" href="class_map.html#a08ffb027a5e99e6115ffe625e0144738">mapData</a>.layerObject[i]) {</div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>        Rectangle createdRectangle = { <span class="keyword">static_cast&lt;</span><span class="keywordtype">float</span><span class="keyword">&gt;</span>((i % this-&gt;<a class="code hl_variable" href="class_map.html#a08ffb027a5e99e6115ffe625e0144738">mapData</a>.mapWidth * 32)),</div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>                                       <span class="keyword">static_cast&lt;</span><span class="keywordtype">float</span><span class="keyword">&gt;</span>((i / this-&gt;<a class="code hl_variable" href="class_map.html#a08ffb027a5e99e6115ffe625e0144738">mapData</a>.mapWidth * 32)),</div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>                                       32,</div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>                                       32 };</div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>        <a class="code hl_variable" href="class_map.html#a2ed898e9a4bd6c9869893f641119a891">collisionRectangles</a>.push_back(createdRectangle);</div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>        TraceLog(LOG_INFO, <span class="stringliteral">&quot;createdRectangle - element added&quot;</span>);</div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>      }</div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>      TraceLog(LOG_INFO, <span class="stringliteral">&quot;Walls were created&quot;</span>);</div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    }</div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span> </div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    std::cout &lt;&lt;<span class="stringliteral">&quot;INFO: All collision boxes were created&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>  }</div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>}</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="comment">}</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="comment">* if (layer[&quot;name&quot;] == &quot;Interactables&quot;) {</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="comment"> for (auto const&amp; tileID : layer[&quot;data&quot;]) {</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="comment">   tilemapData.layerInteractables.push_back(((int)tileID)-1);</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="comment"> }</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="comment">}*/</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="comment">// layerCollision, Collision_rectangles are created from the json file data</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="comment">// TODO add a collision layer to the tilemap... on the &quot;kachelebene&quot;</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="comment"></span> </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="comment">/**if(layer[&quot;name&quot;] == &quot;Collision&quot;){</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="comment"> for (auto const&amp; tileID : layer[&quot;data&quot;]){</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="comment">   if(tileID == 0)</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="comment">   {</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="comment">     tilemapData.layerCollision.push_back(false);</span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="comment">   }</span></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="comment">   else</span></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="comment">   {</span></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="comment">     tilemapData.layerCollision.push_back (true);</span></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="comment">   }</span></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="comment"> }</span></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="comment">}*/</span></div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="comment">   if (layer[&quot;name&quot;] == &quot;Interactables&quot;) {</span></div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="comment">     for (auto const &amp;tileID : layer[&quot;data&quot;]) {</span></div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="comment">       if (tileID == 0) {</span></div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="comment">         mapData.layerInteractables.push_back(false);</span></div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="comment">       } else {</span></div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="comment">         mapData.layerInteractables.push_back(true);</span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="comment">       }</span></div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="comment">     }</span></div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="comment">   }</span></div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="comment">   for (int i = 0; i &lt; mapData.layerInteractables.size(); i++) {</span></div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="comment">     if (mapData.layerInteractables[i]) {</span></div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="comment">       Rectangle createdRectangle = { static_cast&lt;float&gt;((i % this-&gt;mapData.mapWidth * 32)),</span></div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="comment">                                      static_cast&lt;float&gt;((i / this-&gt;mapData.mapWidth * 32)),</span></div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span><span class="comment">                                      32,</span></div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span><span class="comment">                                      32 };</span></div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span><span class="comment">       collisionRectangles.push_back(createdRectangle);</span></div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span><span class="comment">       TraceLog(LOG_INFO, &quot;createdRectangle - element added&quot;);</span></div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span><span class="comment">     }</span></div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span><span class="comment">     TraceLog(LOG_INFO, &quot;Walls were created&quot;);</span></div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span><span class="comment">   } //hier war eine klammer für kommentare (zu)</span></div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span><span class="comment"></span> </div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span><span class="comment">if (layer[&quot;name&quot;] == &quot;Object&quot;) { TraceLog(LOG_INFO, &quot;object found&quot;);</span></div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><span class="comment"> for (auto const &amp;tileID : layer[&quot;data&quot;]) {</span></div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span><span class="comment">   if (tileID == 0) {</span></div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span><span class="comment">     mapData.layerObject.push_back(false);</span></div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span><span class="comment">   } else {</span></div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="comment">     mapData.layerObject.push_back(true);</span></div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span><span class="comment">   }</span></div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span><span class="comment"> }</span></div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span><span class="comment">}</span></div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span><span class="comment">for (int i = 0; i &lt; mapData.layerObject.size(); i++) {</span></div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span><span class="comment"> if (mapData.layerObject[i]) {</span></div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span><span class="comment">   Rectangle createdRectangle = { static_cast&lt;float&gt;((i % this-&gt;mapData.mapWidth * 32)),</span></div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span><span class="comment">                                  static_cast&lt;float&gt;((i / this-&gt;mapData.mapWidth * 32)),</span></div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span><span class="comment">                                  32,</span></div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span><span class="comment">                                  32 };</span></div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span><span class="comment">   collisionRectangles.push_back(createdRectangle);</span></div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span><span class="comment">   TraceLog(LOG_INFO, &quot;createdRectangle - element added&quot;);</span></div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span><span class="comment"> }</span></div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span><span class="comment"> TraceLog(LOG_INFO, &quot;Walls were created&quot;);</span></div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span><span class="comment">}</span></div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span><span class="comment"></span> </div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span><span class="comment">std::cout &lt;&lt;&quot;INFO: All collision boxes were created&quot; &lt;&lt; std::endl;</span></div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span><span class="comment">}</span></div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span><span class="comment">}</span></div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span> </div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span> </div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno"><a class="line" href="class_level_map.html#af900d2e183533d8227403aad930d5680">   92</a></span><a class="code hl_function" href="class_level_map.html#af900d2e183533d8227403aad930d5680">LevelMap::LevelMap</a>() {</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span> </div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>  std::cout &lt;&lt; <span class="stringliteral">&quot;open map infos&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span> </div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>  <span class="comment">//Map stuff -&gt; relocate this into map.h/ and .cpp</span></div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>  std::ifstream tilesetDescriptionFile(<span class="stringliteral">&quot;assets/graphics/map/Level1/PhyramidSheet.json&quot;</span>); <span class="comment">//Pyramiden_SheetJamey.json needed as json, pls do in tiled</span></div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>  assert(tilesetDescriptionFile.is_open());</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>  nlohmann::json <a class="code hl_variable" href="class_level_map.html#a0dab3e015827e27da9dc0ee59b5a94ad">tilesetDescription</a> = nlohmann::json::parse(tilesetDescriptionFile);</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>  tilesetDescriptionFile.close();</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span><span class="comment"></span> </div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span><span class="comment">  /** Outside the Pyramid*/</span></div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>  std::ifstream levelMapFile(<span class="stringliteral">&quot;assets/graphics/map/Level1/PhyramidEntry.json&quot;</span>);</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>  assert(levelMapFile.is_open());</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>  nlohmann::json <a class="code hl_variable" href="class_level_map.html#a5deb0f7a7ddb301266fcc0a7ab0655d0">levelMap</a> = nlohmann::json::parse(levelMapFile);</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>  levelMapFile.close();</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span><span class="comment"></span> </div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span><span class="comment">  /** Inside the Pyramid*/</span></div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>  std::ifstream levelMapFileDungeon(<span class="stringliteral">&quot;assets/graphics/map/Level1/PhyramidDungeon.json&quot;</span>);</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>  assert(levelMapFileDungeon.is_open());</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>  nlohmann::json <a class="code hl_variable" href="class_level_map.html#afc7ed3c13d983277886527716fbcd192">levelMapDungeon</a> = nlohmann::json::parse(levelMapFileDungeon);</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>  levelMapFileDungeon.close();</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span> </div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>  Texture2D <a class="code hl_variable" href="class_level_map.html#aba7a292b1d82630ce32da588cff591eb">tileAtlasTexture</a> = LoadTexture(<span class="stringliteral">&quot;assets/graphics/map/Level1/Egypt-Sheet.png&quot;</span>);</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>}</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span> </div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span> </div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno"><a class="line" href="class_level_map.html#a011048a818da6876efe9e65fe7ce7d05">  118</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_level_map.html#a011048a818da6876efe9e65fe7ce7d05">LevelMap::draw</a>() {</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span> </div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>  <span class="keywordflow">switch</span> (<a class="code hl_variable" href="class_level_map.html#afa11a17d512cb0afc26b95f0c9a8ef3b">level</a>.Game::Level::currentscreen) {</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>  <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="class_game_1_1_level.html#a605a468eab80cc37fd022e5f4541b92da6eadcd76980d5c82a75e5e54fcb24ecb">Game::Level::GameScreen::OVERWORLD</a>:</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span> </div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>    std::cout &lt;&lt; <span class="stringliteral">&quot;draw map overworld&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span> </div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>    ClearBackground(BLACK);</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span> </div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>    <span class="comment">//map</span></div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>    Vector2 vec;</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>    Rectangle rec;</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span> </div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>    vec = {0, 0};</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>    rec = {0, 0, <a class="code hl_variable" href="class_level_map.html#a5deb0f7a7ddb301266fcc0a7ab0655d0">levelMap</a>[<span class="stringliteral">&quot;tilewidth&quot;</span>], <a class="code hl_variable" href="class_level_map.html#a5deb0f7a7ddb301266fcc0a7ab0655d0">levelMap</a>[<span class="stringliteral">&quot;tileheight&quot;</span>]};</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span> <span class="keyword">const</span> &amp;layer : <a class="code hl_variable" href="class_level_map.html#a5deb0f7a7ddb301266fcc0a7ab0655d0">levelMap</a>[<span class="stringliteral">&quot;layers&quot;</span>]) {</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span> </div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>      <span class="keywordflow">if</span> (layer[<span class="stringliteral">&quot;type&quot;</span>] == <span class="stringliteral">&quot;tilelayer&quot;</span> &amp;&amp; layer[<span class="stringliteral">&quot;visible&quot;</span>]) {</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>        vec.y = 0;</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> <span class="keyword">const</span> &amp;tileId : layer[<span class="stringliteral">&quot;data&quot;</span>]) {</div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span> </div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>          <span class="keywordtype">int</span> counter = (int) tileId;</div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>          counter--;</div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>          <span class="keywordflow">if</span> (counter != -1) {</div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>            rec.x = (float) ((<span class="keywordtype">int</span>) counter % (int) <a class="code hl_variable" href="class_level_map.html#a0dab3e015827e27da9dc0ee59b5a94ad">tilesetDescription</a>[<span class="stringliteral">&quot;columns&quot;</span>]) *</div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>                    (float) <a class="code hl_variable" href="class_level_map.html#a5deb0f7a7ddb301266fcc0a7ab0655d0">levelMap</a>[<span class="stringliteral">&quot;tilewidth&quot;</span>];</div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>            rec.y = (float) floor((<span class="keywordtype">float</span>) counter / (float) <a class="code hl_variable" href="class_level_map.html#a0dab3e015827e27da9dc0ee59b5a94ad">tilesetDescription</a>[<span class="stringliteral">&quot;columns&quot;</span>]) *</div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>                    (float) <a class="code hl_variable" href="class_level_map.html#a5deb0f7a7ddb301266fcc0a7ab0655d0">levelMap</a>[<span class="stringliteral">&quot;tileheight&quot;</span>];</div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>            DrawTextureRec(<a class="code hl_variable" href="class_level_map.html#aba7a292b1d82630ce32da588cff591eb">tileAtlasTexture</a>, rec, vec, WHITE); <span class="comment">//entkoppeln, 2 vektoren machen</span></div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>          }</div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>          vec.x += (float) <a class="code hl_variable" href="class_level_map.html#a5deb0f7a7ddb301266fcc0a7ab0655d0">levelMap</a>[<span class="stringliteral">&quot;tilewidth&quot;</span>];</div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>          <span class="keywordflow">if</span> (vec.x &gt;= (<span class="keywordtype">float</span>) layer[<span class="stringliteral">&quot;width&quot;</span>] * (float) <a class="code hl_variable" href="class_level_map.html#a5deb0f7a7ddb301266fcc0a7ab0655d0">levelMap</a>[<span class="stringliteral">&quot;tilewidth&quot;</span>]) {</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>            vec.x = 0;</div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>            vec.y += (float) <a class="code hl_variable" href="class_level_map.html#a5deb0f7a7ddb301266fcc0a7ab0655d0">levelMap</a>[<span class="stringliteral">&quot;tileheight&quot;</span>];</div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>          }</div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>        }</div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>      }</div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>    }</div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span> </div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>    <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>  <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="class_game_1_1_level.html#a605a468eab80cc37fd022e5f4541b92da87ad2b9aff4a2c36a97a8c20847e9e62">Game::Level::GameScreen::PYRAMIDE</a>:</div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span> </div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>    std::cout &lt;&lt; <span class="stringliteral">&quot;draw map pyramide&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span> </div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>    ClearBackground(BLACK);</div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span> </div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>    Vector2 vecDungeon;</div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>    Rectangle recDungeon;</div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span> </div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>    vecDungeon = {0, 0};</div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>    recDungeon = {0, 0, <a class="code hl_variable" href="class_level_map.html#afc7ed3c13d983277886527716fbcd192">levelMapDungeon</a>[<span class="stringliteral">&quot;tilewidth&quot;</span>], <a class="code hl_variable" href="class_level_map.html#afc7ed3c13d983277886527716fbcd192">levelMapDungeon</a>[<span class="stringliteral">&quot;tileheight&quot;</span>]};</div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span> <span class="keyword">const</span> &amp;layer : <a class="code hl_variable" href="class_level_map.html#afc7ed3c13d983277886527716fbcd192">levelMapDungeon</a>[<span class="stringliteral">&quot;layers&quot;</span>]) {</div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span> </div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>      <span class="keywordflow">if</span> (layer[<span class="stringliteral">&quot;type&quot;</span>] == <span class="stringliteral">&quot;tilelayer&quot;</span> &amp;&amp; layer[<span class="stringliteral">&quot;visible&quot;</span>]) {</div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>        vecDungeon.y = 0;</div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> <span class="keyword">const</span> &amp;tileId : layer[<span class="stringliteral">&quot;data&quot;</span>]) {</div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span> </div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>          <span class="keywordtype">int</span> counter = (int) tileId;</div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>          counter--;</div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>          <span class="keywordflow">if</span> (counter != -1) {</div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>            recDungeon.x = (float) ((<span class="keywordtype">int</span>) counter % (int) <a class="code hl_variable" href="class_level_map.html#a0dab3e015827e27da9dc0ee59b5a94ad">tilesetDescription</a>[<span class="stringliteral">&quot;columns&quot;</span>]) *</div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>                           (float) <a class="code hl_variable" href="class_level_map.html#a5deb0f7a7ddb301266fcc0a7ab0655d0">levelMap</a>[<span class="stringliteral">&quot;tilewidth&quot;</span>];</div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>            recDungeon.y = (float) floor((<span class="keywordtype">float</span>) counter / (float) <a class="code hl_variable" href="class_level_map.html#a0dab3e015827e27da9dc0ee59b5a94ad">tilesetDescription</a>[<span class="stringliteral">&quot;columns&quot;</span>]) *</div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>                           (float) <a class="code hl_variable" href="class_level_map.html#a5deb0f7a7ddb301266fcc0a7ab0655d0">levelMap</a>[<span class="stringliteral">&quot;tileheight&quot;</span>];</div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>            DrawTextureRec(<a class="code hl_variable" href="class_level_map.html#aba7a292b1d82630ce32da588cff591eb">tileAtlasTexture</a>, recDungeon, vecDungeon, WHITE); <span class="comment">//entkoppeln, 2 vektoren machen</span></div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>          }</div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>          vecDungeon.x += (float) <a class="code hl_variable" href="class_level_map.html#afc7ed3c13d983277886527716fbcd192">levelMapDungeon</a>[<span class="stringliteral">&quot;tilewidth&quot;</span>];</div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>          <span class="keywordflow">if</span> (vecDungeon.x &gt;= (<span class="keywordtype">float</span>) layer[<span class="stringliteral">&quot;width&quot;</span>] * (float) <a class="code hl_variable" href="class_level_map.html#afc7ed3c13d983277886527716fbcd192">levelMapDungeon</a>[<span class="stringliteral">&quot;tilewidth&quot;</span>]) {</div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>            vecDungeon.x = 0;</div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>            vecDungeon.y += (float) <a class="code hl_variable" href="class_level_map.html#afc7ed3c13d983277886527716fbcd192">levelMapDungeon</a>[<span class="stringliteral">&quot;tileheight&quot;</span>];</div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>          }</div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>        }</div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>      }</div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>    }</div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span> </div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>    <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span>  }</div>
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span>}</div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span> </div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span> </div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno"><a class="line" href="class_level_map.html#a9118c9b7f31106178e9b67bab339fe9e">  198</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_level_map.html#a9118c9b7f31106178e9b67bab339fe9e">LevelMap::drawOVERWORLD</a>() {</div>
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span> </div>
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span>  std::cout &lt;&lt; <span class="stringliteral">&quot;draw map overworld&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span> </div>
+<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span>  ClearBackground(BLACK);</div>
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span> </div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>  <span class="comment">//map</span></div>
+<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span>  Vector2 vec;</div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span>  Rectangle rec;</div>
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span> </div>
+<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span>  vec = {0, 0};</div>
+<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span>  rec = {0, 0, <a class="code hl_variable" href="class_level_map.html#a5deb0f7a7ddb301266fcc0a7ab0655d0">levelMap</a>[<span class="stringliteral">&quot;tilewidth&quot;</span>], <a class="code hl_variable" href="class_level_map.html#a5deb0f7a7ddb301266fcc0a7ab0655d0">levelMap</a>[<span class="stringliteral">&quot;tileheight&quot;</span>]};</div>
+<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span>  <span class="keywordflow">for</span> (<span class="keyword">auto</span> <span class="keyword">const</span> &amp;layer : <a class="code hl_variable" href="class_level_map.html#a5deb0f7a7ddb301266fcc0a7ab0655d0">levelMap</a>[<span class="stringliteral">&quot;layers&quot;</span>]) {</div>
+<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span> </div>
+<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span>    <span class="keywordflow">if</span> (layer[<span class="stringliteral">&quot;type&quot;</span>] == <span class="stringliteral">&quot;tilelayer&quot;</span> &amp;&amp; layer[<span class="stringliteral">&quot;visible&quot;</span>]) {</div>
+<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span>      vec.y = 0;</div>
+<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span>      <span class="keywordflow">for</span> (<span class="keyword">auto</span> <span class="keyword">const</span> &amp;tileId : layer[<span class="stringliteral">&quot;data&quot;</span>]) {</div>
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span> </div>
+<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span>        <span class="keywordtype">int</span> counter = (int) tileId;</div>
+<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span>        counter--;</div>
+<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span>        <span class="keywordflow">if</span> (counter != -1) {</div>
+<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span>          rec.x = (float) ((<span class="keywordtype">int</span>) counter % (int) <a class="code hl_variable" href="class_level_map.html#a0dab3e015827e27da9dc0ee59b5a94ad">tilesetDescription</a>[<span class="stringliteral">&quot;columns&quot;</span>]) *</div>
+<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span>                  (float) <a class="code hl_variable" href="class_level_map.html#a5deb0f7a7ddb301266fcc0a7ab0655d0">levelMap</a>[<span class="stringliteral">&quot;tilewidth&quot;</span>];</div>
+<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span>          rec.y = (float) floor((<span class="keywordtype">float</span>) counter / (float) <a class="code hl_variable" href="class_level_map.html#a0dab3e015827e27da9dc0ee59b5a94ad">tilesetDescription</a>[<span class="stringliteral">&quot;columns&quot;</span>]) *</div>
+<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span>                  (float) <a class="code hl_variable" href="class_level_map.html#a5deb0f7a7ddb301266fcc0a7ab0655d0">levelMap</a>[<span class="stringliteral">&quot;tileheight&quot;</span>];</div>
+<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span>          DrawTextureRec(<a class="code hl_variable" href="class_level_map.html#aba7a292b1d82630ce32da588cff591eb">tileAtlasTexture</a>, rec, vec, WHITE); <span class="comment">//entkoppeln, 2 vektoren machen</span></div>
+<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span>        }</div>
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span>        vec.x += (float) <a class="code hl_variable" href="class_level_map.html#a5deb0f7a7ddb301266fcc0a7ab0655d0">levelMap</a>[<span class="stringliteral">&quot;tilewidth&quot;</span>];</div>
+<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span>        <span class="keywordflow">if</span> (vec.x &gt;= (<span class="keywordtype">float</span>) layer[<span class="stringliteral">&quot;width&quot;</span>] * (float) <a class="code hl_variable" href="class_level_map.html#a5deb0f7a7ddb301266fcc0a7ab0655d0">levelMap</a>[<span class="stringliteral">&quot;tilewidth&quot;</span>]) {</div>
+<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span>          vec.x = 0;</div>
+<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span>          vec.y += (float) <a class="code hl_variable" href="class_level_map.html#a5deb0f7a7ddb301266fcc0a7ab0655d0">levelMap</a>[<span class="stringliteral">&quot;tileheight&quot;</span>];</div>
+<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span>        }</div>
+<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span>      }</div>
+<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span>    }</div>
+<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span>  }</div>
+<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span>}</div>
+<div class="line"><a id="l00234" name="l00234"></a><span class="lineno"><a class="line" href="class_level_map.html#a4943e057b6987dba109ef87b378d5d90">  234</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_level_map.html#a4943e057b6987dba109ef87b378d5d90">LevelMap::drawPYRAMID</a>() {</div>
+<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span> </div>
+<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span>  std::cout &lt;&lt; <span class="stringliteral">&quot;draw map pyramide&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span> </div>
+<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span>  ClearBackground(BLACK);</div>
+<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span> </div>
+<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span>  Vector2 vecDungeon;</div>
+<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span>  Rectangle recDungeon;</div>
+<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span> </div>
+<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span>  vecDungeon = {0, 0};</div>
+<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span>  recDungeon = {0, 0, <a class="code hl_variable" href="class_level_map.html#afc7ed3c13d983277886527716fbcd192">levelMapDungeon</a>[<span class="stringliteral">&quot;tilewidth&quot;</span>], <a class="code hl_variable" href="class_level_map.html#afc7ed3c13d983277886527716fbcd192">levelMapDungeon</a>[<span class="stringliteral">&quot;tileheight&quot;</span>]};</div>
+<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span>  <span class="keywordflow">for</span> (<span class="keyword">auto</span> <span class="keyword">const</span> &amp;layer : <a class="code hl_variable" href="class_level_map.html#afc7ed3c13d983277886527716fbcd192">levelMapDungeon</a>[<span class="stringliteral">&quot;layers&quot;</span>]) {</div>
+<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span> </div>
+<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span>    <span class="keywordflow">if</span> (layer[<span class="stringliteral">&quot;type&quot;</span>] == <span class="stringliteral">&quot;tilelayer&quot;</span> &amp;&amp; layer[<span class="stringliteral">&quot;visible&quot;</span>]) {</div>
+<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span>      vecDungeon.y = 0;</div>
+<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span>      <span class="keywordflow">for</span> (<span class="keyword">auto</span> <span class="keyword">const</span> &amp;tileId : layer[<span class="stringliteral">&quot;data&quot;</span>]) {</div>
+<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span> </div>
+<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span>        <span class="keywordtype">int</span> counter = (int) tileId;</div>
+<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span>        counter--;</div>
+<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span>        <span class="keywordflow">if</span> (counter != -1) {</div>
+<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span>          recDungeon.x = (float) ((<span class="keywordtype">int</span>) counter % (int) <a class="code hl_variable" href="class_level_map.html#a0dab3e015827e27da9dc0ee59b5a94ad">tilesetDescription</a>[<span class="stringliteral">&quot;columns&quot;</span>]) *</div>
+<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span>                         (float) <a class="code hl_variable" href="class_level_map.html#a5deb0f7a7ddb301266fcc0a7ab0655d0">levelMap</a>[<span class="stringliteral">&quot;tilewidth&quot;</span>];</div>
+<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span>          recDungeon.y = (float) floor((<span class="keywordtype">float</span>) counter / (float) <a class="code hl_variable" href="class_level_map.html#a0dab3e015827e27da9dc0ee59b5a94ad">tilesetDescription</a>[<span class="stringliteral">&quot;columns&quot;</span>]) *</div>
+<div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span>                         (float) <a class="code hl_variable" href="class_level_map.html#a5deb0f7a7ddb301266fcc0a7ab0655d0">levelMap</a>[<span class="stringliteral">&quot;tileheight&quot;</span>];</div>
+<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span>          DrawTextureRec(<a class="code hl_variable" href="class_level_map.html#aba7a292b1d82630ce32da588cff591eb">tileAtlasTexture</a>, recDungeon, vecDungeon, WHITE); <span class="comment">//entkoppeln, 2 vektoren machen</span></div>
+<div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span>        }</div>
+<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span>        vecDungeon.x += (float) <a class="code hl_variable" href="class_level_map.html#afc7ed3c13d983277886527716fbcd192">levelMapDungeon</a>[<span class="stringliteral">&quot;tilewidth&quot;</span>];</div>
+<div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span>        <span class="keywordflow">if</span> (vecDungeon.x &gt;= (<span class="keywordtype">float</span>) layer[<span class="stringliteral">&quot;width&quot;</span>] * (float) <a class="code hl_variable" href="class_level_map.html#afc7ed3c13d983277886527716fbcd192">levelMapDungeon</a>[<span class="stringliteral">&quot;tilewidth&quot;</span>]) {</div>
+<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span>          vecDungeon.x = 0;</div>
+<div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span>          vecDungeon.y += (float) <a class="code hl_variable" href="class_level_map.html#afc7ed3c13d983277886527716fbcd192">levelMapDungeon</a>[<span class="stringliteral">&quot;tileheight&quot;</span>];</div>
+<div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span>        }</div>
+<div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span>      }</div>
+<div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span>    }</div>
+<div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span>  }</div>
+<div class="line"><a id="l00268" name="l00268"></a><span class="lineno">  268</span>}</div>
+<div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span> </div>
+<div class="line"><a id="l00270" name="l00270"></a><span class="lineno"><a class="line" href="class_level_map.html#a046dedd0ed20c12b08425a521213573f">  270</a></span><a class="code hl_function" href="class_level_map.html#a046dedd0ed20c12b08425a521213573f">LevelMap::~LevelMap</a>() {}</div>
 <div class="ttc" id="a_map_8h_html"><div class="ttname"><a href="_map_8h.html">Map.h</a></div></div>
-<div class="ttc" id="aclass_map_html_a08ffb027a5e99e6115ffe625e0144738"><div class="ttname"><a href="class_map.html#a08ffb027a5e99e6115ffe625e0144738">Map::mapData</a></div><div class="ttdeci">struct Map::@1 mapData</div></div>
-<div class="ttc" id="aclass_map_html_a2ed898e9a4bd6c9869893f641119a891"><div class="ttname"><a href="class_map.html#a2ed898e9a4bd6c9869893f641119a891">Map::collisionRectangles</a></div><div class="ttdeci">std::vector&lt; Rectangle &gt; collisionRectangles</div><div class="ttdef"><b>Definition:</b> <a href="_map_8h_source.html#l00008">Map.h:8</a></div></div>
-<div class="ttc" id="aclass_map_html_a7d2a3b475e92e104996fb94695ff98c6"><div class="ttname"><a href="class_map.html#a7d2a3b475e92e104996fb94695ff98c6">Map::levelMap</a></div><div class="ttdeci">nlohmann::json levelMap</div><div class="ttdef"><b>Definition:</b> <a href="_map_8h_source.html#l00010">Map.h:10</a></div></div>
-<div class="ttc" id="aclass_map_html_ab12643cc3a8d5e48f566c1abb571e9bf"><div class="ttname"><a href="class_map.html#ab12643cc3a8d5e48f566c1abb571e9bf">Map::update</a></div><div class="ttdeci">void update()</div><div class="ttdef"><b>Definition:</b> <a href="_map_8cpp_source.html#l00003">Map.cpp:3</a></div></div>
+<div class="ttc" id="aclass_game_1_1_level_html_a605a468eab80cc37fd022e5f4541b92da6eadcd76980d5c82a75e5e54fcb24ecb"><div class="ttname"><a href="class_game_1_1_level.html#a605a468eab80cc37fd022e5f4541b92da6eadcd76980d5c82a75e5e54fcb24ecb">Game::Level::GameScreen::OVERWORLD</a></div><div class="ttdeci">@ OVERWORLD</div></div>
+<div class="ttc" id="aclass_game_1_1_level_html_a605a468eab80cc37fd022e5f4541b92da87ad2b9aff4a2c36a97a8c20847e9e62"><div class="ttname"><a href="class_game_1_1_level.html#a605a468eab80cc37fd022e5f4541b92da87ad2b9aff4a2c36a97a8c20847e9e62">Game::Level::GameScreen::PYRAMIDE</a></div><div class="ttdeci">@ PYRAMIDE</div></div>
+<div class="ttc" id="aclass_level_map_html_a011048a818da6876efe9e65fe7ce7d05"><div class="ttname"><a href="class_level_map.html#a011048a818da6876efe9e65fe7ce7d05">LevelMap::draw</a></div><div class="ttdeci">void draw()</div><div class="ttdef"><b>Definition:</b> <a href="_map_8cpp_source.html#l00118">Map.cpp:118</a></div></div>
+<div class="ttc" id="aclass_level_map_html_a046dedd0ed20c12b08425a521213573f"><div class="ttname"><a href="class_level_map.html#a046dedd0ed20c12b08425a521213573f">LevelMap::~LevelMap</a></div><div class="ttdeci">~LevelMap()</div><div class="ttdef"><b>Definition:</b> <a href="_map_8cpp_source.html#l00270">Map.cpp:270</a></div></div>
+<div class="ttc" id="aclass_level_map_html_a0dab3e015827e27da9dc0ee59b5a94ad"><div class="ttname"><a href="class_level_map.html#a0dab3e015827e27da9dc0ee59b5a94ad">LevelMap::tilesetDescription</a></div><div class="ttdeci">nlohmann::json tilesetDescription</div><div class="ttdef"><b>Definition:</b> <a href="_map_8h_source.html#l00018">Map.h:18</a></div></div>
+<div class="ttc" id="aclass_level_map_html_a4943e057b6987dba109ef87b378d5d90"><div class="ttname"><a href="class_level_map.html#a4943e057b6987dba109ef87b378d5d90">LevelMap::drawPYRAMID</a></div><div class="ttdeci">void drawPYRAMID()</div><div class="ttdef"><b>Definition:</b> <a href="_map_8cpp_source.html#l00234">Map.cpp:234</a></div></div>
+<div class="ttc" id="aclass_level_map_html_a5deb0f7a7ddb301266fcc0a7ab0655d0"><div class="ttname"><a href="class_level_map.html#a5deb0f7a7ddb301266fcc0a7ab0655d0">LevelMap::levelMap</a></div><div class="ttdeci">nlohmann::json levelMap</div><div class="ttdef"><b>Definition:</b> <a href="_map_8h_source.html#l00016">Map.h:16</a></div></div>
+<div class="ttc" id="aclass_level_map_html_a9118c9b7f31106178e9b67bab339fe9e"><div class="ttname"><a href="class_level_map.html#a9118c9b7f31106178e9b67bab339fe9e">LevelMap::drawOVERWORLD</a></div><div class="ttdeci">void drawOVERWORLD()</div><div class="ttdef"><b>Definition:</b> <a href="_map_8cpp_source.html#l00198">Map.cpp:198</a></div></div>
+<div class="ttc" id="aclass_level_map_html_aba7a292b1d82630ce32da588cff591eb"><div class="ttname"><a href="class_level_map.html#aba7a292b1d82630ce32da588cff591eb">LevelMap::tileAtlasTexture</a></div><div class="ttdeci">Texture2D tileAtlasTexture</div><div class="ttdef"><b>Definition:</b> <a href="_map_8h_source.html#l00020">Map.h:20</a></div></div>
+<div class="ttc" id="aclass_level_map_html_af900d2e183533d8227403aad930d5680"><div class="ttname"><a href="class_level_map.html#af900d2e183533d8227403aad930d5680">LevelMap::LevelMap</a></div><div class="ttdeci">LevelMap()</div><div class="ttdef"><b>Definition:</b> <a href="_map_8cpp_source.html#l00092">Map.cpp:92</a></div></div>
+<div class="ttc" id="aclass_level_map_html_afa11a17d512cb0afc26b95f0c9a8ef3b"><div class="ttname"><a href="class_level_map.html#afa11a17d512cb0afc26b95f0c9a8ef3b">LevelMap::level</a></div><div class="ttdeci">Game::Level level</div><div class="ttdef"><b>Definition:</b> <a href="_map_8h_source.html#l00012">Map.h:12</a></div></div>
+<div class="ttc" id="aclass_level_map_html_afc7ed3c13d983277886527716fbcd192"><div class="ttname"><a href="class_level_map.html#afc7ed3c13d983277886527716fbcd192">LevelMap::levelMapDungeon</a></div><div class="ttdeci">nlohmann::json levelMapDungeon</div><div class="ttdef"><b>Definition:</b> <a href="_map_8h_source.html#l00017">Map.h:17</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

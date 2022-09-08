@@ -25,7 +25,7 @@ var dir_f5b2029e7f5ef321e23f1af6d7704298 =
     ] ],
     [ "Map.cpp", "_map_8cpp.html", null ],
     [ "Map.h", "_map_8h.html", [
-      [ "Map", "class_map.html", "class_map" ]
+      [ "LevelMap", "class_level_map.html", "class_level_map" ]
     ] ],
     [ "Puzzle.cpp", "_puzzle_8cpp.html", null ],
     [ "Puzzle.h", "_puzzle_8h.html", [

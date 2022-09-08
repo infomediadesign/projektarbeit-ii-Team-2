@@ -27,6 +27,8 @@ public:
   Rectangle OutsideWallBottom = {873, 576, 160, 32};
 
   bool wallCollision = false;
+  bool wallCollision2 = false;
+  bool wallCollision3 = false;
 
   bool EpanoxCollision = false;
   bool EpanoxCollision2 = false;
