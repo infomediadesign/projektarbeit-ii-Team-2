@@ -387,6 +387,8 @@ void Game::Level::ScreenDraw() {
 
       //teleport conditions
       if (teleportcollisionOVERWORLDtoPYRAMID) { //if the collision bool is true, nemo is transported to PYRAMIDE
+        PlaySound(GameAudio::teleport);
+        SetSoundVolume(GameAudio::teleport, float(0.5));
         level->currentscreen = Game::Level::GameScreen::PYRAMIDE;
         nemo->NemoPosition.x = doorPositionX - 670;
         nemo->NemoPosition.y = doorPositionY + 700;
@@ -422,6 +424,8 @@ void Game::Level::ScreenDraw() {
 
       //teleport conditions
       if (teleportcollisionPYRAMIDtoOVERWORLD) { //if the collision bool is true, nemo is transported to PYRAMIDE
+        PlaySound(GameAudio::teleport);
+        SetSoundVolume(GameAudio::teleport, float(0.5));
         level->currentscreen = Game::Level::GameScreen::OVERWORLD;
         nemo->NemoPosition.x = doorPositionX + 20;
         nemo->NemoPosition.y = doorPositionY + 60;

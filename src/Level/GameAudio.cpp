@@ -2,7 +2,7 @@
 
 namespace GameAudio {
   Sound collision, walking, attack, openchest, dialoge, trapdoor, unlockdoor, pickupitem, buttonpress, titlescreenmusic,
-    pausemenu, indungeon, outdungeon, battlemusic, epanoxsfx;
+    pausemenu, indungeon, outdungeon, battlemusic, epanoxsfx, teleport;
 
   void Load() {
     // sfx
@@ -17,6 +17,7 @@ namespace GameAudio {
     pickupitem  = LoadSound("assets/audio/sfx/046_Pick_item_01.wav"); // not right sound yet
     buttonpress = LoadSound("assets/audio/sfx/020_Confirm_10.wav"); // not right sound yet
     epanoxsfx   = LoadSound("assets/audio/sfx/greeting_10_karen.wav");
+    teleport    = LoadSound("assets/audio/sfx/SciFiThinBeaming PE1081103.mp3");
 
     // music
     titlescreenmusic = LoadSound("assets/audio/sfx/Forever Lost.wav");    
@@ -42,5 +43,6 @@ namespace GameAudio {
     UnloadSound(outdungeon);
     UnloadSound(battlemusic);
     UnloadSound(epanoxsfx);
+    UnloadSound(teleport);
   }
 } // namespace GameAudio
