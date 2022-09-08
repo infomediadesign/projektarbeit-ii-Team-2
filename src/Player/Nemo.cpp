@@ -12,7 +12,7 @@ void Game::Nemo::Update() {
   while (IsKeyDown(KEY_W) || IsKeyDown(KEY_A) || IsKeyDown(KEY_S) || IsKeyDown(KEY_D)) {
     if (!IsSoundPlaying(GameAudio::walking)){
       PlaySound(GameAudio::walking);
-      SetSoundVolume(GameAudio::walking, float(1.0));
+      SetSoundVolume(GameAudio::walking, float(0.4));
       break;
     }break;
   }

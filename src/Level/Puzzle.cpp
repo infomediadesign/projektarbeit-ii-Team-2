@@ -6,7 +6,7 @@ Puzzle::Puzzle() {
 }
 
 /** Collision Checks */
-void Puzzle::collision() {
+void Puzzle::collisionChecks() {
 
   /** Collision Checks Chests */
   // Check collision between Nemo and chest
@@ -40,6 +40,16 @@ void Puzzle::collision() {
 
   // Check collision between Nemo and puzzle
   puzzleCollision3 = CheckCollisionRecs(PuzzleSquare, nemo->nemorec);
+
+  /** Collision Checks Doors */
+  // Check collision between Nemo and doors
+  doorcollision1 = CheckCollisionRecs(door1, nemo->nemorec);
+
+  // Check collision between Nemo and doors
+  doorcollision2 = CheckCollisionRecs(door2, nemo->nemorec);
+
+  // Check collision between Nemo and doors
+  doorcollision3 = CheckCollisionRecs(door3, nemo->nemorec);
 }
 
 /** Update the Items/ Chests/ Puzzles */
@@ -51,11 +61,14 @@ void Puzzle::update() {
     DrawText("[F]", nemo->NemoPosition.x + 10, nemo->NemoPosition.y - 10, 2, BLACK);
     if (IsKeyPressed(KEY_F)){
       //std::cout << "Open Chest" << std::endl;
+      PlaySound(GameAudio::openchest);
+      SetSoundVolume(GameAudio::openchest, float(0.4));
       chestIsDrawn = true;
       if(chestIsDrawn){
         helmetIsDrawn = true;
         keyIsDrawn = true;
         Chest = {};
+        door1 = {};
         break;
       }
       break;
@@ -68,6 +81,8 @@ void Puzzle::update() {
     DrawText("[F]", nemo->NemoPosition.x + 10, nemo->NemoPosition.y - 10, 2, BLACK);
     if (IsKeyPressed(KEY_F)){
       //std::cout << "Open Chest" << std::endl;
+      PlaySound(GameAudio::openchest);
+      SetSoundVolume(GameAudio::openchest, float(0.4));
       chest2IsDrawn = true;
       if(chest2IsDrawn){
         chestplateIsDrawn = true;
@@ -84,6 +99,8 @@ void Puzzle::update() {
     DrawText("[F]", nemo->NemoPosition.x + 10, nemo->NemoPosition.y - 10, 2, BLACK);
     if (IsKeyPressed(KEY_F)){
       //std::cout << "Open Chest" << std::endl;
+      PlaySound(GameAudio::openchest);
+      SetSoundVolume(GameAudio::openchest, float(0.4));
       chest3IsDrawn = true;
       if(chest3IsDrawn){
         hpPotionIsDrawn = true;
@@ -99,7 +116,8 @@ void Puzzle::update() {
   //helmet update
   if (helmetCollision){
     //std::cout << "you picked up a helmet" << std::endl;
-
+    PlaySound(GameAudio::pickupitem);
+    SetSoundVolume(GameAudio::pickupitem, float(0.4));
     helmetIsDrawn = false;
     Helmet = {};
   }
@@ -107,7 +125,8 @@ void Puzzle::update() {
   //chestplate update
   if (chestplateCollision){
     //std::cout << "you picked up a chestplate" << std::endl;
-
+    PlaySound(GameAudio::pickupitem);
+    SetSoundVolume(GameAudio::pickupitem, float(0.4));
     chestplateIsDrawn = false;
     Chestplate = {};
   }
@@ -115,7 +134,8 @@ void Puzzle::update() {
   //hp potion update
   if (hp_potionCollision){
     //std::cout << "you picked up a hp potion" << std::endl;
-
+    PlaySound(GameAudio::pickupitem);
+    SetSoundVolume(GameAudio::pickupitem, float(0.4));
     hpPotionIsDrawn = false;
     HpPotion = {};
   }
@@ -123,16 +143,26 @@ void Puzzle::update() {
   //key update
   if (keyCollision){
     //std::cout << "you picked up a key" << std::endl;
-
+    PlaySound(GameAudio::pickupitem);
+    SetSoundVolume(GameAudio::pickupitem, float(0.4));
     keyIsDrawn = false;
     isKeyPickedUp = true;
+    door2 = {};
 
     Key = {};
   }
 
   /** Update Puzzle */
   //puzzle update
-  if (puzzleCollision1) { wallIsOpen = true; }
+  if (puzzleCollision1) { wallIsOpen = true; door3 = {};}
+
+
+  /** Stop Nemo */
+  if (doorcollision1){ stopNemo(); }
+
+  if (doorcollision2){ stopNemo(); }
+
+  if (doorcollision3){ stopNemo(); }
 }
 
 /** Draw the Items/ Chests/ Puzzles */
@@ -194,6 +224,11 @@ void Puzzle::draw() {
 
   //square trapdoor draw
   if (puzzleCollision3) { DrawTexture(SquareTrapDoor, 704, 1055.5, WHITE); }
+
+  /** RECTANGLES */
+  DrawRectangleRec(door1, Color{});
+  DrawRectangleRec(door2, Color{});
+  DrawRectangleRec(door3, Color{});
 }
 
 Puzzle::~Puzzle() {
@@ -214,4 +249,21 @@ Puzzle::~Puzzle() {
 
   UnloadTexture (WallTile);
   UnloadTexture (DungeonFloorTile);
+}
+void Puzzle::stopNemo() {
+  //walking
+  if (IsKeyPressed(KEY_A) || IsKeyDown(KEY_A)) { nemo->NemoPosition.x += 1.5; }
+  if (IsKeyPressed(KEY_D) || IsKeyDown(KEY_D)) { nemo->NemoPosition.x -= 1.5; }
+  if (IsKeyPressed(KEY_W) || IsKeyDown(KEY_W)) { nemo->NemoPosition.y += 1.5; }
+  if (IsKeyPressed(KEY_S) || IsKeyDown(KEY_S)) { nemo->NemoPosition.y -= 1.5; }
+
+  //sprinting
+  if (IsKeyPressed(KEY_A) && IsKeyDown(KEY_LEFT_SHIFT) || IsKeyDown(KEY_A) && IsKeyDown(KEY_LEFT_SHIFT) )
+  { nemo->NemoPosition.x += 2.0; }
+  if (IsKeyPressed(KEY_D) && IsKeyDown(KEY_LEFT_SHIFT) || IsKeyDown(KEY_D) && IsKeyDown(KEY_LEFT_SHIFT))
+  { nemo->NemoPosition.x -= 2.0; }
+  if (IsKeyPressed(KEY_W) && IsKeyDown(KEY_LEFT_SHIFT) || IsKeyDown(KEY_W) && IsKeyDown(KEY_LEFT_SHIFT))
+  { nemo->NemoPosition.y += 2.0; }
+  if (IsKeyPressed(KEY_S) && IsKeyDown(KEY_LEFT_SHIFT) || IsKeyDown(KEY_S) && IsKeyDown(KEY_LEFT_SHIFT))
+  { nemo->NemoPosition.y -= 2.0; }
 }

@@ -1,11 +1,13 @@
 #include "../INCLUDES.h"
 #include "../Player/Nemo.h"
+#include "Collision.h"
 
 class Puzzle {
 
 public:
 
   Game::Nemo *nemo = new Game::Nemo();
+  Collision collision;
 
   /** Textures */
   Texture2D ChestOpen = LoadTexture("assets/graphics/Items/OpenChest.png");
@@ -35,6 +37,10 @@ public:
   Rectangle Chestplate = {935, 276, 17, 19};
   Rectangle HpPotion = {1452, 504, 17, 19};
   Rectangle Key = {645, 380, 17, 19};
+
+  Rectangle door1 = {736, 673.5, 32, 96};  //door 1 after key
+  Rectangle door2 = {576, 896, 64, 32};   //door 2 to puzzle room
+  Rectangle door3 = {800, 992, 32, 96};   //door 3 after puzzle door1
 
 
   /** Vector's */
@@ -66,9 +72,16 @@ public:
 
   bool wallIsOpen = false;
 
+  bool doorcollision = false;
+  bool doorcollision1 = false;
+  bool doorcollision2 = false;
+  bool doorcollision3 = false;
+
+
   /** Function's */
   Puzzle(); //Constructor
-  void collision();
+  void collisionChecks();
+  void stopNemo();
   void update();
   void draw();
   void unloadTextures();

@@ -44,6 +44,7 @@ public:
 
   void epanoxCollision();
   void outPyraWallCollision();
+  void stopnemo();
   void update();
   void draw();
 };

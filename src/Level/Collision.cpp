@@ -83,6 +83,8 @@ void Collision::epanoxCollision() { // Epanox collision
   while (EpanoxCollision2) {
     DrawText("[F]", nemo->NemoPosition.x + 10, nemo->NemoPosition.y - 10, 2, BLACK);
     if (IsKeyPressed(KEY_F)) {
+      //PlaySound(GameAudio::epanoxsfx);
+      //SetSoundVolume(GameAudio::epanoxsfx, float(0.2));
       text = true;
       break;
     }
@@ -90,9 +92,12 @@ void Collision::epanoxCollision() { // Epanox collision
     if (!EpanoxCollision2){text = false;}
 
     if (text) {
-      DrawTexture(Dialogbox, 780, 561, WHITE);
+      //DrawTexture(Dialogbox, 780, 561, WHITE);
+      DrawTexture(Dialogbox, nemo->NemoPosition.x - 180 , nemo->NemoPosition.y + 90 , WHITE);
       if (IsKeyPressed(KEY_SPACE)){
         textState + 1;
+        PlaySound(GameAudio::dialoge);
+        SetSoundVolume(GameAudio::dialoge, float(0.1));
       }
 
       if (IsKeyReleased(KEY_SPACE) && textState == 0) {
@@ -108,11 +113,11 @@ void Collision::epanoxCollision() { // Epanox collision
       switch (textState) {
       default: break;
       case 1:
-        DrawText("Welcome traveller", 810, 581, 15, WHITE);
-        DrawText("Im guessing you've travelled through time?", 810, 606, 15, WHITE);
+        DrawText("Welcome traveller", nemo->NemoPosition.x - 162 , nemo->NemoPosition.y + 110, 15, WHITE);
+        DrawText("Im guessing you've travelled through time?", nemo->NemoPosition.x - 162 , nemo->NemoPosition.y + 135, 15, WHITE);
         break;
-      case 2: DrawText("Having Fun? ", 810, 581, 15, WHITE); break;
-      case 3: DrawText("Well i dont care what think, so fuck off!", 810, 581, 15, WHITE); break;
+      case 2: DrawText("Having Fun? ", nemo->NemoPosition.x - 162 , nemo->NemoPosition.y + 110, 15, WHITE); break;
+      case 3: DrawText("Well i dont care what think, so fuck off!", nemo->NemoPosition.x - 162 , nemo->NemoPosition.y + 110, 15, WHITE); break;
       case 4: textState = 1;
         text = false; break;
       }
@@ -156,4 +161,21 @@ void Collision::draw() {
   //DrawRectangleRec(OutsideWallLeft, RED);
   //DrawRectangleRec(OutsideWallRight, RED);
   //DrawRectangleRec(OutsideWallBottom, BLUE);
+}
+void Collision::stopnemo() {
+  //walking
+  if (IsKeyPressed(KEY_A) || IsKeyDown(KEY_A)) { nemo->NemoPosition.x += 1.5; }
+  if (IsKeyPressed(KEY_D) || IsKeyDown(KEY_D)) { nemo->NemoPosition.x -= 1.5; }
+  if (IsKeyPressed(KEY_W) || IsKeyDown(KEY_W)) { nemo->NemoPosition.y += 1.5; }
+  if (IsKeyPressed(KEY_S) || IsKeyDown(KEY_S)) { nemo->NemoPosition.y -= 1.5; }
+
+  //sprinting
+  if (IsKeyPressed(KEY_A) && IsKeyDown(KEY_LEFT_SHIFT) || IsKeyDown(KEY_A) && IsKeyDown(KEY_LEFT_SHIFT) )
+  { nemo->NemoPosition.x += 2.0; }
+  if (IsKeyPressed(KEY_D) && IsKeyDown(KEY_LEFT_SHIFT) || IsKeyDown(KEY_D) && IsKeyDown(KEY_LEFT_SHIFT))
+  { nemo->NemoPosition.x -= 2.0; }
+  if (IsKeyPressed(KEY_W) && IsKeyDown(KEY_LEFT_SHIFT) || IsKeyDown(KEY_W) && IsKeyDown(KEY_LEFT_SHIFT))
+  { nemo->NemoPosition.y += 2.0; }
+  if (IsKeyPressed(KEY_S) && IsKeyDown(KEY_LEFT_SHIFT) || IsKeyDown(KEY_S) && IsKeyDown(KEY_LEFT_SHIFT))
+  { nemo->NemoPosition.y -= 2.0; }
 }

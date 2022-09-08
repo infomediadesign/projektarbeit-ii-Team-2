@@ -5,7 +5,6 @@
 #include "Level/Level.h"
 #include "Level/Map.h"
 #include "Level/UI.h"
-#include "Level/Collision.h"
 #include "Level/Dialogue.h"
 #include "Level/Puzzle.h"
 
@@ -292,16 +291,20 @@ int main() {
       }
       //==========================================THE END=========================================================
 
-      puzzle.collision();
-      puzzle.update();
-      puzzle.draw();
+
 
       DrawFPS(nemo.NemoPosition.x - 280, nemo.NemoPosition.y - 150);
+
+      puzzle.draw();
 
       nemo.active = true;
       nemo.Update(); // nemo walking movement and animation
       nemo.Draw();   // nemo walking movement and animation
       camera.target = Vector2 { nemo.NemoPosition.x + 20.0f, nemo.NemoPosition.y + 20.0f };
+
+      puzzle.collisionChecks();
+      puzzle.update();
+
 
       //teleport back to overworld
       level.Teleport();

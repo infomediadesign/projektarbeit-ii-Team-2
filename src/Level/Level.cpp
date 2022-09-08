@@ -223,13 +223,19 @@ void Game::Level::ScreenDraw() {
       if (t_rec_start.x == box_rec_titlescreen.x && t_rec_start.y == box_rec_titlescreen.y &&
           t_rec_start.width == box_rec_titlescreen.width && t_rec_start.height == box_rec_titlescreen.height) {
         currentscreen = GameScreen::OVERWORLD;
+        PlaySound(GameAudio::buttonpress);
+        SetSoundVolume(GameAudio::buttonpress, float(0.6));
       }
       if (t_rec_settings.x == box_rec_titlescreen.x && t_rec_settings.y == box_rec_titlescreen.y &&
           t_rec_settings.width == box_rec_titlescreen.width && t_rec_settings.height == box_rec_titlescreen.height) {
         currentscreen = GameScreen::PAUSEMENU;
+        PlaySound(GameAudio::buttonpress);
+        SetSoundVolume(GameAudio::buttonpress, float(0.6));
       }
       if (t_rec_exit_game.x == box_rec_titlescreen.x && t_rec_exit_game.y == box_rec_titlescreen.y &&
           t_rec_exit_game.width == box_rec_titlescreen.width && t_rec_exit_game.height == box_rec_titlescreen.height) {
+        PlaySound(GameAudio::buttonpress);
+        SetSoundVolume(GameAudio::buttonpress, float(0.6));
         exit(0);
       }
     }
@@ -237,10 +243,14 @@ void Game::Level::ScreenDraw() {
     /** MOVE THE BOX */
     if (IsKeyPressed(KEY_S)) {
       box_rec_titlescreen.y += 100;
+      PlaySound(GameAudio::dialoge);
+      SetSoundVolume(GameAudio::dialoge, float(0.1));
     }
 
     if (IsKeyPressed(KEY_W)) {
       box_rec_titlescreen.y -= 100;
+      PlaySound(GameAudio::dialoge);
+      SetSoundVolume(GameAudio::dialoge, float(0.1));
     }
 
     if (box_rec_titlescreen.y < Game::ScreenHeight / 2 - 50)
@@ -281,11 +291,16 @@ void Game::Level::ScreenDraw() {
       if (t_rec_start.x == box_rec_titlescreen.x && t_rec_start.y == box_rec_titlescreen.y && t_rec_start.width == box_rec_titlescreen.width &&
           t_rec_start.height == box_rec_titlescreen.height) {
         std::cout << "Pause Music" << endl;
+        PlaySound(GameAudio::buttonpress);
+        SetSoundVolume(GameAudio::buttonpress, float(0.6));
+
       }
       // FULLSCREEN
       if (t_rec_settings.x == box_rec_titlescreen.x && t_rec_settings.y == box_rec_titlescreen.y && t_rec_settings.width == box_rec_titlescreen.width &&
           t_rec_settings.height == box_rec_titlescreen.height) {
         std::cout << "Fullscreen on" << endl;
+        PlaySound(GameAudio::buttonpress);
+        SetSoundVolume(GameAudio::buttonpress, float(0.6));
         ToggleFullscreen();
       }
 
@@ -293,16 +308,22 @@ void Game::Level::ScreenDraw() {
       if (t_rec_exit_game.x == box_rec_titlescreen.x && t_rec_exit_game.y == box_rec_titlescreen.y &&
           t_rec_exit_game.width == box_rec_titlescreen.width && t_rec_exit_game.height == box_rec_titlescreen.height) {
         currentscreen = GameScreen::TITLESCREEN;
+        PlaySound(GameAudio::buttonpress);
+        SetSoundVolume(GameAudio::buttonpress, float(0.6));
       }
     }
 
       /** MOVE THE BOX */
       if (IsKeyPressed(KEY_S)) {
         box_rec_titlescreen.y += 100;
+        PlaySound(GameAudio::dialoge);
+        SetSoundVolume(GameAudio::dialoge, float(0.1));
       }
 
       if (IsKeyPressed(KEY_W)) {
         box_rec_titlescreen.y -= 100;
+        PlaySound(GameAudio::dialoge);
+        SetSoundVolume(GameAudio::dialoge, float(0.1));
       }
 
       if (box_rec_titlescreen.y < Game::ScreenHeight / 2 - 50)
@@ -533,8 +554,8 @@ void Game::Level::Teleport() {
   teleportrecPYRAMIDtoOVERWORLD = { doorPositionX - 685, doorPositionY + 780, doortileX, doortileY }; //rectangle in pyramid to overworld
   teleportrecPYRAMIDtoENDSCREEN = { doorPositionX + 528 , doorPositionY - 200, doortileX, doortileY }; //rectangle in pyramid to endscreen
 
-  // collision check with the door & nemo (RECTANGLES FOR COLLISION)
-  teleportcollisionOVERWORLDtoPYRAMID = CheckCollisionRecs(teleportrecOVERWORLDtoPYRAMID, nemo->nemorec); //check collision between door and nemo
+  // collision check with the door1 & nemo (RECTANGLES FOR COLLISION)
+  teleportcollisionOVERWORLDtoPYRAMID = CheckCollisionRecs(teleportrecOVERWORLDtoPYRAMID, nemo->nemorec); //check collision between door1 and nemo
   teleportcollisionPYRAMIDtoOVERWORLD = CheckCollisionRecs(teleportrecPYRAMIDtoOVERWORLD, nemo->nemorec);
   teleportcollisionPYRAMIDtoENDSCREEN = CheckCollisionRecs(teleportrecPYRAMIDtoENDSCREEN, nemo->nemorec);
 
