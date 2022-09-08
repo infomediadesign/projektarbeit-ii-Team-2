@@ -15,7 +15,7 @@ Custodia is a mini Dungeon Crawler project we as the Custodia development team c
 It's a mini Dungeon Crawler, just have fun playing the game :)
 
 **Support**
-@nicovogt56@gmail.com
+@CustodiaSupport@altmails.com
 
 **Roadmap**
 It was meant to be 5 levels/ worlds long, but due to time issues we where not able to create 5 but 1. In the future, there might be following the last 4 levels.
