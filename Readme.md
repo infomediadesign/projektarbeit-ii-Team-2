@@ -5,11 +5,11 @@ Custodia is a mini Dungeon Crawler project we as the Custodia development team c
 ... have fun playing
 
 **Installation**
-1.) Download the .zip file from Itch.io ( *link will follow* )
-2.) Unzip the .zip file onto your Pc
-3.) Double click on the Custodia.exe file
-4.) The game will start
-5.) Have fun playing :)
+1. Download the .zip file from Itch.io ( *link will follow* )
+2. Unzip the .zip file onto your Pc
+3. Double click on the Custodia.exe file
+4. The game will start
+5. Have fun playing :)
 
 **Usage**
 It's a mini Dungeon Crawler, just have fun playing the game :)
