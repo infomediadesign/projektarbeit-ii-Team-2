@@ -4,7 +4,7 @@
 
 namespace GameAudio {
   extern Sound collision, walking, attack, openchest, dialoge, trapdoor, unlockdoor, pickupitem, buttonpress,
-    titlescreenmusic, pausemenu, indungeon, outdungeon, battlemusic;
+    titlescreenmusic, pausemenu, indungeon, outdungeon, battlemusic, epanoxsfx, teleport;
 
   void Load();
   void Unload();

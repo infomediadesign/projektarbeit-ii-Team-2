@@ -10,7 +10,7 @@ public:
 
   Game::Nemo * nemo;
   Game::Level * level;
-  Map * map;
+  LevelMap * map;
 
   Game::Dialog dialog;
 
@@ -20,13 +20,42 @@ public:
   Rectangle  EpanoxRec = {972.5, 462.5, 10, 10}; //EpanoxRec
   Rectangle EpanoxRec2 = {961, 458, 20, 24};
 
-  //Sry about all these recs...
+  ///Sry about all these RECTANGLES...
   //Outside Rectangles for wall collision
+  vector<Rectangle> outsideWall;
   Rectangle OutsideWallLeft = {865, 320, 32, 288};
   Rectangle OutsideWallRight = {990, 320, 32, 288};
   Rectangle OutsideWallBottom = {873, 576, 160, 32};
 
-  bool wallCollision = false;
+  //Inside Rectangles for wall collision
+  //entrance
+  vector<Rectangle> insideWall;
+  Rectangle InsideWall  = {191, 864, 32, 192};
+  Rectangle InsideWall2 = {287, 864, 32, 192};
+  //first room
+  Rectangle InsideWall3 = {130, 864, 96, 32}; // entrance sides - -
+  Rectangle InsideWall4 = {287, 864, 96, 32};
+  Rectangle InsideWall5 = {121, 704, 32, 160}; // left side vertical
+  Rectangle InsideWall6 = {121, 671, 224, 32,}; // top part
+  Rectangle InsideWall7 = {345, 671, 96, 64}; // exit sides
+  Rectangle InsideWall8 = {345, 800, 96, 64};
+
+
+  //outside the pyramid
+  bool wallCollision  = false;
+  bool wallCollision2 = false;
+  bool wallCollision3 = false;
+
+  //inside the pyramid
+  bool wallCollision4  = false;
+  bool wallCollision5  = false;
+  bool wallCollision6  = false;
+  bool wallCollision7  = false;
+  bool wallCollision8  = false;
+  bool wallCollision9  = false;
+  bool wallCollision10 = false;
+  bool wallCollision11 = false;
+  bool wallCollision12 = false;
 
   bool EpanoxCollision = false;
   bool EpanoxCollision2 = false;
@@ -42,8 +71,12 @@ public:
   int framesCounter  = 0;
   int framesSpeed    = 4; // animtation fps
 
+  Collision(nlohmann::json levelMapDungeon);
   void epanoxCollision();
   void outPyraWallCollision();
+  void inPryaWallCollision();
+  void stopnemo();
   void update();
   void draw();
+  void walldraw();
 };

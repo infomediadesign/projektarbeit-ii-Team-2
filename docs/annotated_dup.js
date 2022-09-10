@@ -16,7 +16,7 @@ var annotated_dup =
     [ "Endscreen", "class_endscreen.html", "class_endscreen" ],
     [ "Inventory", "class_inventory.html", "class_inventory" ],
     [ "Item", "struct_item.html", "struct_item" ],
-    [ "Map", "class_map.html", "class_map" ],
+    [ "LevelMap", "class_level_map.html", "class_level_map" ],
     [ "Mumy", "class_mumy.html", "class_mumy" ],
     [ "Pharaoh", "class_pharaoh.html", "class_pharaoh" ],
     [ "Puzzle", "class_puzzle.html", "class_puzzle" ],

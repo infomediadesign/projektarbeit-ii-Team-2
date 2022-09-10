@@ -1,8 +1,12 @@
 <map id="Level.h" name="Level.h">
-<area shape="rect" id="node1" title=" " alt="" coords="169,5,231,32"/>
-<area shape="rect" id="node2" href="$_collision_8h.html" title=" " alt="" coords="43,80,125,107"/>
-<area shape="rect" id="node4" href="$main_8cpp.html" title=" " alt="" coords="125,155,200,181"/>
-<area shape="rect" id="node5" href="$_level_8cpp.html" title=" " alt="" coords="201,80,277,107"/>
-<area shape="rect" id="node6" href="$_nemo_8cpp.html" title=" " alt="" coords="301,80,382,107"/>
-<area shape="rect" id="node3" href="$_collision_8cpp.html" title=" " alt="" coords="5,155,101,181"/>
+<area shape="rect" id="node1" title=" " alt="" coords="274,5,337,32"/>
+<area shape="rect" id="node2" href="$_collision_8h.html" title=" " alt="" coords="119,155,201,181"/>
+<area shape="rect" id="node6" href="$main_8cpp.html" title=" " alt="" coords="216,304,291,331"/>
+<area shape="rect" id="node7" href="$_level_8cpp.html" title=" " alt="" coords="359,80,435,107"/>
+<area shape="rect" id="node8" href="$_map_8h.html" title=" " alt="" coords="276,80,335,107"/>
+<area shape="rect" id="node10" href="$_nemo_8cpp.html" title=" " alt="" coords="459,80,541,107"/>
+<area shape="rect" id="node3" href="$_collision_8cpp.html" title=" " alt="" coords="5,229,101,256"/>
+<area shape="rect" id="node4" href="$_puzzle_8h.html" title=" " alt="" coords="126,229,199,256"/>
+<area shape="rect" id="node5" href="$_puzzle_8cpp.html" title=" " alt="" coords="105,304,191,331"/>
+<area shape="rect" id="node9" href="$_map_8cpp.html" title=" " alt="" coords="327,155,399,181"/>
 </map>

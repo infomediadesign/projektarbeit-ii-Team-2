@@ -5,7 +5,6 @@
 #include "Level/Level.h"
 #include "Level/Map.h"
 #include "Level/UI.h"
-#include "Level/Collision.h"
 #include "Level/Dialogue.h"
 #include "Level/Puzzle.h"
 
@@ -50,9 +49,9 @@ int main() {
   // Initialization
   //--------------------------------------------------------------------------------------------
 
-  Collision collision;
+
   Puzzle puzzle;
-  Map map;
+  LevelMap map;
 
   GameAudio::Load();
 
@@ -70,8 +69,7 @@ int main() {
   Game::Sprite Shadow_Sprite(590.5, 1014, overwold_shadow->spr_shadow);
   Game::Sprite Pharaoh_Sprite(1455, 198, overworld_pharaoh->spr_Pharaoh);
 
-  collision.nemo = &nemo;
-  collision.level = &level;
+
 
   level.level = &level;
   level.nemo = &nemo;
@@ -83,25 +81,33 @@ int main() {
   bool ShadowDraw = true;
   bool PharaohDraw = true;
 
-    //Map stuff -> relocate this into map.h/ and .cpp
-    std::ifstream tilesetDescriptionFile("assets/graphics/map/Level1/PhyramidSheet.json"); //Pyramiden_SheetJamey.json needed as json, pls do in tiled
-    assert(tilesetDescriptionFile.is_open());
-    nlohmann::json tilesetDescription = nlohmann::json::parse(tilesetDescriptionFile);
-    tilesetDescriptionFile.close();
+  //LevelMap();
 
-    /** Outside the Pyramid*/
-    std::ifstream levelMapFile("assets/graphics/map/Level1/PhyramidEntry.json");
-    assert(levelMapFile.is_open());
-    nlohmann::json levelMap = nlohmann::json::parse(levelMapFile);
-    levelMapFile.close();
+  //Map stuff -> relocate this into map.h/ and .cpp
+  std::ifstream tilesetDescriptionFile("assets/graphics/map/Level1/PhyramidSheet.json"); //Pyramiden_SheetJamey.json needed as json, pls do in tiled
+  assert(tilesetDescriptionFile.is_open());
+  nlohmann::json tilesetDescription = nlohmann::json::parse(tilesetDescriptionFile);
+  tilesetDescriptionFile.close();
 
-    /** Inside the Pyramid*/
-    std::ifstream levelMapFileDungeon("assets/graphics/map/Level1/PhyramidDungeon.json");
-    assert(levelMapFileDungeon.is_open());
-    nlohmann::json levelMapDungeon = nlohmann::json::parse(levelMapFileDungeon);
-    levelMapFileDungeon.close();
+  //Outside the Pyramid
+  std::ifstream levelMapFile("assets/graphics/map/Level1/PhyramidEntry.json");
+  assert(levelMapFile.is_open());
+  nlohmann::json levelMap = nlohmann::json::parse(levelMapFile);
+  levelMapFile.close();
 
-    Texture2D tileAtlasTexture = LoadTexture("assets/graphics/map/Level1/Egypt-Sheet.png");
+  //Inside the Pyramid
+  std::ifstream levelMapFileDungeon("assets/graphics/map/Level1/PhyramidDungeon.json");
+  assert(levelMapFileDungeon.is_open());
+  nlohmann::json levelMapDungeon = nlohmann::json::parse(levelMapFileDungeon);
+  levelMapFileDungeon.close();
+
+  Texture2D tileAtlasTexture = LoadTexture("assets/graphics/map/Level1/Egypt-Sheet.png");
+  /**/
+
+  Collision collision (levelMapDungeon);
+
+  collision.nemo = &nemo;
+  collision.level = &level;
 
     // Camera settings
   //--------------------------------------------------------------------------------------------
@@ -132,6 +138,7 @@ int main() {
 
     case Game::Level::GameScreen::TITLESCREEN:
 
+
       camera.target = Vector2 { Game::ScreenWidth / 2, Game::ScreenHeight / 2 };
       camera.zoom     = 1.0f;
       break;
@@ -145,6 +152,8 @@ int main() {
     case Game::Level::GameScreen::OVERWORLD:
 
       camera.zoom     = 2.0f;
+
+      //map.drawOVERWORLD();
 
       //map
       Vector2 vec;
@@ -176,9 +185,13 @@ int main() {
         }
       }
 
-      //spr.EpanoxDraw();
+      /**/
 
       collision.draw();
+
+      if (IsKeyDown(KEY_R)){
+        collision.walldraw();
+      }
 
       nemo.active = true;
       nemo.Update(); // nemo walking movement and animation
@@ -187,7 +200,6 @@ int main() {
 
       collision.epanoxCollision();
       collision.outPyraWallCollision();
-
 
       ui.Draw(); // controlls description
 
@@ -204,14 +216,7 @@ int main() {
 
       camera.zoom     = 2.0f;
 
-      ClearBackground(BLACK);
-
-      if (IsKeyPressed(KEY_C))
-      {
-        std::cout << "X: " << nemo.NemoPosition.x << endl;
-        std::cout << "Y: " << nemo.NemoPosition.y << endl;
-      }
-
+      //map.drawPYRAMID();
 
       Vector2 vecDungeon;
       Rectangle recDungeon;
@@ -228,9 +233,9 @@ int main() {
             counter--;
             if (counter != -1) {
               recDungeon.x = (float) ((int) counter % (int) tilesetDescription["columns"]) *
-                      (float) levelMap["tilewidth"];
+                             (float) levelMap["tilewidth"];
               recDungeon.y = (float) floor((float) counter / (float) tilesetDescription["columns"]) *
-                      (float) levelMap["tileheight"];
+                             (float) levelMap["tileheight"];
               DrawTextureRec(tileAtlasTexture, recDungeon, vecDungeon, WHITE); //entkoppeln, 2 vektoren machen
             }
             vecDungeon.x += (float) levelMapDungeon["tilewidth"];
@@ -241,6 +246,8 @@ int main() {
           }
         }
       }
+
+      /**/
 
       //NPCRec = { 592 + 8, 712 + 5, 16, 20 };
       // DrawRectangleRec(NPCRec, Color(00));                    // COLOR is for the Transparency.
@@ -292,23 +299,35 @@ int main() {
       }
       //==========================================THE END=========================================================
 
-      puzzle.collision();
-      puzzle.update();
-      puzzle.draw();
+
 
       DrawFPS(nemo.NemoPosition.x - 280, nemo.NemoPosition.y - 150);
+
+      puzzle.draw();
+
+      collision.draw();
+
+      if (IsKeyDown(KEY_R)){
+        collision.walldraw();
+      }
 
       nemo.active = true;
       nemo.Update(); // nemo walking movement and animation
       nemo.Draw();   // nemo walking movement and animation
       camera.target = Vector2 { nemo.NemoPosition.x + 20.0f, nemo.NemoPosition.y + 20.0f };
 
+      collision.inPryaWallCollision();
+
+      puzzle.collisionChecks();
+      puzzle.update();
+
+
       //teleport back to overworld
       level.Teleport();
       DrawRectangleRec(level.teleportrecPYRAMIDtoOVERWORLD, Color{});
       DrawRectangleRec(level.teleportrecPYRAMIDtoENDSCREEN, Color{});
 
-      map.update();
+      //map.update();
       //collision.update(); //TODO the rectangle doesnt have anything init which doesnt alway it to collide with anything... theres an error and the game crashes
 
       if (IsKeyPressed(KEY_P)){
@@ -350,6 +369,7 @@ int main() {
 
   level.~Level();
   puzzle.~Puzzle();
+  //map.~LevelMap();
 
   CloseAudioDevice(); // Close audio device
 
