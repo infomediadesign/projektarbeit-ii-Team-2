@@ -13,6 +13,7 @@ var _game_audio_8cpp =
     [ "outdungeon", "_game_audio_8cpp.html#acf7f76477661dff36b7e6158e5b6d6c6", null ],
     [ "pausemenu", "_game_audio_8cpp.html#a54fd92ccf4ab953aad6425248c27f83a", null ],
     [ "pickupitem", "_game_audio_8cpp.html#afac4c6e7396341b900fa841bfd61c2d6", null ],
+    [ "teleport", "_game_audio_8cpp.html#afc7874ddc8c952b3ef216f71a5cb0c56", null ],
     [ "titlescreenmusic", "_game_audio_8cpp.html#aa36b9208836934b58e86f4b46441edc8", null ],
     [ "trapdoor", "_game_audio_8cpp.html#a260e27935297a6d7bb6d71406a9c3769", null ],
     [ "unlockdoor", "_game_audio_8cpp.html#a107a234e545732882d5496acbb72412f", null ],

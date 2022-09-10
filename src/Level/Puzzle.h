@@ -27,6 +27,10 @@ public:
   Texture2D WallTile = LoadTexture("assets/graphics/Items/Wand.png");
   Texture2D DungeonFloorTile = LoadTexture("assets/graphics/Items/DungeonFloorPlate.png");
 
+  Texture2D Torch = LoadTexture("assets/graphics/Items/Asset_Feuerschale-Sheet.png");
+  Texture2D Portal = LoadTexture("assets/graphics/Items/ZeitportalOpenClose-Sheet.png");
+
+  /** Rectangles */
   Rectangle Chest = {608, 385, 28, 32};
   Rectangle Chest2 = {896, 288, 28, 32};
   Rectangle Chest3 = {1504, 480.5, 28, 32};
@@ -42,9 +46,29 @@ public:
   Rectangle door2 = {576, 896, 64, 32};   //door 2 to puzzle room
   Rectangle door3 = {800, 992, 32, 96};   //door 3 after puzzle door1
 
+  Rectangle ChestNS = {608, 385, 18, 32};
+  Rectangle ChestNS2 = {896, 288, 18, 32};
+  Rectangle ChestNS3 = {1504, 480.5, 18, 32};
+
+  ///animation Rectangles
+  // divide sprite-sheet into frames
+  Rectangle frameRec = { 0.0f, 0.0f, (float)PuzzelTriangle.width / 3, (float)PuzzelTriangle.height };
+  Rectangle frameRecTorch = { 0.0f, 0.0f, (float)Torch.width / 4, (float)Torch.height };
+  Rectangle frameRecPortal = { 0.0f, 0.0f, (float)Portal.width / 12, (float)Portal.height };
+
+  /** Int's */
+  //animation
+  int currentFrame   = 0;
+  int framesCounter  = 0;
+  int framesSpeed    = 8; // animtation fps
+  int framesSpeedTorch  = 4; // torch animtation fps
+  int framesSpeedPortal = 4; // portal animtation fps
 
   /** Vector's */
   //Vector2 puzzle_position = {608.5, 386.5};
+  Vector2 TorchPosition = {160, 672};
+  Vector2 TorchPosition2 = {320, 672};
+  Vector2 PortalPosition = {1438, 76};
 
   /** Bool's */
   bool chestCollision = false;
@@ -72,28 +96,24 @@ public:
 
   bool wallIsOpen = false;
 
-  bool doorcollision = false;
+  /** Bool's Nemo Stop */
   bool doorcollision1 = false;
   bool doorcollision2 = false;
   bool doorcollision3 = false;
 
+  bool chestCollisionNS1 = false;
+  bool chestCollisionNS2 = false;
+  bool chestCollisionNS3 = false;
 
   /** Function's */
   Puzzle(); //Constructor
+
   void collisionChecks();
   void stopNemo();
+  void torchAnimation();
+  void portalAnimation();
   void update();
   void draw();
-  void unloadTextures();
-
-  /** Animation */
-  // divide sprite-sheet into frames
-  Rectangle frameRec = { 0.0f, 0.0f, (float)PuzzelTriangle.width / 3, (float)PuzzelTriangle.height };
-  int currentFrame   = 0;
-  int framesCounter  = 0;
-  int framesSpeed    = 8; // animtation fps
 
   ~Puzzle(); //Destructor
 };
-
-

@@ -15,6 +15,7 @@ var namespaces_dup =
       [ "outdungeon", "namespace_game_audio.html#acf7f76477661dff36b7e6158e5b6d6c6", null ],
       [ "pausemenu", "namespace_game_audio.html#a54fd92ccf4ab953aad6425248c27f83a", null ],
       [ "pickupitem", "namespace_game_audio.html#afac4c6e7396341b900fa841bfd61c2d6", null ],
+      [ "teleport", "namespace_game_audio.html#afc7874ddc8c952b3ef216f71a5cb0c56", null ],
       [ "titlescreenmusic", "namespace_game_audio.html#aa36b9208836934b58e86f4b46441edc8", null ],
       [ "trapdoor", "namespace_game_audio.html#a260e27935297a6d7bb6d71406a9c3769", null ],
       [ "unlockdoor", "namespace_game_audio.html#a107a234e545732882d5496acbb72412f", null ],

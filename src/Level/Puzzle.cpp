@@ -1,9 +1,7 @@
 #include "Puzzle.h"
 
 
-Puzzle::Puzzle() {
-
-}
+Puzzle::Puzzle() {}
 
 /** Collision Checks */
 void Puzzle::collisionChecks() {
@@ -50,6 +48,16 @@ void Puzzle::collisionChecks() {
 
   // Check collision between Nemo and doors
   doorcollision3 = CheckCollisionRecs(door3, nemo->nemorec);
+
+  /** Collision Checks Chests Nemo Stop */
+  // Check collision between Nemo and doors
+  chestCollisionNS1 = CheckCollisionRecs(ChestNS, nemo->nemorec);
+
+  // Check collision between Nemo and doors
+  chestCollisionNS2 = CheckCollisionRecs(ChestNS2, nemo->nemorec);
+
+  // Check collision between Nemo and doors
+  chestCollisionNS3 = CheckCollisionRecs(ChestNS3, nemo->nemorec);
 }
 
 /** Update the Items/ Chests/ Puzzles */
@@ -157,12 +165,70 @@ void Puzzle::update() {
   if (puzzleCollision1) { wallIsOpen = true; door3 = {};}
 
 
-  /** Stop Nemo */
+  /** Stop Nemo Door */
   if (doorcollision1){ stopNemo(); }
 
   if (doorcollision2){ stopNemo(); }
 
   if (doorcollision3){ stopNemo(); }
+
+  /** Stop Nemo Chest */
+  if (chestCollisionNS1){ stopNemo(); }
+
+  if (chestCollisionNS2){ stopNemo(); }
+
+  if (chestCollisionNS3){ stopNemo(); }
+}
+
+/** Only to stop Nemo's movement */
+void Puzzle::stopNemo() {
+  //walking
+  if (IsKeyPressed(KEY_A) || IsKeyDown(KEY_A)) { nemo->NemoPosition.x += 1.5; }
+  if (IsKeyPressed(KEY_D) || IsKeyDown(KEY_D)) { nemo->NemoPosition.x -= 1.5; }
+  if (IsKeyPressed(KEY_W) || IsKeyDown(KEY_W)) { nemo->NemoPosition.y += 1.5; }
+  if (IsKeyPressed(KEY_S) || IsKeyDown(KEY_S)) { nemo->NemoPosition.y -= 1.5; }
+
+  //sprinting
+  if (IsKeyPressed(KEY_A) && IsKeyDown(KEY_LEFT_SHIFT) || IsKeyDown(KEY_A) && IsKeyDown(KEY_LEFT_SHIFT) )
+  { nemo->NemoPosition.x += 2.0; }
+  if (IsKeyPressed(KEY_D) && IsKeyDown(KEY_LEFT_SHIFT) || IsKeyDown(KEY_D) && IsKeyDown(KEY_LEFT_SHIFT))
+  { nemo->NemoPosition.x -= 2.0; }
+  if (IsKeyPressed(KEY_W) && IsKeyDown(KEY_LEFT_SHIFT) || IsKeyDown(KEY_W) && IsKeyDown(KEY_LEFT_SHIFT))
+  { nemo->NemoPosition.y += 2.0; }
+  if (IsKeyPressed(KEY_S) && IsKeyDown(KEY_LEFT_SHIFT) || IsKeyDown(KEY_S) && IsKeyDown(KEY_LEFT_SHIFT))
+  { nemo->NemoPosition.y -= 2.0; }
+}
+
+void Puzzle::torchAnimation() {
+
+  // animation
+  framesCounter++;
+
+  if (framesCounter >= (60 / framesSpeedTorch)) {
+    framesCounter = 0;
+    currentFrame++;
+
+    if (currentFrame > 3)
+      currentFrame = 0;
+
+    frameRecTorch.x = (float)currentFrame * (float)Torch.width / 4;
+  }
+}
+
+void Puzzle::portalAnimation() {
+
+  // animation
+  framesCounter++;
+
+  if (framesCounter >= (60 / framesSpeedPortal)) {
+    framesCounter = 0;
+    currentFrame++;
+
+    if (currentFrame > 11)
+      currentFrame = 0;
+
+    frameRecPortal.x = (float)currentFrame * (float)Portal.width / 12;
+  }
 }
 
 /** Draw the Items/ Chests/ Puzzles */
@@ -229,6 +295,19 @@ void Puzzle::draw() {
   DrawRectangleRec(door1, Color{});
   DrawRectangleRec(door2, Color{});
   DrawRectangleRec(door3, Color{});
+  DrawRectangleRec(ChestNS, RED);
+  DrawRectangleRec(ChestNS2, BLUE);
+  DrawRectangleRec(ChestNS3, GREEN);
+
+  /** ANIMATIONS */
+  //torches
+  DrawTextureRec(Torch, frameRecTorch, TorchPosition, WHITE);
+  DrawTextureRec(Torch, frameRecTorch, TorchPosition2, WHITE);
+  //portal
+  DrawTextureRec(Portal, frameRecPortal, PortalPosition, WHITE);
+
+  torchAnimation();
+  portalAnimation();
 }
 
 Puzzle::~Puzzle() {
@@ -249,21 +328,4 @@ Puzzle::~Puzzle() {
 
   UnloadTexture (WallTile);
   UnloadTexture (DungeonFloorTile);
-}
-void Puzzle::stopNemo() {
-  //walking
-  if (IsKeyPressed(KEY_A) || IsKeyDown(KEY_A)) { nemo->NemoPosition.x += 1.5; }
-  if (IsKeyPressed(KEY_D) || IsKeyDown(KEY_D)) { nemo->NemoPosition.x -= 1.5; }
-  if (IsKeyPressed(KEY_W) || IsKeyDown(KEY_W)) { nemo->NemoPosition.y += 1.5; }
-  if (IsKeyPressed(KEY_S) || IsKeyDown(KEY_S)) { nemo->NemoPosition.y -= 1.5; }
-
-  //sprinting
-  if (IsKeyPressed(KEY_A) && IsKeyDown(KEY_LEFT_SHIFT) || IsKeyDown(KEY_A) && IsKeyDown(KEY_LEFT_SHIFT) )
-  { nemo->NemoPosition.x += 2.0; }
-  if (IsKeyPressed(KEY_D) && IsKeyDown(KEY_LEFT_SHIFT) || IsKeyDown(KEY_D) && IsKeyDown(KEY_LEFT_SHIFT))
-  { nemo->NemoPosition.x -= 2.0; }
-  if (IsKeyPressed(KEY_W) && IsKeyDown(KEY_LEFT_SHIFT) || IsKeyDown(KEY_W) && IsKeyDown(KEY_LEFT_SHIFT))
-  { nemo->NemoPosition.y += 2.0; }
-  if (IsKeyPressed(KEY_S) && IsKeyDown(KEY_LEFT_SHIFT) || IsKeyDown(KEY_S) && IsKeyDown(KEY_LEFT_SHIFT))
-  { nemo->NemoPosition.y -= 2.0; }
 }

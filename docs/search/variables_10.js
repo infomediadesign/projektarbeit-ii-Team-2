@@ -1,8 +1,8 @@
 var searchData=
 [
   ['shadow_0',['shadow',['../class_game_1_1_level.html#ab16ebb9eaebda1d1745d0752c8d15aad',1,'Game::Level']]],
-  ['shadowrec_1',['Shadowrec',['../class_shadow.html#a5114e9b1dbb9ca907cf7d4ffda33f9f1',1,'Shadow']]],
-  ['shadowrec_2',['shadowrec',['../class_game_1_1_shadow.html#a84d21f5657f942bca22e506a249a87cd',1,'Game::Shadow::shadowrec()'],['../class_shadow.html#ac27af3e5361a073a422a718148353a20',1,'Shadow::shadowrec()']]],
+  ['shadowrec_1',['shadowrec',['../class_game_1_1_shadow.html#a84d21f5657f942bca22e506a249a87cd',1,'Game::Shadow::shadowrec()'],['../class_shadow.html#ac27af3e5361a073a422a718148353a20',1,'Shadow::shadowrec()']]],
+  ['shadowrec_2',['Shadowrec',['../class_shadow.html#a5114e9b1dbb9ca907cf7d4ffda33f9f1',1,'Shadow']]],
   ['sound_3',['sound',['../class_game_1_1_nemo.html#aad44e0dd99a5b68876b7cec0be202d4c',1,'Game::Nemo']]],
   ['spr_4',['spr',['../class_game_1_1_level.html#a4825a2ba7815a48bb027e7aba7ac0f8b',1,'Game::Level']]],
   ['spr_5fbattery_5',['spr_Battery',['../class_game_1_1_level.html#aebbf812b240bc15ae8e9c652d8d9e88b',1,'Game::Level']]],

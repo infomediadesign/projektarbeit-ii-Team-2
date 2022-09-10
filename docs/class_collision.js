@@ -25,5 +25,7 @@ var class_collision =
     [ "OutsideWallRight", "class_collision.html#adcb7e2aeaeda7b75a2285c05708381f5", null ],
     [ "text", "class_collision.html#af8d55fa9c0ae1a3952c70b26b06a9d87", null ],
     [ "textState", "class_collision.html#abb8cd85c83938127c70a6689080ce559", null ],
-    [ "wallCollision", "class_collision.html#a585e4b65c66c79ac3ae80b3df4a8f514", null ]
+    [ "wallCollision", "class_collision.html#a585e4b65c66c79ac3ae80b3df4a8f514", null ],
+    [ "wallCollision2", "class_collision.html#a238aa6c6811262324a74ec7ef5b2933b", null ],
+    [ "wallCollision3", "class_collision.html#a0d3de167890501293134bbfc63b7e28e", null ]
 ];

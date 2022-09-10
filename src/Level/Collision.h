@@ -26,6 +26,7 @@ public:
   Rectangle OutsideWallRight = {990, 320, 32, 288};
   Rectangle OutsideWallBottom = {873, 576, 160, 32};
 
+  //outside the pyramid
   bool wallCollision = false;
   bool wallCollision2 = false;
   bool wallCollision3 = false;
