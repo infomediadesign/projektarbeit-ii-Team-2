@@ -22,17 +22,24 @@ public:
 
   ///Sry about all these RECTANGLES...
   //Outside Rectangles for wall collision
+  vector<Rectangle> outsideWall;
   Rectangle OutsideWallLeft = {865, 320, 32, 288};
   Rectangle OutsideWallRight = {990, 320, 32, 288};
   Rectangle OutsideWallBottom = {873, 576, 160, 32};
 
   //Inside Rectangles for wall collision
   //entrance
+  vector<Rectangle> insideWall;
   Rectangle InsideWall  = {191, 864, 32, 192};
   Rectangle InsideWall2 = {287, 864, 32, 192};
   //first room
-  Rectangle InsideWall3 = {130, 864, 96, 32};
+  Rectangle InsideWall3 = {130, 864, 96, 32}; // entrance sides - -
   Rectangle InsideWall4 = {287, 864, 96, 32};
+  Rectangle InsideWall5 = {121, 704, 32, 160}; // left side vertical
+  Rectangle InsideWall6 = {121, 671, 224, 32,}; // top part
+  Rectangle InsideWall7 = {345, 671, 96, 64}; // exit sides
+  Rectangle InsideWall8 = {345, 800, 96, 64};
+
 
   //outside the pyramid
   bool wallCollision  = false;
@@ -64,6 +71,7 @@ public:
   int framesCounter  = 0;
   int framesSpeed    = 4; // animtation fps
 
+  Collision(nlohmann::json levelMapDungeon);
   void epanoxCollision();
   void outPyraWallCollision();
   void inPryaWallCollision();

@@ -24,23 +24,49 @@ void Game::Nemo::Update() {
   if (IsKeyDown(KEY_D)) { keypressed = true;}
   else { keypressed = false; }
 
-/*
- if (!keypressed){ Direction = direction::STAND;
+  if (!keypressed){
+    timesinceIdle += GetFrameTime();
+    if (timesinceIdle >= 5){
+      Direction = direction::STAND;
 
-    // animation
-    framesCounter++;
+      // animation
+      framesCounter++;
 
-    if (framesCounter >= (60 / framesSpeed)) {
-      framesCounter = 0;
-      currentFrame++;
+      if (framesCounter >= (60 / framesSpeed)) {
+        framesCounter = 0;
+        currentFrame++;
 
-      //Framecounter
-      if (currentFrame > 3)
-        currentFrame = 0;
-
-      StandframeRec.x = (float)currentFrame * (float)Stand.width / 4;
+        //Framecounter
+        if (currentFrame > 3){
+          timesinceIdle = 0;
+          currentFrame = 0;
+        }
+        StandframeRec.x = (float)currentFrame * (float)Stand.width / 4;
+      }
     }
   }
+
+/*
+   if (!keypressed){ Direction = direction::STAND;
+
+ // animation
+ framesCounter++;
+
+ if (framesCounter >= (60 / framesSpeed)) {
+   framesCounter = 0;
+   currentFrame++;
+
+   //Framecounter
+   if (currentFrame > 3)
+     currentFrame = 0;
+
+   StandframeRec.x = (float)currentFrame * (float)Stand.width / 4;
+ }
+}
+ */
+
+/*
+
   */ //nemo standing stuff
 
 
@@ -153,8 +179,10 @@ if (IsKeyDown(KEY_LEFT_SHIFT)) { walkspeed = 2.0; }
 
   void Game::Nemo::Draw() {
     if (active) {
-      nemorec = { NemoPosition.x + 8, NemoPosition.y, nemowidth, nemoheight }; // The Attributes are set here.
-      DrawRectangleRec(nemorec, Color{});
+      nemorec = { NemoPosition.x + 8, NemoPosition.y + 16, nemowidth, nemoheight }; // The Attributes are set here.
+      if (IsKeyDown(KEY_R)){
+        DrawRectangleRec(nemorec, GREEN);
+      }
 
       // Draw nemo walking animation
 

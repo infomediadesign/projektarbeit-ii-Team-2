@@ -223,6 +223,8 @@ void Game::Level::ScreenDraw() {
       if (t_rec_start.x == box_rec_titlescreen.x && t_rec_start.y == box_rec_titlescreen.y &&
           t_rec_start.width == box_rec_titlescreen.width && t_rec_start.height == box_rec_titlescreen.height) {
         currentscreen = GameScreen::OVERWORLD;
+        nemo->NemoPosition.x = 925;
+        nemo->NemoPosition.y = 500;
         PlaySound(GameAudio::buttonpress);
         SetSoundVolume(GameAudio::buttonpress, float(0.6));
       }

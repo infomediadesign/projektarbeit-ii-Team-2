@@ -1,5 +1,7 @@
 #include "Collision.h"
 
+
+
 void Collision::update() {
   ;
 
@@ -137,19 +139,46 @@ void Collision::outPyraWallCollision() {
   if (wallCollision2){ stopnemo(); }
   if (wallCollision3){ stopnemo(); }
 
+
+  /*
+for (Rectangle & i : outsideWall) {
+    if (CheckCollisionRecs(i, nemo->nemorec))
+      stopnemo();
+  }
+
+   */
+
+
 }
 
 void Collision::inPryaWallCollision() {
-  wallCollision4 = CheckCollisionRecs(InsideWall, nemo->nemorec);
-  wallCollision5 = CheckCollisionRecs(InsideWall2, nemo->nemorec);
-  wallCollision6 = CheckCollisionRecs(InsideWall3, nemo->nemorec);
-  wallCollision7 = CheckCollisionRecs(InsideWall4, nemo->nemorec);
-  //wallCollision = CheckCollisionRecs(InsideWall, nemo->nemorec);
+  for (Rectangle & wall : insideWall) {
+    if (CheckCollisionRecs(wall, nemo->nemorec))
+      stopnemo();
+  }
 
-  if (wallCollision4){ stopnemo(); }
-  if (wallCollision5){ stopnemo(); }
-  if (wallCollision6){ stopnemo(); }
-  if (wallCollision7){ stopnemo(); }
+/*
+   wallCollision4 = CheckCollisionRecs(InsideWall, nemo->nemorec);
+   wallCollision5 = CheckCollisionRecs(InsideWall2, nemo->nemorec);
+   wallCollision6 = CheckCollisionRecs(InsideWall3, nemo->nemorec);
+   wallCollision7 = CheckCollisionRecs(InsideWall4, nemo->nemorec);
+   wallCollision8 = CheckCollisionRecs(InsideWall5, nemo->nemorec);
+   wallCollision9 = CheckCollisionRecs(InsideWall6, nemo->nemorec);
+   wallCollision10 = CheckCollisionRecs(InsideWall7, nemo->nemorec);
+   wallCollision11 = CheckCollisionRecs(InsideWall8, nemo->nemorec);
+   //wallCollision12 = CheckCollisionRecs(InsideWall9, nemo->nemorec);
+   //wallCollision = CheckCollisionRecs(InsideWall, nemo->nemorec);
+
+ if (wallCollision4){ stopnemo(); }
+ if (wallCollision5){ stopnemo(); }
+ if (wallCollision6){ stopnemo(); }
+ if (wallCollision7){ stopnemo(); }
+ if (wallCollision8){ stopnemo(); }
+ if (wallCollision9){ stopnemo(); }
+ if (wallCollision10){ stopnemo(); }
+ if (wallCollision11){ stopnemo(); }
+ */
+
 }
 
 void Collision::draw() {
@@ -157,14 +186,27 @@ void Collision::draw() {
 }
 
 void Collision::walldraw() {
-  DrawRectangleRec(OutsideWallLeft, RED);
-  DrawRectangleRec(OutsideWallRight, RED);
-  DrawRectangleRec(OutsideWallBottom, BLUE);
 
-  DrawRectangleRec(InsideWall, RED);
-  DrawRectangleRec(InsideWall2, RED);
-  DrawRectangleRec(InsideWall3, BLUE);
-  DrawRectangleRec(InsideWall4, BLUE);
+  for (Rectangle & wall : insideWall) {
+    DrawRectangleRec( wall , RED);
+  }
+  for (Rectangle & wall : insideWall) {
+    DrawRectangleRec( wall , BLUE);
+  }
+ /*
+   DrawRectangleRec(OutsideWallLeft, RED);
+ DrawRectangleRec(OutsideWallRight, RED);
+ DrawRectangleRec(OutsideWallBottom, BLUE);
+
+DrawRectangleRec(InsideWall, RED);
+DrawRectangleRec(InsideWall2, RED);
+DrawRectangleRec(InsideWall3, BLUE);
+DrawRectangleRec(InsideWall4, BLUE);
+DrawRectangleRec(InsideWall5, BLUE);
+DrawRectangleRec(InsideWall6, BLUE);
+DrawRectangleRec(InsideWall7, BLUE);
+DrawRectangleRec(InsideWall8, BLUE);
+  */
 }
 
 void Collision::stopnemo() {
@@ -185,3 +227,27 @@ void Collision::stopnemo() {
   { nemo->NemoPosition.y -= 2.0; }
 }
 
+Collision::Collision(nlohmann::json levelMapDungeon) {
+int tileWidth = levelMapDungeon["tilewidth"];
+int tileHeight = levelMapDungeon["tileheight"];
+int mapWidth = levelMapDungeon["width"];
+
+Rectangle  currentHitbox { 0, 0, (float)tileWidth, (float)tileHeight};
+
+for (auto const &layer : levelMapDungeon["layers"]) {
+
+  if (layer["type"] == "tilelayer" && layer["visible"]) {
+    if (layer["name"] == "Object" ){
+    for (auto const &tileId : layer["data"]) {
+        if (tileId > 0)
+          insideWall.push_back(currentHitbox);
+        currentHitbox.x += tileWidth;
+          if (currentHitbox.x >= mapWidth * tileWidth) {
+            currentHitbox.y += tileHeight;
+            currentHitbox.x = 0;
+          }
+        }
+      }
+    }
+  }
+}

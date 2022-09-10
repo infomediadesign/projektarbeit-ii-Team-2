@@ -9,10 +9,10 @@ namespace Game {
   class Nemo {
   public:
     int HP; // The Integer is just temporary; HP is not initiallised!
-    int NemoStandThing;
     float walkspeed = 1.5;
     float nemowidth = 16;
-    float nemoheight = 32;
+    float nemoheight = 16;
+    float timesinceIdle = 0;
     //Vector2 NemoPosition = { Game::ScreenWidth / 2, Game::ScreenHeight / 2 }; //Starting Point for Nemo
     //Vector2 NemoPosition = {}; //Starting Point for Nemo
     Vector2 NemoPosition = {925, 500};

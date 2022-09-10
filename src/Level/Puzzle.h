@@ -7,7 +7,6 @@ class Puzzle {
 public:
 
   Game::Nemo *nemo = new Game::Nemo();
-  Collision collision;
 
   /** Textures */
   Texture2D ChestOpen = LoadTexture("assets/graphics/Items/OpenChest.png");

@@ -49,7 +49,7 @@ int main() {
   // Initialization
   //--------------------------------------------------------------------------------------------
 
-  Collision collision;
+
   Puzzle puzzle;
   LevelMap map;
 
@@ -69,8 +69,7 @@ int main() {
   Game::Sprite Shadow_Sprite(590.5, 1014, overwold_shadow->spr_shadow);
   Game::Sprite Pharaoh_Sprite(1455, 198, overworld_pharaoh->spr_Pharaoh);
 
-  collision.nemo = &nemo;
-  collision.level = &level;
+
 
   level.level = &level;
   level.nemo = &nemo;
@@ -105,6 +104,10 @@ int main() {
   Texture2D tileAtlasTexture = LoadTexture("assets/graphics/map/Level1/Egypt-Sheet.png");
   /**/
 
+  Collision collision (levelMapDungeon);
+
+  collision.nemo = &nemo;
+  collision.level = &level;
 
     // Camera settings
   //--------------------------------------------------------------------------------------------
@@ -134,6 +137,7 @@ int main() {
     switch (level.currentscreen) { // Get Ready for some Spaghetti Code
 
     case Game::Level::GameScreen::TITLESCREEN:
+
 
       camera.target = Vector2 { Game::ScreenWidth / 2, Game::ScreenHeight / 2 };
       camera.zoom     = 1.0f;
