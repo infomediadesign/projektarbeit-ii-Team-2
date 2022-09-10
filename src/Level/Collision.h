@@ -20,16 +20,35 @@ public:
   Rectangle  EpanoxRec = {972.5, 462.5, 10, 10}; //EpanoxRec
   Rectangle EpanoxRec2 = {961, 458, 20, 24};
 
-  //Sry about all these recs...
+  ///Sry about all these RECTANGLES...
   //Outside Rectangles for wall collision
   Rectangle OutsideWallLeft = {865, 320, 32, 288};
   Rectangle OutsideWallRight = {990, 320, 32, 288};
   Rectangle OutsideWallBottom = {873, 576, 160, 32};
 
+  //Inside Rectangles for wall collision
+  //entrance
+  Rectangle InsideWall  = {191, 864, 32, 192};
+  Rectangle InsideWall2 = {287, 864, 32, 192};
+  //first room
+  Rectangle InsideWall3 = {130, 864, 96, 32};
+  Rectangle InsideWall4 = {287, 864, 96, 32};
+
   //outside the pyramid
-  bool wallCollision = false;
+  bool wallCollision  = false;
   bool wallCollision2 = false;
   bool wallCollision3 = false;
+
+  //inside the pyramid
+  bool wallCollision4  = false;
+  bool wallCollision5  = false;
+  bool wallCollision6  = false;
+  bool wallCollision7  = false;
+  bool wallCollision8  = false;
+  bool wallCollision9  = false;
+  bool wallCollision10 = false;
+  bool wallCollision11 = false;
+  bool wallCollision12 = false;
 
   bool EpanoxCollision = false;
   bool EpanoxCollision2 = false;
@@ -47,7 +66,9 @@ public:
 
   void epanoxCollision();
   void outPyraWallCollision();
+  void inPryaWallCollision();
   void stopnemo();
   void update();
   void draw();
+  void walldraw();
 };

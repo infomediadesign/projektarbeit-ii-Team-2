@@ -139,13 +139,34 @@ void Collision::outPyraWallCollision() {
 
 }
 
+void Collision::inPryaWallCollision() {
+  wallCollision4 = CheckCollisionRecs(InsideWall, nemo->nemorec);
+  wallCollision5 = CheckCollisionRecs(InsideWall2, nemo->nemorec);
+  wallCollision6 = CheckCollisionRecs(InsideWall3, nemo->nemorec);
+  wallCollision7 = CheckCollisionRecs(InsideWall4, nemo->nemorec);
+  //wallCollision = CheckCollisionRecs(InsideWall, nemo->nemorec);
+
+  if (wallCollision4){ stopnemo(); }
+  if (wallCollision5){ stopnemo(); }
+  if (wallCollision6){ stopnemo(); }
+  if (wallCollision7){ stopnemo(); }
+}
 
 void Collision::draw() {
   DrawTextureRec(EpanoxSheet, frameRec, EpanoxPosition, WHITE); // Draw nemo animation backwards
-  //DrawRectangleRec(OutsideWallLeft, RED);
-  //DrawRectangleRec(OutsideWallRight, RED);
-  //DrawRectangleRec(OutsideWallBottom, BLUE);
 }
+
+void Collision::walldraw() {
+  DrawRectangleRec(OutsideWallLeft, RED);
+  DrawRectangleRec(OutsideWallRight, RED);
+  DrawRectangleRec(OutsideWallBottom, BLUE);
+
+  DrawRectangleRec(InsideWall, RED);
+  DrawRectangleRec(InsideWall2, RED);
+  DrawRectangleRec(InsideWall3, BLUE);
+  DrawRectangleRec(InsideWall4, BLUE);
+}
+
 void Collision::stopnemo() {
   //walking
   if (IsKeyPressed(KEY_A) || IsKeyDown(KEY_A)) { nemo->NemoPosition.x += 1.5; }
@@ -163,3 +184,4 @@ void Collision::stopnemo() {
   if (IsKeyPressed(KEY_S) && IsKeyDown(KEY_LEFT_SHIFT) || IsKeyDown(KEY_S) && IsKeyDown(KEY_LEFT_SHIFT))
   { nemo->NemoPosition.y -= 2.0; }
 }
+

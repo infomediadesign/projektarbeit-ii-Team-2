@@ -185,6 +185,10 @@ int main() {
 
       collision.draw();
 
+      if (IsKeyDown(KEY_R)){
+        collision.walldraw();
+      }
+
       nemo.active = true;
       nemo.Update(); // nemo walking movement and animation
       nemo.Draw();   // nemo walking movement and animation
@@ -297,10 +301,18 @@ int main() {
 
       puzzle.draw();
 
+      collision.draw();
+
+      if (IsKeyDown(KEY_R)){
+        collision.walldraw();
+      }
+
       nemo.active = true;
       nemo.Update(); // nemo walking movement and animation
       nemo.Draw();   // nemo walking movement and animation
       camera.target = Vector2 { nemo.NemoPosition.x + 20.0f, nemo.NemoPosition.y + 20.0f };
+
+      collision.inPryaWallCollision();
 
       puzzle.collisionChecks();
       puzzle.update();
