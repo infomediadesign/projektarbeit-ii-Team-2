@@ -1,46 +1,90 @@
 #include "Collision.h"
 
+Collision::Collision(nlohmann::json levelMapDungeon) {
+  int tileWidth = levelMapDungeon["tilewidth"];
+  int tileHeight = levelMapDungeon["tileheight"];
+  int mapWidth = levelMapDungeon["width"];
 
+  Rectangle  currentHitbox { 0, 0, (float)tileWidth, (float)tileHeight};
 
-void Collision::update() {
-  ;
+  for (auto const &layer : levelMapDungeon["layers"]) {
 
-  /** Check collision between Nemo and Wall/ Interactables... */
+    if (layer["type"] == "tilelayer" && layer["visible"]) {
+      if (layer["name"] == "Object" ){
+        for (auto const &tileId : layer["data"]) {
+          if (tileId > 0)
+            insideWall.push_back(currentHitbox);
+          currentHitbox.x += tileWidth;
+          if (currentHitbox.x >= mapWidth * tileWidth) {
+            currentHitbox.y += tileHeight;
+            currentHitbox.x = 0;
+          }
+        }
+      }
+    }
+  }
+
+  ///now lets try with the torch animations
+  for (auto const &layer : levelMapDungeon["layers"]) {
+
+    if (layer["type"] == "tilelayer" && layer["visible"]) {
+      if (layer["name"] == "Object" ){
+        for (auto const &tileId : layer["data"]) {
+          if (tileId == 129)
+            torchPosRec.push_back(currentHitbox);
+          currentHitbox.x += tileWidth;
+          if (currentHitbox.x >= mapWidth * tileWidth) {
+            currentHitbox.y += tileHeight;
+            currentHitbox.x = 0;
+          }
+        }
+      }
+    }
+  }
+
+}
+
+void Collision::stopnemo() {
+  //walking
+  if (IsKeyPressed(KEY_A) || IsKeyDown(KEY_A)) { nemo->NemoPosition.x += 1.5; }
+  if (IsKeyPressed(KEY_D) || IsKeyDown(KEY_D)) { nemo->NemoPosition.x -= 1.5; }
+  if (IsKeyPressed(KEY_W) || IsKeyDown(KEY_W)) { nemo->NemoPosition.y += 1.5; }
+  if (IsKeyPressed(KEY_S) || IsKeyDown(KEY_S)) { nemo->NemoPosition.y -= 1.5; }
+
+  //sprinting
+  if (IsKeyPressed(KEY_A) && IsKeyDown(KEY_LEFT_SHIFT) || IsKeyDown(KEY_A) && IsKeyDown(KEY_LEFT_SHIFT) )
+  { nemo->NemoPosition.x += 2.0; }
+  if (IsKeyPressed(KEY_D) && IsKeyDown(KEY_LEFT_SHIFT) || IsKeyDown(KEY_D) && IsKeyDown(KEY_LEFT_SHIFT))
+  { nemo->NemoPosition.x -= 2.0; }
+  if (IsKeyPressed(KEY_W) && IsKeyDown(KEY_LEFT_SHIFT) || IsKeyDown(KEY_W) && IsKeyDown(KEY_LEFT_SHIFT))
+  { nemo->NemoPosition.y += 2.0; }
+  if (IsKeyPressed(KEY_S) && IsKeyDown(KEY_LEFT_SHIFT) || IsKeyDown(KEY_S) && IsKeyDown(KEY_LEFT_SHIFT))
+  { nemo->NemoPosition.y -= 2.0; }
+}
+
+void Collision::outPyraWallCollision() {
+
+  wallCollision = CheckCollisionRecs(OutsideWallLeft, nemo->nemorec);
+  wallCollision2 = CheckCollisionRecs(OutsideWallRight, nemo->nemorec);
+  wallCollision3 = CheckCollisionRecs(OutsideWallBottom, nemo->nemorec);
+
+  if (wallCollision){ stopnemo(); }
+  if (wallCollision2){ stopnemo(); }
+  if (wallCollision3){ stopnemo(); }
+
   /*
-  wallCollision = false;
-  for (auto &rect : map->collisionRectangles) { //change the vector into a rectangle
-    if (CheckCollisionRecs(rect, nemo->nemorec)) { //check the collision between said rectangle and nemo
-      wallCollision = true; //set the wallcollision to true...
-      break;
-    }
+for (Rectangle & wall : outsideWall) {
+    if (CheckCollisionRecs(wall, nemo->nemorec))
+      stopnemo();
   }
+   */
+}
 
-  if (wallCollision) { //if wallcollision true then nemo does...
-
-    std::cout << "HIT!";
-
-    if (IsKeyPressed(KEY_A) || IsKeyDown(KEY_A)) { // Left
-      nemo->NemoPosition.x += 2.0;
-      PlaySound(GameAudio::collision);
-      SetSoundVolume(GameAudio::collision, float(0.07));
-    }
-    if (IsKeyPressed(KEY_D) || IsKeyDown(KEY_D)) { // Right
-      nemo->NemoPosition.x -= 2.0;
-      PlaySound(GameAudio::collision);
-      SetSoundVolume(GameAudio::collision, float(0.07));
-    }
-    if (IsKeyPressed(KEY_W) || IsKeyDown(KEY_W)) { // Up
-      nemo->NemoPosition.y += 2.0;
-      PlaySound(GameAudio::collision);
-      SetSoundVolume(GameAudio::collision, float(0.07));
-    }
-    if (IsKeyPressed(KEY_S) || IsKeyDown(KEY_S)) { // Down
-      nemo->NemoPosition.y -= 2.0;
-      PlaySound(GameAudio::collision);
-      SetSoundVolume(GameAudio::collision, float(0.07));
-    }
+void Collision::inPryaWallCollision() {
+  for (Rectangle & wall : insideWall) {
+    if (CheckCollisionRecs(wall, nemo->nemorec))
+      stopnemo();
   }
-}*/
 }
 
 void Collision::epanoxCollision() { // Epanox collision
@@ -62,21 +106,7 @@ void Collision::epanoxCollision() { // Epanox collision
   EpanoxCollision = CheckCollisionRecs(EpanoxRec, nemo->nemorec); //for the nemo stopping part
 
   while (EpanoxCollision){
-    //walking
-    if (IsKeyPressed(KEY_A) || IsKeyDown(KEY_A)) { nemo->NemoPosition.x += 1.5; }
-    if (IsKeyPressed(KEY_D) || IsKeyDown(KEY_D)) { nemo->NemoPosition.x -= 1.5; }
-    if (IsKeyPressed(KEY_W) || IsKeyDown(KEY_W)) { nemo->NemoPosition.y += 1.5; }
-    if (IsKeyPressed(KEY_S) || IsKeyDown(KEY_S)) { nemo->NemoPosition.y -= 1.5; }
-
-    //sprinting
-    if (IsKeyPressed(KEY_A) && IsKeyDown(KEY_LEFT_SHIFT) || IsKeyDown(KEY_A) && IsKeyDown(KEY_LEFT_SHIFT) )
-    { nemo->NemoPosition.x += 2.0; }
-    if (IsKeyPressed(KEY_D) && IsKeyDown(KEY_LEFT_SHIFT) || IsKeyDown(KEY_D) && IsKeyDown(KEY_LEFT_SHIFT))
-    { nemo->NemoPosition.x -= 2.0; }
-    if (IsKeyPressed(KEY_W) && IsKeyDown(KEY_LEFT_SHIFT) || IsKeyDown(KEY_W) && IsKeyDown(KEY_LEFT_SHIFT))
-    { nemo->NemoPosition.y += 2.0; }
-    if (IsKeyPressed(KEY_S) && IsKeyDown(KEY_LEFT_SHIFT) || IsKeyDown(KEY_S) && IsKeyDown(KEY_LEFT_SHIFT))
-    { nemo->NemoPosition.y -= 2.0; }
+    stopnemo();
     break;
   }
 
@@ -128,126 +158,26 @@ void Collision::epanoxCollision() { // Epanox collision
   }
 }
 
-
-void Collision::outPyraWallCollision() {
-
-  wallCollision = CheckCollisionRecs(OutsideWallLeft, nemo->nemorec);
-  wallCollision2 = CheckCollisionRecs(OutsideWallRight, nemo->nemorec);
-  wallCollision3 = CheckCollisionRecs(OutsideWallBottom, nemo->nemorec);
-
-  if (wallCollision){ stopnemo(); }
-  if (wallCollision2){ stopnemo(); }
-  if (wallCollision3){ stopnemo(); }
-
-
-  /*
-for (Rectangle & i : outsideWall) {
-    if (CheckCollisionRecs(i, nemo->nemorec))
-      stopnemo();
-  }
-
-   */
-
-
-}
-
-void Collision::inPryaWallCollision() {
-  for (Rectangle & wall : insideWall) {
-    if (CheckCollisionRecs(wall, nemo->nemorec))
-      stopnemo();
-  }
-
-/*
-   wallCollision4 = CheckCollisionRecs(InsideWall, nemo->nemorec);
-   wallCollision5 = CheckCollisionRecs(InsideWall2, nemo->nemorec);
-   wallCollision6 = CheckCollisionRecs(InsideWall3, nemo->nemorec);
-   wallCollision7 = CheckCollisionRecs(InsideWall4, nemo->nemorec);
-   wallCollision8 = CheckCollisionRecs(InsideWall5, nemo->nemorec);
-   wallCollision9 = CheckCollisionRecs(InsideWall6, nemo->nemorec);
-   wallCollision10 = CheckCollisionRecs(InsideWall7, nemo->nemorec);
-   wallCollision11 = CheckCollisionRecs(InsideWall8, nemo->nemorec);
-   //wallCollision12 = CheckCollisionRecs(InsideWall9, nemo->nemorec);
-   //wallCollision = CheckCollisionRecs(InsideWall, nemo->nemorec);
-
- if (wallCollision4){ stopnemo(); }
- if (wallCollision5){ stopnemo(); }
- if (wallCollision6){ stopnemo(); }
- if (wallCollision7){ stopnemo(); }
- if (wallCollision8){ stopnemo(); }
- if (wallCollision9){ stopnemo(); }
- if (wallCollision10){ stopnemo(); }
- if (wallCollision11){ stopnemo(); }
- */
-
-}
-
 void Collision::draw() {
   DrawTextureRec(EpanoxSheet, frameRec, EpanoxPosition, WHITE); // Draw nemo animation backwards
 }
 
 void Collision::walldraw() {
-
-  for (Rectangle & wall : insideWall) {
-    DrawRectangleRec( wall , RED);
+  for (Rectangle &wall : insideWall) {
+    DrawRectangleRec(wall, RED);
   }
-  for (Rectangle & wall : insideWall) {
-    DrawRectangleRec( wall , BLUE);
+  for (Rectangle &wall : outsideWall) {
+    DrawRectangleRec(wall, BLUE);
   }
- /*
-   DrawRectangleRec(OutsideWallLeft, RED);
- DrawRectangleRec(OutsideWallRight, RED);
- DrawRectangleRec(OutsideWallBottom, BLUE);
 
-DrawRectangleRec(InsideWall, RED);
-DrawRectangleRec(InsideWall2, RED);
-DrawRectangleRec(InsideWall3, BLUE);
-DrawRectangleRec(InsideWall4, BLUE);
-DrawRectangleRec(InsideWall5, BLUE);
-DrawRectangleRec(InsideWall6, BLUE);
-DrawRectangleRec(InsideWall7, BLUE);
-DrawRectangleRec(InsideWall8, BLUE);
-  */
+  DrawRectangleRec(OutsideWallLeft, RED);
+  DrawRectangleRec(OutsideWallRight, RED);
+  DrawRectangleRec(OutsideWallBottom, BLUE);
 }
 
-void Collision::stopnemo() {
-  //walking
-  if (IsKeyPressed(KEY_A) || IsKeyDown(KEY_A)) { nemo->NemoPosition.x += 1.5; }
-  if (IsKeyPressed(KEY_D) || IsKeyDown(KEY_D)) { nemo->NemoPosition.x -= 1.5; }
-  if (IsKeyPressed(KEY_W) || IsKeyDown(KEY_W)) { nemo->NemoPosition.y += 1.5; }
-  if (IsKeyPressed(KEY_S) || IsKeyDown(KEY_S)) { nemo->NemoPosition.y -= 1.5; }
 
-  //sprinting
-  if (IsKeyPressed(KEY_A) && IsKeyDown(KEY_LEFT_SHIFT) || IsKeyDown(KEY_A) && IsKeyDown(KEY_LEFT_SHIFT) )
-  { nemo->NemoPosition.x += 2.0; }
-  if (IsKeyPressed(KEY_D) && IsKeyDown(KEY_LEFT_SHIFT) || IsKeyDown(KEY_D) && IsKeyDown(KEY_LEFT_SHIFT))
-  { nemo->NemoPosition.x -= 2.0; }
-  if (IsKeyPressed(KEY_W) && IsKeyDown(KEY_LEFT_SHIFT) || IsKeyDown(KEY_W) && IsKeyDown(KEY_LEFT_SHIFT))
-  { nemo->NemoPosition.y += 2.0; }
-  if (IsKeyPressed(KEY_S) && IsKeyDown(KEY_LEFT_SHIFT) || IsKeyDown(KEY_S) && IsKeyDown(KEY_LEFT_SHIFT))
-  { nemo->NemoPosition.y -= 2.0; }
-}
-
-Collision::Collision(nlohmann::json levelMapDungeon) {
-int tileWidth = levelMapDungeon["tilewidth"];
-int tileHeight = levelMapDungeon["tileheight"];
-int mapWidth = levelMapDungeon["width"];
-
-Rectangle  currentHitbox { 0, 0, (float)tileWidth, (float)tileHeight};
-
-for (auto const &layer : levelMapDungeon["layers"]) {
-
-  if (layer["type"] == "tilelayer" && layer["visible"]) {
-    if (layer["name"] == "Object" ){
-    for (auto const &tileId : layer["data"]) {
-        if (tileId > 0)
-          insideWall.push_back(currentHitbox);
-        currentHitbox.x += tileWidth;
-          if (currentHitbox.x >= mapWidth * tileWidth) {
-            currentHitbox.y += tileHeight;
-            currentHitbox.x = 0;
-          }
-        }
-      }
-    }
+void Collision::torchAnimations() {
+  for (Rectangle & torch : torchPosRec) {
+    DrawRectangleRec(torch, WHITE);
   }
 }

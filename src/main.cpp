@@ -3,7 +3,7 @@
 #include "Level/GameAudio.h"
 #include "Level/Inventory.h"
 #include "Level/Level.h"
-#include "Level/Map.h"
+
 #include "Level/UI.h"
 #include "Level/Dialogue.h"
 #include "Level/Puzzle.h"
@@ -51,7 +51,6 @@ int main() {
 
 
   Puzzle puzzle;
-  LevelMap map;
 
   GameAudio::Load();
 
@@ -121,7 +120,8 @@ int main() {
   while (!WindowShouldClose()) // Detect window close button or ESC key
   {
     // Update
-
+    HideCursor();
+    SetExitKey(KEY_O);
 
     // Begin drawing
     //--------------------------------------------------------------------------------------------
@@ -144,6 +144,18 @@ int main() {
       break;
 
     case Game::Level::GameScreen::PAUSEMENU:
+
+      camera.target = Vector2 { Game::ScreenWidth / 2, Game::ScreenHeight / 2 };
+      camera.zoom     = 1.0f;
+      break;
+
+    case Game::Level::GameScreen::PAUSEMENU_OVERWORLD:
+
+      camera.target = Vector2 { Game::ScreenWidth / 2, Game::ScreenHeight / 2 };
+      camera.zoom     = 1.0f;
+      break;
+
+    case Game::Level::GameScreen::PAUSEMENU_PYRAMID:
 
       camera.target = Vector2 { Game::ScreenWidth / 2, Game::ScreenHeight / 2 };
       camera.zoom     = 1.0f;
@@ -188,6 +200,7 @@ int main() {
       /**/
 
       collision.draw();
+      collision.torchAnimations();
 
       if (IsKeyDown(KEY_R)){
         collision.walldraw();
@@ -306,6 +319,7 @@ int main() {
       puzzle.draw();
 
       collision.draw();
+      collision.torchAnimations();
 
       if (IsKeyDown(KEY_R)){
         collision.walldraw();
@@ -330,9 +344,7 @@ int main() {
       //map.update();
       //collision.update(); //TODO the rectangle doesnt have anything init which doesnt alway it to collide with anything... theres an error and the game crashes
 
-      if (IsKeyPressed(KEY_P)){
-        level.currentscreen = Game::Level::GameScreen::PAUSEMENU;
-      }
+
 
       break;
 

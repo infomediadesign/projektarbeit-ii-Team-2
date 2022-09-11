@@ -345,6 +345,152 @@ void Game::Level::ScreenDraw() {
 
       break;
 
+  case GameScreen::PAUSEMENU_OVERWORLD:
+
+    ClearBackground(BLACK);
+
+    DrawTexture(Titlescreen,0,0, WHITE);
+
+    if (IsSoundPlaying(GameAudio::titlescreenmusic)){
+      StopSound(GameAudio::titlescreenmusic);
+    }
+
+    if(!IsSoundPlaying(GameAudio::pausemenu)){
+      PlaySound(GameAudio::pausemenu);
+      SetSoundVolume(GameAudio::pausemenu, float(0.1));
+    }
+    if (IsSoundPlaying(GameAudio::pausemenu)){}
+
+    /** BUTTON FUNCTIONS */
+    if (IsKeyPressed(KEY_SPACE)) { //MUSIC ON/OFF
+      if (t_rec_start.x == box_rec_titlescreen.x && t_rec_start.y == box_rec_titlescreen.y && t_rec_start.width == box_rec_titlescreen.width &&
+          t_rec_start.height == box_rec_titlescreen.height) {
+        std::cout << "Pause Music" << endl;
+        PlaySound(GameAudio::buttonpress);
+        SetSoundVolume(GameAudio::buttonpress, float(0.6));
+
+      }
+      // FULLSCREEN
+      if (t_rec_settings.x == box_rec_titlescreen.x && t_rec_settings.y == box_rec_titlescreen.y && t_rec_settings.width == box_rec_titlescreen.width &&
+          t_rec_settings.height == box_rec_titlescreen.height) {
+        std::cout << "Fullscreen on" << endl;
+        PlaySound(GameAudio::buttonpress);
+        SetSoundVolume(GameAudio::buttonpress, float(0.6));
+        ToggleFullscreen();
+      }
+
+      // BACK
+      if (t_rec_exit_game.x == box_rec_titlescreen.x && t_rec_exit_game.y == box_rec_titlescreen.y &&
+          t_rec_exit_game.width == box_rec_titlescreen.width && t_rec_exit_game.height == box_rec_titlescreen.height) {
+        currentscreen = GameScreen::OVERWORLD;
+        PlaySound(GameAudio::buttonpress);
+        SetSoundVolume(GameAudio::buttonpress, float(0.6));
+      }
+    }
+
+    /** MOVE THE BOX */
+    if (IsKeyPressed(KEY_S)) {
+      box_rec_titlescreen.y += 100;
+      PlaySound(GameAudio::dialoge);
+      SetSoundVolume(GameAudio::dialoge, float(0.1));
+    }
+
+    if (IsKeyPressed(KEY_W)) {
+      box_rec_titlescreen.y -= 100;
+      PlaySound(GameAudio::dialoge);
+      SetSoundVolume(GameAudio::dialoge, float(0.1));
+    }
+
+    if (box_rec_titlescreen.y < Game::ScreenHeight / 2 - 50)
+      box_rec_titlescreen.y = Game::ScreenHeight / 2 - 50;
+    else if (box_rec_titlescreen.y > Game::ScreenHeight / 2 + 150)
+      box_rec_titlescreen.y = Game::ScreenHeight / 2 + 150;
+
+    /** BUTTONS TITLESCREEN */
+    Draw9Slice(Box, t_rec_start, thick, WHITE);
+    Draw9Slice(Box, t_rec_settings, thick, WHITE);
+    Draw9Slice(Box, t_rec_exit_game, thick, WHITE);
+    Draw9Slice(Box_S, box_rec_titlescreen, thick, WHITE);
+
+    DrawText("MUSIC ON/OFF", Game::ScreenWidth / 2 - 117, Game::ScreenHeight / 2 - 30, 28, WHITE);
+    DrawText("FULLSCREEN", Game::ScreenWidth / 2 - 113, Game::ScreenHeight / 2 + 70, 30, WHITE);
+    DrawText("BACK", Game::ScreenWidth / 2 - 57, Game::ScreenHeight / 2 + 170, 30, WHITE);
+
+    break;
+
+  case GameScreen::PAUSEMENU_PYRAMID:
+
+    ClearBackground(BLACK);
+
+    DrawTexture(Titlescreen,0,0, WHITE);
+
+    if (IsSoundPlaying(GameAudio::titlescreenmusic)){
+      StopSound(GameAudio::titlescreenmusic);
+    }
+
+    if(!IsSoundPlaying(GameAudio::pausemenu)){
+      PlaySound(GameAudio::pausemenu);
+      SetSoundVolume(GameAudio::pausemenu, float(0.1));
+    }
+    if (IsSoundPlaying(GameAudio::pausemenu)){}
+
+    /** BUTTON FUNCTIONS */
+    if (IsKeyPressed(KEY_SPACE)) { //MUSIC ON/OFF
+      if (t_rec_start.x == box_rec_titlescreen.x && t_rec_start.y == box_rec_titlescreen.y && t_rec_start.width == box_rec_titlescreen.width &&
+          t_rec_start.height == box_rec_titlescreen.height) {
+        std::cout << "Pause Music" << endl;
+        PlaySound(GameAudio::buttonpress);
+        SetSoundVolume(GameAudio::buttonpress, float(0.6));
+
+      }
+      // FULLSCREEN
+      if (t_rec_settings.x == box_rec_titlescreen.x && t_rec_settings.y == box_rec_titlescreen.y && t_rec_settings.width == box_rec_titlescreen.width &&
+          t_rec_settings.height == box_rec_titlescreen.height) {
+        std::cout << "Fullscreen on" << endl;
+        PlaySound(GameAudio::buttonpress);
+        SetSoundVolume(GameAudio::buttonpress, float(0.6));
+        ToggleFullscreen();
+      }
+
+      // BACK
+      if (t_rec_exit_game.x == box_rec_titlescreen.x && t_rec_exit_game.y == box_rec_titlescreen.y &&
+          t_rec_exit_game.width == box_rec_titlescreen.width && t_rec_exit_game.height == box_rec_titlescreen.height) {
+        currentscreen = GameScreen::PYRAMIDE;
+        PlaySound(GameAudio::buttonpress);
+        SetSoundVolume(GameAudio::buttonpress, float(0.6));
+      }
+    }
+
+    /** MOVE THE BOX */
+    if (IsKeyPressed(KEY_S)) {
+      box_rec_titlescreen.y += 100;
+      PlaySound(GameAudio::dialoge);
+      SetSoundVolume(GameAudio::dialoge, float(0.1));
+    }
+
+    if (IsKeyPressed(KEY_W)) {
+      box_rec_titlescreen.y -= 100;
+      PlaySound(GameAudio::dialoge);
+      SetSoundVolume(GameAudio::dialoge, float(0.1));
+    }
+
+    if (box_rec_titlescreen.y < Game::ScreenHeight / 2 - 50)
+      box_rec_titlescreen.y = Game::ScreenHeight / 2 - 50;
+    else if (box_rec_titlescreen.y > Game::ScreenHeight / 2 + 150)
+      box_rec_titlescreen.y = Game::ScreenHeight / 2 + 150;
+
+    /** BUTTONS TITLESCREEN */
+    Draw9Slice(Box, t_rec_start, thick, WHITE);
+    Draw9Slice(Box, t_rec_settings, thick, WHITE);
+    Draw9Slice(Box, t_rec_exit_game, thick, WHITE);
+    Draw9Slice(Box_S, box_rec_titlescreen, thick, WHITE);
+
+    DrawText("MUSIC ON/OFF", Game::ScreenWidth / 2 - 117, Game::ScreenHeight / 2 - 30, 28, WHITE);
+    DrawText("FULLSCREEN", Game::ScreenWidth / 2 - 113, Game::ScreenHeight / 2 + 70, 30, WHITE);
+    DrawText("BACK", Game::ScreenWidth / 2 - 57, Game::ScreenHeight / 2 + 170, 30, WHITE);
+
+    break;
+
     case GameScreen::ENDSCREEN:
 
       ClearBackground(BLACK);
@@ -382,8 +528,8 @@ void Game::Level::ScreenDraw() {
         std::cout << "X: " << nemo->NemoPosition.x << endl;
         std::cout << "Y: " << nemo->NemoPosition.y << endl;
       }
-      if (IsKeyPressed(KEY_P)) {
-        level->currentscreen = Game::Level::GameScreen::PAUSEMENU;
+      if (IsKeyPressed(KEY_ESCAPE)) {
+        level->currentscreen = Game::Level::GameScreen::PAUSEMENU_OVERWORLD;
       }
 
 
@@ -435,6 +581,10 @@ void Game::Level::ScreenDraw() {
       if (teleportcollisionPYRAMIDtoENDSCREEN) { //if the collision bool is true, nemo is transported to the ENDSCREEN
         level->currentscreen = Game::Level::GameScreen::ENDSCREEN;
       }
+      if (IsKeyPressed(KEY_ESCAPE)){
+        level->currentscreen = Game::Level::GameScreen::PAUSEMENU_PYRAMID;
+      }
+
       break;
 
     case GameScreen::COMBAT:

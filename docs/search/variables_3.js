@@ -8,13 +8,12 @@ var searchData=
   ['door1_5',['door1',['../class_puzzle.html#aef68a3918b10a2ee3392d8ece988fdab',1,'Puzzle']]],
   ['door2_6',['door2',['../class_puzzle.html#a40d4ad2cd1fc7d00ce6ea696e6f3e612',1,'Puzzle']]],
   ['door3_7',['door3',['../class_puzzle.html#a6aea49d7bfe183b9ab31e74661d32c39',1,'Puzzle']]],
-  ['doorcollision_8',['doorcollision',['../class_puzzle.html#adc10d1ac9f4a458e668f118a730a7c22',1,'Puzzle']]],
-  ['doorcollision1_9',['doorcollision1',['../class_puzzle.html#aa8f1792af4d4e4e772fbb8c444215828',1,'Puzzle']]],
-  ['doorcollision2_10',['doorcollision2',['../class_puzzle.html#a8b7267f21f6d56430ec8d8349c2c0923',1,'Puzzle']]],
-  ['doorcollision3_11',['doorcollision3',['../class_puzzle.html#a3e21cac1bbe1fd707c13d5ad6a201a8d',1,'Puzzle']]],
-  ['doorpositionx_12',['doorPositionX',['../class_game_1_1_level.html#a4954e307e957b98e0aaf11dcb6e67378',1,'Game::Level']]],
-  ['doorpositiony_13',['doorPositionY',['../class_game_1_1_level.html#a2a913abec4c2cd96e8cee95a9ff60be1',1,'Game::Level']]],
-  ['doortilex_14',['doortileX',['../class_game_1_1_level.html#a306bc7a6e67cd87301e476a5d8d38dc5',1,'Game::Level']]],
-  ['doortiley_15',['doortileY',['../class_game_1_1_level.html#a48460d58a544e51270fd294f42c76557',1,'Game::Level']]],
-  ['dungeonfloortile_16',['DungeonFloorTile',['../class_puzzle.html#ab8b73ec9f15bae0a080f91fd47bf0160',1,'Puzzle']]]
+  ['doorcollision1_8',['doorcollision1',['../class_puzzle.html#aa8f1792af4d4e4e772fbb8c444215828',1,'Puzzle']]],
+  ['doorcollision2_9',['doorcollision2',['../class_puzzle.html#a8b7267f21f6d56430ec8d8349c2c0923',1,'Puzzle']]],
+  ['doorcollision3_10',['doorcollision3',['../class_puzzle.html#a3e21cac1bbe1fd707c13d5ad6a201a8d',1,'Puzzle']]],
+  ['doorpositionx_11',['doorPositionX',['../class_game_1_1_level.html#a4954e307e957b98e0aaf11dcb6e67378',1,'Game::Level']]],
+  ['doorpositiony_12',['doorPositionY',['../class_game_1_1_level.html#a2a913abec4c2cd96e8cee95a9ff60be1',1,'Game::Level']]],
+  ['doortilex_13',['doortileX',['../class_game_1_1_level.html#a306bc7a6e67cd87301e476a5d8d38dc5',1,'Game::Level']]],
+  ['doortiley_14',['doortileY',['../class_game_1_1_level.html#a48460d58a544e51270fd294f42c76557',1,'Game::Level']]],
+  ['dungeonfloortile_15',['DungeonFloorTile',['../class_puzzle.html#ab8b73ec9f15bae0a080f91fd47bf0160',1,'Puzzle']]]
 ];
