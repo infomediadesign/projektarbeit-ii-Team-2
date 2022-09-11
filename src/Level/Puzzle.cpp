@@ -204,7 +204,7 @@ void Puzzle::torchAnimation() {
   // animation
   framesCounter++;
 
-  if (framesCounter >= (60 / framesSpeedTorch)) {
+  if (framesCounter >= (60 / framesSpeed)) {
     framesCounter = 0;
     currentFrame++;
 
