@@ -1,0 +1,11 @@
+<map id="Puzzle" name="Puzzle">
+<area shape="rect" id="node1" title=" " alt="" coords="409,428,549,1004"/>
+<area shape="rect" id="node2" href="$class_game_1_1_nemo.html" title=" " alt="" coords="562,231,661,338"/>
+<area shape="rect" id="node3" title=" " alt="" coords="5,5,44,83"/>
+<area shape="rect" id="node4" title=" " alt="" coords="548,5,595,83"/>
+<area shape="rect" id="node5" title=" " alt="" coords="157,5,223,83"/>
+<area shape="rect" id="node6" title=" " alt="" coords="419,5,465,83"/>
+<area shape="rect" id="node7" title=" " alt="" coords="301,5,372,83"/>
+<area shape="rect" id="node8" title=" " alt="" coords="852,5,933,83"/>
+<area shape="rect" id="node9" title=" " alt="" coords="697,5,777,83"/>
+</map>
