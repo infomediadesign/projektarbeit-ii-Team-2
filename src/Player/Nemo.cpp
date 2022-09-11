@@ -19,14 +19,17 @@ void Game::Nemo::Update() {
 
   ///NEMOS MOVEMENT
   if (IsKeyDown(KEY_W)) { keypressed = true;}
+  else { keypressed = false; }
   if (IsKeyDown(KEY_A)) { keypressed = true;}
+  else { keypressed = false; }
   if (IsKeyDown(KEY_S)) { keypressed = true;}
+  else { keypressed = false; }
   if (IsKeyDown(KEY_D)) { keypressed = true;}
   else { keypressed = false; }
 
   if (!keypressed){
     timesinceIdle += GetFrameTime();
-    if (timesinceIdle >= 5){
+    if (timesinceIdle >= 10){
       Direction = direction::STAND;
 
       // animation

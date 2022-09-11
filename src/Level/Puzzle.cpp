@@ -220,7 +220,7 @@ void Puzzle::portalAnimation() {
   // animation
   framesCounter++;
 
-  if (framesCounter >= (60 / framesSpeedPortal)) {
+  if (framesCounter >= (60 / framesSpeed)) {
     framesCounter = 0;
     currentFrame++;
 

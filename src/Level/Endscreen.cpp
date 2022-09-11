@@ -17,7 +17,7 @@ void Endscreen::draw() {
 
   DrawText("Görkem (Lead Programmer)", 400, creditPosY + 160, 20, WHITE);
 
-  DrawText("other names (occupations)", 400, creditPosY + 200, 20, WHITE);
+  DrawText("Artists wil follow ", 400, creditPosY + 200, 20, WHITE);
 
 }
 
