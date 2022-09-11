@@ -25,11 +25,15 @@ var searchData=
   ['tileatlastexture_22',['tileAtlasTexture',['../class_level_map.html#aba7a292b1d82630ce32da588cff591eb',1,'LevelMap']]],
   ['tilesetdescription_23',['tilesetDescription',['../class_level_map.html#a0dab3e015827e27da9dc0ee59b5a94ad',1,'LevelMap']]],
   ['timer_24',['timer',['../class_game_1_1_level.html#a2f828dcb9fff21316bdc0b95cbc01aa0',1,'Game::Level']]],
-  ['titlescreen_25',['Titlescreen',['../class_game_1_1_level.html#af3464eeefaf0f412164f471cd7ab355b',1,'Game::Level']]],
-  ['titlescreenmusic_26',['titlescreenmusic',['../namespace_game_audio.html#aa36b9208836934b58e86f4b46441edc8',1,'GameAudio']]],
-  ['titlescreentext_27',['TitlescreenText',['../class_game_1_1_level.html#a5b46242d313e2b3855dde8f179d38ded',1,'Game::Level']]],
-  ['trapdoor_28',['trapdoor',['../namespace_game_audio.html#a260e27935297a6d7bb6d71406a9c3769',1,'GameAudio']]],
-  ['triangletrapdoor_29',['TriangleTrapDoor',['../class_puzzle.html#ae8d2b7b4479eb3051436b8f11f2cb5c0',1,'Puzzle']]],
-  ['turnnumb_30',['turnnumb',['../class_game_1_1_game_character.html#ac288b932bd89ee159646d12534c3956c',1,'Game::GameCharacter']]],
-  ['type_31',['type',['../struct_item.html#a22a98aed7ce8f0314b597a5739c415b7',1,'Item']]]
+  ['timesinceidle_25',['timesinceIdle',['../class_game_1_1_nemo.html#a3e1678591cac91f4d49f989e1f63c8d8',1,'Game::Nemo']]],
+  ['titlescreen_26',['Titlescreen',['../class_game_1_1_level.html#af3464eeefaf0f412164f471cd7ab355b',1,'Game::Level']]],
+  ['titlescreenmusic_27',['titlescreenmusic',['../namespace_game_audio.html#aa36b9208836934b58e86f4b46441edc8',1,'GameAudio']]],
+  ['titlescreentext_28',['TitlescreenText',['../class_game_1_1_level.html#a5b46242d313e2b3855dde8f179d38ded',1,'Game::Level']]],
+  ['torch_29',['Torch',['../class_puzzle.html#a77a24f2e0b5248887f2454277b9e0124',1,'Puzzle']]],
+  ['torchposition_30',['TorchPosition',['../class_puzzle.html#a195895d2d18928c0eddab4c459465b0e',1,'Puzzle']]],
+  ['torchposition2_31',['TorchPosition2',['../class_puzzle.html#a50488af59e3728b7ffa57c6208f57098',1,'Puzzle']]],
+  ['trapdoor_32',['trapdoor',['../namespace_game_audio.html#a260e27935297a6d7bb6d71406a9c3769',1,'GameAudio']]],
+  ['triangletrapdoor_33',['TriangleTrapDoor',['../class_puzzle.html#ae8d2b7b4479eb3051436b8f11f2cb5c0',1,'Puzzle']]],
+  ['turnnumb_34',['turnnumb',['../class_game_1_1_game_character.html#ac288b932bd89ee159646d12534c3956c',1,'Game::GameCharacter']]],
+  ['type_35',['type',['../struct_item.html#a22a98aed7ce8f0314b597a5739c415b7',1,'Item']]]
 ];

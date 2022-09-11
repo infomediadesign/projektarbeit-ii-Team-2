@@ -137,7 +137,7 @@ $(document).ready(function(){initNavTree('main_8cpp_source.html',''); initResiza
 <div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>  <span class="comment">// Initialization</span></div>
 <div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>  <span class="comment">//--------------------------------------------------------------------------------------------</span></div>
 <div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>  <a class="code hl_class" href="class_collision.html">Collision</a> <a class="code hl_variable" href="namespace_game_audio.html#ac9583206694ae9c461dbd24aaaeef65c">collision</a>;</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
 <div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>  <a class="code hl_class" href="class_puzzle.html">Puzzle</a> puzzle;</div>
 <div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>  <a class="code hl_class" href="class_level_map.html">LevelMap</a> map;</div>
 <div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
@@ -157,298 +157,314 @@ $(document).ready(function(){initNavTree('main_8cpp_source.html',''); initResiza
 <div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>  <a class="code hl_class" href="class_game_1_1_sprite.html">Game::Sprite</a> Shadow_Sprite(590.5, 1014, overwold_shadow-&gt;<a class="code hl_variable" href="class_shadow.html#abeaecd99a0b01ec3753eb90421d4da22">spr_shadow</a>);</div>
 <div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>  <a class="code hl_class" href="class_game_1_1_sprite.html">Game::Sprite</a> Pharaoh_Sprite(1455, 198, overworld_pharaoh-&gt;<a class="code hl_variable" href="class_pharaoh.html#a15abad67b156fa1bae84a669066c9be6">spr_Pharaoh</a>);</div>
 <div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>  <a class="code hl_variable" href="namespace_game_audio.html#ac9583206694ae9c461dbd24aaaeef65c">collision</a>.nemo = &amp;nemo;</div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>  <a class="code hl_variable" href="namespace_game_audio.html#ac9583206694ae9c461dbd24aaaeef65c">collision</a>.level = &amp;level;</div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>  level.<a class="code hl_variable" href="class_game_1_1_level.html#a0e153c895cad2e13602b41d69b907f7f">level</a> = &amp;level;</div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>  level.<a class="code hl_variable" href="class_game_1_1_level.html#a24615ce90042a8cbc5ca2680302631f8">nemo</a> = &amp;nemo;</div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>  level.<a class="code hl_variable" href="class_game_1_1_level.html#a4825a2ba7815a48bb027e7aba7ac0f8b">spr</a> = &amp;spr;</div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>  puzzle.<a class="code hl_variable" href="class_puzzle.html#a0fce4afcc331c6eed9ec1873132b12eb">nemo</a> = &amp;nemo;</div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span> </div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>  <span class="keywordtype">bool</span> MumyDraw = <span class="keyword">true</span>;   <span class="comment">// To set the drawing if it is true or false. In short if it is draw or deleted</span></div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>  <span class="keywordtype">bool</span> ShadowDraw = <span class="keyword">true</span>;</div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>  <span class="keywordtype">bool</span> PharaohDraw = <span class="keyword">true</span>;</div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span> </div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>  <span class="comment">//LevelMap();</span></div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>  <span class="comment">//Map stuff -&gt; relocate this into map.h/ and .cpp</span></div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>  std::ifstream tilesetDescriptionFile(<span class="stringliteral">&quot;assets/graphics/map/Level1/PhyramidSheet.json&quot;</span>); <span class="comment">//Pyramiden_SheetJamey.json needed as json, pls do in tiled</span></div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>  assert(tilesetDescriptionFile.is_open());</div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>  nlohmann::json tilesetDescription = nlohmann::json::parse(tilesetDescriptionFile);</div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>  tilesetDescriptionFile.close();</div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span> </div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>  <span class="comment">//Outside the Pyramid</span></div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>  std::ifstream levelMapFile(<span class="stringliteral">&quot;assets/graphics/map/Level1/PhyramidEntry.json&quot;</span>);</div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>  assert(levelMapFile.is_open());</div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>  nlohmann::json levelMap = nlohmann::json::parse(levelMapFile);</div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>  levelMapFile.close();</div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span> </div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>  <span class="comment">//Inside the Pyramid</span></div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>  std::ifstream levelMapFileDungeon(<span class="stringliteral">&quot;assets/graphics/map/Level1/PhyramidDungeon.json&quot;</span>);</div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>  assert(levelMapFileDungeon.is_open());</div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>  nlohmann::json levelMapDungeon = nlohmann::json::parse(levelMapFileDungeon);</div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>  levelMapFileDungeon.close();</div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span> </div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>  Texture2D tileAtlasTexture = LoadTexture(<span class="stringliteral">&quot;assets/graphics/map/Level1/Egypt-Sheet.png&quot;</span>);</div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>  <span class="comment">/**/</span></div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span> </div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>  level.<a class="code hl_variable" href="class_game_1_1_level.html#a0e153c895cad2e13602b41d69b907f7f">level</a> = &amp;level;</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>  level.<a class="code hl_variable" href="class_game_1_1_level.html#a24615ce90042a8cbc5ca2680302631f8">nemo</a> = &amp;nemo;</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>  level.<a class="code hl_variable" href="class_game_1_1_level.html#a4825a2ba7815a48bb027e7aba7ac0f8b">spr</a> = &amp;spr;</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>  puzzle.<a class="code hl_variable" href="class_puzzle.html#a0fce4afcc331c6eed9ec1873132b12eb">nemo</a> = &amp;nemo;</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span> </div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>  <span class="keywordtype">bool</span> MumyDraw = <span class="keyword">true</span>;   <span class="comment">// To set the drawing if it is true or false. In short if it is draw or deleted</span></div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>  <span class="keywordtype">bool</span> ShadowDraw = <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>  <span class="keywordtype">bool</span> PharaohDraw = <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span> </div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>  <span class="comment">//LevelMap();</span></div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>  <span class="comment">//Map stuff -&gt; relocate this into map.h/ and .cpp</span></div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>  std::ifstream tilesetDescriptionFile(<span class="stringliteral">&quot;assets/graphics/map/Level1/PhyramidSheet.json&quot;</span>); <span class="comment">//Pyramiden_SheetJamey.json needed as json, pls do in tiled</span></div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>  assert(tilesetDescriptionFile.is_open());</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>  nlohmann::json tilesetDescription = nlohmann::json::parse(tilesetDescriptionFile);</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>  tilesetDescriptionFile.close();</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span> </div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>  <span class="comment">//Outside the Pyramid</span></div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>  std::ifstream levelMapFile(<span class="stringliteral">&quot;assets/graphics/map/Level1/PhyramidEntry.json&quot;</span>);</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>  assert(levelMapFile.is_open());</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>  nlohmann::json levelMap = nlohmann::json::parse(levelMapFile);</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>  levelMapFile.close();</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span> </div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>  <span class="comment">//Inside the Pyramid</span></div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>  std::ifstream levelMapFileDungeon(<span class="stringliteral">&quot;assets/graphics/map/Level1/PhyramidDungeon.json&quot;</span>);</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>  assert(levelMapFileDungeon.is_open());</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>  nlohmann::json levelMapDungeon = nlohmann::json::parse(levelMapFileDungeon);</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>  levelMapFileDungeon.close();</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span> </div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>  Texture2D tileAtlasTexture = LoadTexture(<span class="stringliteral">&quot;assets/graphics/map/Level1/Egypt-Sheet.png&quot;</span>);</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>  <span class="comment">/**/</span></div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span> </div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>  <a class="code hl_class" href="class_collision.html">Collision</a> <a class="code hl_variable" href="namespace_game_audio.html#ac9583206694ae9c461dbd24aaaeef65c">collision</a> (levelMapDungeon);</div>
 <div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span> </div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    <span class="comment">// Camera settings</span></div>
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>  <span class="comment">//--------------------------------------------------------------------------------------------</span></div>
-<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>  Camera2D camera = { 0 };</div>
-<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>  camera.target   = Vector2 { spr.<a class="code hl_variable" href="class_game_1_1_sprite.html#afcd5ba6136f3a917c15413193cdf6abf">pos_x</a> + 20.0f, spr.<a class="code hl_variable" href="class_game_1_1_sprite.html#a97a94c24c8a0ec142dfa6ab8f33e1328">pos_y</a> + 20.0f };</div>
-<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>  camera.offset   = Vector2 { Game::ScreenWidth / 2.0f, Game::ScreenHeight / 2.0f };</div>
-<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>  camera.zoom     = 2.0f;</div>
-<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span> </div>
-<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>  <span class="comment">// Main game loop</span></div>
-<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>  <span class="comment">//--------------------------------------------------------------------------------------------</span></div>
-<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>  <span class="keywordflow">while</span> (!WindowShouldClose()) <span class="comment">// Detect window close button or ESC key</span></div>
-<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>  {</div>
-<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>    <span class="comment">// Update</span></div>
-<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span> </div>
-<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span> </div>
-<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>    <span class="comment">// Begin drawing</span></div>
-<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>    <span class="comment">//--------------------------------------------------------------------------------------------</span></div>
-<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>    BeginDrawing();</div>
-<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span> </div>
-<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>    ClearBackground(BLACK);</div>
-<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span> </div>
-<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>    BeginMode2D(camera);</div>
-<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span> </div>
-<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>    level.<a class="code hl_function" href="class_game_1_1_level.html#a9f7849e78f25d6599c80293b4579fd66">ScreenDraw</a>(); <span class="comment">//the switchcase for switching between rooms (in the level.cpp) (the same as is underneath this)</span></div>
-<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span> </div>
-<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>    <span class="comment">// Using Switch Case to Initialize the requirements to move to certain positions</span></div>
-<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>    <span class="keywordflow">switch</span> (level.<a class="code hl_variable" href="class_game_1_1_level.html#a9ff6de646793c7bfb823221f68884eb2">currentscreen</a>) { <span class="comment">// Get Ready for some Spaghetti Code</span></div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>  <a class="code hl_variable" href="namespace_game_audio.html#ac9583206694ae9c461dbd24aaaeef65c">collision</a>.nemo = &amp;nemo;</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>  <a class="code hl_variable" href="namespace_game_audio.html#ac9583206694ae9c461dbd24aaaeef65c">collision</a>.level = &amp;level;</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span> </div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>    <span class="comment">// Camera settings</span></div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>  <span class="comment">//--------------------------------------------------------------------------------------------</span></div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>  Camera2D camera = { 0 };</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>  camera.target   = Vector2 { spr.<a class="code hl_variable" href="class_game_1_1_sprite.html#afcd5ba6136f3a917c15413193cdf6abf">pos_x</a> + 20.0f, spr.<a class="code hl_variable" href="class_game_1_1_sprite.html#a97a94c24c8a0ec142dfa6ab8f33e1328">pos_y</a> + 20.0f };</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>  camera.offset   = Vector2 { Game::ScreenWidth / 2.0f, Game::ScreenHeight / 2.0f };</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>  camera.zoom     = 2.0f;</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span> </div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>  <span class="comment">// Main game loop</span></div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>  <span class="comment">//--------------------------------------------------------------------------------------------</span></div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>  <span class="keywordflow">while</span> (!WindowShouldClose()) <span class="comment">// Detect window close button or ESC key</span></div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>  {</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>    <span class="comment">// Update</span></div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span> </div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span> </div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>    <span class="comment">// Begin drawing</span></div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>    <span class="comment">//--------------------------------------------------------------------------------------------</span></div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>    BeginDrawing();</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span> </div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>    ClearBackground(BLACK);</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span> </div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>    BeginMode2D(camera);</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span> </div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>    level.<a class="code hl_function" href="class_game_1_1_level.html#a9f7849e78f25d6599c80293b4579fd66">ScreenDraw</a>(); <span class="comment">//the switchcase for switching between rooms (in the level.cpp) (the same as is underneath this)</span></div>
 <div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span> </div>
-<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="class_game_1_1_level.html#a605a468eab80cc37fd022e5f4541b92da9ea3a3599dfde990e6b243ce6622cc0e">Game::Level::GameScreen::TITLESCREEN</a>:</div>
-<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span> </div>
-<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>      camera.target = Vector2 { Game::ScreenWidth / 2, Game::ScreenHeight / 2 };</div>
-<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>      camera.zoom     = 1.0f;</div>
-<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>      <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>    <span class="comment">// Using Switch Case to Initialize the requirements to move to certain positions</span></div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>    <span class="keywordflow">switch</span> (level.<a class="code hl_variable" href="class_game_1_1_level.html#a9ff6de646793c7bfb823221f68884eb2">currentscreen</a>) { <span class="comment">// Get Ready for some Spaghetti Code</span></div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span> </div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="class_game_1_1_level.html#a605a468eab80cc37fd022e5f4541b92da9ea3a3599dfde990e6b243ce6622cc0e">Game::Level::GameScreen::TITLESCREEN</a>:</div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span> </div>
 <div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span> </div>
-<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="class_game_1_1_level.html#a605a468eab80cc37fd022e5f4541b92da36652ad71a00419c20c7ba1a7042682f">Game::Level::GameScreen::PAUSEMENU</a>:</div>
-<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span> </div>
-<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>      camera.target = Vector2 { Game::ScreenWidth / 2, Game::ScreenHeight / 2 };</div>
-<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>      camera.zoom     = 1.0f;</div>
-<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>      <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>      camera.target = Vector2 { Game::ScreenWidth / 2, Game::ScreenHeight / 2 };</div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>      camera.zoom     = 1.0f;</div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>      <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span> </div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="class_game_1_1_level.html#a605a468eab80cc37fd022e5f4541b92da36652ad71a00419c20c7ba1a7042682f">Game::Level::GameScreen::PAUSEMENU</a>:</div>
 <div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span> </div>
-<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="class_game_1_1_level.html#a605a468eab80cc37fd022e5f4541b92da6eadcd76980d5c82a75e5e54fcb24ecb">Game::Level::GameScreen::OVERWORLD</a>:</div>
-<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span> </div>
-<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>      camera.zoom     = 2.0f;</div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>      camera.target = Vector2 { Game::ScreenWidth / 2, Game::ScreenHeight / 2 };</div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>      camera.zoom     = 1.0f;</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>      <span class="keywordflow">break</span>;</div>
 <div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span> </div>
-<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>      <span class="comment">//map.drawOVERWORLD();</span></div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="class_game_1_1_level.html#a605a468eab80cc37fd022e5f4541b92da6eadcd76980d5c82a75e5e54fcb24ecb">Game::Level::GameScreen::OVERWORLD</a>:</div>
 <div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span> </div>
-<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>      <span class="comment">//map</span></div>
-<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>      Vector2 vec;</div>
-<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>      Rectangle rec;</div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>      camera.zoom     = 2.0f;</div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span> </div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>      <span class="comment">//map.drawOVERWORLD();</span></div>
 <div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span> </div>
-<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>      vec = {0, 0};</div>
-<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>      rec = {0, 0, levelMap[<span class="stringliteral">&quot;tilewidth&quot;</span>], levelMap[<span class="stringliteral">&quot;tileheight&quot;</span>]};</div>
-<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>      <span class="keywordflow">for</span> (<span class="keyword">auto</span> <span class="keyword">const</span> &amp;layer : levelMap[<span class="stringliteral">&quot;layers&quot;</span>]) {</div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>      <span class="comment">//map</span></div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>      Vector2 vec;</div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>      Rectangle rec;</div>
 <div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span> </div>
-<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>        <span class="keywordflow">if</span> (layer[<span class="stringliteral">&quot;type&quot;</span>] == <span class="stringliteral">&quot;tilelayer&quot;</span> &amp;&amp; layer[<span class="stringliteral">&quot;visible&quot;</span>]) {</div>
-<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>          vec.y = 0;</div>
-<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>          <span class="keywordflow">for</span> (<span class="keyword">auto</span> <span class="keyword">const</span> &amp;tileId : layer[<span class="stringliteral">&quot;data&quot;</span>]) {</div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>      vec = {0, 0};</div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>      rec = {0, 0, levelMap[<span class="stringliteral">&quot;tilewidth&quot;</span>], levelMap[<span class="stringliteral">&quot;tileheight&quot;</span>]};</div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>      <span class="keywordflow">for</span> (<span class="keyword">auto</span> <span class="keyword">const</span> &amp;layer : levelMap[<span class="stringliteral">&quot;layers&quot;</span>]) {</div>
 <div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span> </div>
-<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>            <span class="keywordtype">int</span> counter = (int) tileId;</div>
-<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>            counter--;</div>
-<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>            <span class="keywordflow">if</span> (counter != -1) {</div>
-<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>              rec.x = (float) ((<span class="keywordtype">int</span>) counter % (int) tilesetDescription[<span class="stringliteral">&quot;columns&quot;</span>]) *</div>
-<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>                      (float) levelMap[<span class="stringliteral">&quot;tilewidth&quot;</span>];</div>
-<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>              rec.y = (float) floor((<span class="keywordtype">float</span>) counter / (float) tilesetDescription[<span class="stringliteral">&quot;columns&quot;</span>]) *</div>
-<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>                      (float) levelMap[<span class="stringliteral">&quot;tileheight&quot;</span>];</div>
-<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>              DrawTextureRec(tileAtlasTexture, rec, vec, WHITE); <span class="comment">//entkoppeln, 2 vektoren machen</span></div>
-<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>            }</div>
-<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>            vec.x += (float) levelMap[<span class="stringliteral">&quot;tilewidth&quot;</span>];</div>
-<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>            <span class="keywordflow">if</span> (vec.x &gt;= (<span class="keywordtype">float</span>) layer[<span class="stringliteral">&quot;width&quot;</span>] * (float) levelMap[<span class="stringliteral">&quot;tilewidth&quot;</span>]) {</div>
-<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>              vec.x = 0;</div>
-<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>              vec.y += (float) levelMap[<span class="stringliteral">&quot;tileheight&quot;</span>];</div>
-<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>            }</div>
-<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>          }</div>
-<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>        }</div>
-<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>      }</div>
-<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span> </div>
-<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>      <span class="comment">/**/</span></div>
-<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span> </div>
-<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>      <a class="code hl_variable" href="namespace_game_audio.html#ac9583206694ae9c461dbd24aaaeef65c">collision</a>.draw();</div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>        <span class="keywordflow">if</span> (layer[<span class="stringliteral">&quot;type&quot;</span>] == <span class="stringliteral">&quot;tilelayer&quot;</span> &amp;&amp; layer[<span class="stringliteral">&quot;visible&quot;</span>]) {</div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>          vec.y = 0;</div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>          <span class="keywordflow">for</span> (<span class="keyword">auto</span> <span class="keyword">const</span> &amp;tileId : layer[<span class="stringliteral">&quot;data&quot;</span>]) {</div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span> </div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>            <span class="keywordtype">int</span> counter = (int) tileId;</div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>            counter--;</div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>            <span class="keywordflow">if</span> (counter != -1) {</div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>              rec.x = (float) ((<span class="keywordtype">int</span>) counter % (int) tilesetDescription[<span class="stringliteral">&quot;columns&quot;</span>]) *</div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>                      (float) levelMap[<span class="stringliteral">&quot;tilewidth&quot;</span>];</div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>              rec.y = (float) floor((<span class="keywordtype">float</span>) counter / (float) tilesetDescription[<span class="stringliteral">&quot;columns&quot;</span>]) *</div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>                      (float) levelMap[<span class="stringliteral">&quot;tileheight&quot;</span>];</div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>              DrawTextureRec(tileAtlasTexture, rec, vec, WHITE); <span class="comment">//entkoppeln, 2 vektoren machen</span></div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>            }</div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>            vec.x += (float) levelMap[<span class="stringliteral">&quot;tilewidth&quot;</span>];</div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>            <span class="keywordflow">if</span> (vec.x &gt;= (<span class="keywordtype">float</span>) layer[<span class="stringliteral">&quot;width&quot;</span>] * (float) levelMap[<span class="stringliteral">&quot;tilewidth&quot;</span>]) {</div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>              vec.x = 0;</div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>              vec.y += (float) levelMap[<span class="stringliteral">&quot;tileheight&quot;</span>];</div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>            }</div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>          }</div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>        }</div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>      }</div>
 <div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span> </div>
-<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>      nemo.<a class="code hl_variable" href="class_game_1_1_nemo.html#a9dd7680fb3fc656fd34e866a07069e05">active</a> = <span class="keyword">true</span>;</div>
-<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>      nemo.<a class="code hl_function" href="class_game_1_1_nemo.html#a9bdc504d11a7a80f75dc51b2f6f4e857">Update</a>(); <span class="comment">// nemo walking movement and animation</span></div>
-<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>      nemo.<a class="code hl_function" href="class_game_1_1_nemo.html#aceedd442d803373e468c4ce25b33fcea">Draw</a>();   <span class="comment">// nemo walking movement and animation</span></div>
-<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>      camera.target = Vector2 { nemo.<a class="code hl_variable" href="class_game_1_1_nemo.html#aadbc7bc7701d5bab3cdbf7a31c91f9d4">NemoPosition</a>.x + 20.0f, nemo.<a class="code hl_variable" href="class_game_1_1_nemo.html#aadbc7bc7701d5bab3cdbf7a31c91f9d4">NemoPosition</a>.y + 20.0f };</div>
-<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span> </div>
-<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>      <a class="code hl_variable" href="namespace_game_audio.html#ac9583206694ae9c461dbd24aaaeef65c">collision</a>.epanoxCollision();</div>
-<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span>      <a class="code hl_variable" href="namespace_game_audio.html#ac9583206694ae9c461dbd24aaaeef65c">collision</a>.outPyraWallCollision();</div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>      <span class="comment">/**/</span></div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span> </div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>      <a class="code hl_variable" href="namespace_game_audio.html#ac9583206694ae9c461dbd24aaaeef65c">collision</a>.draw();</div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span> </div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span>      <span class="keywordflow">if</span> (IsKeyDown(KEY_R)){</div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>        <a class="code hl_variable" href="namespace_game_audio.html#ac9583206694ae9c461dbd24aaaeef65c">collision</a>.walldraw();</div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span>      }</div>
 <div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span> </div>
-<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>      ui.<a class="code hl_function" href="class_game_1_1_u_i.html#aab985f30242a4de5f84368c6fedfec82">Draw</a>(); <span class="comment">// controlls description</span></div>
-<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span> </div>
-<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span>      DrawFPS(nemo.<a class="code hl_variable" href="class_game_1_1_nemo.html#aadbc7bc7701d5bab3cdbf7a31c91f9d4">NemoPosition</a>.x - 280, nemo.<a class="code hl_variable" href="class_game_1_1_nemo.html#aadbc7bc7701d5bab3cdbf7a31c91f9d4">NemoPosition</a>.y - 150);</div>
-<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span> </div>
-<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span>      <span class="comment">//teleport into pyramid</span></div>
-<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span>      level.<a class="code hl_function" href="class_game_1_1_level.html#a18f55a8401fc5ed824a43dcad083ca71">Teleport</a>();</div>
-<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span>      DrawRectangleRec(level.<a class="code hl_variable" href="class_game_1_1_level.html#a17dabf10a2ca2d93df0bbafa4daf9770">teleportrecOVERWORLDtoPYRAMID</a>, Color{});</div>
-<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span>      <span class="comment">//DrawRectangleRec(level.teleportrecOVERWORLDtoPYRAMID, RED);</span></div>
-<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span> </div>
-<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span>      <span class="keywordflow">break</span>;</div>
-<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span> </div>
-<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="class_game_1_1_level.html#a605a468eab80cc37fd022e5f4541b92da87ad2b9aff4a2c36a97a8c20847e9e62">Game::Level::GameScreen::PYRAMIDE</a>:</div>
-<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span> </div>
-<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span>      camera.zoom     = 2.0f;</div>
-<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span> </div>
-<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span>      <span class="comment">//map.drawPYRAMID();</span></div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>      nemo.<a class="code hl_variable" href="class_game_1_1_nemo.html#a9dd7680fb3fc656fd34e866a07069e05">active</a> = <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span>      nemo.<a class="code hl_function" href="class_game_1_1_nemo.html#a9bdc504d11a7a80f75dc51b2f6f4e857">Update</a>(); <span class="comment">// nemo walking movement and animation</span></div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span>      nemo.<a class="code hl_function" href="class_game_1_1_nemo.html#aceedd442d803373e468c4ce25b33fcea">Draw</a>();   <span class="comment">// nemo walking movement and animation</span></div>
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span>      camera.target = Vector2 { nemo.<a class="code hl_variable" href="class_game_1_1_nemo.html#aadbc7bc7701d5bab3cdbf7a31c91f9d4">NemoPosition</a>.x + 20.0f, nemo.<a class="code hl_variable" href="class_game_1_1_nemo.html#aadbc7bc7701d5bab3cdbf7a31c91f9d4">NemoPosition</a>.y + 20.0f };</div>
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span> </div>
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span>      <a class="code hl_variable" href="namespace_game_audio.html#ac9583206694ae9c461dbd24aaaeef65c">collision</a>.epanoxCollision();</div>
+<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span>      <a class="code hl_variable" href="namespace_game_audio.html#ac9583206694ae9c461dbd24aaaeef65c">collision</a>.outPyraWallCollision();</div>
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span> </div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>      ui.<a class="code hl_function" href="class_game_1_1_u_i.html#aab985f30242a4de5f84368c6fedfec82">Draw</a>(); <span class="comment">// controlls description</span></div>
+<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span> </div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span>      DrawFPS(nemo.<a class="code hl_variable" href="class_game_1_1_nemo.html#aadbc7bc7701d5bab3cdbf7a31c91f9d4">NemoPosition</a>.x - 280, nemo.<a class="code hl_variable" href="class_game_1_1_nemo.html#aadbc7bc7701d5bab3cdbf7a31c91f9d4">NemoPosition</a>.y - 150);</div>
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span> </div>
+<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span>      <span class="comment">//teleport into pyramid</span></div>
+<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span>      level.<a class="code hl_function" href="class_game_1_1_level.html#a18f55a8401fc5ed824a43dcad083ca71">Teleport</a>();</div>
+<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span>      DrawRectangleRec(level.<a class="code hl_variable" href="class_game_1_1_level.html#a17dabf10a2ca2d93df0bbafa4daf9770">teleportrecOVERWORLDtoPYRAMID</a>, Color{});</div>
+<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span>      <span class="comment">//DrawRectangleRec(level.teleportrecOVERWORLDtoPYRAMID, RED);</span></div>
 <div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span> </div>
-<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span>      Vector2 vecDungeon;</div>
-<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span>      Rectangle recDungeon;</div>
-<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span> </div>
-<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span>      vecDungeon = {0, 0};</div>
-<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span>      recDungeon = {0, 0, levelMapDungeon[<span class="stringliteral">&quot;tilewidth&quot;</span>], levelMapDungeon[<span class="stringliteral">&quot;tileheight&quot;</span>]};</div>
-<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span>      <span class="keywordflow">for</span> (<span class="keyword">auto</span> <span class="keyword">const</span> &amp;layer : levelMapDungeon[<span class="stringliteral">&quot;layers&quot;</span>]) {</div>
-<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span> </div>
-<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span>        <span class="keywordflow">if</span> (layer[<span class="stringliteral">&quot;type&quot;</span>] == <span class="stringliteral">&quot;tilelayer&quot;</span> &amp;&amp; layer[<span class="stringliteral">&quot;visible&quot;</span>]) {</div>
-<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span>          vecDungeon.y = 0;</div>
-<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span>          <span class="keywordflow">for</span> (<span class="keyword">auto</span> <span class="keyword">const</span> &amp;tileId : layer[<span class="stringliteral">&quot;data&quot;</span>]) {</div>
+<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span>      <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span> </div>
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="class_game_1_1_level.html#a605a468eab80cc37fd022e5f4541b92da87ad2b9aff4a2c36a97a8c20847e9e62">Game::Level::GameScreen::PYRAMIDE</a>:</div>
+<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span> </div>
+<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span>      camera.zoom     = 2.0f;</div>
+<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span> </div>
+<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span>      <span class="comment">//map.drawPYRAMID();</span></div>
+<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span> </div>
+<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span>      Vector2 vecDungeon;</div>
+<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span>      Rectangle recDungeon;</div>
 <div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span> </div>
-<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span>            <span class="keywordtype">int</span> counter = (int) tileId;</div>
-<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span>            counter--;</div>
-<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span>            <span class="keywordflow">if</span> (counter != -1) {</div>
-<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span>              recDungeon.x = (float) ((<span class="keywordtype">int</span>) counter % (int) tilesetDescription[<span class="stringliteral">&quot;columns&quot;</span>]) *</div>
-<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span>                             (float) levelMap[<span class="stringliteral">&quot;tilewidth&quot;</span>];</div>
-<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span>              recDungeon.y = (float) floor((<span class="keywordtype">float</span>) counter / (float) tilesetDescription[<span class="stringliteral">&quot;columns&quot;</span>]) *</div>
-<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span>                             (float) levelMap[<span class="stringliteral">&quot;tileheight&quot;</span>];</div>
-<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span>              DrawTextureRec(tileAtlasTexture, recDungeon, vecDungeon, WHITE); <span class="comment">//entkoppeln, 2 vektoren machen</span></div>
-<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span>            }</div>
-<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span>            vecDungeon.x += (float) levelMapDungeon[<span class="stringliteral">&quot;tilewidth&quot;</span>];</div>
-<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span>            <span class="keywordflow">if</span> (vecDungeon.x &gt;= (<span class="keywordtype">float</span>) layer[<span class="stringliteral">&quot;width&quot;</span>] * (float) levelMapDungeon[<span class="stringliteral">&quot;tilewidth&quot;</span>]) {</div>
-<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span>              vecDungeon.x = 0;</div>
-<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span>              vecDungeon.y += (float) levelMapDungeon[<span class="stringliteral">&quot;tileheight&quot;</span>];</div>
-<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span>            }</div>
-<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span>          }</div>
-<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span>        }</div>
-<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span>      }</div>
-<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span> </div>
-<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span>      <span class="comment">/**/</span></div>
-<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span> </div>
-<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span>      <span class="comment">//NPCRec = { 592 + 8, 712 + 5, 16, 20 };</span></div>
-<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span>      <span class="comment">// DrawRectangleRec(NPCRec, Color(00));                    // COLOR is for the Transparency.</span></div>
-<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span>      <span class="comment">//DrawTexture(NPC.texture_, NPC.pos_x, NPC.pos_y, WHITE); // Drawing the Rectangle</span></div>
-<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span> </div>
-<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span>      <span class="comment">//=============================INITIALIZE COMBAT ONCE BEEING ENCOUNTERED====================================</span></div>
+<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span>      vecDungeon = {0, 0};</div>
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span>      recDungeon = {0, 0, levelMapDungeon[<span class="stringliteral">&quot;tilewidth&quot;</span>], levelMapDungeon[<span class="stringliteral">&quot;tileheight&quot;</span>]};</div>
+<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span>      <span class="keywordflow">for</span> (<span class="keyword">auto</span> <span class="keyword">const</span> &amp;layer : levelMapDungeon[<span class="stringliteral">&quot;layers&quot;</span>]) {</div>
+<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span> </div>
+<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span>        <span class="keywordflow">if</span> (layer[<span class="stringliteral">&quot;type&quot;</span>] == <span class="stringliteral">&quot;tilelayer&quot;</span> &amp;&amp; layer[<span class="stringliteral">&quot;visible&quot;</span>]) {</div>
+<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span>          vecDungeon.y = 0;</div>
+<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span>          <span class="keywordflow">for</span> (<span class="keyword">auto</span> <span class="keyword">const</span> &amp;tileId : layer[<span class="stringliteral">&quot;data&quot;</span>]) {</div>
+<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span> </div>
+<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span>            <span class="keywordtype">int</span> counter = (int) tileId;</div>
+<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span>            counter--;</div>
+<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span>            <span class="keywordflow">if</span> (counter != -1) {</div>
+<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span>              recDungeon.x = (float) ((<span class="keywordtype">int</span>) counter % (int) tilesetDescription[<span class="stringliteral">&quot;columns&quot;</span>]) *</div>
+<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span>                             (float) levelMap[<span class="stringliteral">&quot;tilewidth&quot;</span>];</div>
+<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span>              recDungeon.y = (float) floor((<span class="keywordtype">float</span>) counter / (float) tilesetDescription[<span class="stringliteral">&quot;columns&quot;</span>]) *</div>
+<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span>                             (float) levelMap[<span class="stringliteral">&quot;tileheight&quot;</span>];</div>
+<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span>              DrawTextureRec(tileAtlasTexture, recDungeon, vecDungeon, WHITE); <span class="comment">//entkoppeln, 2 vektoren machen</span></div>
+<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span>            }</div>
+<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span>            vecDungeon.x += (float) levelMapDungeon[<span class="stringliteral">&quot;tilewidth&quot;</span>];</div>
+<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span>            <span class="keywordflow">if</span> (vecDungeon.x &gt;= (<span class="keywordtype">float</span>) layer[<span class="stringliteral">&quot;width&quot;</span>] * (float) levelMapDungeon[<span class="stringliteral">&quot;tilewidth&quot;</span>]) {</div>
+<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span>              vecDungeon.x = 0;</div>
+<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span>              vecDungeon.y += (float) levelMapDungeon[<span class="stringliteral">&quot;tileheight&quot;</span>];</div>
+<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span>            }</div>
+<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span>          }</div>
+<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span>        }</div>
+<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span>      }</div>
 <div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span> </div>
-<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span>      <span class="comment">//====================================================MUMMY=============================================================</span></div>
-<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span>      <span class="keywordflow">if</span> (MumyDraw) {</div>
-<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span>        overworld_mumy-&gt;<a class="code hl_function" href="class_mumy.html#a27414cc9f7bb844603fbe5cce620b465">Draw</a>();</div>
-<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span>      }</div>
-<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span>      <span class="comment">// Collision check</span></div>
-<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span>      <span class="keywordflow">if</span> (CheckCollisionRecs(overworld_mumy-&gt;<a class="code hl_function" href="class_mumy.html#a0a3fadcdb2261625c675c20c3d10a90c">getMumyRec</a>(), nemo.<a class="code hl_variable" href="class_game_1_1_nemo.html#a6eeebce19217bd8666166e4018b8ffeb">nemorec</a>)) <span class="comment">// Where the Collision between Two Objects happen happens</span></div>
-<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span>      {</div>
-<div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span>        level.<a class="code hl_variable" href="class_game_1_1_level.html#a9ff6de646793c7bfb823221f68884eb2">currentscreen</a> = <a class="code hl_enumvalue" href="class_game_1_1_level.html#a605a468eab80cc37fd022e5f4541b92dacd4174be077f1cd1964ecb7b16168db6">Game::Level::GameScreen::COMBAT</a>; <span class="comment">// After Returning back to the OVERWORLD ya get</span></div>
-<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span>        level.<a class="code hl_variable" href="class_game_1_1_level.html#a63e20de164159394103e5a870fa82dd2">opponent</a> = <a class="code hl_enumvalue" href="class_game_1_1_level.html#a1869c9a90dd864b19f379411c5e44952addf4e3fc0269fcc2ef656e0d7656977c">Game::Level::EnemyType::MUMY</a>;</div>
-<div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span> </div>
-<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span>        MumyDraw = <span class="keyword">false</span>; <span class="comment">// NPC is deleted</span></div>
-<div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span>        overworld_mumy-&gt;<a class="code hl_variable" href="class_mumy.html#aa5349dc2f0222964bc011c8689538717">MumyRec</a> = {};</div>
-<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span>      }</div>
-<div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span>      <span class="comment">//====================================================TIME SHADOW=======================================================</span></div>
-<div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span>      <span class="keywordflow">if</span> (ShadowDraw)</div>
-<div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span>      {</div>
-<div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span>        overwold_shadow-&gt;<a class="code hl_function" href="class_shadow.html#a237a15c996f75509f9b66760d2e90909">Draw</a>();</div>
-<div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span>      }</div>
-<div class="line"><a id="l00268" name="l00268"></a><span class="lineno">  268</span> </div>
-<div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span>      <span class="keywordflow">if</span> (CheckCollisionRecs(overwold_shadow-&gt;<a class="code hl_function" href="class_shadow.html#a29618ddccf1d9efb78ac022abd709ae3">getShadowRec</a>(), nemo.<a class="code hl_variable" href="class_game_1_1_nemo.html#a6eeebce19217bd8666166e4018b8ffeb">nemorec</a>))</div>
-<div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span>      {</div>
-<div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span>        level.<a class="code hl_variable" href="class_game_1_1_level.html#a9ff6de646793c7bfb823221f68884eb2">currentscreen</a> = <a class="code hl_enumvalue" href="class_game_1_1_level.html#a605a468eab80cc37fd022e5f4541b92dacd4174be077f1cd1964ecb7b16168db6">Game::Level::GameScreen::COMBAT</a>;</div>
-<div class="line"><a id="l00272" name="l00272"></a><span class="lineno">  272</span>        level.<a class="code hl_variable" href="class_game_1_1_level.html#a63e20de164159394103e5a870fa82dd2">opponent</a> = <a class="code hl_enumvalue" href="class_game_1_1_level.html#a1869c9a90dd864b19f379411c5e44952a8160fba05a5a291372a94bc22b55f62b">Game::Level::EnemyType::SHADOW</a>;</div>
-<div class="line"><a id="l00273" name="l00273"></a><span class="lineno">  273</span> </div>
-<div class="line"><a id="l00274" name="l00274"></a><span class="lineno">  274</span>        ShadowDraw = <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00275" name="l00275"></a><span class="lineno">  275</span>        overwold_shadow-&gt;<a class="code hl_variable" href="class_shadow.html#a5114e9b1dbb9ca907cf7d4ffda33f9f1">Shadowrec</a> = {};</div>
+<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span>      <span class="comment">/**/</span></div>
+<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span> </div>
+<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span>      <span class="comment">//NPCRec = { 592 + 8, 712 + 5, 16, 20 };</span></div>
+<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span>      <span class="comment">// DrawRectangleRec(NPCRec, Color(00));                    // COLOR is for the Transparency.</span></div>
+<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span>      <span class="comment">//DrawTexture(NPC.texture_, NPC.pos_x, NPC.pos_y, WHITE); // Drawing the Rectangle</span></div>
+<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span> </div>
+<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span>      <span class="comment">//=============================INITIALIZE COMBAT ONCE BEEING ENCOUNTERED====================================</span></div>
+<div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span> </div>
+<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span>      <span class="comment">//====================================================MUMMY=============================================================</span></div>
+<div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span>      <span class="keywordflow">if</span> (MumyDraw) {</div>
+<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span>        overworld_mumy-&gt;<a class="code hl_function" href="class_mumy.html#a27414cc9f7bb844603fbe5cce620b465">Draw</a>();</div>
+<div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span>      }</div>
+<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span>      <span class="comment">// Collision check</span></div>
+<div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span>      <span class="keywordflow">if</span> (CheckCollisionRecs(overworld_mumy-&gt;<a class="code hl_function" href="class_mumy.html#a0a3fadcdb2261625c675c20c3d10a90c">getMumyRec</a>(), nemo.<a class="code hl_variable" href="class_game_1_1_nemo.html#a6eeebce19217bd8666166e4018b8ffeb">nemorec</a>)) <span class="comment">// Where the Collision between Two Objects happen happens</span></div>
+<div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span>      {</div>
+<div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span>        level.<a class="code hl_variable" href="class_game_1_1_level.html#a9ff6de646793c7bfb823221f68884eb2">currentscreen</a> = <a class="code hl_enumvalue" href="class_game_1_1_level.html#a605a468eab80cc37fd022e5f4541b92dacd4174be077f1cd1964ecb7b16168db6">Game::Level::GameScreen::COMBAT</a>; <span class="comment">// After Returning back to the OVERWORLD ya get</span></div>
+<div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span>        level.<a class="code hl_variable" href="class_game_1_1_level.html#a63e20de164159394103e5a870fa82dd2">opponent</a> = <a class="code hl_enumvalue" href="class_game_1_1_level.html#a1869c9a90dd864b19f379411c5e44952addf4e3fc0269fcc2ef656e0d7656977c">Game::Level::EnemyType::MUMY</a>;</div>
+<div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span> </div>
+<div class="line"><a id="l00268" name="l00268"></a><span class="lineno">  268</span>        MumyDraw = <span class="keyword">false</span>; <span class="comment">// NPC is deleted</span></div>
+<div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span>        overworld_mumy-&gt;<a class="code hl_variable" href="class_mumy.html#aa5349dc2f0222964bc011c8689538717">MumyRec</a> = {};</div>
+<div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span>      }</div>
+<div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span>      <span class="comment">//====================================================TIME SHADOW=======================================================</span></div>
+<div class="line"><a id="l00272" name="l00272"></a><span class="lineno">  272</span>      <span class="keywordflow">if</span> (ShadowDraw)</div>
+<div class="line"><a id="l00273" name="l00273"></a><span class="lineno">  273</span>      {</div>
+<div class="line"><a id="l00274" name="l00274"></a><span class="lineno">  274</span>        overwold_shadow-&gt;<a class="code hl_function" href="class_shadow.html#a237a15c996f75509f9b66760d2e90909">Draw</a>();</div>
+<div class="line"><a id="l00275" name="l00275"></a><span class="lineno">  275</span>      }</div>
 <div class="line"><a id="l00276" name="l00276"></a><span class="lineno">  276</span> </div>
-<div class="line"><a id="l00277" name="l00277"></a><span class="lineno">  277</span>      }</div>
-<div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span>      <span class="comment">//====================================================PHARAOH===========================================================</span></div>
-<div class="line"><a id="l00279" name="l00279"></a><span class="lineno">  279</span>      <span class="keywordflow">if</span> (PharaohDraw)</div>
-<div class="line"><a id="l00280" name="l00280"></a><span class="lineno">  280</span>      {</div>
-<div class="line"><a id="l00281" name="l00281"></a><span class="lineno">  281</span>        overworld_pharaoh-&gt;<a class="code hl_function" href="class_pharaoh.html#a3e0a88e6f6d11f51ede89adfb9e6a722">Draw</a>();</div>
-<div class="line"><a id="l00282" name="l00282"></a><span class="lineno">  282</span>      }</div>
-<div class="line"><a id="l00283" name="l00283"></a><span class="lineno">  283</span> </div>
-<div class="line"><a id="l00284" name="l00284"></a><span class="lineno">  284</span>      <span class="keywordflow">if</span> (CheckCollisionRecs(overworld_pharaoh-&gt;<a class="code hl_function" href="class_pharaoh.html#a949f70fe6c9bc16d9664aedaf817cb74">getPharaohRec</a>(), nemo.<a class="code hl_variable" href="class_game_1_1_nemo.html#a6eeebce19217bd8666166e4018b8ffeb">nemorec</a>))</div>
-<div class="line"><a id="l00285" name="l00285"></a><span class="lineno">  285</span>      {</div>
-<div class="line"><a id="l00286" name="l00286"></a><span class="lineno">  286</span>        level.<a class="code hl_variable" href="class_game_1_1_level.html#a9ff6de646793c7bfb823221f68884eb2">currentscreen</a> = <a class="code hl_enumvalue" href="class_game_1_1_level.html#a605a468eab80cc37fd022e5f4541b92dacd4174be077f1cd1964ecb7b16168db6">Game::Level::GameScreen::COMBAT</a>;</div>
-<div class="line"><a id="l00287" name="l00287"></a><span class="lineno">  287</span>        level.<a class="code hl_variable" href="class_game_1_1_level.html#a63e20de164159394103e5a870fa82dd2">opponent</a> = <a class="code hl_enumvalue" href="class_game_1_1_level.html#a1869c9a90dd864b19f379411c5e44952a0ddb78807b616941d9de350c30e952a7">Game::Level::EnemyType::PHARAOH</a>;</div>
-<div class="line"><a id="l00288" name="l00288"></a><span class="lineno">  288</span> </div>
-<div class="line"><a id="l00289" name="l00289"></a><span class="lineno">  289</span>        PharaohDraw = <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00290" name="l00290"></a><span class="lineno">  290</span>        overworld_pharaoh-&gt;<a class="code hl_variable" href="class_pharaoh.html#a94b9b768d02a73f1f6d13c020761200d">Pharaohrec</a> = {};</div>
-<div class="line"><a id="l00291" name="l00291"></a><span class="lineno">  291</span>      }</div>
-<div class="line"><a id="l00292" name="l00292"></a><span class="lineno">  292</span>      <span class="comment">//==========================================THE END=========================================================</span></div>
-<div class="line"><a id="l00293" name="l00293"></a><span class="lineno">  293</span> </div>
-<div class="line"><a id="l00294" name="l00294"></a><span class="lineno">  294</span> </div>
-<div class="line"><a id="l00295" name="l00295"></a><span class="lineno">  295</span> </div>
-<div class="line"><a id="l00296" name="l00296"></a><span class="lineno">  296</span>      DrawFPS(nemo.<a class="code hl_variable" href="class_game_1_1_nemo.html#aadbc7bc7701d5bab3cdbf7a31c91f9d4">NemoPosition</a>.x - 280, nemo.<a class="code hl_variable" href="class_game_1_1_nemo.html#aadbc7bc7701d5bab3cdbf7a31c91f9d4">NemoPosition</a>.y - 150);</div>
-<div class="line"><a id="l00297" name="l00297"></a><span class="lineno">  297</span> </div>
-<div class="line"><a id="l00298" name="l00298"></a><span class="lineno">  298</span>      puzzle.<a class="code hl_function" href="class_puzzle.html#a5ff608ec8195a89e9e0a6eedbde61b47">draw</a>();</div>
-<div class="line"><a id="l00299" name="l00299"></a><span class="lineno">  299</span> </div>
-<div class="line"><a id="l00300" name="l00300"></a><span class="lineno">  300</span>      nemo.<a class="code hl_variable" href="class_game_1_1_nemo.html#a9dd7680fb3fc656fd34e866a07069e05">active</a> = <span class="keyword">true</span>;</div>
-<div class="line"><a id="l00301" name="l00301"></a><span class="lineno">  301</span>      nemo.<a class="code hl_function" href="class_game_1_1_nemo.html#a9bdc504d11a7a80f75dc51b2f6f4e857">Update</a>(); <span class="comment">// nemo walking movement and animation</span></div>
-<div class="line"><a id="l00302" name="l00302"></a><span class="lineno">  302</span>      nemo.<a class="code hl_function" href="class_game_1_1_nemo.html#aceedd442d803373e468c4ce25b33fcea">Draw</a>();   <span class="comment">// nemo walking movement and animation</span></div>
-<div class="line"><a id="l00303" name="l00303"></a><span class="lineno">  303</span>      camera.target = Vector2 { nemo.<a class="code hl_variable" href="class_game_1_1_nemo.html#aadbc7bc7701d5bab3cdbf7a31c91f9d4">NemoPosition</a>.x + 20.0f, nemo.<a class="code hl_variable" href="class_game_1_1_nemo.html#aadbc7bc7701d5bab3cdbf7a31c91f9d4">NemoPosition</a>.y + 20.0f };</div>
-<div class="line"><a id="l00304" name="l00304"></a><span class="lineno">  304</span> </div>
-<div class="line"><a id="l00305" name="l00305"></a><span class="lineno">  305</span>      puzzle.<a class="code hl_function" href="class_puzzle.html#a201b7d72417c1134df4745fd9553cd63">collisionChecks</a>();</div>
-<div class="line"><a id="l00306" name="l00306"></a><span class="lineno">  306</span>      puzzle.<a class="code hl_function" href="class_puzzle.html#a31f9260f3d4bf4c738305c5d6823475d">update</a>();</div>
+<div class="line"><a id="l00277" name="l00277"></a><span class="lineno">  277</span>      <span class="keywordflow">if</span> (CheckCollisionRecs(overwold_shadow-&gt;<a class="code hl_function" href="class_shadow.html#a29618ddccf1d9efb78ac022abd709ae3">getShadowRec</a>(), nemo.<a class="code hl_variable" href="class_game_1_1_nemo.html#a6eeebce19217bd8666166e4018b8ffeb">nemorec</a>))</div>
+<div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span>      {</div>
+<div class="line"><a id="l00279" name="l00279"></a><span class="lineno">  279</span>        level.<a class="code hl_variable" href="class_game_1_1_level.html#a9ff6de646793c7bfb823221f68884eb2">currentscreen</a> = <a class="code hl_enumvalue" href="class_game_1_1_level.html#a605a468eab80cc37fd022e5f4541b92dacd4174be077f1cd1964ecb7b16168db6">Game::Level::GameScreen::COMBAT</a>;</div>
+<div class="line"><a id="l00280" name="l00280"></a><span class="lineno">  280</span>        level.<a class="code hl_variable" href="class_game_1_1_level.html#a63e20de164159394103e5a870fa82dd2">opponent</a> = <a class="code hl_enumvalue" href="class_game_1_1_level.html#a1869c9a90dd864b19f379411c5e44952a8160fba05a5a291372a94bc22b55f62b">Game::Level::EnemyType::SHADOW</a>;</div>
+<div class="line"><a id="l00281" name="l00281"></a><span class="lineno">  281</span> </div>
+<div class="line"><a id="l00282" name="l00282"></a><span class="lineno">  282</span>        ShadowDraw = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00283" name="l00283"></a><span class="lineno">  283</span>        overwold_shadow-&gt;<a class="code hl_variable" href="class_shadow.html#a5114e9b1dbb9ca907cf7d4ffda33f9f1">Shadowrec</a> = {};</div>
+<div class="line"><a id="l00284" name="l00284"></a><span class="lineno">  284</span> </div>
+<div class="line"><a id="l00285" name="l00285"></a><span class="lineno">  285</span>      }</div>
+<div class="line"><a id="l00286" name="l00286"></a><span class="lineno">  286</span>      <span class="comment">//====================================================PHARAOH===========================================================</span></div>
+<div class="line"><a id="l00287" name="l00287"></a><span class="lineno">  287</span>      <span class="keywordflow">if</span> (PharaohDraw)</div>
+<div class="line"><a id="l00288" name="l00288"></a><span class="lineno">  288</span>      {</div>
+<div class="line"><a id="l00289" name="l00289"></a><span class="lineno">  289</span>        overworld_pharaoh-&gt;<a class="code hl_function" href="class_pharaoh.html#a3e0a88e6f6d11f51ede89adfb9e6a722">Draw</a>();</div>
+<div class="line"><a id="l00290" name="l00290"></a><span class="lineno">  290</span>      }</div>
+<div class="line"><a id="l00291" name="l00291"></a><span class="lineno">  291</span> </div>
+<div class="line"><a id="l00292" name="l00292"></a><span class="lineno">  292</span>      <span class="keywordflow">if</span> (CheckCollisionRecs(overworld_pharaoh-&gt;<a class="code hl_function" href="class_pharaoh.html#a949f70fe6c9bc16d9664aedaf817cb74">getPharaohRec</a>(), nemo.<a class="code hl_variable" href="class_game_1_1_nemo.html#a6eeebce19217bd8666166e4018b8ffeb">nemorec</a>))</div>
+<div class="line"><a id="l00293" name="l00293"></a><span class="lineno">  293</span>      {</div>
+<div class="line"><a id="l00294" name="l00294"></a><span class="lineno">  294</span>        level.<a class="code hl_variable" href="class_game_1_1_level.html#a9ff6de646793c7bfb823221f68884eb2">currentscreen</a> = <a class="code hl_enumvalue" href="class_game_1_1_level.html#a605a468eab80cc37fd022e5f4541b92dacd4174be077f1cd1964ecb7b16168db6">Game::Level::GameScreen::COMBAT</a>;</div>
+<div class="line"><a id="l00295" name="l00295"></a><span class="lineno">  295</span>        level.<a class="code hl_variable" href="class_game_1_1_level.html#a63e20de164159394103e5a870fa82dd2">opponent</a> = <a class="code hl_enumvalue" href="class_game_1_1_level.html#a1869c9a90dd864b19f379411c5e44952a0ddb78807b616941d9de350c30e952a7">Game::Level::EnemyType::PHARAOH</a>;</div>
+<div class="line"><a id="l00296" name="l00296"></a><span class="lineno">  296</span> </div>
+<div class="line"><a id="l00297" name="l00297"></a><span class="lineno">  297</span>        PharaohDraw = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00298" name="l00298"></a><span class="lineno">  298</span>        overworld_pharaoh-&gt;<a class="code hl_variable" href="class_pharaoh.html#a94b9b768d02a73f1f6d13c020761200d">Pharaohrec</a> = {};</div>
+<div class="line"><a id="l00299" name="l00299"></a><span class="lineno">  299</span>      }</div>
+<div class="line"><a id="l00300" name="l00300"></a><span class="lineno">  300</span>      <span class="comment">//==========================================THE END=========================================================</span></div>
+<div class="line"><a id="l00301" name="l00301"></a><span class="lineno">  301</span> </div>
+<div class="line"><a id="l00302" name="l00302"></a><span class="lineno">  302</span> </div>
+<div class="line"><a id="l00303" name="l00303"></a><span class="lineno">  303</span> </div>
+<div class="line"><a id="l00304" name="l00304"></a><span class="lineno">  304</span>      DrawFPS(nemo.<a class="code hl_variable" href="class_game_1_1_nemo.html#aadbc7bc7701d5bab3cdbf7a31c91f9d4">NemoPosition</a>.x - 280, nemo.<a class="code hl_variable" href="class_game_1_1_nemo.html#aadbc7bc7701d5bab3cdbf7a31c91f9d4">NemoPosition</a>.y - 150);</div>
+<div class="line"><a id="l00305" name="l00305"></a><span class="lineno">  305</span> </div>
+<div class="line"><a id="l00306" name="l00306"></a><span class="lineno">  306</span>      puzzle.<a class="code hl_function" href="class_puzzle.html#a5ff608ec8195a89e9e0a6eedbde61b47">draw</a>();</div>
 <div class="line"><a id="l00307" name="l00307"></a><span class="lineno">  307</span> </div>
-<div class="line"><a id="l00308" name="l00308"></a><span class="lineno">  308</span> </div>
-<div class="line"><a id="l00309" name="l00309"></a><span class="lineno">  309</span>      <span class="comment">//teleport back to overworld</span></div>
-<div class="line"><a id="l00310" name="l00310"></a><span class="lineno">  310</span>      level.<a class="code hl_function" href="class_game_1_1_level.html#a18f55a8401fc5ed824a43dcad083ca71">Teleport</a>();</div>
-<div class="line"><a id="l00311" name="l00311"></a><span class="lineno">  311</span>      DrawRectangleRec(level.<a class="code hl_variable" href="class_game_1_1_level.html#aff3b7947ca1fa4cfe85bd57cc67578a9">teleportrecPYRAMIDtoOVERWORLD</a>, Color{});</div>
-<div class="line"><a id="l00312" name="l00312"></a><span class="lineno">  312</span>      DrawRectangleRec(level.<a class="code hl_variable" href="class_game_1_1_level.html#ad9b531d237f875b0033db24185998d34">teleportrecPYRAMIDtoENDSCREEN</a>, Color{});</div>
+<div class="line"><a id="l00308" name="l00308"></a><span class="lineno">  308</span>      <a class="code hl_variable" href="namespace_game_audio.html#ac9583206694ae9c461dbd24aaaeef65c">collision</a>.draw();</div>
+<div class="line"><a id="l00309" name="l00309"></a><span class="lineno">  309</span> </div>
+<div class="line"><a id="l00310" name="l00310"></a><span class="lineno">  310</span>      <span class="keywordflow">if</span> (IsKeyDown(KEY_R)){</div>
+<div class="line"><a id="l00311" name="l00311"></a><span class="lineno">  311</span>        <a class="code hl_variable" href="namespace_game_audio.html#ac9583206694ae9c461dbd24aaaeef65c">collision</a>.walldraw();</div>
+<div class="line"><a id="l00312" name="l00312"></a><span class="lineno">  312</span>      }</div>
 <div class="line"><a id="l00313" name="l00313"></a><span class="lineno">  313</span> </div>
-<div class="line"><a id="l00314" name="l00314"></a><span class="lineno">  314</span>      <span class="comment">//map.update();</span></div>
-<div class="line"><a id="l00315" name="l00315"></a><span class="lineno">  315</span>      <span class="comment">//collision.update(); //TODO the rectangle doesnt have anything init which doesnt alway it to collide with anything... theres an error and the game crashes</span></div>
-<div class="line"><a id="l00316" name="l00316"></a><span class="lineno">  316</span> </div>
-<div class="line"><a id="l00317" name="l00317"></a><span class="lineno">  317</span>      <span class="keywordflow">if</span> (IsKeyPressed(KEY_P)){</div>
-<div class="line"><a id="l00318" name="l00318"></a><span class="lineno">  318</span>        level.<a class="code hl_variable" href="class_game_1_1_level.html#a9ff6de646793c7bfb823221f68884eb2">currentscreen</a> = <a class="code hl_enumvalue" href="class_game_1_1_level.html#a605a468eab80cc37fd022e5f4541b92da36652ad71a00419c20c7ba1a7042682f">Game::Level::GameScreen::PAUSEMENU</a>;</div>
-<div class="line"><a id="l00319" name="l00319"></a><span class="lineno">  319</span>      }</div>
+<div class="line"><a id="l00314" name="l00314"></a><span class="lineno">  314</span>      nemo.<a class="code hl_variable" href="class_game_1_1_nemo.html#a9dd7680fb3fc656fd34e866a07069e05">active</a> = <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00315" name="l00315"></a><span class="lineno">  315</span>      nemo.<a class="code hl_function" href="class_game_1_1_nemo.html#a9bdc504d11a7a80f75dc51b2f6f4e857">Update</a>(); <span class="comment">// nemo walking movement and animation</span></div>
+<div class="line"><a id="l00316" name="l00316"></a><span class="lineno">  316</span>      nemo.<a class="code hl_function" href="class_game_1_1_nemo.html#aceedd442d803373e468c4ce25b33fcea">Draw</a>();   <span class="comment">// nemo walking movement and animation</span></div>
+<div class="line"><a id="l00317" name="l00317"></a><span class="lineno">  317</span>      camera.target = Vector2 { nemo.<a class="code hl_variable" href="class_game_1_1_nemo.html#aadbc7bc7701d5bab3cdbf7a31c91f9d4">NemoPosition</a>.x + 20.0f, nemo.<a class="code hl_variable" href="class_game_1_1_nemo.html#aadbc7bc7701d5bab3cdbf7a31c91f9d4">NemoPosition</a>.y + 20.0f };</div>
+<div class="line"><a id="l00318" name="l00318"></a><span class="lineno">  318</span> </div>
+<div class="line"><a id="l00319" name="l00319"></a><span class="lineno">  319</span>      <a class="code hl_variable" href="namespace_game_audio.html#ac9583206694ae9c461dbd24aaaeef65c">collision</a>.inPryaWallCollision();</div>
 <div class="line"><a id="l00320" name="l00320"></a><span class="lineno">  320</span> </div>
-<div class="line"><a id="l00321" name="l00321"></a><span class="lineno">  321</span>      <span class="keywordflow">break</span>;</div>
-<div class="line"><a id="l00322" name="l00322"></a><span class="lineno">  322</span> </div>
-<div class="line"><a id="l00323" name="l00323"></a><span class="lineno">  323</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="class_game_1_1_level.html#a605a468eab80cc37fd022e5f4541b92da25cd5d7590da7b2a4e474984bf1dd5ae">Game::Level::GameScreen::ENDSCREEN</a>:</div>
+<div class="line"><a id="l00321" name="l00321"></a><span class="lineno">  321</span>      puzzle.<a class="code hl_function" href="class_puzzle.html#a201b7d72417c1134df4745fd9553cd63">collisionChecks</a>();</div>
+<div class="line"><a id="l00322" name="l00322"></a><span class="lineno">  322</span>      puzzle.<a class="code hl_function" href="class_puzzle.html#a31f9260f3d4bf4c738305c5d6823475d">update</a>();</div>
+<div class="line"><a id="l00323" name="l00323"></a><span class="lineno">  323</span> </div>
 <div class="line"><a id="l00324" name="l00324"></a><span class="lineno">  324</span> </div>
-<div class="line"><a id="l00325" name="l00325"></a><span class="lineno">  325</span>      camera.target = Vector2 { Game::ScreenWidth / 2, Game::ScreenHeight / 2 };</div>
-<div class="line"><a id="l00326" name="l00326"></a><span class="lineno">  326</span>      <span class="keywordflow">break</span>;</div>
-<div class="line"><a id="l00327" name="l00327"></a><span class="lineno">  327</span> </div>
-<div class="line"><a id="l00328" name="l00328"></a><span class="lineno">  328</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="class_game_1_1_level.html#a605a468eab80cc37fd022e5f4541b92dacd4174be077f1cd1964ecb7b16168db6">Game::Level::GameScreen::COMBAT</a>:</div>
-<div class="line"><a id="l00329" name="l00329"></a><span class="lineno">  329</span>      camera.zoom     = 2.0f;</div>
-<div class="line"><a id="l00330" name="l00330"></a><span class="lineno">  330</span> </div>
-<div class="line"><a id="l00331" name="l00331"></a><span class="lineno">  331</span>      nemo.<a class="code hl_variable" href="class_game_1_1_nemo.html#a9dd7680fb3fc656fd34e866a07069e05">active</a> = <span class="keyword">false</span>; <span class="comment">// Nemo is set to false, so that he is not drawn in the Combat screen.</span></div>
-<div class="line"><a id="l00332" name="l00332"></a><span class="lineno">  332</span>      camera.target =</div>
-<div class="line"><a id="l00333" name="l00333"></a><span class="lineno">  333</span>        Vector2 { Game::ScreenWidth / 2,</div>
-<div class="line"><a id="l00334" name="l00334"></a><span class="lineno">  334</span>                  Game::ScreenHeight / 2 }; <span class="comment">// Setting Camera to a Constant Position. Otherwise it would follow Nemo</span></div>
-<div class="line"><a id="l00335" name="l00335"></a><span class="lineno">  335</span>      <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00325" name="l00325"></a><span class="lineno">  325</span>      <span class="comment">//teleport back to overworld</span></div>
+<div class="line"><a id="l00326" name="l00326"></a><span class="lineno">  326</span>      level.<a class="code hl_function" href="class_game_1_1_level.html#a18f55a8401fc5ed824a43dcad083ca71">Teleport</a>();</div>
+<div class="line"><a id="l00327" name="l00327"></a><span class="lineno">  327</span>      DrawRectangleRec(level.<a class="code hl_variable" href="class_game_1_1_level.html#aff3b7947ca1fa4cfe85bd57cc67578a9">teleportrecPYRAMIDtoOVERWORLD</a>, Color{});</div>
+<div class="line"><a id="l00328" name="l00328"></a><span class="lineno">  328</span>      DrawRectangleRec(level.<a class="code hl_variable" href="class_game_1_1_level.html#ad9b531d237f875b0033db24185998d34">teleportrecPYRAMIDtoENDSCREEN</a>, Color{});</div>
+<div class="line"><a id="l00329" name="l00329"></a><span class="lineno">  329</span> </div>
+<div class="line"><a id="l00330" name="l00330"></a><span class="lineno">  330</span>      <span class="comment">//map.update();</span></div>
+<div class="line"><a id="l00331" name="l00331"></a><span class="lineno">  331</span>      <span class="comment">//collision.update(); //TODO the rectangle doesnt have anything init which doesnt alway it to collide with anything... theres an error and the game crashes</span></div>
+<div class="line"><a id="l00332" name="l00332"></a><span class="lineno">  332</span> </div>
+<div class="line"><a id="l00333" name="l00333"></a><span class="lineno">  333</span>      <span class="keywordflow">if</span> (IsKeyPressed(KEY_P)){</div>
+<div class="line"><a id="l00334" name="l00334"></a><span class="lineno">  334</span>        level.<a class="code hl_variable" href="class_game_1_1_level.html#a9ff6de646793c7bfb823221f68884eb2">currentscreen</a> = <a class="code hl_enumvalue" href="class_game_1_1_level.html#a605a468eab80cc37fd022e5f4541b92da36652ad71a00419c20c7ba1a7042682f">Game::Level::GameScreen::PAUSEMENU</a>;</div>
+<div class="line"><a id="l00335" name="l00335"></a><span class="lineno">  335</span>      }</div>
 <div class="line"><a id="l00336" name="l00336"></a><span class="lineno">  336</span> </div>
-<div class="line"><a id="l00337" name="l00337"></a><span class="lineno">  337</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="class_game_1_1_level.html#a605a468eab80cc37fd022e5f4541b92da5ec7230608d2c1c4505d756b77e0c76a">Game::Level::GameScreen::GAMEOVER</a>:</div>
-<div class="line"><a id="l00338" name="l00338"></a><span class="lineno">  338</span>      camera.target = Vector2 {Game::ScreenWidth / 2 + 305, Game::ScreenHeight / 2 + 155};</div>
-<div class="line"><a id="l00339" name="l00339"></a><span class="lineno">  339</span>      <span class="keywordflow">break</span>;</div>
-<div class="line"><a id="l00340" name="l00340"></a><span class="lineno">  340</span>    }</div>
-<div class="line"><a id="l00341" name="l00341"></a><span class="lineno">  341</span> </div>
-<div class="line"><a id="l00342" name="l00342"></a><span class="lineno">  342</span>    EndMode2D(); <span class="comment">// camera</span></div>
+<div class="line"><a id="l00337" name="l00337"></a><span class="lineno">  337</span>      <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00338" name="l00338"></a><span class="lineno">  338</span> </div>
+<div class="line"><a id="l00339" name="l00339"></a><span class="lineno">  339</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="class_game_1_1_level.html#a605a468eab80cc37fd022e5f4541b92da25cd5d7590da7b2a4e474984bf1dd5ae">Game::Level::GameScreen::ENDSCREEN</a>:</div>
+<div class="line"><a id="l00340" name="l00340"></a><span class="lineno">  340</span> </div>
+<div class="line"><a id="l00341" name="l00341"></a><span class="lineno">  341</span>      camera.target = Vector2 { Game::ScreenWidth / 2, Game::ScreenHeight / 2 };</div>
+<div class="line"><a id="l00342" name="l00342"></a><span class="lineno">  342</span>      <span class="keywordflow">break</span>;</div>
 <div class="line"><a id="l00343" name="l00343"></a><span class="lineno">  343</span> </div>
-<div class="line"><a id="l00344" name="l00344"></a><span class="lineno">  344</span>    EndDrawing();</div>
-<div class="line"><a id="l00345" name="l00345"></a><span class="lineno">  345</span>    <span class="comment">//--------------------------------------------------------------------------------------------</span></div>
-<div class="line"><a id="l00346" name="l00346"></a><span class="lineno">  346</span>  }</div>
-<div class="line"><a id="l00347" name="l00347"></a><span class="lineno">  347</span>  <span class="comment">// Main game loop end</span></div>
-<div class="line"><a id="l00348" name="l00348"></a><span class="lineno">  348</span>  <span class="comment">//--------------------------------------------------------------------------------------------</span></div>
-<div class="line"><a id="l00349" name="l00349"></a><span class="lineno">  349</span> </div>
-<div class="line"><a id="l00350" name="l00350"></a><span class="lineno">  350</span>  <span class="comment">// De-initialization here</span></div>
-<div class="line"><a id="l00351" name="l00351"></a><span class="lineno">  351</span>  <span class="comment">//--------------------------------------------------------------------------------------------</span></div>
+<div class="line"><a id="l00344" name="l00344"></a><span class="lineno">  344</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="class_game_1_1_level.html#a605a468eab80cc37fd022e5f4541b92dacd4174be077f1cd1964ecb7b16168db6">Game::Level::GameScreen::COMBAT</a>:</div>
+<div class="line"><a id="l00345" name="l00345"></a><span class="lineno">  345</span>      camera.zoom     = 2.0f;</div>
+<div class="line"><a id="l00346" name="l00346"></a><span class="lineno">  346</span> </div>
+<div class="line"><a id="l00347" name="l00347"></a><span class="lineno">  347</span>      nemo.<a class="code hl_variable" href="class_game_1_1_nemo.html#a9dd7680fb3fc656fd34e866a07069e05">active</a> = <span class="keyword">false</span>; <span class="comment">// Nemo is set to false, so that he is not drawn in the Combat screen.</span></div>
+<div class="line"><a id="l00348" name="l00348"></a><span class="lineno">  348</span>      camera.target =</div>
+<div class="line"><a id="l00349" name="l00349"></a><span class="lineno">  349</span>        Vector2 { Game::ScreenWidth / 2,</div>
+<div class="line"><a id="l00350" name="l00350"></a><span class="lineno">  350</span>                  Game::ScreenHeight / 2 }; <span class="comment">// Setting Camera to a Constant Position. Otherwise it would follow Nemo</span></div>
+<div class="line"><a id="l00351" name="l00351"></a><span class="lineno">  351</span>      <span class="keywordflow">break</span>;</div>
 <div class="line"><a id="l00352" name="l00352"></a><span class="lineno">  352</span> </div>
-<div class="line"><a id="l00353" name="l00353"></a><span class="lineno">  353</span> </div>
-<div class="line"><a id="l00354" name="l00354"></a><span class="lineno">  354</span>  level.<a class="code hl_function" href="class_game_1_1_level.html#a70875e348acd232acba7df8fd188f657">~Level</a>();</div>
-<div class="line"><a id="l00355" name="l00355"></a><span class="lineno">  355</span>  puzzle.<a class="code hl_function" href="class_puzzle.html#af15f47ca5491675d41d88b3dd1f4a648">~Puzzle</a>();</div>
-<div class="line"><a id="l00356" name="l00356"></a><span class="lineno">  356</span>  <span class="comment">//map.~LevelMap();</span></div>
+<div class="line"><a id="l00353" name="l00353"></a><span class="lineno">  353</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="class_game_1_1_level.html#a605a468eab80cc37fd022e5f4541b92da5ec7230608d2c1c4505d756b77e0c76a">Game::Level::GameScreen::GAMEOVER</a>:</div>
+<div class="line"><a id="l00354" name="l00354"></a><span class="lineno">  354</span>      camera.target = Vector2 {Game::ScreenWidth / 2 + 305, Game::ScreenHeight / 2 + 155};</div>
+<div class="line"><a id="l00355" name="l00355"></a><span class="lineno">  355</span>      <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00356" name="l00356"></a><span class="lineno">  356</span>    }</div>
 <div class="line"><a id="l00357" name="l00357"></a><span class="lineno">  357</span> </div>
-<div class="line"><a id="l00358" name="l00358"></a><span class="lineno">  358</span>  CloseAudioDevice(); <span class="comment">// Close audio device</span></div>
+<div class="line"><a id="l00358" name="l00358"></a><span class="lineno">  358</span>    EndMode2D(); <span class="comment">// camera</span></div>
 <div class="line"><a id="l00359" name="l00359"></a><span class="lineno">  359</span> </div>
-<div class="line"><a id="l00360" name="l00360"></a><span class="lineno">  360</span>  CloseWindow(); <span class="comment">// Close window and OpenGL context</span></div>
-<div class="line"><a id="l00361" name="l00361"></a><span class="lineno">  361</span> </div>
-<div class="line"><a id="l00362" name="l00362"></a><span class="lineno">  362</span>  <span class="keywordflow">return</span> EXIT_SUCCESS;</div>
-<div class="line"><a id="l00363" name="l00363"></a><span class="lineno">  363</span>}</div>
+<div class="line"><a id="l00360" name="l00360"></a><span class="lineno">  360</span>    EndDrawing();</div>
+<div class="line"><a id="l00361" name="l00361"></a><span class="lineno">  361</span>    <span class="comment">//--------------------------------------------------------------------------------------------</span></div>
+<div class="line"><a id="l00362" name="l00362"></a><span class="lineno">  362</span>  }</div>
+<div class="line"><a id="l00363" name="l00363"></a><span class="lineno">  363</span>  <span class="comment">// Main game loop end</span></div>
+<div class="line"><a id="l00364" name="l00364"></a><span class="lineno">  364</span>  <span class="comment">//--------------------------------------------------------------------------------------------</span></div>
+<div class="line"><a id="l00365" name="l00365"></a><span class="lineno">  365</span> </div>
+<div class="line"><a id="l00366" name="l00366"></a><span class="lineno">  366</span>  <span class="comment">// De-initialization here</span></div>
+<div class="line"><a id="l00367" name="l00367"></a><span class="lineno">  367</span>  <span class="comment">//--------------------------------------------------------------------------------------------</span></div>
+<div class="line"><a id="l00368" name="l00368"></a><span class="lineno">  368</span> </div>
+<div class="line"><a id="l00369" name="l00369"></a><span class="lineno">  369</span> </div>
+<div class="line"><a id="l00370" name="l00370"></a><span class="lineno">  370</span>  level.<a class="code hl_function" href="class_game_1_1_level.html#a70875e348acd232acba7df8fd188f657">~Level</a>();</div>
+<div class="line"><a id="l00371" name="l00371"></a><span class="lineno">  371</span>  puzzle.<a class="code hl_function" href="class_puzzle.html#af15f47ca5491675d41d88b3dd1f4a648">~Puzzle</a>();</div>
+<div class="line"><a id="l00372" name="l00372"></a><span class="lineno">  372</span>  <span class="comment">//map.~LevelMap();</span></div>
+<div class="line"><a id="l00373" name="l00373"></a><span class="lineno">  373</span> </div>
+<div class="line"><a id="l00374" name="l00374"></a><span class="lineno">  374</span>  CloseAudioDevice(); <span class="comment">// Close audio device</span></div>
+<div class="line"><a id="l00375" name="l00375"></a><span class="lineno">  375</span> </div>
+<div class="line"><a id="l00376" name="l00376"></a><span class="lineno">  376</span>  CloseWindow(); <span class="comment">// Close window and OpenGL context</span></div>
+<div class="line"><a id="l00377" name="l00377"></a><span class="lineno">  377</span> </div>
+<div class="line"><a id="l00378" name="l00378"></a><span class="lineno">  378</span>  <span class="keywordflow">return</span> EXIT_SUCCESS;</div>
+<div class="line"><a id="l00379" name="l00379"></a><span class="lineno">  379</span>}</div>
 <div class="ttc" id="a_dialogue_8h_html"><div class="ttname"><a href="_dialogue_8h.html">Dialogue.h</a></div></div>
 <div class="ttc" id="a_enemy_01_overworld_01_sprites_2_mumy_8h_html"><div class="ttname"><a href="_enemy_01_overworld_01_sprites_2_mumy_8h.html">Mumy.h</a></div></div>
 <div class="ttc" id="a_enemy_01_overworld_01_sprites_2_pharaoh_8h_html"><div class="ttname"><a href="_enemy_01_overworld_01_sprites_2_pharaoh_8h.html">Pharaoh.h</a></div></div>
@@ -469,7 +485,7 @@ $(document).ready(function(){initNavTree('main_8cpp_source.html',''); initResiza
 <div class="ttc" id="aclass_game_1_1_level_html_a1869c9a90dd864b19f379411c5e44952a0ddb78807b616941d9de350c30e952a7"><div class="ttname"><a href="class_game_1_1_level.html#a1869c9a90dd864b19f379411c5e44952a0ddb78807b616941d9de350c30e952a7">Game::Level::EnemyType::PHARAOH</a></div><div class="ttdeci">@ PHARAOH</div></div>
 <div class="ttc" id="aclass_game_1_1_level_html_a1869c9a90dd864b19f379411c5e44952a8160fba05a5a291372a94bc22b55f62b"><div class="ttname"><a href="class_game_1_1_level.html#a1869c9a90dd864b19f379411c5e44952a8160fba05a5a291372a94bc22b55f62b">Game::Level::EnemyType::SHADOW</a></div><div class="ttdeci">@ SHADOW</div></div>
 <div class="ttc" id="aclass_game_1_1_level_html_a1869c9a90dd864b19f379411c5e44952addf4e3fc0269fcc2ef656e0d7656977c"><div class="ttname"><a href="class_game_1_1_level.html#a1869c9a90dd864b19f379411c5e44952addf4e3fc0269fcc2ef656e0d7656977c">Game::Level::EnemyType::MUMY</a></div><div class="ttdeci">@ MUMY</div></div>
-<div class="ttc" id="aclass_game_1_1_level_html_a18f55a8401fc5ed824a43dcad083ca71"><div class="ttname"><a href="class_game_1_1_level.html#a18f55a8401fc5ed824a43dcad083ca71">Game::Level::Teleport</a></div><div class="ttdeci">void Teleport()</div><div class="ttdef"><b>Definition:</b> <a href="_level_8cpp_source.html#l00554">Level.cpp:554</a></div></div>
+<div class="ttc" id="aclass_game_1_1_level_html_a18f55a8401fc5ed824a43dcad083ca71"><div class="ttname"><a href="class_game_1_1_level.html#a18f55a8401fc5ed824a43dcad083ca71">Game::Level::Teleport</a></div><div class="ttdeci">void Teleport()</div><div class="ttdef"><b>Definition:</b> <a href="_level_8cpp_source.html#l00556">Level.cpp:556</a></div></div>
 <div class="ttc" id="aclass_game_1_1_level_html_a24615ce90042a8cbc5ca2680302631f8"><div class="ttname"><a href="class_game_1_1_level.html#a24615ce90042a8cbc5ca2680302631f8">Game::Level::nemo</a></div><div class="ttdeci">Nemo * nemo</div><div class="ttdef"><b>Definition:</b> <a href="_level_8h_source.html#l00040">Level.h:40</a></div></div>
 <div class="ttc" id="aclass_game_1_1_level_html_a4825a2ba7815a48bb027e7aba7ac0f8b"><div class="ttname"><a href="class_game_1_1_level.html#a4825a2ba7815a48bb027e7aba7ac0f8b">Game::Level::spr</a></div><div class="ttdeci">Game::Sprite * spr</div><div class="ttdef"><b>Definition:</b> <a href="_level_8h_source.html#l00059">Level.h:59</a></div></div>
 <div class="ttc" id="aclass_game_1_1_level_html_a605a468eab80cc37fd022e5f4541b92da25cd5d7590da7b2a4e474984bf1dd5ae"><div class="ttname"><a href="class_game_1_1_level.html#a605a468eab80cc37fd022e5f4541b92da25cd5d7590da7b2a4e474984bf1dd5ae">Game::Level::GameScreen::ENDSCREEN</a></div><div class="ttdeci">@ ENDSCREEN</div></div>
@@ -480,18 +496,18 @@ $(document).ready(function(){initNavTree('main_8cpp_source.html',''); initResiza
 <div class="ttc" id="aclass_game_1_1_level_html_a605a468eab80cc37fd022e5f4541b92da9ea3a3599dfde990e6b243ce6622cc0e"><div class="ttname"><a href="class_game_1_1_level.html#a605a468eab80cc37fd022e5f4541b92da9ea3a3599dfde990e6b243ce6622cc0e">Game::Level::GameScreen::TITLESCREEN</a></div><div class="ttdeci">@ TITLESCREEN</div></div>
 <div class="ttc" id="aclass_game_1_1_level_html_a605a468eab80cc37fd022e5f4541b92dacd4174be077f1cd1964ecb7b16168db6"><div class="ttname"><a href="class_game_1_1_level.html#a605a468eab80cc37fd022e5f4541b92dacd4174be077f1cd1964ecb7b16168db6">Game::Level::GameScreen::COMBAT</a></div><div class="ttdeci">@ COMBAT</div></div>
 <div class="ttc" id="aclass_game_1_1_level_html_a63e20de164159394103e5a870fa82dd2"><div class="ttname"><a href="class_game_1_1_level.html#a63e20de164159394103e5a870fa82dd2">Game::Level::opponent</a></div><div class="ttdeci">EnemyType opponent</div><div class="ttdef"><b>Definition:</b> <a href="_level_8h_source.html#l00100">Level.h:100</a></div></div>
-<div class="ttc" id="aclass_game_1_1_level_html_a70875e348acd232acba7df8fd188f657"><div class="ttname"><a href="class_game_1_1_level.html#a70875e348acd232acba7df8fd188f657">Game::Level::~Level</a></div><div class="ttdeci">~Level()</div><div class="ttdef"><b>Definition:</b> <a href="_level_8cpp_source.html#l00585">Level.cpp:585</a></div></div>
+<div class="ttc" id="aclass_game_1_1_level_html_a70875e348acd232acba7df8fd188f657"><div class="ttname"><a href="class_game_1_1_level.html#a70875e348acd232acba7df8fd188f657">Game::Level::~Level</a></div><div class="ttdeci">~Level()</div><div class="ttdef"><b>Definition:</b> <a href="_level_8cpp_source.html#l00570">Level.cpp:570</a></div></div>
 <div class="ttc" id="aclass_game_1_1_level_html_a9f7849e78f25d6599c80293b4579fd66"><div class="ttname"><a href="class_game_1_1_level.html#a9f7849e78f25d6599c80293b4579fd66">Game::Level::ScreenDraw</a></div><div class="ttdeci">void ScreenDraw()</div><div class="ttdef"><b>Definition:</b> <a href="_level_8cpp_source.html#l00196">Level.cpp:196</a></div></div>
 <div class="ttc" id="aclass_game_1_1_level_html_a9ff6de646793c7bfb823221f68884eb2"><div class="ttname"><a href="class_game_1_1_level.html#a9ff6de646793c7bfb823221f68884eb2">Game::Level::currentscreen</a></div><div class="ttdeci">GameScreen currentscreen</div><div class="ttdef"><b>Definition:</b> <a href="_level_8h_source.html#l00095">Level.h:95</a></div></div>
 <div class="ttc" id="aclass_game_1_1_level_html_ad9b531d237f875b0033db24185998d34"><div class="ttname"><a href="class_game_1_1_level.html#ad9b531d237f875b0033db24185998d34">Game::Level::teleportrecPYRAMIDtoENDSCREEN</a></div><div class="ttdeci">Rectangle teleportrecPYRAMIDtoENDSCREEN</div><div class="ttdef"><b>Definition:</b> <a href="_level_8h_source.html#l00084">Level.h:84</a></div></div>
 <div class="ttc" id="aclass_game_1_1_level_html_aff3b7947ca1fa4cfe85bd57cc67578a9"><div class="ttname"><a href="class_game_1_1_level.html#aff3b7947ca1fa4cfe85bd57cc67578a9">Game::Level::teleportrecPYRAMIDtoOVERWORLD</a></div><div class="ttdeci">Rectangle teleportrecPYRAMIDtoOVERWORLD</div><div class="ttdef"><b>Definition:</b> <a href="_level_8h_source.html#l00083">Level.h:83</a></div></div>
 <div class="ttc" id="aclass_game_1_1_nemo_html"><div class="ttname"><a href="class_game_1_1_nemo.html">Game::Nemo</a></div><div class="ttdef"><b>Definition:</b> <a href="_nemo_8h_source.html#l00009">Nemo.h:9</a></div></div>
-<div class="ttc" id="aclass_game_1_1_nemo_html_a6eeebce19217bd8666166e4018b8ffeb"><div class="ttname"><a href="class_game_1_1_nemo.html#a6eeebce19217bd8666166e4018b8ffeb">Game::Nemo::nemorec</a></div><div class="ttdeci">Rectangle nemorec</div><div class="ttdef"><b>Definition:</b> <a href="_nemo_8h_source.html#l00046">Nemo.h:46</a></div></div>
-<div class="ttc" id="aclass_game_1_1_nemo_html_a83da4c8ade8f0b0cf7b7ca1d8be2e075"><div class="ttname"><a href="class_game_1_1_nemo.html#a83da4c8ade8f0b0cf7b7ca1d8be2e075">Game::Nemo::Front</a></div><div class="ttdeci">Texture2D Front</div><div class="ttdef"><b>Definition:</b> <a href="_nemo_8h_source.html#l00036">Nemo.h:36</a></div></div>
+<div class="ttc" id="aclass_game_1_1_nemo_html_a6eeebce19217bd8666166e4018b8ffeb"><div class="ttname"><a href="class_game_1_1_nemo.html#a6eeebce19217bd8666166e4018b8ffeb">Game::Nemo::nemorec</a></div><div class="ttdeci">Rectangle nemorec</div><div class="ttdef"><b>Definition:</b> <a href="_nemo_8h_source.html#l00050">Nemo.h:50</a></div></div>
+<div class="ttc" id="aclass_game_1_1_nemo_html_a83da4c8ade8f0b0cf7b7ca1d8be2e075"><div class="ttname"><a href="class_game_1_1_nemo.html#a83da4c8ade8f0b0cf7b7ca1d8be2e075">Game::Nemo::Front</a></div><div class="ttdeci">Texture2D Front</div><div class="ttdef"><b>Definition:</b> <a href="_nemo_8h_source.html#l00039">Nemo.h:39</a></div></div>
 <div class="ttc" id="aclass_game_1_1_nemo_html_a9bdc504d11a7a80f75dc51b2f6f4e857"><div class="ttname"><a href="class_game_1_1_nemo.html#a9bdc504d11a7a80f75dc51b2f6f4e857">Game::Nemo::Update</a></div><div class="ttdeci">void Update()</div><div class="ttdef"><b>Definition:</b> <a href="_nemo_8cpp_source.html#l00006">Nemo.cpp:6</a></div></div>
-<div class="ttc" id="aclass_game_1_1_nemo_html_a9dd7680fb3fc656fd34e866a07069e05"><div class="ttname"><a href="class_game_1_1_nemo.html#a9dd7680fb3fc656fd34e866a07069e05">Game::Nemo::active</a></div><div class="ttdeci">bool active</div><div class="ttdef"><b>Definition:</b> <a href="_nemo_8h_source.html#l00019">Nemo.h:19</a></div></div>
-<div class="ttc" id="aclass_game_1_1_nemo_html_aadbc7bc7701d5bab3cdbf7a31c91f9d4"><div class="ttname"><a href="class_game_1_1_nemo.html#aadbc7bc7701d5bab3cdbf7a31c91f9d4">Game::Nemo::NemoPosition</a></div><div class="ttdeci">Vector2 NemoPosition</div><div class="ttdef"><b>Definition:</b> <a href="_nemo_8h_source.html#l00017">Nemo.h:17</a></div></div>
-<div class="ttc" id="aclass_game_1_1_nemo_html_aceedd442d803373e468c4ce25b33fcea"><div class="ttname"><a href="class_game_1_1_nemo.html#aceedd442d803373e468c4ce25b33fcea">Game::Nemo::Draw</a></div><div class="ttdeci">void Draw()</div><div class="ttdef"><b>Definition:</b> <a href="_nemo_8cpp_source.html#l00139">Nemo.cpp:139</a></div></div>
+<div class="ttc" id="aclass_game_1_1_nemo_html_a9dd7680fb3fc656fd34e866a07069e05"><div class="ttname"><a href="class_game_1_1_nemo.html#a9dd7680fb3fc656fd34e866a07069e05">Game::Nemo::active</a></div><div class="ttdeci">bool active</div><div class="ttdef"><b>Definition:</b> <a href="_nemo_8h_source.html#l00020">Nemo.h:20</a></div></div>
+<div class="ttc" id="aclass_game_1_1_nemo_html_aadbc7bc7701d5bab3cdbf7a31c91f9d4"><div class="ttname"><a href="class_game_1_1_nemo.html#aadbc7bc7701d5bab3cdbf7a31c91f9d4">Game::Nemo::NemoPosition</a></div><div class="ttdeci">Vector2 NemoPosition</div><div class="ttdef"><b>Definition:</b> <a href="_nemo_8h_source.html#l00018">Nemo.h:18</a></div></div>
+<div class="ttc" id="aclass_game_1_1_nemo_html_aceedd442d803373e468c4ce25b33fcea"><div class="ttname"><a href="class_game_1_1_nemo.html#aceedd442d803373e468c4ce25b33fcea">Game::Nemo::Draw</a></div><div class="ttdeci">void Draw()</div><div class="ttdef"><b>Definition:</b> <a href="_nemo_8cpp_source.html#l00180">Nemo.cpp:180</a></div></div>
 <div class="ttc" id="aclass_game_1_1_sprite_html"><div class="ttname"><a href="class_game_1_1_sprite.html">Game::Sprite</a></div><div class="ttdef"><b>Definition:</b> <a href="_sprite_8h_source.html#l00006">Sprite.h:6</a></div></div>
 <div class="ttc" id="aclass_game_1_1_sprite_html_a97a94c24c8a0ec142dfa6ab8f33e1328"><div class="ttname"><a href="class_game_1_1_sprite.html#a97a94c24c8a0ec142dfa6ab8f33e1328">Game::Sprite::pos_y</a></div><div class="ttdeci">int pos_y</div><div class="ttdef"><b>Definition:</b> <a href="_sprite_8h_source.html#l00009">Sprite.h:9</a></div></div>
 <div class="ttc" id="aclass_game_1_1_sprite_html_afcd5ba6136f3a917c15413193cdf6abf"><div class="ttname"><a href="class_game_1_1_sprite.html#afcd5ba6136f3a917c15413193cdf6abf">Game::Sprite::pos_x</a></div><div class="ttdeci">int pos_x</div><div class="ttdef"><b>Definition:</b> <a href="_sprite_8h_source.html#l00008">Sprite.h:8</a></div></div>
@@ -510,10 +526,10 @@ $(document).ready(function(){initNavTree('main_8cpp_source.html',''); initResiza
 <div class="ttc" id="aclass_pharaoh_html_a94b9b768d02a73f1f6d13c020761200d"><div class="ttname"><a href="class_pharaoh.html#a94b9b768d02a73f1f6d13c020761200d">Pharaoh::Pharaohrec</a></div><div class="ttdeci">Rectangle Pharaohrec</div><div class="ttdef"><b>Definition:</b> <a href="_enemy_01_overworld_01_sprites_2_pharaoh_8h_source.html#l00015">Enemy Overworld Sprites/Pharaoh.h:15</a></div></div>
 <div class="ttc" id="aclass_puzzle_html"><div class="ttname"><a href="class_puzzle.html">Puzzle</a></div><div class="ttdef"><b>Definition:</b> <a href="_puzzle_8h_source.html#l00005">Puzzle.h:5</a></div></div>
 <div class="ttc" id="aclass_puzzle_html_a0fce4afcc331c6eed9ec1873132b12eb"><div class="ttname"><a href="class_puzzle.html#a0fce4afcc331c6eed9ec1873132b12eb">Puzzle::nemo</a></div><div class="ttdeci">Game::Nemo * nemo</div><div class="ttdef"><b>Definition:</b> <a href="_puzzle_8h_source.html#l00009">Puzzle.h:9</a></div></div>
-<div class="ttc" id="aclass_puzzle_html_a201b7d72417c1134df4745fd9553cd63"><div class="ttname"><a href="class_puzzle.html#a201b7d72417c1134df4745fd9553cd63">Puzzle::collisionChecks</a></div><div class="ttdeci">void collisionChecks()</div><div class="ttdef"><b>Definition:</b> <a href="_puzzle_8cpp_source.html#l00009">Puzzle.cpp:9</a></div></div>
-<div class="ttc" id="aclass_puzzle_html_a31f9260f3d4bf4c738305c5d6823475d"><div class="ttname"><a href="class_puzzle.html#a31f9260f3d4bf4c738305c5d6823475d">Puzzle::update</a></div><div class="ttdeci">void update()</div><div class="ttdef"><b>Definition:</b> <a href="_puzzle_8cpp_source.html#l00056">Puzzle.cpp:56</a></div></div>
-<div class="ttc" id="aclass_puzzle_html_a5ff608ec8195a89e9e0a6eedbde61b47"><div class="ttname"><a href="class_puzzle.html#a5ff608ec8195a89e9e0a6eedbde61b47">Puzzle::draw</a></div><div class="ttdeci">void draw()</div><div class="ttdef"><b>Definition:</b> <a href="_puzzle_8cpp_source.html#l00169">Puzzle.cpp:169</a></div></div>
-<div class="ttc" id="aclass_puzzle_html_af15f47ca5491675d41d88b3dd1f4a648"><div class="ttname"><a href="class_puzzle.html#af15f47ca5491675d41d88b3dd1f4a648">Puzzle::~Puzzle</a></div><div class="ttdeci">~Puzzle()</div><div class="ttdef"><b>Definition:</b> <a href="_puzzle_8cpp_source.html#l00234">Puzzle.cpp:234</a></div></div>
+<div class="ttc" id="aclass_puzzle_html_a201b7d72417c1134df4745fd9553cd63"><div class="ttname"><a href="class_puzzle.html#a201b7d72417c1134df4745fd9553cd63">Puzzle::collisionChecks</a></div><div class="ttdeci">void collisionChecks()</div><div class="ttdef"><b>Definition:</b> <a href="_puzzle_8cpp_source.html#l00007">Puzzle.cpp:7</a></div></div>
+<div class="ttc" id="aclass_puzzle_html_a31f9260f3d4bf4c738305c5d6823475d"><div class="ttname"><a href="class_puzzle.html#a31f9260f3d4bf4c738305c5d6823475d">Puzzle::update</a></div><div class="ttdeci">void update()</div><div class="ttdef"><b>Definition:</b> <a href="_puzzle_8cpp_source.html#l00064">Puzzle.cpp:64</a></div></div>
+<div class="ttc" id="aclass_puzzle_html_a5ff608ec8195a89e9e0a6eedbde61b47"><div class="ttname"><a href="class_puzzle.html#a5ff608ec8195a89e9e0a6eedbde61b47">Puzzle::draw</a></div><div class="ttdeci">void draw()</div><div class="ttdef"><b>Definition:</b> <a href="_puzzle_8cpp_source.html#l00235">Puzzle.cpp:235</a></div></div>
+<div class="ttc" id="aclass_puzzle_html_af15f47ca5491675d41d88b3dd1f4a648"><div class="ttname"><a href="class_puzzle.html#af15f47ca5491675d41d88b3dd1f4a648">Puzzle::~Puzzle</a></div><div class="ttdeci">~Puzzle()</div><div class="ttdef"><b>Definition:</b> <a href="_puzzle_8cpp_source.html#l00313">Puzzle.cpp:313</a></div></div>
 <div class="ttc" id="aclass_shadow_html"><div class="ttname"><a href="class_shadow.html">Shadow</a></div><div class="ttdef"><b>Definition:</b> <a href="_enemy_01_overworld_01_sprites_2_shadow_8h_source.html#l00007">Enemy Overworld Sprites/Shadow.h:7</a></div></div>
 <div class="ttc" id="aclass_shadow_html_a237a15c996f75509f9b66760d2e90909"><div class="ttname"><a href="class_shadow.html#a237a15c996f75509f9b66760d2e90909">Shadow::Draw</a></div><div class="ttdeci">void Draw()</div><div class="ttdef"><b>Definition:</b> <a href="_enemy_01_overworld_01_sprites_2_shadow_8cpp_source.html#l00007">Enemy Overworld Sprites/Shadow.cpp:7</a></div></div>
 <div class="ttc" id="aclass_shadow_html_a29618ddccf1d9efb78ac022abd709ae3"><div class="ttname"><a href="class_shadow.html#a29618ddccf1d9efb78ac022abd709ae3">Shadow::getShadowRec</a></div><div class="ttdeci">Rectangle getShadowRec()</div><div class="ttdef"><b>Definition:</b> <a href="_enemy_01_overworld_01_sprites_2_shadow_8cpp_source.html#l00019">Enemy Overworld Sprites/Shadow.cpp:19</a></div></div>

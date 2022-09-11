@@ -1,6 +1,5 @@
 #include "../INCLUDES.h"
 #include "../Level/Level.h"
-#include "../Level/Map.h"
 #include "../Player/Nemo.h"
 #include "../Level/Dialogue.h"
 
@@ -10,52 +9,32 @@ public:
 
   Game::Nemo * nemo;
   Game::Level * level;
-  LevelMap * map;
 
   Game::Dialog dialog;
 
   Texture2D Dialogbox = LoadTexture("assets/graphics/Character/Dialogbox.png");
   Texture2D EpanoxSheet = LoadTexture("assets/graphics/Character/ReZeitwesenBouncefuerNick.png");
+  Texture2D Torch = LoadTexture("assets/graphics/Items/Asset_Feuerschale-Sheet.png");
 
   Rectangle  EpanoxRec = {972.5, 462.5, 10, 10}; //EpanoxRec
   Rectangle EpanoxRec2 = {961, 458, 20, 24};
 
-  ///Sry about all these RECTANGLES...
+  /// RECTANGLES
   //Outside Rectangles for wall collision
-  vector<Rectangle> outsideWall;
+
   Rectangle OutsideWallLeft = {865, 320, 32, 288};
   Rectangle OutsideWallRight = {990, 320, 32, 288};
   Rectangle OutsideWallBottom = {873, 576, 160, 32};
 
   //Inside Rectangles for wall collision
-  //entrance
+  vector<Rectangle> outsideWall;
   vector<Rectangle> insideWall;
-  Rectangle InsideWall  = {191, 864, 32, 192};
-  Rectangle InsideWall2 = {287, 864, 32, 192};
-  //first room
-  Rectangle InsideWall3 = {130, 864, 96, 32}; // entrance sides - -
-  Rectangle InsideWall4 = {287, 864, 96, 32};
-  Rectangle InsideWall5 = {121, 704, 32, 160}; // left side vertical
-  Rectangle InsideWall6 = {121, 671, 224, 32,}; // top part
-  Rectangle InsideWall7 = {345, 671, 96, 64}; // exit sides
-  Rectangle InsideWall8 = {345, 800, 96, 64};
-
+  vector<Rectangle> torchPosRec;
 
   //outside the pyramid
   bool wallCollision  = false;
   bool wallCollision2 = false;
   bool wallCollision3 = false;
-
-  //inside the pyramid
-  bool wallCollision4  = false;
-  bool wallCollision5  = false;
-  bool wallCollision6  = false;
-  bool wallCollision7  = false;
-  bool wallCollision8  = false;
-  bool wallCollision9  = false;
-  bool wallCollision10 = false;
-  bool wallCollision11 = false;
-  bool wallCollision12 = false;
 
   bool EpanoxCollision = false;
   bool EpanoxCollision2 = false;
@@ -65,18 +44,23 @@ public:
 
   Vector2 EpanoxPosition = {961, 458};
 
-  //Epanox animation
+  // animation
   Rectangle frameRec = { 0.0f, 0.0f, (float)EpanoxSheet.width / 20, (float)EpanoxSheet.height };
+  Rectangle frameRecTorch = { 0.0f, 0.0f, (float)Torch.width / 4, (float)Torch.height };
   int currentFrame   = 0;
   int framesCounter  = 0;
   int framesSpeed    = 4; // animtation fps
 
-  Collision(nlohmann::json levelMapDungeon);
-  void epanoxCollision();
-  void outPyraWallCollision();
+  Collision(nlohmann::json levelMapDungeon); //wall collision
+
+  void stopnemo(); //funkction to stop nemos movement
+
+  void epanoxCollision(); //dialog starts when the collision with epanox happens
+
+  void outPyraWallCollision(); //both have to do with the collision creation of the rectangles for the wall collision
   void inPryaWallCollision();
-  void stopnemo();
-  void update();
+
   void draw();
   void walldraw();
+  void torchAnimations();
 };

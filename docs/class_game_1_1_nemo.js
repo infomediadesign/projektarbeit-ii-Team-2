@@ -20,6 +20,7 @@ var class_game_1_1_nemo =
     [ "framesSpeed", "class_game_1_1_nemo.html#a3e7de1be2250564f465deeb159ea9ceb", null ],
     [ "Front", "class_game_1_1_nemo.html#a83da4c8ade8f0b0cf7b7ca1d8be2e075", null ],
     [ "HP", "class_game_1_1_nemo.html#a03239554e245d03d15a20a0c5dfd0244", null ],
+    [ "keypressed", "class_game_1_1_nemo.html#a5f1a60a72cf9109bdee7c4f6cf39a180", null ],
     [ "Left", "class_game_1_1_nemo.html#a18903bb35052d2bc622cff974a635b27", null ],
     [ "nemoheight", "class_game_1_1_nemo.html#a347285404d2e734b3b171f1c809a68ab", null ],
     [ "NemoPosition", "class_game_1_1_nemo.html#aadbc7bc7701d5bab3cdbf7a31c91f9d4", null ],
@@ -28,10 +29,8 @@ var class_game_1_1_nemo =
     [ "Right", "class_game_1_1_nemo.html#a2a484f9e41da805bd5e9b6d683544c3c", null ],
     [ "sound", "class_game_1_1_nemo.html#aad44e0dd99a5b68876b7cec0be202d4c", null ],
     [ "Stand", "class_game_1_1_nemo.html#ae8412732b697a79d872c7a535e5ac8f1", null ],
-    [ "Stand_currentFrame", "class_game_1_1_nemo.html#ad37f16068c145c413cb3b98a9384c5f5", null ],
-    [ "Stand_framesCounter", "class_game_1_1_nemo.html#a817e29e709a7e5c42971e51959027c11", null ],
-    [ "Stand_framesSpeed", "class_game_1_1_nemo.html#af81d99a11d7eadf829678aebb384e524", null ],
-    [ "Stand_nemorec", "class_game_1_1_nemo.html#af15fde38f8bb936d2d971d143369222e", null ],
     [ "StandframeRec", "class_game_1_1_nemo.html#a8e5fbf7fb9e5cdf5f947922e68b21c7d", null ],
+    [ "standing", "class_game_1_1_nemo.html#a39420d816fc79ec47ec8758d84e64c08", null ],
+    [ "timesinceIdle", "class_game_1_1_nemo.html#a3e1678591cac91f4d49f989e1f63c8d8", null ],
     [ "walkspeed", "class_game_1_1_nemo.html#a2b25672b142e60b8e500dbe2ea212ddd", null ]
 ];

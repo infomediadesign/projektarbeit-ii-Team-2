@@ -90,7 +90,7 @@ namespace Game {
     void combat(GameCharacter *c_enemy);
 
     enum class GameScreen { TITLESCREEN, OVERWORLD, COMBAT, PYRAMIDE,
-      ENDSCREEN, PAUSEMENU, CUTSCENE, GAMEOVER}; //This Enum Class is there to set the Screens to TITLE etc.
+      ENDSCREEN, PAUSEMENU, CUTSCENE, GAMEOVER, PAUSEMENU_OVERWORLD, PAUSEMENU_PYRAMID}; //This Enum Class is there to set the Screens to TITLE etc.
 
     GameScreen currentscreen = GameScreen::TITLESCREEN; //TitleScreens is the Start Screen
     //GameScreen currentscreen = GameScreen::PYRAMIDE; //TitleScreens is the Start Screen

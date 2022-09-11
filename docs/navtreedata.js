@@ -63,9 +63,9 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "_collision_8cpp.html",
-"class_game_1_1_level.html#a2a913abec4c2cd96e8cee95a9ff60be1",
-"class_game_1_1_pharaoh.html#a077ab6bc53a6fe0c97aa1cdf069b7ab2",
-"class_puzzle.html#ac083cccc37e0b8a483d33081c3bcda46"
+"class_game_1_1_level.html#a1869c9a90dd864b19f379411c5e44952",
+"class_game_1_1_nemo.html#abbdb0ef6ff17e26335f6c4bde965ffafa21507b40c80068eda19865706fdc2403",
+"class_puzzle.html#a4c48196297242fc28f680c538273c350"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
