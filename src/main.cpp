@@ -123,6 +123,7 @@ int main() {
     HideCursor();
     SetExitKey(KEY_O);
 
+
     // Begin drawing
     //--------------------------------------------------------------------------------------------
     BeginDrawing();
