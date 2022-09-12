@@ -12,7 +12,7 @@ public:
   Rectangle getMumyRec();
 
   Texture2D spr_mumy = LoadTexture("assets/graphics/map/Level1/Mumie_Final-Sheet.png");
-  Rectangle MumyRec = { 592 + 8, 712 + 5, 16, 20 };
+  Rectangle MumyRec = { 600, 722, 26, 30 };
 
   Rectangle checkpoint1 {470.5, 722, 32, 32};
   Rectangle checkpoint2 {688, 722, 32, 32};

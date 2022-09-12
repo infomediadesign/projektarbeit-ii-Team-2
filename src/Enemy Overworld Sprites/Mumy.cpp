@@ -42,6 +42,7 @@ void Mumy::Draw() {
 
   mumyrec = { MumyRec.x, MumyRec.y, 32, 32 };
   DrawRectangleRec(mumyrec, Color {});
+  //DrawRectangleRec(MumyRec, YELLOW);
   DrawTextureRec(spr_mumy, frameRec, { MumyRec.x, MumyRec.y }, WHITE);
 
   framesCounter++;

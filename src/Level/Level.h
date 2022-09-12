@@ -28,6 +28,9 @@ namespace Game {
     Texture2D PYRAMID_Screenshot = LoadTexture("assets/graphics/backgrounds/PYRAMIDSCREENSHOT.png");
     Texture2D spr_Battery = LoadTexture("assets/graphics/BattleScreen/Agypten/Batterieanzeige-Sheet.png");
     Texture2D gameover = LoadTexture("assets/graphics/backgrounds/GameOverScreen.png");
+    //Texture2D BattleStart = LoadTexture("assets/graphics/BattleScreen/Agypten/BattleStart-Sheet.png");
+
+
 
     //Font LoadFont();
 
@@ -54,8 +57,17 @@ namespace Game {
     Rectangle batteryrec1 = {0, 0, (float)spr_Battery.width/2, (float)spr_Battery.height};
     int b1_c_frame = 0;
     Rectangle B1rec = {};
+/*
+    Rectangle Startrec = {Game::ScreenWidth / 2, Game::ScreenHeight / 2, static_cast<float>(BattleStart.width), static_cast<float>(BattleStart.height)};
 
+    Rectangle start_frameRec = { 0.0f, 0.0f, static_cast<float>((float)BattleStart.width / 7), (float)BattleStart.height };
+    int start_currentFrame   = 0;
+    int start_framesCounter  = 0;
+    int start_framesSpeed    = 4; // animation fps
+    Rectangle startrec = {};
 
+    void BATTLESTART();
+*/
     Rectangle batteryrec2 = {0, 0, (float)spr_Battery.width/2, (float)spr_Battery.height};
     int b2_c_frame = 0;
     Rectangle B2rec = {};

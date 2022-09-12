@@ -205,8 +205,8 @@ void Game::Level::combat(Game::GameCharacter *c_enemy)
   {
     DrawText("YOU WON!", 580, 320, 30, DARKGREEN);
     timer = false;
-    battleEnd = true;
-    input = false;
+    //battleEnd = true;
+    //input = false;
   }
   else if (player->getLives() <= 0)
   {
@@ -551,12 +551,12 @@ void Game::Level::ScreenDraw() {
       }
       if (IsSoundPlaying(GameAudio::outdungeon)) {}
 
-      /** update */
+      /** update *//*
       if (IsKeyPressed(KEY_C))
       {
         std::cout << "X: " << nemo->NemoPosition.x << endl;
         std::cout << "Y: " << nemo->NemoPosition.y << endl;
-      }
+      }*/
       if (IsKeyPressed(KEY_ESCAPE)) {
         level->currentscreen = Game::Level::GameScreen::PAUSEMENU_OVERWORLD;
       }
@@ -584,12 +584,12 @@ void Game::Level::ScreenDraw() {
         PlaySound(GameAudio::indungeon);
         SetSoundVolume(GameAudio::indungeon, float(0.1));
       }
-
+/*
       if (IsKeyPressed(KEY_C))
       {
         std::cout << "X: " << nemo->NemoPosition.x << endl;
         std::cout << "Y: " << nemo->NemoPosition.y << endl;
-      }
+      }*/
 
       //Teleport();
 
@@ -630,8 +630,8 @@ void Game::Level::ScreenDraw() {
       DrawTexture(Battlescreen, GetScreenWidth() / 2 - 350, GetScreenHeight() / 2 - 180, WHITE);
 
       // Timer
-      DrawText(TextFormat("Time: %i", framescounter), player->set_rec().x + 100, player->set_rec().y, 20, GREEN);
-      DrawFPS(player->set_rec().x + 200, player->set_rec().y);
+     // DrawText(TextFormat("Time: %i", framescounter), player->set_rec().x + 100, player->set_rec().y, 20, GREEN);
+     // DrawFPS(player->set_rec().x + 200, player->set_rec().y);
 
       //=========================Blue TIMER===================================
       // Draw Blue Clock
@@ -671,7 +671,7 @@ void Game::Level::ScreenDraw() {
       }
 
       //==================DEBUG====================================================
-      DrawText(TextFormat("ENERGY: %i", energy), 500, 300, 20, BLACK);
+      //DrawText(TextFormat("ENERGY: %i", energy), 500, 300, 20, BLACK);
       //DrawText(TextFormat("Heal Amount: %i", h_amount), 500, 320, 20, BLACK);
       //DrawTexture(spr_Battery, 500, 300, WHITE);
 
@@ -735,6 +735,7 @@ void Game::Level::ScreenDraw() {
     }
   }
 
+
 //======================================================================================================================
 
 void Game::Level::Teleport() {
@@ -757,4 +758,27 @@ Game::Level::~Level()
   delete enemy;
   delete shadow;
   delete pharaoh;
-}
+}/*
+void Game::Level::BATTLESTART()
+{
+
+  startrec = {Startrec.x, Startrec.y, 1428, 144};
+  DrawRectangleRec(startrec, Color {});
+  DrawTextureRec(BattleStart,start_frameRec, {Startrec.x, Startrec.y}, WHITE);
+
+  start_framesCounter++;
+
+  if (start_framesCounter >= (60 / start_framesSpeed))
+  {
+    start_framesCounter = 0;
+    start_currentFrame++;
+
+    if (start_currentFrame > 7)
+    {
+      start_currentFrame = 0;
+      //Level::currentscreen = GameScreen::COMBAT;
+    }
+
+    start_frameRec.x = (float)start_currentFrame * (float)BattleStart.width / 7;
+  }
+}*/

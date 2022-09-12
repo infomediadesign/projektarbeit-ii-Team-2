@@ -76,6 +76,7 @@ int main() {
 
   puzzle.nemo = &nemo;
 
+
   bool MumyDraw = true;   // To set the drawing if it is true or false. In short if it is draw or deleted
   bool ShadowDraw = true;
   bool PharaohDraw = true;
@@ -339,7 +340,6 @@ int main() {
 
       puzzle.collisionChecks();
       puzzle.update();
-
 
       //teleport back to overworld
       level.Teleport();
