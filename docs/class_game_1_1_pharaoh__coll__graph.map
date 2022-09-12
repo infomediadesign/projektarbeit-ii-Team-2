@@ -1,0 +1,10 @@
+<map id="Game::Pharaoh" name="Game::Pharaoh">
+<area shape="rect" id="node1" title=" " alt="" coords="323,623,461,832"/>
+<area shape="rect" id="node2" href="$class_game_1_1_game_character.html" title=" " alt="" coords="169,219,325,531"/>
+<area shape="rect" id="node3" title=" " alt="" coords="223,5,270,83"/>
+<area shape="rect" id="node4" title=" " alt="" coords="18,5,57,83"/>
+<area shape="rect" id="node5" title=" " alt="" coords="145,5,199,83"/>
+<area shape="rect" id="node6" title=" " alt="" coords="327,5,407,83"/>
+<area shape="rect" id="node7" title=" " alt="" coords="484,336,535,413"/>
+<area shape="rect" id="node8" title=" " alt="" coords="559,336,641,413"/>
+</map>

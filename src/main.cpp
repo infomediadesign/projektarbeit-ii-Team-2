@@ -123,6 +123,7 @@ int main() {
     HideCursor();
     SetExitKey(KEY_O);
 
+
     // Begin drawing
     //--------------------------------------------------------------------------------------------
     BeginDrawing();
@@ -216,7 +217,9 @@ int main() {
 
       ui.Draw(); // controlls description
 
-      DrawFPS(nemo.NemoPosition.x - 280, nemo.NemoPosition.y - 150);
+      if (IsKeyPressed(KEY_E)){
+        DrawFPS(nemo.NemoPosition.x - 280, nemo.NemoPosition.y - 150);
+      }
 
       //teleport into pyramid
       level.Teleport();
@@ -314,7 +317,9 @@ int main() {
 
 
 
-      DrawFPS(nemo.NemoPosition.x - 280, nemo.NemoPosition.y - 150);
+      if (IsKeyPressed(KEY_E)){
+        DrawFPS(nemo.NemoPosition.x - 280, nemo.NemoPosition.y - 150);
+      }
 
       puzzle.draw();
 

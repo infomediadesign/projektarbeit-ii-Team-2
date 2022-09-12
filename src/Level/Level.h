@@ -18,20 +18,20 @@ namespace Game {
     //Textures
     Texture2D Map = LoadTexture("assets/graphics/wintermap.png");
     Texture2D Battlescreen = LoadTexture("assets/graphics/BattleScreen/Agypten/HintergrundBatlleScreen_Agypten.png");
-    Texture2D Fish = LoadTexture("assets/graphics/Fish.png");
     Texture2D Box = LoadTexture("assets/graphics/BattleScreen/Agypten/Auswahl_Cursor.png");
     Texture2D Box_S = LoadTexture("assets/graphics/BattleScreen/Agypten/Auswahl_Cursor_S.png");
     Texture2D Attack = LoadTexture("assets/graphics/BattleScreen/Agypten/Attack_Schrift.png");
-    Texture2D Titlescreen = LoadTexture("assets/graphics/titlepic.png");
-    Texture2D Pausescreen = LoadTexture("assets/graphics/backgrounds/testtitlescreen.png");
-    Texture2D TitlescreenText = LoadTexture("assets/graphics/Titel1.png");
+    Texture2D Titlescreen = LoadTexture("assets/graphics/backgrounds/MenuScreen_ENG.png");
+    Texture2D TitlescreenWithoutText = LoadTexture("assets/graphics/backgrounds/Start.png");
+    Texture2D Pausescreen = LoadTexture("assets/graphics/backgrounds/PausenScreen.png");
+    Texture2D OVERWORLD_Screenshot = LoadTexture("assets/graphics/backgrounds/OVERWORLDSCREENSHOT.png");
+    Texture2D PYRAMID_Screenshot = LoadTexture("assets/graphics/backgrounds/PYRAMIDSCREENSHOT.png");
     Texture2D spr_Battery = LoadTexture("assets/graphics/BattleScreen/Agypten/Batterieanzeige-Sheet.png");
     Texture2D gameover = LoadTexture("assets/graphics/backgrounds/GameOverScreen.png");
 
+    //Font LoadFont();
+
 //Class initialization
-
-
-
     unique_ptr<GameCharacter> player = std::make_unique<Player>();
 
     GameCharacter *enemy          = new Mumy();

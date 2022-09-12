@@ -197,30 +197,37 @@ void Game::Level::combat(Game::GameCharacter *c_enemy)
 
 void Game::Level::ScreenDraw() {
 
-  bool key_input = true;
-
   /** SWITCH CASE FOR ROOM SWITCHING */
+  /// * ROOMS: *
+  ///1.) TITLESCREEN
+  ///2.) PAUSEMENU
+  ///3.) PAUSEMENU_OVERWORLD
+  ///4.) TITLESCREEN_PYRAMID
+  ///5.) OVERWORLD
+  ///6.) PYRAMID
+  ///7.) COMBAT
+  ///8.) ENDSCREEN
+  ///9.) GAMEOVER
 
-  switch (Game::Level::currentscreen) // For this Switch we determine here, what is drawn here
+  switch (Game::Level::currentscreen)
   {
   case GameScreen::TITLESCREEN:
+    ///UPDATE
+    ///-----------------------------------------------------------------------------------------------------------------
+    ///sound
+    if (IsSoundPlaying(GameAudio::pausemenu))  { StopSound(GameAudio::pausemenu); }
+    if (IsSoundPlaying(GameAudio::outdungeon)) { StopSound(GameAudio::outdungeon);}
+    if (IsSoundPlaying(GameAudio::indungeon))  { StopSound(GameAudio::indungeon); }
 
-    ClearBackground(BLACK);
-
-    DrawTexture(Titlescreen,0,0, WHITE);
-
-    if (IsSoundPlaying(GameAudio::pausemenu)){
-      StopSound(GameAudio::pausemenu);
-    }
-
-    if(!IsSoundPlaying(GameAudio::titlescreenmusic)){
+    if (!IsSoundPlaying(GameAudio::titlescreenmusic))
+    {
       PlaySound(GameAudio::titlescreenmusic);
-      SetSoundVolume(GameAudio::titlescreenmusic, float(0.1));
+      SetSoundVolume(GameAudio::titlescreenmusic, float(0.05));
     }
     if (IsSoundPlaying(GameAudio::titlescreenmusic)){}
 
-    /** BUTTON FUNCTIONS */
-
+    /// Buttons
+    /** Button Functions */
     if (IsKeyPressed(KEY_SPACE)) {
       if (t_rec_start.x == box_rec_titlescreen.x && t_rec_start.y == box_rec_titlescreen.y &&
           t_rec_start.width == box_rec_titlescreen.width && t_rec_start.height == box_rec_titlescreen.height) {
@@ -244,70 +251,66 @@ void Game::Level::ScreenDraw() {
       }
     }
 
-    /** MOVE THE BOX */
+    /** Move the box */
     if (IsKeyPressed(KEY_S)) {
       box_rec_titlescreen.y += 100;
       PlaySound(GameAudio::dialoge);
       SetSoundVolume(GameAudio::dialoge, float(0.1));
     }
-
     if (IsKeyPressed(KEY_W)) {
       box_rec_titlescreen.y -= 100;
       PlaySound(GameAudio::dialoge);
       SetSoundVolume(GameAudio::dialoge, float(0.1));
     }
 
-    if (box_rec_titlescreen.y < Game::ScreenHeight / 2 - 50)
+    if (box_rec_titlescreen.y < Game::ScreenHeight / 2 - 50) {
       box_rec_titlescreen.y = Game::ScreenHeight / 2 - 50;
-    else if (box_rec_titlescreen.y > Game::ScreenHeight / 2 + 150)
+    }
+    else if (box_rec_titlescreen.y > Game::ScreenHeight / 2 + 150) {
       box_rec_titlescreen.y = Game::ScreenHeight / 2 + 150;
+}
 
-    /** BUTTONS TITLESCREEN */
+    ///DRAW
+    ///-----------------------------------------------------------------------------------------------------------------
+    ClearBackground(BLACK);
+    DrawTexture(Titlescreen,0,0, WHITE);
+
+    /** draw buttons titlescreen */
     Draw9Slice(Box, t_rec_start, thick, WHITE);
     Draw9Slice(Box, t_rec_settings, thick, WHITE);
     Draw9Slice(Box, t_rec_exit_game, thick, WHITE);
     Draw9Slice(Box_S, box_rec_titlescreen, thick, WHITE);
 
+    /** draw button-text titlescreen */
     DrawText("START GAME", Game::ScreenWidth / 2 - 115, Game::ScreenHeight / 2 - 30, 30, WHITE);
     DrawText("SETTINGS", Game::ScreenWidth / 2 - 100, Game::ScreenHeight / 2 + 70, 30, WHITE);
     DrawText("EXIT GAME", Game::ScreenWidth / 2 - 100, Game::ScreenHeight / 2 + 170, 30, WHITE);
-
     break;
 
   case GameScreen::PAUSEMENU:
+    ///UPDATE
+    ///-----------------------------------------------------------------------------------------------------------------
+    ///sound
+    if (IsSoundPlaying(GameAudio::titlescreenmusic)) { StopSound(GameAudio::titlescreenmusic); }
+    if (IsSoundPlaying(GameAudio::outdungeon)) { StopSound(GameAudio::outdungeon); }
+    if (IsSoundPlaying(GameAudio::indungeon)) { StopSound(GameAudio::indungeon); }
 
-    ClearBackground(BLACK);
-
-    DrawTexture(Titlescreen,0,0, WHITE);
-
-    if (IsSoundPlaying(GameAudio::titlescreenmusic)){
-      StopSound(GameAudio::titlescreenmusic);
-    }
-
-    if(!IsSoundPlaying(GameAudio::pausemenu)){
+    if(!IsSoundPlaying(GameAudio::pausemenu))
+    {
       PlaySound(GameAudio::pausemenu);
       SetSoundVolume(GameAudio::pausemenu, float(0.1));
     }
     if (IsSoundPlaying(GameAudio::pausemenu)){}
 
-    /** BUTTON FUNCTIONS */
-    if (IsKeyPressed(KEY_SPACE)) { //MUSIC ON/OFF
-      if (t_rec_start.x == box_rec_titlescreen.x && t_rec_start.y == box_rec_titlescreen.y && t_rec_start.width == box_rec_titlescreen.width &&
-          t_rec_start.height == box_rec_titlescreen.height) {
-        std::cout << "Pause Music" << endl;
-        PlaySound(GameAudio::buttonpress);
-        SetSoundVolume(GameAudio::buttonpress, float(0.6));
-
-      }
-      // FULLSCREEN
+    /** Button functions */
+    if (IsKeyPressed(KEY_SPACE)) {
+      //FULLSCREEN
       if (t_rec_settings.x == box_rec_titlescreen.x && t_rec_settings.y == box_rec_titlescreen.y && t_rec_settings.width == box_rec_titlescreen.width &&
           t_rec_settings.height == box_rec_titlescreen.height) {
-        std::cout << "Fullscreen on" << endl;
         PlaySound(GameAudio::buttonpress);
         SetSoundVolume(GameAudio::buttonpress, float(0.6));
         ToggleFullscreen();
       }
-
       // BACK
       if (t_rec_exit_game.x == box_rec_titlescreen.x && t_rec_exit_game.y == box_rec_titlescreen.y &&
           t_rec_exit_game.width == box_rec_titlescreen.width && t_rec_exit_game.height == box_rec_titlescreen.height) {
@@ -317,7 +320,7 @@ void Game::Level::ScreenDraw() {
       }
     }
 
-      /** MOVE THE BOX */
+      /** move the box */
       if (IsKeyPressed(KEY_S)) {
         box_rec_titlescreen.y += 100;
         PlaySound(GameAudio::dialoge);
@@ -330,44 +333,47 @@ void Game::Level::ScreenDraw() {
         SetSoundVolume(GameAudio::dialoge, float(0.1));
       }
 
-      if (box_rec_titlescreen.y < Game::ScreenHeight / 2 - 50)
-        box_rec_titlescreen.y = Game::ScreenHeight / 2 - 50;
-      else if (box_rec_titlescreen.y > Game::ScreenHeight / 2 + 150)
+      if (box_rec_titlescreen.y < Game::ScreenHeight / 2 + 50) {
+        box_rec_titlescreen.y = Game::ScreenHeight / 2 + 50;
+      } else if (box_rec_titlescreen.y > Game::ScreenHeight / 2 + 150) {
         box_rec_titlescreen.y = Game::ScreenHeight / 2 + 150;
+}
 
-      /** BUTTONS TITLESCREEN */
-      Draw9Slice(Box, t_rec_start, thick, WHITE);
+      ///DRAW
+      ///-----------------------------------------------------------------------------------------------------------------
+      ClearBackground(BLACK);
+      DrawTexture(TitlescreenWithoutText,0,0, WHITE);
+      DrawTexture(Pausescreen,0,0, WHITE);
+
+      /** Button draw pause screen */
       Draw9Slice(Box, t_rec_settings, thick, WHITE);
       Draw9Slice(Box, t_rec_exit_game, thick, WHITE);
       Draw9Slice(Box_S, box_rec_titlescreen, thick, WHITE);
 
-      DrawText("MUSIC ON/OFF", Game::ScreenWidth / 2 - 117, Game::ScreenHeight / 2 - 30, 28, WHITE);
       DrawText("FULLSCREEN", Game::ScreenWidth / 2 - 113, Game::ScreenHeight / 2 + 70, 30, WHITE);
       DrawText("BACK", Game::ScreenWidth / 2 - 57, Game::ScreenHeight / 2 + 170, 30, WHITE);
-
       break;
 
   case GameScreen::PAUSEMENU_OVERWORLD:
+    ///UPDATE
+    ///-----------------------------------------------------------------------------------------------------------------
+    ///sounds
+    if (IsSoundPlaying(GameAudio::titlescreenmusic)) { StopSound(GameAudio::titlescreenmusic); }
+    if (IsSoundPlaying(GameAudio::outdungeon)) { StopSound(GameAudio::outdungeon); }
+    if (IsSoundPlaying(GameAudio::indungeon)) { StopSound(GameAudio::indungeon); }
 
-    ClearBackground(BLACK);
-
-    DrawTexture(Titlescreen,0,0, WHITE);
-
-    if (IsSoundPlaying(GameAudio::titlescreenmusic)){
-      StopSound(GameAudio::titlescreenmusic);
-    }
-
-    if(!IsSoundPlaying(GameAudio::pausemenu)){
+    if(!IsSoundPlaying(GameAudio::pausemenu))
+    {
       PlaySound(GameAudio::pausemenu);
       SetSoundVolume(GameAudio::pausemenu, float(0.1));
     }
     if (IsSoundPlaying(GameAudio::pausemenu)){}
 
-    /** BUTTON FUNCTIONS */
+    /** Button functions */
     if (IsKeyPressed(KEY_SPACE)) { //MUSIC ON/OFF
       if (t_rec_start.x == box_rec_titlescreen.x && t_rec_start.y == box_rec_titlescreen.y && t_rec_start.width == box_rec_titlescreen.width &&
           t_rec_start.height == box_rec_titlescreen.height) {
-        std::cout << "Pause Music" << endl;
+        currentscreen = GameScreen::OVERWORLD;
         PlaySound(GameAudio::buttonpress);
         SetSoundVolume(GameAudio::buttonpress, float(0.6));
 
@@ -375,7 +381,6 @@ void Game::Level::ScreenDraw() {
       // FULLSCREEN
       if (t_rec_settings.x == box_rec_titlescreen.x && t_rec_settings.y == box_rec_titlescreen.y && t_rec_settings.width == box_rec_titlescreen.width &&
           t_rec_settings.height == box_rec_titlescreen.height) {
-        std::cout << "Fullscreen on" << endl;
         PlaySound(GameAudio::buttonpress);
         SetSoundVolume(GameAudio::buttonpress, float(0.6));
         ToggleFullscreen();
@@ -384,7 +389,7 @@ void Game::Level::ScreenDraw() {
       // BACK
       if (t_rec_exit_game.x == box_rec_titlescreen.x && t_rec_exit_game.y == box_rec_titlescreen.y &&
           t_rec_exit_game.width == box_rec_titlescreen.width && t_rec_exit_game.height == box_rec_titlescreen.height) {
-        currentscreen = GameScreen::OVERWORLD;
+        currentscreen = GameScreen::TITLESCREEN;
         PlaySound(GameAudio::buttonpress);
         SetSoundVolume(GameAudio::buttonpress, float(0.6));
       }
@@ -403,10 +408,18 @@ void Game::Level::ScreenDraw() {
       SetSoundVolume(GameAudio::dialoge, float(0.1));
     }
 
-    if (box_rec_titlescreen.y < Game::ScreenHeight / 2 - 50)
+    if (box_rec_titlescreen.y < Game::ScreenHeight / 2 - 50) {
       box_rec_titlescreen.y = Game::ScreenHeight / 2 - 50;
-    else if (box_rec_titlescreen.y > Game::ScreenHeight / 2 + 150)
+    }
+    else if (box_rec_titlescreen.y > Game::ScreenHeight / 2 + 150) {
       box_rec_titlescreen.y = Game::ScreenHeight / 2 + 150;
+}
+
+    ///DRAW
+    ///-----------------------------------------------------------------------------------------------------------------
+    ClearBackground(BLACK);
+    DrawTexture(OVERWORLD_Screenshot,0,0, WHITE);
+    DrawTexture(Pausescreen,0,0, WHITE);
 
     /** BUTTONS TITLESCREEN */
     Draw9Slice(Box, t_rec_start, thick, WHITE);
@@ -414,23 +427,22 @@ void Game::Level::ScreenDraw() {
     Draw9Slice(Box, t_rec_exit_game, thick, WHITE);
     Draw9Slice(Box_S, box_rec_titlescreen, thick, WHITE);
 
-    DrawText("MUSIC ON/OFF", Game::ScreenWidth / 2 - 117, Game::ScreenHeight / 2 - 30, 28, WHITE);
+    DrawText("RESUME GAME", Game::ScreenWidth / 2 - 117, Game::ScreenHeight / 2 - 30, 28, WHITE);
     DrawText("FULLSCREEN", Game::ScreenWidth / 2 - 113, Game::ScreenHeight / 2 + 70, 30, WHITE);
-    DrawText("BACK", Game::ScreenWidth / 2 - 57, Game::ScreenHeight / 2 + 170, 30, WHITE);
-
+    DrawText("BACK TO MENU", Game::ScreenWidth / 2 - 117, Game::ScreenHeight / 2 + 170, 28, WHITE);
     break;
 
   case GameScreen::PAUSEMENU_PYRAMID:
 
-    ClearBackground(BLACK);
+    ///UPDATE
+    ///-----------------------------------------------------------------------------------------------------------------
+    ///sounds
+    if (IsSoundPlaying(GameAudio::titlescreenmusic)) { StopSound(GameAudio::titlescreenmusic); }
+    if (IsSoundPlaying(GameAudio::outdungeon)) { StopSound(GameAudio::outdungeon); }
+    if (IsSoundPlaying(GameAudio::indungeon)) { StopSound(GameAudio::indungeon); }
 
-    DrawTexture(Titlescreen,0,0, WHITE);
-
-    if (IsSoundPlaying(GameAudio::titlescreenmusic)){
-      StopSound(GameAudio::titlescreenmusic);
-    }
-
-    if(!IsSoundPlaying(GameAudio::pausemenu)){
+    if(!IsSoundPlaying(GameAudio::pausemenu))
+    {
       PlaySound(GameAudio::pausemenu);
       SetSoundVolume(GameAudio::pausemenu, float(0.1));
     }
@@ -440,10 +452,9 @@ void Game::Level::ScreenDraw() {
     if (IsKeyPressed(KEY_SPACE)) { //MUSIC ON/OFF
       if (t_rec_start.x == box_rec_titlescreen.x && t_rec_start.y == box_rec_titlescreen.y && t_rec_start.width == box_rec_titlescreen.width &&
           t_rec_start.height == box_rec_titlescreen.height) {
-        std::cout << "Pause Music" << endl;
+        currentscreen = GameScreen::PYRAMIDE;
         PlaySound(GameAudio::buttonpress);
         SetSoundVolume(GameAudio::buttonpress, float(0.6));
-
       }
       // FULLSCREEN
       if (t_rec_settings.x == box_rec_titlescreen.x && t_rec_settings.y == box_rec_titlescreen.y && t_rec_settings.width == box_rec_titlescreen.width &&
@@ -453,11 +464,10 @@ void Game::Level::ScreenDraw() {
         SetSoundVolume(GameAudio::buttonpress, float(0.6));
         ToggleFullscreen();
       }
-
       // BACK
       if (t_rec_exit_game.x == box_rec_titlescreen.x && t_rec_exit_game.y == box_rec_titlescreen.y &&
           t_rec_exit_game.width == box_rec_titlescreen.width && t_rec_exit_game.height == box_rec_titlescreen.height) {
-        currentscreen = GameScreen::PYRAMIDE;
+        currentscreen = GameScreen::TITLESCREEN;
         PlaySound(GameAudio::buttonpress);
         SetSoundVolume(GameAudio::buttonpress, float(0.6));
       }
@@ -476,10 +486,18 @@ void Game::Level::ScreenDraw() {
       SetSoundVolume(GameAudio::dialoge, float(0.1));
     }
 
-    if (box_rec_titlescreen.y < Game::ScreenHeight / 2 - 50)
+    if (box_rec_titlescreen.y < Game::ScreenHeight / 2 - 50) {
       box_rec_titlescreen.y = Game::ScreenHeight / 2 - 50;
-    else if (box_rec_titlescreen.y > Game::ScreenHeight / 2 + 150)
+    }
+    else if (box_rec_titlescreen.y > Game::ScreenHeight / 2 + 150) {
       box_rec_titlescreen.y = Game::ScreenHeight / 2 + 150;
+}
+
+    ///DRAW
+    ///-----------------------------------------------------------------------------------------------------------------
+     ClearBackground(BLACK);
+     DrawTexture(PYRAMID_Screenshot,0,0, WHITE);
+     DrawTexture(Pausescreen,0,0, WHITE);
 
     /** BUTTONS TITLESCREEN */
     Draw9Slice(Box, t_rec_start, thick, WHITE);
@@ -487,38 +505,22 @@ void Game::Level::ScreenDraw() {
     Draw9Slice(Box, t_rec_exit_game, thick, WHITE);
     Draw9Slice(Box_S, box_rec_titlescreen, thick, WHITE);
 
-    DrawText("MUSIC ON/OFF", Game::ScreenWidth / 2 - 117, Game::ScreenHeight / 2 - 30, 28, WHITE);
+    DrawText("RESUME GAME", Game::ScreenWidth / 2 - 117, Game::ScreenHeight / 2 - 30, 28, WHITE);
     DrawText("FULLSCREEN", Game::ScreenWidth / 2 - 113, Game::ScreenHeight / 2 + 70, 30, WHITE);
-    DrawText("BACK", Game::ScreenWidth / 2 - 57, Game::ScreenHeight / 2 + 170, 30, WHITE);
+    DrawText("BACK TO MENU", Game::ScreenWidth / 2 - 117, Game::ScreenHeight / 2 + 170, 28, WHITE);
 
     break;
-
-    case GameScreen::ENDSCREEN:
-
-      ClearBackground(BLACK);
-
-      if (IsKeyPressed(KEY_SPACE)) {
-        currentscreen = GameScreen::TITLESCREEN;
-      }
-
-      endscreen.update();
-      endscreen.draw();
-      break;
 
     case GameScreen::OVERWORLD:
 
       /** sounds */
-      if (IsSoundPlaying(GameAudio::titlescreenmusic)) {
-        StopSound(GameAudio::titlescreenmusic);
-      }
-      if (IsSoundPlaying(GameAudio::battlemusic)) {
-        StopSound(GameAudio::battlemusic);
-      }
-      if (IsSoundPlaying(GameAudio::indungeon)) {
-        StopSound(GameAudio::indungeon);
-      }
+      if (IsSoundPlaying(GameAudio::titlescreenmusic)) { StopSound(GameAudio::titlescreenmusic); }
+      if (IsSoundPlaying(GameAudio::battlemusic)) { StopSound(GameAudio::battlemusic); }
+      if (IsSoundPlaying(GameAudio::indungeon)) { StopSound(GameAudio::indungeon); }
+      if (IsSoundPlaying(GameAudio::pausemenu)) { StopSound(GameAudio::pausemenu); }
 
-      if (!IsSoundPlaying(GameAudio::outdungeon)) {
+      if (!IsSoundPlaying(GameAudio::outdungeon))
+      {
         PlaySound(GameAudio::outdungeon);
         SetSoundVolume(GameAudio::outdungeon, float(0.1));
       }
@@ -534,7 +536,6 @@ void Game::Level::ScreenDraw() {
         level->currentscreen = Game::Level::GameScreen::PAUSEMENU_OVERWORLD;
       }
 
-
       //teleport conditions
       if (teleportcollisionOVERWORLDtoPYRAMID) { //if the collision bool is true, nemo is transported to PYRAMIDE
         PlaySound(GameAudio::teleport);
@@ -545,24 +546,19 @@ void Game::Level::ScreenDraw() {
       }
 
       /** draw */
-
-
       break;
 
     case GameScreen::PYRAMIDE:
+      ///sounds
+      if (IsSoundPlaying(GameAudio::battlemusic)) { StopSound(GameAudio::battlemusic); }
+      if (IsSoundPlaying(GameAudio::outdungeon)) { StopSound(GameAudio::outdungeon); }
+      if (IsSoundPlaying(GameAudio::pausemenu)) { StopSound(GameAudio::pausemenu); }
 
-      if (IsSoundPlaying(GameAudio::battlemusic)) {
-        StopSound(GameAudio::battlemusic);
-      }
-      if (IsSoundPlaying(GameAudio::outdungeon)) {
-        StopSound(GameAudio::outdungeon);
-      }
-
-      if (!IsSoundPlaying(GameAudio::indungeon)) {
+      if (!IsSoundPlaying(GameAudio::indungeon))
+      {
         PlaySound(GameAudio::indungeon);
         SetSoundVolume(GameAudio::indungeon, float(0.1));
       }
-      if (IsSoundPlaying(GameAudio::indungeon)) {}
 
       if (IsKeyPressed(KEY_C))
       {
@@ -586,7 +582,6 @@ void Game::Level::ScreenDraw() {
       if (IsKeyPressed(KEY_ESCAPE)){
         level->currentscreen = Game::Level::GameScreen::PAUSEMENU_PYRAMID;
       }
-
       break;
 
     case GameScreen::COMBAT:
@@ -689,6 +684,19 @@ void Game::Level::ScreenDraw() {
     DrawText("ESCAPE",t_rec_escape.x + 5, t_rec_escape.y + 10, 17, WHITE);
 
       break;
+
+    case GameScreen::ENDSCREEN:
+
+      ClearBackground(BLACK);
+
+      if (IsKeyPressed(KEY_SPACE)) {
+        currentscreen = GameScreen::TITLESCREEN;
+      }
+
+      endscreen.update();
+      endscreen.draw();
+      break;
+
 //GameOver Screen
     case GameScreen::GAMEOVER:
       DrawTexture(gameover, GetScreenWidth() / 2 - 15, GetScreenHeight() / 2 - 20, WHITE);
@@ -700,7 +708,6 @@ void Game::Level::ScreenDraw() {
       }
     break;
     }
-
   }
 
 //======================================================================================================================
