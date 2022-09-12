@@ -32,6 +32,7 @@ void Game::Level::combat(Game::GameCharacter *c_enemy)
       player->getDamage(c_enemy->attack());
       p_damaged = true;
       b_currentFrame = 0;
+
     }
     //After Mumy Attack, the Player attacks the Mumy
     if (c_enemy->get_turnnumb() > player->get_turnnumb()) {
@@ -40,8 +41,9 @@ void Game::Level::combat(Game::GameCharacter *c_enemy)
       r_currentFrame = 0;
     }
 
-    timer = false;
     input = true;
+    timer = false;
+
   }
 
   //Box Movement
