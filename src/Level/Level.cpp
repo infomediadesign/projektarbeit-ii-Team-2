@@ -4,6 +4,31 @@
 
 void Game::Level::combat(Game::GameCharacter *c_enemy)
 {
+  //WENN DER SPIELER GEWINNT
+  if (battleEnd)
+  {
+    finisher_timer++;
+  }
+
+  if (((finisher_timer/120)%2) == 1)
+  {
+    finisher_timer = 0;
+    currentscreen = GameScreen::PYRAMIDE;
+  }
+//===============================================
+  //WENN DER SPIELER VERLIERT
+
+  if (GameOver)
+  {
+    GO_timer++;
+  }
+
+  if (((GO_timer/120)%2) == 1)
+  {
+    GO_timer = 0;
+    currentscreen = GameScreen::GAMEOVER;
+  }
+//===============================================
   if (((t_framescounter/120)%2) == 1) {
     t_framescounter = 0;
     b_currentFrame = 0;
@@ -178,17 +203,17 @@ void Game::Level::combat(Game::GameCharacter *c_enemy)
   //==================================TIME ATTACK END!!!==============================================
   if (c_enemy->getLives() <= 0)
   {
-    //delete enemy;
-
-    DrawText("YOU WON!", 600, 320, 20, BLACK);
+    DrawText("YOU WON!", 580, 320, 30, DARKGREEN);
     timer = false;
+    battleEnd = true;
+    input = false;
   }
   else if (player->getLives() <= 0)
   {
-    // delete enemy;
-    // delete player;
-    currentscreen = GameScreen::GAMEOVER;
+    DrawText("YOU LOST!", 580, 320, 30, RED);
     timer = false;
+    GameOver = true;
+    input = false;
   }
 
   player->draw();

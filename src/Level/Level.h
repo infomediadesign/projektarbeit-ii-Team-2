@@ -31,6 +31,14 @@ namespace Game {
 
     //Font LoadFont();
 
+    //Player Wins
+    bool battleEnd = false;
+    int finisher_timer = 0;
+
+    //Player Looses
+    bool GameOver = false;
+    int GO_timer = 0;
+
 //Class initialization
     unique_ptr<GameCharacter> player = std::make_unique<Player>();
 
