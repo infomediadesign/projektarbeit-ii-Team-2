@@ -715,7 +715,8 @@ void Game::Level::ScreenDraw() {
       ClearBackground(BLACK);
 
       if (IsKeyPressed(KEY_SPACE)) {
-        currentscreen = GameScreen::TITLESCREEN;
+        //currentscreen = GameScreen::TITLESCREEN;
+        exit(0);
       }
 
       endscreen.update();
@@ -729,7 +730,8 @@ void Game::Level::ScreenDraw() {
       DrawText("PRESS <<ENTER>> TO RESTART", GetScreenWidth()/ 2 + 280, GetScreenHeight() / 2 + 150, 20, YELLOW);
       if (IsKeyPressed(KEY_ENTER))
       {
-        currentscreen = GameScreen::TITLESCREEN;
+        //currentscreen = GameScreen::TITLESCREEN;
+        exit(0);
       }
     break;
     }
