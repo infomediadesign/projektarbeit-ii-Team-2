@@ -4,6 +4,31 @@
 
 void Game::Level::combat(Game::GameCharacter *c_enemy)
 {
+  //WENN DER SPIELER GEWINNT
+  if (battleEnd)
+  {
+    finisher_timer++;
+  }
+
+  if (((finisher_timer/120)%2) == 1)
+  {
+    finisher_timer = 0;
+    currentscreen = GameScreen::PYRAMIDE;
+  }
+//===============================================
+  //WENN DER SPIELER VERLIERT
+
+  if (GameOver)
+  {
+    GO_timer++;
+  }
+
+  if (((GO_timer/120)%2) == 1)
+  {
+    GO_timer = 0;
+    currentscreen = GameScreen::GAMEOVER;
+  }
+//===============================================
   if (((t_framescounter/120)%2) == 1) {
     t_framescounter = 0;
     b_currentFrame = 0;
@@ -32,6 +57,7 @@ void Game::Level::combat(Game::GameCharacter *c_enemy)
       player->getDamage(c_enemy->attack());
       p_damaged = true;
       b_currentFrame = 0;
+
     }
     //After Mumy Attack, the Player attacks the Mumy
     if (c_enemy->get_turnnumb() > player->get_turnnumb()) {
@@ -40,8 +66,9 @@ void Game::Level::combat(Game::GameCharacter *c_enemy)
       r_currentFrame = 0;
     }
 
-    timer = false;
     input = true;
+    timer = false;
+
   }
 
   //Box Movement
@@ -176,17 +203,17 @@ void Game::Level::combat(Game::GameCharacter *c_enemy)
   //==================================TIME ATTACK END!!!==============================================
   if (c_enemy->getLives() <= 0)
   {
-    //delete enemy;
-
-    DrawText("YOU WON!", 600, 320, 20, BLACK);
+    DrawText("YOU WON!", 580, 320, 30, DARKGREEN);
     timer = false;
+    //battleEnd = true;
+    //input = false;
   }
   else if (player->getLives() <= 0)
   {
-    // delete enemy;
-    // delete player;
-    currentscreen = GameScreen::GAMEOVER;
+    DrawText("YOU LOST!", 580, 320, 30, RED);
     timer = false;
+    GameOver = true;
+    input = false;
   }
 
   player->draw();
@@ -524,12 +551,12 @@ void Game::Level::ScreenDraw() {
       }
       if (IsSoundPlaying(GameAudio::outdungeon)) {}
 
-      /** update */
+      /** update *//*
       if (IsKeyPressed(KEY_C))
       {
         std::cout << "X: " << nemo->NemoPosition.x << endl;
         std::cout << "Y: " << nemo->NemoPosition.y << endl;
-      }
+      }*/
       if (IsKeyPressed(KEY_ESCAPE)) {
         level->currentscreen = Game::Level::GameScreen::PAUSEMENU_OVERWORLD;
       }
@@ -557,12 +584,12 @@ void Game::Level::ScreenDraw() {
         PlaySound(GameAudio::indungeon);
         SetSoundVolume(GameAudio::indungeon, float(0.1));
       }
-
+/*
       if (IsKeyPressed(KEY_C))
       {
         std::cout << "X: " << nemo->NemoPosition.x << endl;
         std::cout << "Y: " << nemo->NemoPosition.y << endl;
-      }
+      }*/
 
       //Teleport();
 
@@ -603,8 +630,8 @@ void Game::Level::ScreenDraw() {
       DrawTexture(Battlescreen, GetScreenWidth() / 2 - 350, GetScreenHeight() / 2 - 180, WHITE);
 
       // Timer
-      DrawText(TextFormat("Time: %i", framescounter), player->set_rec().x + 100, player->set_rec().y, 20, GREEN);
-      DrawFPS(player->set_rec().x + 200, player->set_rec().y);
+     // DrawText(TextFormat("Time: %i", framescounter), player->set_rec().x + 100, player->set_rec().y, 20, GREEN);
+     // DrawFPS(player->set_rec().x + 200, player->set_rec().y);
 
       //=========================Blue TIMER===================================
       // Draw Blue Clock
@@ -644,7 +671,7 @@ void Game::Level::ScreenDraw() {
       }
 
       //==================DEBUG====================================================
-      DrawText(TextFormat("ENERGY: %i", energy), 500, 300, 20, BLACK);
+      //DrawText(TextFormat("ENERGY: %i", energy), 500, 300, 20, BLACK);
       //DrawText(TextFormat("Heal Amount: %i", h_amount), 500, 320, 20, BLACK);
       //DrawTexture(spr_Battery, 500, 300, WHITE);
 
@@ -708,6 +735,7 @@ void Game::Level::ScreenDraw() {
     }
   }
 
+
 //======================================================================================================================
 
 void Game::Level::Teleport() {
@@ -730,4 +758,27 @@ Game::Level::~Level()
   delete enemy;
   delete shadow;
   delete pharaoh;
-}
+}/*
+void Game::Level::BATTLESTART()
+{
+
+  startrec = {Startrec.x, Startrec.y, 1428, 144};
+  DrawRectangleRec(startrec, Color {});
+  DrawTextureRec(BattleStart,start_frameRec, {Startrec.x, Startrec.y}, WHITE);
+
+  start_framesCounter++;
+
+  if (start_framesCounter >= (60 / start_framesSpeed))
+  {
+    start_framesCounter = 0;
+    start_currentFrame++;
+
+    if (start_currentFrame > 7)
+    {
+      start_currentFrame = 0;
+      //Level::currentscreen = GameScreen::COMBAT;
+    }
+
+    start_frameRec.x = (float)start_currentFrame * (float)BattleStart.width / 7;
+  }
+}*/

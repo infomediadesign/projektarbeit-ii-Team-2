@@ -9,10 +9,21 @@ void Pharaoh::Update() {
 }
 
 void Pharaoh::Draw() {
-  pharaohrec = { 1455 + 8, 198 + 10, 16, 32 };
+  pharaohrec = { Pharaohrec.x, Pharaohrec.y, static_cast<float>(spr_Pharaoh.width), static_cast<float>(spr_Pharaoh.height) };
   DrawRectangleRec(pharaohrec, Color {});
-  DrawTextureRec(spr_Pharaoh, frameRec, { 1455, 198 }, WHITE);
+  DrawTextureRec(spr_Pharaoh, frameRec, { 1442, 208.5 }, WHITE);
   framesCounter++;
+
+  if (framesCounter >= (60 / framesSpeed)) {
+    framesCounter = 0;
+    currentFrame++;
+
+    if (currentFrame > 2) {
+      currentFrame = 0;
+    }
+
+    frameRec.x = (float)currentFrame * (float)spr_Pharaoh.width / 2;
+  }
 }
 
 Rectangle Pharaoh::getPharaohRec() { return Pharaohrec; }
