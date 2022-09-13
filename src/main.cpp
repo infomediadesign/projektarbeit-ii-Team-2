@@ -5,7 +5,6 @@
 #include "Level/Level.h"
 
 #include "Level/UI.h"
-#include "Level/Dialogue.h"
 #include "Level/Puzzle.h"
 
 #include "Player/Nemo.h"
@@ -15,21 +14,7 @@
 
 #include "Sprite/Sprite.h"
 
-
-
-
-
-/** Project = Custodia - Trapped in time */
-
-//TODO Collision with Walls aint working when, active my game crashes ( Collision.cpp )!!!!!!!!!
-
-//TODO find a way to make the sound faster/ slower to fit Nemos movements!!! (Nemo.cpp / update func line.13) -> in audacity manualy
-
-//TODO Dialog (Dialog.h/cpp)
-
-//TODO theres a teleport in the pyramid that put you back to the spawn of the pyramid... find it and delete it
-//-> its the teleport from the outside that is still active when inside the pyramide
-
+/** Custodia - Trapped in time */
 
 int main() {
   // Raylib initialization
@@ -48,8 +33,6 @@ int main() {
 
   // Initialization
   //--------------------------------------------------------------------------------------------
-
-
   Puzzle puzzle;
 
   GameAudio::Load();
@@ -68,20 +51,15 @@ int main() {
   Game::Sprite Shadow_Sprite(590.5, 1014, overwold_shadow->spr_shadow);
   Game::Sprite Pharaoh_Sprite(1455, 198, overworld_pharaoh->spr_Pharaoh);
 
-
-
   level.level = &level;
   level.nemo = &nemo;
   level.spr = &spr;
 
   puzzle.nemo = &nemo;
 
-
   bool MumyDraw = true;   // To set the drawing if it is true or false. In short if it is draw or deleted
   bool ShadowDraw = true;
   bool PharaohDraw = true;
-
-  //LevelMap();
 
   //Map stuff
   std::ifstream tilesetDescriptionFile("assets/graphics/map/Level1/PhyramidSheet.json"); //Pyramiden_SheetJamey.json needed as json, pls do in tiled

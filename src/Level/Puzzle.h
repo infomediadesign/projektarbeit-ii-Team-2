@@ -30,9 +30,9 @@ public:
   Texture2D Portal = LoadTexture("assets/graphics/Items/ZeitportalOpenClose-Sheet.png");
 
   /** Rectangles */
-  Rectangle Chest = {608, 385, 28, 32};
-  Rectangle Chest2 = {896, 288, 28, 32};
-  Rectangle Chest3 = {1504, 480.5, 28, 32};
+  Rectangle Chest = {608, 385, 32, 36};
+  Rectangle Chest2 = {896, 288, 32, 36};
+  Rectangle Chest3 = {1504, 480.5, 32, 36};
   Rectangle PuzzleTriangle = {639, 1046, 32, 32}; //triangle
   Rectangle PuzzleCircle   = {575, 1046, 32, 32}; //circle
   Rectangle PuzzleSquare   = {703, 1046, 32, 32}; //square

@@ -1,7 +1,6 @@
 #include "../INCLUDES.h"
 #include "../Level/Level.h"
 #include "../Player/Nemo.h"
-#include "../Level/Dialogue.h"
 
 class Collision {
 private:
