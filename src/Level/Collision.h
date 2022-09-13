@@ -16,8 +16,8 @@ public:
   Texture2D EpanoxSheet = LoadTexture("assets/graphics/Character/ReZeitwesenBouncefuerNick.png");
   Texture2D Torch = LoadTexture("assets/graphics/Items/Asset_Feuerschale-Sheet.png");
 
-  Rectangle  EpanoxRec = {972.5, 462.5, 10, 10}; //EpanoxRec
-  Rectangle EpanoxRec2 = {961, 458, 20, 24};
+  Rectangle  EpanoxRec = {972.5, 462.5, 10, 20}; //EpanoxRec
+  Rectangle EpanoxRec2 = {961, 458, 20, 28};
 
   /// RECTANGLES
   //Outside Rectangles for wall collision
