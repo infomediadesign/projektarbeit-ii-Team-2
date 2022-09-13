@@ -68,12 +68,14 @@ void Puzzle::update() {
   while (chestCollision) {
     DrawText("[F]", nemo->NemoPosition.x + 10, nemo->NemoPosition.y - 10, 2, BLACK);
     if (IsKeyPressed(KEY_F)){
-      //std::cout << "Open Chest" << std::endl;
       PlaySound(GameAudio::openchest);
       SetSoundVolume(GameAudio::openchest, float(0.4));
       chestIsDrawn = true;
       if(chestIsDrawn){
+        Rectangle Helmet = {574, 383.5, 17, 19};
         helmetIsDrawn = true;
+
+        Rectangle Key = {645, 380, 17, 19};
         keyIsDrawn = true;
         Chest = {};
         door1 = {};
@@ -122,43 +124,52 @@ void Puzzle::update() {
 
   /** Update Items */
   //helmet update
-  if (helmetCollision){
-    //std::cout << "you picked up a helmet" << std::endl;
-    PlaySound(GameAudio::pickupitem);
-    SetSoundVolume(GameAudio::pickupitem, float(0.4));
-    helmetIsDrawn = false;
-    Helmet = {};
+  if(helmetIsDrawn){
+    if (helmetCollision){
+      //std::cout << "you picked up a helmet" << std::endl;
+      PlaySound(GameAudio::pickupitem);
+      SetSoundVolume(GameAudio::pickupitem, float(0.4));
+      helmetIsDrawn = false;
+      Helmet = {};
+    }
   }
 
   //chestplate update
-  if (chestplateCollision){
-    //std::cout << "you picked up a chestplate" << std::endl;
-    PlaySound(GameAudio::pickupitem);
-    SetSoundVolume(GameAudio::pickupitem, float(0.4));
-    chestplateIsDrawn = false;
-    Chestplate = {};
+  if (chestplateIsDrawn){
+    if (chestplateCollision){
+      //std::cout << "you picked up a chestplate" << std::endl;
+      PlaySound(GameAudio::pickupitem);
+      SetSoundVolume(GameAudio::pickupitem, float(0.4));
+      chestplateIsDrawn = false;
+      Chestplate = {};
+    }
   }
 
   //hp potion update
-  if (hp_potionCollision){
-    //std::cout << "you picked up a hp potion" << std::endl;
-    PlaySound(GameAudio::pickupitem);
-    SetSoundVolume(GameAudio::pickupitem, float(0.4));
-    hpPotionIsDrawn = false;
-    HpPotion = {};
+  if (hpPotionIsDrawn){
+    if (hp_potionCollision){
+      //std::cout << "you picked up a hp potion" << std::endl;
+      PlaySound(GameAudio::pickupitem);
+      SetSoundVolume(GameAudio::pickupitem, float(0.4));
+      hpPotionIsDrawn = false;
+      HpPotion = {};
+    }
   }
 
   //key update
-  if (keyCollision){
-    //std::cout << "you picked up a key" << std::endl;
-    PlaySound(GameAudio::pickupitem);
-    SetSoundVolume(GameAudio::pickupitem, float(0.4));
-    keyIsDrawn = false;
-    isKeyPickedUp = true;
-    door2 = {};
+  if (keyIsDrawn){
+    if (keyCollision){
+      //std::cout << "you picked up a key" << std::endl;
+      PlaySound(GameAudio::pickupitem);
+      SetSoundVolume(GameAudio::pickupitem, float(0.4));
+      keyIsDrawn = false;
+      isKeyPickedUp = true;
+      door2 = {};
 
-    Key = {};
+      Key = {};
+    }
   }
+
 
   /** Update Puzzle */
   //puzzle update
@@ -295,19 +306,24 @@ void Puzzle::draw() {
   DrawRectangleRec(door1, Color{});
   DrawRectangleRec(door2, Color{});
   DrawRectangleRec(door3, Color{});
-  DrawRectangleRec(ChestNS, RED);
-  DrawRectangleRec(ChestNS2, BLUE);
-  DrawRectangleRec(ChestNS3, GREEN);
+
+  if (IsKeyDown(KEY_R)){
+    DrawRectangleRec(ChestNS, RED);
+    DrawRectangleRec(ChestNS2, BLUE);
+    DrawRectangleRec(ChestNS3, GREEN);
+  }
 
   /** ANIMATIONS */
   //torches
+  torchAnimation();
+
   DrawTextureRec(Torch, frameRecTorch, TorchPosition, WHITE);
   DrawTextureRec(Torch, frameRecTorch, TorchPosition2, WHITE);
-  //portal
-  DrawTextureRec(Portal, frameRecPortal, PortalPosition, WHITE);
 
-  torchAnimation();
+  //portal
   portalAnimation();
+
+  DrawTextureRec(Portal, frameRecPortal, PortalPosition, WHITE);
 }
 
 Puzzle::~Puzzle() {

@@ -45,9 +45,9 @@ public:
   Rectangle door2 = {576, 896, 64, 32};   //door 2 to puzzle room
   Rectangle door3 = {800, 992, 32, 96};   //door 3 after puzzle door1
 
-  Rectangle ChestNS = {608, 385, 18, 32};
-  Rectangle ChestNS2 = {896, 288, 18, 32};
-  Rectangle ChestNS3 = {1504, 480.5, 18, 32};
+  Rectangle ChestNS = {608, 385, 28, 32};
+  Rectangle ChestNS2 = {896, 288, 28, 32};
+  Rectangle ChestNS3 = {1504, 480.5, 28, 32};
 
   ///animation Rectangles
   // divide sprite-sheet into frames

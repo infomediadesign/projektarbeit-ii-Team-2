@@ -324,7 +324,7 @@ int main() {
 
       puzzle.draw();
 
-      collision.draw();
+      //collision.draw();
       collision.torchAnimations();
 
       if (IsKeyDown(KEY_R)){
