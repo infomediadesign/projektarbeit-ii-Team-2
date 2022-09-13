@@ -10,8 +10,6 @@ public:
   Game::Nemo * nemo;
   Game::Level * level;
 
-  Game::Dialog dialog;
-
   Texture2D Dialogbox = LoadTexture("assets/graphics/Character/Dialogbox.png");
   Texture2D EpanoxSheet = LoadTexture("assets/graphics/Character/ReZeitwesenBouncefuerNick.png");
   Texture2D Torch = LoadTexture("assets/graphics/Items/Asset_Feuerschale-Sheet.png");

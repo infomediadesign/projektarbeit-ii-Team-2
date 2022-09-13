@@ -1,5 +1,6 @@
 #pragma once
 #include "../INCLUDES.h"
+#include "../Player/Nemo.h"
 
 /*
 using namespace std;
@@ -41,16 +42,15 @@ private:
 namespace Game {
   class Dialog {
   public:
+    Game::Nemo * nemo;
 
-    Vector2 text_position = {850,600};
+    Texture2D Dialogbox = LoadTexture("assets/graphics/Character/Dialogbox.png");
 
-    int textState;
+    //Vector2 text_position = {850,600};
+
+    int textState = 1;
     bool text = false;
 
-    Dialog();
     void DialogStart();
-    void DialogNext();
-    void DialogEnd();
-    ~Dialog();
   };
 }

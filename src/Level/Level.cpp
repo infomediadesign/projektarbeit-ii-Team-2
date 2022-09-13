@@ -330,19 +330,19 @@ void Game::Level::ScreenDraw() {
     /** Button functions */
     if (IsKeyPressed(KEY_SPACE)) {
       //FULLSCREEN
-      if (t_rec_settings.x == box_rec_titlescreen.x && t_rec_settings.y == box_rec_titlescreen.y && t_rec_settings.width == box_rec_titlescreen.width &&
-          t_rec_settings.height == box_rec_titlescreen.height) {
-        PlaySound(GameAudio::buttonpress);
-        SetSoundVolume(GameAudio::buttonpress, float(0.6));
-        ToggleFullscreen();
-      }
-      // BACK
-      if (t_rec_exit_game.x == box_rec_titlescreen.x && t_rec_exit_game.y == box_rec_titlescreen.y &&
-          t_rec_exit_game.width == box_rec_titlescreen.width && t_rec_exit_game.height == box_rec_titlescreen.height) {
-        currentscreen = GameScreen::TITLESCREEN;
-        PlaySound(GameAudio::buttonpress);
-        SetSoundVolume(GameAudio::buttonpress, float(0.6));
-      }
+        if (t_rec_start.x == box_rec_titlescreen.x && t_rec_start.y == box_rec_titlescreen.y && t_rec_start.width == box_rec_titlescreen.width &&
+            t_rec_start.height == box_rec_titlescreen.height) {
+          PlaySound(GameAudio::buttonpress);
+          SetSoundVolume(GameAudio::buttonpress, float(0.6));
+          ToggleFullscreen();
+        }
+        // FULLSCREEN
+        if (t_rec_settings.x == box_rec_titlescreen.x && t_rec_settings.y == box_rec_titlescreen.y && t_rec_settings.width == box_rec_titlescreen.width &&
+            t_rec_settings.height == box_rec_titlescreen.height) {
+          currentscreen = GameScreen::TITLESCREEN;
+          PlaySound(GameAudio::buttonpress);
+          SetSoundVolume(GameAudio::buttonpress, float(0.6));
+        }
     }
 
       /** move the box */
@@ -358,10 +358,10 @@ void Game::Level::ScreenDraw() {
         SetSoundVolume(GameAudio::dialoge, float(0.1));
       }
 
-      if (box_rec_titlescreen.y < Game::ScreenHeight / 2 + 50) {
+      if (box_rec_titlescreen.y < Game::ScreenHeight / 2 - 50) {
+        box_rec_titlescreen.y = Game::ScreenHeight / 2 - 50;
+      } else if (box_rec_titlescreen.y > Game::ScreenHeight / 2 + 50) {
         box_rec_titlescreen.y = Game::ScreenHeight / 2 + 50;
-      } else if (box_rec_titlescreen.y > Game::ScreenHeight / 2 + 150) {
-        box_rec_titlescreen.y = Game::ScreenHeight / 2 + 150;
 }
 
       ///DRAW
@@ -371,12 +371,12 @@ void Game::Level::ScreenDraw() {
       DrawTexture(Pausescreen,0,0, WHITE);
 
       /** Button draw pause screen */
+      Draw9Slice(Box, t_rec_start, thick, WHITE);
       Draw9Slice(Box, t_rec_settings, thick, WHITE);
-      Draw9Slice(Box, t_rec_exit_game, thick, WHITE);
       Draw9Slice(Box_S, box_rec_titlescreen, thick, WHITE);
 
-      DrawText("FULLSCREEN", Game::ScreenWidth / 2 - 113, Game::ScreenHeight / 2 + 70, 30, WHITE);
-      DrawText("BACK", Game::ScreenWidth / 2 - 57, Game::ScreenHeight / 2 + 170, 30, WHITE);
+      DrawText("FULLSCREEN", Game::ScreenWidth / 2 - 117, Game::ScreenHeight / 2 - 30, 28, WHITE);
+      DrawText("BACK", Game::ScreenWidth / 2 - 113, Game::ScreenHeight / 2 + 70, 30, WHITE);
       break;
 
   case GameScreen::PAUSEMENU_OVERWORLD:
@@ -758,7 +758,8 @@ Game::Level::~Level()
   delete enemy;
   delete shadow;
   delete pharaoh;
-}/*
+}
+/*
 void Game::Level::BATTLESTART()
 {
 

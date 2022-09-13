@@ -113,64 +113,105 @@ void Dialogue::start() {
   DrawText("Welcome to Custodia", 958, 593 , 10, BLACK);
 }
 */
-Game::Dialog::Dialog() {}
 
 void Game::Dialog::DialogStart() {
-  //DrawTextEx("FontType", "",text_position, 20.0, 0, WHITE);
-  //DrawText("Welcome to Narnia", text_position.x, text_position.y,30,WHITE);
+  DrawTexture(Dialogbox, nemo->NemoPosition.x - 180 , nemo->NemoPosition.y + 90 , WHITE);
+  if (IsKeyPressed(KEY_SPACE)){
+    textState + 1;
+    PlaySound(GameAudio::dialoge);
+    SetSoundVolume(GameAudio::dialoge, float(0.1));
+  }
 
-  /*std::fstream dialog_txt_file;
-
-  // open a file to perform read operation using file
-  dialog_txt_file.open("assets/dialog_test_text.txt", std::ios::in);
-
-  // checking whether the file is open
-  if (dialog_txt_file.is_open()) {
-    if (IsKeyPressed(KEY_SPACE)) {
-      std::string text;
-      while (getline(dialog_txt_file, text)) { // read data from file object and put it into string.
-        std::cout << text << "\n"; //print the data of the string
-        //DrawText(text, text_position.x, text_position.y, 10, WHITE);
-      }
-      dialog_txt_file.close(); // close the file object.
-    }
-  }*/
-
-  textState = 0;
-
-  if (IsKeyPressed(KEY_SPACE) && textState == 0) {
+  if (IsKeyReleased(KEY_SPACE) && textState == 0) {
     textState = 1;
-  }
-  else if (IsKeyPressed(KEY_SPACE) && textState == 1) {
+  } else if (IsKeyReleased(KEY_SPACE) && textState == 1) {
     textState = 2;
-  }
-  else if (IsKeyPressed(KEY_SPACE) && textState == 2) {
+  } else if (IsKeyReleased(KEY_SPACE) && textState == 2) {
     textState = 3;
+  } else if (IsKeyReleased(KEY_SPACE) && textState == 3) {
+    textState = 4;
+  } else if (IsKeyReleased(KEY_SPACE) && textState == 4) {
+    textState = 5;
+  } else if (IsKeyReleased(KEY_SPACE) && textState == 5) {
+    textState = 6;
+  } else if (IsKeyReleased(KEY_SPACE) && textState == 6) {
+    textState = 7;
+  } else if (IsKeyReleased(KEY_SPACE) && textState == 7) {
+    textState = 8;
+  } else if (IsKeyReleased(KEY_SPACE) && textState == 8) {
+    textState = 9;
+  } else if (IsKeyReleased(KEY_SPACE) && textState == 9) {
+    textState = 10;
+  } else if (IsKeyReleased(KEY_SPACE) && textState == 10) {
+    textState = 11;
+  } else if (IsKeyReleased(KEY_SPACE) && textState == 11) {
+    textState = 12;
   }
-  else if (IsKeyPressed(KEY_SPACE) && textState == 3) {
-    textState = 0;
-  }
-
- // if (IsKeyPressed(KEY_SPACE)){ textState + 1; }
 
   switch (textState) {
-  default:
+  default: break;
+  case 1:
+    DrawText("Instructions", nemo->NemoPosition.x - 180 , nemo->NemoPosition.y + 75, 15, BLACK);
+    DrawText("To start the conversation press SPACE.", nemo->NemoPosition.x - 162 , nemo->NemoPosition.y + 110, 15, WHITE);
+    DrawText("To skip to the next part of the", nemo->NemoPosition.x - 162 , nemo->NemoPosition.y + 135, 15, WHITE);
+    DrawText("conversation press SPACE again.", nemo->NemoPosition.x - 162 , nemo->NemoPosition.y + 160, 15, WHITE);
     break;
-  case 1: DrawText("Line 1", 850,600, 10, WHITE);
+  case 2:
+    DrawText("Epanox ", nemo->NemoPosition.x - 180 , nemo->NemoPosition.y + 75, 15, BLACK);
+    DrawText("Welcome traveller, are you alright? ", nemo->NemoPosition.x - 162 , nemo->NemoPosition.y + 110, 15, WHITE);
+    DrawText("Quite the travel you've done.", nemo->NemoPosition.x - 162 , nemo->NemoPosition.y + 135, 15, WHITE);
     break;
-  case 2: DrawText("Line 2", 850,600, 10, WHITE);
+  case 3:
+    DrawText("Nemo ", nemo->NemoPosition.x - 180 , nemo->NemoPosition.y + 75, 15, BLACK);
+    DrawText("Where am I... is that a pyramid? Am I in Egypt? ", nemo->NemoPosition.x - 162 , nemo->NemoPosition.y + 110, 15, WHITE);
+    DrawText("Wait did you just say time travel?", nemo->NemoPosition.x - 162 , nemo->NemoPosition.y + 135, 15, WHITE);
+    DrawText("By the way who are you?", nemo->NemoPosition.x - 162 , nemo->NemoPosition.y + 160, 15, WHITE);
     break;
-  case 3: DrawText("Line 3", 850,600, 10, WHITE);
+  case 4:
+    DrawText("Epanox", nemo->NemoPosition.x - 180 , nemo->NemoPosition.y + 75, 15, BLACK);
+    DrawText("I'm Epanox a creature, that can travel through", nemo->NemoPosition.x - 162 , nemo->NemoPosition.y + 110, 15, WHITE);
+    DrawText("time. Yes we are currently in ancient egypt, the", nemo->NemoPosition.x - 162 , nemo->NemoPosition.y + 135, 15, WHITE);
+    DrawText("date is currently Monday 12.June 2470 BC.", nemo->NemoPosition.x - 162 , nemo->NemoPosition.y + 160, 15, WHITE);
     break;
-  case 4: text = false;
+  case 5:
+    DrawText("Nemo", nemo->NemoPosition.x - 180 , nemo->NemoPosition.y + 75, 15, BLACK);
+    DrawText("Let me get this straight. I've travelled to ancient ", nemo->NemoPosition.x - 162 , nemo->NemoPosition.y + 110, 15, WHITE);
+    DrawText("Egypt and you are a time creature of some sorts? ", nemo->NemoPosition.x - 162 , nemo->NemoPosition.y + 135, 15, WHITE);
+    DrawText("Does that mean you can send me back home?", nemo->NemoPosition.x - 162 , nemo->NemoPosition.y + 160, 15, WHITE);
+    break;
+  case 6:
+    DrawText("Epanox", nemo->NemoPosition.x - 180 , nemo->NemoPosition.y + 75, 15, BLACK);
+    DrawText("I'm a creature that travels through time... alone.", nemo->NemoPosition.x - 162 , nemo->NemoPosition.y + 110, 15, WHITE);
+    DrawText("So no... I can't get you back. But I do ", nemo->NemoPosition.x - 162 , nemo->NemoPosition.y + 135, 15, WHITE);
+    DrawText("know how you might get home... wanna know?", nemo->NemoPosition.x - 162 , nemo->NemoPosition.y + 160, 15, WHITE);
+    break;
+  case 7:
+    DrawText("Nemo", nemo->NemoPosition.x - 180 , nemo->NemoPosition.y + 75, 15, BLACK);
+    DrawText("Yes please, I can't wait to get back home.", nemo->NemoPosition.x - 162 , nemo->NemoPosition.y + 110, 15, WHITE);
+    break;
+  case 8:
+    DrawText("Epanox", nemo->NemoPosition.x - 180 , nemo->NemoPosition.y + 75, 15, BLACK);
+    DrawText("Alright, there's a Time Crystal in that Pyramid.", nemo->NemoPosition.x - 162 , nemo->NemoPosition.y + 110, 15, WHITE);
+    DrawText("These Time Crystals allow one to travel through ", nemo->NemoPosition.x - 162 , nemo->NemoPosition.y + 135, 15, WHITE);
+    DrawText("time. I'd say it's your best bet to getting home.", nemo->NemoPosition.x - 162 , nemo->NemoPosition.y + 160, 15, WHITE);
+    break;
+  case 9:
+    DrawText("Nemo", nemo->NemoPosition.x - 180 , nemo->NemoPosition.y + 75, 15, BLACK);
+    DrawText("Ok, I see... then I'll just get the Time Crystal and ", nemo->NemoPosition.x - 162 , nemo->NemoPosition.y + 110, 15, WHITE);
+    DrawText("poof I'm back home. Cheers thanks for the help.", nemo->NemoPosition.x - 162 , nemo->NemoPosition.y + 135, 15, WHITE);
+    break;
+  case 10:
+    DrawText("Epanox", nemo->NemoPosition.x - 180 , nemo->NemoPosition.y + 75, 15, BLACK);
+    DrawText("Before you go let me warn you... ", nemo->NemoPosition.x - 162 , nemo->NemoPosition.y + 110, 15, WHITE);
+    DrawText("there might be Monsters in there.", nemo->NemoPosition.x - 162 , nemo->NemoPosition.y + 135, 15, WHITE);
+    DrawText("Be careful, and safe travels.", nemo->NemoPosition.x - 162 , nemo->NemoPosition.y + 160, 15, WHITE);
+    break;
+  case 11:
+    DrawText("Nemo", nemo->NemoPosition.x - 180 , nemo->NemoPosition.y + 75, 15, BLACK);
+    DrawText("No need to worry I'm built tough! ", nemo->NemoPosition.x - 162 , nemo->NemoPosition.y + 110, 15, WHITE);
+    break;
+  case 12: textState = 1;
+    text = false;
     break;
   }
 }
-
-
-
-void Game::Dialog::DialogNext() {}
-
-void Game::Dialog::DialogEnd() {}
-
-Game::Dialog::~Dialog() = default;

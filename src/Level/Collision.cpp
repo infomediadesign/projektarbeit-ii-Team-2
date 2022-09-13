@@ -115,8 +115,8 @@ void Collision::epanoxCollision() { // Epanox collision
   while (EpanoxCollision2) {
     DrawText("[F]", nemo->NemoPosition.x + 10, nemo->NemoPosition.y - 10, 2, BLACK);
     if (IsKeyPressed(KEY_F)) {
-      PlaySound(GameAudio::epanoxsfx);
-      SetSoundVolume(GameAudio::epanoxsfx, float(0.2));
+      //PlaySound(GameAudio::epanoxsfx);
+      //SetSoundVolume(GameAudio::epanoxsfx, float(0.2));
       text = true;
       break;
     }
@@ -124,7 +124,6 @@ void Collision::epanoxCollision() { // Epanox collision
     if (!EpanoxCollision2){text = false;}
 
     if (text) {
-      //DrawTexture(Dialogbox, 780, 561, WHITE);
       DrawTexture(Dialogbox, nemo->NemoPosition.x - 180 , nemo->NemoPosition.y + 90 , WHITE);
       if (IsKeyPressed(KEY_SPACE)){
         textState + 1;
@@ -221,7 +220,8 @@ void Collision::epanoxCollision() { // Epanox collision
         DrawText("No need to worry I'm built tough! ", nemo->NemoPosition.x - 162 , nemo->NemoPosition.y + 110, 15, WHITE);
         break;
       case 12: textState = 1;
-        text = false; break;
+        text = false;
+        break;
       }
     }
     break;
