@@ -82,7 +82,7 @@ int main() {
 
   //LevelMap();
 
-  //Map stuff -> relocate this into map.h/ and .cpp
+  //Map stuff
   std::ifstream tilesetDescriptionFile("assets/graphics/map/Level1/PhyramidSheet.json"); //Pyramiden_SheetJamey.json needed as json, pls do in tiled
   assert(tilesetDescriptionFile.is_open());
   nlohmann::json tilesetDescription = nlohmann::json::parse(tilesetDescriptionFile);

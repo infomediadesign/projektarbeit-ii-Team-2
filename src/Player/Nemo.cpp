@@ -189,8 +189,7 @@ if (IsKeyDown(KEY_LEFT_SHIFT)) { walkspeed = 2.0; }
 
       // Draw nemo walking animation
 
-      switch (Direction) // A simple Enum and a Switch case solved all the problem before... I swear me beeing Retarded
-                         // is such a nuisance :(
+      switch (Direction)
       {
       case direction::UP:
 
