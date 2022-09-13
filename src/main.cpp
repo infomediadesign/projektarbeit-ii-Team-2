@@ -314,7 +314,7 @@ int main() {
       nemo.Draw();   // nemo walking movement and animation
       camera.target = Vector2 { nemo.NemoPosition.x + 20.0f, nemo.NemoPosition.y + 20.0f };
 
-      collision.inPryaWallCollision();
+      //collision.inPryaWallCollision();
 
       puzzle.collisionChecks();
       puzzle.update();
