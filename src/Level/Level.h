@@ -31,8 +31,37 @@ namespace Game {
     //Texture2D BattleStart = LoadTexture("assets/graphics/BattleScreen/Agypten/BattleStart-Sheet.png");
 
 
+    Font textFont = LoadFont("assets/Born2bSportyV2.ttf");
 
-    //Font LoadFont();
+    float fontSize = 45;
+    float fontSpacing;
+    float fontSpecialSize = 40;
+    Vector2 fontTextPosSTART   = {Game::ScreenWidth / 2 - 115, Game::ScreenHeight / 2 - 37};
+    Vector2 fontTextPosSETTINGS = {Game::ScreenWidth / 2 - 90, Game::ScreenHeight / 2 + 63};
+    Vector2 fontTextPosEXIT     = {Game::ScreenWidth / 2 - 100, Game::ScreenHeight / 2 + 163};
+
+    Vector2 fontTextPosFULLSCREEN   = {Game::ScreenWidth / 2 - 115, Game::ScreenHeight / 2 - 37};
+    Vector2 fontTextPosBACK = {Game::ScreenWidth / 2 - 60, Game::ScreenHeight / 2 + 63};
+
+    Vector2 fontTextPosRESUME   = {Game::ScreenWidth / 2 - 115, Game::ScreenHeight / 2 - 37};
+    Vector2 fontTextPosFULLSCREEN2 = {Game::ScreenWidth / 2 - 100, Game::ScreenHeight / 2 + 63};
+    Vector2 fontTextPosMENU     = {Game::ScreenWidth / 2 - 116, Game::ScreenHeight / 2 + 163};
+
+    ///For the Raylib Animation at the beginning
+    int logoPositionX = ScreenWidth/2 - 128;
+    int logoPositionY = ScreenHeight/2 - 128;
+
+    int framesCounter = 0;
+    int lettersCount = 0;
+
+    int topSideRecWidth = 16;
+    int leftSideRecHeight = 16;
+
+    int bottomSideRecWidth = 16;
+    int rightSideRecHeight = 16;
+
+    int state = 0;                  // Tracking animation states (State Machine)
+    float alpha = 1.0f;             // Useful for fading
 
     //Player Wins
     bool battleEnd = false;
@@ -41,6 +70,7 @@ namespace Game {
     //Player Looses
     bool GameOver = false;
     int GO_timer = 0;
+
 
 //Class initialization
     unique_ptr<GameCharacter> player = std::make_unique<Player>();
@@ -112,7 +142,7 @@ namespace Game {
     enum class GameScreen { TITLESCREEN, OVERWORLD, COMBAT, PYRAMIDE,
       ENDSCREEN, PAUSEMENU, CUTSCENE, GAMEOVER, PAUSEMENU_OVERWORLD, PAUSEMENU_PYRAMID}; //This Enum Class is there to set the Screens to TITLE etc.
 
-    GameScreen currentscreen = GameScreen::TITLESCREEN; //TitleScreens is the Start Screen
+    GameScreen currentscreen = GameScreen::CUTSCENE; //TitleScreens is the Start Screen
     //GameScreen currentscreen = GameScreen::PYRAMIDE; //TitleScreens is the Start Screen
 
     enum class EnemyType {NONE, MUMY, SHADOW, PHARAOH};

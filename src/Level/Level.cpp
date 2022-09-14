@@ -221,21 +221,106 @@ void Game::Level::combat(Game::GameCharacter *c_enemy)
 }
 
 void Game::Level::ScreenDraw() {
-
-  /** SWITCH CASE FOR ROOM SWITCHING */
-  /// * ROOMS: *
-  ///1.) TITLESCREEN
-  ///2.) PAUSEMENU
-  ///3.) PAUSEMENU_OVERWORLD
-  ///4.) TITLESCREEN_PYRAMID
-  ///5.) OVERWORLD
-  ///6.) PYRAMID
-  ///7.) COMBAT
-  ///8.) ENDSCREEN
-  ///9.) GAMEOVER
-
   switch (Game::Level::currentscreen)
   {
+  case GameScreen::CUTSCENE:
+
+    if (IsKeyPressed(KEY_SPACE)){
+      currentscreen = GameScreen::TITLESCREEN;
+    }
+
+    if (state == 0)                 // State 0: Small box blinking
+    {
+      framesCounter++;
+
+      if (framesCounter == 120)
+      {
+        state = 1;
+        framesCounter = 0;      // Reset counter... will be used later...
+      }
+    }
+    else if (state == 1)            // State 1: Top and left bars growing
+    {
+      topSideRecWidth += 4;
+      leftSideRecHeight += 4;
+
+      if (topSideRecWidth == 256) state = 2;
+    }
+    else if (state == 2)            // State 2: Bottom and right bars growing
+    {
+      bottomSideRecWidth += 4;
+      rightSideRecHeight += 4;
+
+      if (bottomSideRecWidth == 256) state = 3;
+    }
+    else if (state == 3)            // State 3: Letters appearing (one by one)
+    {
+      framesCounter++;
+
+      if (framesCounter/12)       // Every 12 frames, one more letter!
+      {
+        lettersCount++;
+        framesCounter = 0;
+      }
+
+      if (lettersCount >= 10)     // When all letters have appeared, just fade out everything
+      {
+        alpha -= 0.02f;
+
+        if (alpha <= 0.0f)
+        {
+          alpha = 0.0f;
+          state = 4;
+        }
+      }
+    }
+    else if (state == 4)            // State 4: Reset and Replay
+    {
+      currentscreen = GameScreen::TITLESCREEN;
+    }
+    //----------------------------------------------------------------------------------
+
+    // Draw
+    //----------------------------------------------------------------------------------
+    BeginDrawing();
+
+    ClearBackground(RAYWHITE);
+
+    if (state == 0)
+    {
+      if ((framesCounter/15)%2) DrawRectangle(logoPositionX, logoPositionY, 16, 16, BLACK);
+    }
+    else if (state == 1)
+    {
+      DrawRectangle(logoPositionX, logoPositionY, topSideRecWidth, 16, BLACK);
+      DrawRectangle(logoPositionX, logoPositionY, 16, leftSideRecHeight, BLACK);
+    }
+    else if (state == 2)
+    {
+      DrawRectangle(logoPositionX, logoPositionY, topSideRecWidth, 16, BLACK);
+      DrawRectangle(logoPositionX, logoPositionY, 16, leftSideRecHeight, BLACK);
+
+      DrawRectangle(logoPositionX + 240, logoPositionY, 16, rightSideRecHeight, BLACK);
+      DrawRectangle(logoPositionX, logoPositionY + 240, bottomSideRecWidth, 16, BLACK);
+    }
+    else if (state == 3)
+    {
+      DrawRectangle(logoPositionX, logoPositionY, topSideRecWidth, 16, Fade(BLACK, alpha));
+      DrawRectangle(logoPositionX, logoPositionY + 16, 16, leftSideRecHeight - 32, Fade(BLACK, alpha));
+
+      DrawRectangle(logoPositionX + 240, logoPositionY + 16, 16, rightSideRecHeight - 32, Fade(BLACK, alpha));
+      DrawRectangle(logoPositionX, logoPositionY + 240, bottomSideRecWidth, 16, Fade(BLACK, alpha));
+
+      DrawRectangle(GetScreenWidth()/2 - 112, GetScreenHeight()/2 - 112, 224, 224, Fade(RAYWHITE, alpha));
+
+      DrawText(TextSubtext("raylib", 0, lettersCount), GetScreenWidth()/2 - 44, GetScreenHeight()/2 + 48, 50, Fade(BLACK, alpha));
+    }
+    else if (state == 4)
+    {
+      DrawText("[R] REPLAY", 340, 200, 20, GRAY);
+    }
+    break;
+
   case GameScreen::TITLESCREEN:
     ///UPDATE
     ///-----------------------------------------------------------------------------------------------------------------
@@ -307,9 +392,12 @@ void Game::Level::ScreenDraw() {
     Draw9Slice(Box_S, box_rec_titlescreen, thick, WHITE);
 
     /** draw button-text titlescreen */
-    DrawText("START GAME", Game::ScreenWidth / 2 - 115, Game::ScreenHeight / 2 - 30, 30, WHITE);
-    DrawText("SETTINGS", Game::ScreenWidth / 2 - 100, Game::ScreenHeight / 2 + 70, 30, WHITE);
-    DrawText("EXIT GAME", Game::ScreenWidth / 2 - 100, Game::ScreenHeight / 2 + 170, 30, WHITE);
+    //DrawText("START GAME", Game::ScreenWidth / 2 - 115, Game::ScreenHeight / 2 - 30, 30, WHITE);
+    DrawTextEx(textFont, "START GAME", fontTextPosSTART, fontSize, fontSpacing, WHITE);
+    DrawTextEx(textFont, "SETTINGS", fontTextPosSETTINGS, fontSize, fontSpacing, WHITE);
+    DrawTextEx(textFont, "EXIT GAME", fontTextPosEXIT, fontSize, fontSpacing, WHITE);
+    //DrawText("SETTINGS", Game::ScreenWidth / 2 - 100, Game::ScreenHeight / 2 + 70, 30, WHITE);
+    //DrawText("EXIT GAME", Game::ScreenWidth / 2 - 100, Game::ScreenHeight / 2 + 170, 30, WHITE);
     break;
 
   case GameScreen::PAUSEMENU:
@@ -375,8 +463,10 @@ void Game::Level::ScreenDraw() {
       Draw9Slice(Box, t_rec_settings, thick, WHITE);
       Draw9Slice(Box_S, box_rec_titlescreen, thick, WHITE);
 
-      DrawText("FULLSCREEN", Game::ScreenWidth / 2 - 117, Game::ScreenHeight / 2 - 30, 28, WHITE);
-      DrawText("BACK", Game::ScreenWidth / 2 - 113, Game::ScreenHeight / 2 + 70, 30, WHITE);
+      //DrawText("FULLSCREEN", Game::ScreenWidth / 2 - 117, Game::ScreenHeight / 2 - 30, 28, WHITE);
+      //DrawText("BACK", Game::ScreenWidth / 2 - 113, Game::ScreenHeight / 2 + 70, 30, WHITE);
+      DrawTextEx(textFont, "FULLSCREEN", fontTextPosFULLSCREEN, fontSize, fontSpacing, WHITE);
+      DrawTextEx(textFont, "BACK", fontTextPosBACK, fontSize, fontSpacing, WHITE);
       break;
 
   case GameScreen::PAUSEMENU_OVERWORLD:
@@ -452,9 +542,12 @@ void Game::Level::ScreenDraw() {
     Draw9Slice(Box, t_rec_exit_game, thick, WHITE);
     Draw9Slice(Box_S, box_rec_titlescreen, thick, WHITE);
 
-    DrawText("RESUME GAME", Game::ScreenWidth / 2 - 117, Game::ScreenHeight / 2 - 30, 28, WHITE);
-    DrawText("FULLSCREEN", Game::ScreenWidth / 2 - 113, Game::ScreenHeight / 2 + 70, 30, WHITE);
-    DrawText("BACK TO MENU", Game::ScreenWidth / 2 - 117, Game::ScreenHeight / 2 + 170, 28, WHITE);
+    //DrawText("RESUME GAME", Game::ScreenWidth / 2 - 117, Game::ScreenHeight / 2 - 30, 28, WHITE);
+    //DrawText("FULLSCREEN", Game::ScreenWidth / 2 - 113, Game::ScreenHeight / 2 + 70, 30, WHITE);
+    //DrawText("BACK TO MENU", Game::ScreenWidth / 2 - 117, Game::ScreenHeight / 2 + 170, 28, WHITE);
+    DrawTextEx(textFont, "RESUME GAME", fontTextPosRESUME, fontSpecialSize, fontSpacing, WHITE);
+    DrawTextEx(textFont, "FULLSCREEN", fontTextPosFULLSCREEN2, fontSpecialSize, fontSpacing, WHITE);
+    DrawTextEx(textFont, "BACK TO MENU", fontTextPosMENU, fontSpecialSize, fontSpacing, WHITE);
     break;
 
   case GameScreen::PAUSEMENU_PYRAMID:
@@ -530,9 +623,12 @@ void Game::Level::ScreenDraw() {
     Draw9Slice(Box, t_rec_exit_game, thick, WHITE);
     Draw9Slice(Box_S, box_rec_titlescreen, thick, WHITE);
 
-    DrawText("RESUME GAME", Game::ScreenWidth / 2 - 117, Game::ScreenHeight / 2 - 30, 28, WHITE);
-    DrawText("FULLSCREEN", Game::ScreenWidth / 2 - 113, Game::ScreenHeight / 2 + 70, 30, WHITE);
-    DrawText("BACK TO MENU", Game::ScreenWidth / 2 - 117, Game::ScreenHeight / 2 + 170, 28, WHITE);
+    //DrawText("RESUME GAME", Game::ScreenWidth / 2 - 117, Game::ScreenHeight / 2 - 30, 28, WHITE);
+    //DrawText("FULLSCREEN", Game::ScreenWidth / 2 - 113, Game::ScreenHeight / 2 + 70, 30, WHITE);
+    //DrawText("BACK TO MENU", Game::ScreenWidth / 2 - 117, Game::ScreenHeight / 2 + 170, 28, WHITE);
+    DrawTextEx(textFont, "RESUME GAME", fontTextPosRESUME, fontSpecialSize, fontSpacing, WHITE);
+    DrawTextEx(textFont, "FULLSCREEN", fontTextPosFULLSCREEN2, fontSpecialSize, fontSpacing, WHITE);
+    DrawTextEx(textFont, "BACK TO MENU", fontTextPosMENU, fontSpecialSize, fontSpacing, WHITE);
 
     break;
 
