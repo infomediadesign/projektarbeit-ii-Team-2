@@ -67,6 +67,30 @@ public:
   //Vector2 puzzle_position = {608.5, 386.5};
   Vector2 TorchPosition = {160, 672};
   Vector2 TorchPosition2 = {320, 672};
+  Vector2 TorchPosition3 = {352, 702};
+  Vector2 TorchPosition4 = {448, 702};
+  Vector2 TorchPosition5 = {544, 606};
+  Vector2 TorchPosition6 = {640, 606};
+  Vector2 TorchPosition7 = {544, 318};
+  Vector2 TorchPosition8 = {640, 318};
+  Vector2 TorchPosition9 = {768, 670};
+  Vector2 TorchPosition10 = {1024, 670};
+  Vector2 TorchPosition11 = {960, 446};
+  Vector2 TorchPosition12 = {928, 222};
+  Vector2 TorchPosition13 = {896, 222};
+
+  Vector2 TorchPosition14 = {544, 894};
+  Vector2 TorchPosition15 = {640, 894};
+  Vector2 TorchPosition16 = {864, 990};
+  Vector2 TorchPosition17 = {1120, 990};
+  Vector2 TorchPosition18 = {1376, 990};
+  Vector2 TorchPosition19 = {1408, 446};
+  Vector2 TorchPosition20 = {1504, 446};
+  Vector2 TorchPosition21 = {1472, 62};
+  Vector2 TorchPosition24 = {1440, 62};
+  Vector2 TorchPosition22 = {1312, 62};
+  Vector2 TorchPosition23 = {1600, 62};
+
   Vector2 PortalPosition = {1438, 76};
 
   /** Bool's */
@@ -93,6 +117,9 @@ public:
 
   bool isKeyPickedUp = false;
 
+  bool wallPuzzlePart1 = false;
+  bool wallPuzzlePart2 = false;
+  bool wallPuzzlePart3 = false;
   bool wallIsOpen = false;
 
   /** Bool's Nemo Stop */

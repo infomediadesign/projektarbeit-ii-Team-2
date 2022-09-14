@@ -1,6 +1,5 @@
 var namespace_game =
 [
-    [ "Dialog", "class_game_1_1_dialog.html", "class_game_1_1_dialog" ],
     [ "GameCharacter", "class_game_1_1_game_character.html", "class_game_1_1_game_character" ],
     [ "Level", "class_game_1_1_level.html", "class_game_1_1_level" ],
     [ "Mumy", "class_game_1_1_mumy.html", "class_game_1_1_mumy" ],

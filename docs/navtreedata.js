@@ -27,9 +27,9 @@ var NAVTREE =
   [ "raylibstarter", "index.html", [
     [ "Custodia - gefangen in der Zeit <img src=\"https://user-images.githubusercontent.com/100305591/189079450-600ede11-6823-4f66-890d-10e7df62df4c.png\" alt=\"Epanox_Standing - Kopie\"/>", "index.html", null ],
     [ "FAQ", "md__c___users__fried__c_lion_projects_projektarbeit_ii__team_2_doxygen_faq.html", [
-      [ "Is it a complete game engine?", "md__c___users__fried__c_lion_projects_projektarbeit_ii__team_2_doxygen_faq.html#autotoc_md2", null ],
-      [ "What do I have to do if I want to develop my own game?", "md__c___users__fried__c_lion_projects_projektarbeit_ii__team_2_doxygen_faq.html#autotoc_md3", null ],
-      [ "Is this project template based on raylib-cpp?", "md__c___users__fried__c_lion_projects_projektarbeit_ii__team_2_doxygen_faq.html#autotoc_md4", null ]
+      [ "Is it a complete game engine?", "md__c___users__fried__c_lion_projects_projektarbeit_ii__team_2_doxygen_faq.html#autotoc_md10", null ],
+      [ "What do I have to do if I want to develop my own game?", "md__c___users__fried__c_lion_projects_projektarbeit_ii__team_2_doxygen_faq.html#autotoc_md11", null ],
+      [ "Is this project template based on raylib-cpp?", "md__c___users__fried__c_lion_projects_projektarbeit_ii__team_2_doxygen_faq.html#autotoc_md12", null ]
     ] ],
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],
@@ -63,9 +63,9 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "_collision_8cpp.html",
-"class_game_1_1_level.html#a1869c9a90dd864b19f379411c5e44952",
-"class_game_1_1_nemo.html#abbdb0ef6ff17e26335f6c4bde965ffafa21507b40c80068eda19865706fdc2403",
-"class_puzzle.html#a4c48196297242fc28f680c538273c350"
+"class_game_1_1_level.html#a309edd54d78f59d35663331d5819107b",
+"class_game_1_1_nemo.html#a8e5fbf7fb9e5cdf5f947922e68b21c7d",
+"class_puzzle.html#a23de0e73ea4f220540c9cc77a680c491"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

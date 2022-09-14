@@ -4,10 +4,6 @@ var dir_f5b2029e7f5ef321e23f1af6d7704298 =
     [ "Collision.h", "_collision_8h.html", [
       [ "Collision", "class_collision.html", "class_collision" ]
     ] ],
-    [ "Dialogue.cpp", "_dialogue_8cpp.html", null ],
-    [ "Dialogue.h", "_dialogue_8h.html", [
-      [ "Game::Dialog", "class_game_1_1_dialog.html", "class_game_1_1_dialog" ]
-    ] ],
     [ "Endscreen.cpp", "_endscreen_8cpp.html", null ],
     [ "Endscreen.h", "_endscreen_8h.html", [
       [ "Endscreen", "class_endscreen.html", "class_endscreen" ]
@@ -22,10 +18,6 @@ var dir_f5b2029e7f5ef321e23f1af6d7704298 =
     [ "Level.cpp", "_level_8cpp.html", null ],
     [ "Level.h", "_level_8h.html", [
       [ "Game::Level", "class_game_1_1_level.html", "class_game_1_1_level" ]
-    ] ],
-    [ "Map.cpp", "_map_8cpp.html", null ],
-    [ "Map.h", "_map_8h.html", [
-      [ "LevelMap", "class_level_map.html", "class_level_map" ]
     ] ],
     [ "Puzzle.cpp", "_puzzle_8cpp.html", null ],
     [ "Puzzle.h", "_puzzle_8h.html", [

@@ -117,6 +117,8 @@ void Collision::epanoxCollision() { // Epanox collision
     if (IsKeyPressed(KEY_F)) {
       //PlaySound(GameAudio::epanoxsfx);
       //SetSoundVolume(GameAudio::epanoxsfx, float(0.2));
+      PlaySound(GameAudio::dialoge);
+      SetSoundVolume(GameAudio::dialoge, float(0.1));
       text = true;
       break;
     }

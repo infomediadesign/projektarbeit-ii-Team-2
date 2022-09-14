@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['mumy_0',['Mumy',['../class_game_1_1_mumy.html',1,'Game::Mumy'],['../class_mumy.html',1,'Mumy']]]
+  ['nemo_0',['Nemo',['../class_game_1_1_nemo.html',1,'Game']]]
 ];

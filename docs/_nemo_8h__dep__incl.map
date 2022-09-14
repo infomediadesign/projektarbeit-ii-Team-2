@@ -1,13 +1,11 @@
 <map id="Nemo.h" name="Nemo.h">
-<area shape="rect" id="node1" title=" " alt="" coords="175,5,242,32"/>
-<area shape="rect" id="node2" href="$_collision_8h.html" title=" " alt="" coords="167,229,250,256"/>
-<area shape="rect" id="node4" href="$_puzzle_8h.html" title=" " alt="" coords="12,304,85,331"/>
-<area shape="rect" id="node6" href="$main_8cpp.html" title=" " alt="" coords="186,379,261,405"/>
-<area shape="rect" id="node7" href="$_level_8h.html" title=" " alt="" coords="357,80,420,107"/>
-<area shape="rect" id="node11" href="$_nemo_8cpp.html" title=" " alt="" coords="564,155,645,181"/>
-<area shape="rect" id="node3" href="$_collision_8cpp.html" title=" " alt="" coords="161,304,257,331"/>
-<area shape="rect" id="node5" href="$_puzzle_8cpp.html" title=" " alt="" coords="5,379,92,405"/>
-<area shape="rect" id="node8" href="$_level_8cpp.html" title=" " alt="" coords="464,155,540,181"/>
-<area shape="rect" id="node9" href="$_map_8h.html" title=" " alt="" coords="322,155,381,181"/>
-<area shape="rect" id="node10" href="$_map_8cpp.html" title=" " alt="" coords="325,229,397,256"/>
+<area shape="rect" id="node1" title=" " alt="" coords="210,5,277,32"/>
+<area shape="rect" id="node2" href="$_collision_8h.html" title=" " alt="" coords="121,155,203,181"/>
+<area shape="rect" id="node4" href="$_puzzle_8h.html" title=" " alt="" coords="12,229,85,256"/>
+<area shape="rect" id="node6" href="$main_8cpp.html" title=" " alt="" coords="206,304,281,331"/>
+<area shape="rect" id="node7" href="$_level_8h.html" title=" " alt="" coords="281,80,344,107"/>
+<area shape="rect" id="node9" href="$_nemo_8cpp.html" title=" " alt="" coords="432,155,513,181"/>
+<area shape="rect" id="node3" href="$_collision_8cpp.html" title=" " alt="" coords="110,229,206,256"/>
+<area shape="rect" id="node5" href="$_puzzle_8cpp.html" title=" " alt="" coords="5,304,92,331"/>
+<area shape="rect" id="node8" href="$_level_8cpp.html" title=" " alt="" coords="332,155,408,181"/>
 </map>

@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['pharaoh_0',['Pharaoh',['../class_game_1_1_pharaoh.html',1,'Game::Pharaoh'],['../class_pharaoh.html',1,'Pharaoh']]],
-  ['player_1',['Player',['../class_game_1_1_player.html',1,'Game']]],
-  ['puzzle_2',['Puzzle',['../class_puzzle.html',1,'']]]
+  ['shadow_0',['Shadow',['../class_game_1_1_shadow.html',1,'Game::Shadow'],['../class_shadow.html',1,'Shadow']]],
+  ['sprite_1',['Sprite',['../class_game_1_1_sprite.html',1,'Game']]]
 ];

@@ -1,14 +1,12 @@
 <map id="Mumy.h" name="Mumy.h">
-<area shape="rect" id="node1" title=" " alt="" coords="319,5,388,32"/>
-<area shape="rect" id="node2" href="$_level_8h.html" title=" " alt="" coords="274,80,337,107"/>
-<area shape="rect" id="node12" href="$_combat_2_mumy_8cpp.html" title=" " alt="" coords="361,80,444,107"/>
-<area shape="rect" id="node3" href="$_collision_8h.html" title=" " alt="" coords="119,229,201,256"/>
-<area shape="rect" id="node7" href="$main_8cpp.html" title=" " alt="" coords="216,379,291,405"/>
-<area shape="rect" id="node8" href="$_level_8cpp.html" title=" " alt="" coords="359,155,435,181"/>
-<area shape="rect" id="node9" href="$_map_8h.html" title=" " alt="" coords="276,155,335,181"/>
-<area shape="rect" id="node11" href="$_nemo_8cpp.html" title=" " alt="" coords="459,155,541,181"/>
-<area shape="rect" id="node4" href="$_collision_8cpp.html" title=" " alt="" coords="5,304,101,331"/>
-<area shape="rect" id="node5" href="$_puzzle_8h.html" title=" " alt="" coords="126,304,199,331"/>
-<area shape="rect" id="node6" href="$_puzzle_8cpp.html" title=" " alt="" coords="105,379,191,405"/>
-<area shape="rect" id="node10" href="$_map_8cpp.html" title=" " alt="" coords="327,229,399,256"/>
+<area shape="rect" id="node1" title=" " alt="" coords="291,5,360,32"/>
+<area shape="rect" id="node2" href="$_level_8h.html" title=" " alt="" coords="246,80,309,107"/>
+<area shape="rect" id="node10" href="$_combat_2_mumy_8cpp.html" title=" " alt="" coords="333,80,416,107"/>
+<area shape="rect" id="node3" href="$_collision_8h.html" title=" " alt="" coords="120,155,203,181"/>
+<area shape="rect" id="node7" href="$main_8cpp.html" title=" " alt="" coords="203,304,277,331"/>
+<area shape="rect" id="node8" href="$_level_8cpp.html" title=" " alt="" coords="278,155,354,181"/>
+<area shape="rect" id="node9" href="$_nemo_8cpp.html" title=" " alt="" coords="378,155,459,181"/>
+<area shape="rect" id="node4" href="$_collision_8cpp.html" title=" " alt="" coords="5,229,101,256"/>
+<area shape="rect" id="node5" href="$_puzzle_8h.html" title=" " alt="" coords="126,229,199,256"/>
+<area shape="rect" id="node6" href="$_puzzle_8cpp.html" title=" " alt="" coords="91,304,178,331"/>
 </map>

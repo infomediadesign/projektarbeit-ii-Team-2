@@ -1,10 +1,8 @@
 var searchData=
 [
-  ['_7edialog_0',['~Dialog',['../class_game_1_1_dialog.html#a896f1a8fd41a7fc5348ff59ba5c614b8',1,'Game::Dialog']]],
-  ['_7egamecharacter_1',['~GameCharacter',['../class_game_1_1_game_character.html#a3265b699dab509a7cb5f33d09c4a0044',1,'Game::GameCharacter']]],
-  ['_7elevel_2',['~Level',['../class_game_1_1_level.html#a70875e348acd232acba7df8fd188f657',1,'Game::Level']]],
-  ['_7elevelmap_3',['~LevelMap',['../class_level_map.html#a046dedd0ed20c12b08425a521213573f',1,'LevelMap']]],
-  ['_7enemo_4',['~Nemo',['../class_game_1_1_nemo.html#a9ef2b3d5898c1200393a9dc44c0ba66d',1,'Game::Nemo']]],
-  ['_7epuzzle_5',['~Puzzle',['../class_puzzle.html#af15f47ca5491675d41d88b3dd1f4a648',1,'Puzzle']]],
-  ['_7esprite_6',['~Sprite',['../class_game_1_1_sprite.html#a0885819a324d17e1350bd9d805f3f344',1,'Game::Sprite']]]
+  ['_7egamecharacter_0',['~GameCharacter',['../class_game_1_1_game_character.html#a3265b699dab509a7cb5f33d09c4a0044',1,'Game::GameCharacter']]],
+  ['_7elevel_1',['~Level',['../class_game_1_1_level.html#a70875e348acd232acba7df8fd188f657',1,'Game::Level']]],
+  ['_7enemo_2',['~Nemo',['../class_game_1_1_nemo.html#a9ef2b3d5898c1200393a9dc44c0ba66d',1,'Game::Nemo']]],
+  ['_7epuzzle_3',['~Puzzle',['../class_puzzle.html#af15f47ca5491675d41d88b3dd1f4a648',1,'Puzzle']]],
+  ['_7esprite_4',['~Sprite',['../class_game_1_1_sprite.html#a0885819a324d17e1350bd9d805f3f344',1,'Game::Sprite']]]
 ];

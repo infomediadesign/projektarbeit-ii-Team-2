@@ -107,213 +107,215 @@ $(document).ready(function(){initNavTree('_nemo_8cpp_source.html',''); initResiz
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="comment"></span> </div>
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="comment">  ///NEMOS MOVEMENT</span></div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="comment"></span>  <span class="keywordflow">if</span> (IsKeyDown(KEY_W)) { <a class="code hl_variable" href="class_game_1_1_nemo.html#a5f1a60a72cf9109bdee7c4f6cf39a180">keypressed</a> = <span class="keyword">true</span>;}</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>  <span class="keywordflow">if</span> (IsKeyDown(KEY_A)) { <a class="code hl_variable" href="class_game_1_1_nemo.html#a5f1a60a72cf9109bdee7c4f6cf39a180">keypressed</a> = <span class="keyword">true</span>;}</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>  <span class="keywordflow">if</span> (IsKeyDown(KEY_S)) { <a class="code hl_variable" href="class_game_1_1_nemo.html#a5f1a60a72cf9109bdee7c4f6cf39a180">keypressed</a> = <span class="keyword">true</span>;}</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>  <span class="keywordflow">if</span> (IsKeyDown(KEY_D)) { <a class="code hl_variable" href="class_game_1_1_nemo.html#a5f1a60a72cf9109bdee7c4f6cf39a180">keypressed</a> = <span class="keyword">true</span>;}</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>  <span class="keywordflow">else</span> { <a class="code hl_variable" href="class_game_1_1_nemo.html#a5f1a60a72cf9109bdee7c4f6cf39a180">keypressed</a> = <span class="keyword">false</span>; }</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>  <span class="keywordflow">if</span> (!<a class="code hl_variable" href="class_game_1_1_nemo.html#a5f1a60a72cf9109bdee7c4f6cf39a180">keypressed</a>){</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <a class="code hl_variable" href="class_game_1_1_nemo.html#a3e1678591cac91f4d49f989e1f63c8d8">timesinceIdle</a> += GetFrameTime();</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="class_game_1_1_nemo.html#a3e1678591cac91f4d49f989e1f63c8d8">timesinceIdle</a> &gt;= 5){</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>      <a class="code hl_variable" href="class_game_1_1_nemo.html#a9773212bb880099d5af6eedf28dffead">Direction</a> = <a class="code hl_enumvalue" href="class_game_1_1_nemo.html#abbdb0ef6ff17e26335f6c4bde965ffafadd135fb441de529b55c24775556f3a81">direction::STAND</a>;</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>      <span class="comment">// animation</span></div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>      <a class="code hl_variable" href="class_game_1_1_nemo.html#a78272b31821e4fdd9b1ffc6c5be0c339">framesCounter</a>++;</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>  <span class="keywordflow">else</span> { <a class="code hl_variable" href="class_game_1_1_nemo.html#a5f1a60a72cf9109bdee7c4f6cf39a180">keypressed</a> = <span class="keyword">false</span>; }</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>  <span class="keywordflow">if</span> (IsKeyDown(KEY_A)) { <a class="code hl_variable" href="class_game_1_1_nemo.html#a5f1a60a72cf9109bdee7c4f6cf39a180">keypressed</a> = <span class="keyword">true</span>;}</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>  <span class="keywordflow">else</span> { <a class="code hl_variable" href="class_game_1_1_nemo.html#a5f1a60a72cf9109bdee7c4f6cf39a180">keypressed</a> = <span class="keyword">false</span>; }</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>  <span class="keywordflow">if</span> (IsKeyDown(KEY_S)) { <a class="code hl_variable" href="class_game_1_1_nemo.html#a5f1a60a72cf9109bdee7c4f6cf39a180">keypressed</a> = <span class="keyword">true</span>;}</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>  <span class="keywordflow">else</span> { <a class="code hl_variable" href="class_game_1_1_nemo.html#a5f1a60a72cf9109bdee7c4f6cf39a180">keypressed</a> = <span class="keyword">false</span>; }</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>  <span class="keywordflow">if</span> (IsKeyDown(KEY_D)) { <a class="code hl_variable" href="class_game_1_1_nemo.html#a5f1a60a72cf9109bdee7c4f6cf39a180">keypressed</a> = <span class="keyword">true</span>;}</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>  <span class="keywordflow">else</span> { <a class="code hl_variable" href="class_game_1_1_nemo.html#a5f1a60a72cf9109bdee7c4f6cf39a180">keypressed</a> = <span class="keyword">false</span>; }</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>  <span class="keywordflow">if</span> (!<a class="code hl_variable" href="class_game_1_1_nemo.html#a5f1a60a72cf9109bdee7c4f6cf39a180">keypressed</a>){</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <a class="code hl_variable" href="class_game_1_1_nemo.html#a3e1678591cac91f4d49f989e1f63c8d8">timesinceIdle</a> += GetFrameTime();</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="class_game_1_1_nemo.html#a3e1678591cac91f4d49f989e1f63c8d8">timesinceIdle</a> &gt;= 10){</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>      <a class="code hl_variable" href="class_game_1_1_nemo.html#a9773212bb880099d5af6eedf28dffead">Direction</a> = <a class="code hl_enumvalue" href="class_game_1_1_nemo.html#abbdb0ef6ff17e26335f6c4bde965ffafadd135fb441de529b55c24775556f3a81">direction::STAND</a>;</div>
 <div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>      <span class="keywordflow">if</span> (<a class="code hl_variable" href="class_game_1_1_nemo.html#a78272b31821e4fdd9b1ffc6c5be0c339">framesCounter</a> &gt;= (60 / <a class="code hl_variable" href="class_game_1_1_nemo.html#a3e7de1be2250564f465deeb159ea9ceb">framesSpeed</a>)) {</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>        <a class="code hl_variable" href="class_game_1_1_nemo.html#a78272b31821e4fdd9b1ffc6c5be0c339">framesCounter</a> = 0;</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>        <a class="code hl_variable" href="class_game_1_1_nemo.html#a0c2d560dc87566d29937e5d619632187">currentFrame</a>++;</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>        <span class="comment">//Framecounter</span></div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>        <span class="keywordflow">if</span> (<a class="code hl_variable" href="class_game_1_1_nemo.html#a0c2d560dc87566d29937e5d619632187">currentFrame</a> &gt; 3){</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>          <a class="code hl_variable" href="class_game_1_1_nemo.html#a3e1678591cac91f4d49f989e1f63c8d8">timesinceIdle</a> = 0;</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>          <a class="code hl_variable" href="class_game_1_1_nemo.html#a0c2d560dc87566d29937e5d619632187">currentFrame</a> = 0;</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>        }</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>        <a class="code hl_variable" href="class_game_1_1_nemo.html#a8e5fbf7fb9e5cdf5f947922e68b21c7d">StandframeRec</a>.x = (float)<a class="code hl_variable" href="class_game_1_1_nemo.html#a0c2d560dc87566d29937e5d619632187">currentFrame</a> * (<span class="keywordtype">float</span>)<a class="code hl_variable" href="class_game_1_1_nemo.html#ae8412732b697a79d872c7a535e5ac8f1">Stand</a>.width / 4;</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>      }</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    }</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>  }</div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="comment">/*</span></div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="comment">   if (!keypressed){ Direction = direction::STAND;</span></div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="comment"></span> </div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="comment"> // animation</span></div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="comment"> framesCounter++;</span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>      <span class="comment">// animation</span></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>      <a class="code hl_variable" href="class_game_1_1_nemo.html#a78272b31821e4fdd9b1ffc6c5be0c339">framesCounter</a>++;</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>      <span class="keywordflow">if</span> (<a class="code hl_variable" href="class_game_1_1_nemo.html#a78272b31821e4fdd9b1ffc6c5be0c339">framesCounter</a> &gt;= (60 / <a class="code hl_variable" href="class_game_1_1_nemo.html#a3e7de1be2250564f465deeb159ea9ceb">framesSpeed</a>)) {</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>        <a class="code hl_variable" href="class_game_1_1_nemo.html#a78272b31821e4fdd9b1ffc6c5be0c339">framesCounter</a> = 0;</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>        <a class="code hl_variable" href="class_game_1_1_nemo.html#a0c2d560dc87566d29937e5d619632187">currentFrame</a>++;</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>        <span class="comment">//Framecounter</span></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>        <span class="keywordflow">if</span> (<a class="code hl_variable" href="class_game_1_1_nemo.html#a0c2d560dc87566d29937e5d619632187">currentFrame</a> &gt; 3){</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>          <a class="code hl_variable" href="class_game_1_1_nemo.html#a3e1678591cac91f4d49f989e1f63c8d8">timesinceIdle</a> = 0;</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>          <a class="code hl_variable" href="class_game_1_1_nemo.html#a0c2d560dc87566d29937e5d619632187">currentFrame</a> = 0;</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>        }</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>        <a class="code hl_variable" href="class_game_1_1_nemo.html#a8e5fbf7fb9e5cdf5f947922e68b21c7d">StandframeRec</a>.x = (float)<a class="code hl_variable" href="class_game_1_1_nemo.html#a0c2d560dc87566d29937e5d619632187">currentFrame</a> * (<span class="keywordtype">float</span>)<a class="code hl_variable" href="class_game_1_1_nemo.html#ae8412732b697a79d872c7a535e5ac8f1">Stand</a>.width / 4;</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>      }</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    }</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>  }</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="comment">   if (!keypressed){ Direction = direction::STAND;</span></div>
 <div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="comment"></span> </div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="comment"> if (framesCounter &gt;= (60 / framesSpeed)) {</span></div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span><span class="comment">   framesCounter = 0;</span></div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span><span class="comment">   currentFrame++;</span></div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span><span class="comment"></span> </div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span><span class="comment">   //Framecounter</span></div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span><span class="comment">   if (currentFrame &gt; 3)</span></div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span><span class="comment">     currentFrame = 0;</span></div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span><span class="comment"></span> </div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span><span class="comment">   StandframeRec.x = (float)currentFrame * (float)Stand.width / 4;</span></div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span><span class="comment"> }</span></div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><span class="comment">}</span></div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span><span class="comment"> */</span></div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span><span class="comment">/*</span></div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="comment"></span> </div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span><span class="comment">  */</span> <span class="comment">//nemo standing stuff</span></div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>  <span class="keywordflow">if</span> (<a class="code hl_variable" href="class_game_1_1_nemo.html#a9dd7680fb3fc656fd34e866a07069e05">active</a>) {</div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>      <span class="comment">/* if (IsKeyDown(KEY_W) &amp;&amp; IsKeyDown(KEY_D)</span></div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span><span class="comment">        || IsKeyDown(KEY_W) &amp;&amp; IsKeyDown(KEY_A)</span></div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span><span class="comment">        || IsKeyDown(KEY_S) &amp;&amp; IsKeyDown(KEY_D)</span></div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span><span class="comment">        || IsKeyDown(KEY_S) &amp;&amp; IsKeyDown(KEY_A)</span></div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span><span class="comment">        || IsKeyDown(KEY_A) &amp;&amp; IsKeyDown(KEY_D))</span></div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span><span class="comment"></span> </div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span><span class="comment">    {</span></div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span><span class="comment">      walkspeed     = 0;</span></div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span><span class="comment">      framesCounter = 0;</span></div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span><span class="comment">    } else*/</span></div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span> </div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>      <span class="comment">/*</span></div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span><span class="comment">if (IsKeyDown(KEY_LEFT_SHIFT)) { walkspeed = 2.0; }</span></div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span><span class="comment">    else if (keypressed) { walkspeed = 1.5; }</span></div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span><span class="comment">    else if (!keypressed) { walkspeed = 0; }</span></div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span><span class="comment">       */</span> <span class="comment">//Keypressed nemo stuff</span></div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span> </div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>      <span class="keywordflow">if</span> (IsKeyDown(KEY_LEFT_SHIFT)) <span class="comment">// Sprinting</span></div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>      {</div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>        <a class="code hl_variable" href="class_game_1_1_nemo.html#a2b25672b142e60b8e500dbe2ea212ddd">walkspeed</a> = 2.0;</div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>      } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (IsKeyDown(KEY_W) || IsKeyDown(KEY_S) || IsKeyDown(KEY_D) ||</div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>                 IsKeyDown(KEY_A)) <span class="comment">// Better alternative than else walkspeed 1.5</span></div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>      {</div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>        <a class="code hl_variable" href="class_game_1_1_nemo.html#a2b25672b142e60b8e500dbe2ea212ddd">walkspeed</a> = 1.5;</div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>      } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (!IsKeyDown(KEY_W) || !IsKeyDown(KEY_S) || !IsKeyDown(KEY_D) ||</div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>                 !IsKeyDown(KEY_A)) <span class="comment">// when No Key is pressed, the Walkspeed is set to 0;</span></div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>      {</div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>        <a class="code hl_variable" href="class_game_1_1_nemo.html#a2b25672b142e60b8e500dbe2ea212ddd">walkspeed</a> = 0;</div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>      }</div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span> </div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span> </div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>    <span class="comment">// std::cout &lt;&lt; walkspeed &lt;&lt; &quot;\n&quot;; //This is a test to see Nemos current Walkspeed</span></div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="comment"> // animation</span></div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span><span class="comment"> framesCounter++;</span></div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span><span class="comment"></span> </div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span><span class="comment"> if (framesCounter &gt;= (60 / framesSpeed)) {</span></div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span><span class="comment">   framesCounter = 0;</span></div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span><span class="comment">   currentFrame++;</span></div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span><span class="comment"></span> </div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span><span class="comment">   //Framecounter</span></div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span><span class="comment">   if (currentFrame &gt; 3)</span></div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span><span class="comment">     currentFrame = 0;</span></div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><span class="comment"></span> </div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span><span class="comment">   StandframeRec.x = (float)currentFrame * (float)Stand.width / 4;</span></div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span><span class="comment"> }</span></div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span><span class="comment">}</span></div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span><span class="comment"></span> </div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span><span class="comment">  */</span> <span class="comment">//nemo standing stuff</span></div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>  <span class="keywordflow">if</span> (<a class="code hl_variable" href="class_game_1_1_nemo.html#a9dd7680fb3fc656fd34e866a07069e05">active</a>) {</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>      <span class="comment">/* if (IsKeyDown(KEY_W) &amp;&amp; IsKeyDown(KEY_D)</span></div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span><span class="comment">        || IsKeyDown(KEY_W) &amp;&amp; IsKeyDown(KEY_A)</span></div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span><span class="comment">        || IsKeyDown(KEY_S) &amp;&amp; IsKeyDown(KEY_D)</span></div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span><span class="comment">        || IsKeyDown(KEY_S) &amp;&amp; IsKeyDown(KEY_A)</span></div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span><span class="comment">        || IsKeyDown(KEY_A) &amp;&amp; IsKeyDown(KEY_D))</span></div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span><span class="comment"></span> </div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span><span class="comment">    {</span></div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span><span class="comment">      walkspeed     = 0;</span></div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span><span class="comment">      framesCounter = 0;</span></div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span><span class="comment">    } else*/</span></div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span> </div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>      <span class="comment">/*</span></div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span><span class="comment">if (IsKeyDown(KEY_LEFT_SHIFT)) { walkspeed = 2.0; }</span></div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span><span class="comment">    else if (keypressed) { walkspeed = 1.5; }</span></div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span><span class="comment">    else if (!keypressed) { walkspeed = 0; }</span></div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span><span class="comment">       */</span> <span class="comment">//Keypressed nemo stuff</span></div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span> </div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>      <span class="keywordflow">if</span> (IsKeyDown(KEY_LEFT_SHIFT)) <span class="comment">// Sprinting</span></div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>      {</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>        <a class="code hl_variable" href="class_game_1_1_nemo.html#a2b25672b142e60b8e500dbe2ea212ddd">walkspeed</a> = 2.0;</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>      } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (IsKeyDown(KEY_W) || IsKeyDown(KEY_S) || IsKeyDown(KEY_D) ||</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>                 IsKeyDown(KEY_A)) <span class="comment">// Better alternative than else walkspeed 1.5</span></div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>      {</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>        <a class="code hl_variable" href="class_game_1_1_nemo.html#a2b25672b142e60b8e500dbe2ea212ddd">walkspeed</a> = 1.5;</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>      } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (!IsKeyDown(KEY_W) || !IsKeyDown(KEY_S) || !IsKeyDown(KEY_D) ||</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>                 !IsKeyDown(KEY_A)) <span class="comment">// when No Key is pressed, the Walkspeed is set to 0;</span></div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>      {</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>        <a class="code hl_variable" href="class_game_1_1_nemo.html#a2b25672b142e60b8e500dbe2ea212ddd">walkspeed</a> = 0;</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>      }</div>
 <div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span> </div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>    <span class="comment">// animation and movement</span></div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    <span class="keywordflow">if</span> (IsKeyDown(KEY_W)) {</div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>      <a class="code hl_variable" href="class_game_1_1_nemo.html#aadbc7bc7701d5bab3cdbf7a31c91f9d4">NemoPosition</a>.y -= <a class="code hl_variable" href="class_game_1_1_nemo.html#a2b25672b142e60b8e500dbe2ea212ddd">walkspeed</a>; <span class="comment">// run forwards</span></div>
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>      <a class="code hl_variable" href="class_game_1_1_nemo.html#a9773212bb880099d5af6eedf28dffead">Direction</a> = <a class="code hl_enumvalue" href="class_game_1_1_nemo.html#abbdb0ef6ff17e26335f6c4bde965ffafafbaedde498cdead4f2780217646e9ba1">direction::UP</a>;      </div>
-<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span> </div>
-<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>      <span class="comment">// animation</span></div>
-<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>      <a class="code hl_variable" href="class_game_1_1_nemo.html#a78272b31821e4fdd9b1ffc6c5be0c339">framesCounter</a>++;</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span> </div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    <span class="comment">// std::cout &lt;&lt; walkspeed &lt;&lt; &quot;\n&quot;; //This is a test to see Nemos current Walkspeed</span></div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span> </div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>    <span class="comment">// animation and movement</span></div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    <span class="keywordflow">if</span> (IsKeyDown(KEY_W)) {</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>      <a class="code hl_variable" href="class_game_1_1_nemo.html#aadbc7bc7701d5bab3cdbf7a31c91f9d4">NemoPosition</a>.y -= <a class="code hl_variable" href="class_game_1_1_nemo.html#a2b25672b142e60b8e500dbe2ea212ddd">walkspeed</a>; <span class="comment">// run forwards</span></div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>      <a class="code hl_variable" href="class_game_1_1_nemo.html#a9773212bb880099d5af6eedf28dffead">Direction</a> = <a class="code hl_enumvalue" href="class_game_1_1_nemo.html#abbdb0ef6ff17e26335f6c4bde965ffafafbaedde498cdead4f2780217646e9ba1">direction::UP</a>;      </div>
 <div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span> </div>
-<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>      <span class="keywordflow">if</span> (<a class="code hl_variable" href="class_game_1_1_nemo.html#a78272b31821e4fdd9b1ffc6c5be0c339">framesCounter</a> &gt;= (60 / <a class="code hl_variable" href="class_game_1_1_nemo.html#a3e7de1be2250564f465deeb159ea9ceb">framesSpeed</a>)) {</div>
-<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>        <a class="code hl_variable" href="class_game_1_1_nemo.html#a78272b31821e4fdd9b1ffc6c5be0c339">framesCounter</a> = 0;</div>
-<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>        <a class="code hl_variable" href="class_game_1_1_nemo.html#a0c2d560dc87566d29937e5d619632187">currentFrame</a>++;</div>
-<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span> </div>
-<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>        <span class="keywordflow">if</span> (<a class="code hl_variable" href="class_game_1_1_nemo.html#a0c2d560dc87566d29937e5d619632187">currentFrame</a> &gt; 3)</div>
-<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>          <a class="code hl_variable" href="class_game_1_1_nemo.html#a0c2d560dc87566d29937e5d619632187">currentFrame</a> = 0;</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>      <span class="comment">// animation</span></div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>      <a class="code hl_variable" href="class_game_1_1_nemo.html#a78272b31821e4fdd9b1ffc6c5be0c339">framesCounter</a>++;</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span> </div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>      <span class="keywordflow">if</span> (<a class="code hl_variable" href="class_game_1_1_nemo.html#a78272b31821e4fdd9b1ffc6c5be0c339">framesCounter</a> &gt;= (60 / <a class="code hl_variable" href="class_game_1_1_nemo.html#a3e7de1be2250564f465deeb159ea9ceb">framesSpeed</a>)) {</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>        <a class="code hl_variable" href="class_game_1_1_nemo.html#a78272b31821e4fdd9b1ffc6c5be0c339">framesCounter</a> = 0;</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>        <a class="code hl_variable" href="class_game_1_1_nemo.html#a0c2d560dc87566d29937e5d619632187">currentFrame</a>++;</div>
 <div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span> </div>
-<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>        <a class="code hl_variable" href="class_game_1_1_nemo.html#ab7c1965c46238d65c0b68421ff66ff48">frameRec</a>.x = (float)<a class="code hl_variable" href="class_game_1_1_nemo.html#a0c2d560dc87566d29937e5d619632187">currentFrame</a> * (<span class="keywordtype">float</span>)<a class="code hl_variable" href="class_game_1_1_nemo.html#a83da4c8ade8f0b0cf7b7ca1d8be2e075">Front</a>.width / 4;</div>
-<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>      }</div>
-<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>    }</div>
-<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>    <span class="keywordflow">if</span> (IsKeyDown(KEY_A)) {</div>
-<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>      <a class="code hl_variable" href="class_game_1_1_nemo.html#aadbc7bc7701d5bab3cdbf7a31c91f9d4">NemoPosition</a>.x -= <a class="code hl_variable" href="class_game_1_1_nemo.html#a2b25672b142e60b8e500dbe2ea212ddd">walkspeed</a>; <span class="comment">// run left -&gt;needs change</span></div>
-<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>      <a class="code hl_variable" href="class_game_1_1_nemo.html#a9773212bb880099d5af6eedf28dffead">Direction</a> = <a class="code hl_enumvalue" href="class_game_1_1_nemo.html#abbdb0ef6ff17e26335f6c4bde965ffafa684d325a7303f52e64011467ff5c5758">direction::LEFT</a>;      </div>
-<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span> </div>
-<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>      <span class="comment">// animation</span></div>
-<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>      <a class="code hl_variable" href="class_game_1_1_nemo.html#a78272b31821e4fdd9b1ffc6c5be0c339">framesCounter</a>++;</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>        <span class="keywordflow">if</span> (<a class="code hl_variable" href="class_game_1_1_nemo.html#a0c2d560dc87566d29937e5d619632187">currentFrame</a> &gt; 3)</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>          <a class="code hl_variable" href="class_game_1_1_nemo.html#a0c2d560dc87566d29937e5d619632187">currentFrame</a> = 0;</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span> </div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>        <a class="code hl_variable" href="class_game_1_1_nemo.html#ab7c1965c46238d65c0b68421ff66ff48">frameRec</a>.x = (float)<a class="code hl_variable" href="class_game_1_1_nemo.html#a0c2d560dc87566d29937e5d619632187">currentFrame</a> * (<span class="keywordtype">float</span>)<a class="code hl_variable" href="class_game_1_1_nemo.html#a83da4c8ade8f0b0cf7b7ca1d8be2e075">Front</a>.width / 4;</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>      }</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>    }</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>    <span class="keywordflow">if</span> (IsKeyDown(KEY_A)) {</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>      <a class="code hl_variable" href="class_game_1_1_nemo.html#aadbc7bc7701d5bab3cdbf7a31c91f9d4">NemoPosition</a>.x -= <a class="code hl_variable" href="class_game_1_1_nemo.html#a2b25672b142e60b8e500dbe2ea212ddd">walkspeed</a>; <span class="comment">// run left -&gt;needs change</span></div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>      <a class="code hl_variable" href="class_game_1_1_nemo.html#a9773212bb880099d5af6eedf28dffead">Direction</a> = <a class="code hl_enumvalue" href="class_game_1_1_nemo.html#abbdb0ef6ff17e26335f6c4bde965ffafa684d325a7303f52e64011467ff5c5758">direction::LEFT</a>;      </div>
 <div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span> </div>
-<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>      <span class="keywordflow">if</span> (<a class="code hl_variable" href="class_game_1_1_nemo.html#a78272b31821e4fdd9b1ffc6c5be0c339">framesCounter</a> &gt;= (60 / <a class="code hl_variable" href="class_game_1_1_nemo.html#a3e7de1be2250564f465deeb159ea9ceb">framesSpeed</a>)) {</div>
-<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>        <a class="code hl_variable" href="class_game_1_1_nemo.html#a78272b31821e4fdd9b1ffc6c5be0c339">framesCounter</a> = 0;</div>
-<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>        <a class="code hl_variable" href="class_game_1_1_nemo.html#a0c2d560dc87566d29937e5d619632187">currentFrame</a>++;</div>
-<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span> </div>
-<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>        <span class="keywordflow">if</span> (<a class="code hl_variable" href="class_game_1_1_nemo.html#a0c2d560dc87566d29937e5d619632187">currentFrame</a> &gt; 3)</div>
-<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>          <a class="code hl_variable" href="class_game_1_1_nemo.html#a0c2d560dc87566d29937e5d619632187">currentFrame</a> = 0;</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>      <span class="comment">// animation</span></div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>      <a class="code hl_variable" href="class_game_1_1_nemo.html#a78272b31821e4fdd9b1ffc6c5be0c339">framesCounter</a>++;</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span> </div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>      <span class="keywordflow">if</span> (<a class="code hl_variable" href="class_game_1_1_nemo.html#a78272b31821e4fdd9b1ffc6c5be0c339">framesCounter</a> &gt;= (60 / <a class="code hl_variable" href="class_game_1_1_nemo.html#a3e7de1be2250564f465deeb159ea9ceb">framesSpeed</a>)) {</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>        <a class="code hl_variable" href="class_game_1_1_nemo.html#a78272b31821e4fdd9b1ffc6c5be0c339">framesCounter</a> = 0;</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>        <a class="code hl_variable" href="class_game_1_1_nemo.html#a0c2d560dc87566d29937e5d619632187">currentFrame</a>++;</div>
 <div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span> </div>
-<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>        <a class="code hl_variable" href="class_game_1_1_nemo.html#ab7c1965c46238d65c0b68421ff66ff48">frameRec</a>.x = (float)<a class="code hl_variable" href="class_game_1_1_nemo.html#a0c2d560dc87566d29937e5d619632187">currentFrame</a> * (<span class="keywordtype">float</span>)<a class="code hl_variable" href="class_game_1_1_nemo.html#a18903bb35052d2bc622cff974a635b27">Left</a>.width / 4;</div>
-<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>      }</div>
-<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>    }</div>
-<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>    <span class="keywordflow">if</span> (IsKeyDown(KEY_S)) {</div>
-<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>      <a class="code hl_variable" href="class_game_1_1_nemo.html#aadbc7bc7701d5bab3cdbf7a31c91f9d4">NemoPosition</a>.y += <a class="code hl_variable" href="class_game_1_1_nemo.html#a2b25672b142e60b8e500dbe2ea212ddd">walkspeed</a>; <span class="comment">// run backwards</span></div>
-<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>      <a class="code hl_variable" href="class_game_1_1_nemo.html#a9773212bb880099d5af6eedf28dffead">Direction</a> = <a class="code hl_enumvalue" href="class_game_1_1_nemo.html#abbdb0ef6ff17e26335f6c4bde965ffafac4e0e4e3118472beeb2ae75827450f1f">direction::DOWN</a>;      </div>
-<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span> </div>
-<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>      <span class="comment">// animation</span></div>
-<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>      <a class="code hl_variable" href="class_game_1_1_nemo.html#a78272b31821e4fdd9b1ffc6c5be0c339">framesCounter</a>++;</div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>        <span class="keywordflow">if</span> (<a class="code hl_variable" href="class_game_1_1_nemo.html#a0c2d560dc87566d29937e5d619632187">currentFrame</a> &gt; 3)</div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>          <a class="code hl_variable" href="class_game_1_1_nemo.html#a0c2d560dc87566d29937e5d619632187">currentFrame</a> = 0;</div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span> </div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>        <a class="code hl_variable" href="class_game_1_1_nemo.html#ab7c1965c46238d65c0b68421ff66ff48">frameRec</a>.x = (float)<a class="code hl_variable" href="class_game_1_1_nemo.html#a0c2d560dc87566d29937e5d619632187">currentFrame</a> * (<span class="keywordtype">float</span>)<a class="code hl_variable" href="class_game_1_1_nemo.html#a18903bb35052d2bc622cff974a635b27">Left</a>.width / 4;</div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>      }</div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>    }</div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>    <span class="keywordflow">if</span> (IsKeyDown(KEY_S)) {</div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>      <a class="code hl_variable" href="class_game_1_1_nemo.html#aadbc7bc7701d5bab3cdbf7a31c91f9d4">NemoPosition</a>.y += <a class="code hl_variable" href="class_game_1_1_nemo.html#a2b25672b142e60b8e500dbe2ea212ddd">walkspeed</a>; <span class="comment">// run backwards</span></div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>      <a class="code hl_variable" href="class_game_1_1_nemo.html#a9773212bb880099d5af6eedf28dffead">Direction</a> = <a class="code hl_enumvalue" href="class_game_1_1_nemo.html#abbdb0ef6ff17e26335f6c4bde965ffafac4e0e4e3118472beeb2ae75827450f1f">direction::DOWN</a>;      </div>
 <div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span> </div>
-<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>      <span class="keywordflow">if</span> (<a class="code hl_variable" href="class_game_1_1_nemo.html#a78272b31821e4fdd9b1ffc6c5be0c339">framesCounter</a> &gt;= (60 / <a class="code hl_variable" href="class_game_1_1_nemo.html#a3e7de1be2250564f465deeb159ea9ceb">framesSpeed</a>)) {</div>
-<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>        <a class="code hl_variable" href="class_game_1_1_nemo.html#a78272b31821e4fdd9b1ffc6c5be0c339">framesCounter</a> = 0;</div>
-<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>        <a class="code hl_variable" href="class_game_1_1_nemo.html#a0c2d560dc87566d29937e5d619632187">currentFrame</a>++;</div>
-<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span> </div>
-<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>        <span class="keywordflow">if</span> (<a class="code hl_variable" href="class_game_1_1_nemo.html#a0c2d560dc87566d29937e5d619632187">currentFrame</a> &gt; 3)</div>
-<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>          <a class="code hl_variable" href="class_game_1_1_nemo.html#a0c2d560dc87566d29937e5d619632187">currentFrame</a> = 0;</div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>      <span class="comment">// animation</span></div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>      <a class="code hl_variable" href="class_game_1_1_nemo.html#a78272b31821e4fdd9b1ffc6c5be0c339">framesCounter</a>++;</div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span> </div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>      <span class="keywordflow">if</span> (<a class="code hl_variable" href="class_game_1_1_nemo.html#a78272b31821e4fdd9b1ffc6c5be0c339">framesCounter</a> &gt;= (60 / <a class="code hl_variable" href="class_game_1_1_nemo.html#a3e7de1be2250564f465deeb159ea9ceb">framesSpeed</a>)) {</div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>        <a class="code hl_variable" href="class_game_1_1_nemo.html#a78272b31821e4fdd9b1ffc6c5be0c339">framesCounter</a> = 0;</div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>        <a class="code hl_variable" href="class_game_1_1_nemo.html#a0c2d560dc87566d29937e5d619632187">currentFrame</a>++;</div>
 <div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span> </div>
-<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>        <a class="code hl_variable" href="class_game_1_1_nemo.html#ab7c1965c46238d65c0b68421ff66ff48">frameRec</a>.x = (float)<a class="code hl_variable" href="class_game_1_1_nemo.html#a0c2d560dc87566d29937e5d619632187">currentFrame</a> * (<span class="keywordtype">float</span>)<a class="code hl_variable" href="class_game_1_1_nemo.html#a2a484f9e41da805bd5e9b6d683544c3c">Right</a>.width / 4;</div>
-<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>      }</div>
-<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>    }</div>
-<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>    <span class="keywordflow">if</span> (IsKeyDown(KEY_D)) {</div>
-<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>      <a class="code hl_variable" href="class_game_1_1_nemo.html#aadbc7bc7701d5bab3cdbf7a31c91f9d4">NemoPosition</a>.x += <a class="code hl_variable" href="class_game_1_1_nemo.html#a2b25672b142e60b8e500dbe2ea212ddd">walkspeed</a>; <span class="comment">// run right</span></div>
-<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>      <a class="code hl_variable" href="class_game_1_1_nemo.html#a9773212bb880099d5af6eedf28dffead">Direction</a> = <a class="code hl_enumvalue" href="class_game_1_1_nemo.html#abbdb0ef6ff17e26335f6c4bde965ffafa21507b40c80068eda19865706fdc2403">direction::RIGHT</a>;</div>
-<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span> </div>
-<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>      <span class="comment">// animation</span></div>
-<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>      <a class="code hl_variable" href="class_game_1_1_nemo.html#a78272b31821e4fdd9b1ffc6c5be0c339">framesCounter</a>++;</div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>        <span class="keywordflow">if</span> (<a class="code hl_variable" href="class_game_1_1_nemo.html#a0c2d560dc87566d29937e5d619632187">currentFrame</a> &gt; 3)</div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>          <a class="code hl_variable" href="class_game_1_1_nemo.html#a0c2d560dc87566d29937e5d619632187">currentFrame</a> = 0;</div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span> </div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>        <a class="code hl_variable" href="class_game_1_1_nemo.html#ab7c1965c46238d65c0b68421ff66ff48">frameRec</a>.x = (float)<a class="code hl_variable" href="class_game_1_1_nemo.html#a0c2d560dc87566d29937e5d619632187">currentFrame</a> * (<span class="keywordtype">float</span>)<a class="code hl_variable" href="class_game_1_1_nemo.html#a2a484f9e41da805bd5e9b6d683544c3c">Right</a>.width / 4;</div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>      }</div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>    }</div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>    <span class="keywordflow">if</span> (IsKeyDown(KEY_D)) {</div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>      <a class="code hl_variable" href="class_game_1_1_nemo.html#aadbc7bc7701d5bab3cdbf7a31c91f9d4">NemoPosition</a>.x += <a class="code hl_variable" href="class_game_1_1_nemo.html#a2b25672b142e60b8e500dbe2ea212ddd">walkspeed</a>; <span class="comment">// run right</span></div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>      <a class="code hl_variable" href="class_game_1_1_nemo.html#a9773212bb880099d5af6eedf28dffead">Direction</a> = <a class="code hl_enumvalue" href="class_game_1_1_nemo.html#abbdb0ef6ff17e26335f6c4bde965ffafa21507b40c80068eda19865706fdc2403">direction::RIGHT</a>;</div>
 <div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span> </div>
-<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>      <span class="keywordflow">if</span> (<a class="code hl_variable" href="class_game_1_1_nemo.html#a78272b31821e4fdd9b1ffc6c5be0c339">framesCounter</a> &gt;= (60 / <a class="code hl_variable" href="class_game_1_1_nemo.html#a3e7de1be2250564f465deeb159ea9ceb">framesSpeed</a>)) {</div>
-<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>        <a class="code hl_variable" href="class_game_1_1_nemo.html#a78272b31821e4fdd9b1ffc6c5be0c339">framesCounter</a> = 0;</div>
-<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>        <a class="code hl_variable" href="class_game_1_1_nemo.html#a0c2d560dc87566d29937e5d619632187">currentFrame</a>++;</div>
-<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span> </div>
-<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>        <span class="comment">//Framecounter</span></div>
-<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>        <span class="keywordflow">if</span> (<a class="code hl_variable" href="class_game_1_1_nemo.html#a0c2d560dc87566d29937e5d619632187">currentFrame</a> &gt; 3)</div>
-<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>          <a class="code hl_variable" href="class_game_1_1_nemo.html#a0c2d560dc87566d29937e5d619632187">currentFrame</a> = 0;</div>
-<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span> </div>
-<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>        <a class="code hl_variable" href="class_game_1_1_nemo.html#ab7c1965c46238d65c0b68421ff66ff48">frameRec</a>.x = (float)<a class="code hl_variable" href="class_game_1_1_nemo.html#a0c2d560dc87566d29937e5d619632187">currentFrame</a> * (<span class="keywordtype">float</span>)<a class="code hl_variable" href="class_game_1_1_nemo.html#a2a484f9e41da805bd5e9b6d683544c3c">Right</a>.width / 4;</div>
-<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>      }</div>
-<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>    }<span class="keywordflow">else</span>{};</div>
-<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>  }</div>
-<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>}</div>
-<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span> </div>
-<div class="line"><a id="l00180" name="l00180"></a><span class="lineno"><a class="line" href="class_game_1_1_nemo.html#aceedd442d803373e468c4ce25b33fcea">  180</a></span>  <span class="keywordtype">void</span> <a class="code hl_function" href="class_game_1_1_nemo.html#aceedd442d803373e468c4ce25b33fcea">Game::Nemo::Draw</a>() {</div>
-<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>    <span class="keywordflow">if</span> (active) {</div>
-<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>      nemorec = { NemoPosition.x + 8, NemoPosition.y + 16, nemowidth, nemoheight }; <span class="comment">// The Attributes are set here.</span></div>
-<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>      <span class="keywordflow">if</span> (IsKeyDown(KEY_R)){</div>
-<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>        DrawRectangleRec(nemorec, GREEN);</div>
-<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>      }</div>
-<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span> </div>
-<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>      <span class="comment">// Draw nemo walking animation</span></div>
-<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span> </div>
-<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>      <span class="keywordflow">switch</span> (Direction) <span class="comment">// A simple Enum and a Switch case solved all the problem before... I swear me beeing Retarded</span></div>
-<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>                         <span class="comment">// is such a nuisance :(</span></div>
-<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>      {</div>
-<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span>      <span class="keywordflow">case</span> direction::UP:</div>
-<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span> </div>
-<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span>        DrawTextureRec(Back, frameRec, NemoPosition, WHITE); <span class="comment">// Draw nemo animation backwards</span></div>
-<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span>        <span class="keywordflow">break</span>;</div>
-<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span> </div>
-<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span>      <span class="keywordflow">case</span> direction::DOWN:</div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>      <span class="comment">// animation</span></div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>      <a class="code hl_variable" href="class_game_1_1_nemo.html#a78272b31821e4fdd9b1ffc6c5be0c339">framesCounter</a>++;</div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span> </div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>      <span class="keywordflow">if</span> (<a class="code hl_variable" href="class_game_1_1_nemo.html#a78272b31821e4fdd9b1ffc6c5be0c339">framesCounter</a> &gt;= (60 / <a class="code hl_variable" href="class_game_1_1_nemo.html#a3e7de1be2250564f465deeb159ea9ceb">framesSpeed</a>)) {</div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>        <a class="code hl_variable" href="class_game_1_1_nemo.html#a78272b31821e4fdd9b1ffc6c5be0c339">framesCounter</a> = 0;</div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>        <a class="code hl_variable" href="class_game_1_1_nemo.html#a0c2d560dc87566d29937e5d619632187">currentFrame</a>++;</div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span> </div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>        <span class="comment">//Framecounter</span></div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>        <span class="keywordflow">if</span> (<a class="code hl_variable" href="class_game_1_1_nemo.html#a0c2d560dc87566d29937e5d619632187">currentFrame</a> &gt; 3)</div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>          <a class="code hl_variable" href="class_game_1_1_nemo.html#a0c2d560dc87566d29937e5d619632187">currentFrame</a> = 0;</div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span> </div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>        <a class="code hl_variable" href="class_game_1_1_nemo.html#ab7c1965c46238d65c0b68421ff66ff48">frameRec</a>.x = (float)<a class="code hl_variable" href="class_game_1_1_nemo.html#a0c2d560dc87566d29937e5d619632187">currentFrame</a> * (<span class="keywordtype">float</span>)<a class="code hl_variable" href="class_game_1_1_nemo.html#a2a484f9e41da805bd5e9b6d683544c3c">Right</a>.width / 4;</div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>      }</div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>    }<span class="keywordflow">else</span>{};</div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>  }</div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>}</div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span> </div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno"><a class="line" href="class_game_1_1_nemo.html#aceedd442d803373e468c4ce25b33fcea">  183</a></span>  <span class="keywordtype">void</span> <a class="code hl_function" href="class_game_1_1_nemo.html#aceedd442d803373e468c4ce25b33fcea">Game::Nemo::Draw</a>() {</div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>    <span class="keywordflow">if</span> (active) {</div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>      nemorec = { NemoPosition.x + 8, NemoPosition.y + 16, nemowidth, nemoheight }; <span class="comment">// The Attributes are set here.</span></div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>      <span class="keywordflow">if</span> (IsKeyDown(KEY_R)){</div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>        DrawRectangleRec(nemorec, GREEN);</div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>      }</div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span> </div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>      <span class="comment">// Draw nemo walking animation</span></div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span> </div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span>      <span class="keywordflow">switch</span> (Direction)</div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>      {</div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span>      <span class="keywordflow">case</span> direction::UP:</div>
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span> </div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>        DrawTextureRec(Back, frameRec, NemoPosition, WHITE); <span class="comment">// Draw nemo animation backwards</span></div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span>        <span class="keywordflow">break</span>;</div>
 <div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span> </div>
-<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span>        DrawTextureRec(Front, frameRec, NemoPosition, WHITE); <span class="comment">// Draw nemo animation forwards</span></div>
-<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span>        <span class="keywordflow">break</span>;</div>
-<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span> </div>
-<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span>      <span class="keywordflow">case</span> direction::LEFT:</div>
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span>      <span class="keywordflow">case</span> direction::DOWN:</div>
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span> </div>
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span>        DrawTextureRec(Front, frameRec, NemoPosition, WHITE); <span class="comment">// Draw nemo animation forwards</span></div>
+<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span>        <span class="keywordflow">break</span>;</div>
 <div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span> </div>
-<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>        DrawTextureRec(Left, frameRec, NemoPosition, WHITE); <span class="comment">// Draw nemo animation left</span></div>
-<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span>        <span class="keywordflow">break</span>;</div>
-<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span> </div>
-<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span>      <span class="keywordflow">case</span> direction::RIGHT:</div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>      <span class="keywordflow">case</span> direction::LEFT:</div>
+<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span> </div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span>        DrawTextureRec(Left, frameRec, NemoPosition, WHITE); <span class="comment">// Draw nemo animation left</span></div>
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span>        <span class="keywordflow">break</span>;</div>
 <div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span> </div>
-<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span>        DrawTextureRec(Right, frameRec, NemoPosition, WHITE); <span class="comment">// Draw nemo animation right</span></div>
-<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span>        <span class="keywordflow">break</span>;</div>
-<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span> </div>
-<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span>      <span class="keywordflow">case</span> direction::STAND:</div>
-<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span>        DrawTextureRec(Stand, StandframeRec, NemoPosition, WHITE); <span class="comment">// Draw nemo animation right</span></div>
-<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span>        <span class="keywordflow">break</span>;</div>
-<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span>      }      </div>
-<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span>    } </div>
-<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span>  }</div>
-<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span> </div>
-<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span> </div>
-<div class="line"><a id="l00220" name="l00220"></a><span class="lineno"><a class="line" href="class_game_1_1_nemo.html#a9ef2b3d5898c1200393a9dc44c0ba66d">  220</a></span><a class="code hl_function" href="class_game_1_1_nemo.html#a9ef2b3d5898c1200393a9dc44c0ba66d">Game::Nemo::~Nemo</a>() {</div>
-<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span>  UnloadTexture(Stand);</div>
-<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span>  UnloadTexture(Front);</div>
-<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span>  UnloadTexture(Back);</div>
-<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span>  UnloadTexture(Right);</div>
-<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span>  UnloadTexture(Left);</div>
-<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span> }</div>
-<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span> </div>
-<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span> </div>
+<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span>      <span class="keywordflow">case</span> direction::RIGHT:</div>
+<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span> </div>
+<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span>        DrawTextureRec(Right, frameRec, NemoPosition, WHITE); <span class="comment">// Draw nemo animation right</span></div>
+<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span>        <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span> </div>
+<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span>      <span class="keywordflow">case</span> direction::STAND:</div>
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span>        DrawTextureRec(Stand, StandframeRec, NemoPosition, WHITE); <span class="comment">// Draw nemo animation right</span></div>
+<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span>        <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span>      }      </div>
+<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span>    } </div>
+<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span>  }</div>
+<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span> </div>
+<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span> </div>
+<div class="line"><a id="l00222" name="l00222"></a><span class="lineno"><a class="line" href="class_game_1_1_nemo.html#a9ef2b3d5898c1200393a9dc44c0ba66d">  222</a></span><a class="code hl_function" href="class_game_1_1_nemo.html#a9ef2b3d5898c1200393a9dc44c0ba66d">Game::Nemo::~Nemo</a>() {</div>
+<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span>  UnloadTexture(Stand);</div>
+<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span>  UnloadTexture(Front);</div>
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span>  UnloadTexture(Back);</div>
+<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span>  UnloadTexture(Right);</div>
+<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span>  UnloadTexture(Left);</div>
+<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span> }</div>
+<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span> </div>
+<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span> </div>
 <div class="ttc" id="a_nemo_8h_html"><div class="ttname"><a href="_nemo_8h.html">Nemo.h</a></div></div>
 <div class="ttc" id="aclass_game_1_1_nemo_html_a0c2d560dc87566d29937e5d619632187"><div class="ttname"><a href="class_game_1_1_nemo.html#a0c2d560dc87566d29937e5d619632187">Game::Nemo::currentFrame</a></div><div class="ttdeci">int currentFrame</div><div class="ttdef"><b>Definition:</b> <a href="_nemo_8h_source.html#l00047">Nemo.h:47</a></div></div>
 <div class="ttc" id="aclass_game_1_1_nemo_html_a18903bb35052d2bc622cff974a635b27"><div class="ttname"><a href="class_game_1_1_nemo.html#a18903bb35052d2bc622cff974a635b27">Game::Nemo::Left</a></div><div class="ttdeci">Texture2D Left</div><div class="ttdef"><b>Definition:</b> <a href="_nemo_8h_source.html#l00041">Nemo.h:41</a></div></div>
@@ -328,7 +330,7 @@ $(document).ready(function(){initNavTree('_nemo_8cpp_source.html',''); initResiz
 <div class="ttc" id="aclass_game_1_1_nemo_html_a9773212bb880099d5af6eedf28dffead"><div class="ttname"><a href="class_game_1_1_nemo.html#a9773212bb880099d5af6eedf28dffead">Game::Nemo::Direction</a></div><div class="ttdeci">direction Direction</div><div class="ttdef"><b>Definition:</b> <a href="_nemo_8h_source.html#l00036">Nemo.h:36</a></div></div>
 <div class="ttc" id="aclass_game_1_1_nemo_html_a9bdc504d11a7a80f75dc51b2f6f4e857"><div class="ttname"><a href="class_game_1_1_nemo.html#a9bdc504d11a7a80f75dc51b2f6f4e857">Game::Nemo::Update</a></div><div class="ttdeci">void Update()</div><div class="ttdef"><b>Definition:</b> <a href="_nemo_8cpp_source.html#l00006">Nemo.cpp:6</a></div></div>
 <div class="ttc" id="aclass_game_1_1_nemo_html_a9dd7680fb3fc656fd34e866a07069e05"><div class="ttname"><a href="class_game_1_1_nemo.html#a9dd7680fb3fc656fd34e866a07069e05">Game::Nemo::active</a></div><div class="ttdeci">bool active</div><div class="ttdef"><b>Definition:</b> <a href="_nemo_8h_source.html#l00020">Nemo.h:20</a></div></div>
-<div class="ttc" id="aclass_game_1_1_nemo_html_a9ef2b3d5898c1200393a9dc44c0ba66d"><div class="ttname"><a href="class_game_1_1_nemo.html#a9ef2b3d5898c1200393a9dc44c0ba66d">Game::Nemo::~Nemo</a></div><div class="ttdeci">~Nemo()</div><div class="ttdef"><b>Definition:</b> <a href="_nemo_8cpp_source.html#l00220">Nemo.cpp:220</a></div></div>
+<div class="ttc" id="aclass_game_1_1_nemo_html_a9ef2b3d5898c1200393a9dc44c0ba66d"><div class="ttname"><a href="class_game_1_1_nemo.html#a9ef2b3d5898c1200393a9dc44c0ba66d">Game::Nemo::~Nemo</a></div><div class="ttdeci">~Nemo()</div><div class="ttdef"><b>Definition:</b> <a href="_nemo_8cpp_source.html#l00222">Nemo.cpp:222</a></div></div>
 <div class="ttc" id="aclass_game_1_1_nemo_html_aadbc7bc7701d5bab3cdbf7a31c91f9d4"><div class="ttname"><a href="class_game_1_1_nemo.html#aadbc7bc7701d5bab3cdbf7a31c91f9d4">Game::Nemo::NemoPosition</a></div><div class="ttdeci">Vector2 NemoPosition</div><div class="ttdef"><b>Definition:</b> <a href="_nemo_8h_source.html#l00018">Nemo.h:18</a></div></div>
 <div class="ttc" id="aclass_game_1_1_nemo_html_ab7c1965c46238d65c0b68421ff66ff48"><div class="ttname"><a href="class_game_1_1_nemo.html#ab7c1965c46238d65c0b68421ff66ff48">Game::Nemo::frameRec</a></div><div class="ttdeci">Rectangle frameRec</div><div class="ttdef"><b>Definition:</b> <a href="_nemo_8h_source.html#l00045">Nemo.h:45</a></div></div>
 <div class="ttc" id="aclass_game_1_1_nemo_html_abbdb0ef6ff17e26335f6c4bde965ffafa21507b40c80068eda19865706fdc2403"><div class="ttname"><a href="class_game_1_1_nemo.html#abbdb0ef6ff17e26335f6c4bde965ffafa21507b40c80068eda19865706fdc2403">Game::Nemo::direction::RIGHT</a></div><div class="ttdeci">@ RIGHT</div></div>
@@ -336,7 +338,7 @@ $(document).ready(function(){initNavTree('_nemo_8cpp_source.html',''); initResiz
 <div class="ttc" id="aclass_game_1_1_nemo_html_abbdb0ef6ff17e26335f6c4bde965ffafac4e0e4e3118472beeb2ae75827450f1f"><div class="ttname"><a href="class_game_1_1_nemo.html#abbdb0ef6ff17e26335f6c4bde965ffafac4e0e4e3118472beeb2ae75827450f1f">Game::Nemo::direction::DOWN</a></div><div class="ttdeci">@ DOWN</div></div>
 <div class="ttc" id="aclass_game_1_1_nemo_html_abbdb0ef6ff17e26335f6c4bde965ffafadd135fb441de529b55c24775556f3a81"><div class="ttname"><a href="class_game_1_1_nemo.html#abbdb0ef6ff17e26335f6c4bde965ffafadd135fb441de529b55c24775556f3a81">Game::Nemo::direction::STAND</a></div><div class="ttdeci">@ STAND</div></div>
 <div class="ttc" id="aclass_game_1_1_nemo_html_abbdb0ef6ff17e26335f6c4bde965ffafafbaedde498cdead4f2780217646e9ba1"><div class="ttname"><a href="class_game_1_1_nemo.html#abbdb0ef6ff17e26335f6c4bde965ffafafbaedde498cdead4f2780217646e9ba1">Game::Nemo::direction::UP</a></div><div class="ttdeci">@ UP</div></div>
-<div class="ttc" id="aclass_game_1_1_nemo_html_aceedd442d803373e468c4ce25b33fcea"><div class="ttname"><a href="class_game_1_1_nemo.html#aceedd442d803373e468c4ce25b33fcea">Game::Nemo::Draw</a></div><div class="ttdeci">void Draw()</div><div class="ttdef"><b>Definition:</b> <a href="_nemo_8cpp_source.html#l00180">Nemo.cpp:180</a></div></div>
+<div class="ttc" id="aclass_game_1_1_nemo_html_aceedd442d803373e468c4ce25b33fcea"><div class="ttname"><a href="class_game_1_1_nemo.html#aceedd442d803373e468c4ce25b33fcea">Game::Nemo::Draw</a></div><div class="ttdeci">void Draw()</div><div class="ttdef"><b>Definition:</b> <a href="_nemo_8cpp_source.html#l00183">Nemo.cpp:183</a></div></div>
 <div class="ttc" id="aclass_game_1_1_nemo_html_ae8412732b697a79d872c7a535e5ac8f1"><div class="ttname"><a href="class_game_1_1_nemo.html#ae8412732b697a79d872c7a535e5ac8f1">Game::Nemo::Stand</a></div><div class="ttdeci">Texture2D Stand</div><div class="ttdef"><b>Definition:</b> <a href="_nemo_8h_source.html#l00038">Nemo.h:38</a></div></div>
 <div class="ttc" id="anamespace_game_audio_html_a130fe8c4dece4028baba6c59a48fcc26"><div class="ttname"><a href="namespace_game_audio.html#a130fe8c4dece4028baba6c59a48fcc26">GameAudio::walking</a></div><div class="ttdeci">Sound walking</div><div class="ttdef"><b>Definition:</b> <a href="_game_audio_8cpp_source.html#l00004">GameAudio.cpp:4</a></div></div>
 </div><!-- fragment --></div><!-- contents -->

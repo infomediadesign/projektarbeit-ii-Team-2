@@ -1,7 +1,6 @@
 var annotated_dup =
 [
     [ "Game", "namespace_game.html", [
-      [ "Dialog", "class_game_1_1_dialog.html", "class_game_1_1_dialog" ],
       [ "GameCharacter", "class_game_1_1_game_character.html", "class_game_1_1_game_character" ],
       [ "Level", "class_game_1_1_level.html", "class_game_1_1_level" ],
       [ "Mumy", "class_game_1_1_mumy.html", "class_game_1_1_mumy" ],
@@ -16,7 +15,6 @@ var annotated_dup =
     [ "Endscreen", "class_endscreen.html", "class_endscreen" ],
     [ "Inventory", "class_inventory.html", "class_inventory" ],
     [ "Item", "struct_item.html", "struct_item" ],
-    [ "LevelMap", "class_level_map.html", "class_level_map" ],
     [ "Mumy", "class_mumy.html", "class_mumy" ],
     [ "Pharaoh", "class_pharaoh.html", "class_pharaoh" ],
     [ "Puzzle", "class_puzzle.html", "class_puzzle" ],

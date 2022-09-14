@@ -72,13 +72,12 @@ void Puzzle::update() {
       SetSoundVolume(GameAudio::openchest, float(0.4));
       chestIsDrawn = true;
       if(chestIsDrawn){
-        Rectangle Helmet = {574, 383.5, 17, 19};
         helmetIsDrawn = true;
-
-        Rectangle Key = {645, 380, 17, 19};
         keyIsDrawn = true;
         Chest = {};
-        door1 = {};
+        door2 = {};
+        PlaySound(GameAudio::dooropen);
+        SetSoundVolume(GameAudio::dooropen, float(0.4));
         break;
       }
       break;
@@ -164,16 +163,23 @@ void Puzzle::update() {
       SetSoundVolume(GameAudio::pickupitem, float(0.4));
       keyIsDrawn = false;
       isKeyPickedUp = true;
-      door2 = {};
-
+      PlaySound(GameAudio::dooropen);
+      SetSoundVolume(GameAudio::dooropen, float(0.4));
+      door1 = {};
       Key = {};
     }
   }
 
 
   /** Update Puzzle */
-  //puzzle update
-  if (puzzleCollision1) { wallIsOpen = true; door3 = {};}
+  if (wallPuzzlePart1){
+    if (wallPuzzlePart2){
+      if (wallPuzzlePart3){
+        wallIsOpen = true;
+        door3 = {};
+      }
+    }
+  }
 
 
   /** Stop Nemo Door */
@@ -181,7 +187,9 @@ void Puzzle::update() {
 
   if (doorcollision2){ stopNemo(); }
 
-  if (doorcollision3){ stopNemo(); }
+  if (doorcollision3){
+    stopNemo();
+  }
 
   /** Stop Nemo Chest */
   if (chestCollisionNS1){ stopNemo(); }
@@ -294,13 +302,36 @@ void Puzzle::draw() {
 
   /** PUZZLE */
   //triangle trapdoor draw
-  if (puzzleCollision1) { DrawTexture(TriangleTrapDoor, 640, 1055.5, WHITE); }
+  if (puzzleCollision1) {
+    DrawTexture(TriangleTrapDoor, 640, static_cast<int>(1055.5), WHITE);
+    if (!wallPuzzlePart2){
+      wallPuzzlePart1 = true;
+    }
+    if (wallPuzzlePart2){
+      wallPuzzlePart1 = false;
+      wallPuzzlePart2 = false;
+      wallPuzzlePart3 = false;
+    }
+  }
 
   //circle trapdoor draw
-  if (puzzleCollision2) { DrawTexture(CircleTrapDoor, 576, 1055.5, WHITE); }
+  if (puzzleCollision2) {
+    DrawTexture(CircleTrapDoor, 576, static_cast<int>(1055.5), WHITE);
+    if (wallPuzzlePart2){
+      wallPuzzlePart3 = true;
+    } else {
+      wallPuzzlePart1 = false;
+      wallPuzzlePart2 = false;
+    }
+  }
 
   //square trapdoor draw
-  if (puzzleCollision3) { DrawTexture(SquareTrapDoor, 704, 1055.5, WHITE); }
+  if (puzzleCollision3) {
+    DrawTexture(SquareTrapDoor, 704, static_cast<int>(1055.5), WHITE);
+    if (wallPuzzlePart1){
+      wallPuzzlePart2 = true;
+    } else { wallPuzzlePart1 = false; }
+  }
 
   /** RECTANGLES */
   DrawRectangleRec(door1, Color{});
@@ -316,9 +347,30 @@ void Puzzle::draw() {
   /** ANIMATIONS */
   //torches
   torchAnimation();
-
   DrawTextureRec(Torch, frameRecTorch, TorchPosition, WHITE);
   DrawTextureRec(Torch, frameRecTorch, TorchPosition2, WHITE);
+  DrawTextureRec(Torch, frameRecTorch, TorchPosition3, WHITE);
+  DrawTextureRec(Torch, frameRecTorch, TorchPosition4, WHITE);
+  DrawTextureRec(Torch, frameRecTorch, TorchPosition5, WHITE);
+  DrawTextureRec(Torch, frameRecTorch, TorchPosition6, WHITE);
+  DrawTextureRec(Torch, frameRecTorch, TorchPosition7, WHITE);
+  DrawTextureRec(Torch, frameRecTorch, TorchPosition8, WHITE);
+  DrawTextureRec(Torch, frameRecTorch, TorchPosition9, WHITE);
+  DrawTextureRec(Torch, frameRecTorch, TorchPosition10, WHITE);
+  DrawTextureRec(Torch, frameRecTorch, TorchPosition11, WHITE);
+  DrawTextureRec(Torch, frameRecTorch, TorchPosition12, WHITE);
+  DrawTextureRec(Torch, frameRecTorch, TorchPosition13, WHITE);
+  DrawTextureRec(Torch, frameRecTorch, TorchPosition14, WHITE);
+  DrawTextureRec(Torch, frameRecTorch, TorchPosition15, WHITE);
+  DrawTextureRec(Torch, frameRecTorch, TorchPosition16, WHITE);
+  DrawTextureRec(Torch, frameRecTorch, TorchPosition17, WHITE);
+  DrawTextureRec(Torch, frameRecTorch, TorchPosition18, WHITE);
+  DrawTextureRec(Torch, frameRecTorch, TorchPosition19, WHITE);
+  DrawTextureRec(Torch, frameRecTorch, TorchPosition20, WHITE);
+  DrawTextureRec(Torch, frameRecTorch, TorchPosition21, WHITE);
+  DrawTextureRec(Torch, frameRecTorch, TorchPosition22, WHITE);
+  DrawTextureRec(Torch, frameRecTorch, TorchPosition23, WHITE);
+  DrawTextureRec(Torch, frameRecTorch, TorchPosition24, WHITE);
 
   //portal
   portalAnimation();
