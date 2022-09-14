@@ -319,6 +319,8 @@ void Puzzle::draw() {
     DrawTexture(CircleTrapDoor, 576, static_cast<int>(1055.5), WHITE);
     if (wallPuzzlePart2){
       wallPuzzlePart3 = true;
+      PlaySound(GameAudio::dooropen);
+      SetSoundVolume(GameAudio::dooropen, float(0.4));
     } else {
       wallPuzzlePart1 = false;
       wallPuzzlePart2 = false;
