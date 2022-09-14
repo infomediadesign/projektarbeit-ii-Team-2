@@ -58,6 +58,11 @@ void Puzzle::collisionChecks() {
 
   // Check collision between Nemo and doors
   chestCollisionNS3 = CheckCollisionRecs(ChestNS3, nemo->nemorec);
+
+  /** Collision Checks Hint Epanox */
+  // Check collision between Nemo and Epanox
+  EpanoxCollision = CheckCollisionRecs(EpanoxRec, nemo->nemorec); //for the nemo stopping part
+  EpanoxCollision2 = CheckCollisionRecs(EpanoxRec2, nemo->nemorec); //for the dialog engagement
 }
 
 /** Update the Items/ Chests/ Puzzles */
@@ -189,7 +194,54 @@ void Puzzle::update() {
 
   if (doorcollision3){
     stopNemo();
+    textdoor = true;
+  } //else { textdoor = false; }
+
+
+  if (textdoor){
+    timesinceIdle += GetFrameTime();
+
+    DrawTexture(Dialogbox, nemo->NemoPosition.x - 180, nemo->NemoPosition.y + 90, WHITE);
+    //DrawTextEx(textFont, "Door Info", fontTextPosLINE1, fontSize, fontSpacing, WHITE);
+    //DrawTextEx(textFont, "This Door is locked... ", fontTextPosLINE2, fontSize, fontSpacing, WHITE);
+    //DrawTextEx(textFont, "talk to Epanox to get a hint.", fontTextPosLINE3, fontSize, fontSpacing, WHITE);
+    DrawText("Door Info", nemo->NemoPosition.x - 180, nemo->NemoPosition.y + 75, 15, WHITE);
+    DrawText("This Door is locked... ", nemo->NemoPosition.x - 162, nemo->NemoPosition.y + 110, 15, WHITE);
+    DrawText("talk to Epanox to get a hint.", nemo->NemoPosition.x - 162, nemo->NemoPosition.y + 135, 15, WHITE);
+
+    if (timesinceIdle >= 4){ textdoor = false; }
   }
+
+  /*
+   if (textdoor) {
+ DrawTexture(Dialogbox, nemo->NemoPosition.x - 180, nemo->NemoPosition.y + 90, WHITE);
+ if (IsKeyPressed(KEY_SPACE)) {
+   textState + 1;
+   PlaySound(GameAudio::dialoge);
+   SetSoundVolume(GameAudio::dialoge, float(0.1));
+ }
+
+if (IsKeyReleased(KEY_SPACE) && textState == 0) {
+ textState = 1;
+} else if (IsKeyReleased(KEY_SPACE) && textState == 1) {
+ textState = 2;
+}
+
+switch (textState) {
+default: break;
+case 1:
+ DrawText("Door Info", nemo->NemoPosition.x - 180, nemo->NemoPosition.y + 75, 15, WHITE);
+ DrawText("This Door is locked... ", nemo->NemoPosition.x - 162, nemo->NemoPosition.y + 110, 15, WHITE);
+ DrawText("talk to Epanox to get a hint.", nemo->NemoPosition.x - 162, nemo->NemoPosition.y + 135, 15, WHITE);
+ break;
+case 2:
+ textState = 1;
+ textdoor = false;
+ break;
+}
+}
+   */
+
 
   /** Stop Nemo Chest */
   if (chestCollisionNS1){ stopNemo(); }
@@ -197,7 +249,61 @@ void Puzzle::update() {
   if (chestCollisionNS2){ stopNemo(); }
 
   if (chestCollisionNS3){ stopNemo(); }
+
+  if (EpanoxCollision) { stopNemo(); }
+
+  while (EpanoxCollision2) {
+      DrawText("[F]", nemo->NemoPosition.x + 10, nemo->NemoPosition.y - 10, 2, BLACK);
+      if (IsKeyPressed(KEY_F)) {
+        PlaySound(GameAudio::dialoge);
+        SetSoundVolume(GameAudio::dialoge, float(0.1));
+        text = true;
+      }
+      break;
+    }
+    if (text) {
+      DrawTexture(Dialogbox, nemo->NemoPosition.x - 180, nemo->NemoPosition.y + 90, WHITE);
+      if (IsKeyPressed(KEY_SPACE)) {
+        textState + 1;
+        PlaySound(GameAudio::dialoge);
+        SetSoundVolume(GameAudio::dialoge, float(0.1));
+      }
+
+      if (IsKeyReleased(KEY_SPACE) && textState == 0) {
+        textState = 1;
+      } else if (IsKeyReleased(KEY_SPACE) && textState == 1) {
+        textState = 2;
+      } else if (IsKeyReleased(KEY_SPACE) && textState == 2) {
+        textState = 3;
+      } else if (IsKeyReleased(KEY_SPACE) && textState == 3) {
+        textState = 4;
+      }
+
+      switch (textState) {
+      default: break;
+      case 1:
+        DrawText("Epanox", nemo->NemoPosition.x - 180, nemo->NemoPosition.y + 75, 15, WHITE);
+        DrawText("Hey again. It seems that your stuck. Let ", nemo->NemoPosition.x - 162, nemo->NemoPosition.y + 110, 15, WHITE);
+        DrawText("me give you a hint to solve this puzzle?",nemo->NemoPosition.x - 162,nemo->NemoPosition.y + 135, 15, WHITE);
+        break;
+      case 2:
+        DrawText("Epanox ", nemo->NemoPosition.x - 180, nemo->NemoPosition.y + 75, 15, WHITE);
+        DrawText("Here goes... ", nemo->NemoPosition.x - 162, nemo->NemoPosition.y + 110, 15, WHITE);
+        break;
+      case 3:
+        DrawText("Epanox", nemo->NemoPosition.x - 180, nemo->NemoPosition.y + 75, 15, WHITE);
+        DrawText("To enter the home of the Pharaoh you will need to", nemo->NemoPosition.x - 162, nemo->NemoPosition.y + 110, 15, WHITE);
+        DrawText("to find the house on the mountains peek of which ", nemo->NemoPosition.x - 162, nemo->NemoPosition.y + 135, 15, WHITE);
+        DrawText("only the highest of sun rays will touch...", nemo->NemoPosition.x - 162, nemo->NemoPosition.y + 160, 15, WHITE);
+        break;
+      case 4:
+        textState = 1;
+        text = false;
+        break;
+      }
+    }
 }
+
 
 /** Only to stop Nemo's movement */
 void Puzzle::stopNemo() {
@@ -250,74 +356,99 @@ void Puzzle::portalAnimation() {
   }
 }
 
+void Puzzle::epanoxAnimation() {
+
+  // animation
+  framesCounter++;
+
+  if (framesCounter >= (60 / framesSpeed)) {
+    framesCounter = 0;
+    currentFrame++;
+
+    if (currentFrame > 19)
+      currentFrame = 0;
+
+    frameRecEpanox.x = (float)currentFrame * (float)EpanoxSheet.width / 20;
+  }
+
+
+}
+
 /** Draw the Items/ Chests/ Puzzles */
 void Puzzle::draw() {
-
   /** CHESTS */
-  //chest draw
-  if(chestIsDrawn){
+  // chest draw
+  if (chestIsDrawn) {
     DrawTexture(DungeonFloorTile, 608, 384, WHITE);
     DrawTexture(ChestOpen, 608, 385, WHITE);
   }
-  //chest2 draw
-  if(chest2IsDrawn){
+  // chest2 draw
+  if (chest2IsDrawn) {
     DrawTexture(DungeonFloorTile, 896, 288, WHITE);
     DrawTexture(ChestOpen, 896, 288, WHITE);
   }
-  //chest3 draw
-  if(chest3IsDrawn){
+  // chest3 draw
+  if (chest3IsDrawn) {
     DrawTexture(DungeonFloorTile, 1504, 480.5, WHITE);
     DrawTexture(ChestOpen, 1504, 480.5, WHITE);
   }
 
   /** ITEMS */
-  //helmet draw/ key for the chest1
-  if (helmetIsDrawn){ DrawTexture(HelmetTexture, 574, 383.5, WHITE); }
-  if (keyIsDrawn){ DrawTexture(KeyTexture, 645, 380, WHITE); }
+  // helmet draw/ key for the chest1
+  if (helmetIsDrawn) {
+    DrawTexture(HelmetTexture, 574, 383.5, WHITE);
+  }
+  if (keyIsDrawn) {
+    DrawTexture(KeyTexture, 645, 380, WHITE);
+  }
 
-  //chestplate draw for the chest2
-  if (chestplateIsDrawn){ DrawTexture(ChestplateTexture, 935, 276, WHITE); }
+  // chestplate draw for the chest2
+  if (chestplateIsDrawn) {
+    DrawTexture(ChestplateTexture, 935, 276, WHITE);
+  }
 
-  //hp potion draw for the chest3
-  if (hpPotionIsDrawn){ DrawTexture(HpPotionTexture, 1452, 504, WHITE); }
+  // hp potion draw for the chest3
+  if (hpPotionIsDrawn) {
+    DrawTexture(HpPotionTexture, 1452, 504, WHITE);
+  }
 
   /** WALL PARTS/ DOOR */
-  //wall opens after picking up the key
-  if(isKeyPickedUp) { //wall after the chest
+  // wall opens after picking up the key
+  if (isKeyPickedUp) { // wall after the chest
     DrawTexture(WallTile, 736, 673.5, WHITE);
     DrawTexture(DungeonFloorTile, 736, 705, WHITE);
     DrawTexture(DungeonFloorTile, 736, 737, WHITE);
   }
-  //wall opens after chest opened
-  if (chestIsDrawn){
+  // wall opens after chest opened
+  if (chestIsDrawn) {
     DrawTexture(DungeonFloorTile, 576, 896, WHITE);
     DrawTexture(DungeonFloorTile, 608, 896, WHITE);
   }
-  //wall after the puzzle
-  if(wallIsOpen) {
+  // wall after the puzzle
+  if (wallIsOpen) {
     DrawTexture(WallTile, 800, 992, WHITE);
     DrawTexture(DungeonFloorTile, 800, 1024, WHITE);
     DrawTexture(DungeonFloorTile, 800, 1056, WHITE);
   }
 
   /** PUZZLE */
-  //triangle trapdoor draw
+  // triangle trapdoor draw
   if (puzzleCollision1) {
     DrawTexture(TriangleTrapDoor, 640, static_cast<int>(1055.5), WHITE);
-    if (!wallPuzzlePart2){
+    if (!wallPuzzlePart2) {
       wallPuzzlePart1 = true;
     }
-    if (wallPuzzlePart2){
+    if (wallPuzzlePart2) {
       wallPuzzlePart1 = false;
       wallPuzzlePart2 = false;
       wallPuzzlePart3 = false;
     }
   }
 
-  //circle trapdoor draw
+  // circle trapdoor draw
   if (puzzleCollision2) {
     DrawTexture(CircleTrapDoor, 576, static_cast<int>(1055.5), WHITE);
-    if (wallPuzzlePart2){
+    if (wallPuzzlePart2) {
       wallPuzzlePart3 = true;
       PlaySound(GameAudio::dooropen);
       SetSoundVolume(GameAudio::dooropen, float(0.4));
@@ -327,75 +458,82 @@ void Puzzle::draw() {
     }
   }
 
-  //square trapdoor draw
+  // square trapdoor draw
   if (puzzleCollision3) {
     DrawTexture(SquareTrapDoor, 704, static_cast<int>(1055.5), WHITE);
-    if (wallPuzzlePart1){
+    if (wallPuzzlePart1) {
       wallPuzzlePart2 = true;
-    } else { wallPuzzlePart1 = false; }
+    } else {
+      wallPuzzlePart1 = false;
+    }
   }
 
   /** RECTANGLES */
-  DrawRectangleRec(door1, Color{});
-  DrawRectangleRec(door2, Color{});
-  DrawRectangleRec(door3, Color{});
+  DrawRectangleRec(door1, Color {});
+  DrawRectangleRec(door2, Color {});
+  DrawRectangleRec(door3, Color {});
 
-  if (IsKeyDown(KEY_R)){
+  if (IsKeyDown(KEY_R)) {
     DrawRectangleRec(ChestNS, RED);
     DrawRectangleRec(ChestNS2, BLUE);
     DrawRectangleRec(ChestNS3, GREEN);
   }
 
-  /** ANIMATIONS */
-  //torches
-  torchAnimation();
-  DrawTextureRec(Torch, frameRecTorch, TorchPosition, WHITE);
-  DrawTextureRec(Torch, frameRecTorch, TorchPosition2, WHITE);
-  DrawTextureRec(Torch, frameRecTorch, TorchPosition3, WHITE);
-  DrawTextureRec(Torch, frameRecTorch, TorchPosition4, WHITE);
-  DrawTextureRec(Torch, frameRecTorch, TorchPosition5, WHITE);
-  DrawTextureRec(Torch, frameRecTorch, TorchPosition6, WHITE);
-  DrawTextureRec(Torch, frameRecTorch, TorchPosition7, WHITE);
-  DrawTextureRec(Torch, frameRecTorch, TorchPosition8, WHITE);
-  DrawTextureRec(Torch, frameRecTorch, TorchPosition9, WHITE);
-  DrawTextureRec(Torch, frameRecTorch, TorchPosition10, WHITE);
-  DrawTextureRec(Torch, frameRecTorch, TorchPosition11, WHITE);
-  DrawTextureRec(Torch, frameRecTorch, TorchPosition12, WHITE);
-  DrawTextureRec(Torch, frameRecTorch, TorchPosition13, WHITE);
-  DrawTextureRec(Torch, frameRecTorch, TorchPosition14, WHITE);
-  DrawTextureRec(Torch, frameRecTorch, TorchPosition15, WHITE);
-  DrawTextureRec(Torch, frameRecTorch, TorchPosition16, WHITE);
-  DrawTextureRec(Torch, frameRecTorch, TorchPosition17, WHITE);
-  DrawTextureRec(Torch, frameRecTorch, TorchPosition18, WHITE);
-  DrawTextureRec(Torch, frameRecTorch, TorchPosition19, WHITE);
-  DrawTextureRec(Torch, frameRecTorch, TorchPosition20, WHITE);
-  DrawTextureRec(Torch, frameRecTorch, TorchPosition21, WHITE);
-  DrawTextureRec(Torch, frameRecTorch, TorchPosition22, WHITE);
-  DrawTextureRec(Torch, frameRecTorch, TorchPosition23, WHITE);
-  DrawTextureRec(Torch, frameRecTorch, TorchPosition24, WHITE);
+    /** ANIMATIONS */
+    // torches
+    torchAnimation();
+    DrawTextureRec(Torch, frameRecTorch, TorchPosition, WHITE);
+    DrawTextureRec(Torch, frameRecTorch, TorchPosition2, WHITE);
+    DrawTextureRec(Torch, frameRecTorch, TorchPosition3, WHITE);
+    DrawTextureRec(Torch, frameRecTorch, TorchPosition4, WHITE);
+    DrawTextureRec(Torch, frameRecTorch, TorchPosition5, WHITE);
+    DrawTextureRec(Torch, frameRecTorch, TorchPosition6, WHITE);
+    DrawTextureRec(Torch, frameRecTorch, TorchPosition7, WHITE);
+    DrawTextureRec(Torch, frameRecTorch, TorchPosition8, WHITE);
+    DrawTextureRec(Torch, frameRecTorch, TorchPosition9, WHITE);
+    DrawTextureRec(Torch, frameRecTorch, TorchPosition10, WHITE);
+    DrawTextureRec(Torch, frameRecTorch, TorchPosition11, WHITE);
+    DrawTextureRec(Torch, frameRecTorch, TorchPosition12, WHITE);
+    DrawTextureRec(Torch, frameRecTorch, TorchPosition13, WHITE);
+    DrawTextureRec(Torch, frameRecTorch, TorchPosition14, WHITE);
+    DrawTextureRec(Torch, frameRecTorch, TorchPosition15, WHITE);
+    DrawTextureRec(Torch, frameRecTorch, TorchPosition16, WHITE);
+    DrawTextureRec(Torch, frameRecTorch, TorchPosition17, WHITE);
+    DrawTextureRec(Torch, frameRecTorch, TorchPosition18, WHITE);
+    DrawTextureRec(Torch, frameRecTorch, TorchPosition19, WHITE);
+    DrawTextureRec(Torch, frameRecTorch, TorchPosition20, WHITE);
+    DrawTextureRec(Torch, frameRecTorch, TorchPosition21, WHITE);
+    DrawTextureRec(Torch, frameRecTorch, TorchPosition22, WHITE);
+    DrawTextureRec(Torch, frameRecTorch, TorchPosition23, WHITE);
+    DrawTextureRec(Torch, frameRecTorch, TorchPosition24, WHITE);
 
-  //portal
-  portalAnimation();
+    // portal
+    portalAnimation();
 
-  DrawTextureRec(Portal, frameRecPortal, PortalPosition, WHITE);
-}
+    DrawTextureRec(Portal, frameRecPortal, PortalPosition, WHITE);
 
-Puzzle::~Puzzle() {
-  /** Unload Textures */
-  UnloadTexture (ChestOpen);
+    // epanox
+    epanoxAnimation();
+    DrawTextureRec(EpanoxSheet, frameRecEpanox, EpanoxPosition, WHITE);
+  }
 
-  UnloadTexture (HelmetItem);
-  UnloadTexture (HelmetTexture);
-  UnloadTexture (ChestplateTexture);
-  UnloadTexture (HpPotionTexture);
-  UnloadTexture (KeyTexture);
 
-  UnloadTexture (PuzzelTriangle);
+  Puzzle::~Puzzle() {
+    /** Unload Textures */
+    UnloadTexture(ChestOpen);
 
-  UnloadTexture (TriangleTrapDoor);
-  UnloadTexture (CircleTrapDoor);
-  UnloadTexture (SquareTrapDoor);
+    UnloadTexture(HelmetItem);
+    UnloadTexture(HelmetTexture);
+    UnloadTexture(ChestplateTexture);
+    UnloadTexture(HpPotionTexture);
+    UnloadTexture(KeyTexture);
 
-  UnloadTexture (WallTile);
-  UnloadTexture (DungeonFloorTile);
-}
+    UnloadTexture(PuzzelTriangle);
+
+    UnloadTexture(TriangleTrapDoor);
+    UnloadTexture(CircleTrapDoor);
+    UnloadTexture(SquareTrapDoor);
+
+    UnloadTexture(WallTile);
+    UnloadTexture(DungeonFloorTile);
+  }

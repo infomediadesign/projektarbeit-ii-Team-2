@@ -29,6 +29,11 @@ public:
   Texture2D Torch = LoadTexture("assets/graphics/Items/Asset_Feuerschale-Sheet.png");
   Texture2D Portal = LoadTexture("assets/graphics/Items/ZeitportalOpenClose-Sheet.png");
 
+  Texture2D Dialogbox = LoadTexture("assets/graphics/Character/Dialogbox.png");
+
+  Texture2D EpanoxSheet = LoadTexture("assets/graphics/Character/ReZeitwesenBouncefuerNick.png");
+
+
   /** Rectangles */
   Rectangle Chest = {608, 385, 32, 36};
   Rectangle Chest2 = {896, 288, 32, 36};
@@ -49,19 +54,27 @@ public:
   Rectangle ChestNS2 = {896, 288, 28, 32};
   Rectangle ChestNS3 = {1504, 480.5, 28, 32};
 
+  Rectangle  EpanoxRec = {770, 945, 10, 20}; //EpanoxRec
+  Rectangle EpanoxRec2 = {760, 945, 20, 28};
+
   ///animation Rectangles
   // divide sprite-sheet into frames
   Rectangle frameRec = { 0.0f, 0.0f, (float)PuzzelTriangle.width / 3, (float)PuzzelTriangle.height };
   Rectangle frameRecTorch = { 0.0f, 0.0f, (float)Torch.width / 4, (float)Torch.height };
   Rectangle frameRecPortal = { 0.0f, 0.0f, (float)Portal.width / 12, (float)Portal.height };
+  Rectangle frameRecEpanox = { 0.0f, 0.0f, (float)EpanoxSheet.width / 20, (float)EpanoxSheet.height };
 
   /** Int's */
   //animation
   int currentFrame   = 0;
   int framesCounter  = 0;
   int framesSpeed    = 8; // animtation fps
-  int framesSpeedTorch  = 4; // torch animtation fps
-  int framesSpeedPortal = 4; // portal animtation fps
+  int framesSpeed4  = 4; // torch animtation fps
+
+  int textState = 1;
+
+  /** Floats */
+  float timesinceIdle = 0;
 
   /** Vector's */
   //Vector2 puzzle_position = {608.5, 386.5};
@@ -93,6 +106,16 @@ public:
 
   Vector2 PortalPosition = {1438, 76};
 
+  Vector2 EpanoxPosition = {760, 945};
+
+  Font textFont = LoadFont("assets/Born2bSportyV2.ttf");
+
+  float fontSize = 20;
+  float fontSpacing;
+  Vector2 fontTextPosLINE1   = {nemo->NemoPosition.x - 180, nemo->NemoPosition.y + 75};
+  Vector2 fontTextPosLINE2 = {nemo->NemoPosition.x - 162, nemo->NemoPosition.y + 110};
+  Vector2 fontTextPosLINE3    = {nemo->NemoPosition.x - 162, nemo->NemoPosition.y + 135};
+
   /** Bool's */
   bool chestCollision = false;
   bool chestCollision2 = false;
@@ -122,6 +145,12 @@ public:
   bool wallPuzzlePart3 = false;
   bool wallIsOpen = false;
 
+  bool text = false;
+  bool textdoor = false;
+
+  bool EpanoxCollision = false;
+  bool EpanoxCollision2 = false;
+
   /** Bool's Nemo Stop */
   bool doorcollision1 = false;
   bool doorcollision2 = false;
@@ -138,6 +167,7 @@ public:
   void stopNemo();
   void torchAnimation();
   void portalAnimation();
+  void epanoxAnimation();
   void update();
   void draw();
 
