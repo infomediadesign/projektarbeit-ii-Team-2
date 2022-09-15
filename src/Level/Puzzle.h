@@ -32,6 +32,15 @@ public:
   Texture2D Dialogbox = LoadTexture("assets/graphics/Character/Dialogbox.png");
 
   Texture2D EpanoxSheet = LoadTexture("assets/graphics/Character/ReZeitwesenBouncefuerNick.png");
+  Texture2D TimeCrystal = LoadTexture("assets/graphics/Items/Standuhr_Final_Sheet.png");
+
+  Rectangle CrystalFrameRec = { 0.0f, 0.0f, (float)TimeCrystal.width / 4, (float)TimeCrystal.height };
+  int crystal_currentFrame   = 0;
+  int crystal_framescounter = 0;
+  int crystal_framesspeed = 4;
+  Rectangle Crystalrec  = {}; //The attributes for the Rectangle will be set.
+
+  void crystaldraw();
 
 
   /** Rectangles */
@@ -104,7 +113,7 @@ public:
   Vector2 TorchPosition22 = {1312, 62};
   Vector2 TorchPosition23 = {1600, 62};
 
-  Vector2 PortalPosition = {1438, 76};
+  Vector2 PortalPosition = {};
 
   Vector2 EpanoxPosition = {760, 945};
 

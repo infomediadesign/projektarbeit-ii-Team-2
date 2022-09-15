@@ -341,6 +341,8 @@ void Puzzle::torchAnimation() {
 }
 
 void Puzzle::portalAnimation() {
+  PortalPosition = {1438, 96};
+  DrawTextureRec(Portal, frameRecPortal, PortalPosition, WHITE);
 
   // animation
   framesCounter++;
@@ -507,11 +509,6 @@ void Puzzle::draw() {
     DrawTextureRec(Torch, frameRecTorch, TorchPosition23, WHITE);
     DrawTextureRec(Torch, frameRecTorch, TorchPosition24, WHITE);
 
-    // portal
-    portalAnimation();
-
-    DrawTextureRec(Portal, frameRecPortal, PortalPosition, WHITE);
-
     // epanox
     epanoxAnimation();
     DrawTextureRec(EpanoxSheet, frameRecEpanox, EpanoxPosition, WHITE);
@@ -536,4 +533,24 @@ void Puzzle::draw() {
 
     UnloadTexture(WallTile);
     UnloadTexture(DungeonFloorTile);
+  }
+  void Puzzle::crystaldraw()
+  {
+    Crystalrec = {1455.5, 215.5, 32, 32};
+    //DrawRectangleRec(Crystalrec, RED);
+    DrawTextureRec(TimeCrystal, CrystalFrameRec, {Crystalrec.x, Crystalrec.y}, WHITE);
+
+    crystal_framescounter++;
+
+    if (crystal_framescounter >= (60 / crystal_framesspeed)) {
+      crystal_framescounter = 0;
+      crystal_currentFrame++;
+
+      if (crystal_currentFrame > 3)
+      {
+        crystal_currentFrame = 0;
+      }
+
+      CrystalFrameRec.x = (float)crystal_currentFrame * (float)TimeCrystal.width / 4;
+    }
   }
