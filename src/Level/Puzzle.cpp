@@ -186,17 +186,21 @@ void Puzzle::update() {
     }
   }
 
-
   /** Stop Nemo Door */
-  if (doorcollision1){ stopNemo(); }
-
-  if (doorcollision2){ stopNemo(); }
-
-  if (doorcollision3){
+  if (doorcollision1){ //key
     stopNemo();
     textdoor = true;
-  } //else { textdoor = false; }
+  }
 
+  if (doorcollision2){ //chest
+    stopNemo();
+    textdoor2 = true;
+  }
+
+  if (doorcollision3){ //puzzle
+    stopNemo();
+    textdoor3 = true;
+  }
 
   if (textdoor){
     timesinceIdle += GetFrameTime();
@@ -207,41 +211,47 @@ void Puzzle::update() {
     //DrawTextEx(textFont, "talk to Epanox to get a hint.", fontTextPosLINE3, fontSize, fontSpacing, WHITE);
     DrawText("Door Info", nemo->NemoPosition.x - 180, nemo->NemoPosition.y + 75, 15, WHITE);
     DrawText("This Door is locked... ", nemo->NemoPosition.x - 162, nemo->NemoPosition.y + 110, 15, WHITE);
-    DrawText("talk to Epanox to get a hint.", nemo->NemoPosition.x - 162, nemo->NemoPosition.y + 135, 15, WHITE);
+    DrawText("Find a Key to open this door!", nemo->NemoPosition.x - 162, nemo->NemoPosition.y + 135, 15, WHITE);
 
-    if (timesinceIdle >= 4){ textdoor = false; }
+    if (timesinceIdle >= 4){
+      textdoor = false;
+      timesinceIdle = 0;
+    }
   }
 
-  /*
-   if (textdoor) {
- DrawTexture(Dialogbox, nemo->NemoPosition.x - 180, nemo->NemoPosition.y + 90, WHITE);
- if (IsKeyPressed(KEY_SPACE)) {
-   textState + 1;
-   PlaySound(GameAudio::dialoge);
-   SetSoundVolume(GameAudio::dialoge, float(0.1));
- }
+  if (textdoor2){
+    timesinceIdle += GetFrameTime();
 
-if (IsKeyReleased(KEY_SPACE) && textState == 0) {
- textState = 1;
-} else if (IsKeyReleased(KEY_SPACE) && textState == 1) {
- textState = 2;
-}
+    DrawTexture(Dialogbox, nemo->NemoPosition.x - 180, nemo->NemoPosition.y + 90, WHITE);
+    //DrawTextEx(textFont, "Door Info", fontTextPosLINE1, fontSize, fontSpacing, WHITE);
+    //DrawTextEx(textFont, "This Door is locked... ", fontTextPosLINE2, fontSize, fontSpacing, WHITE);
+    //DrawTextEx(textFont, "talk to Epanox to get a hint.", fontTextPosLINE3, fontSize, fontSpacing, WHITE);
+    DrawText("Door Info", nemo->NemoPosition.x - 180, nemo->NemoPosition.y + 75, 15, WHITE);
+    DrawText("This Door is locked... ", nemo->NemoPosition.x - 162, nemo->NemoPosition.y + 110, 15, WHITE);
+    DrawText("Kill the Monster, to enter the door", nemo->NemoPosition.x - 162, nemo->NemoPosition.y + 135, 15, WHITE);
 
-switch (textState) {
-default: break;
-case 1:
- DrawText("Door Info", nemo->NemoPosition.x - 180, nemo->NemoPosition.y + 75, 15, WHITE);
- DrawText("This Door is locked... ", nemo->NemoPosition.x - 162, nemo->NemoPosition.y + 110, 15, WHITE);
- DrawText("talk to Epanox to get a hint.", nemo->NemoPosition.x - 162, nemo->NemoPosition.y + 135, 15, WHITE);
- break;
-case 2:
- textState = 1;
- textdoor = false;
- break;
-}
-}
-   */
+    if (timesinceIdle >= 4){
+      textdoor2 = false;
+      timesinceIdle = 0;
+    }
+  }
 
+  if (textdoor3){
+    timesinceIdle += GetFrameTime();
+
+    DrawTexture(Dialogbox, nemo->NemoPosition.x - 180, nemo->NemoPosition.y + 90, WHITE);
+    //DrawTextEx(textFont, "Door Info", fontTextPosLINE1, fontSize, fontSpacing, WHITE);
+    //DrawTextEx(textFont, "This Door is locked... ", fontTextPosLINE2, fontSize, fontSpacing, WHITE);
+    //DrawTextEx(textFont, "talk to Epanox to get a hint.", fontTextPosLINE3, fontSize, fontSpacing, WHITE);
+    DrawText("Door Info", nemo->NemoPosition.x - 180, nemo->NemoPosition.y + 75, 15, WHITE);
+    DrawText("This Door is locked... ", nemo->NemoPosition.x - 162, nemo->NemoPosition.y + 110, 15, WHITE);
+    DrawText("talk to Epanox to get a hint.", nemo->NemoPosition.x - 162, nemo->NemoPosition.y + 135, 15, WHITE);
+
+    if (timesinceIdle >= 4){
+      textdoor3 = false;
+      timesinceIdle = 0;
+    }
+  }
 
   /** Stop Nemo Chest */
   if (chestCollisionNS1){ stopNemo(); }
@@ -263,6 +273,14 @@ case 2:
     }
     if (text) {
       DrawTexture(Dialogbox, nemo->NemoPosition.x - 180, nemo->NemoPosition.y + 90, WHITE);
+      timesinceIdle += GetFrameTime();
+      /*
+       if (timesinceIdle >= 4){
+ textState + 1;
+ timesinceIdle = 0;
+}
+       */
+
       if (IsKeyPressed(KEY_SPACE)) {
         textState + 1;
         PlaySound(GameAudio::dialoge);
@@ -292,9 +310,8 @@ case 2:
         break;
       case 3:
         DrawText("Epanox", nemo->NemoPosition.x - 180, nemo->NemoPosition.y + 75, 15, WHITE);
-        DrawText("To enter the home of the Pharaoh you will need to", nemo->NemoPosition.x - 162, nemo->NemoPosition.y + 110, 15, WHITE);
-        DrawText("to find the house on the mountains peek of which ", nemo->NemoPosition.x - 162, nemo->NemoPosition.y + 135, 15, WHITE);
-        DrawText("only the highest of sun rays will touch...", nemo->NemoPosition.x - 162, nemo->NemoPosition.y + 160, 15, WHITE);
+        DrawText("On a mountain stands a house on which the", nemo->NemoPosition.x - 162, nemo->NemoPosition.y + 110, 15, WHITE);
+        DrawText("sun shines down...", nemo->NemoPosition.x - 162, nemo->NemoPosition.y + 135, 15, WHITE);
         break;
       case 4:
         textState = 1;

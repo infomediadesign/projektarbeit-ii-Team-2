@@ -147,6 +147,8 @@ public:
 
   bool text = false;
   bool textdoor = false;
+  bool textdoor2 = false;
+  bool textdoor3 = false;
 
   bool EpanoxCollision = false;
   bool EpanoxCollision2 = false;
