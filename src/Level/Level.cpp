@@ -55,6 +55,8 @@ void Game::Level::combat(Game::GameCharacter *c_enemy)
     //After Player Attacks, the Mumy will attack the Player
     if (player->get_turnnumb() > c_enemy->get_turnnumb()) {
       player->getDamage(c_enemy->attack());
+      PlaySound(GameAudio::attack);
+      SetSoundVolume(GameAudio::attack, float(0.1));
       p_damaged = true;
       b_currentFrame = 0;
 
@@ -62,6 +64,8 @@ void Game::Level::combat(Game::GameCharacter *c_enemy)
     //After Mumy Attack, the Player attacks the Mumy
     if (c_enemy->get_turnnumb() > player->get_turnnumb()) {
       c_enemy->getDamage(player->attack());
+      PlaySound(GameAudio::attack);
+      SetSoundVolume(GameAudio::attack, float(0.1));
       e_damaged = true;
       r_currentFrame = 0;
     }
@@ -75,21 +79,29 @@ void Game::Level::combat(Game::GameCharacter *c_enemy)
   if(IsKeyPressed(KEY_D))
   {
     box_rec.x += 90;
+    PlaySound(GameAudio::dialoge);
+    SetSoundVolume(GameAudio::dialoge, float(0.1));
   }
 
   if (IsKeyPressed(KEY_A))
   {
     box_rec.x -= 90;
+    PlaySound(GameAudio::dialoge);
+    SetSoundVolume(GameAudio::dialoge, float(0.1));
   }
 
   if (IsKeyPressed(KEY_S))
   {
     box_rec.y += 35;
+    PlaySound(GameAudio::dialoge);
+    SetSoundVolume(GameAudio::dialoge, float(0.1));
   }
 
   if (IsKeyPressed(KEY_W))
   {
     box_rec.y -= 35;
+    PlaySound(GameAudio::dialoge);
+    SetSoundVolume(GameAudio::dialoge, float(0.1));
   }
 
   //Knopf soll nicht out of border gehen
@@ -111,6 +123,8 @@ void Game::Level::combat(Game::GameCharacter *c_enemy)
         //=========================PLAYER ATTACK================
         player->set_turnnumb(0);
         c_enemy->set_turnnumb(0);
+        PlaySound(GameAudio::buttonpress);
+        SetSoundVolume(GameAudio::buttonpress, float(0.2));
 
         if (player->get_turnnumb() == c_enemy->get_turnnumb())
         {
@@ -120,6 +134,8 @@ void Game::Level::combat(Game::GameCharacter *c_enemy)
         //===============PLAYER ATTACK=========================
         if (player->get_turnnumb() > c_enemy->get_turnnumb()) {
           c_enemy->getDamage(player->attack());
+          PlaySound(GameAudio::attack);
+          SetSoundVolume(GameAudio::attack, float(0.2));
           e_damaged = true;
           b_currentFrame = 3;
 
@@ -127,6 +143,8 @@ void Game::Level::combat(Game::GameCharacter *c_enemy)
         //================ENEMY ATTACK=========================
         if (c_enemy->get_turnnumb() > player->get_turnnumb()) {
           player->getDamage(c_enemy->attack());
+          PlaySound(GameAudio::attack);
+          SetSoundVolume(GameAudio::attack, float(0.2));
           p_damaged = true;
           r_currentFrame = 3;
         }
@@ -144,6 +162,8 @@ void Game::Level::combat(Game::GameCharacter *c_enemy)
           //======================HEAL!!!!=========================
           player->set_turnnumb(0);
           c_enemy->set_turnnumb(0);
+          PlaySound(GameAudio::buttonpress);
+          SetSoundVolume(GameAudio::buttonpress, float(0.2));
           // Player heals first, then gets Damage
           if (player->get_turnnumb() >= c_enemy->get_turnnumb()) {
             player->heal();
@@ -177,8 +197,11 @@ void Game::Level::combat(Game::GameCharacter *c_enemy)
        if (t_rec_time.x == box_rec.x && t_rec_time.y == box_rec.y && t_rec_time.width == box_rec.width &&
           t_rec_time.height == box_rec.height) {
 
+
            c_enemy->getDamage(player->attack());
            c_enemy->getDamage(player->attack());
+           PlaySound(GameAudio::buttonpress);
+           SetSoundVolume(GameAudio::buttonpress, float(0.1));
            T_damaged = true;
            e_framescounter++;
            energy--;
@@ -196,6 +219,8 @@ void Game::Level::combat(Game::GameCharacter *c_enemy)
 
       if (t_rec_escape.x == box_rec.x && t_rec_escape.y == box_rec.y && t_rec_escape.width == box_rec.width &&
           t_rec_escape.height == box_rec.height) {
+        PlaySound(GameAudio::buttonpress);
+        SetSoundVolume(GameAudio::buttonpress, float(0.2));
         currentscreen = GameScreen::PYRAMIDE;
       }
     }
