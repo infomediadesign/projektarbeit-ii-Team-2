@@ -63,6 +63,17 @@ int main() {
   bool TimeCrystalDraw = true;
   bool collisiononce = false;
 
+  //for puzzleroom door to open when mumy dies...
+  Rectangle door2 = {576, 896, 64, 32};   //door 2 to puzzle room
+  Texture2D WallTile = LoadTexture("assets/graphics/Items/Wand.png");
+  Texture2D DungeonFloorTile = LoadTexture("assets/graphics/Items/DungeonFloorPlate.png");
+  Texture2D ChestOpen = LoadTexture("assets/graphics/Items/OpenChest.png");
+  bool doorOpen = false;
+  bool doorText = false;
+  Texture2D Dialogbox = LoadTexture("assets/graphics/Character/Dialogbox.png");
+  /** Floats */
+  float timesinceIdle = 0;
+
   //Map stuff
   std::ifstream tilesetDescriptionFile("assets/graphics/map/Level1/PhyramidSheet.json"); //Pyramiden_SheetJamey.json needed as json, pls do in tiled
   assert(tilesetDescriptionFile.is_open());
@@ -104,7 +115,6 @@ int main() {
     HideCursor();
     SetExitKey(KEY_O);
 
-
     // Begin drawing
     //--------------------------------------------------------------------------------------------
     BeginDrawing();
@@ -113,7 +123,7 @@ int main() {
 
     BeginMode2D(camera);
 
-    level.ScreenDraw(); //the switchcase for switching between rooms (in the level.cpp) (the same as is underneath this)
+    level.ScreenDraw(); // the switchcase for switching between rooms (in the level.cpp) (the same as is underneath this)
 
     // Using Switch Case to Initialize the requirements to move to certain positions
     switch (level.currentscreen) { // Get Ready for some Spaghetti Code
@@ -237,12 +247,6 @@ int main() {
         }
       }
 
-      /**/
-
-      // NPCRec = { 592 + 8, 712 + 5, 16, 20 };
-      //  DrawRectangleRec(NPCRec, Color(00));                    // COLOR is for the Transparency.
-      // DrawTexture(NPC.texture_, NPC.pos_x, NPC.pos_y, WHITE); // Drawing the Rectangle
-
       //=============================INITIALIZE COMBAT ONCE BEEING ENCOUNTERED====================================
 
       //====================================================MUMMY=============================================================
@@ -259,6 +263,12 @@ int main() {
         MumyDraw                = false; // NPC is deleted
         overworld_mumy->MumyRec = {};
       }
+
+      if (!MumyDraw) {
+        DrawTexture(DungeonFloorTile, 576, 896, WHITE);
+        DrawTexture(DungeonFloorTile, 608, 896, WHITE);
+        door2 = {};
+      }
       //====================================================TIME SHADOW=======================================================
       if (ShadowDraw) {
         overwold_shadow->Draw();
@@ -273,57 +283,67 @@ int main() {
       }
       //====================================================PHARAOH===========================================================
 
+      if (CheckCollisionRecs(puzzle.Crystalrec, nemo.nemorec)) {
+        TimeCrystalDraw = false;
+        collisiononce   = true;
+      }
+      if (collisiononce) {
+        puzzle.portalAnimation();
+      }
+      if (!PharaohDraw) {
+        if (TimeCrystalDraw) {
+          puzzle.crystaldraw();
+        }
+      }
 
-    if (CheckCollisionRecs(puzzle.Crystalrec, nemo.nemorec))
-    {
-      TimeCrystalDraw = false;
-      collisiononce = true;
-    }
-    if (collisiononce)
-    {
-      puzzle.portalAnimation();
-    }
-
-    if (TimeCrystalDraw)
-    {
-      puzzle.crystaldraw();
-    }
-
-      if (PharaohDraw)
-      {
+      if (PharaohDraw) {
         overworld_pharaoh->Draw();
       }
 
-      if (CheckCollisionRecs(overworld_pharaoh->getPharaohRec(), nemo.nemorec))
-      {
+      if (CheckCollisionRecs(overworld_pharaoh->getPharaohRec(), nemo.nemorec)) {
         level.currentscreen = Game::Level::GameScreen::COMBAT;
-        level.opponent = Game::Level::EnemyType::PHARAOH;
-        //puzzle.crystaldraw();
+        level.opponent      = Game::Level::EnemyType::PHARAOH;
 
-        PharaohDraw = false;
+        PharaohDraw                   = false;
         overworld_pharaoh->Pharaohrec = {};
       }
       //==========================================THE END=========================================================
 
-
-
-      if (IsKeyPressed(KEY_E)){
+      if (IsKeyPressed(KEY_E)) {
         DrawFPS(nemo.NemoPosition.x - 280, nemo.NemoPosition.y - 150);
       }
 
       puzzle.draw();
 
-      //collision.draw();
       collision.torchAnimations();
-
-      if (IsKeyDown(KEY_R)){
-        collision.walldraw();
-      }
 
       nemo.active = true;
       nemo.Update(); // nemo walking movement and animation
       nemo.Draw();   // nemo walking movement and animation
       camera.target = Vector2 { nemo.NemoPosition.x + 20.0f, nemo.NemoPosition.y + 20.0f };
+
+      if (CheckCollisionRecs(door2, nemo.nemorec)) {
+        puzzle.stopNemo();
+        doorText = true;
+      }
+
+      if (doorText) {
+        timesinceIdle += GetFrameTime();
+
+        DrawTexture(Dialogbox, nemo.NemoPosition.x - 180, nemo.NemoPosition.y + 90, WHITE);
+        // DrawTextEx(textFont, "Door Info", fontTextPosLINE1, fontSize, fontSpacing, WHITE);
+        // DrawTextEx(textFont, "This Door is locked... ", fontTextPosLINE2, fontSize, fontSpacing, WHITE);
+        // DrawTextEx(textFont, "talk to Epanox to get a hint.", fontTextPosLINE3, fontSize, fontSpacing, WHITE);
+        DrawText("Door Info", nemo.NemoPosition.x - 180, nemo.NemoPosition.y + 75, 15, WHITE);
+        DrawText("This Door is locked... ", nemo.NemoPosition.x - 162, nemo.NemoPosition.y + 110, 15, WHITE);
+        DrawText(
+          "Kill the Monster, to enter the door", nemo.NemoPosition.x - 162, nemo.NemoPosition.y + 135, 15, WHITE);
+
+        if (timesinceIdle >= 4) {
+          doorText      = false;
+          timesinceIdle = 0;
+        }
+      }
 
       collision.inPryaWallCollision();
 
@@ -334,11 +354,6 @@ int main() {
       level.Teleport();
       DrawRectangleRec(level.teleportrecPYRAMIDtoOVERWORLD, Color{});
       DrawRectangleRec(level.teleportrecPYRAMIDtoENDSCREEN, Color{});
-
-      //map.update();
-      //collision.update(); //TODO the rectangle doesnt have anything init which doesnt alway it to collide with anything... theres an error and the game crashes
-
-
 
       break;
 
@@ -376,7 +391,6 @@ int main() {
 
   level.~Level();
   puzzle.~Puzzle();
-  //map.~LevelMap();
 
   CloseAudioDevice(); // Close audio device
 
