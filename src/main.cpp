@@ -60,6 +60,8 @@ int main() {
   bool MumyDraw = true;   // To set the drawing if it is true or false. In short if it is draw or deleted
   bool ShadowDraw = true;
   bool PharaohDraw = true;
+  bool TimeCrystalDraw = true;
+  bool collisiononce = false;
 
   //Map stuff
   std::ifstream tilesetDescriptionFile("assets/graphics/map/Level1/PhyramidSheet.json"); //Pyramiden_SheetJamey.json needed as json, pls do in tiled
@@ -118,60 +120,56 @@ int main() {
 
     case Game::Level::GameScreen::TITLESCREEN:
 
-
       camera.target = Vector2 { Game::ScreenWidth / 2, Game::ScreenHeight / 2 };
-      camera.zoom     = 1.0f;
+      camera.zoom   = 1.0f;
       break;
 
     case Game::Level::GameScreen::PAUSEMENU:
 
       camera.target = Vector2 { Game::ScreenWidth / 2, Game::ScreenHeight / 2 };
-      camera.zoom     = 1.0f;
+      camera.zoom   = 1.0f;
       break;
 
     case Game::Level::GameScreen::PAUSEMENU_OVERWORLD:
 
       camera.target = Vector2 { Game::ScreenWidth / 2, Game::ScreenHeight / 2 };
-      camera.zoom     = 1.0f;
+      camera.zoom   = 1.0f;
       break;
 
     case Game::Level::GameScreen::PAUSEMENU_PYRAMID:
 
       camera.target = Vector2 { Game::ScreenWidth / 2, Game::ScreenHeight / 2 };
-      camera.zoom     = 1.0f;
+      camera.zoom   = 1.0f;
       break;
 
     case Game::Level::GameScreen::OVERWORLD:
 
-      camera.zoom     = 2.0f;
+      camera.zoom = 2.0f;
 
-      //map.drawOVERWORLD();
+      // map.drawOVERWORLD();
 
-      //map
+      // map
       Vector2 vec;
       Rectangle rec;
 
-      vec = {0, 0};
-      rec = {0, 0, levelMap["tilewidth"], levelMap["tileheight"]};
+      vec = { 0, 0 };
+      rec = { 0, 0, levelMap["tilewidth"], levelMap["tileheight"] };
       for (auto const &layer : levelMap["layers"]) {
-
         if (layer["type"] == "tilelayer" && layer["visible"]) {
           vec.y = 0;
           for (auto const &tileId : layer["data"]) {
-
-            int counter = (int) tileId;
+            int counter = (int)tileId;
             counter--;
             if (counter != -1) {
-              rec.x = (float) ((int) counter % (int) tilesetDescription["columns"]) *
-                      (float) levelMap["tilewidth"];
-              rec.y = (float) floor((float) counter / (float) tilesetDescription["columns"]) *
-                      (float) levelMap["tileheight"];
-              DrawTextureRec(tileAtlasTexture, rec, vec, WHITE); //entkoppeln, 2 vektoren machen
+              rec.x = (float)((int)counter % (int)tilesetDescription["columns"]) * (float)levelMap["tilewidth"];
+              rec.y =
+                (float)floor((float)counter / (float)tilesetDescription["columns"]) * (float)levelMap["tileheight"];
+              DrawTextureRec(tileAtlasTexture, rec, vec, WHITE); // entkoppeln, 2 vektoren machen
             }
-            vec.x += (float) levelMap["tilewidth"];
-            if (vec.x >= (float) layer["width"] * (float) levelMap["tilewidth"]) {
+            vec.x += (float)levelMap["tilewidth"];
+            if (vec.x >= (float)layer["width"] * (float)levelMap["tilewidth"]) {
               vec.x = 0;
-              vec.y += (float) levelMap["tileheight"];
+              vec.y += (float)levelMap["tileheight"];
             }
           }
         }
@@ -182,7 +180,7 @@ int main() {
       collision.draw();
       collision.torchAnimations();
 
-      if (IsKeyDown(KEY_R)){
+      if (IsKeyDown(KEY_R)) {
         collision.walldraw();
       }
 
@@ -196,47 +194,44 @@ int main() {
 
       ui.Draw(); // controlls description
 
-      if (IsKeyPressed(KEY_E)){
+      if (IsKeyPressed(KEY_E)) {
         DrawFPS(nemo.NemoPosition.x - 280, nemo.NemoPosition.y - 150);
       }
 
-      //teleport into pyramid
+      // teleport into pyramid
       level.Teleport();
-      DrawRectangleRec(level.teleportrecOVERWORLDtoPYRAMID, Color{});
-      //DrawRectangleRec(level.teleportrecOVERWORLDtoPYRAMID, RED);
+      DrawRectangleRec(level.teleportrecOVERWORLDtoPYRAMID, Color {});
+      // DrawRectangleRec(level.teleportrecOVERWORLDtoPYRAMID, RED);
 
       break;
 
     case Game::Level::GameScreen::PYRAMIDE:
 
-      camera.zoom     = 2.0f;
+      camera.zoom = 2.0f;
 
-      //map.drawPYRAMID();
+      // map.drawPYRAMID();
 
       Vector2 vecDungeon;
       Rectangle recDungeon;
 
-      vecDungeon = {0, 0};
-      recDungeon = {0, 0, levelMapDungeon["tilewidth"], levelMapDungeon["tileheight"]};
+      vecDungeon = { 0, 0 };
+      recDungeon = { 0, 0, levelMapDungeon["tilewidth"], levelMapDungeon["tileheight"] };
       for (auto const &layer : levelMapDungeon["layers"]) {
-
         if (layer["type"] == "tilelayer" && layer["visible"]) {
           vecDungeon.y = 0;
           for (auto const &tileId : layer["data"]) {
-
-            int counter = (int) tileId;
+            int counter = (int)tileId;
             counter--;
             if (counter != -1) {
-              recDungeon.x = (float) ((int) counter % (int) tilesetDescription["columns"]) *
-                             (float) levelMap["tilewidth"];
-              recDungeon.y = (float) floor((float) counter / (float) tilesetDescription["columns"]) *
-                             (float) levelMap["tileheight"];
-              DrawTextureRec(tileAtlasTexture, recDungeon, vecDungeon, WHITE); //entkoppeln, 2 vektoren machen
+              recDungeon.x = (float)((int)counter % (int)tilesetDescription["columns"]) * (float)levelMap["tilewidth"];
+              recDungeon.y =
+                (float)floor((float)counter / (float)tilesetDescription["columns"]) * (float)levelMap["tileheight"];
+              DrawTextureRec(tileAtlasTexture, recDungeon, vecDungeon, WHITE); // entkoppeln, 2 vektoren machen
             }
-            vecDungeon.x += (float) levelMapDungeon["tilewidth"];
-            if (vecDungeon.x >= (float) layer["width"] * (float) levelMapDungeon["tilewidth"]) {
+            vecDungeon.x += (float)levelMapDungeon["tilewidth"];
+            if (vecDungeon.x >= (float)layer["width"] * (float)levelMapDungeon["tilewidth"]) {
               vecDungeon.x = 0;
-              vecDungeon.y += (float) levelMapDungeon["tileheight"];
+              vecDungeon.y += (float)levelMapDungeon["tileheight"];
             }
           }
         }
@@ -244,9 +239,9 @@ int main() {
 
       /**/
 
-      //NPCRec = { 592 + 8, 712 + 5, 16, 20 };
-      // DrawRectangleRec(NPCRec, Color(00));                    // COLOR is for the Transparency.
-      //DrawTexture(NPC.texture_, NPC.pos_x, NPC.pos_y, WHITE); // Drawing the Rectangle
+      // NPCRec = { 592 + 8, 712 + 5, 16, 20 };
+      //  DrawRectangleRec(NPCRec, Color(00));                    // COLOR is for the Transparency.
+      // DrawTexture(NPC.texture_, NPC.pos_x, NPC.pos_y, WHITE); // Drawing the Rectangle
 
       //=============================INITIALIZE COMBAT ONCE BEEING ENCOUNTERED====================================
 
@@ -255,30 +250,45 @@ int main() {
         overworld_mumy->Draw();
       }
       // Collision check
-      if (CheckCollisionRecs(overworld_mumy->getMumyRec(), nemo.nemorec)) // Where the Collision between Two Objects happen happens
+      if (CheckCollisionRecs(overworld_mumy->getMumyRec(),
+                             nemo.nemorec)) // Where the Collision between Two Objects happen happens
       {
         level.currentscreen = Game::Level::GameScreen::COMBAT; // After Returning back to the OVERWORLD ya get
-        level.opponent = Game::Level::EnemyType::MUMY;
+        level.opponent      = Game::Level::EnemyType::MUMY;
 
-        MumyDraw = false; // NPC is deleted
+        MumyDraw                = false; // NPC is deleted
         overworld_mumy->MumyRec = {};
       }
       //====================================================TIME SHADOW=======================================================
-      if (ShadowDraw)
-      {
+      if (ShadowDraw) {
         overwold_shadow->Draw();
       }
 
-      if (CheckCollisionRecs(overwold_shadow->getShadowRec(), nemo.nemorec))
-      {
+      if (CheckCollisionRecs(overwold_shadow->getShadowRec(), nemo.nemorec)) {
         level.currentscreen = Game::Level::GameScreen::COMBAT;
-        level.opponent = Game::Level::EnemyType::SHADOW;
+        level.opponent      = Game::Level::EnemyType::SHADOW;
 
-        ShadowDraw = false;
+        ShadowDraw                 = false;
         overwold_shadow->Shadowrec = {};
-
       }
       //====================================================PHARAOH===========================================================
+
+
+    if (CheckCollisionRecs(puzzle.Crystalrec, nemo.nemorec))
+    {
+      TimeCrystalDraw = false;
+      collisiononce = true;
+    }
+    if (collisiononce)
+    {
+      puzzle.portalAnimation();
+    }
+
+    if (TimeCrystalDraw)
+    {
+      puzzle.crystaldraw();
+    }
+
       if (PharaohDraw)
       {
         overworld_pharaoh->Draw();
@@ -288,6 +298,7 @@ int main() {
       {
         level.currentscreen = Game::Level::GameScreen::COMBAT;
         level.opponent = Game::Level::EnemyType::PHARAOH;
+        //puzzle.crystaldraw();
 
         PharaohDraw = false;
         overworld_pharaoh->Pharaohrec = {};
