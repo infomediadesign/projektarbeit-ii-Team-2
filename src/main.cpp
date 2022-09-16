@@ -313,6 +313,7 @@ int main() {
         DrawFPS(nemo.NemoPosition.x - 280, nemo.NemoPosition.y - 150);
       }
 
+      puzzle.epanoxAnimation();
       puzzle.draw();
 
       collision.torchAnimations();
