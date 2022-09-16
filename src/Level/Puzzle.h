@@ -40,7 +40,7 @@ public:
   int crystal_framesspeed = 4;
   Rectangle Crystalrec  = {}; //The attributes for the Rectangle will be set.
 
-  Rectangle EpanoxFrameRec = { 0.0f, 0.0f, (float)TimeCrystal.width / 20, (float)TimeCrystal.height };
+  Rectangle EpanoxFrameRec = { 0.0f, 0.0f, (float)EpanoxSheet.width / 20, (float)EpanoxSheet.height };
   int epanox_currentFrame   = 0;
   int epanox_framescounter = 0;
   int epanox_framesspeed    = 4;
@@ -69,7 +69,7 @@ public:
   Rectangle ChestNS2 = {896, 288, 28, 32};
   Rectangle ChestNS3 = {1504, 480.5, 28, 32};
 
-  Rectangle  EpanoxRec = {770, 945, 10, 20}; //EpanoxRec
+  Rectangle EpanoxRec = {770, 945, 10, 20}; //EpanoxRec
   Rectangle EpanoxRec2 = {760, 945, 20, 28};
 
   ///animation Rectangles

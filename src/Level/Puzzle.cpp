@@ -353,10 +353,10 @@ void Puzzle::portalAnimation() {
 void Puzzle::epanoxAnimation() {
 
   // animation
-  /*
-Epanoxrec = {1760, 945, 20, 28};
-//DrawRectangleRec(Epanoxrec, RED);
+Epanoxrec = {760, 945, 20, 28};
+DrawRectangleRec(Epanoxrec, Color{});
 DrawTextureRec(EpanoxSheet, EpanoxFrameRec, {Epanoxrec.x, Epanoxrec.y}, WHITE);
+//DrawTextureRec(EpanoxSheet, frameRecEpanox, EpanoxPosition, WHITE);
 
 epanox_framescounter++;
 
@@ -365,26 +365,11 @@ if (epanox_framescounter >= (60 / epanox_framesspeed)) {
   epanox_currentFrame++;
 
   if (epanox_currentFrame > 19)
-  {
     epanox_currentFrame = 0;
-  }
 
   EpanoxFrameRec.x = (float)epanox_currentFrame * (float)EpanoxSheet.width / 20;
 }
 
-   */
-
-  framesCounter++;
-
-  if (framesCounter >= (60 / framesSpeed)) {
-    framesCounter = 0;
-    currentFrame++;
-
-    if (currentFrame > 19)
-      currentFrame = 0;
-
-    frameRecEpanox.x = (float)currentFrame * (float)EpanoxSheet.width / 20;
-  }
 }
 
 /** Draw the Items/ Chests/ Puzzles */
@@ -530,8 +515,8 @@ void Puzzle::draw() {
     DrawTextureRec(Torch, frameRecTorch, TorchPosition24, WHITE);
 
     // epanox
-    epanoxAnimation();
-    DrawTextureRec(EpanoxSheet, frameRecEpanox, EpanoxPosition, WHITE);
+   // epanoxAnimation();
+
   }
 
 

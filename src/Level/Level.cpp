@@ -59,7 +59,6 @@ void Game::Level::combat(Game::GameCharacter *c_enemy)
       SetSoundVolume(GameAudio::attack, float(0.1));
       p_damaged = true;
       b_currentFrame = 0;
-
     }
     //After Mumy Attack, the Player attacks the Mumy
     if (c_enemy->get_turnnumb() > player->get_turnnumb()) {
@@ -202,6 +201,8 @@ void Game::Level::combat(Game::GameCharacter *c_enemy)
            c_enemy->getDamage(player->attack());
            PlaySound(GameAudio::buttonpress);
            SetSoundVolume(GameAudio::buttonpress, float(0.1));
+           PlaySound(GameAudio::attack);
+           SetSoundVolume(GameAudio::attack, float(0.2));
            T_damaged = true;
            e_framescounter++;
            energy--;
@@ -230,7 +231,7 @@ void Game::Level::combat(Game::GameCharacter *c_enemy)
   {
     DrawText("YOU WON!", 580, 320, 30, DARKGREEN);
     timer = false;
-    //battleEnd = true;
+    currentscreen = GameScreen::PYRAMIDE;
     //input = false;
   }
   else if (player->getLives() <= 0)
