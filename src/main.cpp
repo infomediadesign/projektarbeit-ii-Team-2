@@ -247,12 +247,6 @@ int main() {
         }
       }
 
-      /**/
-
-      // NPCRec = { 592 + 8, 712 + 5, 16, 20 };
-      //  DrawRectangleRec(NPCRec, Color(00));                    // COLOR is for the Transparency.
-      // DrawTexture(NPC.texture_, NPC.pos_x, NPC.pos_y, WHITE); // Drawing the Rectangle
-
       //=============================INITIALIZE COMBAT ONCE BEEING ENCOUNTERED====================================
 
       //====================================================MUMMY=============================================================
@@ -273,10 +267,6 @@ int main() {
       if (!MumyDraw) {
         DrawTexture(DungeonFloorTile, 576, 896, WHITE);
         DrawTexture(DungeonFloorTile, 608, 896, WHITE);
-
-        //PlaySound(GameAudio::dooropen2);
-        //SetSoundVolume(GameAudio::dooropen2, float(0.4));
-
         door2 = {};
       }
       //====================================================TIME SHADOW=======================================================
@@ -313,7 +303,6 @@ int main() {
       if (CheckCollisionRecs(overworld_pharaoh->getPharaohRec(), nemo.nemorec)) {
         level.currentscreen = Game::Level::GameScreen::COMBAT;
         level.opponent      = Game::Level::EnemyType::PHARAOH;
-        // puzzle.crystaldraw();
 
         PharaohDraw                   = false;
         overworld_pharaoh->Pharaohrec = {};
@@ -326,12 +315,7 @@ int main() {
 
       puzzle.draw();
 
-      // collision.draw();
       collision.torchAnimations();
-
-      if (IsKeyDown(KEY_R)) {
-        collision.walldraw();
-      }
 
       nemo.active = true;
       nemo.Update(); // nemo walking movement and animation
@@ -371,11 +355,6 @@ int main() {
       DrawRectangleRec(level.teleportrecPYRAMIDtoOVERWORLD, Color{});
       DrawRectangleRec(level.teleportrecPYRAMIDtoENDSCREEN, Color{});
 
-      //map.update();
-      //collision.update(); //TODO the rectangle doesnt have anything init which doesnt alway it to collide with anything... theres an error and the game crashes
-
-
-
       break;
 
     case Game::Level::GameScreen::ENDSCREEN:
@@ -412,7 +391,6 @@ int main() {
 
   level.~Level();
   puzzle.~Puzzle();
-  //map.~LevelMap();
 
   CloseAudioDevice(); // Close audio device
 

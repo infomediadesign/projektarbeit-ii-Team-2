@@ -724,9 +724,13 @@ void Game::Level::ScreenDraw() {
         nemo->NemoPosition.y = doorPositionY + 60;
       }
       if (teleportcollisionPYRAMIDtoENDSCREEN) { //if the collision bool is true, nemo is transported to the ENDSCREEN
+        PlaySound(GameAudio::teleport);
+        SetSoundVolume(GameAudio::teleport, float(0.5));
         level->currentscreen = Game::Level::GameScreen::ENDSCREEN;
       }
       if (IsKeyPressed(KEY_ESCAPE)){
+        PlaySound(GameAudio::buttonpress);
+        SetSoundVolume(GameAudio::buttonpress, float(0.4));
         level->currentscreen = Game::Level::GameScreen::PAUSEMENU_PYRAMID;
       }
       break;
