@@ -44,7 +44,7 @@ void Puzzle::collisionChecks() {
   doorcollision1 = CheckCollisionRecs(door1, nemo->nemorec);
 
   // Check collision between Nemo and doors
-  doorcollision2 = CheckCollisionRecs(door2, nemo->nemorec);
+  //doorcollision2 = CheckCollisionRecs(door2, nemo->nemorec);
 
   // Check collision between Nemo and doors
   doorcollision3 = CheckCollisionRecs(door3, nemo->nemorec);
@@ -80,9 +80,6 @@ void Puzzle::update() {
         helmetIsDrawn = true;
         keyIsDrawn = true;
         Chest = {};
-        door2 = {};
-        PlaySound(GameAudio::dooropen);
-        SetSoundVolume(GameAudio::dooropen, float(0.4));
         break;
       }
       break;
@@ -176,6 +173,7 @@ void Puzzle::update() {
   }
 
 
+
   /** Update Puzzle */
   if (wallPuzzlePart1){
     if (wallPuzzlePart2){
@@ -190,11 +188,6 @@ void Puzzle::update() {
   if (doorcollision1){ //key
     stopNemo();
     textdoor = true;
-  }
-
-  if (doorcollision2){ //chest
-    stopNemo();
-    textdoor2 = true;
   }
 
   if (doorcollision3){ //puzzle
@@ -215,23 +208,6 @@ void Puzzle::update() {
 
     if (timesinceIdle >= 4){
       textdoor = false;
-      timesinceIdle = 0;
-    }
-  }
-
-  if (textdoor2){
-    timesinceIdle += GetFrameTime();
-
-    DrawTexture(Dialogbox, nemo->NemoPosition.x - 180, nemo->NemoPosition.y + 90, WHITE);
-    //DrawTextEx(textFont, "Door Info", fontTextPosLINE1, fontSize, fontSpacing, WHITE);
-    //DrawTextEx(textFont, "This Door is locked... ", fontTextPosLINE2, fontSize, fontSpacing, WHITE);
-    //DrawTextEx(textFont, "talk to Epanox to get a hint.", fontTextPosLINE3, fontSize, fontSpacing, WHITE);
-    DrawText("Door Info", nemo->NemoPosition.x - 180, nemo->NemoPosition.y + 75, 15, WHITE);
-    DrawText("This Door is locked... ", nemo->NemoPosition.x - 162, nemo->NemoPosition.y + 110, 15, WHITE);
-    DrawText("Kill the Monster, to enter the door", nemo->NemoPosition.x - 162, nemo->NemoPosition.y + 135, 15, WHITE);
-
-    if (timesinceIdle >= 4){
-      textdoor2 = false;
       timesinceIdle = 0;
     }
   }
@@ -378,6 +354,27 @@ void Puzzle::portalAnimation() {
 void Puzzle::epanoxAnimation() {
 
   // animation
+  /*
+Epanoxrec = {1760, 945, 20, 28};
+//DrawRectangleRec(Epanoxrec, RED);
+DrawTextureRec(EpanoxSheet, EpanoxFrameRec, {Epanoxrec.x, Epanoxrec.y}, WHITE);
+
+epanox_framescounter++;
+
+if (epanox_framescounter >= (60 / epanox_framesspeed)) {
+  epanox_framescounter = 0;
+  epanox_currentFrame++;
+
+  if (epanox_currentFrame > 19)
+  {
+    epanox_currentFrame = 0;
+  }
+
+  EpanoxFrameRec.x = (float)epanox_currentFrame * (float)EpanoxSheet.width / 20;
+}
+
+   */
+
   framesCounter++;
 
   if (framesCounter >= (60 / framesSpeed)) {
@@ -389,8 +386,6 @@ void Puzzle::epanoxAnimation() {
 
     frameRecEpanox.x = (float)currentFrame * (float)EpanoxSheet.width / 20;
   }
-
-
 }
 
 /** Draw the Items/ Chests/ Puzzles */
@@ -438,11 +433,15 @@ void Puzzle::draw() {
     DrawTexture(DungeonFloorTile, 736, 705, WHITE);
     DrawTexture(DungeonFloorTile, 736, 737, WHITE);
   }
+
   // wall opens after chest opened
-  if (chestIsDrawn) {
-    DrawTexture(DungeonFloorTile, 576, 896, WHITE);
-    DrawTexture(DungeonFloorTile, 608, 896, WHITE);
-  }
+  /*
+   if (chestIsDrawn) {
+ DrawTexture(DungeonFloorTile, 576, 896, WHITE);
+ DrawTexture(DungeonFloorTile, 608, 896, WHITE);
+}
+   */
+
   // wall after the puzzle
   if (wallIsOpen) {
     DrawTexture(WallTile, 800, 992, WHITE);
@@ -454,6 +453,8 @@ void Puzzle::draw() {
   // triangle trapdoor draw
   if (puzzleCollision1) {
     DrawTexture(TriangleTrapDoor, 640, static_cast<int>(1055.5), WHITE);
+    PlaySound(GameAudio::trapdoor);
+    SetSoundVolume(GameAudio::trapdoor, float (0.1));
     if (!wallPuzzlePart2) {
       wallPuzzlePart1 = true;
     }
@@ -467,6 +468,8 @@ void Puzzle::draw() {
   // circle trapdoor draw
   if (puzzleCollision2) {
     DrawTexture(CircleTrapDoor, 576, static_cast<int>(1055.5), WHITE);
+    PlaySound(GameAudio::trapdoor);
+    SetSoundVolume(GameAudio::trapdoor, float (0.1));
     if (wallPuzzlePart2) {
       wallPuzzlePart3 = true;
       PlaySound(GameAudio::dooropen);
@@ -480,6 +483,8 @@ void Puzzle::draw() {
   // square trapdoor draw
   if (puzzleCollision3) {
     DrawTexture(SquareTrapDoor, 704, static_cast<int>(1055.5), WHITE);
+    PlaySound(GameAudio::trapdoor);
+    SetSoundVolume(GameAudio::trapdoor, float (0.1));
     if (wallPuzzlePart1) {
       wallPuzzlePart2 = true;
     } else {
@@ -489,7 +494,7 @@ void Puzzle::draw() {
 
   /** RECTANGLES */
   DrawRectangleRec(door1, Color {});
-  DrawRectangleRec(door2, Color {});
+ // DrawRectangleRec(door2, Color {});
   DrawRectangleRec(door3, Color {});
 
   if (IsKeyDown(KEY_R)) {
@@ -551,6 +556,7 @@ void Puzzle::draw() {
     UnloadTexture(WallTile);
     UnloadTexture(DungeonFloorTile);
   }
+
   void Puzzle::crystaldraw()
   {
     Crystalrec = {1455.5, 215.5, 32, 32};
@@ -571,3 +577,5 @@ void Puzzle::draw() {
       CrystalFrameRec.x = (float)crystal_currentFrame * (float)TimeCrystal.width / 4;
     }
   }
+
+

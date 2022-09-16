@@ -40,6 +40,12 @@ public:
   int crystal_framesspeed = 4;
   Rectangle Crystalrec  = {}; //The attributes for the Rectangle will be set.
 
+  Rectangle EpanoxFrameRec = { 0.0f, 0.0f, (float)TimeCrystal.width / 20, (float)TimeCrystal.height };
+  int epanox_currentFrame   = 0;
+  int epanox_framescounter = 0;
+  int epanox_framesspeed    = 4;
+  Rectangle Epanoxrec  = {}; //The attributes for the Rectangle will be set.
+
   void crystaldraw();
 
 
