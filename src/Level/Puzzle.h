@@ -9,7 +9,7 @@ public:
   Game::Nemo *nemo = new Game::Nemo();
 
   /** Textures */
-  Texture2D ChestOpen = LoadTexture("assets/graphics/Items/OpenChest.png");
+  Texture2D ChestOpen = LoadTexture("assets/graphics/map/Level1/Chest_Open.png");
 
   Texture2D HelmetItem = LoadTexture("assets/graphics/Items/Helm.png");
   Texture2D HelmetTexture = LoadTexture("assets/graphics/Items/Helm.png");
@@ -83,8 +83,13 @@ public:
   //animation
   int currentFrame   = 0;
   int framesCounter  = 0;
-  int framesSpeed    = 8; // animtation fps
+  int framesSpeed    = 4; // animtation fps
   int framesSpeed4  = 4; // torch animtation fps
+
+  //animation
+  int portal_currentFrame   = 0;
+  int portal_framesCounter  = 0;
+  int portal_framesSpeed    = 6; // animtation fps
 
   int textState = 1;
 

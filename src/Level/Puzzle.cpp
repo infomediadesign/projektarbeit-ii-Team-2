@@ -326,7 +326,7 @@ void Puzzle::torchAnimation() {
     framesCounter = 0;
     currentFrame++;
 
-    if (currentFrame > 3)
+    if (currentFrame > 6)
       currentFrame = 0;
 
     frameRecTorch.x = (float)currentFrame * (float)Torch.width / 4;
@@ -338,16 +338,16 @@ void Puzzle::portalAnimation() {
   DrawTextureRec(Portal, frameRecPortal, PortalPosition, WHITE);
 
   // animation
-  framesCounter++;
+  portal_framesCounter++;
 
-  if (framesCounter >= (60 / framesSpeed)) {
-    framesCounter = 0;
-    currentFrame++;
+  if (portal_framesCounter >= (60 / portal_framesSpeed)) {
+    portal_framesCounter = 0;
+    portal_currentFrame++;
 
-    if (currentFrame > 11)
-      currentFrame = 0;
+    if (portal_currentFrame > 7)
+      portal_currentFrame = 4;
 
-    frameRecPortal.x = (float)currentFrame * (float)Portal.width / 12;
+    frameRecPortal.x = (float)portal_currentFrame * (float)Portal.width / 12;
   }
 }
 
