@@ -1,12 +1,6 @@
 #include "Nemo.h"
 
-#include "../Level/Level.h"
-
-
 void Game::Nemo::Update() {
-  /*there are many "or" stuff and it makes the code look like Spaghetti Bolognese,
-  but this Code allows the user to press only one Key while walking. It is also a lazy way to prevent the user
-  to run fast while running vertically.*/
 
   ///NEMO WALKING SOUND
   while (IsKeyDown(KEY_W) || IsKeyDown(KEY_A) || IsKeyDown(KEY_S) || IsKeyDown(KEY_D)) {
@@ -18,14 +12,14 @@ void Game::Nemo::Update() {
   }
 
   ///NEMOS MOVEMENT
-  if (IsKeyDown(KEY_W)) { keypressed = true;}
+  if (IsKeyDown(KEY_W) || IsKeyDown(KEY_A) || IsKeyDown(KEY_S) || IsKeyDown(KEY_D) || IsKeyDown(KEY_LEFT_SHIFT))
+  { keypressed = true;}
   else { keypressed = false; }
-  if (IsKeyDown(KEY_A)) { keypressed = true;}
-  else { keypressed = false; }
-  if (IsKeyDown(KEY_S)) { keypressed = true;}
-  else { keypressed = false; }
-  if (IsKeyDown(KEY_D)) { keypressed = true;}
-  else { keypressed = false; }
+
+  //if (IsKeyReleased(KEY_W)) { DrawTexture(FrontStil, NemoPosition.x, NemoPosition.y, WHITE); }
+  //if (IsKeyReleased(KEY_A)) { DrawTexture(LeftStil, NemoPosition.x, NemoPosition.y, WHITE); }
+  //if (IsKeyReleased(KEY_S)) { DrawTexture(BackStil, NemoPosition.x, NemoPosition.y, WHITE); }
+  //if (IsKeyReleased(KEY_D)) { DrawTexture(RightStil, NemoPosition.x, NemoPosition.y, WHITE); }
 
   if (!keypressed){
     timesinceIdle += GetFrameTime();
@@ -49,47 +43,7 @@ void Game::Nemo::Update() {
     }
   }
 
-/*
-   if (!keypressed){ Direction = direction::STAND;
-
- // animation
- framesCounter++;
-
- if (framesCounter >= (60 / framesSpeed)) {
-   framesCounter = 0;
-   currentFrame++;
-
-   //Framecounter
-   if (currentFrame > 3)
-     currentFrame = 0;
-
-   StandframeRec.x = (float)currentFrame * (float)Stand.width / 4;
- }
-}
- */
-
-/*
-
-  */ //nemo standing stuff
-
-
   if (active) {
-      /* if (IsKeyDown(KEY_W) && IsKeyDown(KEY_D)
-        || IsKeyDown(KEY_W) && IsKeyDown(KEY_A)
-        || IsKeyDown(KEY_S) && IsKeyDown(KEY_D)
-        || IsKeyDown(KEY_S) && IsKeyDown(KEY_A)
-        || IsKeyDown(KEY_A) && IsKeyDown(KEY_D))
-
-    {
-      walkspeed     = 0;
-      framesCounter = 0;
-    } else*/
-
-      /*
-if (IsKeyDown(KEY_LEFT_SHIFT)) { walkspeed = 2.0; }
-    else if (keypressed) { walkspeed = 1.5; }
-    else if (!keypressed) { walkspeed = 0; }
-       */ //Keypressed nemo stuff
 
       if (IsKeyDown(KEY_LEFT_SHIFT)) // Sprinting
       {
@@ -104,9 +58,7 @@ if (IsKeyDown(KEY_LEFT_SHIFT)) { walkspeed = 2.0; }
         walkspeed = 0;
       }
 
-
-    // std::cout << walkspeed << "\n"; //This is a test to see Nemos current Walkspeed
-
+      ///WALKING DIRECTIONS
     // animation and movement
     if (IsKeyDown(KEY_W)) {
       NemoPosition.y -= walkspeed; // run forwards
@@ -188,7 +140,6 @@ if (IsKeyDown(KEY_LEFT_SHIFT)) { walkspeed = 2.0; }
       }
 
       // Draw nemo walking animation
-
       switch (Direction)
       {
       case direction::UP:

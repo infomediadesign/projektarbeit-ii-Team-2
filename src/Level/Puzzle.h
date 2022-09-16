@@ -34,20 +34,8 @@ public:
   Texture2D EpanoxSheet = LoadTexture("assets/graphics/Character/ReZeitwesenBouncefuerNick.png");
   Texture2D TimeCrystal = LoadTexture("assets/graphics/Items/Standuhr_Final_Sheet.png");
 
-  Rectangle CrystalFrameRec = { 0.0f, 0.0f, (float)TimeCrystal.width / 4, (float)TimeCrystal.height };
-  int crystal_currentFrame   = 0;
-  int crystal_framescounter = 0;
-  int crystal_framesspeed = 4;
-  Rectangle Crystalrec  = {}; //The attributes for the Rectangle will be set.
-
-  Rectangle EpanoxFrameRec = { 0.0f, 0.0f, (float)EpanoxSheet.width / 20, (float)EpanoxSheet.height };
-  int epanox_currentFrame   = 0;
-  int epanox_framescounter = 0;
-  int epanox_framesspeed    = 4;
-  Rectangle Epanoxrec  = {}; //The attributes for the Rectangle will be set.
-
-  void crystaldraw();
-
+  /** Font */
+  Font textFont = LoadFont("assets/Born2bSportyV2.ttf");
 
   /** Rectangles */
   Rectangle Chest = {608, 385, 32, 36};
@@ -62,7 +50,6 @@ public:
   Rectangle Key = {645, 380, 17, 19};
 
   Rectangle door1 = {736, 673.5, 32, 96};  //door 1 after key
-  Rectangle door2 = {576, 896, 64, 32};   //door 2 to puzzle room
   Rectangle door3 = {800, 992, 32, 96};   //door 3 after puzzle door1
 
   Rectangle ChestNS = {608, 385, 28, 32};
@@ -72,32 +59,45 @@ public:
   Rectangle EpanoxRec = {770, 945, 10, 20}; //EpanoxRec
   Rectangle EpanoxRec2 = {760, 945, 20, 28};
 
+  Rectangle CrystalFrameRec = { 0.0f, 0.0f, (float)TimeCrystal.width / 4, (float)TimeCrystal.height };
+  Rectangle Crystalrec  = {}; //The attributes for the Rectangle will be set.
+
+  Rectangle EpanoxFrameRec = { 0.0f, 0.0f, (float)EpanoxSheet.width / 20, (float)EpanoxSheet.height };
+  Rectangle Epanoxrec  = {}; //The attributes for the Rectangle will be set.
+
   ///animation Rectangles
   // divide sprite-sheet into frames
   Rectangle frameRec = { 0.0f, 0.0f, (float)PuzzelTriangle.width / 3, (float)PuzzelTriangle.height };
   Rectangle frameRecTorch = { 0.0f, 0.0f, (float)Torch.width / 4, (float)Torch.height };
   Rectangle frameRecPortal = { 0.0f, 0.0f, (float)Portal.width / 12, (float)Portal.height };
-  Rectangle frameRecEpanox = { 0.0f, 0.0f, (float)EpanoxSheet.width / 20, (float)EpanoxSheet.height };
 
   /** Int's */
   //animation
   int currentFrame   = 0;
   int framesCounter  = 0;
   int framesSpeed    = 4; // animtation fps
-  int framesSpeed4  = 4; // torch animtation fps
 
-  //animation
   int portal_currentFrame   = 0;
   int portal_framesCounter  = 0;
   int portal_framesSpeed    = 6; // animtation fps
 
   int textState = 1;
 
+  int crystal_currentFrame   = 0;
+  int crystal_framescounter = 0;
+  int crystal_framesspeed = 4;
+
+  int epanox_currentFrame   = 0;
+  int epanox_framescounter = 0;
+  int epanox_framesspeed    = 4;
+
   /** Floats */
   float timesinceIdle = 0;
 
+  float fontSize = 20;
+  float fontSpacing;
+
   /** Vector's */
-  //Vector2 puzzle_position = {608.5, 386.5};
   Vector2 TorchPosition = {160, 672};
   Vector2 TorchPosition2 = {320, 672};
   Vector2 TorchPosition3 = {352, 702};
@@ -126,12 +126,6 @@ public:
 
   Vector2 PortalPosition = {};
 
-  Vector2 EpanoxPosition = {760, 945};
-
-  Font textFont = LoadFont("assets/Born2bSportyV2.ttf");
-
-  float fontSize = 20;
-  float fontSpacing;
   Vector2 fontTextPosLINE1   = {nemo->NemoPosition.x - 180, nemo->NemoPosition.y + 75};
   Vector2 fontTextPosLINE2 = {nemo->NemoPosition.x - 162, nemo->NemoPosition.y + 110};
   Vector2 fontTextPosLINE3    = {nemo->NemoPosition.x - 162, nemo->NemoPosition.y + 135};
@@ -167,7 +161,6 @@ public:
 
   bool text = false;
   bool textdoor = false;
-  bool textdoor2 = false;
   bool textdoor3 = false;
 
   bool EpanoxCollision = false;
@@ -175,7 +168,6 @@ public:
 
   /** Bool's Nemo Stop */
   bool doorcollision1 = false;
-  bool doorcollision2 = false;
   bool doorcollision3 = false;
 
   bool chestCollisionNS1 = false;
@@ -190,6 +182,7 @@ public:
   void torchAnimation();
   void portalAnimation();
   void epanoxAnimation();
+  void crystaldraw();
   void update();
   void draw();
 

@@ -39,7 +39,11 @@ namespace Game {
     Texture2D Front = LoadTexture("assets/graphics/Character/Nemo_Walkfront.png");
     Texture2D Back  = LoadTexture("assets/graphics/Character/Nemo_Walkback.png");
     Texture2D Left  = LoadTexture("assets/graphics/Character/Nemo_Walkleft.png");
-    Texture2D Right = LoadTexture("assets/graphics/Character/Nemo_Walkright.png");    
+    Texture2D Right = LoadTexture("assets/graphics/Character/Nemo_Walkright.png");
+    Texture2D FrontStil = LoadTexture("assets/graphics/Character/Nemo_front.png");
+    Texture2D BackStil  = LoadTexture("assets/graphics/Character/Nemo_back.png");
+    Texture2D LeftStil  = LoadTexture("assets/graphics/Character/Nemo_left.png");
+    Texture2D RightStil = LoadTexture("assets/graphics/Character/Nemo_right.png");
 
     // devide spritesheet into frames
     Rectangle frameRec = { 0.0f, 0.0f, (float)Front.width / 4, (float)Front.height };
