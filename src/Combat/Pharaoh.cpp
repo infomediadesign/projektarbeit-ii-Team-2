@@ -8,6 +8,7 @@ Game::Pharaoh::Pharaoh() : GameCharacter("Pharaoh",20, c_MaxHP, 2, 12)
 auto Game::Pharaoh::attack() -> std::vector<int>
 {
   currentFrame = 2;
+  s_currentFrame = 2;
   State = state::ATTACK;
   std::vector<int> vector;
   vector.push_back(c_STR);
@@ -51,11 +52,17 @@ auto Game::Pharaoh::getDefense() -> int { return c_DEF; }
 void Game::Pharaoh::draw() {
 
   // Draw Enemy
-  mumyrec = { get_rec().x + 8, get_rec().y + 10, get_rec().width, get_rec().height };
-  DrawRectangleRec(mumyrec, Color {});
-  DrawTextureRec(spr_pharaoh, frameRec, { get_rec().x, get_rec().y }, WHITE);
+  pharaohrec = { get_rec().x - 15, get_rec().y - 60, get_rec().width, get_rec().height };
+  DrawRectangleRec(pharaohrec, Color {});
+  DrawTextureRec(spr_pharaoh, frameRec, { get_rec().x - 15, get_rec().y - 60 }, WHITE);
+
+  shadowrec = {get_rec().x - 30, get_rec().y - 15, get_rec().width, get_rec().height};
+  DrawRectangleRec(shadowrec, Color {});
+  DrawTextureRec(shadow,s_frameRec, {get_rec().x - 30, get_rec().y - 28}, WHITE);
   // animation
   framesCounter++;
+  s_framesCounter++;
+
   switch (State) {
   case GameCharacter::state::IDLE:
     if (framesCounter >= (60 / framesSpeed)) {
@@ -66,6 +73,16 @@ void Game::Pharaoh::draw() {
         currentFrame = 0;
 
       frameRec.x = (float)currentFrame * (float)spr_pharaoh.width / 4;
+
+      if (s_framesCounter >= (60 / s_framesSpeed)){
+        s_framesCounter = 0;
+        s_currentFrame++;
+
+        if (s_currentFrame > 1)
+          s_currentFrame = 0;
+
+        s_frameRec.x = (float)s_currentFrame * (float)shadow.width / 4;
+      }
       break;
 
     case GameCharacter::state::ATTACK:
@@ -79,6 +96,18 @@ void Game::Pharaoh::draw() {
         }
 
         frameRec.x = (float)currentFrame * (float)spr_pharaoh.width / 4;
+
+        if (s_framesCounter >= (60 / s_framesSpeed)){
+          s_framesCounter = 0;
+          s_currentFrame++;
+
+          if (s_currentFrame > 3){
+            State = state::IDLE;
+            s_currentFrame = 0;
+          }
+
+          s_frameRec.x = (float)s_currentFrame * (float)shadow.width / 4;
+        }
         break;
 
       default: State = GameCharacter::state::IDLE; break;

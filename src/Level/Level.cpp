@@ -242,8 +242,8 @@ void Game::Level::combat(Game::GameCharacter *c_enemy)
     input = false;
   }
 
-  player->draw();
   c_enemy->draw();
+  player->draw();
 }
 
 void Game::Level::ScreenDraw() {

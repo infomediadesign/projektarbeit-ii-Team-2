@@ -55,8 +55,13 @@ void Game::Player::draw()
   Playerrec = {get_rec().x + 8, get_rec().y + 10, get_rec().width, get_rec().height};
   DrawRectangleRec(Playerrec, Color{});
   DrawTextureRec(spr_Player, frameRec, {get_rec().x, get_rec().y}, WHITE);
+
+  Swingrec = {get_rec().x + 370, get_rec().y + 10, 32, 32};
+  DrawRectangleRec(Swingrec, Color{});
+  DrawTextureRec(swing,swinframeRec, {get_rec().x + 370, get_rec().y}, WHITE);
   // animation
   framesCounter++;
+
 
     switch (State)
     {
@@ -70,30 +75,52 @@ void Game::Player::draw()
           currentFrame = 0;
         }
         frameRec.x = (float)currentFrame * (float)spr_Player.width / 7;
+        //swingcurrentFrame = 0;
       break;
 
       case GameCharacter::state::ATTACK:
+
+        swungblade = true;
 
         if (framesCounter >= (60 / framesSpeed)) {
           framesCounter = 0;
           currentFrame++;
 
-          if (currentFrame > 5)
-          {
-            State = state::IDLE;
+
+          if (currentFrame > 5) {
+            State        = state::IDLE;
             currentFrame = 0;
           }
 
           frameRec.x = (float)currentFrame * (float)spr_Player.width / 7;
+
           break;
 
         default: State = GameCharacter::state::IDLE;
+
           break;
         }
 
     }
   }
+  if(swungblade) {
+    // ATTACK SWING!!!
 
+    swingFramesCounter++;
+
+    if (swingFramesCounter >= (60 / swingFramesSpeed)) {
+      swingFramesCounter = 0;
+      swingcurrentFrame++;
+
+      if (swingcurrentFrame > 4) {
+        State             = state::IDLE;
+        swingcurrentFrame = 0;
+        swungblade = false;
+      }
+
+      swinframeRec.x = (float)swingcurrentFrame * (float)swing.width / 5;
+    }
+  }
   //Player draw
   healthrec = {0, 0, static_cast<float>(192 * ((float)c_HP/(float)c_MaxHP)), 96};
   DrawTextureRec(health, healthrec, {set_rec().x - 100, set_rec().y - 180}, WHITE);
