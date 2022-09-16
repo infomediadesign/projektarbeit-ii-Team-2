@@ -173,7 +173,6 @@ void Puzzle::update() {
   }
 
 
-
   /** Update Puzzle */
   if (wallPuzzlePart1){
     if (wallPuzzlePart2){
@@ -479,7 +478,6 @@ void Puzzle::draw() {
 
   /** RECTANGLES */
   DrawRectangleRec(door1, Color {});
- // DrawRectangleRec(door2, Color {});
   DrawRectangleRec(door3, Color {});
 
   if (IsKeyDown(KEY_R)) {
