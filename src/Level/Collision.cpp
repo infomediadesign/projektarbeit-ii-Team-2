@@ -113,7 +113,7 @@ void Collision::epanoxCollision() { // Epanox collision
   EpanoxCollision2 = CheckCollisionRecs(EpanoxRec2, nemo->nemorec); //for the dialog engagement
 
   while (EpanoxCollision2) {
-    DrawText("[F]", nemo->NemoPosition.x + 10, nemo->NemoPosition.y - 10, 2, BLACK);
+    DrawTextEx(textFont, "[F]", { nemo->NemoPosition.x + 7, nemo->NemoPosition.y - 15 }, fontSize, fontSpacing, BLACK);
     if (IsKeyPressed(KEY_F)) {
       //PlaySound(GameAudio::epanoxsfx);
       //SetSoundVolume(GameAudio::epanoxsfx, float(0.2));
@@ -155,73 +155,75 @@ void Collision::epanoxCollision() { // Epanox collision
         textState = 10;
       } else if (IsKeyReleased(KEY_SPACE) && textState == 10) {
         textState = 11;
-      } else if (IsKeyReleased(KEY_SPACE) && textState == 11) {
-        textState = 12;
       }
 
       switch (textState) {
       default: break;
       case 1:
-        DrawText("Instructions", nemo->NemoPosition.x - 180 , nemo->NemoPosition.y + 75, 15, BLACK);
-        DrawText("To start the conversation press SPACE.", nemo->NemoPosition.x - 162 , nemo->NemoPosition.y + 110, 15, WHITE);
-        DrawText("To skip to the next part of the", nemo->NemoPosition.x - 162 , nemo->NemoPosition.y + 135, 15, WHITE);
-        DrawText("conversation press SPACE again.", nemo->NemoPosition.x - 162 , nemo->NemoPosition.y + 160, 15, WHITE);
+        DrawTextEx(textFont, "Epanox", { nemo->NemoPosition.x - 172, nemo->NemoPosition.y + 65 }, fontSize, fontSpacing, WHITE);
+        DrawTextEx(textFont, "Welcome traveller, are you alright?", { nemo->NemoPosition.x - 172, nemo->NemoPosition.y + 100 }, fontSize, fontSpacing, WHITE);
+        DrawTextEx(textFont, "Quite the travel you've done.", { nemo->NemoPosition.x - 172, nemo->NemoPosition.y + 125 }, fontSize, fontSpacing, WHITE);
+        DrawTextEx(textFont, "[SPACE ->]", { nemo->NemoPosition.x + 170, nemo->NemoPosition.y + 175 }, fontSizeSPACE, fontSpacing, WHITE);
         break;
       case 2:
-        DrawText("Epanox ", nemo->NemoPosition.x - 180 , nemo->NemoPosition.y + 75, 15, BLACK);
-        DrawText("Welcome traveller, are you alright? ", nemo->NemoPosition.x - 162 , nemo->NemoPosition.y + 110, 15, WHITE);
-        DrawText("Quite the travel you've done.", nemo->NemoPosition.x - 162 , nemo->NemoPosition.y + 135, 15, WHITE);
+        DrawTextEx(textFont, "Nemo", { nemo->NemoPosition.x - 172, nemo->NemoPosition.y + 65 }, fontSize, fontSpacing, WHITE);
+        DrawTextEx(textFont, "Where am I... is that a pyramid? Am I in Egypt?", { nemo->NemoPosition.x - 172, nemo->NemoPosition.y + 100 }, fontSize, fontSpacing, WHITE);
+        DrawTextEx(textFont, "Wait did you just say time travel?", { nemo->NemoPosition.x - 172, nemo->NemoPosition.y + 125 }, fontSize, fontSpacing, WHITE);
+        DrawTextEx(textFont, "By the way who are you?", { nemo->NemoPosition.x - 172, nemo->NemoPosition.y + 150 }, fontSize, fontSpacing, WHITE);
+        DrawTextEx(textFont, "[SPACE ->]", { nemo->NemoPosition.x + 170, nemo->NemoPosition.y + 175 }, fontSizeSPACE, fontSpacing, WHITE);
         break;
       case 3:
-        DrawText("Nemo ", nemo->NemoPosition.x - 180 , nemo->NemoPosition.y + 75, 15, BLACK);
-        DrawText("Where am I... is that a pyramid? Am I in Egypt? ", nemo->NemoPosition.x - 162 , nemo->NemoPosition.y + 110, 15, WHITE);
-        DrawText("Wait did you just say time travel?", nemo->NemoPosition.x - 162 , nemo->NemoPosition.y + 135, 15, WHITE);
-        DrawText("By the way who are you?", nemo->NemoPosition.x - 162 , nemo->NemoPosition.y + 160, 15, WHITE);
+        DrawTextEx(textFont, "Epanox", { nemo->NemoPosition.x - 172, nemo->NemoPosition.y + 65 }, fontSize, fontSpacing, WHITE);
+        DrawTextEx(textFont, "I'm Epanox a creature, that can travel through", { nemo->NemoPosition.x - 172, nemo->NemoPosition.y + 100 }, fontSize, fontSpacing, WHITE);
+        DrawTextEx(textFont, "time. Yes we are currently in ancient egypt, the", { nemo->NemoPosition.x - 172, nemo->NemoPosition.y + 125 }, fontSize, fontSpacing, WHITE);
+        DrawTextEx(textFont, "Does that mean you can send me back home?", { nemo->NemoPosition.x - 172, nemo->NemoPosition.y + 150 }, fontSize, fontSpacing, WHITE);
+        DrawTextEx(textFont, "[SPACE ->]", { nemo->NemoPosition.x + 170, nemo->NemoPosition.y + 175 }, fontSizeSPACE, fontSpacing, WHITE);
         break;
       case 4:
-        DrawText("Epanox", nemo->NemoPosition.x - 180 , nemo->NemoPosition.y + 75, 15, BLACK);
-        DrawText("I'm Epanox a creature, that can travel through", nemo->NemoPosition.x - 162 , nemo->NemoPosition.y + 110, 15, WHITE);
-        DrawText("time. Yes we are currently in ancient egypt, the", nemo->NemoPosition.x - 162 , nemo->NemoPosition.y + 135, 15, WHITE);
-        DrawText("date is currently Monday 12.June 2470 BC.", nemo->NemoPosition.x - 162 , nemo->NemoPosition.y + 160, 15, WHITE);
+        DrawTextEx(textFont, "Nemo", { nemo->NemoPosition.x - 172, nemo->NemoPosition.y + 65 }, fontSize, fontSpacing, WHITE);
+        DrawTextEx(textFont, "Let me get this straight. I've travelled to ancient", { nemo->NemoPosition.x - 172, nemo->NemoPosition.y + 100 }, fontSize, fontSpacing, WHITE);
+        DrawTextEx(textFont, "Egypt and you are a time creature of some sorts?", { nemo->NemoPosition.x - 172, nemo->NemoPosition.y + 125 }, fontSize, fontSpacing, WHITE);
+        DrawTextEx(textFont, "Does that mean you can send me back home?", { nemo->NemoPosition.x - 172, nemo->NemoPosition.y + 150 }, fontSize, fontSpacing, WHITE);
+        DrawTextEx(textFont, "[SPACE ->]", { nemo->NemoPosition.x + 170, nemo->NemoPosition.y + 175 }, fontSizeSPACE, fontSpacing, WHITE);
         break;
       case 5:
-        DrawText("Nemo", nemo->NemoPosition.x - 180 , nemo->NemoPosition.y + 75, 15, BLACK);
-        DrawText("Let me get this straight. I've travelled to ancient ", nemo->NemoPosition.x - 162 , nemo->NemoPosition.y + 110, 15, WHITE);
-        DrawText("Egypt and you are a time creature of some sorts? ", nemo->NemoPosition.x - 162 , nemo->NemoPosition.y + 135, 15, WHITE);
-        DrawText("Does that mean you can send me back home?", nemo->NemoPosition.x - 162 , nemo->NemoPosition.y + 160, 15, WHITE);
+        DrawTextEx(textFont, "Epanox", { nemo->NemoPosition.x - 172, nemo->NemoPosition.y + 65 }, fontSize, fontSpacing, WHITE);
+        DrawTextEx(textFont, "I'm a creature that travels through time... alone.", { nemo->NemoPosition.x - 172, nemo->NemoPosition.y + 100 }, fontSize, fontSpacing, WHITE);
+        DrawTextEx(textFont, "So no... I can't get you back. But I do ", { nemo->NemoPosition.x - 172, nemo->NemoPosition.y + 125 }, fontSize, fontSpacing, WHITE);
+        DrawTextEx(textFont, "know how you might get home... wanna know?", { nemo->NemoPosition.x - 172, nemo->NemoPosition.y + 150 }, fontSize, fontSpacing, WHITE);
+        DrawTextEx(textFont, "[SPACE ->]", { nemo->NemoPosition.x + 170, nemo->NemoPosition.y + 175 }, fontSizeSPACE, fontSpacing, WHITE);
         break;
       case 6:
-        DrawText("Epanox", nemo->NemoPosition.x - 180 , nemo->NemoPosition.y + 75, 15, BLACK);
-        DrawText("I'm a creature that travels through time... alone.", nemo->NemoPosition.x - 162 , nemo->NemoPosition.y + 110, 15, WHITE);
-        DrawText("So no... I can't get you back. But I do ", nemo->NemoPosition.x - 162 , nemo->NemoPosition.y + 135, 15, WHITE);
-        DrawText("know how you might get home... wanna know?", nemo->NemoPosition.x - 162 , nemo->NemoPosition.y + 160, 15, WHITE);
+        DrawTextEx(textFont, "Nemo", { nemo->NemoPosition.x - 172, nemo->NemoPosition.y + 65 }, fontSize, fontSpacing, WHITE);
+        DrawTextEx(textFont, "Yes please, I can't wait to get back home.", { nemo->NemoPosition.x - 172, nemo->NemoPosition.y + 100 }, fontSize, fontSpacing, WHITE);
+        DrawTextEx(textFont, "[SPACE ->]", { nemo->NemoPosition.x + 170, nemo->NemoPosition.y + 175 }, fontSizeSPACE, fontSpacing, WHITE);
         break;
       case 7:
-        DrawText("Nemo", nemo->NemoPosition.x - 180 , nemo->NemoPosition.y + 75, 15, BLACK);
-        DrawText("Yes please, I can't wait to get back home.", nemo->NemoPosition.x - 162 , nemo->NemoPosition.y + 110, 15, WHITE);
+        DrawTextEx(textFont, "Epanox", { nemo->NemoPosition.x - 172, nemo->NemoPosition.y + 65 }, fontSize, fontSpacing, WHITE);
+        DrawTextEx(textFont, "Alright, there's a Time Crystal in that Pyramid.", { nemo->NemoPosition.x - 172, nemo->NemoPosition.y + 100 }, fontSize, fontSpacing, WHITE);
+        DrawTextEx(textFont, "These Time Crystals allow one to travel through", { nemo->NemoPosition.x - 172, nemo->NemoPosition.y + 125 }, fontSize, fontSpacing, WHITE);
+        DrawTextEx(textFont, "time. I'd say it's your best bet to getting home.", { nemo->NemoPosition.x - 172, nemo->NemoPosition.y + 150 }, fontSize, fontSpacing, WHITE);
+        DrawTextEx(textFont, "[SPACE ->]", { nemo->NemoPosition.x + 170, nemo->NemoPosition.y + 175 }, fontSizeSPACE, fontSpacing, WHITE);
         break;
       case 8:
-        DrawText("Epanox", nemo->NemoPosition.x - 180 , nemo->NemoPosition.y + 75, 15, BLACK);
-        DrawText("Alright, there's a Time Crystal in that Pyramid.", nemo->NemoPosition.x - 162 , nemo->NemoPosition.y + 110, 15, WHITE);
-        DrawText("These Time Crystals allow one to travel through ", nemo->NemoPosition.x - 162 , nemo->NemoPosition.y + 135, 15, WHITE);
-        DrawText("time. I'd say it's your best bet to getting home.", nemo->NemoPosition.x - 162 , nemo->NemoPosition.y + 160, 15, WHITE);
+        DrawTextEx(textFont, "Nemo", { nemo->NemoPosition.x - 172, nemo->NemoPosition.y + 65 }, fontSize, fontSpacing, WHITE);
+        DrawTextEx(textFont, "Ok, I see... then I'll just get the Time Crystal and.", { nemo->NemoPosition.x - 172, nemo->NemoPosition.y + 100 }, fontSize, fontSpacing, WHITE);
+        DrawTextEx(textFont, "poof I'm back home. Cheers thanks for the help.", { nemo->NemoPosition.x - 172, nemo->NemoPosition.y + 125 }, fontSize, fontSpacing, WHITE);
+        DrawTextEx(textFont, "[SPACE ->]", { nemo->NemoPosition.x + 170, nemo->NemoPosition.y + 175 }, fontSizeSPACE, fontSpacing, WHITE);
         break;
       case 9:
-        DrawText("Nemo", nemo->NemoPosition.x - 180 , nemo->NemoPosition.y + 75, 15, BLACK);
-        DrawText("Ok, I see... then I'll just get the Time Crystal and ", nemo->NemoPosition.x - 162 , nemo->NemoPosition.y + 110, 15, WHITE);
-        DrawText("poof I'm back home. Cheers thanks for the help.", nemo->NemoPosition.x - 162 , nemo->NemoPosition.y + 135, 15, WHITE);
+        DrawTextEx(textFont, "Epanox", { nemo->NemoPosition.x - 172, nemo->NemoPosition.y + 65 }, fontSize, fontSpacing, WHITE);
+        DrawTextEx(textFont, "Before you go let me warn you... ", { nemo->NemoPosition.x - 172, nemo->NemoPosition.y + 100 }, fontSize, fontSpacing, WHITE);
+        DrawTextEx(textFont, "there might be Monsters in there.", { nemo->NemoPosition.x - 172, nemo->NemoPosition.y + 125 }, fontSize, fontSpacing, WHITE);
+        DrawTextEx(textFont, "Be careful, and safe travels.", { nemo->NemoPosition.x - 172, nemo->NemoPosition.y + 150 }, fontSize, fontSpacing, WHITE);
+        DrawTextEx(textFont, "[SPACE ->]", { nemo->NemoPosition.x + 170, nemo->NemoPosition.y + 175 }, fontSizeSPACE, fontSpacing, WHITE);
         break;
       case 10:
-        DrawText("Epanox", nemo->NemoPosition.x - 180 , nemo->NemoPosition.y + 75, 15, BLACK);
-        DrawText("Before you go let me warn you... ", nemo->NemoPosition.x - 162 , nemo->NemoPosition.y + 110, 15, WHITE);
-        DrawText("there might be Monsters in there.", nemo->NemoPosition.x - 162 , nemo->NemoPosition.y + 135, 15, WHITE);
-        DrawText("Be careful, and safe travels.", nemo->NemoPosition.x - 162 , nemo->NemoPosition.y + 160, 15, WHITE);
+        DrawTextEx(textFont, "Nemo", { nemo->NemoPosition.x - 172, nemo->NemoPosition.y + 65 }, fontSize, fontSpacing, WHITE);
+        DrawTextEx(textFont, "No need to worry I'm built tough! ", { nemo->NemoPosition.x - 172, nemo->NemoPosition.y + 100 }, fontSize, fontSpacing, WHITE);
+        DrawTextEx(textFont, "[SPACE ->]", { nemo->NemoPosition.x + 170, nemo->NemoPosition.y + 175 }, fontSizeSPACE, fontSpacing, WHITE);
         break;
-      case 11:
-        DrawText("Nemo", nemo->NemoPosition.x - 180 , nemo->NemoPosition.y + 75, 15, BLACK);
-        DrawText("No need to worry I'm built tough! ", nemo->NemoPosition.x - 162 , nemo->NemoPosition.y + 110, 15, WHITE);
-        break;
-      case 12: textState = 1;
+      case 11: textState = 1;
         text = false;
         break;
       }

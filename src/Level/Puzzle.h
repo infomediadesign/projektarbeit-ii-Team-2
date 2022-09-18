@@ -102,7 +102,8 @@ public:
   /** Floats */
   float timesinceIdle = 0;
 
-  float fontSize = 25;
+  float fontSize = 20;
+  float fontSizeSPACE = 10;
 
   float fontSpacing = 0.05;
   float add         = 50;

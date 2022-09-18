@@ -76,7 +76,7 @@ int main() {
 
   //fonts stuff
   Font textFont = LoadFont("assets/Born2bSportyV2.ttf");
-  float fontSize = 25;
+  float fontSize = 20;
   float fontSpacing = 0.05;
 
   //Map stuff

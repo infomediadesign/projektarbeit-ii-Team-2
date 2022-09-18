@@ -71,7 +71,7 @@ void Puzzle::update() {
   /** Update Chests */
   //chest update
   while (chestCollision) {
-    DrawText("[F]", nemo->NemoPosition.x + 10, nemo->NemoPosition.y - 10, 2, BLACK);
+    DrawTextEx(textFont, "[F]", { nemo->NemoPosition.x + 7, nemo->NemoPosition.y - 15 }, fontSize, fontSpacing, BLACK);
     if (IsKeyPressed(KEY_F)){
       PlaySound(GameAudio::openchest);
       SetSoundVolume(GameAudio::openchest, float(0.4));
@@ -89,7 +89,7 @@ void Puzzle::update() {
 
   //chest2 update
   while (chestCollision2) {
-    DrawText("[F]", nemo->NemoPosition.x + 10, nemo->NemoPosition.y - 10, 2, BLACK);
+    DrawTextEx(textFont, "[F]", { nemo->NemoPosition.x + 7, nemo->NemoPosition.y - 15 }, fontSize, fontSpacing, BLACK);
     if (IsKeyPressed(KEY_F)){
       //std::cout << "Open Chest" << std::endl;
       PlaySound(GameAudio::openchest);
@@ -107,7 +107,7 @@ void Puzzle::update() {
 
   //chest3 update
   while (chestCollision3) {
-    DrawText("[F]", nemo->NemoPosition.x + 10, nemo->NemoPosition.y - 10, 2, BLACK);
+    DrawTextEx(textFont, "[F]", { nemo->NemoPosition.x + 7, nemo->NemoPosition.y - 15 }, fontSize, fontSpacing, BLACK);
     if (IsKeyPressed(KEY_F)){
       //std::cout << "Open Chest" << std::endl;
       PlaySound(GameAudio::openchest);
@@ -234,7 +234,7 @@ void Puzzle::update() {
   if (EpanoxCollision) { stopNemo(); }
 
   while (EpanoxCollision2) {
-      DrawText("[F]", nemo->NemoPosition.x + 10, nemo->NemoPosition.y - 10, 2, BLACK);
+    DrawTextEx(textFont, "[F]", { nemo->NemoPosition.x + 7, nemo->NemoPosition.y - 15 }, fontSize, fontSpacing, BLACK);
       if (IsKeyPressed(KEY_F)) {
         PlaySound(GameAudio::dialoge);
         SetSoundVolume(GameAudio::dialoge, float(0.1));
@@ -274,15 +274,18 @@ void Puzzle::update() {
         DrawTextEx(textFont, "Epanox", { nemo->NemoPosition.x - 172, nemo->NemoPosition.y + 65 }, fontSize, fontSpacing, WHITE);
         DrawTextEx(textFont, "Hey again. It seems that your stuck. Let ", { nemo->NemoPosition.x - 172, nemo->NemoPosition.y + 100 }, fontSize, fontSpacing, WHITE);
         DrawTextEx(textFont, "me give you a hint to solve this puzzle?", { nemo->NemoPosition.x - 172, nemo->NemoPosition.y + 125 }, fontSize, fontSpacing, WHITE);
+        DrawTextEx(textFont, "[SPACE ->]", { nemo->NemoPosition.x + 170, nemo->NemoPosition.y + 175 }, fontSizeSPACE, fontSpacing, WHITE);
         break;
       case 2:
         DrawTextEx(textFont, "Epanox", { nemo->NemoPosition.x - 172, nemo->NemoPosition.y + 65 }, fontSize, fontSpacing, WHITE);
         DrawTextEx(textFont, "Here goes... ", { nemo->NemoPosition.x - 172, nemo->NemoPosition.y + 100 }, fontSize, fontSpacing, WHITE);
+        DrawTextEx(textFont, "[SPACE ->]", { nemo->NemoPosition.x + 170, nemo->NemoPosition.y + 175 }, fontSizeSPACE, fontSpacing, WHITE);
         break;
       case 3:
         DrawTextEx(textFont, "Epanox", { nemo->NemoPosition.x - 172, nemo->NemoPosition.y + 65 }, fontSize, fontSpacing, WHITE);
         DrawTextEx(textFont, "On a mountain stands a house on which", { nemo->NemoPosition.x - 172, nemo->NemoPosition.y + 100 }, fontSize, fontSpacing, WHITE);
         DrawTextEx(textFont, "the sun shines down...", { nemo->NemoPosition.x - 172, nemo->NemoPosition.y + 125 }, fontSize, fontSpacing, WHITE);
+        DrawTextEx(textFont, "[SPACE ->]", { nemo->NemoPosition.x + 170, nemo->NemoPosition.y + 175 }, fontSizeSPACE, fontSpacing, WHITE);
         break;
       case 4:
         textState = 1;

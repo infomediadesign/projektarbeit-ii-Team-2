@@ -16,9 +16,11 @@ public:
   Rectangle  EpanoxRec = {972.5, 462.5, 10, 20}; //EpanoxRec
   Rectangle EpanoxRec2 = {961, 458, 20, 28};
 
+  Font textFont = LoadFont("assets/Born2bSportyV2.ttf");
+
+
   /// RECTANGLES
   //Outside Rectangles for wall collision
-
   Rectangle OutsideWallLeft = {865, 320, 32, 288};
   Rectangle OutsideWallRight = {990, 320, 32, 288};
   Rectangle OutsideWallBottom = {873, 576, 160, 32};
@@ -36,8 +38,13 @@ public:
   bool EpanoxCollision = false;
   bool EpanoxCollision2 = false;
 
-  int textState = 1;
   bool text = false;
+
+  int textState = 1;
+
+  float fontSize = 20;
+  float fontSizeSPACE = 10;
+  float fontSpacing = 0.05;
 
   Vector2 EpanoxPosition = {961, 458};
 
