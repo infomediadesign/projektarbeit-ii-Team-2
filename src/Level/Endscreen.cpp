@@ -2,32 +2,48 @@
 
 void Endscreen::update() {
 
-  creditPosY -= 0.1;
+  creditPosY -= 1;
+
+  if(creditPosY == 0){
+    creditPosY += 1;
+  }
+
 }
 
 void Endscreen::draw() {
+
+  ///The text to be printed
+  const auto *msgCredits  = "Credits";
+  const char *msgCredits1 = "Thank You for playing Custodia";
+  const char *msgCredits2 = "Names of the Custodia Developers:";
+  const char *msgCredits3 = "Jamey Kamuf - Projektlead and Lead Artist";
+  const char *msgCredits4 = "Goerkem Akdeniz - Vice-Projektlead and Lead Programmer";
+  const char *msgCredits5 = "Nicolas Vogt - Programmer and Sound/Music";
+  const char *msgCredits6 = "Michelle Geggier - Artist and Animation";
+  const char *msgCredits7 = "Mika Juerries - Level Designer and Game Designer";
+  const char *msgCredits8 = "In cooperation with the SRH Hochschule Heidelberg";
+  const char *msgCredits9 = "For more Infos about Custodia go to ";
+  const char *msgCredits10 = "tranor.itch.io/custodia-trap";
+  const char *msgCredits11 = "Press [SPACE] to Exit";
+
+  ///clear background
+  ClearBackground(BLACK);
+
+  ///Draw the background picture...
   DrawTexture(Endscreen, 0,0, WHITE);
 
-  DrawText("Thank You for playing Custodia", positionX, creditPosY + 40, Textsize, WHITE);
-
-  DrawText("Names of the Developers:", positionX, creditPosY + 80, Textsize, WHITE);
-
-  DrawText("Jamey Kamuf", positionX, creditPosY + 120, Textsize, WHITE);
-  DrawText("Projektlead and Lead Artist", positionX, creditPosY + 150, Textsize, WHITE);
-
-  DrawText("Görkem Akdeniz", positionX, creditPosY + 190, Textsize, WHITE);
-  DrawText("Vice-Projektlead and Lead Programmer", positionX, creditPosY + 220, Textsize, WHITE);
-
-  DrawText("Nicolas Vogt ", positionX, creditPosY + 260, Textsize, WHITE);
-  DrawText("Programmer and Sound/Music", positionX, creditPosY + 290, Textsize, WHITE);
-
-  DrawText("Michelle Geggier ", positionX, creditPosY + 330, Textsize, WHITE);
-  DrawText("Artist and Animation", positionX, creditPosY + 360, Textsize, WHITE);
-
-  DrawText("Mika Jürries", positionX, creditPosY + 400, Textsize, WHITE);
-  DrawText("Level Designer and Game Designer", positionX, creditPosY + 430, Textsize, WHITE);
-
-  DrawText("Press SPACE to Exit", positionX, creditPosY + 470, Textsize, WHITE);
-
+  ///Draw the Credits...
+  DrawTextEx(textFont, msgCredits   , { textPosTitle.x, static_cast<float>(creditPosY) }, fontTitleSize, fontSpacing, WHITE);
+  DrawTextEx(textFont, msgCredits1  , { textPosTitle2.x, static_cast<float>(creditPosY + add40) }, fontSize, fontSpacing, WHITE);
+  DrawTextEx(textFont, msgCredits2  , { textPos.x, static_cast<float>(creditPosY + add40*2) }, fontSize, fontSpacing, WHITE);
+  DrawTextEx(textFont, msgCredits3  , { textPos.x, static_cast<float>(creditPosY + add40*3) }, fontSize, fontSpacing, WHITE);
+  DrawTextEx(textFont, msgCredits4  , { textPos.x, static_cast<float>(creditPosY + add40*4) }, fontSize, fontSpacing, WHITE);
+  DrawTextEx(textFont, msgCredits5  , { textPos.x, static_cast<float>(creditPosY + add40*5) }, fontSize, fontSpacing, WHITE);
+  DrawTextEx(textFont, msgCredits6  , { textPos.x, static_cast<float>(creditPosY + add40*6) }, fontSize, fontSpacing, WHITE);
+  DrawTextEx(textFont, msgCredits7  , { textPos.x, static_cast<float>(creditPosY + add40*7) }, fontSize, fontSpacing, WHITE);
+  DrawTextEx(textFont, msgCredits8  , { textPos.x, static_cast<float>(creditPosY + add40*9) }, fontSize, fontSpacing, WHITE);
+  DrawTextEx(textFont, msgCredits9  , { textPos.x, static_cast<float>(creditPosY + add40*10) }, fontSize, fontSpacing, WHITE);
+  DrawTextEx(textFont, msgCredits10 , { textPos.x, static_cast<float>(creditPosY + add40*11) }, fontSize, fontSpacing, WHITE);
+  DrawTextEx(textFont, msgCredits11 , { textPos.x, static_cast<float>(creditPosY + add40*12) }, fontSize, fontSpacing, WHITE);
 }
 

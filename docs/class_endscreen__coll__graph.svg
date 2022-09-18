@@ -60,7 +60,7 @@
 <title>Node3&#45;&gt;Node1</title>
 <path fill="none" stroke="#404040" d="M102.3,-138.45C98.2,-123.21 92.83,-103.98 87.5,-87 86.8,-84.76 86.06,-82.48 85.31,-80.17"/>
 <polygon fill="none" stroke="#404040" points="85.26,-80.01 79.55,-75.6 81.44,-68.64 87.14,-73.05 85.26,-80.01"/>
-<text text-anchor="middle" x="124" y="-112" font-family="Helvetica,sans-Serif" font-size="10.00"> +Textsize</text>
+<text text-anchor="middle" x="124" y="-112" font-family="Helvetica,sans-Serif" font-size="10.00"> +textsize</text>
 <text text-anchor="middle" x="124" y="-101" font-family="Helvetica,sans-Serif" font-size="10.00">+creditPosY</text>
 <text text-anchor="middle" x="124" y="-90" font-family="Helvetica,sans-Serif" font-size="10.00">+positionX</text>
 </g>

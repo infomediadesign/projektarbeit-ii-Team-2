@@ -236,7 +236,7 @@
 <title>Node3&#45;&gt;Node16</title>
 <path fill="none" stroke="#404040" d="M898.43,-1067.63C955.8,-1062.18 1161.34,-1041.53 1183.62,-1023 1207.5,-1003.14 1183.5,-977.74 1206.62,-957 1233.1,-933.24 1257.64,-962.19 1284.62,-939 1305.49,-921.06 1316.98,-892.36 1323.25,-868"/>
 <polygon fill="none" stroke="#404040" points="1323.3,-867.78 1320.75,-861.04 1326,-856.09 1328.55,-862.84 1323.3,-867.78"/>
-<text text-anchor="middle" x="1234.12" y="-998.5" font-family="Helvetica,sans-Serif" font-size="10.00"> +Textsize</text>
+<text text-anchor="middle" x="1234.12" y="-998.5" font-family="Helvetica,sans-Serif" font-size="10.00"> +textsize</text>
 <text text-anchor="middle" x="1234.12" y="-987.5" font-family="Helvetica,sans-Serif" font-size="10.00">+creditPosY</text>
 <text text-anchor="middle" x="1234.12" y="-976.5" font-family="Helvetica,sans-Serif" font-size="10.00">+positionX</text>
 </g>

@@ -360,6 +360,7 @@ int main() {
 
     case Game::Level::GameScreen::ENDSCREEN:
 
+      camera.zoom     = 1.0f;
       camera.target = Vector2 { Game::ScreenWidth / 2, Game::ScreenHeight / 2 };
       break;
 
