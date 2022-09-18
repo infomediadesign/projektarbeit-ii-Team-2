@@ -4,7 +4,7 @@ class Endscreen {
 public:
 
   ///Textures and Fonts
-  //Texture2D Endscreen = LoadTexture("assets/graphics/backgrounds/Start.png");
+  Texture2D ThankYou = LoadTexture("assets/graphics/backgrounds/Start.png");
   Texture2D Endscreen = LoadTexture("assets/graphics/Credits/Credit_Hintergrund.png");
 
   Texture2D Monster1 = LoadTexture("assets/graphics/Credits/Mumie_credit-Sheet.png");
@@ -29,7 +29,7 @@ public:
   Rectangle EpanoxFrameRec = { 0.0f, 0.0f, (float)Epanox.width / 20, (float)Epanox.height };
   Rectangle Epanoxrec = { Game::ScreenWidth / 2, Game::ScreenHeight / 2 + 40, 32, 32};
 
-  Rectangle NemoFrameRec = { 0.0f, 0.0f, (float)Nemo.width / 4, (float)Nemo.height };
+  Rectangle NemoFrameRec = { 0.0f, 0.0f, (float)Nemo.width / 8, (float)Nemo.height };
   Rectangle Nemorec = { Game::ScreenWidth / 2, Game::ScreenHeight / 2 + 80, 32, 32};
 
   ///Ints

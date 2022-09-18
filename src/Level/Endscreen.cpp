@@ -49,9 +49,19 @@ void Endscreen::draw() {
   DrawTextEx(textFont, msgCredits12 , { textPosTitle3.x, static_cast<float>(creditPosY + add40*13) }, fontSize, fontSpacing, RED);
 }
 void Endscreen::thankyoudraw() {
+  ///clear background
+  ClearBackground(BLACK);
+
+  ///Draw the background picture...
+  DrawTexture(ThankYou, 0,0, WHITE);
+
+  const char *msgCredits1 = "Thank You for playing Custodia";
+
+  DrawTextEx(textFont, msgCredits1 , { Monster1rec.x - 255, Monster1rec.y - 40 }, fontSize, fontSpacing, WHITE);
+
+
   ///ANIMATIONS
   ///Monster1
-  Monster1rec = {760, 945, 20, 28};
   DrawRectangleRec(Monster1rec, Color{});
   DrawTextureRec(Monster1, Monster1FrameRec, {Monster1rec.x, Monster1rec.y}, WHITE);
 
@@ -61,14 +71,13 @@ void Endscreen::thankyoudraw() {
     monster1_framescounter = 0;
     monster1_currentFrame++;
 
-    if (monster1_currentFrame > 5)
+    if (monster1_currentFrame > 3)
       monster1_currentFrame = 0;
 
-    Monster1FrameRec.x = (float)monster1_currentFrame * (float)Monster1.width / 6;
+    Monster1FrameRec.x = (float)monster1_currentFrame * (float)Monster1.width / 4;
   }
 
   ///Monster2
-  Monster2rec = {760, 945, 20, 28};
   DrawRectangleRec(Monster2rec, Color{});
   DrawTextureRec(Monster2, Monster2FrameRec, {Monster2rec.x, Monster2rec.y}, WHITE);
 
@@ -85,7 +94,6 @@ void Endscreen::thankyoudraw() {
   }
 
   ///Monster3
-  Monster3rec = {760, 945, 20, 28};
   DrawRectangleRec(Monster3rec, Color{});
   DrawTextureRec(Monster3, Monster3FrameRec, {Monster3rec.x, Monster3rec.y}, WHITE);
 
@@ -95,14 +103,13 @@ void Endscreen::thankyoudraw() {
     monster3_framescounter = 0;
     monster3_currentFrame++;
 
-    if (monster3_currentFrame > 3)
+    if (monster3_currentFrame > 5)
       monster3_currentFrame = 0;
 
-    Monster3FrameRec.x = (float)monster3_currentFrame * (float)Monster3.width / 4;
+    Monster3FrameRec.x = (float)monster3_currentFrame * (float)Monster3.width / 6;
   }
 
   ///Epanox
-  Epanoxrec = {760, 945, 20, 28};
   DrawRectangleRec(Epanoxrec, Color{});
   DrawTextureRec(Epanox, EpanoxFrameRec, {Epanoxrec.x, Epanoxrec.y}, WHITE);
 
@@ -112,14 +119,13 @@ void Endscreen::thankyoudraw() {
     epanox_framescounter = 0;
     epanox_currentFrame++;
 
-    if (epanox_currentFrame > 19)
+    if (epanox_currentFrame > 16)
       epanox_currentFrame = 0;
 
-    EpanoxFrameRec.x = (float)epanox_currentFrame * (float)Epanox.width / 20;
+    EpanoxFrameRec.x = (float)epanox_currentFrame * (float)Epanox.width / 17;
   }
 
   ///Nemo
-  Nemorec = {760, 945, 20, 28};
   DrawRectangleRec(Nemorec, Color{});
   DrawTextureRec(Nemo, NemoFrameRec, {Nemorec.x, Nemorec.y}, WHITE);
 
@@ -129,9 +135,9 @@ void Endscreen::thankyoudraw() {
     nemo_framescounter = 0;
     nemo_currentFrame++;
 
-    if (nemo_currentFrame > 3)
+    if (nemo_currentFrame > 7)
       nemo_currentFrame = 0;
 
-    NemoFrameRec.x = (float)nemo_currentFrame * (float)Nemo.width / 4;
+    NemoFrameRec.x = (float)nemo_currentFrame * (float)Nemo.width / 8;
   }
 }
