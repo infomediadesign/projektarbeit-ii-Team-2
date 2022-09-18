@@ -383,6 +383,12 @@ int main() {
       camera.target = Vector2 { Game::ScreenWidth / 2, Game::ScreenHeight / 2 };
       break;
 
+    case Game::Level::GameScreen::THANKYOU:
+
+      camera.zoom     = 1.0f;
+      camera.target = Vector2 { Game::ScreenWidth / 2, Game::ScreenHeight / 2 };
+      break;
+
     case Game::Level::GameScreen::NEMO_WAKEUP:
 
       camera.zoom     = 2.0f;

@@ -881,12 +881,23 @@ void Game::Level::ScreenDraw() {
       ClearBackground(BLACK);
 
       if (IsKeyPressed(KEY_SPACE)) {
-        //currentscreen = GameScreen::TITLESCREEN;
-        exit(0);
+        currentscreen = GameScreen::THANKYOU;
+        //exit(0);
       }
 
       endscreen.update();
       endscreen.draw();
+      break;
+
+    case GameScreen::THANKYOU:
+
+      ClearBackground(BLACK);
+
+      if (IsKeyPressed(KEY_SPACE)) {
+        exit(0);
+      }
+
+      endscreen.thankyoudraw();
       break;
 
 //GameOver Screen
