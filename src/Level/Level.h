@@ -36,6 +36,7 @@ namespace Game {
     float fontSize = 45;
     float fontSpacing;
     float fontSpecialSize = 40;
+    float fontSizeCombat = 25;
     Vector2 fontTextPosSTART   = {Game::ScreenWidth / 2 - 115, Game::ScreenHeight / 2 - 37};
     Vector2 fontTextPosSETTINGS = {Game::ScreenWidth / 2 - 90, Game::ScreenHeight / 2 + 63};
     Vector2 fontTextPosEXIT     = {Game::ScreenWidth / 2 - 100, Game::ScreenHeight / 2 + 163};
