@@ -62,6 +62,7 @@ int main() {
   bool PharaohDraw = true;
   bool TimeCrystalDraw = true;
   bool collisiononce = false;
+  bool epanoxEndDialog = false;
 
   //for puzzleroom door to open when mumy dies...
   Rectangle door2 = {576, 896, 64, 32};   //door 2 to puzzle room
@@ -291,9 +292,11 @@ int main() {
       if (CheckCollisionRecs(puzzle.Crystalrec, nemo.nemorec)) {
         TimeCrystalDraw = false;
         collisiononce   = true;
+        epanoxEndDialog = true;
       }
       if (collisiononce) {
         puzzle.portalAnimation();
+        puzzle.Crystalrec = {};
       }
       if (!PharaohDraw) {
         if (TimeCrystalDraw) {
@@ -313,6 +316,21 @@ int main() {
         overworld_pharaoh->Pharaohrec = {};
       }
       //==========================================THE END=========================================================
+
+      if (epanoxEndDialog){
+        timesinceIdle += GetFrameTime();
+        DrawTexture(Dialogbox, nemo.NemoPosition.x - 180, nemo.NemoPosition.y + 90, WHITE);
+
+        DrawTextEx(textFont, "Epanox", { nemo.NemoPosition.x - 172, nemo.NemoPosition.y + 65 }, fontSize, fontSpacing, WHITE);
+        DrawTextEx(textFont, "Now that you've defeated the Boss and picked up", { nemo.NemoPosition.x - 172, nemo.NemoPosition.y + 100 }, fontSize, fontSpacing, WHITE);
+        DrawTextEx(textFont, "the Time Crystal, you'll be able to continue your ", { nemo.NemoPosition.x - 172, nemo.NemoPosition.y + 125 }, fontSize, fontSpacing, WHITE);
+        DrawTextEx(textFont, "journey home. Now step into the Portal to continue", { nemo.NemoPosition.x - 172, nemo.NemoPosition.y + 150 }, fontSize, fontSpacing, WHITE);
+
+        if (timesinceIdle >= 10) {
+          epanoxEndDialog = false;
+          timesinceIdle = 0;
+        }
+      }
 
       if (IsKeyPressed(KEY_E)) {
         DrawFPS(nemo.NemoPosition.x - 280, nemo.NemoPosition.y - 150);
