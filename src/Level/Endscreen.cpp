@@ -24,7 +24,8 @@ void Endscreen::draw() {
   const char *msgCredits8 = "In cooperation with the SRH Hochschule Heidelberg";
   const char *msgCredits9 = "For more Infos about Custodia go to ";
   const char *msgCredits10 = "tranor.itch.io/custodia-trap";
-  const char *msgCredits11 = "Press [SPACE] to Exit";
+  const char *msgCredits11 = "Press          to Exit";
+  const char *msgCredits12 = "        [SPACE] ";
 
   ///clear background
   ClearBackground(BLACK);
@@ -44,6 +45,7 @@ void Endscreen::draw() {
   DrawTextEx(textFont, msgCredits8  , { textPos.x, static_cast<float>(creditPosY + add40*9) }, fontSize, fontSpacing, WHITE);
   DrawTextEx(textFont, msgCredits9  , { textPos.x, static_cast<float>(creditPosY + add40*10) }, fontSize, fontSpacing, WHITE);
   DrawTextEx(textFont, msgCredits10 , { textPos.x, static_cast<float>(creditPosY + add40*11) }, fontSize, fontSpacing, WHITE);
-  DrawTextEx(textFont, msgCredits11 , { textPos.x, static_cast<float>(creditPosY + add40*12) }, fontSize, fontSpacing, WHITE);
+  DrawTextEx(textFont, msgCredits11 , { textPosTitle3.x, static_cast<float>(creditPosY + add40*12) }, fontSize, fontSpacing, WHITE);
+  DrawTextEx(textFont, msgCredits12 , { textPosTitle3.x, static_cast<float>(creditPosY + add40*12) }, fontSize, fontSpacing, RED);
 }
 

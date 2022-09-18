@@ -12,6 +12,7 @@ public:
   int positionX = 200;
   int positionTitleX = 540;
   int positionTitle2X = 360;
+  int positionTitle3X = 420;
 
   ///Floats
   float creditPosY = 500;
@@ -26,6 +27,8 @@ public:
   Vector2 textPos   = {static_cast<float>(positionX), static_cast<float>(creditPosY)};
   Vector2 textPosTitle   = {static_cast<float>(positionTitleX), static_cast<float>(creditPosY)};
   Vector2 textPosTitle2   = {static_cast<float>(positionTitle2X), static_cast<float>(creditPosY)};
+  Vector2 textPosTitle3   = {static_cast<float>(positionTitle3X), static_cast<float>(creditPosY)};
+
 
   ///Functions
   void update();
