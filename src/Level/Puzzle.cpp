@@ -198,12 +198,10 @@ void Puzzle::update() {
     timesinceIdle += GetFrameTime();
 
     DrawTexture(Dialogbox, nemo->NemoPosition.x - 180, nemo->NemoPosition.y + 90, WHITE);
-    //DrawTextEx(textFont, "Door Info", fontTextPosLINE1, fontSize, fontSpacing, WHITE);
-    //DrawTextEx(textFont, "This Door is locked... ", fontTextPosLINE2, fontSize, fontSpacing, WHITE);
-    //DrawTextEx(textFont, "talk to Epanox to get a hint.", fontTextPosLINE3, fontSize, fontSpacing, WHITE);
-    DrawText("Door Info", nemo->NemoPosition.x - 180, nemo->NemoPosition.y + 75, 15, WHITE);
-    DrawText("This Door is locked... ", nemo->NemoPosition.x - 162, nemo->NemoPosition.y + 110, 15, WHITE);
-    DrawText("Find a Key to open this door!", nemo->NemoPosition.x - 162, nemo->NemoPosition.y + 135, 15, WHITE);
+
+    DrawTextEx(textFont, "Door Info", { nemo->NemoPosition.x - 172, nemo->NemoPosition.y + 65 }, fontSize, fontSpacing, WHITE);
+    DrawTextEx(textFont, "This Door is locked... ", { nemo->NemoPosition.x - 172, nemo->NemoPosition.y + 100 }, fontSize, fontSpacing, WHITE);
+    DrawTextEx(textFont, "Find a Key to open this door!", { nemo->NemoPosition.x - 172, nemo->NemoPosition.y + 125 }, fontSize, fontSpacing, WHITE);
 
     if (timesinceIdle >= 4){
       textdoor = false;
@@ -215,12 +213,10 @@ void Puzzle::update() {
     timesinceIdle += GetFrameTime();
 
     DrawTexture(Dialogbox, nemo->NemoPosition.x - 180, nemo->NemoPosition.y + 90, WHITE);
-    //DrawTextEx(textFont, "Door Info", fontTextPosLINE1, fontSize, fontSpacing, WHITE);
-    //DrawTextEx(textFont, "This Door is locked... ", fontTextPosLINE2, fontSize, fontSpacing, WHITE);
-    //DrawTextEx(textFont, "talk to Epanox to get a hint.", fontTextPosLINE3, fontSize, fontSpacing, WHITE);
-    DrawText("Door Info", nemo->NemoPosition.x - 180, nemo->NemoPosition.y + 75, 15, WHITE);
-    DrawText("This Door is locked... ", nemo->NemoPosition.x - 162, nemo->NemoPosition.y + 110, 15, WHITE);
-    DrawText("talk to Epanox to get a hint.", nemo->NemoPosition.x - 162, nemo->NemoPosition.y + 135, 15, WHITE);
+
+    DrawTextEx(textFont, "Door Info", { nemo->NemoPosition.x - 172, nemo->NemoPosition.y + 65 }, fontSize, fontSpacing, WHITE);
+    DrawTextEx(textFont, "This Door is locked... ", { nemo->NemoPosition.x - 172, nemo->NemoPosition.y + 100 }, fontSize, fontSpacing, WHITE);
+    DrawTextEx(textFont, "Talk to Epanox to get a hint.", { nemo->NemoPosition.x - 172, nemo->NemoPosition.y + 125 }, fontSize, fontSpacing, WHITE);
 
     if (timesinceIdle >= 4){
       textdoor3 = false;
@@ -275,18 +271,18 @@ void Puzzle::update() {
       switch (textState) {
       default: break;
       case 1:
-        DrawText("Epanox", nemo->NemoPosition.x - 180, nemo->NemoPosition.y + 75, 15, WHITE);
-        DrawText("Hey again. It seems that your stuck. Let ", nemo->NemoPosition.x - 162, nemo->NemoPosition.y + 110, 15, WHITE);
-        DrawText("me give you a hint to solve this puzzle?",nemo->NemoPosition.x - 162,nemo->NemoPosition.y + 135, 15, WHITE);
+        DrawTextEx(textFont, "Epanox", { nemo->NemoPosition.x - 172, nemo->NemoPosition.y + 65 }, fontSize, fontSpacing, WHITE);
+        DrawTextEx(textFont, "Hey again. It seems that your stuck. Let ", { nemo->NemoPosition.x - 172, nemo->NemoPosition.y + 100 }, fontSize, fontSpacing, WHITE);
+        DrawTextEx(textFont, "me give you a hint to solve this puzzle?", { nemo->NemoPosition.x - 172, nemo->NemoPosition.y + 125 }, fontSize, fontSpacing, WHITE);
         break;
       case 2:
-        DrawText("Epanox ", nemo->NemoPosition.x - 180, nemo->NemoPosition.y + 75, 15, WHITE);
-        DrawText("Here goes... ", nemo->NemoPosition.x - 162, nemo->NemoPosition.y + 110, 15, WHITE);
+        DrawTextEx(textFont, "Epanox", { nemo->NemoPosition.x - 172, nemo->NemoPosition.y + 65 }, fontSize, fontSpacing, WHITE);
+        DrawTextEx(textFont, "Here goes... ", { nemo->NemoPosition.x - 172, nemo->NemoPosition.y + 100 }, fontSize, fontSpacing, WHITE);
         break;
       case 3:
-        DrawText("Epanox", nemo->NemoPosition.x - 180, nemo->NemoPosition.y + 75, 15, WHITE);
-        DrawText("On a mountain stands a house on which the", nemo->NemoPosition.x - 162, nemo->NemoPosition.y + 110, 15, WHITE);
-        DrawText("sun shines down...", nemo->NemoPosition.x - 162, nemo->NemoPosition.y + 135, 15, WHITE);
+        DrawTextEx(textFont, "Epanox", { nemo->NemoPosition.x - 172, nemo->NemoPosition.y + 65 }, fontSize, fontSpacing, WHITE);
+        DrawTextEx(textFont, "On a mountain stands a house on which", { nemo->NemoPosition.x - 172, nemo->NemoPosition.y + 100 }, fontSize, fontSpacing, WHITE);
+        DrawTextEx(textFont, "the sun shines down...", { nemo->NemoPosition.x - 172, nemo->NemoPosition.y + 125 }, fontSize, fontSpacing, WHITE);
         break;
       case 4:
         textState = 1;

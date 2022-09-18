@@ -74,6 +74,11 @@ int main() {
   /** Floats */
   float timesinceIdle = 0;
 
+  //fonts stuff
+  Font textFont = LoadFont("assets/Born2bSportyV2.ttf");
+  float fontSize = 25;
+  float fontSpacing = 0.05;
+
   //Map stuff
   std::ifstream tilesetDescriptionFile("assets/graphics/map/Level1/PhyramidSheet.json"); //Pyramiden_SheetJamey.json needed as json, pls do in tiled
   assert(tilesetDescriptionFile.is_open());
@@ -332,13 +337,9 @@ int main() {
         timesinceIdle += GetFrameTime();
 
         DrawTexture(Dialogbox, nemo.NemoPosition.x - 180, nemo.NemoPosition.y + 90, WHITE);
-        // DrawTextEx(textFont, "Door Info", fontTextPosLINE1, fontSize, fontSpacing, WHITE);
-        // DrawTextEx(textFont, "This Door is locked... ", fontTextPosLINE2, fontSize, fontSpacing, WHITE);
-        // DrawTextEx(textFont, "talk to Epanox to get a hint.", fontTextPosLINE3, fontSize, fontSpacing, WHITE);
-        DrawText("Door Info", nemo.NemoPosition.x - 180, nemo.NemoPosition.y + 75, 15, WHITE);
-        DrawText("This Door is locked... ", nemo.NemoPosition.x - 162, nemo.NemoPosition.y + 110, 15, WHITE);
-        DrawText(
-          "Kill the Monster, to enter the door", nemo.NemoPosition.x - 162, nemo.NemoPosition.y + 135, 15, WHITE);
+        DrawTextEx(textFont, "Door Info", { nemo.NemoPosition.x - 172, nemo.NemoPosition.y + 65 }, fontSize, fontSpacing, WHITE);
+        DrawTextEx(textFont, "This Door is locked... ", { nemo.NemoPosition.x - 172, nemo.NemoPosition.y + 100 }, fontSize, fontSpacing, WHITE);
+        DrawTextEx(textFont, "Kill the Mummy, to enter the door", { nemo.NemoPosition.x - 172, nemo.NemoPosition.y + 125 }, fontSize, fontSpacing, WHITE);
 
         if (timesinceIdle >= 4) {
           doorText      = false;

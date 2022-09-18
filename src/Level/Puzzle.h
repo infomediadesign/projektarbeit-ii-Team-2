@@ -91,11 +91,21 @@ public:
   int epanox_framescounter = 0;
   int epanox_framesspeed    = 4;
 
+  int position_Y = nemo->NemoPosition.y + 75;
+  int positionL1_Y = nemo->NemoPosition.y + 110;
+  int positionL2_Y = nemo->NemoPosition.y + 135;
+  int positionL3_Y = nemo->NemoPosition.y + 160;
+
+  int position_X = nemo->NemoPosition.x - 180;
+  int positionL_X = nemo->NemoPosition.x - 162;
+
   /** Floats */
   float timesinceIdle = 0;
 
-  float fontSize = 20;
-  float fontSpacing;
+  float fontSize = 25;
+
+  float fontSpacing = 0.05;
+  float add         = 50;
 
   /** Vector's */
   Vector2 TorchPosition = {160, 672};
@@ -126,9 +136,11 @@ public:
 
   Vector2 PortalPosition = {};
 
-  Vector2 fontTextPosLINE1   = {nemo->NemoPosition.x - 180, nemo->NemoPosition.y + 75};
-  Vector2 fontTextPosLINE2 = {nemo->NemoPosition.x - 162, nemo->NemoPosition.y + 110};
-  Vector2 fontTextPosLINE3    = {nemo->NemoPosition.x - 162, nemo->NemoPosition.y + 135};
+  Vector2 textPosNameBox = {static_cast<float>(position_X), static_cast<float>(position_Y)};
+  Vector2 textPosLine1   = {static_cast<float>(positionL_X), static_cast<float>(positionL1_Y)};
+  Vector2 textPosLine2   = {static_cast<float>(positionL_X), static_cast<float>(positionL2_Y)};
+  Vector2 textPosLine3   = {static_cast<float>(positionL_X), static_cast<float>(positionL3_Y)};
+
 
   /** Bool's */
   bool chestCollision = false;
