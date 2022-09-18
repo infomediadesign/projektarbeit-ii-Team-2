@@ -1,10 +1,10 @@
 <map id="Game::Player" name="Game::Player">
-<area shape="rect" id="node1" title=" " alt="" coords="323,623,460,847"/>
-<area shape="rect" id="node2" href="$class_game_1_1_game_character.html" title=" " alt="" coords="168,219,324,531"/>
-<area shape="rect" id="node3" title=" " alt="" coords="223,5,269,83"/>
-<area shape="rect" id="node4" title=" " alt="" coords="17,5,56,83"/>
-<area shape="rect" id="node5" title=" " alt="" coords="144,5,199,83"/>
-<area shape="rect" id="node6" title=" " alt="" coords="326,5,406,83"/>
-<area shape="rect" id="node7" title=" " alt="" coords="483,336,534,413"/>
-<area shape="rect" id="node8" title=" " alt="" coords="559,336,640,413"/>
+<area shape="rect" id="node1" title=" " alt="" coords="349,637,487,861"/>
+<area shape="rect" id="node2" href="$class_game_1_1_game_character.html" title=" " alt="" coords="144,219,300,531"/>
+<area shape="rect" id="node3" title=" " alt="" coords="40,5,87,83"/>
+<area shape="rect" id="node4" title=" " alt="" coords="429,5,468,83"/>
+<area shape="rect" id="node5" title=" " alt="" coords="191,5,245,83"/>
+<area shape="rect" id="node6" title=" " alt="" coords="286,5,366,83"/>
+<area shape="rect" id="node7" title=" " alt="" coords="643,336,694,413"/>
+<area shape="rect" id="node8" title=" " alt="" coords="719,336,800,413"/>
 </map>

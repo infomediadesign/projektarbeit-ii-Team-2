@@ -95,12 +95,14 @@ $(document).ready(function(){initNavTree('class_game_1_1_player.html',''); initR
 <div class="dynheader">
 Inheritance diagram for Game::Player:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_game_1_1_player__inherit__graph.svg" width="167" height="859"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_game_1_1_player__inherit__graph.svg" width="167" height="962"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
 </div>
 <div class="dynheader">
 Collaboration diagram for Game::Player:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_game_1_1_player__coll__graph.svg" width="646" height="852"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_game_1_1_player__coll__graph.svg" width="806" height="867"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
@@ -173,18 +175,32 @@ Public Attributes</h2></td></tr>
 <tr class="separator:aae82575206994f21bdad1b663053386a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a495428695ee82132160e93408a8eb2e1"><td class="memItemLeft" align="right" valign="top">Texture2D&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_1_1_player.html#a495428695ee82132160e93408a8eb2e1">health</a> = LoadTexture(&quot;assets/graphics/battlescreen/Agypten/spr_health.png&quot;)</td></tr>
 <tr class="separator:a495428695ee82132160e93408a8eb2e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6d48462fb664867f1e876085662b4807"><td class="memItemLeft" align="right" valign="top">Texture2D&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_1_1_player.html#a6d48462fb664867f1e876085662b4807">swing</a> = LoadTexture(&quot;assets/graphics/BattleScreen/Agypten/final_swing_1-Sheet.png&quot;)</td></tr>
+<tr class="separator:a6d48462fb664867f1e876085662b4807"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab842bef329aad094ee422c4003fea882"><td class="memItemLeft" align="right" valign="top">Rectangle&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_1_1_player.html#ab842bef329aad094ee422c4003fea882">healthrec</a> = {}</td></tr>
 <tr class="separator:ab842bef329aad094ee422c4003fea882"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a65634fc997dd3bd33caeb0f962ed268c"><td class="memItemLeft" align="right" valign="top">Rectangle&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_1_1_player.html#a65634fc997dd3bd33caeb0f962ed268c">swinframeRec</a> = {0.0f, 0.0f, (float)swing.width / 5, (float)swing.height}</td></tr>
+<tr class="separator:a65634fc997dd3bd33caeb0f962ed268c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a14114e632b53cdd6e1c19a1c74b5596b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_1_1_player.html#a14114e632b53cdd6e1c19a1c74b5596b">swingcurrentFrame</a> = 0</td></tr>
+<tr class="separator:a14114e632b53cdd6e1c19a1c74b5596b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ada433710de59fbbe5bc4dde92a889080"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_1_1_player.html#ada433710de59fbbe5bc4dde92a889080">swingFramesCounter</a> = 0</td></tr>
+<tr class="separator:ada433710de59fbbe5bc4dde92a889080"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac2334a6c2c90d7bf45ea28bbf4ced3eb"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_1_1_player.html#ac2334a6c2c90d7bf45ea28bbf4ced3eb">swingFramesSpeed</a> = 6</td></tr>
+<tr class="separator:ac2334a6c2c90d7bf45ea28bbf4ced3eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae1f71d9176b47a63891b31c32367f19f"><td class="memItemLeft" align="right" valign="top">Rectangle&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_1_1_player.html#ae1f71d9176b47a63891b31c32367f19f">Swingrec</a> = {}</td></tr>
+<tr class="separator:ae1f71d9176b47a63891b31c32367f19f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2f4b1a4655bc13042d4b2551c476763c"><td class="memItemLeft" align="right" valign="top">Rectangle&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_1_1_player.html#a2f4b1a4655bc13042d4b2551c476763c">frameRec</a> = { 0.0f, 0.0f, (float)spr_Player.width / 7, (float)spr_Player.height }</td></tr>
 <tr class="separator:a2f4b1a4655bc13042d4b2551c476763c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a92c7f8b633d6ac38d7b9d6c94d3767cf"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_1_1_player.html#a92c7f8b633d6ac38d7b9d6c94d3767cf">currentFrame</a> = 0</td></tr>
 <tr class="separator:a92c7f8b633d6ac38d7b9d6c94d3767cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad2423189d5946a05bb7bf7d5fa0c4268"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_1_1_player.html#ad2423189d5946a05bb7bf7d5fa0c4268">framesCounter</a> = 0</td></tr>
 <tr class="separator:ad2423189d5946a05bb7bf7d5fa0c4268"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5806127791df571e51d25e5908cd2bb6"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_1_1_player.html#a5806127791df571e51d25e5908cd2bb6">framesSpeed</a> = 4</td></tr>
+<tr class="memitem:a5806127791df571e51d25e5908cd2bb6"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_1_1_player.html#a5806127791df571e51d25e5908cd2bb6">framesSpeed</a> = 5</td></tr>
 <tr class="separator:a5806127791df571e51d25e5908cd2bb6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a156232beb8e6b84a0274263d3e72f5c7"><td class="memItemLeft" align="right" valign="top">Rectangle&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_1_1_player.html#a156232beb8e6b84a0274263d3e72f5c7">Playerrec</a> = {}</td></tr>
 <tr class="separator:a156232beb8e6b84a0274263d3e72f5c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5b6dc4f4570c78be0e7488d658a9754a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_1_1_player.html#a5b6dc4f4570c78be0e7488d658a9754a">swungblade</a> = false</td></tr>
+<tr class="separator:a5b6dc4f4570c78be0e7488d658a9754a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_attribs_class_game_1_1_game_character"><td colspan="2" onclick="javascript:toggleInherit('pub_attribs_class_game_1_1_game_character')"><img src="closed.png" alt="-"/>&#160;Public Attributes inherited from <a class="el" href="class_game_1_1_game_character.html">Game::GameCharacter</a></td></tr>
 <tr class="memitem:abbf03306d131729b00dcd57cf9109036 inherit pub_attribs_class_game_1_1_game_character"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_1_1_game_character.html#abbf03306d131729b00dcd57cf9109036">damaged</a> = false</td></tr>
 <tr class="separator:abbf03306d131729b00dcd57cf9109036 inherit pub_attribs_class_game_1_1_game_character"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -353,7 +369,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Reimplemented from <a class="el" href="class_game_1_1_game_character.html#a4ac446b6b1dc94f090d3f796f97f6354">Game::GameCharacter</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_player_8cpp_source.html#l00105">105</a> of file <a class="el" href="_player_8cpp_source.html">Player.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_player_8cpp_source.html#l00132">132</a> of file <a class="el" href="_player_8cpp_source.html">Player.cpp</a>.</p>
 
 </div>
 </div>
@@ -412,7 +428,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Reimplemented from <a class="el" href="class_game_1_1_game_character.html#afca2c47358aad478b58285a9b9a4d50e">Game::GameCharacter</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_player_8cpp_source.html#l00114">114</a> of file <a class="el" href="_player_8cpp_source.html">Player.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_player_8cpp_source.html#l00141">141</a> of file <a class="el" href="_player_8cpp_source.html">Player.cpp</a>.</p>
 
 </div>
 </div>
@@ -441,7 +457,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Reimplemented from <a class="el" href="class_game_1_1_game_character.html#a9c123ecdb29f764c2a23a74cbcd22146">Game::GameCharacter</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_player_8cpp_source.html#l00111">111</a> of file <a class="el" href="_player_8cpp_source.html">Player.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_player_8cpp_source.html#l00138">138</a> of file <a class="el" href="_player_8cpp_source.html">Player.cpp</a>.</p>
 
 </div>
 </div>
@@ -470,7 +486,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Reimplemented from <a class="el" href="class_game_1_1_game_character.html#ad00971d301257504a5c1eb0a956658c1">Game::GameCharacter</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_player_8cpp_source.html#l00108">108</a> of file <a class="el" href="_player_8cpp_source.html">Player.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_player_8cpp_source.html#l00135">135</a> of file <a class="el" href="_player_8cpp_source.html">Player.cpp</a>.</p>
 
 </div>
 </div>
@@ -545,7 +561,7 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_player_8h_source.html#l00045">45</a> of file <a class="el" href="_player_8h_source.html">Player.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_player_8h_source.html#l00052">52</a> of file <a class="el" href="_player_8h_source.html">Player.h</a>.</p>
 
 </div>
 </div>
@@ -561,7 +577,7 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_player_8h_source.html#l00044">44</a> of file <a class="el" href="_player_8h_source.html">Player.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_player_8h_source.html#l00051">51</a> of file <a class="el" href="_player_8h_source.html">Player.h</a>.</p>
 
 </div>
 </div>
@@ -593,7 +609,7 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_player_8h_source.html#l00046">46</a> of file <a class="el" href="_player_8h_source.html">Player.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_player_8h_source.html#l00053">53</a> of file <a class="el" href="_player_8h_source.html">Player.h</a>.</p>
 
 </div>
 </div>
@@ -604,12 +620,12 @@ Additional Inherited Members</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int Game::Player::framesSpeed = 4</td>
+          <td class="memname">int Game::Player::framesSpeed = 5</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_player_8h_source.html#l00047">47</a> of file <a class="el" href="_player_8h_source.html">Player.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_player_8h_source.html#l00054">54</a> of file <a class="el" href="_player_8h_source.html">Player.h</a>.</p>
 
 </div>
 </div>
@@ -657,7 +673,7 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_player_8h_source.html#l00042">42</a> of file <a class="el" href="_player_8h_source.html">Player.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_player_8h_source.html#l00043">43</a> of file <a class="el" href="_player_8h_source.html">Player.h</a>.</p>
 
 </div>
 </div>
@@ -673,7 +689,7 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_player_8h_source.html#l00048">48</a> of file <a class="el" href="_player_8h_source.html">Player.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_player_8h_source.html#l00055">55</a> of file <a class="el" href="_player_8h_source.html">Player.h</a>.</p>
 
 </div>
 </div>
@@ -706,6 +722,118 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="_player_8h_source.html#l00034">34</a> of file <a class="el" href="_player_8h_source.html">Player.h</a>.</p>
+
+</div>
+</div>
+<a id="a65634fc997dd3bd33caeb0f962ed268c" name="a65634fc997dd3bd33caeb0f962ed268c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a65634fc997dd3bd33caeb0f962ed268c">&#9670;&nbsp;</a></span>swinframeRec</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Rectangle Game::Player::swinframeRec = {0.0f, 0.0f, (float)swing.width / 5, (float)swing.height}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_player_8h_source.html#l00045">45</a> of file <a class="el" href="_player_8h_source.html">Player.h</a>.</p>
+
+</div>
+</div>
+<a id="a6d48462fb664867f1e876085662b4807" name="a6d48462fb664867f1e876085662b4807"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6d48462fb664867f1e876085662b4807">&#9670;&nbsp;</a></span>swing</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Texture2D Game::Player::swing = LoadTexture(&quot;assets/graphics/BattleScreen/Agypten/final_swing_1-Sheet.png&quot;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_player_8h_source.html#l00042">42</a> of file <a class="el" href="_player_8h_source.html">Player.h</a>.</p>
+
+</div>
+</div>
+<a id="a14114e632b53cdd6e1c19a1c74b5596b" name="a14114e632b53cdd6e1c19a1c74b5596b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a14114e632b53cdd6e1c19a1c74b5596b">&#9670;&nbsp;</a></span>swingcurrentFrame</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Game::Player::swingcurrentFrame = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_player_8h_source.html#l00046">46</a> of file <a class="el" href="_player_8h_source.html">Player.h</a>.</p>
+
+</div>
+</div>
+<a id="ada433710de59fbbe5bc4dde92a889080" name="ada433710de59fbbe5bc4dde92a889080"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ada433710de59fbbe5bc4dde92a889080">&#9670;&nbsp;</a></span>swingFramesCounter</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Game::Player::swingFramesCounter = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_player_8h_source.html#l00047">47</a> of file <a class="el" href="_player_8h_source.html">Player.h</a>.</p>
+
+</div>
+</div>
+<a id="ac2334a6c2c90d7bf45ea28bbf4ced3eb" name="ac2334a6c2c90d7bf45ea28bbf4ced3eb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac2334a6c2c90d7bf45ea28bbf4ced3eb">&#9670;&nbsp;</a></span>swingFramesSpeed</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Game::Player::swingFramesSpeed = 6</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_player_8h_source.html#l00048">48</a> of file <a class="el" href="_player_8h_source.html">Player.h</a>.</p>
+
+</div>
+</div>
+<a id="ae1f71d9176b47a63891b31c32367f19f" name="ae1f71d9176b47a63891b31c32367f19f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae1f71d9176b47a63891b31c32367f19f">&#9670;&nbsp;</a></span>Swingrec</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Rectangle Game::Player::Swingrec = {}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_player_8h_source.html#l00049">49</a> of file <a class="el" href="_player_8h_source.html">Player.h</a>.</p>
+
+</div>
+</div>
+<a id="a5b6dc4f4570c78be0e7488d658a9754a" name="a5b6dc4f4570c78be0e7488d658a9754a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5b6dc4f4570c78be0e7488d658a9754a">&#9670;&nbsp;</a></span>swungblade</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Game::Player::swungblade = false</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_player_8h_source.html#l00056">56</a> of file <a class="el" href="_player_8h_source.html">Player.h</a>.</p>
 
 </div>
 </div>

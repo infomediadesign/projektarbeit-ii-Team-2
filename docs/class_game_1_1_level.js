@@ -55,6 +55,7 @@ var class_game_1_1_level =
     [ "energy", "class_game_1_1_level.html#a22c58f7b5977b5045410e9c9f79b5d46", null ],
     [ "finisher_timer", "class_game_1_1_level.html#ade42014135c9a0f403dace0f63a9f896", null ],
     [ "fontSize", "class_game_1_1_level.html#ae1dc9d81aec172644ce21230a3cd5d6a", null ],
+    [ "fontSizeCombat", "class_game_1_1_level.html#a1a4d7e3a072ef687dd84a40f9b1ebfab", null ],
     [ "fontSpacing", "class_game_1_1_level.html#afced94b77ec9429aabb18a7e45c365c1", null ],
     [ "fontSpecialSize", "class_game_1_1_level.html#a71639eb676ddf50d9d9493658143a442", null ],
     [ "fontTextPosBACK", "class_game_1_1_level.html#a1f1a4132976451ab768597b7692a9270", null ],

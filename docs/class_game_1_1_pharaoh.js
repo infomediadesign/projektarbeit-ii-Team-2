@@ -18,7 +18,13 @@ var class_game_1_1_pharaoh =
     [ "health", "class_game_1_1_pharaoh.html#ac36974f9bc39475c7761089fd680ad6d", null ],
     [ "healthbar", "class_game_1_1_pharaoh.html#a1476fbc254a71a5d0c6eb95720821974", null ],
     [ "healthrec", "class_game_1_1_pharaoh.html#aed26bd12bec425c4069d965c473ecfd0", null ],
-    [ "mumyrec", "class_game_1_1_pharaoh.html#a0be6e1604b8ec90ee4c8627171d1a525", null ],
+    [ "pharaohrec", "class_game_1_1_pharaoh.html#a3513e71e4a96a20330d26a81349768be", null ],
+    [ "s_currentFrame", "class_game_1_1_pharaoh.html#acc27073dcc5a3fad6c36bcf17b47676b", null ],
+    [ "s_frameRec", "class_game_1_1_pharaoh.html#a348c6346a152c0e871426ade9657a9b2", null ],
+    [ "s_framesCounter", "class_game_1_1_pharaoh.html#a7a52803d70b5f1a1c43d682ebb2a2a91", null ],
+    [ "s_framesSpeed", "class_game_1_1_pharaoh.html#accd73e96af85036cb1bbbc7d7950f6a9", null ],
+    [ "shadow", "class_game_1_1_pharaoh.html#a231acfcc9d9e89951dfca32a340edd25", null ],
+    [ "shadowrec", "class_game_1_1_pharaoh.html#aedae6fdedfbebef6daf325f127d27bae", null ],
     [ "spr_pharaoh", "class_game_1_1_pharaoh.html#a1a22dc782f821902e5b5ec693eea36c5", null ],
     [ "State", "class_game_1_1_pharaoh.html#a7b74b79123f64fcfd61b833bf804657c", null ]
 ];

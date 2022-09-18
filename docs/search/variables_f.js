@@ -6,5 +6,6 @@ var searchData=
   ['redclockframerec_3',['RedClockFrameRec',['../class_game_1_1_level.html#a8f70b2d660ad074d45a3fa9bdc797c01',1,'Game::Level']]],
   ['redrec_4',['Redrec',['../class_game_1_1_level.html#a2c0e1cd2059acc7886c3453c88586e51',1,'Game::Level']]],
   ['right_5',['Right',['../class_game_1_1_nemo.html#a2a484f9e41da805bd5e9b6d683544c3c',1,'Game::Nemo']]],
-  ['rightsiderecheight_6',['rightSideRecHeight',['../class_game_1_1_level.html#a67f8d306f69806e30b7d8130bc8ce578',1,'Game::Level']]]
+  ['rightsiderecheight_6',['rightSideRecHeight',['../class_game_1_1_level.html#a67f8d306f69806e30b7d8130bc8ce578',1,'Game::Level']]],
+  ['rightstil_7',['RightStil',['../class_game_1_1_nemo.html#ade042c04527e288d303e85c842bceefe',1,'Game::Nemo']]]
 ];

@@ -1,7 +1,7 @@
 <map id="Game::GameCharacter" name="Game::GameCharacter">
-<area shape="rect" id="node1" title=" " alt="" coords="237,5,393,435"/>
-<area shape="rect" id="node2" href="$class_game_1_1_mumy.html" title=" " alt="" coords="5,490,143,846"/>
-<area shape="rect" id="node3" href="$class_game_1_1_pharaoh.html" title=" " alt="" coords="167,490,304,846"/>
-<area shape="rect" id="node4" href="$class_game_1_1_player.html" title=" " alt="" coords="328,483,465,853"/>
-<area shape="rect" id="node5" href="$class_game_1_1_shadow.html" title=" " alt="" coords="489,490,627,846"/>
+<area shape="rect" id="node1" title=" " alt="" coords="243,5,399,435"/>
+<area shape="rect" id="node2" href="$class_game_1_1_mumy.html" title=" " alt="" coords="5,541,143,897"/>
+<area shape="rect" id="node3" href="$class_game_1_1_pharaoh.html" title=" " alt="" coords="167,497,304,941"/>
+<area shape="rect" id="node4" href="$class_game_1_1_player.html" title=" " alt="" coords="328,483,484,956"/>
+<area shape="rect" id="node5" href="$class_game_1_1_shadow.html" title=" " alt="" coords="508,541,645,897"/>
 </map>

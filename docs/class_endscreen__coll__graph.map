@@ -1,5 +1,8 @@
 <map id="Endscreen" name="Endscreen">
-<area shape="rect" id="node1" title=" " alt="" coords="56,175,140,267"/>
+<area shape="rect" id="node1" title=" " alt="" coords="201,204,285,296"/>
 <area shape="rect" id="node2" title=" " alt="" coords="5,5,87,83"/>
-<area shape="rect" id="node3" title=" " alt="" coords="132,5,171,83"/>
+<area shape="rect" id="node3" title=" " alt="" coords="127,5,175,83"/>
+<area shape="rect" id="node4" title=" " alt="" coords="224,5,263,83"/>
+<area shape="rect" id="node5" title=" " alt="" coords="347,5,393,83"/>
+<area shape="rect" id="node6" title=" " alt="" coords="447,5,514,83"/>
 </map>

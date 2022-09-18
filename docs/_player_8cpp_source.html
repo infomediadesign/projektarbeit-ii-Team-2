@@ -143,77 +143,104 @@ $(document).ready(function(){initNavTree('_player_8cpp_source.html',''); initRes
 <div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>  Playerrec = {get_rec().x + 8, get_rec().y + 10, get_rec().width, get_rec().height};</div>
 <div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>  DrawRectangleRec(Playerrec, Color{});</div>
 <div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>  DrawTextureRec(spr_Player, frameRec, {get_rec().x, get_rec().y}, WHITE);</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>  <span class="comment">// animation</span></div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>  framesCounter++;</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    <span class="keywordflow">switch</span> (State)</div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    {</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="class_game_1_1_game_character.html#a9a877164078c49c6c1c098f3887e7a3faa5daf7f2ebbba4975d61dab1c40188c7">GameCharacter::state::IDLE</a>:</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>  Swingrec = {get_rec().x + 370, get_rec().y + 10, 32, 32};</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>  DrawRectangleRec(Swingrec, Color{});</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>  DrawTextureRec(swing,swinframeRec, {get_rec().x + 370, get_rec().y}, WHITE);</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>  <span class="comment">// animation</span></div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>  framesCounter++;</div>
 <div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>      <span class="keywordflow">if</span> (framesCounter &gt;= (60 / framesSpeed)) {</div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>        framesCounter = 0;</div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>        currentFrame++;</div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>        <span class="keywordflow">if</span> (currentFrame &gt; 3) {</div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>          currentFrame = 0;</div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>        }</div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>        frameRec.x = (float)currentFrame * (<span class="keywordtype">float</span>)spr_Player.width / 7;</div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>      <span class="keywordflow">break</span>;</div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>      <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="class_game_1_1_game_character.html#a9a877164078c49c6c1c098f3887e7a3fac6ddd0f72ff2fd344693b9ca8d483871">GameCharacter::state::ATTACK</a>:</div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>        <span class="keywordflow">if</span> (framesCounter &gt;= (60 / framesSpeed)) {</div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>          framesCounter = 0;</div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>          currentFrame++;</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    <span class="keywordflow">switch</span> (State)</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    {</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="class_game_1_1_game_character.html#a9a877164078c49c6c1c098f3887e7a3faa5daf7f2ebbba4975d61dab1c40188c7">GameCharacter::state::IDLE</a>:</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>      <span class="keywordflow">if</span> (framesCounter &gt;= (60 / framesSpeed)) {</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>        framesCounter = 0;</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>        currentFrame++;</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>        <span class="keywordflow">if</span> (currentFrame &gt; 3) {</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>          currentFrame = 0;</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>        }</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>        frameRec.x = (float)currentFrame * (<span class="keywordtype">float</span>)spr_Player.width / 7;</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>        <span class="comment">//swingcurrentFrame = 0;</span></div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>      <span class="keywordflow">break</span>;</div>
 <div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span> </div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>          <span class="keywordflow">if</span> (currentFrame &gt; 5)</div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>          {</div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>            State = state::IDLE;</div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>            currentFrame = 0;</div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>          }</div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>          frameRec.x = (float)currentFrame * (<span class="keywordtype">float</span>)spr_Player.width / 7;</div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>          <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>      <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="class_game_1_1_game_character.html#a9a877164078c49c6c1c098f3887e7a3fac6ddd0f72ff2fd344693b9ca8d483871">GameCharacter::state::ATTACK</a>:</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> </div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>        swungblade = <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span> </div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>        <span class="keywordflow">if</span> (framesCounter &gt;= (60 / framesSpeed)) {</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>          framesCounter = 0;</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>          currentFrame++;</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span> </div>
 <div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>        <span class="keywordflow">default</span>: State = <a class="code hl_enumvalue" href="class_game_1_1_game_character.html#a9a877164078c49c6c1c098f3887e7a3faa5daf7f2ebbba4975d61dab1c40188c7">GameCharacter::state::IDLE</a>;</div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>          <span class="keywordflow">break</span>;</div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>        }</div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span> </div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    }</div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>  }</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>          <span class="keywordflow">if</span> (currentFrame &gt; 5) {</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>            State        = state::IDLE;</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>            currentFrame = 0;</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>          }</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span> </div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>          frameRec.x = (float)currentFrame * (<span class="keywordtype">float</span>)spr_Player.width / 7;</div>
 <div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span> </div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>  <span class="comment">//Player draw</span></div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>  healthrec = {0, 0, <span class="keyword">static_cast&lt;</span><span class="keywordtype">float</span><span class="keyword">&gt;</span>(192 * ((float)c_HP/(<span class="keywordtype">float</span>)c_MaxHP)), 96};</div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>  DrawTextureRec(health, healthrec, {set_rec().x - 100, set_rec().y - 180}, WHITE);</div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>  DrawText(TextFormat(<span class="stringliteral">&quot;%i/%i&quot;</span>, c_HP, c_MaxHP), set_rec().x - 30, set_rec().y - 140, 20, BLACK);</div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>  DrawTexture(healthbar, set_rec().x - 100, set_rec().y - 180, WHITE);</div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span> </div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>  }</div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span> </div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno"><a class="line" href="class_game_1_1_player.html#a81b8de9417fe0737c4ab2d50e96ef4ba">  105</a></span><span class="keyword">auto</span> <a class="code hl_function" href="class_game_1_1_player.html#a81b8de9417fe0737c4ab2d50e96ef4ba">Game::Player::get_turnnumb</a>() -&gt; <span class="keywordtype">int</span> {</div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>  <span class="keywordflow">return</span> turnnumb;</div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>}</div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno"><a class="line" href="class_game_1_1_player.html#a351d599ea0841c447566479074f5a996">  108</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_game_1_1_player.html#a351d599ea0841c447566479074f5a996">Game::Player::heal</a>() {</div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>  c_HP = c_MaxHP;</div>
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>}</div>
-<div class="line"><a id="l00111" name="l00111"></a><span class="lineno"><a class="line" href="class_game_1_1_player.html#afce54ae9b0fc52b06ce5e74eeb66e690">  111</a></span><span class="keyword">auto</span> <a class="code hl_function" href="class_game_1_1_player.html#afce54ae9b0fc52b06ce5e74eeb66e690">Game::Player::getStrength</a>() -&gt; <span class="keywordtype">int</span> {</div>
-<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>  <span class="keywordflow">return</span> c_STR;</div>
-<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>}</div>
-<div class="line"><a id="l00114" name="l00114"></a><span class="lineno"><a class="line" href="class_game_1_1_player.html#a52a3ce8bab71da883ef5eb50c9987b64">  114</a></span><span class="keyword">auto</span> <a class="code hl_function" href="class_game_1_1_player.html#a52a3ce8bab71da883ef5eb50c9987b64">Game::Player::getDefense</a>() -&gt; <span class="keywordtype">int</span> { <span class="keywordflow">return</span> c_DEF; }</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>          <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span> </div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>        <span class="keywordflow">default</span>: State = <a class="code hl_enumvalue" href="class_game_1_1_game_character.html#a9a877164078c49c6c1c098f3887e7a3faa5daf7f2ebbba4975d61dab1c40188c7">GameCharacter::state::IDLE</a>;</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span> </div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>          <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>        }</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span> </div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    }</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>  }</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>  <span class="keywordflow">if</span>(swungblade) {</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>    <span class="comment">// ATTACK SWING!!!</span></div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span> </div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    swingFramesCounter++;</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span> </div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    <span class="keywordflow">if</span> (swingFramesCounter &gt;= (60 / swingFramesSpeed)) {</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>      swingFramesCounter = 0;</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>      swingcurrentFrame++;</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span> </div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>      <span class="keywordflow">if</span> (swingcurrentFrame &gt; 4) {</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>        State             = state::IDLE;</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>        swingcurrentFrame = 0;</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>        swungblade = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>      }</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span> </div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>      swinframeRec.x = (float)swingcurrentFrame * (<span class="keywordtype">float</span>)swing.width / 5;</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>    }</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>  }</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>  <span class="comment">//Player draw</span></div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>  healthrec = {0, 0, <span class="keyword">static_cast&lt;</span><span class="keywordtype">float</span><span class="keyword">&gt;</span>(192 * ((float)c_HP/(<span class="keywordtype">float</span>)c_MaxHP)), 96};</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>  DrawTextureRec(health, healthrec, {set_rec().x - 100, set_rec().y - 180}, WHITE);</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>  DrawText(TextFormat(<span class="stringliteral">&quot;%i/%i&quot;</span>, c_HP, c_MaxHP), set_rec().x - 30, set_rec().y - 140, 20, BLACK);</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>  DrawTexture(healthbar, set_rec().x - 100, set_rec().y - 180, WHITE);</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span> </div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>  }</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span> </div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno"><a class="line" href="class_game_1_1_player.html#a81b8de9417fe0737c4ab2d50e96ef4ba">  132</a></span><span class="keyword">auto</span> <a class="code hl_function" href="class_game_1_1_player.html#a81b8de9417fe0737c4ab2d50e96ef4ba">Game::Player::get_turnnumb</a>() -&gt; <span class="keywordtype">int</span> {</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>  <span class="keywordflow">return</span> turnnumb;</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>}</div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno"><a class="line" href="class_game_1_1_player.html#a351d599ea0841c447566479074f5a996">  135</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_game_1_1_player.html#a351d599ea0841c447566479074f5a996">Game::Player::heal</a>() {</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>  c_HP = c_MaxHP;</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>}</div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno"><a class="line" href="class_game_1_1_player.html#afce54ae9b0fc52b06ce5e74eeb66e690">  138</a></span><span class="keyword">auto</span> <a class="code hl_function" href="class_game_1_1_player.html#afce54ae9b0fc52b06ce5e74eeb66e690">Game::Player::getStrength</a>() -&gt; <span class="keywordtype">int</span> {</div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>  <span class="keywordflow">return</span> c_STR;</div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>}</div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno"><a class="line" href="class_game_1_1_player.html#a52a3ce8bab71da883ef5eb50c9987b64">  141</a></span><span class="keyword">auto</span> <a class="code hl_function" href="class_game_1_1_player.html#a52a3ce8bab71da883ef5eb50c9987b64">Game::Player::getDefense</a>() -&gt; <span class="keywordtype">int</span> { <span class="keywordflow">return</span> c_DEF; }</div>
 <div class="ttc" id="a_player_8h_html"><div class="ttname"><a href="_player_8h.html">Player.h</a></div></div>
 <div class="ttc" id="aclass_game_1_1_game_character_html"><div class="ttname"><a href="class_game_1_1_game_character.html">Game::GameCharacter</a></div><div class="ttdef"><b>Definition:</b> <a href="_game_character_8h_source.html#l00009">GameCharacter.h:10</a></div></div>
 <div class="ttc" id="aclass_game_1_1_game_character_html_a9a877164078c49c6c1c098f3887e7a3faa5daf7f2ebbba4975d61dab1c40188c7"><div class="ttname"><a href="class_game_1_1_game_character.html#a9a877164078c49c6c1c098f3887e7a3faa5daf7f2ebbba4975d61dab1c40188c7">Game::GameCharacter::state::IDLE</a></div><div class="ttdeci">@ IDLE</div></div>
 <div class="ttc" id="aclass_game_1_1_game_character_html_a9a877164078c49c6c1c098f3887e7a3fac6ddd0f72ff2fd344693b9ca8d483871"><div class="ttname"><a href="class_game_1_1_game_character.html#a9a877164078c49c6c1c098f3887e7a3fac6ddd0f72ff2fd344693b9ca8d483871">Game::GameCharacter::state::ATTACK</a></div><div class="ttdeci">@ ATTACK</div></div>
-<div class="ttc" id="aclass_game_1_1_player_html_a351d599ea0841c447566479074f5a996"><div class="ttname"><a href="class_game_1_1_player.html#a351d599ea0841c447566479074f5a996">Game::Player::heal</a></div><div class="ttdeci">virtual void heal() override</div><div class="ttdef"><b>Definition:</b> <a href="_player_8cpp_source.html#l00108">Player.cpp:108</a></div></div>
-<div class="ttc" id="aclass_game_1_1_player_html_a52a3ce8bab71da883ef5eb50c9987b64"><div class="ttname"><a href="class_game_1_1_player.html#a52a3ce8bab71da883ef5eb50c9987b64">Game::Player::getDefense</a></div><div class="ttdeci">auto getDefense() -&gt; int override</div><div class="ttdef"><b>Definition:</b> <a href="_player_8cpp_source.html#l00114">Player.cpp:114</a></div></div>
+<div class="ttc" id="aclass_game_1_1_player_html_a351d599ea0841c447566479074f5a996"><div class="ttname"><a href="class_game_1_1_player.html#a351d599ea0841c447566479074f5a996">Game::Player::heal</a></div><div class="ttdeci">virtual void heal() override</div><div class="ttdef"><b>Definition:</b> <a href="_player_8cpp_source.html#l00135">Player.cpp:135</a></div></div>
+<div class="ttc" id="aclass_game_1_1_player_html_a52a3ce8bab71da883ef5eb50c9987b64"><div class="ttname"><a href="class_game_1_1_player.html#a52a3ce8bab71da883ef5eb50c9987b64">Game::Player::getDefense</a></div><div class="ttdeci">auto getDefense() -&gt; int override</div><div class="ttdef"><b>Definition:</b> <a href="_player_8cpp_source.html#l00141">Player.cpp:141</a></div></div>
 <div class="ttc" id="aclass_game_1_1_player_html_a67c5ec38ecb2c3033acce7e0e845c7f4"><div class="ttname"><a href="class_game_1_1_player.html#a67c5ec38ecb2c3033acce7e0e845c7f4">Game::Player::get_rec</a></div><div class="ttdeci">auto get_rec() -&gt; Rectangle override</div><div class="ttdef"><b>Definition:</b> <a href="_player_8cpp_source.html#l00041">Player.cpp:41</a></div></div>
 <div class="ttc" id="aclass_game_1_1_player_html_a804bca8fc2119d1d54e341866912ab6c"><div class="ttname"><a href="class_game_1_1_player.html#a804bca8fc2119d1d54e341866912ab6c">Game::Player::attack</a></div><div class="ttdeci">std::vector&lt; int &gt; attack() override</div><div class="ttdef"><b>Definition:</b> <a href="_player_8cpp_source.html#l00008">Player.cpp:8</a></div></div>
-<div class="ttc" id="aclass_game_1_1_player_html_a81b8de9417fe0737c4ab2d50e96ef4ba"><div class="ttname"><a href="class_game_1_1_player.html#a81b8de9417fe0737c4ab2d50e96ef4ba">Game::Player::get_turnnumb</a></div><div class="ttdeci">auto get_turnnumb() -&gt; int override</div><div class="ttdef"><b>Definition:</b> <a href="_player_8cpp_source.html#l00105">Player.cpp:105</a></div></div>
+<div class="ttc" id="aclass_game_1_1_player_html_a81b8de9417fe0737c4ab2d50e96ef4ba"><div class="ttname"><a href="class_game_1_1_player.html#a81b8de9417fe0737c4ab2d50e96ef4ba">Game::Player::get_turnnumb</a></div><div class="ttdeci">auto get_turnnumb() -&gt; int override</div><div class="ttdef"><b>Definition:</b> <a href="_player_8cpp_source.html#l00132">Player.cpp:132</a></div></div>
 <div class="ttc" id="aclass_game_1_1_player_html_a84e4429b778b9cf906a66d22159fac8f"><div class="ttname"><a href="class_game_1_1_player.html#a84e4429b778b9cf906a66d22159fac8f">Game::Player::draw</a></div><div class="ttdeci">void draw() override</div><div class="ttdef"><b>Definition:</b> <a href="_player_8cpp_source.html#l00052">Player.cpp:52</a></div></div>
 <div class="ttc" id="aclass_game_1_1_player_html_a8bf8a66824088cea97a9b379f34ffe37"><div class="ttname"><a href="class_game_1_1_player.html#a8bf8a66824088cea97a9b379f34ffe37">Game::Player::Player</a></div><div class="ttdeci">Player()</div><div class="ttdef"><b>Definition:</b> <a href="_player_8cpp_source.html#l00003">Player.cpp:3</a></div></div>
 <div class="ttc" id="aclass_game_1_1_player_html_a9092d8123b84f9c087bce97b010b87df"><div class="ttname"><a href="class_game_1_1_player.html#a9092d8123b84f9c087bce97b010b87df">Game::Player::set_rec</a></div><div class="ttdeci">auto set_rec() -&gt; Rectangle override</div><div class="ttdef"><b>Definition:</b> <a href="_player_8cpp_source.html#l00046">Player.cpp:46</a></div></div>
 <div class="ttc" id="aclass_game_1_1_player_html_ab765027f9a54ee46d52f8d50d8a17854"><div class="ttname"><a href="class_game_1_1_player.html#ab765027f9a54ee46d52f8d50d8a17854">Game::Player::updateCharacter</a></div><div class="ttdeci">void updateCharacter() override</div><div class="ttdef"><b>Definition:</b> <a href="_player_8cpp_source.html#l00033">Player.cpp:33</a></div></div>
-<div class="ttc" id="aclass_game_1_1_player_html_afce54ae9b0fc52b06ce5e74eeb66e690"><div class="ttname"><a href="class_game_1_1_player.html#afce54ae9b0fc52b06ce5e74eeb66e690">Game::Player::getStrength</a></div><div class="ttdeci">auto getStrength() -&gt; int override</div><div class="ttdef"><b>Definition:</b> <a href="_player_8cpp_source.html#l00111">Player.cpp:111</a></div></div>
+<div class="ttc" id="aclass_game_1_1_player_html_afce54ae9b0fc52b06ce5e74eeb66e690"><div class="ttname"><a href="class_game_1_1_player.html#afce54ae9b0fc52b06ce5e74eeb66e690">Game::Player::getStrength</a></div><div class="ttdeci">auto getStrength() -&gt; int override</div><div class="ttdef"><b>Definition:</b> <a href="_player_8cpp_source.html#l00138">Player.cpp:138</a></div></div>
 <div class="ttc" id="aclass_game_1_1_player_html_afe41ddb0340a1d04c64d29fb86cd5343"><div class="ttname"><a href="class_game_1_1_player.html#afe41ddb0340a1d04c64d29fb86cd5343">Game::Player::getDamage</a></div><div class="ttdeci">void getDamage(std::vector&lt; int &gt; damage) override</div><div class="ttdef"><b>Definition:</b> <a href="_player_8cpp_source.html#l00019">Player.cpp:19</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->

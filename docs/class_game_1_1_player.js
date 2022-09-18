@@ -21,5 +21,12 @@ var class_game_1_1_player =
     [ "healthrec", "class_game_1_1_player.html#ab842bef329aad094ee422c4003fea882", null ],
     [ "Playerrec", "class_game_1_1_player.html#a156232beb8e6b84a0274263d3e72f5c7", null ],
     [ "spr_Player", "class_game_1_1_player.html#adf5e2245db428ee39ceb7d9d58652c54", null ],
-    [ "State", "class_game_1_1_player.html#a477400e7601386db036d8d95f8217e7f", null ]
+    [ "State", "class_game_1_1_player.html#a477400e7601386db036d8d95f8217e7f", null ],
+    [ "swinframeRec", "class_game_1_1_player.html#a65634fc997dd3bd33caeb0f962ed268c", null ],
+    [ "swing", "class_game_1_1_player.html#a6d48462fb664867f1e876085662b4807", null ],
+    [ "swingcurrentFrame", "class_game_1_1_player.html#a14114e632b53cdd6e1c19a1c74b5596b", null ],
+    [ "swingFramesCounter", "class_game_1_1_player.html#ada433710de59fbbe5bc4dde92a889080", null ],
+    [ "swingFramesSpeed", "class_game_1_1_player.html#ac2334a6c2c90d7bf45ea28bbf4ced3eb", null ],
+    [ "Swingrec", "class_game_1_1_player.html#ae1f71d9176b47a63891b31c32367f19f", null ],
+    [ "swungblade", "class_game_1_1_player.html#a5b6dc4f4570c78be0e7488d658a9754a", null ]
 ];

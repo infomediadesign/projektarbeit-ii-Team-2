@@ -29,7 +29,7 @@ var searchData=
   ['chestplatetexture_26',['ChestplateTexture',['../class_puzzle.html#ace57fe3f2519dc723028ea4161cfd99e',1,'Puzzle']]],
   ['circletrapdoor_27',['CircleTrapDoor',['../class_puzzle.html#a844b7dc88c1985ce0aeda62f2d5d03ee',1,'Puzzle']]],
   ['collision_28',['collision',['../namespace_game_audio.html#ac9583206694ae9c461dbd24aaaeef65c',1,'GameAudio']]],
-  ['creditposy_29',['creditPosY',['../class_endscreen.html#a58e3c8405844370589b4d1da3969d6d6',1,'Endscreen']]],
+  ['creditposy_29',['creditPosY',['../class_endscreen.html#a185db365dd45bea51e0853923e53d9ea',1,'Endscreen']]],
   ['crystal_5fcurrentframe_30',['crystal_currentFrame',['../class_puzzle.html#af96ab2cd6af6b8029747a3f9a8493508',1,'Puzzle']]],
   ['crystal_5fframescounter_31',['crystal_framescounter',['../class_puzzle.html#a31908cd2de2321a87c1fc72a6c741243',1,'Puzzle']]],
   ['crystal_5fframesspeed_32',['crystal_framesspeed',['../class_puzzle.html#a799a6d00439aec4ccad44b8cd568065b',1,'Puzzle']]],

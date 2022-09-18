@@ -28,12 +28,20 @@ namespace Game {
     Texture2D PYRAMID_Screenshot = LoadTexture("assets/graphics/backgrounds/PYRAMIDSCREENSHOT.png");
     Texture2D spr_Battery = LoadTexture("assets/graphics/BattleScreen/Agypten/Batterieanzeige-Sheet.png");
     Texture2D gameover = LoadTexture("assets/graphics/backgrounds/GameOverScreen.png");
+    Texture2D Dialogbox = LoadTexture("assets/graphics/Character/Dialogbox.png");
+
     //Texture2D BattleStart = LoadTexture("assets/graphics/BattleScreen/Agypten/BattleStart-Sheet.png");
 
+    float num_x = 195;
+    float num_text_x = 7;
+    float num_y = 30;
+    float num_text_y = -5;
 
     Font textFont = LoadFont("assets/Born2bSportyV2.ttf");
 
     float fontSize = 45;
+    float fontSizeNEMOWAKE = 25;
+    float fontSizeSPACE = 15;
     float fontSpacing;
     float fontSpecialSize = 40;
     float fontSizeCombat = 25;
@@ -138,10 +146,13 @@ namespace Game {
     bool teleportcollisionPYRAMIDtoOVERWORLD = true;
     bool teleportcollisionPYRAMIDtoENDSCREEN = true;
 
+    float timesinceIdle = 0;
+
+
     void combat(GameCharacter *c_enemy);
 
     enum class GameScreen { TITLESCREEN, OVERWORLD, COMBAT, PYRAMIDE,
-      ENDSCREEN, PAUSEMENU, CUTSCENE, GAMEOVER, PAUSEMENU_OVERWORLD, PAUSEMENU_PYRAMID}; //This Enum Class is there to set the Screens to TITLE etc.
+      ENDSCREEN, PAUSEMENU, CUTSCENE, GAMEOVER, PAUSEMENU_OVERWORLD, PAUSEMENU_PYRAMID, NEMO_WAKEUP}; //This Enum Class is there to set the Screens to TITLE etc.
 
     GameScreen currentscreen = GameScreen::CUTSCENE; //TitleScreens is the Start Screen
     //GameScreen currentscreen = GameScreen::PYRAMIDE; //TitleScreens is the Start Screen

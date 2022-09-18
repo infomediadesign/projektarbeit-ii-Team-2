@@ -367,7 +367,8 @@ void Game::Level::ScreenDraw() {
     if (IsKeyPressed(KEY_SPACE)) {
       if (t_rec_start.x == box_rec_titlescreen.x && t_rec_start.y == box_rec_titlescreen.y &&
           t_rec_start.width == box_rec_titlescreen.width && t_rec_start.height == box_rec_titlescreen.height) {
-        currentscreen = GameScreen::OVERWORLD;
+        //currentscreen = GameScreen::OVERWORLD;
+        currentscreen = GameScreen::NEMO_WAKEUP;
         nemo->NemoPosition.x = 925;
         nemo->NemoPosition.y = 500;
         PlaySound(GameAudio::buttonpress);
@@ -424,6 +425,45 @@ void Game::Level::ScreenDraw() {
     DrawTextEx(textFont, "EXIT GAME", fontTextPosEXIT, fontSize, fontSpacing, WHITE);
     //DrawText("SETTINGS", Game::ScreenWidth / 2 - 100, Game::ScreenHeight / 2 + 70, 30, WHITE);
     //DrawText("EXIT GAME", Game::ScreenWidth / 2 - 100, Game::ScreenHeight / 2 + 170, 30, WHITE);
+    break;
+
+  case GameScreen::NEMO_WAKEUP:
+
+    if (IsSoundPlaying(GameAudio::titlescreenmusic)) { StopSound(GameAudio::titlescreenmusic); }
+    if (IsSoundPlaying(GameAudio::battlemusic)) { StopSound(GameAudio::battlemusic); }
+    if (IsSoundPlaying(GameAudio::indungeon)) { StopSound(GameAudio::indungeon); }
+    if (IsSoundPlaying(GameAudio::pausemenu)) { StopSound(GameAudio::pausemenu); }
+
+    if (!IsSoundPlaying(GameAudio::outdungeon))
+    {
+      PlaySound(GameAudio::outdungeon);
+      SetSoundVolume(GameAudio::outdungeon, float(0.1));
+    }
+    if (IsSoundPlaying(GameAudio::outdungeon)) {}
+
+    ClearBackground(BLACK);
+
+    if (IsKeyPressed(KEY_SPACE)){
+      currentscreen = GameScreen::OVERWORLD;
+      PlaySound(GameAudio::buttonpress);
+      SetSoundVolume(GameAudio::buttonpress, float(0.6));
+    }
+
+    timesinceIdle += GetFrameTime();
+
+    DrawTexture(Dialogbox, ScreenWidth / 2 - num_x, ScreenHeight / 2 + num_y + 40, WHITE);
+
+    DrawTextEx(textFont, "Epanox", { ScreenWidth / 2 - num_x + num_text_x, ScreenHeight / 2 + num_y - num_text_y + 10}, fontSizeNEMOWAKE, fontSpacing, WHITE);
+    DrawTextEx(textFont, "First time-travel? I remember mine", { ScreenWidth / 2 - num_x + num_text_x , ScreenHeight / 2 + num_y - num_text_y + 40 }, fontSizeNEMOWAKE, fontSpacing, WHITE);
+    DrawTextEx(textFont, "like it was yesterday. I had a head", { ScreenWidth / 2 - num_x + num_text_x, ScreenHeight / 2 + num_y - num_text_y + 70 }, fontSizeNEMOWAKE, fontSpacing, WHITE);
+    DrawTextEx(textFont, "ache for days...", { ScreenWidth / 2 - num_x + num_text_x, ScreenHeight / 2 + num_y - num_text_y + 100 }, fontSizeNEMOWAKE, fontSpacing, WHITE);
+    DrawTextEx(textFont, "[SPACE ->]", { ScreenWidth / 2 + 140, ScreenHeight / 2 + num_y - num_text_y + 115 }, fontSizeSPACE, fontSpacing, WHITE);
+
+
+    if (timesinceIdle >= 10) {
+      currentscreen = GameScreen::OVERWORLD;
+      timesinceIdle = 0;
+      }
     break;
 
   case GameScreen::PAUSEMENU:
