@@ -3,6 +3,7 @@ var namespaces_dup =
     [ "Game", "namespace_game.html", "namespace_game" ],
     [ "GameAudio", "namespace_game_audio.html", [
       [ "Load", "namespace_game_audio.html#a61409093cddda18577d30a55fe987811", null ],
+      [ "StopMusic", "namespace_game_audio.html#a516c031a9db3ddc1b6547b421257a429", null ],
       [ "Unload", "namespace_game_audio.html#a54469cd37b9d894d2060341c34673f60", null ],
       [ "attack", "namespace_game_audio.html#aedad1c79303306ccc0ddff07dcfbdfab", null ],
       [ "battlemusic", "namespace_game_audio.html#a3ea9951c753aaadcff361c45a8803138", null ],

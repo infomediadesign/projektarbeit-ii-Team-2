@@ -1,6 +1,7 @@
 var _game_audio_8cpp =
 [
     [ "Load", "_game_audio_8cpp.html#a61409093cddda18577d30a55fe987811", null ],
+    [ "StopMusic", "_game_audio_8cpp.html#a516c031a9db3ddc1b6547b421257a429", null ],
     [ "Unload", "_game_audio_8cpp.html#a54469cd37b9d894d2060341c34673f60", null ],
     [ "attack", "_game_audio_8cpp.html#aedad1c79303306ccc0ddff07dcfbdfab", null ],
     [ "battlemusic", "_game_audio_8cpp.html#a3ea9951c753aaadcff361c45a8803138", null ],

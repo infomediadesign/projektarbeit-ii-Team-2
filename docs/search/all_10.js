@@ -31,13 +31,14 @@ var searchData=
   ['standing_28',['standing',['../class_game_1_1_nemo.html#a39420d816fc79ec47ec8758d84e64c08',1,'Game::Nemo']]],
   ['state_29',['state',['../class_game_1_1_game_character.html#a9a877164078c49c6c1c098f3887e7a3f',1,'Game::GameCharacter::state()'],['../class_game_1_1_level.html#a448f60eb2471c32cff701a59c8d0a1e4',1,'Game::Level::state()']]],
   ['state_30',['State',['../class_game_1_1_mumy.html#a7ee707b789da1988cf591bc416e0125f',1,'Game::Mumy::State()'],['../class_game_1_1_pharaoh.html#a7b74b79123f64fcfd61b833bf804657c',1,'Game::Pharaoh::State()'],['../class_game_1_1_player.html#a477400e7601386db036d8d95f8217e7f',1,'Game::Player::State()'],['../class_game_1_1_shadow.html#a442cc3961251f347c109119f698758ff',1,'Game::Shadow::State()']]],
-  ['stopnemo_31',['stopNemo',['../class_puzzle.html#a536546926838bd5b293c08749fd46a23',1,'Puzzle']]],
-  ['stopnemo_32',['stopnemo',['../class_collision.html#a1582099b20c05db11f80eced4de46e83',1,'Collision']]],
-  ['swinframerec_33',['swinframeRec',['../class_game_1_1_player.html#a65634fc997dd3bd33caeb0f962ed268c',1,'Game::Player']]],
-  ['swing_34',['swing',['../class_game_1_1_player.html#a6d48462fb664867f1e876085662b4807',1,'Game::Player']]],
-  ['swingcurrentframe_35',['swingcurrentFrame',['../class_game_1_1_player.html#a14114e632b53cdd6e1c19a1c74b5596b',1,'Game::Player']]],
-  ['swingframescounter_36',['swingFramesCounter',['../class_game_1_1_player.html#ada433710de59fbbe5bc4dde92a889080',1,'Game::Player']]],
-  ['swingframesspeed_37',['swingFramesSpeed',['../class_game_1_1_player.html#ac2334a6c2c90d7bf45ea28bbf4ced3eb',1,'Game::Player']]],
-  ['swingrec_38',['Swingrec',['../class_game_1_1_player.html#ae1f71d9176b47a63891b31c32367f19f',1,'Game::Player']]],
-  ['swungblade_39',['swungblade',['../class_game_1_1_player.html#a5b6dc4f4570c78be0e7488d658a9754a',1,'Game::Player']]]
+  ['stopmusic_31',['StopMusic',['../namespace_game_audio.html#a516c031a9db3ddc1b6547b421257a429',1,'GameAudio']]],
+  ['stopnemo_32',['stopNemo',['../class_puzzle.html#a536546926838bd5b293c08749fd46a23',1,'Puzzle']]],
+  ['stopnemo_33',['stopnemo',['../class_collision.html#a1582099b20c05db11f80eced4de46e83',1,'Collision']]],
+  ['swinframerec_34',['swinframeRec',['../class_game_1_1_player.html#a65634fc997dd3bd33caeb0f962ed268c',1,'Game::Player']]],
+  ['swing_35',['swing',['../class_game_1_1_player.html#a6d48462fb664867f1e876085662b4807',1,'Game::Player']]],
+  ['swingcurrentframe_36',['swingcurrentFrame',['../class_game_1_1_player.html#a14114e632b53cdd6e1c19a1c74b5596b',1,'Game::Player']]],
+  ['swingframescounter_37',['swingFramesCounter',['../class_game_1_1_player.html#ada433710de59fbbe5bc4dde92a889080',1,'Game::Player']]],
+  ['swingframesspeed_38',['swingFramesSpeed',['../class_game_1_1_player.html#ac2334a6c2c90d7bf45ea28bbf4ced3eb',1,'Game::Player']]],
+  ['swingrec_39',['Swingrec',['../class_game_1_1_player.html#ae1f71d9176b47a63891b31c32367f19f',1,'Game::Player']]],
+  ['swungblade_40',['swungblade',['../class_game_1_1_player.html#a5b6dc4f4570c78be0e7488d658a9754a',1,'Game::Player']]]
 ];
