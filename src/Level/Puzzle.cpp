@@ -245,7 +245,7 @@ void Puzzle::update() {
     if (text) {
       DrawTexture(Dialogbox, nemo->NemoPosition.x - 180, nemo->NemoPosition.y + 90, WHITE);
       timesinceIdle += GetFrameTime();
-      stopNemo();
+      //stopNemo();
       /*
        if (timesinceIdle >= 4){
  textState + 1;

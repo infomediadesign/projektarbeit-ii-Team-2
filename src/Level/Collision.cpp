@@ -130,7 +130,7 @@ void Collision::epanoxCollision() { // Epanox collision
       }
 
       DrawTexture(Dialogbox, nemo->NemoPosition.x - 180 , nemo->NemoPosition.y + 90 , WHITE);
-      stopnemo();
+      //stopnemo();
 
       if (IsKeyReleased(KEY_SPACE) && textState == 0) {
         textState = 1;

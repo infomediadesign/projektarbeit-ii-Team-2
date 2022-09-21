@@ -28,8 +28,29 @@ It was meant to be 5 levels/ worlds long, but due to time issues we where not ab
 - Mika Jürries (Game Designer, Artist, Asset Designer),
 - Nicolas Vogt: (Programmer);
 
+**Music and Sfx**
+
+- Battle music - made by Luis Zuno
+  - https://ansimuz.itch.io/adventure-music-collection-pack-1
+- Inside and Outside the Dungeon music and Game Over music
+  - https://svl.itch.io/rpg-music-pack-svl
+- Teleport, Door, Movement and Button sounds
+  - https://leohpaz.itch.io/100-retro-rpg-ui-sound-effects
+- Titlescreen and Pausemenu music
+  - https://joshuuu.itch.io/short-loopable-background-music
+- Honable mentions of Sfx and music used
+  - https://dubpixel.itch.iopixel-madness-music-pack
+  - https://abduldahir7002.itch.io/dark-moody-chiptune-song
+  - https://canarigames.itch.io/canaripack-8bit-topdown
+
+
+
+
 **License**
-Use as you wish, do with it as you wish... 
+
+Made in collaboration with SRH Heidelberg Hochschule.
+
+Download the game at https://tranor.itch.io/custodia-trap
 
 **Project status**
 Development has stopped completely.
