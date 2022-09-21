@@ -539,11 +539,10 @@ void Game::Level::ScreenDraw() {
     ///UPDATE
     ///-----------------------------------------------------------------------------------------------------------------
     ///sounds
-    if (IsSoundPlaying(GameAudio::titlescreenmusic)) { StopSound(GameAudio::titlescreenmusic); }
-    if (IsSoundPlaying(GameAudio::outdungeon)) { StopSound(GameAudio::outdungeon); }
-    if (IsSoundPlaying(GameAudio::indungeon)) { StopSound(GameAudio::indungeon); }
-
-    if(!IsSoundPlaying(GameAudio::pausemenu))
+    if (IsSoundPlaying(GameAudio::titlescreenmusic) || IsSoundPlaying(GameAudio::outdungeon) || IsSoundPlaying(GameAudio::indungeon)){
+      GameAudio::StopMusic();
+    }
+    if (!IsSoundPlaying(GameAudio::pausemenu))
     {
       PlaySound(GameAudio::pausemenu);
       SetSoundVolume(GameAudio::pausemenu, float(0.1));

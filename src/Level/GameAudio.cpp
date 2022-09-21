@@ -29,6 +29,27 @@ namespace GameAudio {
     battlemusic      = LoadSound("assets/audio/sfx/chibi-robot-b.ogg");   
   }
 
+  void StopMusic() {
+    StopSound(GameAudio::collision);
+    StopSound(GameAudio::walking);
+    StopSound(GameAudio::attack);
+    StopSound(GameAudio::openchest);
+    StopSound(GameAudio::dialoge);
+    StopSound(GameAudio::trapdoor);
+    StopSound(GameAudio::unlockdoor);
+    StopSound(GameAudio::pickupitem);
+    StopSound(GameAudio::buttonpress);
+    StopSound(GameAudio::titlescreenmusic);
+    StopSound(GameAudio::pausemenu);
+    StopSound(GameAudio::indungeon);
+    StopSound(GameAudio::outdungeon);
+    StopSound(GameAudio::battlemusic);
+    StopSound(GameAudio::epanoxsfx);
+    StopSound(GameAudio::teleport);
+    StopSound(GameAudio::dooropen);
+    StopSound(GameAudio::dooropen2);
+  }
+
   void Unload() {
     UnloadSound(collision);
     UnloadSound(walking);

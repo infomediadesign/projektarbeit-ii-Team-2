@@ -1,7 +1,7 @@
 var searchData=
 [
   ['damaged_0',['damaged',['../class_game_1_1_game_character.html#abbf03306d131729b00dcd57cf9109036',1,'Game::GameCharacter']]],
-  ['dialogbox_1',['Dialogbox',['../class_collision.html#a599e0cb4de2913001735e7bb841db100',1,'Collision::Dialogbox()'],['../class_puzzle.html#a7b812dba491fdbfa48e8aec0d74af37c',1,'Puzzle::Dialogbox()']]],
+  ['dialogbox_1',['Dialogbox',['../class_collision.html#a599e0cb4de2913001735e7bb841db100',1,'Collision::Dialogbox()'],['../class_game_1_1_level.html#a22f056c042902b8bade9242e37e6de1e',1,'Game::Level::Dialogbox()'],['../class_puzzle.html#a7b812dba491fdbfa48e8aec0d74af37c',1,'Puzzle::Dialogbox()']]],
   ['dialoge_2',['dialoge',['../namespace_game_audio.html#a07dac752a5314e5df20c556e502df807',1,'GameAudio']]],
   ['direction_3',['Direction',['../class_mumy.html#a05cbcf8ead581bfe803a4eaa6073d64f',1,'Mumy::Direction()'],['../class_game_1_1_nemo.html#a9773212bb880099d5af6eedf28dffead',1,'Game::Nemo::Direction()']]],
   ['door1_4',['door1',['../class_puzzle.html#aef68a3918b10a2ee3392d8ece988fdab',1,'Puzzle']]],

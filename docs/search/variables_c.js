@@ -1,9 +1,19 @@
 var searchData=
 [
   ['name_0',['name',['../class_game_1_1_game_character.html#acf04e64278f1d6a0749dee0c55cb877a',1,'Game::GameCharacter']]],
-  ['nemo_1',['nemo',['../class_collision.html#a8addd37ee1a7ef421bae2afe591f092c',1,'Collision::nemo()'],['../class_game_1_1_level.html#a24615ce90042a8cbc5ca2680302631f8',1,'Game::Level::nemo()'],['../class_puzzle.html#a0fce4afcc331c6eed9ec1873132b12eb',1,'Puzzle::nemo()']]],
-  ['nemoheight_2',['nemoheight',['../class_game_1_1_nemo.html#a347285404d2e734b3b171f1c809a68ab',1,'Game::Nemo']]],
-  ['nemoposition_3',['NemoPosition',['../class_game_1_1_nemo.html#aadbc7bc7701d5bab3cdbf7a31c91f9d4',1,'Game::Nemo']]],
-  ['nemorec_4',['nemorec',['../class_game_1_1_nemo.html#a6eeebce19217bd8666166e4018b8ffeb',1,'Game::Nemo']]],
-  ['nemowidth_5',['nemowidth',['../class_game_1_1_nemo.html#ae20922d7aa7cc280e833eee68ac26c19',1,'Game::Nemo']]]
+  ['nemo_1',['Nemo',['../class_endscreen.html#a3775ed59739272d892e6a8c3d2d306c9',1,'Endscreen']]],
+  ['nemo_2',['nemo',['../class_collision.html#a8addd37ee1a7ef421bae2afe591f092c',1,'Collision::nemo()'],['../class_game_1_1_level.html#a24615ce90042a8cbc5ca2680302631f8',1,'Game::Level::nemo()'],['../class_puzzle.html#a0fce4afcc331c6eed9ec1873132b12eb',1,'Puzzle::nemo()']]],
+  ['nemo_5fcurrentframe_3',['nemo_currentFrame',['../class_endscreen.html#a49e6d624daa8576f91224967ec3a46ae',1,'Endscreen']]],
+  ['nemo_5fframescounter_4',['nemo_framescounter',['../class_endscreen.html#a6715bc2e6bdc552a9c0d9c277ba17588',1,'Endscreen']]],
+  ['nemo_5fframesspeed_5',['nemo_framesspeed',['../class_endscreen.html#a428c1869cfe87c72a3d65a1766bd637c',1,'Endscreen']]],
+  ['nemoframerec_6',['NemoFrameRec',['../class_endscreen.html#ac0d48e4c208214b305abe0bff73293b5',1,'Endscreen']]],
+  ['nemoheight_7',['nemoheight',['../class_game_1_1_nemo.html#a347285404d2e734b3b171f1c809a68ab',1,'Game::Nemo']]],
+  ['nemoposition_8',['NemoPosition',['../class_game_1_1_nemo.html#aadbc7bc7701d5bab3cdbf7a31c91f9d4',1,'Game::Nemo']]],
+  ['nemorec_9',['Nemorec',['../class_endscreen.html#a73134bb1e1e9502294b4fb97218e208d',1,'Endscreen']]],
+  ['nemorec_10',['nemorec',['../class_game_1_1_nemo.html#a6eeebce19217bd8666166e4018b8ffeb',1,'Game::Nemo']]],
+  ['nemowidth_11',['nemowidth',['../class_game_1_1_nemo.html#ae20922d7aa7cc280e833eee68ac26c19',1,'Game::Nemo']]],
+  ['num_5ftext_5fx_12',['num_text_x',['../class_game_1_1_level.html#a47815f1872301ead5ca24fdb13c45c02',1,'Game::Level']]],
+  ['num_5ftext_5fy_13',['num_text_y',['../class_game_1_1_level.html#a87dba32ebb2784b55a6b3cb32ca820cd',1,'Game::Level']]],
+  ['num_5fx_14',['num_x',['../class_game_1_1_level.html#afccd0cae966b9750e5f42aff32beb417',1,'Game::Level']]],
+  ['num_5fy_15',['num_y',['../class_game_1_1_level.html#a5756458af4e927c94c31d67e0fbd3a3e',1,'Game::Level']]]
 ];

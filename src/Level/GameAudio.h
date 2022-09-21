@@ -7,5 +7,6 @@ namespace GameAudio {
     titlescreenmusic, pausemenu, indungeon, outdungeon, battlemusic, epanoxsfx, teleport, dooropen, dooropen2;
 
   void Load();
+  void StopMusic();
   void Unload();
 } // namespace GameAudio
