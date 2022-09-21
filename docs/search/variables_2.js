@@ -30,12 +30,13 @@ var searchData=
   ['circletrapdoor_27',['CircleTrapDoor',['../class_puzzle.html#a844b7dc88c1985ce0aeda62f2d5d03ee',1,'Puzzle']]],
   ['collision_28',['collision',['../namespace_game_audio.html#ac9583206694ae9c461dbd24aaaeef65c',1,'GameAudio']]],
   ['creditposy_29',['creditPosY',['../class_endscreen.html#a185db365dd45bea51e0853923e53d9ea',1,'Endscreen']]],
-  ['crystal_5fcurrentframe_30',['crystal_currentFrame',['../class_puzzle.html#af96ab2cd6af6b8029747a3f9a8493508',1,'Puzzle']]],
-  ['crystal_5fframescounter_31',['crystal_framescounter',['../class_puzzle.html#a31908cd2de2321a87c1fc72a6c741243',1,'Puzzle']]],
-  ['crystal_5fframesspeed_32',['crystal_framesspeed',['../class_puzzle.html#a799a6d00439aec4ccad44b8cd568065b',1,'Puzzle']]],
-  ['crystalframerec_33',['CrystalFrameRec',['../class_puzzle.html#a8ba524223af0092c15a7fa4d80d3d22b',1,'Puzzle']]],
-  ['crystalrec_34',['Crystalrec',['../class_puzzle.html#a26a6e4e09d1a41e8e2bde96428ebcf20',1,'Puzzle']]],
-  ['curr_5fnum_5fof_5fblocks_5fin_5fstack_35',['curr_num_of_blocks_in_stack',['../struct_item.html#a411bc4d31c4ab219dee2d9382d7369bb',1,'Item']]],
-  ['currentframe_36',['currentFrame',['../class_game_1_1_mumy.html#a6cc1eed342590831ed530649617756ef',1,'Game::Mumy::currentFrame()'],['../class_game_1_1_player.html#a92c7f8b633d6ac38d7b9d6c94d3767cf',1,'Game::Player::currentFrame()'],['../class_game_1_1_shadow.html#a9f39d469140c43a9f2f911654bd9bcb3',1,'Game::Shadow::currentFrame()'],['../class_mumy.html#aba0f8d270841a4fdc364ee5cb1f4b420',1,'Mumy::currentFrame()'],['../class_pharaoh.html#ab35dd8089824a05bf9a423c2184b3eb9',1,'Pharaoh::currentFrame()'],['../class_game_1_1_pharaoh.html#a0af38f55f08ce39a50ba174457312a24',1,'Game::Pharaoh::currentFrame()'],['../class_collision.html#a027b0cbe8b158e99c2b4b658efa65886',1,'Collision::currentFrame()'],['../class_puzzle.html#abf51d697879dc656a6b9c12af763e4bd',1,'Puzzle::currentFrame()'],['../class_game_1_1_nemo.html#a0c2d560dc87566d29937e5d619632187',1,'Game::Nemo::currentFrame()'],['../class_shadow.html#ade49adce5d05ceb5c0079ae231d6f289',1,'Shadow::currentFrame()']]],
-  ['currentscreen_37',['currentscreen',['../class_game_1_1_level.html#a9ff6de646793c7bfb823221f68884eb2',1,'Game::Level']]]
+  ['credits_30',['credits',['../namespace_game_audio.html#a79a3228c9c159a5441c799e9ba4ab9b1',1,'GameAudio']]],
+  ['crystal_5fcurrentframe_31',['crystal_currentFrame',['../class_puzzle.html#af96ab2cd6af6b8029747a3f9a8493508',1,'Puzzle']]],
+  ['crystal_5fframescounter_32',['crystal_framescounter',['../class_puzzle.html#a31908cd2de2321a87c1fc72a6c741243',1,'Puzzle']]],
+  ['crystal_5fframesspeed_33',['crystal_framesspeed',['../class_puzzle.html#a799a6d00439aec4ccad44b8cd568065b',1,'Puzzle']]],
+  ['crystalframerec_34',['CrystalFrameRec',['../class_puzzle.html#a8ba524223af0092c15a7fa4d80d3d22b',1,'Puzzle']]],
+  ['crystalrec_35',['Crystalrec',['../class_puzzle.html#a26a6e4e09d1a41e8e2bde96428ebcf20',1,'Puzzle']]],
+  ['curr_5fnum_5fof_5fblocks_5fin_5fstack_36',['curr_num_of_blocks_in_stack',['../struct_item.html#a411bc4d31c4ab219dee2d9382d7369bb',1,'Item']]],
+  ['currentframe_37',['currentFrame',['../class_game_1_1_pharaoh.html#a0af38f55f08ce39a50ba174457312a24',1,'Game::Pharaoh::currentFrame()'],['../class_game_1_1_player.html#a92c7f8b633d6ac38d7b9d6c94d3767cf',1,'Game::Player::currentFrame()'],['../class_game_1_1_shadow.html#a9f39d469140c43a9f2f911654bd9bcb3',1,'Game::Shadow::currentFrame()'],['../class_mumy.html#aba0f8d270841a4fdc364ee5cb1f4b420',1,'Mumy::currentFrame()'],['../class_pharaoh.html#ab35dd8089824a05bf9a423c2184b3eb9',1,'Pharaoh::currentFrame()'],['../class_game_1_1_mumy.html#a6cc1eed342590831ed530649617756ef',1,'Game::Mumy::currentFrame()'],['../class_collision.html#a027b0cbe8b158e99c2b4b658efa65886',1,'Collision::currentFrame()'],['../class_puzzle.html#abf51d697879dc656a6b9c12af763e4bd',1,'Puzzle::currentFrame()'],['../class_game_1_1_nemo.html#a0c2d560dc87566d29937e5d619632187',1,'Game::Nemo::currentFrame()'],['../class_shadow.html#ade49adce5d05ceb5c0079ae231d6f289',1,'Shadow::currentFrame()']]],
+  ['currentscreen_38',['currentscreen',['../class_game_1_1_level.html#a9ff6de646793c7bfb823221f68884eb2',1,'Game::Level']]]
 ];

@@ -119,7 +119,7 @@ int main() {
   {
     // Update
     HideCursor();
-    SetExitKey(KEY_O);
+    SetExitKey(KEY_NUM_LOCK);
 
     // Begin drawing
     //--------------------------------------------------------------------------------------------
@@ -196,9 +196,9 @@ int main() {
       collision.draw();
       collision.torchAnimations();
 
-      if (IsKeyDown(KEY_R)) {
-        collision.walldraw();
-      }
+      //if (IsKeyDown(KEY_R)) {
+       // collision.walldraw();
+      //}
 
       nemo.active = true;
       nemo.Update(); // nemo walking movement and animation
@@ -210,9 +210,9 @@ int main() {
 
       ui.Draw(); // controlls description
 
-      if (IsKeyPressed(KEY_E)) {
-        DrawFPS(nemo.NemoPosition.x - 280, nemo.NemoPosition.y - 150);
-      }
+      //if (IsKeyPressed(KEY_E)) {
+        //DrawFPS(nemo.NemoPosition.x - 280, nemo.NemoPosition.y - 150);
+      //}
 
       // teleport into pyramid
       level.Teleport();
@@ -332,9 +332,9 @@ int main() {
         }
       }
 
-      if (IsKeyPressed(KEY_E)) {
-        DrawFPS(nemo.NemoPosition.x - 280, nemo.NemoPosition.y - 150);
-      }
+      //if (IsKeyPressed(KEY_E)) {
+      //  DrawFPS(nemo.NemoPosition.x - 280, nemo.NemoPosition.y - 150);
+      //}
 
       puzzle.epanoxAnimation();
       puzzle.draw();

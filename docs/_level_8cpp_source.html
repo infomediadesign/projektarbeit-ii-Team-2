@@ -964,91 +964,142 @@ $(document).ready(function(){initNavTree('_level_8cpp_source.html',''); initResi
 <div class="line"><a id="l00876" name="l00876"></a><span class="lineno">  876</span>      <span class="keywordflow">break</span>;</div>
 <div class="line"><a id="l00877" name="l00877"></a><span class="lineno">  877</span> </div>
 <div class="line"><a id="l00878" name="l00878"></a><span class="lineno">  878</span>    <span class="keywordflow">case</span> GameScreen::ENDSCREEN:</div>
-<div class="line"><a id="l00879" name="l00879"></a><span class="lineno">  879</span> </div>
-<div class="line"><a id="l00880" name="l00880"></a><span class="lineno">  880</span>      ClearBackground(BLACK);</div>
-<div class="line"><a id="l00881" name="l00881"></a><span class="lineno">  881</span> </div>
-<div class="line"><a id="l00882" name="l00882"></a><span class="lineno">  882</span>      <span class="keywordflow">if</span> (IsKeyPressed(KEY_SPACE)) {</div>
-<div class="line"><a id="l00883" name="l00883"></a><span class="lineno">  883</span>        currentscreen = GameScreen::THANKYOU;</div>
-<div class="line"><a id="l00884" name="l00884"></a><span class="lineno">  884</span>        <span class="comment">//exit(0);</span></div>
+<div class="line"><a id="l00879" name="l00879"></a><span class="lineno">  879</span><span class="comment"></span> </div>
+<div class="line"><a id="l00880" name="l00880"></a><span class="lineno">  880</span><span class="comment">      ///sounds</span></div>
+<div class="line"><a id="l00881" name="l00881"></a><span class="lineno">  881</span><span class="comment"></span>      <span class="keywordflow">if</span> (IsSoundPlaying(<a class="code hl_variable" href="namespace_game_audio.html#acf7f76477661dff36b7e6158e5b6d6c6">GameAudio::outdungeon</a>) ||</div>
+<div class="line"><a id="l00882" name="l00882"></a><span class="lineno">  882</span>          IsSoundPlaying(<a class="code hl_variable" href="namespace_game_audio.html#a7cc59897fb7bff1f5e90f6c1736edc14">GameAudio::indungeon</a>) ||</div>
+<div class="line"><a id="l00883" name="l00883"></a><span class="lineno">  883</span>          IsSoundPlaying(<a class="code hl_variable" href="namespace_game_audio.html#a54fd92ccf4ab953aad6425248c27f83a">GameAudio::pausemenu</a>)){</div>
+<div class="line"><a id="l00884" name="l00884"></a><span class="lineno">  884</span>        <a class="code hl_function" href="namespace_game_audio.html#a516c031a9db3ddc1b6547b421257a429">GameAudio::StopMusic</a>();</div>
 <div class="line"><a id="l00885" name="l00885"></a><span class="lineno">  885</span>      }</div>
-<div class="line"><a id="l00886" name="l00886"></a><span class="lineno">  886</span> </div>
-<div class="line"><a id="l00887" name="l00887"></a><span class="lineno">  887</span>      endscreen.update();</div>
-<div class="line"><a id="l00888" name="l00888"></a><span class="lineno">  888</span>      endscreen.draw();</div>
-<div class="line"><a id="l00889" name="l00889"></a><span class="lineno">  889</span>      <span class="keywordflow">break</span>;</div>
-<div class="line"><a id="l00890" name="l00890"></a><span class="lineno">  890</span> </div>
-<div class="line"><a id="l00891" name="l00891"></a><span class="lineno">  891</span>    <span class="keywordflow">case</span> GameScreen::THANKYOU:</div>
+<div class="line"><a id="l00886" name="l00886"></a><span class="lineno">  886</span>      <span class="keywordflow">if</span> (!IsSoundPlaying(<a class="code hl_variable" href="namespace_game_audio.html#aa36b9208836934b58e86f4b46441edc8">GameAudio::titlescreenmusic</a>))</div>
+<div class="line"><a id="l00887" name="l00887"></a><span class="lineno">  887</span>      {</div>
+<div class="line"><a id="l00888" name="l00888"></a><span class="lineno">  888</span>        PlaySound(<a class="code hl_variable" href="namespace_game_audio.html#aa36b9208836934b58e86f4b46441edc8">GameAudio::titlescreenmusic</a>);</div>
+<div class="line"><a id="l00889" name="l00889"></a><span class="lineno">  889</span>        SetSoundVolume(<a class="code hl_variable" href="namespace_game_audio.html#aa36b9208836934b58e86f4b46441edc8">GameAudio::titlescreenmusic</a>, <span class="keywordtype">float</span>(0.1));</div>
+<div class="line"><a id="l00890" name="l00890"></a><span class="lineno">  890</span>      }</div>
+<div class="line"><a id="l00891" name="l00891"></a><span class="lineno">  891</span>      <span class="keywordflow">if</span> (IsSoundPlaying(<a class="code hl_variable" href="namespace_game_audio.html#aa36b9208836934b58e86f4b46441edc8">GameAudio::titlescreenmusic</a>)){}</div>
 <div class="line"><a id="l00892" name="l00892"></a><span class="lineno">  892</span> </div>
 <div class="line"><a id="l00893" name="l00893"></a><span class="lineno">  893</span>      ClearBackground(BLACK);</div>
 <div class="line"><a id="l00894" name="l00894"></a><span class="lineno">  894</span> </div>
 <div class="line"><a id="l00895" name="l00895"></a><span class="lineno">  895</span>      <span class="keywordflow">if</span> (IsKeyPressed(KEY_SPACE)) {</div>
-<div class="line"><a id="l00896" name="l00896"></a><span class="lineno">  896</span>        exit(0);</div>
-<div class="line"><a id="l00897" name="l00897"></a><span class="lineno">  897</span>      }</div>
-<div class="line"><a id="l00898" name="l00898"></a><span class="lineno">  898</span> </div>
-<div class="line"><a id="l00899" name="l00899"></a><span class="lineno">  899</span>      endscreen.thankyoudraw();</div>
-<div class="line"><a id="l00900" name="l00900"></a><span class="lineno">  900</span>      <span class="keywordflow">break</span>;</div>
-<div class="line"><a id="l00901" name="l00901"></a><span class="lineno">  901</span> </div>
-<div class="line"><a id="l00902" name="l00902"></a><span class="lineno">  902</span><span class="comment">//GameOver Screen</span></div>
-<div class="line"><a id="l00903" name="l00903"></a><span class="lineno">  903</span>    <span class="keywordflow">case</span> GameScreen::GAMEOVER:</div>
-<div class="line"><a id="l00904" name="l00904"></a><span class="lineno">  904</span>      DrawTexture(gameover, GetScreenWidth() / 2 - 15, GetScreenHeight() / 2 - 20, WHITE);</div>
-<div class="line"><a id="l00905" name="l00905"></a><span class="lineno">  905</span>      DrawText(<span class="stringliteral">&quot;GAME OVER!&quot;</span>, GetScreenWidth() / 2 + 280, GetScreenHeight() / 2 + 100, 50, RED);</div>
-<div class="line"><a id="l00906" name="l00906"></a><span class="lineno">  906</span>      DrawText(<span class="stringliteral">&quot;PRESS &lt;&lt;ENTER&gt;&gt; TO RESTART&quot;</span>, GetScreenWidth()/ 2 + 280, GetScreenHeight() / 2 + 150, 20, YELLOW);</div>
-<div class="line"><a id="l00907" name="l00907"></a><span class="lineno">  907</span>      <span class="keywordflow">if</span> (IsKeyPressed(KEY_ENTER))</div>
-<div class="line"><a id="l00908" name="l00908"></a><span class="lineno">  908</span>      {</div>
-<div class="line"><a id="l00909" name="l00909"></a><span class="lineno">  909</span>        <span class="comment">//currentscreen = GameScreen::TITLESCREEN;</span></div>
-<div class="line"><a id="l00910" name="l00910"></a><span class="lineno">  910</span>        exit(0);</div>
+<div class="line"><a id="l00896" name="l00896"></a><span class="lineno">  896</span>        currentscreen = GameScreen::THANKYOU;</div>
+<div class="line"><a id="l00897" name="l00897"></a><span class="lineno">  897</span>        <span class="comment">//exit(0);</span></div>
+<div class="line"><a id="l00898" name="l00898"></a><span class="lineno">  898</span>      }</div>
+<div class="line"><a id="l00899" name="l00899"></a><span class="lineno">  899</span> </div>
+<div class="line"><a id="l00900" name="l00900"></a><span class="lineno">  900</span>      endscreen.update();</div>
+<div class="line"><a id="l00901" name="l00901"></a><span class="lineno">  901</span>      endscreen.draw();</div>
+<div class="line"><a id="l00902" name="l00902"></a><span class="lineno">  902</span>      <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00903" name="l00903"></a><span class="lineno">  903</span> </div>
+<div class="line"><a id="l00904" name="l00904"></a><span class="lineno">  904</span>    <span class="keywordflow">case</span> GameScreen::THANKYOU:</div>
+<div class="line"><a id="l00905" name="l00905"></a><span class="lineno">  905</span><span class="comment"></span> </div>
+<div class="line"><a id="l00906" name="l00906"></a><span class="lineno">  906</span><span class="comment">      ///sounds</span></div>
+<div class="line"><a id="l00907" name="l00907"></a><span class="lineno">  907</span><span class="comment"></span>      <span class="keywordflow">if</span> (IsSoundPlaying(<a class="code hl_variable" href="namespace_game_audio.html#acf7f76477661dff36b7e6158e5b6d6c6">GameAudio::outdungeon</a>) ||</div>
+<div class="line"><a id="l00908" name="l00908"></a><span class="lineno">  908</span>          IsSoundPlaying(<a class="code hl_variable" href="namespace_game_audio.html#a7cc59897fb7bff1f5e90f6c1736edc14">GameAudio::indungeon</a>) ||</div>
+<div class="line"><a id="l00909" name="l00909"></a><span class="lineno">  909</span>          IsSoundPlaying(<a class="code hl_variable" href="namespace_game_audio.html#a54fd92ccf4ab953aad6425248c27f83a">GameAudio::pausemenu</a>)){</div>
+<div class="line"><a id="l00910" name="l00910"></a><span class="lineno">  910</span>        <a class="code hl_function" href="namespace_game_audio.html#a516c031a9db3ddc1b6547b421257a429">GameAudio::StopMusic</a>();</div>
 <div class="line"><a id="l00911" name="l00911"></a><span class="lineno">  911</span>      }</div>
-<div class="line"><a id="l00912" name="l00912"></a><span class="lineno">  912</span>    <span class="keywordflow">break</span>;</div>
-<div class="line"><a id="l00913" name="l00913"></a><span class="lineno">  913</span>    }</div>
-<div class="line"><a id="l00914" name="l00914"></a><span class="lineno">  914</span>  }</div>
-<div class="line"><a id="l00915" name="l00915"></a><span class="lineno">  915</span> </div>
-<div class="line"><a id="l00916" name="l00916"></a><span class="lineno">  916</span> </div>
-<div class="line"><a id="l00917" name="l00917"></a><span class="lineno">  917</span><span class="comment">//======================================================================================================================</span></div>
+<div class="line"><a id="l00912" name="l00912"></a><span class="lineno">  912</span>      <span class="keywordflow">if</span> (!IsSoundPlaying(<a class="code hl_variable" href="namespace_game_audio.html#aa36b9208836934b58e86f4b46441edc8">GameAudio::titlescreenmusic</a>))</div>
+<div class="line"><a id="l00913" name="l00913"></a><span class="lineno">  913</span>      {</div>
+<div class="line"><a id="l00914" name="l00914"></a><span class="lineno">  914</span>        PlaySound(<a class="code hl_variable" href="namespace_game_audio.html#aa36b9208836934b58e86f4b46441edc8">GameAudio::titlescreenmusic</a>);</div>
+<div class="line"><a id="l00915" name="l00915"></a><span class="lineno">  915</span>        SetSoundVolume(<a class="code hl_variable" href="namespace_game_audio.html#aa36b9208836934b58e86f4b46441edc8">GameAudio::titlescreenmusic</a>, <span class="keywordtype">float</span>(0.1));</div>
+<div class="line"><a id="l00916" name="l00916"></a><span class="lineno">  916</span>      }</div>
+<div class="line"><a id="l00917" name="l00917"></a><span class="lineno">  917</span>      <span class="keywordflow">if</span> (IsSoundPlaying(<a class="code hl_variable" href="namespace_game_audio.html#aa36b9208836934b58e86f4b46441edc8">GameAudio::titlescreenmusic</a>)){}</div>
 <div class="line"><a id="l00918" name="l00918"></a><span class="lineno">  918</span> </div>
-<div class="line"><a id="l00919" name="l00919"></a><span class="lineno"><a class="line" href="class_game_1_1_level.html#a18f55a8401fc5ed824a43dcad083ca71">  919</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_game_1_1_level.html#a18f55a8401fc5ed824a43dcad083ca71">Game::Level::Teleport</a>() {</div>
+<div class="line"><a id="l00919" name="l00919"></a><span class="lineno">  919</span>      ClearBackground(BLACK);</div>
 <div class="line"><a id="l00920" name="l00920"></a><span class="lineno">  920</span> </div>
-<div class="line"><a id="l00921" name="l00921"></a><span class="lineno">  921</span>  <span class="comment">// teleport coordinates (JUST FOR DRAW)</span></div>
-<div class="line"><a id="l00922" name="l00922"></a><span class="lineno">  922</span>  teleportrecOVERWORLDtoPYRAMID = { doorPositionX, doorPositionY, doortileX, doortileY }; <span class="comment">// rectangle in overworld to pyramid</span></div>
-<div class="line"><a id="l00923" name="l00923"></a><span class="lineno">  923</span>  teleportrecPYRAMIDtoOVERWORLD = { doorPositionX - 685, doorPositionY + 780, doortileX, doortileY }; <span class="comment">//rectangle in pyramid to overworld</span></div>
-<div class="line"><a id="l00924" name="l00924"></a><span class="lineno">  924</span>  teleportrecPYRAMIDtoENDSCREEN = { doorPositionX + 528 , doorPositionY - 168, doortileX, doortileY }; <span class="comment">//rectangle in pyramid to endscreen</span></div>
-<div class="line"><a id="l00925" name="l00925"></a><span class="lineno">  925</span> </div>
-<div class="line"><a id="l00926" name="l00926"></a><span class="lineno">  926</span>  <span class="comment">// collision check with the door1 &amp; nemo (RECTANGLES FOR COLLISION)</span></div>
-<div class="line"><a id="l00927" name="l00927"></a><span class="lineno">  927</span>  teleportcollisionOVERWORLDtoPYRAMID = CheckCollisionRecs(teleportrecOVERWORLDtoPYRAMID, nemo-&gt;nemorec); <span class="comment">//check collision between door1 and nemo</span></div>
-<div class="line"><a id="l00928" name="l00928"></a><span class="lineno">  928</span>  teleportcollisionPYRAMIDtoOVERWORLD = CheckCollisionRecs(teleportrecPYRAMIDtoOVERWORLD, nemo-&gt;nemorec);</div>
-<div class="line"><a id="l00929" name="l00929"></a><span class="lineno">  929</span>  teleportcollisionPYRAMIDtoENDSCREEN = CheckCollisionRecs(teleportrecPYRAMIDtoENDSCREEN, nemo-&gt;nemorec);</div>
-<div class="line"><a id="l00930" name="l00930"></a><span class="lineno">  930</span>}</div>
-<div class="line"><a id="l00931" name="l00931"></a><span class="lineno">  931</span> </div>
-<div class="line"><a id="l00932" name="l00932"></a><span class="lineno">  932</span><span class="comment">//Destructor</span></div>
-<div class="line"><a id="l00933" name="l00933"></a><span class="lineno"><a class="line" href="class_game_1_1_level.html#a70875e348acd232acba7df8fd188f657">  933</a></span><a class="code hl_function" href="class_game_1_1_level.html#a70875e348acd232acba7df8fd188f657">Game::Level::~Level</a>()</div>
-<div class="line"><a id="l00934" name="l00934"></a><span class="lineno">  934</span>{</div>
-<div class="line"><a id="l00935" name="l00935"></a><span class="lineno">  935</span>  std::cout&lt;&lt;<span class="stringliteral">&quot;Destructor Level\n&quot;</span>;</div>
-<div class="line"><a id="l00936" name="l00936"></a><span class="lineno">  936</span>  <span class="keyword">delete</span> enemy;</div>
-<div class="line"><a id="l00937" name="l00937"></a><span class="lineno">  937</span>  <span class="keyword">delete</span> shadow;</div>
-<div class="line"><a id="l00938" name="l00938"></a><span class="lineno">  938</span>  <span class="keyword">delete</span> pharaoh;</div>
-<div class="line"><a id="l00939" name="l00939"></a><span class="lineno">  939</span>}</div>
-<div class="line"><a id="l00940" name="l00940"></a><span class="lineno">  940</span><span class="comment">/*</span></div>
-<div class="line"><a id="l00941" name="l00941"></a><span class="lineno">  941</span><span class="comment">void Game::Level::BATTLESTART()</span></div>
-<div class="line"><a id="l00942" name="l00942"></a><span class="lineno">  942</span><span class="comment">{</span></div>
-<div class="line"><a id="l00943" name="l00943"></a><span class="lineno">  943</span><span class="comment"></span> </div>
-<div class="line"><a id="l00944" name="l00944"></a><span class="lineno">  944</span><span class="comment">  startrec = {Startrec.x, Startrec.y, 1428, 144};</span></div>
-<div class="line"><a id="l00945" name="l00945"></a><span class="lineno">  945</span><span class="comment">  DrawRectangleRec(startrec, Color {});</span></div>
-<div class="line"><a id="l00946" name="l00946"></a><span class="lineno">  946</span><span class="comment">  DrawTextureRec(BattleStart,start_frameRec, {Startrec.x, Startrec.y}, WHITE);</span></div>
-<div class="line"><a id="l00947" name="l00947"></a><span class="lineno">  947</span><span class="comment"></span> </div>
-<div class="line"><a id="l00948" name="l00948"></a><span class="lineno">  948</span><span class="comment">  start_framesCounter++;</span></div>
-<div class="line"><a id="l00949" name="l00949"></a><span class="lineno">  949</span><span class="comment"></span> </div>
-<div class="line"><a id="l00950" name="l00950"></a><span class="lineno">  950</span><span class="comment">  if (start_framesCounter &gt;= (60 / start_framesSpeed))</span></div>
-<div class="line"><a id="l00951" name="l00951"></a><span class="lineno">  951</span><span class="comment">  {</span></div>
-<div class="line"><a id="l00952" name="l00952"></a><span class="lineno">  952</span><span class="comment">    start_framesCounter = 0;</span></div>
-<div class="line"><a id="l00953" name="l00953"></a><span class="lineno">  953</span><span class="comment">    start_currentFrame++;</span></div>
-<div class="line"><a id="l00954" name="l00954"></a><span class="lineno">  954</span><span class="comment"></span> </div>
-<div class="line"><a id="l00955" name="l00955"></a><span class="lineno">  955</span><span class="comment">    if (start_currentFrame &gt; 7)</span></div>
-<div class="line"><a id="l00956" name="l00956"></a><span class="lineno">  956</span><span class="comment">    {</span></div>
-<div class="line"><a id="l00957" name="l00957"></a><span class="lineno">  957</span><span class="comment">      start_currentFrame = 0;</span></div>
-<div class="line"><a id="l00958" name="l00958"></a><span class="lineno">  958</span><span class="comment">      //Level::currentscreen = GameScreen::COMBAT;</span></div>
-<div class="line"><a id="l00959" name="l00959"></a><span class="lineno">  959</span><span class="comment">    }</span></div>
-<div class="line"><a id="l00960" name="l00960"></a><span class="lineno">  960</span><span class="comment"></span> </div>
-<div class="line"><a id="l00961" name="l00961"></a><span class="lineno">  961</span><span class="comment">    start_frameRec.x = (float)start_currentFrame * (float)BattleStart.width / 7;</span></div>
-<div class="line"><a id="l00962" name="l00962"></a><span class="lineno">  962</span><span class="comment">  }</span></div>
-<div class="line"><a id="l00963" name="l00963"></a><span class="lineno">  963</span><span class="comment">}*/</span></div>
+<div class="line"><a id="l00921" name="l00921"></a><span class="lineno">  921</span>      <span class="keywordflow">if</span> (IsKeyPressed(KEY_SPACE)) {</div>
+<div class="line"><a id="l00922" name="l00922"></a><span class="lineno">  922</span>        exit(0);</div>
+<div class="line"><a id="l00923" name="l00923"></a><span class="lineno">  923</span>      }</div>
+<div class="line"><a id="l00924" name="l00924"></a><span class="lineno">  924</span> </div>
+<div class="line"><a id="l00925" name="l00925"></a><span class="lineno">  925</span>      endscreen.thankyoudraw();</div>
+<div class="line"><a id="l00926" name="l00926"></a><span class="lineno">  926</span>      <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00927" name="l00927"></a><span class="lineno">  927</span> </div>
+<div class="line"><a id="l00928" name="l00928"></a><span class="lineno">  928</span><span class="comment">//GameOver Screen</span></div>
+<div class="line"><a id="l00929" name="l00929"></a><span class="lineno">  929</span>    <span class="keywordflow">case</span> GameScreen::GAMEOVER:</div>
+<div class="line"><a id="l00930" name="l00930"></a><span class="lineno">  930</span><span class="comment"></span> </div>
+<div class="line"><a id="l00931" name="l00931"></a><span class="lineno">  931</span><span class="comment">      ///sounds</span></div>
+<div class="line"><a id="l00932" name="l00932"></a><span class="lineno">  932</span><span class="comment"></span>      <span class="keywordflow">if</span> (IsSoundPlaying(<a class="code hl_variable" href="namespace_game_audio.html#acf7f76477661dff36b7e6158e5b6d6c6">GameAudio::outdungeon</a>) ||</div>
+<div class="line"><a id="l00933" name="l00933"></a><span class="lineno">  933</span>          IsSoundPlaying(<a class="code hl_variable" href="namespace_game_audio.html#a7cc59897fb7bff1f5e90f6c1736edc14">GameAudio::indungeon</a>) ||</div>
+<div class="line"><a id="l00934" name="l00934"></a><span class="lineno">  934</span>          IsSoundPlaying(<a class="code hl_variable" href="namespace_game_audio.html#aa36b9208836934b58e86f4b46441edc8">GameAudio::titlescreenmusic</a>) ||</div>
+<div class="line"><a id="l00935" name="l00935"></a><span class="lineno">  935</span>          IsSoundPlaying(<a class="code hl_variable" href="namespace_game_audio.html#a54fd92ccf4ab953aad6425248c27f83a">GameAudio::pausemenu</a>)){</div>
+<div class="line"><a id="l00936" name="l00936"></a><span class="lineno">  936</span>        <a class="code hl_function" href="namespace_game_audio.html#a516c031a9db3ddc1b6547b421257a429">GameAudio::StopMusic</a>();</div>
+<div class="line"><a id="l00937" name="l00937"></a><span class="lineno">  937</span>      }</div>
+<div class="line"><a id="l00938" name="l00938"></a><span class="lineno">  938</span>      <span class="keywordflow">if</span> (!IsSoundPlaying(<a class="code hl_variable" href="namespace_game_audio.html#a56770499d956e9f6f3518727f9c9d058">GameAudio::gameover</a>))</div>
+<div class="line"><a id="l00939" name="l00939"></a><span class="lineno">  939</span>      {</div>
+<div class="line"><a id="l00940" name="l00940"></a><span class="lineno">  940</span>        PlaySound(<a class="code hl_variable" href="namespace_game_audio.html#a56770499d956e9f6f3518727f9c9d058">GameAudio::gameover</a>);</div>
+<div class="line"><a id="l00941" name="l00941"></a><span class="lineno">  941</span>        SetSoundVolume(<a class="code hl_variable" href="namespace_game_audio.html#a56770499d956e9f6f3518727f9c9d058">GameAudio::gameover</a>, <span class="keywordtype">float</span>(0.1));</div>
+<div class="line"><a id="l00942" name="l00942"></a><span class="lineno">  942</span>      }</div>
+<div class="line"><a id="l00943" name="l00943"></a><span class="lineno">  943</span>      <span class="keywordflow">if</span> (IsSoundPlaying(<a class="code hl_variable" href="namespace_game_audio.html#a56770499d956e9f6f3518727f9c9d058">GameAudio::gameover</a>)){}</div>
+<div class="line"><a id="l00944" name="l00944"></a><span class="lineno">  944</span> </div>
+<div class="line"><a id="l00945" name="l00945"></a><span class="lineno">  945</span>      DrawTexture(<a class="code hl_variable" href="namespace_game_audio.html#a56770499d956e9f6f3518727f9c9d058">gameover</a>, 0,0, WHITE);</div>
+<div class="line"><a id="l00946" name="l00946"></a><span class="lineno">  946</span> </div>
+<div class="line"><a id="l00947" name="l00947"></a><span class="lineno">  947</span>      <span class="comment">//DrawText(&quot;GAME OVER!&quot;, GetScreenWidth() / 2 + 280, GetScreenHeight() / 2 + 100, 50, RED);</span></div>
+<div class="line"><a id="l00948" name="l00948"></a><span class="lineno">  948</span>      <span class="comment">//DrawText(&quot;PRESS [SPACE] TO EXIT&quot;, GetScreenWidth()/ 2 + 280, GetScreenHeight() / 2 + 150, 20, YELLOW);</span></div>
+<div class="line"><a id="l00949" name="l00949"></a><span class="lineno">  949</span>      <span class="comment">//DrawTextEx(textFont, &quot;GAME OVER&quot;, { static_cast&lt;float&gt;(GetScreenWidth() / 2 + 320),</span></div>
+<div class="line"><a id="l00950" name="l00950"></a><span class="lineno">  950</span>                                           <span class="comment">//static_cast&lt;float&gt;(GetScreenHeight() / 2 + 20) }, 60, fontSpacing, WHITE);</span></div>
+<div class="line"><a id="l00951" name="l00951"></a><span class="lineno">  951</span>      <span class="comment">//DrawTextEx(textFont, &quot;PRESS           TO EXIT&quot;, { static_cast&lt;float&gt;(GetScreenWidth() / 2 + 280),</span></div>
+<div class="line"><a id="l00952" name="l00952"></a><span class="lineno">  952</span>                                                      <span class="comment">//static_cast&lt;float&gt;(GetScreenHeight() / 2 + 150) }, 30, fontSpacing, LIGHTGRAY);</span></div>
+<div class="line"><a id="l00953" name="l00953"></a><span class="lineno">  953</span>      <span class="comment">//DrawTextEx(textFont, &quot;        [SPACE]&quot;, { static_cast&lt;float&gt;(GetScreenWidth() / 2 + 280),</span></div>
+<div class="line"><a id="l00954" name="l00954"></a><span class="lineno">  954</span>                                                     <span class="comment">// static_cast&lt;float&gt;(GetScreenHeight() / 2 + 150) }, 30, fontSpacing, WHITE);</span></div>
+<div class="line"><a id="l00955" name="l00955"></a><span class="lineno">  955</span>      <span class="comment">//DrawTextEx(textFont, &quot;PRESS [SPACE] TO EXIT&quot;, { static_cast&lt;float&gt;(GetScreenWidth() / 2 + 320),</span></div>
+<div class="line"><a id="l00956" name="l00956"></a><span class="lineno">  956</span>                                                <span class="comment">//static_cast&lt;float&gt;(GetScreenHeight() / 2 + 70) }, 25, fontSpacing, WHITE);</span></div>
+<div class="line"><a id="l00957" name="l00957"></a><span class="lineno">  957</span> </div>
+<div class="line"><a id="l00958" name="l00958"></a><span class="lineno">  958</span>      <span class="keywordflow">if</span> (IsKeyPressed(KEY_SPACE))</div>
+<div class="line"><a id="l00959" name="l00959"></a><span class="lineno">  959</span>      {</div>
+<div class="line"><a id="l00960" name="l00960"></a><span class="lineno">  960</span>        <span class="comment">//currentscreen = GameScreen::TITLESCREEN;</span></div>
+<div class="line"><a id="l00961" name="l00961"></a><span class="lineno">  961</span>        exit(0);</div>
+<div class="line"><a id="l00962" name="l00962"></a><span class="lineno">  962</span>      }</div>
+<div class="line"><a id="l00963" name="l00963"></a><span class="lineno">  963</span>    <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00964" name="l00964"></a><span class="lineno">  964</span>    }</div>
+<div class="line"><a id="l00965" name="l00965"></a><span class="lineno">  965</span>  }</div>
+<div class="line"><a id="l00966" name="l00966"></a><span class="lineno">  966</span> </div>
+<div class="line"><a id="l00967" name="l00967"></a><span class="lineno">  967</span> </div>
+<div class="line"><a id="l00968" name="l00968"></a><span class="lineno">  968</span><span class="comment">//======================================================================================================================</span></div>
+<div class="line"><a id="l00969" name="l00969"></a><span class="lineno">  969</span> </div>
+<div class="line"><a id="l00970" name="l00970"></a><span class="lineno"><a class="line" href="class_game_1_1_level.html#a18f55a8401fc5ed824a43dcad083ca71">  970</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_game_1_1_level.html#a18f55a8401fc5ed824a43dcad083ca71">Game::Level::Teleport</a>() {</div>
+<div class="line"><a id="l00971" name="l00971"></a><span class="lineno">  971</span> </div>
+<div class="line"><a id="l00972" name="l00972"></a><span class="lineno">  972</span>  <span class="comment">// teleport coordinates (JUST FOR DRAW)</span></div>
+<div class="line"><a id="l00973" name="l00973"></a><span class="lineno">  973</span>  teleportrecOVERWORLDtoPYRAMID = { doorPositionX, doorPositionY, doortileX, doortileY }; <span class="comment">// rectangle in overworld to pyramid</span></div>
+<div class="line"><a id="l00974" name="l00974"></a><span class="lineno">  974</span>  teleportrecPYRAMIDtoOVERWORLD = { doorPositionX - 685, doorPositionY + 780, doortileX, doortileY }; <span class="comment">//rectangle in pyramid to overworld</span></div>
+<div class="line"><a id="l00975" name="l00975"></a><span class="lineno">  975</span>  teleportrecPYRAMIDtoENDSCREEN = { doorPositionX + 528 , doorPositionY - 168, doortileX, doortileY }; <span class="comment">//rectangle in pyramid to endscreen</span></div>
+<div class="line"><a id="l00976" name="l00976"></a><span class="lineno">  976</span> </div>
+<div class="line"><a id="l00977" name="l00977"></a><span class="lineno">  977</span>  <span class="comment">// collision check with the door1 &amp; nemo (RECTANGLES FOR COLLISION)</span></div>
+<div class="line"><a id="l00978" name="l00978"></a><span class="lineno">  978</span>  teleportcollisionOVERWORLDtoPYRAMID = CheckCollisionRecs(teleportrecOVERWORLDtoPYRAMID, nemo-&gt;nemorec); <span class="comment">//check collision between door1 and nemo</span></div>
+<div class="line"><a id="l00979" name="l00979"></a><span class="lineno">  979</span>  teleportcollisionPYRAMIDtoOVERWORLD = CheckCollisionRecs(teleportrecPYRAMIDtoOVERWORLD, nemo-&gt;nemorec);</div>
+<div class="line"><a id="l00980" name="l00980"></a><span class="lineno">  980</span>  teleportcollisionPYRAMIDtoENDSCREEN = CheckCollisionRecs(teleportrecPYRAMIDtoENDSCREEN, nemo-&gt;nemorec);</div>
+<div class="line"><a id="l00981" name="l00981"></a><span class="lineno">  981</span>}</div>
+<div class="line"><a id="l00982" name="l00982"></a><span class="lineno">  982</span> </div>
+<div class="line"><a id="l00983" name="l00983"></a><span class="lineno">  983</span><span class="comment">//Destructor</span></div>
+<div class="line"><a id="l00984" name="l00984"></a><span class="lineno"><a class="line" href="class_game_1_1_level.html#a70875e348acd232acba7df8fd188f657">  984</a></span><a class="code hl_function" href="class_game_1_1_level.html#a70875e348acd232acba7df8fd188f657">Game::Level::~Level</a>()</div>
+<div class="line"><a id="l00985" name="l00985"></a><span class="lineno">  985</span>{</div>
+<div class="line"><a id="l00986" name="l00986"></a><span class="lineno">  986</span>  std::cout&lt;&lt;<span class="stringliteral">&quot;Destructor Level\n&quot;</span>;</div>
+<div class="line"><a id="l00987" name="l00987"></a><span class="lineno">  987</span>  <span class="keyword">delete</span> enemy;</div>
+<div class="line"><a id="l00988" name="l00988"></a><span class="lineno">  988</span>  <span class="keyword">delete</span> shadow;</div>
+<div class="line"><a id="l00989" name="l00989"></a><span class="lineno">  989</span>  <span class="keyword">delete</span> pharaoh;</div>
+<div class="line"><a id="l00990" name="l00990"></a><span class="lineno">  990</span>}</div>
+<div class="line"><a id="l00991" name="l00991"></a><span class="lineno">  991</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00992" name="l00992"></a><span class="lineno">  992</span><span class="comment">void Game::Level::BATTLESTART()</span></div>
+<div class="line"><a id="l00993" name="l00993"></a><span class="lineno">  993</span><span class="comment">{</span></div>
+<div class="line"><a id="l00994" name="l00994"></a><span class="lineno">  994</span><span class="comment"></span> </div>
+<div class="line"><a id="l00995" name="l00995"></a><span class="lineno">  995</span><span class="comment">  startrec = {Startrec.x, Startrec.y, 1428, 144};</span></div>
+<div class="line"><a id="l00996" name="l00996"></a><span class="lineno">  996</span><span class="comment">  DrawRectangleRec(startrec, Color {});</span></div>
+<div class="line"><a id="l00997" name="l00997"></a><span class="lineno">  997</span><span class="comment">  DrawTextureRec(BattleStart,start_frameRec, {Startrec.x, Startrec.y}, WHITE);</span></div>
+<div class="line"><a id="l00998" name="l00998"></a><span class="lineno">  998</span><span class="comment"></span> </div>
+<div class="line"><a id="l00999" name="l00999"></a><span class="lineno">  999</span><span class="comment">  start_framesCounter++;</span></div>
+<div class="line"><a id="l01000" name="l01000"></a><span class="lineno"> 1000</span><span class="comment"></span> </div>
+<div class="line"><a id="l01001" name="l01001"></a><span class="lineno"> 1001</span><span class="comment">  if (start_framesCounter &gt;= (60 / start_framesSpeed))</span></div>
+<div class="line"><a id="l01002" name="l01002"></a><span class="lineno"> 1002</span><span class="comment">  {</span></div>
+<div class="line"><a id="l01003" name="l01003"></a><span class="lineno"> 1003</span><span class="comment">    start_framesCounter = 0;</span></div>
+<div class="line"><a id="l01004" name="l01004"></a><span class="lineno"> 1004</span><span class="comment">    start_currentFrame++;</span></div>
+<div class="line"><a id="l01005" name="l01005"></a><span class="lineno"> 1005</span><span class="comment"></span> </div>
+<div class="line"><a id="l01006" name="l01006"></a><span class="lineno"> 1006</span><span class="comment">    if (start_currentFrame &gt; 7)</span></div>
+<div class="line"><a id="l01007" name="l01007"></a><span class="lineno"> 1007</span><span class="comment">    {</span></div>
+<div class="line"><a id="l01008" name="l01008"></a><span class="lineno"> 1008</span><span class="comment">      start_currentFrame = 0;</span></div>
+<div class="line"><a id="l01009" name="l01009"></a><span class="lineno"> 1009</span><span class="comment">      //Level::currentscreen = GameScreen::COMBAT;</span></div>
+<div class="line"><a id="l01010" name="l01010"></a><span class="lineno"> 1010</span><span class="comment">    }</span></div>
+<div class="line"><a id="l01011" name="l01011"></a><span class="lineno"> 1011</span><span class="comment"></span> </div>
+<div class="line"><a id="l01012" name="l01012"></a><span class="lineno"> 1012</span><span class="comment">    start_frameRec.x = (float)start_currentFrame * (float)BattleStart.width / 7;</span></div>
+<div class="line"><a id="l01013" name="l01013"></a><span class="lineno"> 1013</span><span class="comment">  }</span></div>
+<div class="line"><a id="l01014" name="l01014"></a><span class="lineno"> 1014</span><span class="comment">}*/</span></div>
 <div class="ttc" id="a_level_8h_html"><div class="ttname"><a href="_level_8h.html">Level.h</a></div></div>
 <div class="ttc" id="aclass_game_1_1_game_character_html"><div class="ttname"><a href="class_game_1_1_game_character.html">Game::GameCharacter</a></div><div class="ttdef"><b>Definition:</b> <a href="_game_character_8h_source.html#l00009">GameCharacter.h:10</a></div></div>
 <div class="ttc" id="aclass_game_1_1_game_character_html_a4ac446b6b1dc94f090d3f796f97f6354"><div class="ttname"><a href="class_game_1_1_game_character.html#a4ac446b6b1dc94f090d3f796f97f6354">Game::GameCharacter::get_turnnumb</a></div><div class="ttdeci">virtual auto get_turnnumb() -&gt; int</div><div class="ttdef"><b>Definition:</b> <a href="_game_character_8cpp_source.html#l00030">GameCharacter.cpp:30</a></div></div>
@@ -1061,14 +1112,14 @@ $(document).ready(function(){initNavTree('_level_8cpp_source.html',''); initResi
 <div class="ttc" id="aclass_game_1_1_level_html_a0801b9cba61bc17841583b93a5b3f60f"><div class="ttname"><a href="class_game_1_1_level.html#a0801b9cba61bc17841583b93a5b3f60f">Game::Level::framescounter</a></div><div class="ttdeci">int framescounter</div><div class="ttdef"><b>Definition:</b> <a href="_level_8h_source.html#l00126">Level.h:126</a></div></div>
 <div class="ttc" id="aclass_game_1_1_level_html_a11f22d34062f6c1137d01ccfa8c9176e"><div class="ttname"><a href="class_game_1_1_level.html#a11f22d34062f6c1137d01ccfa8c9176e">Game::Level::e_damaged</a></div><div class="ttdeci">bool e_damaged</div><div class="ttdef"><b>Definition:</b> <a href="_level_8h_source.html#l00133">Level.h:133</a></div></div>
 <div class="ttc" id="aclass_game_1_1_level_html_a13a470dca126442af86e4772febe6336"><div class="ttname"><a href="class_game_1_1_level.html#a13a470dca126442af86e4772febe6336">Game::Level::GameOver</a></div><div class="ttdeci">bool GameOver</div><div class="ttdef"><b>Definition:</b> <a href="_level_8h_source.html#l00080">Level.h:80</a></div></div>
-<div class="ttc" id="aclass_game_1_1_level_html_a18f55a8401fc5ed824a43dcad083ca71"><div class="ttname"><a href="class_game_1_1_level.html#a18f55a8401fc5ed824a43dcad083ca71">Game::Level::Teleport</a></div><div class="ttdeci">void Teleport()</div><div class="ttdef"><b>Definition:</b> <a href="_level_8cpp_source.html#l00919">Level.cpp:919</a></div></div>
-<div class="ttc" id="aclass_game_1_1_level_html_a1ad91b76194fd07622f3c09a713b5d1d"><div class="ttname"><a href="class_game_1_1_level.html#a1ad91b76194fd07622f3c09a713b5d1d">Game::Level::t_rec_time</a></div><div class="ttdeci">Rectangle t_rec_time</div><div class="ttdef"><b>Definition:</b> <a href="_level_8h_source.html#l00176">Level.h:176</a></div></div>
-<div class="ttc" id="aclass_game_1_1_level_html_a219023b198bc96e0577fd0fb44d433c8"><div class="ttname"><a href="class_game_1_1_level.html#a219023b198bc96e0577fd0fb44d433c8">Game::Level::b_currentFrame</a></div><div class="ttdeci">int b_currentFrame</div><div class="ttdef"><b>Definition:</b> <a href="_level_8h_source.html#l00187">Level.h:187</a></div></div>
+<div class="ttc" id="aclass_game_1_1_level_html_a18f55a8401fc5ed824a43dcad083ca71"><div class="ttname"><a href="class_game_1_1_level.html#a18f55a8401fc5ed824a43dcad083ca71">Game::Level::Teleport</a></div><div class="ttdeci">void Teleport()</div><div class="ttdef"><b>Definition:</b> <a href="_level_8cpp_source.html#l00970">Level.cpp:970</a></div></div>
+<div class="ttc" id="aclass_game_1_1_level_html_a1ad91b76194fd07622f3c09a713b5d1d"><div class="ttname"><a href="class_game_1_1_level.html#a1ad91b76194fd07622f3c09a713b5d1d">Game::Level::t_rec_time</a></div><div class="ttdeci">Rectangle t_rec_time</div><div class="ttdef"><b>Definition:</b> <a href="_level_8h_source.html#l00177">Level.h:177</a></div></div>
+<div class="ttc" id="aclass_game_1_1_level_html_a219023b198bc96e0577fd0fb44d433c8"><div class="ttname"><a href="class_game_1_1_level.html#a219023b198bc96e0577fd0fb44d433c8">Game::Level::b_currentFrame</a></div><div class="ttdeci">int b_currentFrame</div><div class="ttdef"><b>Definition:</b> <a href="_level_8h_source.html#l00188">Level.h:188</a></div></div>
 <div class="ttc" id="aclass_game_1_1_level_html_a22c58f7b5977b5045410e9c9f79b5d46"><div class="ttname"><a href="class_game_1_1_level.html#a22c58f7b5977b5045410e9c9f79b5d46">Game::Level::energy</a></div><div class="ttdeci">int energy</div><div class="ttdef"><b>Definition:</b> <a href="_level_8h_source.html#l00095">Level.h:95</a></div></div>
 <div class="ttc" id="aclass_game_1_1_level_html_a268c33365c73e5cef4036f4f97e86f81"><div class="ttname"><a href="class_game_1_1_level.html#a268c33365c73e5cef4036f4f97e86f81">Game::Level::player</a></div><div class="ttdeci">unique_ptr&lt; GameCharacter &gt; player</div><div class="ttdef"><b>Definition:</b> <a href="_level_8h_source.html#l00085">Level.h:85</a></div></div>
 <div class="ttc" id="aclass_game_1_1_level_html_a2f828dcb9fff21316bdc0b95cbc01aa0"><div class="ttname"><a href="class_game_1_1_level.html#a2f828dcb9fff21316bdc0b95cbc01aa0">Game::Level::timer</a></div><div class="ttdeci">bool timer</div><div class="ttdef"><b>Definition:</b> <a href="_level_8h_source.html#l00125">Level.h:125</a></div></div>
 <div class="ttc" id="aclass_game_1_1_level_html_a4936dd1919640cd894613f284173c5ec"><div class="ttname"><a href="class_game_1_1_level.html#a4936dd1919640cd894613f284173c5ec">Game::Level::p_damaged</a></div><div class="ttdeci">bool p_damaged</div><div class="ttdef"><b>Definition:</b> <a href="_level_8h_source.html#l00131">Level.h:131</a></div></div>
-<div class="ttc" id="aclass_game_1_1_level_html_a49d1b0e0cb7eefba79257c98f4930df2"><div class="ttname"><a href="class_game_1_1_level.html#a49d1b0e0cb7eefba79257c98f4930df2">Game::Level::t_framescounter</a></div><div class="ttdeci">int t_framescounter</div><div class="ttdef"><b>Definition:</b> <a href="_level_8h_source.html#l00181">Level.h:181</a></div></div>
+<div class="ttc" id="aclass_game_1_1_level_html_a49d1b0e0cb7eefba79257c98f4930df2"><div class="ttname"><a href="class_game_1_1_level.html#a49d1b0e0cb7eefba79257c98f4930df2">Game::Level::t_framescounter</a></div><div class="ttdeci">int t_framescounter</div><div class="ttdef"><b>Definition:</b> <a href="_level_8h_source.html#l00182">Level.h:182</a></div></div>
 <div class="ttc" id="aclass_game_1_1_level_html_a5a5c04b557829e44753ce6452a161e50"><div class="ttname"><a href="class_game_1_1_level.html#a5a5c04b557829e44753ce6452a161e50">Game::Level::GO_timer</a></div><div class="ttdeci">int GO_timer</div><div class="ttdef"><b>Definition:</b> <a href="_level_8h_source.html#l00081">Level.h:81</a></div></div>
 <div class="ttc" id="aclass_game_1_1_level_html_a605a468eab80cc37fd022e5f4541b92da25cd5d7590da7b2a4e474984bf1dd5ae"><div class="ttname"><a href="class_game_1_1_level.html#a605a468eab80cc37fd022e5f4541b92da25cd5d7590da7b2a4e474984bf1dd5ae">Game::Level::GameScreen::ENDSCREEN</a></div><div class="ttdeci">@ ENDSCREEN</div></div>
 <div class="ttc" id="aclass_game_1_1_level_html_a605a468eab80cc37fd022e5f4541b92da5839e5345f05402be4d8e174cd3e1a87"><div class="ttname"><a href="class_game_1_1_level.html#a605a468eab80cc37fd022e5f4541b92da5839e5345f05402be4d8e174cd3e1a87">Game::Level::GameScreen::PAUSEMENU_OVERWORLD</a></div><div class="ttdeci">@ PAUSEMENU_OVERWORLD</div></div>
@@ -1077,24 +1128,25 @@ $(document).ready(function(){initNavTree('_level_8cpp_source.html',''); initResi
 <div class="ttc" id="aclass_game_1_1_level_html_a605a468eab80cc37fd022e5f4541b92da87ad2b9aff4a2c36a97a8c20847e9e62"><div class="ttname"><a href="class_game_1_1_level.html#a605a468eab80cc37fd022e5f4541b92da87ad2b9aff4a2c36a97a8c20847e9e62">Game::Level::GameScreen::PYRAMIDE</a></div><div class="ttdeci">@ PYRAMIDE</div></div>
 <div class="ttc" id="aclass_game_1_1_level_html_a605a468eab80cc37fd022e5f4541b92dac1994f031c3ac5b6b2e83aebf0c2b05e"><div class="ttname"><a href="class_game_1_1_level.html#a605a468eab80cc37fd022e5f4541b92dac1994f031c3ac5b6b2e83aebf0c2b05e">Game::Level::GameScreen::PAUSEMENU_PYRAMID</a></div><div class="ttdeci">@ PAUSEMENU_PYRAMID</div></div>
 <div class="ttc" id="aclass_game_1_1_level_html_a67b3f3c5707587cddc19ed0631f435aa"><div class="ttname"><a href="class_game_1_1_level.html#a67b3f3c5707587cddc19ed0631f435aa">Game::Level::combat</a></div><div class="ttdeci">void combat(GameCharacter *c_enemy)</div><div class="ttdef"><b>Definition:</b> <a href="_level_8cpp_source.html#l00005">Level.cpp:5</a></div></div>
-<div class="ttc" id="aclass_game_1_1_level_html_a70875e348acd232acba7df8fd188f657"><div class="ttname"><a href="class_game_1_1_level.html#a70875e348acd232acba7df8fd188f657">Game::Level::~Level</a></div><div class="ttdeci">~Level()</div><div class="ttdef"><b>Definition:</b> <a href="_level_8cpp_source.html#l00933">Level.cpp:933</a></div></div>
-<div class="ttc" id="aclass_game_1_1_level_html_a8129ab5b9b7329d8b1bbf910e6b03eb6"><div class="ttname"><a href="class_game_1_1_level.html#a8129ab5b9b7329d8b1bbf910e6b03eb6">Game::Level::t_rec_escape</a></div><div class="ttdeci">Rectangle t_rec_escape</div><div class="ttdef"><b>Definition:</b> <a href="_level_8h_source.html#l00178">Level.h:178</a></div></div>
+<div class="ttc" id="aclass_game_1_1_level_html_a70875e348acd232acba7df8fd188f657"><div class="ttname"><a href="class_game_1_1_level.html#a70875e348acd232acba7df8fd188f657">Game::Level::~Level</a></div><div class="ttdeci">~Level()</div><div class="ttdef"><b>Definition:</b> <a href="_level_8cpp_source.html#l00984">Level.cpp:984</a></div></div>
+<div class="ttc" id="aclass_game_1_1_level_html_a8129ab5b9b7329d8b1bbf910e6b03eb6"><div class="ttname"><a href="class_game_1_1_level.html#a8129ab5b9b7329d8b1bbf910e6b03eb6">Game::Level::t_rec_escape</a></div><div class="ttdeci">Rectangle t_rec_escape</div><div class="ttdef"><b>Definition:</b> <a href="_level_8h_source.html#l00179">Level.h:179</a></div></div>
 <div class="ttc" id="aclass_game_1_1_level_html_a8d0350fc0dba0d55fa25dca7e2576035"><div class="ttname"><a href="class_game_1_1_level.html#a8d0350fc0dba0d55fa25dca7e2576035">Game::Level::T_damaged</a></div><div class="ttdeci">bool T_damaged</div><div class="ttdef"><b>Definition:</b> <a href="_level_8h_source.html#l00132">Level.h:132</a></div></div>
-<div class="ttc" id="aclass_game_1_1_level_html_a9dc4dcab52f650a9672ef70e3a3a4275"><div class="ttname"><a href="class_game_1_1_level.html#a9dc4dcab52f650a9672ef70e3a3a4275">Game::Level::r_currentFrame</a></div><div class="ttdeci">int r_currentFrame</div><div class="ttdef"><b>Definition:</b> <a href="_level_8h_source.html#l00196">Level.h:196</a></div></div>
+<div class="ttc" id="aclass_game_1_1_level_html_a9dc4dcab52f650a9672ef70e3a3a4275"><div class="ttname"><a href="class_game_1_1_level.html#a9dc4dcab52f650a9672ef70e3a3a4275">Game::Level::r_currentFrame</a></div><div class="ttdeci">int r_currentFrame</div><div class="ttdef"><b>Definition:</b> <a href="_level_8h_source.html#l00197">Level.h:197</a></div></div>
 <div class="ttc" id="aclass_game_1_1_level_html_a9f7849e78f25d6599c80293b4579fd66"><div class="ttname"><a href="class_game_1_1_level.html#a9f7849e78f25d6599c80293b4579fd66">Game::Level::ScreenDraw</a></div><div class="ttdeci">void ScreenDraw()</div><div class="ttdef"><b>Definition:</b> <a href="_level_8cpp_source.html#l00249">Level.cpp:249</a></div></div>
 <div class="ttc" id="aclass_game_1_1_level_html_a9ff6de646793c7bfb823221f68884eb2"><div class="ttname"><a href="class_game_1_1_level.html#a9ff6de646793c7bfb823221f68884eb2">Game::Level::currentscreen</a></div><div class="ttdeci">GameScreen currentscreen</div><div class="ttdef"><b>Definition:</b> <a href="_level_8h_source.html#l00157">Level.h:157</a></div></div>
 <div class="ttc" id="aclass_game_1_1_level_html_aa0fb36046d692037715d0f43863d0e13"><div class="ttname"><a href="class_game_1_1_level.html#aa0fb36046d692037715d0f43863d0e13">Game::Level::input</a></div><div class="ttdeci">bool input</div><div class="ttdef"><b>Definition:</b> <a href="_level_8h_source.html#l00122">Level.h:122</a></div></div>
-<div class="ttc" id="aclass_game_1_1_level_html_aa52b2660739ed4930d2ed7849c7b3586"><div class="ttname"><a href="class_game_1_1_level.html#aa52b2660739ed4930d2ed7849c7b3586">Game::Level::t_rec_item</a></div><div class="ttdeci">Rectangle t_rec_item</div><div class="ttdef"><b>Definition:</b> <a href="_level_8h_source.html#l00177">Level.h:177</a></div></div>
-<div class="ttc" id="aclass_game_1_1_level_html_aa5af09f631647601ffdc22f0332aab91"><div class="ttname"><a href="class_game_1_1_level.html#aa5af09f631647601ffdc22f0332aab91">Game::Level::box_rec</a></div><div class="ttdeci">Rectangle box_rec</div><div class="ttdef"><b>Definition:</b> <a href="_level_8h_source.html#l00175">Level.h:175</a></div></div>
-<div class="ttc" id="aclass_game_1_1_level_html_ac756ce24baae53ea67c22a2636573243"><div class="ttname"><a href="class_game_1_1_level.html#ac756ce24baae53ea67c22a2636573243">Game::Level::t_rec_attack</a></div><div class="ttdeci">Rectangle t_rec_attack</div><div class="ttdef"><b>Definition:</b> <a href="_level_8h_source.html#l00174">Level.h:174</a></div></div>
+<div class="ttc" id="aclass_game_1_1_level_html_aa52b2660739ed4930d2ed7849c7b3586"><div class="ttname"><a href="class_game_1_1_level.html#aa52b2660739ed4930d2ed7849c7b3586">Game::Level::t_rec_item</a></div><div class="ttdeci">Rectangle t_rec_item</div><div class="ttdef"><b>Definition:</b> <a href="_level_8h_source.html#l00178">Level.h:178</a></div></div>
+<div class="ttc" id="aclass_game_1_1_level_html_aa5af09f631647601ffdc22f0332aab91"><div class="ttname"><a href="class_game_1_1_level.html#aa5af09f631647601ffdc22f0332aab91">Game::Level::box_rec</a></div><div class="ttdeci">Rectangle box_rec</div><div class="ttdef"><b>Definition:</b> <a href="_level_8h_source.html#l00176">Level.h:176</a></div></div>
+<div class="ttc" id="aclass_game_1_1_level_html_ac756ce24baae53ea67c22a2636573243"><div class="ttname"><a href="class_game_1_1_level.html#ac756ce24baae53ea67c22a2636573243">Game::Level::t_rec_attack</a></div><div class="ttdeci">Rectangle t_rec_attack</div><div class="ttdef"><b>Definition:</b> <a href="_level_8h_source.html#l00175">Level.h:175</a></div></div>
 <div class="ttc" id="aclass_game_1_1_level_html_ac986f92f894a23ea66560f4a03d2b31c"><div class="ttname"><a href="class_game_1_1_level.html#ac986f92f894a23ea66560f4a03d2b31c">Game::Level::h_amount</a></div><div class="ttdeci">int h_amount</div><div class="ttdef"><b>Definition:</b> <a href="_level_8h_source.html#l00127">Level.h:127</a></div></div>
 <div class="ttc" id="aclass_game_1_1_level_html_ade42014135c9a0f403dace0f63a9f896"><div class="ttname"><a href="class_game_1_1_level.html#ade42014135c9a0f403dace0f63a9f896">Game::Level::finisher_timer</a></div><div class="ttdeci">int finisher_timer</div><div class="ttdef"><b>Definition:</b> <a href="_level_8h_source.html#l00077">Level.h:77</a></div></div>
 <div class="ttc" id="aclass_game_1_1_level_html_af3c6b3e7ad9a79988d6b9f3b5da62a3a"><div class="ttname"><a href="class_game_1_1_level.html#af3c6b3e7ad9a79988d6b9f3b5da62a3a">Game::Level::battleEnd</a></div><div class="ttdeci">bool battleEnd</div><div class="ttdef"><b>Definition:</b> <a href="_level_8h_source.html#l00076">Level.h:76</a></div></div>
 <div class="ttc" id="anamespace_game_audio_html_a07dac752a5314e5df20c556e502df807"><div class="ttname"><a href="namespace_game_audio.html#a07dac752a5314e5df20c556e502df807">GameAudio::dialoge</a></div><div class="ttdeci">Sound dialoge</div><div class="ttdef"><b>Definition:</b> <a href="_game_audio_8cpp_source.html#l00004">GameAudio.cpp:4</a></div></div>
 <div class="ttc" id="anamespace_game_audio_html_a199d99482ee42a248fed3c432d57a8e7"><div class="ttname"><a href="namespace_game_audio.html#a199d99482ee42a248fed3c432d57a8e7">GameAudio::buttonpress</a></div><div class="ttdeci">Sound buttonpress</div><div class="ttdef"><b>Definition:</b> <a href="_game_audio_8cpp_source.html#l00004">GameAudio.cpp:4</a></div></div>
 <div class="ttc" id="anamespace_game_audio_html_a3ea9951c753aaadcff361c45a8803138"><div class="ttname"><a href="namespace_game_audio.html#a3ea9951c753aaadcff361c45a8803138">GameAudio::battlemusic</a></div><div class="ttdeci">Sound battlemusic</div><div class="ttdef"><b>Definition:</b> <a href="_game_audio_8cpp_source.html#l00005">GameAudio.cpp:5</a></div></div>
-<div class="ttc" id="anamespace_game_audio_html_a516c031a9db3ddc1b6547b421257a429"><div class="ttname"><a href="namespace_game_audio.html#a516c031a9db3ddc1b6547b421257a429">GameAudio::StopMusic</a></div><div class="ttdeci">void StopMusic()</div><div class="ttdef"><b>Definition:</b> <a href="_game_audio_8cpp_source.html#l00032">GameAudio.cpp:32</a></div></div>
+<div class="ttc" id="anamespace_game_audio_html_a516c031a9db3ddc1b6547b421257a429"><div class="ttname"><a href="namespace_game_audio.html#a516c031a9db3ddc1b6547b421257a429">GameAudio::StopMusic</a></div><div class="ttdeci">void StopMusic()</div><div class="ttdef"><b>Definition:</b> <a href="_game_audio_8cpp_source.html#l00033">GameAudio.cpp:33</a></div></div>
 <div class="ttc" id="anamespace_game_audio_html_a54fd92ccf4ab953aad6425248c27f83a"><div class="ttname"><a href="namespace_game_audio.html#a54fd92ccf4ab953aad6425248c27f83a">GameAudio::pausemenu</a></div><div class="ttdeci">Sound pausemenu</div><div class="ttdef"><b>Definition:</b> <a href="_game_audio_8cpp_source.html#l00005">GameAudio.cpp:5</a></div></div>
+<div class="ttc" id="anamespace_game_audio_html_a56770499d956e9f6f3518727f9c9d058"><div class="ttname"><a href="namespace_game_audio.html#a56770499d956e9f6f3518727f9c9d058">GameAudio::gameover</a></div><div class="ttdeci">Sound gameover</div><div class="ttdef"><b>Definition:</b> <a href="_game_audio_8cpp_source.html#l00005">GameAudio.cpp:5</a></div></div>
 <div class="ttc" id="anamespace_game_audio_html_a7cc59897fb7bff1f5e90f6c1736edc14"><div class="ttname"><a href="namespace_game_audio.html#a7cc59897fb7bff1f5e90f6c1736edc14">GameAudio::indungeon</a></div><div class="ttdeci">Sound indungeon</div><div class="ttdef"><b>Definition:</b> <a href="_game_audio_8cpp_source.html#l00005">GameAudio.cpp:5</a></div></div>
 <div class="ttc" id="anamespace_game_audio_html_aa36b9208836934b58e86f4b46441edc8"><div class="ttname"><a href="namespace_game_audio.html#aa36b9208836934b58e86f4b46441edc8">GameAudio::titlescreenmusic</a></div><div class="ttdeci">Sound titlescreenmusic</div><div class="ttdef"><b>Definition:</b> <a href="_game_audio_8cpp_source.html#l00004">GameAudio.cpp:4</a></div></div>
 <div class="ttc" id="anamespace_game_audio_html_acf7f76477661dff36b7e6158e5b6d6c6"><div class="ttname"><a href="namespace_game_audio.html#acf7f76477661dff36b7e6158e5b6d6c6">GameAudio::outdungeon</a></div><div class="ttdeci">Sound outdungeon</div><div class="ttdef"><b>Definition:</b> <a href="_game_audio_8cpp_source.html#l00005">GameAudio.cpp:5</a></div></div>

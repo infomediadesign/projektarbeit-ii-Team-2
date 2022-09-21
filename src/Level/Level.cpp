@@ -718,6 +718,7 @@ void Game::Level::ScreenDraw() {
         std::cout << "X: " << nemo->NemoPosition.x << endl;
         std::cout << "Y: " << nemo->NemoPosition.y << endl;
       }*/
+
       if (IsKeyPressed(KEY_ESCAPE)) {
         level->currentscreen = Game::Level::GameScreen::PAUSEMENU_OVERWORLD;
       }
@@ -745,11 +746,11 @@ void Game::Level::ScreenDraw() {
         PlaySound(GameAudio::indungeon);
         SetSoundVolume(GameAudio::indungeon, float(0.1));
       }
-      if (IsKeyPressed(KEY_C))
-      {
-        std::cout << "X: " << nemo->NemoPosition.x << endl;
-        std::cout << "Y: " << nemo->NemoPosition.y << endl;
-      }
+      //if (IsKeyPressed(KEY_C))
+      //{
+        //std::cout << "X: " << nemo->NemoPosition.x << endl;
+        //std::cout << "Y: " << nemo->NemoPosition.y << endl;
+      //}
 /*
       */
 

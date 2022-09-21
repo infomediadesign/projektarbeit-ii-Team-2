@@ -135,9 +135,9 @@ void Game::Nemo::Update() {
   void Game::Nemo::Draw() {
     if (active) {
       nemorec = { NemoPosition.x + 8, NemoPosition.y + 16, nemowidth, nemoheight }; // The Attributes are set here.
-      if (IsKeyDown(KEY_R)){
-        DrawRectangleRec(nemorec, GREEN);
-      }
+      //if (IsKeyDown(KEY_R)){
+        //DrawRectangleRec(nemorec, GREEN);
+      //}
 
       // Draw nemo walking animation
       switch (Direction)
