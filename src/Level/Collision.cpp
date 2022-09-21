@@ -115,8 +115,6 @@ void Collision::epanoxCollision() { // Epanox collision
   while (EpanoxCollision2) {
     DrawTextEx(textFont, "[F]", { nemo->NemoPosition.x + 7, nemo->NemoPosition.y - 15 }, fontSize, fontSpacing, BLACK);
     if (IsKeyPressed(KEY_F)) {
-      //PlaySound(GameAudio::epanoxsfx);
-      //SetSoundVolume(GameAudio::epanoxsfx, float(0.2));
       PlaySound(GameAudio::dialoge);
       SetSoundVolume(GameAudio::dialoge, float(0.1));
       text = true;
@@ -126,14 +124,13 @@ void Collision::epanoxCollision() { // Epanox collision
     if (!EpanoxCollision2){text = false;}
 
     if (text) {
-      DrawTexture(Dialogbox, nemo->NemoPosition.x - 180 , nemo->NemoPosition.y + 90 , WHITE);
-      stopnemo();
-
       if (IsKeyPressed(KEY_SPACE)){
-        textState + 1;
         PlaySound(GameAudio::dialoge);
         SetSoundVolume(GameAudio::dialoge, float(0.1));
       }
+
+      DrawTexture(Dialogbox, nemo->NemoPosition.x - 180 , nemo->NemoPosition.y + 90 , WHITE);
+      stopnemo();
 
       if (IsKeyReleased(KEY_SPACE) && textState == 0) {
         textState = 1;

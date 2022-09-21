@@ -2,7 +2,7 @@
 
 namespace GameAudio {
   Sound collision, walking, attack, openchest, dialoge, trapdoor, unlockdoor, pickupitem, buttonpress, titlescreenmusic,
-    pausemenu, indungeon, outdungeon, battlemusic, epanoxsfx, teleport, dooropen, dooropen2;
+    pausemenu, indungeon, outdungeon, battlemusic, epanoxsfx, teleport, dooropen, dooropen2, credits, gameover;
 
   void Load() {
     // sfx
@@ -25,8 +25,9 @@ namespace GameAudio {
     pausemenu        = LoadSound("assets/audio/tracks/Hair-Trigger-WST011601.mp3");
     indungeon        = LoadSound("assets/audio/sfx/cave_theme_2.wav");
     outdungeon       = LoadSound("assets/audio/sfx/arpegio01_loop-45094.mp3");
-    //outdungeon       = LoadSound("assets/audio/sfx/Beginning of time.wav");
-    battlemusic      = LoadSound("assets/audio/sfx/chibi-robot-b.ogg");   
+    credits          = LoadSound("assets/audio/sfx/Beginning of time.wav");
+    battlemusic      = LoadSound("assets/audio/sfx/chibi-robot-b.ogg");
+    gameover         = LoadSound("assets/audio/sfx/Game_Over_Music_2.mp3");
   }
 
   void StopMusic() {
@@ -48,6 +49,8 @@ namespace GameAudio {
     StopSound(GameAudio::teleport);
     StopSound(GameAudio::dooropen);
     StopSound(GameAudio::dooropen2);
+    StopSound(GameAudio::credits);
+    StopSound(GameAudio::gameover);
   }
 
   void Unload() {
@@ -69,5 +72,7 @@ namespace GameAudio {
     UnloadSound(teleport);
     UnloadSound(dooropen);
     UnloadSound(dooropen2);
+    UnloadSound(credits);
+    UnloadSound(gameover);
   }
 } // namespace GameAudio

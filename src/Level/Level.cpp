@@ -877,6 +877,19 @@ void Game::Level::ScreenDraw() {
 
     case GameScreen::ENDSCREEN:
 
+      ///sounds
+      if (IsSoundPlaying(GameAudio::outdungeon) ||
+          IsSoundPlaying(GameAudio::indungeon) ||
+          IsSoundPlaying(GameAudio::pausemenu)){
+        GameAudio::StopMusic();
+      }
+      if (!IsSoundPlaying(GameAudio::titlescreenmusic))
+      {
+        PlaySound(GameAudio::titlescreenmusic);
+        SetSoundVolume(GameAudio::titlescreenmusic, float(0.1));
+      }
+      if (IsSoundPlaying(GameAudio::titlescreenmusic)){}
+
       ClearBackground(BLACK);
 
       if (IsKeyPressed(KEY_SPACE)) {
@@ -890,6 +903,19 @@ void Game::Level::ScreenDraw() {
 
     case GameScreen::THANKYOU:
 
+      ///sounds
+      if (IsSoundPlaying(GameAudio::outdungeon) ||
+          IsSoundPlaying(GameAudio::indungeon) ||
+          IsSoundPlaying(GameAudio::pausemenu)){
+        GameAudio::StopMusic();
+      }
+      if (!IsSoundPlaying(GameAudio::titlescreenmusic))
+      {
+        PlaySound(GameAudio::titlescreenmusic);
+        SetSoundVolume(GameAudio::titlescreenmusic, float(0.1));
+      }
+      if (IsSoundPlaying(GameAudio::titlescreenmusic)){}
+
       ClearBackground(BLACK);
 
       if (IsKeyPressed(KEY_SPACE)) {
@@ -901,10 +927,34 @@ void Game::Level::ScreenDraw() {
 
 //GameOver Screen
     case GameScreen::GAMEOVER:
-      DrawTexture(gameover, GetScreenWidth() / 2 - 15, GetScreenHeight() / 2 - 20, WHITE);
-      DrawText("GAME OVER!", GetScreenWidth() / 2 + 280, GetScreenHeight() / 2 + 100, 50, RED);
-      DrawText("PRESS <<ENTER>> TO RESTART", GetScreenWidth()/ 2 + 280, GetScreenHeight() / 2 + 150, 20, YELLOW);
-      if (IsKeyPressed(KEY_ENTER))
+
+      ///sounds
+      if (IsSoundPlaying(GameAudio::outdungeon) ||
+          IsSoundPlaying(GameAudio::indungeon) ||
+          IsSoundPlaying(GameAudio::titlescreenmusic) ||
+          IsSoundPlaying(GameAudio::pausemenu)){
+        GameAudio::StopMusic();
+      }
+      if (!IsSoundPlaying(GameAudio::gameover))
+      {
+        PlaySound(GameAudio::gameover);
+        SetSoundVolume(GameAudio::gameover, float(0.1));
+      }
+      if (IsSoundPlaying(GameAudio::gameover)){}
+
+      DrawTexture(gameover, 0,0, WHITE);
+      //DrawText("GAME OVER!", GetScreenWidth() / 2 + 280, GetScreenHeight() / 2 + 100, 50, RED);
+      //DrawText("PRESS [SPACE] TO EXIT", GetScreenWidth()/ 2 + 280, GetScreenHeight() / 2 + 150, 20, YELLOW);
+      //DrawTextEx(textFont, "GAME OVER", { static_cast<float>(GetScreenWidth() / 2 + 320),
+                                           //static_cast<float>(GetScreenHeight() / 2 + 20) }, 60, fontSpacing, WHITE);
+      //DrawTextEx(textFont, "PRESS           TO EXIT", { static_cast<float>(GetScreenWidth() / 2 + 280),
+                                                      //static_cast<float>(GetScreenHeight() / 2 + 150) }, 30, fontSpacing, LIGHTGRAY);
+      //DrawTextEx(textFont, "        [SPACE]", { static_cast<float>(GetScreenWidth() / 2 + 280),
+                                                     // static_cast<float>(GetScreenHeight() / 2 + 150) }, 30, fontSpacing, WHITE);
+      //DrawTextEx(textFont, "PRESS [SPACE] TO EXIT", { static_cast<float>(GetScreenWidth() / 2 + 320),
+                                                //static_cast<float>(GetScreenHeight() / 2 + 70) }, 25, fontSpacing, WHITE);
+
+      if (IsKeyPressed(KEY_SPACE))
       {
         //currentscreen = GameScreen::TITLESCREEN;
         exit(0);

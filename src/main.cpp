@@ -407,7 +407,7 @@ int main() {
 
     case Game::Level::GameScreen::GAMEOVER:
       camera.zoom     = 1.0f;
-      camera.target = Vector2 {Game::ScreenWidth / 2 + 305, Game::ScreenHeight / 2 + 155};
+      camera.target = Vector2 {Game::ScreenWidth / 2 , Game::ScreenHeight / 2};
       break;
     }
 
