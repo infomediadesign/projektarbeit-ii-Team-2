@@ -128,6 +128,7 @@ void Collision::epanoxCollision() { // Epanox collision
     if (text) {
       DrawTexture(Dialogbox, nemo->NemoPosition.x - 180 , nemo->NemoPosition.y + 90 , WHITE);
       stopnemo();
+
       if (IsKeyPressed(KEY_SPACE)){
         textState + 1;
         PlaySound(GameAudio::dialoge);
