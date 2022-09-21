@@ -943,6 +943,7 @@ void Game::Level::ScreenDraw() {
       if (IsSoundPlaying(GameAudio::gameover)){}
 
       DrawTexture(gameover, 0,0, WHITE);
+
       //DrawText("GAME OVER!", GetScreenWidth() / 2 + 280, GetScreenHeight() / 2 + 100, 50, RED);
       //DrawText("PRESS [SPACE] TO EXIT", GetScreenWidth()/ 2 + 280, GetScreenHeight() / 2 + 150, 20, YELLOW);
       //DrawTextEx(textFont, "GAME OVER", { static_cast<float>(GetScreenWidth() / 2 + 320),
