@@ -4,7 +4,7 @@ class Endscreen {
 public:
 
   ///Textures and Fonts
-  Texture2D ThankYou = LoadTexture("assets/graphics/backgrounds/Start.png");
+  Texture2D ThankYou = LoadTexture("assets/graphics/backgrounds/Thankyouscreen.png");
   Texture2D Endscreen = LoadTexture("assets/graphics/Credits/Credit_Hintergrund.png");
 
   Texture2D Monster1 = LoadTexture("assets/graphics/Credits/Mumie_credit-Sheet.png");

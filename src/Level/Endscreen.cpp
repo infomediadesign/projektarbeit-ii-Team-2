@@ -16,8 +16,8 @@ void Endscreen::draw() {
   const auto *msgCredits  = "Credits";
   const char *msgCredits1 = "Thank You for playing Custodia";
   const char *msgCredits2 = "Names of Custodias Developers:";
-  const char *msgCredits3 = "Jamey Kamuf - Projektlead and Lead Artist";
-  const char *msgCredits4 = "Goerkem Akdeniz - Vice-Projektlead and Lead Programmer";
+  const char *msgCredits3 = "Jamey Kamuf - Projectlead and Lead Artist";
+  const char *msgCredits4 = "Goerkem Akdeniz - Vice-Projectlead and Lead Programmer";
   const char *msgCredits5 = "Nicolas Vogt - Programmer and Sound/Music";
   const char *msgCredits6 = "Michelle Geggier - Artist and Animation";
   const char *msgCredits7 = "Mika Juerries - Level Designer and Game Designer";
@@ -55,89 +55,91 @@ void Endscreen::thankyoudraw() {
   ///Draw the background picture...
   DrawTexture(ThankYou, 0,0, WHITE);
 
-  const char *msgCredits1 = "Thank You for playing Custodia";
+  //const char *msgCredits1 = "Thank You for playing Custodia";
 
-  DrawTextEx(textFont, msgCredits1 , { Monster1rec.x - 255, Monster1rec.y - 40 }, fontSize, fontSpacing, WHITE);
+  //DrawTextEx(textFont, msgCredits1 , { Monster1rec.x - 255, Monster1rec.y - 40 }, fontSize, fontSpacing, WHITE);
 
+/*
+   ///ANIMATIONS
+   ///Monster1
+   DrawRectangleRec(Monster1rec, Color{});
+   DrawTextureRec(Monster1, Monster1FrameRec, {Monster1rec.x, Monster1rec.y}, WHITE);
 
-  ///ANIMATIONS
-  ///Monster1
-  DrawRectangleRec(Monster1rec, Color{});
-  DrawTextureRec(Monster1, Monster1FrameRec, {Monster1rec.x, Monster1rec.y}, WHITE);
+ monster1_framescounter++;
 
-  monster1_framescounter++;
+ if (monster1_framescounter >= (60 / monster1_framesspeed)) {
+   monster1_framescounter = 0;
+   monster1_currentFrame++;
 
-  if (monster1_framescounter >= (60 / monster1_framesspeed)) {
-    monster1_framescounter = 0;
-    monster1_currentFrame++;
+   if (monster1_currentFrame > 3)
+     monster1_currentFrame = 0;
 
-    if (monster1_currentFrame > 3)
-      monster1_currentFrame = 0;
+   Monster1FrameRec.x = (float)monster1_currentFrame * (float)Monster1.width / 4;
+ }
 
-    Monster1FrameRec.x = (float)monster1_currentFrame * (float)Monster1.width / 4;
-  }
+ ///Monster2
+ DrawRectangleRec(Monster2rec, Color{});
+ DrawTextureRec(Monster2, Monster2FrameRec, {Monster2rec.x, Monster2rec.y}, WHITE);
 
-  ///Monster2
-  DrawRectangleRec(Monster2rec, Color{});
-  DrawTextureRec(Monster2, Monster2FrameRec, {Monster2rec.x, Monster2rec.y}, WHITE);
+ monster2_framescounter++;
 
-  monster2_framescounter++;
+ if (monster2_framescounter >= (60 / monster2_framesspeed)) {
+   monster2_framescounter = 0;
+   monster2_currentFrame++;
 
-  if (monster2_framescounter >= (60 / monster2_framesspeed)) {
-    monster2_framescounter = 0;
-    monster2_currentFrame++;
+   if (monster2_currentFrame > 1)
+     monster2_currentFrame = 0;
 
-    if (monster2_currentFrame > 1)
-      monster2_currentFrame = 0;
+   Monster2FrameRec.x = (float)monster2_currentFrame * (float)Monster2.width / 2;
+ }
 
-    Monster2FrameRec.x = (float)monster2_currentFrame * (float)Monster2.width / 2;
-  }
+ ///Monster3
+ DrawRectangleRec(Monster3rec, Color{});
+ DrawTextureRec(Monster3, Monster3FrameRec, {Monster3rec.x, Monster3rec.y}, WHITE);
 
-  ///Monster3
-  DrawRectangleRec(Monster3rec, Color{});
-  DrawTextureRec(Monster3, Monster3FrameRec, {Monster3rec.x, Monster3rec.y}, WHITE);
+ monster3_framescounter++;
 
-  monster3_framescounter++;
+ if (monster3_framescounter >= (60 / monster3_framesspeed)) {
+   monster3_framescounter = 0;
+   monster3_currentFrame++;
 
-  if (monster3_framescounter >= (60 / monster3_framesspeed)) {
-    monster3_framescounter = 0;
-    monster3_currentFrame++;
+   if (monster3_currentFrame > 5)
+     monster3_currentFrame = 0;
 
-    if (monster3_currentFrame > 5)
-      monster3_currentFrame = 0;
+   Monster3FrameRec.x = (float)monster3_currentFrame * (float)Monster3.width / 6;
+ }
 
-    Monster3FrameRec.x = (float)monster3_currentFrame * (float)Monster3.width / 6;
-  }
+ ///Epanox
+ DrawRectangleRec(Epanoxrec, Color{});
+ DrawTextureRec(Epanox, EpanoxFrameRec, {Epanoxrec.x, Epanoxrec.y}, WHITE);
 
-  ///Epanox
-  DrawRectangleRec(Epanoxrec, Color{});
-  DrawTextureRec(Epanox, EpanoxFrameRec, {Epanoxrec.x, Epanoxrec.y}, WHITE);
+ epanox_framescounter++;
 
-  epanox_framescounter++;
+ if (epanox_framescounter >= (60 / epanox_framesspeed)) {
+   epanox_framescounter = 0;
+   epanox_currentFrame++;
 
-  if (epanox_framescounter >= (60 / epanox_framesspeed)) {
-    epanox_framescounter = 0;
-    epanox_currentFrame++;
+   if (epanox_currentFrame > 16)
+     epanox_currentFrame = 0;
 
-    if (epanox_currentFrame > 16)
-      epanox_currentFrame = 0;
+   EpanoxFrameRec.x = (float)epanox_currentFrame * (float)Epanox.width / 17;
+ }
 
-    EpanoxFrameRec.x = (float)epanox_currentFrame * (float)Epanox.width / 17;
-  }
+ ///Nemo
+ DrawRectangleRec(Nemorec, Color{});
+ DrawTextureRec(Nemo, NemoFrameRec, {Nemorec.x, Nemorec.y}, WHITE);
 
-  ///Nemo
-  DrawRectangleRec(Nemorec, Color{});
-  DrawTextureRec(Nemo, NemoFrameRec, {Nemorec.x, Nemorec.y}, WHITE);
+ nemo_framescounter++;
 
-  nemo_framescounter++;
+ if (nemo_framescounter >= (60 / nemo_framesspeed)) {
+   nemo_framescounter = 0;
+   nemo_currentFrame++;
 
-  if (nemo_framescounter >= (60 / nemo_framesspeed)) {
-    nemo_framescounter = 0;
-    nemo_currentFrame++;
+   if (nemo_currentFrame > 7)
+     nemo_currentFrame = 0;
 
-    if (nemo_currentFrame > 7)
-      nemo_currentFrame = 0;
+   NemoFrameRec.x = (float)nemo_currentFrame * (float)Nemo.width / 8;
+ }
+ */
 
-    NemoFrameRec.x = (float)nemo_currentFrame * (float)Nemo.width / 8;
-  }
 }
