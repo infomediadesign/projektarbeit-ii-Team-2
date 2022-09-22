@@ -1,5 +1,6 @@
 #include "../INCLUDES.h"
 
+
 class Endscreen {
 public:
 
@@ -66,6 +67,8 @@ public:
 
   float fontSpacing = 0.05;
   float add40 = 50;
+
+  float timesinceIdle = 0;
 
   ///Vectors
   Vector2 textPos   = {static_cast<float>(positionX), static_cast<float>(creditPosY)};

@@ -381,6 +381,13 @@ int main() {
 
       camera.zoom     = 1.0f;
       camera.target = Vector2 { Game::ScreenWidth / 2, Game::ScreenHeight / 2 };
+
+      timesinceIdle += GetFrameTime();
+
+      if (timesinceIdle >= 28) {
+        level.currentscreen = Game::Level::GameScreen::THANKYOU;
+        timesinceIdle       = 0;
+      }
       break;
 
     case Game::Level::GameScreen::THANKYOU:
