@@ -5,7 +5,7 @@ Custodia is a mini Dungeon Crawler project we as the Custodia development team c
 ... have fun playing
 
 **Installation**
-1. Download the .zip file from Itch.io ( *link will follow* )
+1. Download the .zip file from Itch.io ( *tranor.itch.io/custodia-trap* )
 2. Unzip the .zip file onto your Pc
 3. Double click on the Custodia.exe file
 4. The game will start
@@ -39,7 +39,6 @@ It was meant to be 5 levels/ worlds long, but due to time issues we where not ab
 - Titlescreen and Pausemenu music
   - https://joshuuu.itch.io/short-loopable-background-music
 - Honable mentions of Sfx and music used
-  - https://dubpixel.itch.iopixel-madness-music-pack
   - https://abduldahir7002.itch.io/dark-moody-chiptune-song
   - https://canarigames.itch.io/canaripack-8bit-topdown
 
@@ -50,7 +49,7 @@ It was meant to be 5 levels/ worlds long, but due to time issues we where not ab
 
 Made in collaboration with SRH Heidelberg Hochschule.
 
-Download the game at https://tranor.itch.io/custodia-trap
+Download the game at tranor.itch.io/custodia-trap
 
 **Project status**
 Development has stopped completely.
