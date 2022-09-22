@@ -48,6 +48,7 @@ It was meant to be 5 levels/ worlds long, but due to time issues we where not ab
 **License**
 
 Made in collaboration with SRH Heidelberg Hochschule.
+Custodia - Trapped in time is owned by the Custodia Developers.
 
 Download the game at [custodia](https://tranor.itch.io/custodia)
 
