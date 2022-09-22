@@ -1,9 +1,11 @@
 ## Custodia - gefangen in der Zeit ![Epanox_Standing - Kopie](https://user-images.githubusercontent.com/100305591/189079450-600ede11-6823-4f66-890d-10e7df62df4c.png)
 
 **Description**
+
 Custodia is a mini Dungeon Crawler project we as the Custodia development team created as a university-project. In the game you will be fighting monster, eploring long forgoten dungeons und solving puzzles... have fun playing
 
 **Installation**
+
 1. Download the .zip file from Itch.io ( *[custodia](https://tranor.itch.io/custodia)* )
 2. Unzip the .zip file onto your Pc
 3. Double click on the Custodia.exe file
@@ -11,16 +13,21 @@ Custodia is a mini Dungeon Crawler project we as the Custodia development team c
 5. Have fun playing :)
 
 **Usage**
+
 It's a mini Dungeon Crawler, just have fun playing the game :)
 
 **Support**
+
 @custodiadevteam@gmail.com
 
 **Social Media**
+
 *[Twitter page](twitter.com/CustodiaDev)*
+
 *[Itch.io page](https://tranor.itch.io/custodia)*
 
 **Roadmap**
+
 It was meant to be 5 levels/ worlds long, but due to time issues we where not able to create 5 but 1. In the future, there might be following the last 4 levels.
 
 **Authors and acknowledgment**
@@ -53,6 +60,7 @@ Custodia - Trapped in time is owned by the Custodia Developers.
 Download the game at [custodia](https://tranor.itch.io/custodia)
 
 **Project status**
+
 Development has stopped completely.
 
 ![EpanoxGif](https://user-images.githubusercontent.com/100305591/189079165-cacac937-061f-49df-9b53-7268716d313e.gif)
