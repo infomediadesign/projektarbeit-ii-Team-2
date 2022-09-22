@@ -4,9 +4,9 @@ void Endscreen::update() {
 
   creditPosY -= 1;
 
-  if(creditPosY == 0){
-    creditPosY += 1;
-  }
+  //if(creditPosY + add40*25){
+    //creditPosY += 1;
+  //}
 
 }
 
@@ -23,9 +23,19 @@ void Endscreen::draw() {
   const char *msgCredits7 = "Mika Juerries - Level Designer and Game Designer";
   const char *msgCredits8 = "In cooperation with the SRH Hochschule Heidelberg";
   const char *msgCredits9 = "For more Infos about Custodia go to ";
-  const char *msgCredits10 = "tranor.itch.io/custodia-trap";
-  const char *msgCredits11 = "Press          to Exit";
-  const char *msgCredits12 = "        [SPACE] ";
+  const char *msgCredits10 = "Battle music - made by Luis Zuno";
+  const char *msgCredits11 = "https://ansimuz.itch.io/adventure-music-collection-pack-1";
+  const char *msgCredits12 = "Inside and Outside the Dungeon music and Game Over music";
+  const char *msgCredits13 = "https://svl.itch.io/rpg-music-pack-svl";
+  const char *msgCredits14 = "Teleport, Door, Movement and Button sounds";
+  const char *msgCredits15 = "https://leohpaz.itch.io/100-retro-rpg-ui-sound-effects";
+  const char *msgCredits16 = "Titlescreen and Pausemenu music";
+  const char *msgCredits17 = "https://joshuuu.itch.io/short-loopable-background-music";
+  const char *msgCredits18 = "Honable mentions of Sfx and music used";
+  const char *msgCredits19 = "https://abduldahir7002.itch.io/dark-moody-chiptune-song";
+  const char *msgCredits20 = "https://canarigames.itch.io/canaripack-8bit-topdown";
+  const char *msgCredits21 = "Press          to Exit";
+  const char *msgCredits22 = "        [SPACE] ";
 
   ///clear background
   ClearBackground(BLACK);
@@ -45,8 +55,18 @@ void Endscreen::draw() {
   DrawTextEx(textFont, msgCredits8  , { textPos.x, static_cast<float>(creditPosY + add40*10) }, fontSize, fontSpacing, WHITE);
   DrawTextEx(textFont, msgCredits9  , { textPos.x, static_cast<float>(creditPosY + add40*11) }, fontSize, fontSpacing, WHITE);
   DrawTextEx(textFont, msgCredits10 , { textPos.x, static_cast<float>(creditPosY + add40*12) }, fontSize, fontSpacing, WHITE);
-  DrawTextEx(textFont, msgCredits11 , { textPosTitle3.x, static_cast<float>(creditPosY + add40*13) }, fontSize, fontSpacing, WHITE);
-  DrawTextEx(textFont, msgCredits12 , { textPosTitle3.x, static_cast<float>(creditPosY + add40*13) }, fontSize, fontSpacing, RED);
+  DrawTextEx(textFont, msgCredits11 , { textPos.x, static_cast<float>(creditPosY + add40*14) }, fontSize, fontSpacing, WHITE);
+  DrawTextEx(textFont, msgCredits12 , { textPos.x, static_cast<float>(creditPosY + add40*15) }, fontSize, fontSpacing, WHITE);
+  DrawTextEx(textFont, msgCredits13 , { textPos.x, static_cast<float>(creditPosY + add40*16) }, fontSize, fontSpacing, WHITE);
+  DrawTextEx(textFont, msgCredits14 , { textPos.x, static_cast<float>(creditPosY + add40*17) }, fontSize, fontSpacing, WHITE);
+  DrawTextEx(textFont, msgCredits15 , { textPos.x, static_cast<float>(creditPosY + add40*18) }, fontSize, fontSpacing, WHITE);
+  DrawTextEx(textFont, msgCredits16 , { textPos.x, static_cast<float>(creditPosY + add40*19) }, fontSize, fontSpacing, WHITE);
+  DrawTextEx(textFont, msgCredits17 , { textPos.x, static_cast<float>(creditPosY + add40*20) }, fontSize, fontSpacing, WHITE);
+  DrawTextEx(textFont, msgCredits18 , { textPos.x, static_cast<float>(creditPosY + add40*21) }, fontSize, fontSpacing, WHITE);
+  DrawTextEx(textFont, msgCredits19 , { textPos.x, static_cast<float>(creditPosY + add40*22) }, fontSize, fontSpacing, WHITE);
+  DrawTextEx(textFont, msgCredits20 , { textPos.x, static_cast<float>(creditPosY + add40*23) }, fontSize, fontSpacing, WHITE);
+  DrawTextEx(textFont, msgCredits21 , { textPosTitle3.x, static_cast<float>(creditPosY + add40*25) }, fontSize, fontSpacing, WHITE);
+  DrawTextEx(textFont, msgCredits22 , { textPosTitle3.x, static_cast<float>(creditPosY + add40*25) }, fontSize, fontSpacing, RED);
 }
 void Endscreen::thankyoudraw() {
   ///clear background
