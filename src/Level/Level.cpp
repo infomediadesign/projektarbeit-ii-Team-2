@@ -970,6 +970,7 @@ void Game::Level::ScreenDraw() {
 
 void Game::Level::Teleport() {
 
+
   // teleport coordinates (JUST FOR DRAW)
   teleportrecOVERWORLDtoPYRAMID = { doorPositionX, doorPositionY, doortileX, doortileY }; // rectangle in overworld to pyramid
   teleportrecPYRAMIDtoOVERWORLD = { doorPositionX - 685, doorPositionY + 780, doortileX, doortileY }; //rectangle in pyramid to overworld
