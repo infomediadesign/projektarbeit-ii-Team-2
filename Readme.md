@@ -22,8 +22,6 @@ It's a mini Dungeon Crawler, just have fun playing the game :)
 
 **Social Media**
 
-*[Twitter page](twitter.com/CustodiaDev)*
-
 *[Itch.io page](https://tranor.itch.io/custodia)*
 
 **Roadmap**
