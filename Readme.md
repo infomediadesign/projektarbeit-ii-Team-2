@@ -16,6 +16,10 @@ It's a mini Dungeon Crawler, just have fun playing the game :)
 **Support**
 @custodiadevteam@gmail.com
 
+**Social Media**
+*[Twitter page](twitter.com/CustodiaDev)*
+*[Itch.io page](https://tranor.itch.io/custodia)*
+
 **Roadmap**
 It was meant to be 5 levels/ worlds long, but due to time issues we where not able to create 5 but 1. In the future, there might be following the last 4 levels.
 
@@ -40,9 +44,6 @@ It was meant to be 5 levels/ worlds long, but due to time issues we where not ab
 - Honable mentions of Sfx and music used
   - https://abduldahir7002.itch.io/dark-moody-chiptune-song
   - https://canarigames.itch.io/canaripack-8bit-topdown
-
-
-
 
 **License**
 
